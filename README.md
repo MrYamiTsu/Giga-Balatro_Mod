@@ -1,17 +1,17 @@
-**Giga**
+# Giga
 
 Some random thing for Balatro. Some assets work weirdly sometimes
 
-**Installation**
+## Installation
 
-Just download the zip file and place it in your Mod folder.
+Just download the zip file, extract it and place it in your Mod folder.
 
 [Steamodded](https://github.com/Steamodded/smods) and [Lovely](https://github.com/ethangreen-dev/lovely-injector) required. 
 Can be useful to have [Talisman](https://github.com/SpectralPack/Talisman) too.
 
-**Asset**
+## Asset
 
---Joker--
+**Joker**
 
 - Cash Pass : Gain 12$ when blind is selected but X0.75 Mult
 - Blue Chicken : Create a Blue Egg every 4 round and +10 Chips
@@ -22,12 +22,12 @@ Can be useful to have [Talisman](https://github.com/SpectralPack/Talisman) too.
 - T-rex : Create a Tarot every 2 round and destroy a consumable for gaining +6 Mult and +25 Chips if possible
 - Velocyraptor : +4 Mult if hand doesn't contain Ace
 
-*Some Joker have secret interaction with other Jokers*
+*Some Joker has secret interaction with other Jokers*
 
-**Additionnal Info**
+## Additionnal Info
 
 If a whole asset is in comment, don't remove it from the comment. It's an idea and it make the game crash.
 
-**Credits**
+## Credits
 
 - le_dugs for ideas and support
