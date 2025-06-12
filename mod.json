@@ -1,0 +1,14 @@
+{
+  "id": "GIGA",
+  "name": "Giga",
+  "display_name": "Giga",
+  "author": ["MrYamiTsu"],
+  "description": "A mod that add some random thing to the game.",
+  "prefix": "giga",
+  "main_file": "main.lua",
+  "priority": 1,
+  "badge_color": "#B1FC03",
+  "version": "1.0.1",
+  "badge_text_color": "#FFFFFF",
+  "dependencies": []
+}
