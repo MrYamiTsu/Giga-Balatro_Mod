@@ -4,8 +4,9 @@
 --- MOD_AUTHOR: [MrYamiTsu]
 --- MOD_DESCRIPTION: A mod that add some random thing to the game.
 --- PREFIX: giga
------------------------------------------------------
----------------- MOD CODE ---------------------------
+----------------------------------------------------------
+--------------------- MOD CODE ---------------------------
+----------------------------------------------------------
 
 
 -- assert(SMODS.load_file('description.lua'))()
@@ -68,7 +69,7 @@ SMODS.Joker{ --BlueChicken
             'every {C:attention}4{} round and',
             'gain {C:chips}+#1#{} Chips',
             '{C:inactive}(Currently {C:attention}#2#{C:inactive} round left)',
-            '{C:inactive}(Must have room)',
+            '{C:inactive}(Must have room)'
         }
     },
     atlas = 'Jokers',
@@ -117,7 +118,7 @@ SMODS.Joker{ --BlueEgg
     loc_txt = {
         name = 'Blue Egg',
         text = {
-            'This egg feels... blue',
+            'This egg feels... blue'
         }
     },
     atlas = 'Jokers',
@@ -197,7 +198,7 @@ SMODS.Joker{ --FunnyCrown
             'a {C:attention}King of Jacks{} and',
             'a {C:chips}Bonus{} {C:attention}Jack{}',
             '{C:inactive}(Currently {C:attention}#1#/2{}{C:inactive} round left)',
-            '{C:inactive}(Must have room)',
+            '{C:inactive}(Must have room)'
         }
     },
     atlas = 'Jokers',
@@ -236,7 +237,6 @@ SMODS.Joker{ --FunnyCrown
 				    center = G.P_CENTERS.m_bonus
 			    }, G.hand, false,false,nil)
 			    card:add_to_deck()
-			    table.insert(G.playing_cards, card)
             end
         end
     end
@@ -381,7 +381,7 @@ SMODS.Joker{ --Velocyraptor
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        mult = 4
+        mult = 6
     }},
     loc_vars = function(self, info_queue, center)
         return {vars = {center.ability.extra.mult}}
@@ -395,9 +395,16 @@ SMODS.Joker{ --Velocyraptor
             end
         end
         if has_tRex then
-            card.ability.extra.mult = 6
+            card.ability.extra.mult = 8
         end
-        if context.joker_main and card.ability.extra.mult > 0 then
+        local has_ace = false
+        for i, c in ipairs(context.full_hand or {}) do
+            if c:get_id() == 14 then
+                has_ace = true
+                break
+            end
+        end
+        if context.joker_main and card.ability.extra.mult > 0 and not has_ace then
             return {
                 card = card,
                 mult_mod = card.ability.extra.mult,
@@ -408,6 +415,7 @@ SMODS.Joker{ --Velocyraptor
     end
 }
 
+--Don't touch this, it make the game crash
 --[[SMODS.Joker{ --HighRiskHighReward
     key = 'highRiskHighReward',
     loc_txt = {
@@ -455,5 +463,46 @@ SMODS.Joker{ --Velocyraptor
     end
 }]]--
 
------------------------------------------------------
----------------- MOD CODE END -----------------------
+SMODS.Joker{ --ShreddedAce
+    key = 'shreddedAce',
+    loc_txt = {
+        name = 'Shredded Ace',
+        text = {
+            'Create an {C:attention}Ace{} when blind is selected',
+            '{C:mult}+#1#{} Mult for each {C:attention}Ace{} played'
+        }
+    },
+    atlas = 'Jokers',
+    pos = {x = 1, y = 1},
+    cost = 7,
+    rarity = 2,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        mult = 1
+    }
+    },
+    loc_vars = function(self,info_queue,center)
+        return{vars = {center.ability.extra.mult}}
+    end,
+    calculate = function(self,card,context)
+        if context.setting_blind then
+            local suit = pseudorandom_element({'S','H','D','C'}, pseudoseed('giga_shreddedAce'))
+			local card = create_playing_card({
+				front = G.P_CARDS[suit..'_'..'A']
+			}, G.hand, false,false,nil)
+			card:add_to_deck()
+        end
+        if context.individual and context.cardarea == G.play and context.other_card:get_id() == 14 then
+            return {
+                    card = card,
+                    mult_mod = card.ability.extra.mult,
+                    message = '+' .. card.ability.extra.mult,
+                    colour = G.C.MULT
+                }
+        end
+    end
+}
+----------------------------------------------------------
+------------------- MOD CODE END -------------------------
+----------------------------------------------------------
