@@ -3,7 +3,7 @@
 ----------------------------------------------------------
 
 
--- assert(SMODS.load_file('description.lua'))()
+SMODS.load_file('localization/en-us.lua')()
 
 SMODS.Atlas{
     key = 'Jokers',
@@ -39,7 +39,8 @@ SMODS.Joker{ --CashPass
     calculate = function(self,card,context)
         if context.setting_blind then
             return {
-                dollars = cash
+                dollars = cash,
+                message = localize{type='variable',key='a_cash',vars={card.ability.extra.cash}}
             }
         end
 
@@ -319,13 +320,36 @@ SMODS.Joker{ --TRex
                 break
             end
         end
+        local has_pteranodon = false
+        for i, j in ipairs(G.jokers.cards) do
+            if j.ability and j.ability.name == 'j_giga_pteranodon' then
+                has_pteranodon = true
+                break
+            end
+        end
+        if has_pteranodon then
+            card.ability.extra.chips_add = 35
+        end
         if context.end_of_round and context.cardarea == G.jokers then
             card.ability.extra.round = (card.ability.extra.round) - 1
             if card.ability.extra.round <= -1 then
                 card.ability.extra.round = 1
                 if #G.consumeables.cards > 0 then
                     local to_destroy = pseudorandom_element(G.consumeables.cards, pseudoseed('tRex_destroy'))
-                    to_destroy:remove()
+                    G.E_MANAGER:add_event(Event({
+                        blocking = true,
+                        func = function()
+                            to_destroy:start_dissolve()
+                            G.E_MANAGER:add_event(Event({
+                                delay = 0.4,
+                                func = function()
+                                    to_destroy:remove()
+                                    return true
+                                end
+                            }))
+                            return true
+                        end
+                    }))
                     if not context.blueprint then
                         card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_add
                         card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chips_add
@@ -511,6 +535,85 @@ SMODS.Joker{ --ShreddedAce
                     message = '+' .. card.ability.extra.mult,
                     colour = G.C.MULT
                 }
+        end
+    end
+}
+
+SMODS.Joker{ --Pteranodon
+    key = 'pteranodon',
+    loc_txt = {
+        name = 'Pteranodon',
+        text = {
+            'If scored hand is a single {C:attention}5{},',
+            'destroy it to create a {C:planet}Planet{}',
+            'and gain {C:money}$#1#{}'
+        }
+    },
+    atlas = 'Jokers',
+    pos = {x = 3, y = 1},
+    cost = 6,
+    rarity = 2,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        cash = 2
+    }},
+    loc_vars = function(self, info_queue, center)
+        return {vars = {center.ability.extra.cash}}
+    end,
+    calculate = function(self, card, context)
+        local has_tRex = false
+        for i, j in ipairs(G.jokers.cards) do
+            if j.ability and j.ability.name == 'j_giga_tRex' then
+                has_tRex = true
+                break
+            end
+        end
+        if has_tRex then
+            card.ability.extra.cash = 4
+        end
+        local has_velociraptor = false
+        for i, j in ipairs(G.jokers.cards) do
+            if j.ability and j.ability.name == 'j_giga_velocyraptor' then
+                has_velociraptor = true
+                break
+            end
+        end
+        if context.scoring_name == 'High Card' then
+            if context.individual and context.cardarea == G.play and context.other_card:get_id() == 5 then
+                local to_destroy = context.full_hand[1]
+                G.E_MANAGER:add_event(Event({
+                    blocking = true,
+                    func = function()
+                        to_destroy:start_dissolve()
+                        G.E_MANAGER:add_event(Event({
+                            delay = 0.4,
+                            func = function()
+                                to_destroy:remove()
+                                return true
+                            end
+                        }))
+                        return true
+                    end
+                }))
+                if #G.consumeables.cards < G.consumeables.config.card_limit then
+                    if has_velociraptor then
+                        local spectral = create_card('Spectral',G.consumeables, nil, nil, nil, nil, nil, 'createSpectral')
+                        spectral:add_to_deck()
+                        G.consumeables:emplace(spectral)
+                    else
+                        local planet = create_card('Planet',G.consumeables, nil, nil, nil, nil, nil, 'createPlanet')
+                        planet:add_to_deck()
+                        G.consumeables:emplace(planet)
+                    end
+                else
+                    SMODS.calculate_effect({ message = localize('k_no_room_ex') }, card)
+                end
+                return {
+                    dollars = card.ability.extra.cash,
+                    message = localize{type='variable',key='a_cash',vars={card.ability.extra.cash}}
+                }
+            end
         end
     end
 }

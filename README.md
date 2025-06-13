@@ -23,6 +23,7 @@ Just download the zip file, extract it and place it in your Mod folder.
 - Velocyraptor : +6 Mult if hand doesn't contain Ace
 - High Risk, High Reward : X5 Mult on High Card, 1/3 chances to destroy the playing card
 - Shredded Ace : Create an Ace at the start of the round and +1 Mult for each Ace
+- Pteranodon : If score hand is a 5, destroy it for 2$ and a Planet
 
 *Some Joker has secret interaction with other Jokers*
 
