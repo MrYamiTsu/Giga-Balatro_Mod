@@ -8,7 +8,7 @@
   "main_file": "main.lua",
   "priority": 1,
   "badge_color": "#B1FC03",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "badge_text_color": "#FFFFFF",
   "dependencies": []
 }

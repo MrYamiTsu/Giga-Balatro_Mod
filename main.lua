@@ -413,8 +413,7 @@ SMODS.Joker{ --Velocyraptor
     end
 }
 
---Don't touch this, it make the game crash
---[[SMODS.Joker{ --HighRiskHighReward
+SMODS.Joker{ --HighRiskHighReward
     key = 'highRiskHighReward',
     loc_txt = {
         name = 'High Risk, High Reward',
@@ -436,7 +435,6 @@ SMODS.Joker{ --Velocyraptor
         chances = 3
     }},
     loc_vars = function(self, info_queue, center)
-        info_queue[#info_queue+1] = {set = 'info_queue', key = 'hrhr_credit'}
         return {vars = {center.ability.extra.mult, center.ability.extra.odds, center.ability.extra.chances}}
     end,
     calculate = function(self, card, context)
@@ -449,17 +447,32 @@ SMODS.Joker{ --Velocyraptor
                     colour = G.C.MULT
                 }
             end
-            local odds = card.ability.extra.odds or 1
-            local chances = card.ability.extra.chances or 3
-            local roll = pseudorandom('giga_highRiskHighReward', pseudoseed(card, context))
-            if roll <= (odds / chances) then
-                if context.destroying_card then
-                    return {}
+            if context.final_scoring_step then
+                local odds = card.ability.extra.odds or 1
+                local chances = card.ability.extra.chances or 3
+                local seed = pseudoseed(tostring(card:get_id()) .. tostring(context.scoring_name))
+                local roll = pseudorandom('giga_highRiskHighReward', seed)
+                if roll <= (odds / chances) then
+                    local to_destroy = context.full_hand[1]
+                    G.E_MANAGER:add_event(Event({
+                        blocking = true,
+                        func = function()
+                            to_destroy:start_dissolve()
+                            G.E_MANAGER:add_event(Event({
+                                delay = 0.4,
+                                func = function()
+                                    to_destroy:remove()
+                                    return true
+                                end
+                            }))
+                            return true
+                        end
+                    }))
                 end
             end
         end
     end
-}]]--
+}
 
 SMODS.Joker{ --ShreddedAce
     key = 'shreddedAce',
