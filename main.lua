@@ -75,7 +75,7 @@ SMODS.Joker{ --BlueChicken
     config = { extra = {
         round = 0,
         config_round = 3,
-        chips = 10
+        chips = 12
     }
     },
     loc_vars = function(self,info_queue,center)
@@ -166,7 +166,9 @@ SMODS.Joker { --KingOfJacks
     end,
     calculate = function(self,card,context)
         if context.individual and context.cardarea == G.play and context.other_card:get_id() == 11 then
-            card.ability.extra.base = card.ability.extra.base + card.ability.extra.add
+            if not context.blueprint then
+                card.ability.extra.base = card.ability.extra.base + card.ability.extra.add
+            end
         end
 
         if context.joker_main then
@@ -256,7 +258,7 @@ SMODS.Joker{ --SnapchatGirl
         sell_price = 0,
         extra = {
             odds = 1,
-            chances = 6,
+            chances = 7,
             cash = -20
         }
     },
@@ -301,7 +303,7 @@ SMODS.Joker{ --TRex
     eternal_compat = true,
     config = { extra = {
         mult = 0,
-        mult_add = 6,
+        mult_add = 5,
         chips = 0,
         chips_add = 25,
         round = 1
@@ -324,8 +326,10 @@ SMODS.Joker{ --TRex
                 if #G.consumeables.cards > 0 then
                     local to_destroy = pseudorandom_element(G.consumeables.cards, pseudoseed('tRex_destroy'))
                     to_destroy:remove()
-                    card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_add
-                    card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chips_add
+                    if not context.blueprint then
+                        card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_add
+                        card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chips_add
+                    end
                 end
                 if #G.consumeables.cards < G.consumeables.config.card_limit then
                     if has_velociraptor then
