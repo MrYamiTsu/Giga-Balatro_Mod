@@ -14,12 +14,12 @@ Can be useful to have [Talisman](https://github.com/SpectralPack/Talisman) too.
 **Joker**
 
 - Cash Pass : Gain 12$ when blind is selected but X0.75 Mult
-- Blue Chicken : Create a Blue Egg every 4 round and +10 Chips
+- Blue Chicken : Create a Blue Egg every 4 round and +12 Chips
 - Blue Egg : This egg is kinda weird, you'll see what it did
 - King of Jack : Gain X0.1 Mult for each Jack played
 - Funny Crown : Sell this card after 2 round for creating a King of Jack and a Bonus Jack
-- Snapchat Girl : 1/6 chances to create a Legendary Joker on selling, otherwise -20$
-- T-rex : Create a Tarot every 2 round and destroy a consumable for gaining +6 Mult and +25 Chips if possible
+- Snapchat Girl : 1/7 chances to create a Legendary Joker on selling, otherwise -20$
+- T-rex : Create a Tarot every 2 round and destroy a consumable for gaining +5 Mult and +25 Chips if possible
 - Velocyraptor : +6 Mult if hand doesn't contain Ace
 - Shredded Ass : Create an Ace at the start of the round and +1 Mult for each Ace
 
