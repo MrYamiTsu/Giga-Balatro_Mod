@@ -1,6 +1,6 @@
-# Giga
+# GIGA
 
-Some random thing for Balatro. Some assets work weirdly sometimes
+Some random addition for Balatro. Some assets work weirdly sometimes
 
 ## Installation
 
@@ -9,7 +9,7 @@ Can be useful to have [Talisman](https://github.com/SpectralPack/Talisman) too.
 
 Just download the zip file, extract it and place it in your Mod folder.
 
-## Asset
+## Assets
 
 **Joker**
 
@@ -27,7 +27,7 @@ Just download the zip file, extract it and place it in your Mod folder.
 
 *Some Joker has secret interaction with other Jokers*
 
-## Additionnal Info
+## Additionnals Infos
 
 If a whole asset is in comment, don't remove it from the comment. It's an idea and it make the game crash.
 
