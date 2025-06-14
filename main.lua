@@ -3,7 +3,12 @@
 ----------------------------------------------------------
 
 
-SMODS.load_file('localization/en-us.lua')()
+SMODS.Atlas{
+    key = "modicon", 
+    path = "modicon.png", 
+    px = 32,
+    py = 32
+}
 
 SMODS.Atlas{
     key = 'Jokers',
@@ -14,14 +19,6 @@ SMODS.Atlas{
 
 SMODS.Joker{ --CashPass
     key = 'cashPass',
-    loc_txt = {
-        name = 'Cash Pass',
-        text = {
-            'When blind is selected,',
-            'earn {C:money}$#1#{}',
-            '{X:mult,C:white}X#2#{} Mult'
-        }
-    },
     atlas = 'Jokers',
     pos = {x = 0, y = 0},
     cost = 6,
@@ -57,16 +54,6 @@ SMODS.Joker{ --CashPass
 
 SMODS.Joker{ --BlueChicken
     key = 'blueChicken',
-    loc_txt = {
-        name = 'Blue Chicken',
-        text = {
-            'Create a {C:attention}Blue Egg{}',
-            'every {C:attention}4{} round and',
-            'gain {C:chips}+#1#{} Chips',
-            '{C:inactive}(Currently {C:attention}#2#{C:inactive} round left)',
-            '{C:inactive}(Must have room)'
-        }
-    },
     atlas = 'Jokers',
     pos = {x = 1, y = 0},
     cost = 4,
@@ -110,12 +97,6 @@ SMODS.Joker{ --BlueChicken
 
 SMODS.Joker{ --BlueEgg
     key = 'blueEgg',
-    loc_txt = {
-        name = 'Blue Egg',
-        text = {
-            'This egg feels... blue'
-        }
-    },
     atlas = 'Jokers',
     pos = {x = 2, y = 0},
     rarity = 1,
@@ -143,14 +124,6 @@ SMODS.Joker{ --BlueEgg
 
 SMODS.Joker { --KingOfJacks
     key = 'kingOfJacks',
-    loc_txt = {
-        name = 'King of Jacks',
-        text = {
-            'Gain {X:mult,C:white}X#1#{} Mult for',
-            'each {C:attention}Jack{} played',
-            '{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)'
-        }
-    },
     atlas = 'Jokers',
     pos = {x = 3, y = 0},
     rarity = 3,
@@ -187,17 +160,6 @@ SMODS.Joker { --KingOfJacks
 
 SMODS.Joker{ --FunnyCrown
     key = 'funnyCrown',
-    loc_txt = {
-        name = 'Funny Crown',
-        text = {
-            'After {C:attention}2{} round,',
-            'sell this Joker to create',
-            'a {C:attention}King of Jacks{} and',
-            'a {C:chips}Bonus{} {C:attention}Jack{}',
-            '{C:inactive}(Currently {C:attention}#1#/2{}{C:inactive} round left)',
-            '{C:inactive}(Must have room)'
-        }
-    },
     atlas = 'Jokers',
     pos = {x = 4, y = 0},
     cost = 6,
@@ -241,14 +203,6 @@ SMODS.Joker{ --FunnyCrown
 
 SMODS.Joker{ --SnapchatGirl
     key = 'snapchatGirl',
-    loc_txt = {
-        name = 'Snapchat Girl',
-        text = {
-            '{C:green}#1# in #2#{} to create',
-            'a {C:legendary}Legendary{} Joker on',
-            'selling, otherwise {C:money}$#3#{}'
-        }
-    },
     atlas = 'Jokers',
     pos = {x = 5, y = 0},
     rarity = 2,
@@ -286,16 +240,6 @@ SMODS.Joker{ --SnapchatGirl
 
 SMODS.Joker{ --TRex
     key = 'tRex',
-    loc_txt = {
-        name = 'T-Rex',
-        text = {
-            'Every other rounds, create a {C:tarot}Tarot{}',
-            'and destroy a random comsumable',
-            'for gaining {C:mult}+#2#{} Mult and {C:chips}+#3# Chips{}',
-            '(Currently {C:mult}+#4#{} Mult / {C:chips}+#5#{} Chips)',
-            '{C:inactive}(Currently {C:attention}#6#{C:inactive} round left)'
-        }
-    },
     atlas = 'Jokers',
     pos = {x = 6, y = 0},
     cost = 8,
@@ -310,7 +254,7 @@ SMODS.Joker{ --TRex
         round = 1
     }},
     loc_vars = function(self, info_queue, center)
-        return {vars = {center.ability.extra.text, center.ability.extra.mult_add, center.ability.extra.chips_add, center.ability.extra.mult, center.ability.extra.chips, center.ability.extra.round}}
+        return {vars = {center.ability.extra.mult_add, center.ability.extra.chips_add, center.ability.extra.mult, center.ability.extra.chips, center.ability.extra.round}}
     end,
     calculate = function(self, card, context)
         local has_velociraptor = false
@@ -389,13 +333,6 @@ SMODS.Joker{ --TRex
 
 SMODS.Joker{ --Velocyraptor
     key = 'velocyraptor',
-    loc_txt = {
-        name = 'Velocyraptor',
-        text = {
-            '{C:mult}+#1#{} Mult if played hand does not',
-            'contains an {C:attention}Ace{}'
-        }
-    },
     atlas = 'Jokers',
     pos = {x = 7, y = 0},
     cost = 4,
@@ -439,14 +376,6 @@ SMODS.Joker{ --Velocyraptor
 
 SMODS.Joker{ --HighRiskHighReward
     key = 'highRiskHighReward',
-    loc_txt = {
-        name = 'High Risk, High Reward',
-        text = {
-            '{X:mult,C:white}X#1#{} Mult if played poker hand',
-            'is {C:money}High Card{}',
-            '{C:green}#2# in #3#{} to destroy the card'
-        }
-    },
     atlas = 'Jokers',
     pos = {x = 0, y = 1},
     cost = 8,
@@ -454,11 +383,12 @@ SMODS.Joker{ --HighRiskHighReward
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        mult = 5,
+        mult = 6,
         odds = 1,
         chances = 3
     }},
     loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'hrhr_credit'}
         return {vars = {center.ability.extra.mult, center.ability.extra.odds, center.ability.extra.chances}}
     end,
     calculate = function(self, card, context)
@@ -500,13 +430,6 @@ SMODS.Joker{ --HighRiskHighReward
 
 SMODS.Joker{ --ShreddedAce
     key = 'shreddedAce',
-    loc_txt = {
-        name = 'Shredded Ace',
-        text = {
-            'Create an {C:attention}Ace{} when blind is selected',
-            '{C:mult}+#1#{} Mult for each {C:attention}Ace{} played'
-        }
-    },
     atlas = 'Jokers',
     pos = {x = 1, y = 1},
     cost = 7,
@@ -541,14 +464,6 @@ SMODS.Joker{ --ShreddedAce
 
 SMODS.Joker{ --Pteranodon
     key = 'pteranodon',
-    loc_txt = {
-        name = 'Pteranodon',
-        text = {
-            'If scored hand is a single {C:attention}5{},',
-            'destroy it to create a {C:planet}Planet{}',
-            'and gain {C:money}$#1#{}'
-        }
-    },
     atlas = 'Jokers',
     pos = {x = 3, y = 1},
     cost = 6,

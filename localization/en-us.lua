@@ -1,6 +1,5 @@
--- Doesn't work right now, but will be used in the future
 return {
-    description = {
+    descriptions = {
         Back={},
         Blind={},
         Edition={},
@@ -62,9 +61,9 @@ return {
                 text = {
                     'Every other rounds, create a {C:tarot}Tarot{}',
                     'and destroy a random comsumable',
-                    'for gaining {C:mult}+#2#{} Mult and {C:chips}+#3# Chips{}',
-                    '(Currently {C:mult}+#4#{} Mult / {C:chips}+#5#{} Chips)',
-                    '{C:inactive}(Currently {C:attention}#6#{C:inactive} round left)'
+                    'for gaining {C:mult}+#1#{} Mult and {C:chips}+#2# Chips{}',
+                    '(Currently {C:mult}+#3#{} Mult / {C:chips}+#4#{} Chips)',
+                    '{C:inactive}(Currently {C:attention}#5#{C:inactive} round left)'
                 }
             },
             j_giga_velocyraptor = {
@@ -89,7 +88,7 @@ return {
                     '{C:mult}+#1#{} Mult for each {C:attention}Ace{} played'
                 }
             },
-            loc_txt = {
+            j_giga_pteranodon = {
                 name = 'Pteranodon',
                 text = {
                     'If scored hand is a single {C:attention}5{},',
@@ -98,7 +97,16 @@ return {
                 }
             }
         },
-        Other={},
+        Other={
+            -- Credit
+            hrhr_credit = {
+                name = "Credit",
+                text = {
+                    "Original idea",
+                    "by {C:green,E:2}le_dugs{}",
+                }
+            }
+        },
         Planet={},
         Spectral={},
         Stake={},
