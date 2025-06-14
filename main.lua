@@ -1,8 +1,3 @@
-----------------------------------------------------------
---------------------- MOD CODE ---------------------------
-----------------------------------------------------------
-
-
 SMODS.Atlas{
     key = "modicon", 
     path = "modicon.png", 
@@ -13,6 +8,13 @@ SMODS.Atlas{
 SMODS.Atlas{
     key = 'Jokers',
     path = 'Joker.png',
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas{
+    key = 'Foods',
+    path = 'Food.png',
     px = 71,
     py = 95
 }
@@ -465,7 +467,7 @@ SMODS.Joker{ --ShreddedAce
 SMODS.Joker{ --Pteranodon
     key = 'pteranodon',
     atlas = 'Jokers',
-    pos = {x = 3, y = 1},
+    pos = {x = 2, y = 1},
     cost = 6,
     rarity = 2,
     blueprint_compat = true,
@@ -533,6 +535,124 @@ SMODS.Joker{ --Pteranodon
     end
 }
 
-----------------------------------------------------------
-------------------- MOD CODE END -------------------------
-----------------------------------------------------------
+SMODS.Joker{ --Marcos
+    key = 'marcos',
+    atlas = 'Jokers',
+    pos = {x = 3, y = 1},
+    cost = 4,
+    rarity = 1,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        round_left = 1,
+        round_switch = true
+    }},
+    loc_vars = function(self,info_queue,center)
+        return{vars = {center.ability.extra.round_left}}
+    end,
+    calculate = function(self,card,context)
+        if context.end_of_round and context.cardarea == G.jokers then
+            if card.ability.extra.round_left > 0 then
+                card.ability.extra.round_left = card.ability.extra.round_left - 1
+            else
+                if card.ability.extra.round_switch then
+                    if #G.consumeables.cards < G.consumeables.config.card_limit then
+                        local food1 = create_card('Food',G.consumeables, nil, nil, nil, nil, 'c_giga_tacos', 'createFood1')
+                        food1:add_to_deck()
+                        G.consumeables:emplace(food1)
+                    end
+                    card.ability.extra.round_switch = false
+                elseif not card.ability.extra.round_switch then
+                    if #G.consumeables.cards < G.consumeables.config.card_limit then
+                        local food2 = create_card('Food',G.consumeables, nil, nil, nil, nil, 'c_giga_nachos', 'createFood1')
+                        food2:add_to_deck()
+                        G.consumeables:emplace(food2)
+                    end
+                    card.ability.extra.round_switch = true
+                end
+                card.ability.extra.round_left = 1
+            end
+        end
+    end
+}
+
+--CONSUMABLE
+SMODS.ConsumableType{
+    key = 'food',
+    primary_colour = HEX("F7070BFF"),
+    secondary_colour = HEX("F2A5A6FF"),
+    loc_txt = {
+        collection = 'Food Cards',
+        name = 'Food'
+    },
+    collection_rows = {5,6},
+    shop_rate = 0
+}
+
+SMODS.Consumable{ --Tacos
+    key = 'tacos',
+    set = 'food',
+    atlas = 'Foods',
+    pos = {x = 0, y = 0},
+    loc_txt = {
+        name = 'Tacos',
+        text = {
+            'A delicious tacos that',
+            'gives you {C:money}$#1#{}'
+        }
+    },
+    rarity = 1,
+    cost = 2,
+    config = { extra = {
+        money = 2
+    }},
+    loc_vars = function (self,info_queue,center)
+        return{vars = {center.ability.extra.money}}
+    end,
+    can_use = function (self,card)
+        return true
+    end,
+    use = function (self,card,area,copier)
+        SMODS.calculate_effect({dollars = card.ability.extra.money}, card)
+    end
+}
+
+SMODS.Consumable{ --Nachos
+    key = 'nachos',
+    set = 'food',
+    atlas = 'Foods',
+    pos = {x = 1, y = 0},
+    loc_txt = {
+        name = 'Nachos',
+        text = {
+            'A delicious nachos that',
+            'makes you draw {C:attention}#1#{} card',
+        }
+    },
+    rarity = 1,
+    cost = 2,
+    config = { extra = {
+        card = 2
+    }},
+    loc_vars = function (self,info_queue,center)
+        return{vars = {center.ability.extra.card}}
+    end,
+    can_use = function (self,card)
+        if G and G.hand then
+            return true
+        end
+        return false
+    end,
+    use = function (self,card,area,copier)
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.2,
+            func = function()
+                for i = 1, card.ability.extra.card do
+                    draw_card(G.deck, G.hand, i * 100 / 2, 'up', true)
+                end
+                return true
+            end
+        }))
+    end
+}

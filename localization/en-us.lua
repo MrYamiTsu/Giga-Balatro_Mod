@@ -95,6 +95,15 @@ return {
                     'destroy it to create a {C:planet}Planet{}',
                     'and gain {C:money}$#1#{}'
                 }
+            },
+            j_giga_marcos = {
+                name = 'Marcos',
+                text = {
+                    'Each other round, Marcos cook',
+                    'some Mexican food for you',
+                    '{C:inactive}(Currently {C:attention}#1#{C:inactive} round left)',
+                    '{C:inactive}(Must have room)'
+                }
             }
         },
         Other={
@@ -106,6 +115,7 @@ return {
                     "by {C:green,E:2}le_dugs{}",
                 }
             }
+
         },
         Planet={},
         Spectral={},

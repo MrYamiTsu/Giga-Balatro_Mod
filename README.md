@@ -4,7 +4,7 @@ Some random addition for Balatro. Some assets work weirdly sometimes
 
 ## Installation
 
-[Steamodded](https://github.com/Steamodded/smods) and [Lovely](https://github.com/ethangreen-dev/lovely-injector) are required. 
+Latest version of [Steamodded](https://github.com/Steamodded/smods) and [Lovely](https://github.com/ethangreen-dev/lovely-injector) are required. 
 Can be useful to have [Talisman](https://github.com/SpectralPack/Talisman) too.
 
 Just download the zip file, extract it and place it in your Mod folder.
@@ -24,8 +24,13 @@ Just download the zip file, extract it and place it in your Mod folder.
 - High Risk, High Reward : X6 Mult on High Card, 1/3 chances to destroy the playing card
 - Shredded Ace : Create an Ace at the start of the round and +1 Mult for each Ace
 - Pteranodon : If score hand is a 5, destroy it for 2$ and a Planet
+- Marcos : Each other round, create a Food card
 
 *Some Joker has secret interaction with other Jokers*
+
+**Food (New consumable)**
+- Tacos : give 2$
+- Nachos : draw 2 cards
 
 ## Additionnals Infos
 
