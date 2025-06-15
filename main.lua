@@ -594,6 +594,7 @@ SMODS.Consumable{ --Tacos
     set = 'food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
+    soul_pos = {x = 1, y = 0},
     loc_txt = {
         name = 'Tacos',
         text = {
@@ -621,7 +622,8 @@ SMODS.Consumable{ --Nachos
     key = 'nachos',
     set = 'food',
     atlas = 'Foods',
-    pos = {x = 1, y = 0},
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 2, y = 0},
     loc_txt = {
         name = 'Nachos',
         text = {
