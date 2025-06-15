@@ -16,7 +16,7 @@ Just download the zip file, extract it and place it in your Mod folder.
 - Cash Pass : Gain 12$ when blind is selected but X0.75 Mult
 - Blue Chicken : Create a Blue Egg every 4 round and +12 Chips
 - Blue Egg : This egg is kinda weird, you'll see what it did
-- King of Jack : Gain X0.1 Mult for each Jack played
+- King of Jack : Gain X0.05 Mult for each Jack played
 - Funny Crown : Sell this card after 2 round for creating a King of Jack and a Bonus Jack
 - Snapchat Girl : 1/7 chances to create a Legendary Joker on selling, otherwise -20$
 - T-rex : Create a Tarot every 2 round and destroy a consumable for gaining +5 Mult and +25 Chips if possible
@@ -29,7 +29,7 @@ Just download the zip file, extract it and place it in your Mod folder.
 *Some Joker has secret interaction with other Jokers*
 
 **Food (New consumable)**
-- Tacos : give 2$
+- Tacos : give 3$
 - Nachos : draw 2 cards
 
 ## Additionnals Infos

@@ -133,7 +133,7 @@ SMODS.Joker { --KingOfJacks
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        add = 0.1,
+        add = 0.05,
         base = 1
     }
     },
@@ -605,7 +605,7 @@ SMODS.Consumable{ --Tacos
     rarity = 1,
     cost = 2,
     config = { extra = {
-        money = 2
+        money = 3
     }},
     loc_vars = function (self,info_queue,center)
         return{vars = {center.ability.extra.money}}
