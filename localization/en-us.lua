@@ -3,7 +3,14 @@ return {
         Back={},
         Blind={},
         Edition={},
-        Enhancement={},
+        Enhancement={
+            m_giga_soil = {
+				name = "Soil",
+				text = {
+					"{X:chips,C:white}X#1#{} Chips"
+				}
+			}
+        },
         Joker={
             j_giga_cashPass = {
                 name = "Cash Pass",
@@ -99,7 +106,7 @@ return {
             j_giga_pablo = {
                 name = 'Pablo',
                 text = {
-                    'Each other round, Marcos cook',
+                    'Each other round, Pablo cook',
                     'some Mexican food for you',
                     '{C:inactive}(Currently {C:attention}#1#{C:inactive} round left)',
                     '{C:inactive}(Must have room)'
