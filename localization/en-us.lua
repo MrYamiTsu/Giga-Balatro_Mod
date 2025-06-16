@@ -96,8 +96,8 @@ return {
                     'and gain {C:money}$#1#{}'
                 }
             },
-            j_giga_marcos = {
-                name = 'Marcos',
+            j_giga_pablo = {
+                name = 'Pablo',
                 text = {
                     'Each other round, Marcos cook',
                     'some Mexican food for you',

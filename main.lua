@@ -535,8 +535,8 @@ SMODS.Joker{ --Pteranodon
     end
 }
 
-SMODS.Joker{ --Marcos
-    key = 'marcos',
+SMODS.Joker{ --Pablo
+    key = 'pablo',
     atlas = 'Jokers',
     pos = {x = 3, y = 1},
     cost = 4,
@@ -564,7 +564,7 @@ SMODS.Joker{ --Marcos
                     card.ability.extra.round_switch = false
                 elseif not card.ability.extra.round_switch then
                     if #G.consumeables.cards < G.consumeables.config.card_limit then
-                        local food2 = create_card('Food',G.consumeables, nil, nil, nil, nil, 'c_giga_nachos', 'createFood1')
+                        local food2 = create_card('Food',G.consumeables, nil, nil, nil, nil, 'c_giga_guacamole', 'createFood1')
                         food2:add_to_deck()
                         G.consumeables:emplace(food2)
                     end
@@ -618,16 +618,16 @@ SMODS.Consumable{ --Tacos
     end
 }
 
-SMODS.Consumable{ --Nachos
-    key = 'nachos',
+SMODS.Consumable{ --Guacamole
+    key = 'guacamole',
     set = 'food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
     soul_pos = {x = 2, y = 0},
     loc_txt = {
-        name = 'Nachos',
+        name = 'Guacamole',
         text = {
-            'A delicious nachos that',
+            'A delicious guacamole that',
             'makes you draw {C:attention}#1#{} card',
         }
     },
