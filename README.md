@@ -14,7 +14,6 @@ Just download the zip file, extract it and place it in your Mod folder.
 ## Assets
 
 **Joker**
-
 - Cash Pass : Gain 12$ when blind is selected but X0.75 Mult
 - Blue Chicken : Create a Blue Egg every 4 round and +12 Chips
 - Blue Egg : This egg is kinda weird, you'll see what it did
@@ -34,6 +33,10 @@ Just download the zip file, extract it and place it in your Mod folder.
 **Food (New consumable)**
 - Tacos : give 3$
 - Guacamole : draw 2 cards
+
+
+**Enhancement**
+- Soil : X1.1 Chips
 
 
 ## Additionnals Infos

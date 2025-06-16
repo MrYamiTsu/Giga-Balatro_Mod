@@ -3,7 +3,7 @@ return {
         Back={},
         Blind={},
         Edition={},
-        Enhancement={
+        Enhanced={
             m_giga_soil = {
 				name = "Soil",
 				text = {
