@@ -33,10 +33,13 @@ Just download the zip file, extract it and place it in your Mod folder.
 **Food (New consumable)**
 - Tacos : give 3$
 - Guacamole : draw 2 cards
+- Hot-Dog : Enhance 1 card in soil
 
 
 **Enhancement**
 - Soil : X1.1 Chips
+
+*Their is some secret enhancements*
 
 
 ## Additionnals Infos

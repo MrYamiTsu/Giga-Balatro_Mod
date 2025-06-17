@@ -191,7 +191,6 @@ SMODS.Joker{ --SnapchatGirl
     blueprint_compat = false,
     eternal_compat = true,
     config = { 
-        sell_price = 0,
         extra = {
             odds = 1,
             chances = 7,

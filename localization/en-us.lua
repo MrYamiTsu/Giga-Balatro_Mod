@@ -9,7 +9,21 @@ return {
 				text = {
 					"{X:chips,C:white}X#1#{} Chips"
 				}
-			}
+			},
+            m_giga_richSoil = {
+                name = "Rich Soil",
+                text = {
+                    "{X:chips,C:white}X#1#{} Chips",
+                    "{C:mult}+#2#{} Mult"
+                }
+            },
+            m_giga_fossilSoil = {
+                name = "Fossil Soil",
+                text = {
+                    "{X:chips,C:white}X#1#{} Chips",
+                    "{X:mult,C:white}X#2#{} Mult",
+                }
+            }
         },
         Joker={
             j_giga_cashPass = {
@@ -120,6 +134,27 @@ return {
                 text = {
                     "Original idea",
                     "by {C:green,E:2}le_dugs{}",
+                }
+            },
+            -- Enhancement
+            soil_def = {
+                name = "Soil",
+                text = {
+                    "{X:chips,C:white}X1.1{} Chips"
+                }
+            },
+            richSoil_def = {
+                name = "Rich Soil",
+                text = {
+                    "{X:chips,C:white}X#1.4{} Chips",
+                    "{C:mult}+7{} Mult"
+                }
+            },
+            fossilSoil_def = {
+                name = "Fossil Soil",
+                text = {
+                    "{X:chips,C:white}X2{} Chips",
+                    "{X:mult,C:white}X1.5{} Mult"
                 }
             }
 

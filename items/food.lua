@@ -79,3 +79,57 @@ SMODS.Consumable{ --Guacamole
         }))
     end
 }
+
+SMODS.Consumable{ --HotDog
+    key = 'hotDog',
+    set = 'food',
+    atlas = 'Foods',
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 3, y = 0},
+    loc_txt = {
+        name = 'Hot-Dog',
+        text = {
+            'A delicious hot-dog that',
+            'enhance {C:attention}#1#{} card',
+            'into {C:dark_edition}Soil{}',
+            '{s:0.4}"I wonder what could happen if it is already soil"{}'
+        }
+    },
+    rarity = 1,
+    cost = 2,
+    config = { extra = {
+        card = 1
+    }},
+    loc_vars = function (self,info_queue,center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'soil_def'}
+        return{vars = {center.ability.extra.card}}
+    end,
+    can_use = function (self,card)
+        if G and G.hand then
+			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
+				return true
+			end
+		end
+		return false
+    end,
+    use = function (self,card,area,copier)
+        for i, selected_card in pairs(G.hand.highlighted) do
+            if SMODS.has_enhancement(selected_card, 'm_giga_richSoil') then
+                selected_card:set_ability(G.P_CENTERS["m_giga_fossilSoil"])
+            elseif SMODS.has_enhancement(selected_card, 'm_giga_soil') then
+                selected_card:set_ability(G.P_CENTERS["m_giga_richSoil"])
+            else
+                selected_card:set_ability(G.P_CENTERS["m_giga_soil"])
+            end
+            G.E_MANAGER:add_event(Event({
+				trigger = "after",
+				delay = 0.2,
+				func = function()
+					G.hand:unhighlight_all()
+					return true
+				end,
+			}))
+			delay(0.5)
+		end
+    end
+}
