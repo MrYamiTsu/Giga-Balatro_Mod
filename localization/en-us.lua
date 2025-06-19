@@ -125,6 +125,15 @@ return {
                     '{C:inactive}(Currently {C:attention}#1#{C:inactive} round left)',
                     '{C:inactive}(Must have room)'
                 }
+            },
+            j_giga_jackMutator = {
+                name = 'Jack Mutator',
+                text = {
+                    'Modify rank of a random card',
+                    'to Jack every {C:attention}#1#{} round',
+                    '{C:inactive}(Currently {C:attention}#2#{C:inactive} round left)',
+                    '{s:0.5}"I wonder what could happen if it is already a Jack"{}'
+                }
             }
         },
         Other={

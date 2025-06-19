@@ -92,7 +92,7 @@ SMODS.Consumable{ --HotDog
             'A delicious hot-dog that',
             'enhance {C:attention}#1#{} card',
             'into {C:dark_edition}Soil{}',
-            '{s:0.4}"I wonder what could happen if it is already soil"{}'
+            '{s:0.5}"I wonder what could happen if it is already soil"{}'
         }
     },
     rarity = 1,

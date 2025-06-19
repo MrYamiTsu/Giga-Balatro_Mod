@@ -26,6 +26,7 @@ Just download the zip file, extract it and place it in your Mod folder.
 - Shredded Ace : Create an Ace at the start of the round and +1 Mult for each Ace
 - Pteranodon : If score hand is a 5, destroy it for 2$ and a Planet
 - Pablo : Each other round, create a Food card
+- Jack Mutator : Each 4 round, modify the rank of a random card to Jack
 
 *Some Joker has secret interaction with other Jokers*
 

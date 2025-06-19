@@ -553,3 +553,54 @@ SMODS.Joker{ --Pablo
         end
     end
 }
+
+SMODS.Joker{ -- Jack Mutator
+    key = 'jackMutator',
+    atlas = 'Jokers',
+    pos = {x = 4, y = 1},
+    cost = 8,
+    rarity = 3,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        round = 3,
+        round_left = 3,
+    }},
+    loc_vars = function(self,info_queue,center)
+        return{vars = {center.ability.extra.round + 1, center.ability.extra.round_left}}
+    end,
+    calculate = function(self, card, context)
+        if context.end_of_round and context.cardarea == G.jokers then
+            card.ability.extra.round_left = card.ability.extra.round_left - 1
+        end
+        if card.ability.extra.round_left <= 0 and context.first_hand_drawn then
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after', 
+                delay = 0.4, 
+                func = function()
+                    local tpool = {}
+                    for i, k in pairs(G.hand.cards) do
+                        table.insert(tpool, k)
+                    end
+                    local selected_card = pseudorandom_element(tpool, pseudoseed("jackMutator"))
+                    local suit = string.sub(selected_card.base.suit, 1, 1) .. '_'
+                    local rank = selected_card:get_id()
+                    if rank == 11 then
+                        if SMODS.has_enhancement(selected_card, 'm_giga_richSoil') then
+                            selected_card:set_ability(G.P_CENTERS["m_giga_fossilSoil"])
+                        elseif SMODS.has_enhancement(selected_card, 'm_giga_soil') then
+                            selected_card:set_ability(G.P_CENTERS["m_giga_richSoil"])
+                        else
+                            selected_card:set_ability(G.P_CENTERS["m_giga_soil"])
+                        end
+                    else
+                        selected_card:set_base(G.P_CARDS[suit..'J'])
+                    end
+                    selected_card:juice_up(0.3, 0.5)
+                    return true 
+                end 
+            }))
+            card.ability.extra.round_left = card.ability.extra.round
+        end
+    end
+}
