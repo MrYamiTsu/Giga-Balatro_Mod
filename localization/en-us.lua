@@ -40,7 +40,7 @@ return {
                     'Create a {C:attention}Blue Egg{}',
                     'every {C:attention}4{} round and',
                     'gain {C:chips}+#1#{} Chips',
-                    '{C:inactive}(Currently {C:attention}#2#{C:inactive} round left)',
+                    '{C:inactive}(Currently: {C:attention}#2#{C:inactive} round left)',
                     '{C:inactive}(Must have room)'
                 }
             },
@@ -65,7 +65,7 @@ return {
                     'sell this Joker to create',
                     'a {C:attention}King of Jacks{} and',
                     'a {C:chips}Bonus{} {C:attention}Jack{}',
-                    '{C:inactive}(Currently {C:attention}#1#/2{}{C:inactive} round left)',
+                    '{C:inactive}(Currently: {C:attention}#1#{}{C:inactive} round left)',
                     '{C:inactive}(Must have room)'
                 }
             },
@@ -84,7 +84,7 @@ return {
                     'and destroy a random comsumable',
                     'for gaining {C:mult}+#1#{} Mult and {C:chips}+#2# Chips{}',
                     '(Currently {C:mult}+#3#{} Mult / {C:chips}+#4#{} Chips)',
-                    '{C:inactive}(Currently {C:attention}#5#{C:inactive} round left)'
+                    '{C:inactive}(Currently: {C:attention}#5#{C:inactive} round left)'
                 }
             },
             j_giga_velocyraptor = {
@@ -122,7 +122,7 @@ return {
                 text = {
                     'Each other round, Pablo cook',
                     'some Mexican food for you',
-                    '{C:inactive}(Currently {C:attention}#1#{C:inactive} round left)',
+                    '{C:inactive}(Currently: {C:attention}#1#{C:inactive} round left)',
                     '{C:inactive}(Must have room)'
                 }
             },
@@ -131,8 +131,8 @@ return {
                 text = {
                     'Modify rank of a random card',
                     'to Jack every {C:attention}#1#{} round',
-                    '{C:inactive}(Currently {C:attention}#2#{C:inactive} round left)',
-                    '{s:0.5}"I wonder what could happen if it is already a Jack"{}'
+                    '{C:inactive}(Currently: {C:attention}#2#{C:inactive} round left)',
+                    '{s:0.5}"I wonder what could happen if its already a Jack"{}'
                 }
             }
         },
