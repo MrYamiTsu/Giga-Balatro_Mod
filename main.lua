@@ -29,3 +29,17 @@ SMODS.Atlas{
     px = 71,
     py = 95
 }
+
+SMODS.Atlas{
+    key = 'secret',
+    path = 'secret.png',
+    px = 166,
+    py = 162
+}
+
+SMODS.Atlas{
+    key = 'secret2',
+    path = 'secret2.png',
+    px = 252,
+    py = 173
+}

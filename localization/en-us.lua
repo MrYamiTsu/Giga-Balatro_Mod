@@ -134,15 +134,59 @@ return {
                     '{C:inactive}(Currently: {C:attention}#2#{C:inactive} round left)',
                     '{s:0.5}"I wonder what could happen if its already a Jack"{}'
                 }
-            }
+            },
+            j_giga_blueEyesWhiteDragon = {
+                name = 'Blue-Eyes White Dragon',
+                text = {
+                    'Give {C:mult}+#1#{} Mult for each',
+                    '{C:clubs}Club{} played and {X:mult,C:white}X#2#{} Mult',
+                    'for each {C:attention}8{}'
+                }
+            },
+            j_giga_redEyesBlackDragon = {
+                name = 'Red-Eyes Black Dragon',
+                text = {
+                }
+            },
+            j_giga_byud = {
+                name = 'Blue-Eyes Ultimate Dragon',
+                text = {
+                    '{s:1.25}They say that three dragons{}',
+                    '{s:1.25}is better than one, I dont{}',
+                    '{s:1.25}think so{}',
+                }
+            },
+            j_giga_dmk = {
+                name = 'Dragon Master Knight',
+                text = {
+                    '{s:1.25}You know what is stronger{}',
+                    '{s:1.25}than a Ultimate Dragon,{}',
+                    '{s:1.25}a Tamed Ultimate Dragon{}',
+                }
+            },
+            j_giga_blackLusterSoldier = {
+                name = 'Black Luster Soldier',
+                text = {
+                    'Give {C:mult}+#1#{} Mult for each',
+                    'card played and {X:mult,C:white}X#2#{} Mult',
+                    'for each {C:attention}9{}'
+                }
+            },
         },
         Other={
             -- Credit
-            hrhr_credit = {
+            ledugs_credit = {
                 name = "Credit",
                 text = {
                     "Original idea",
                     "by {C:green,E:2}le_dugs{}",
+                }
+            },
+            yugioh_credit = {
+                name = "Credit",
+                text = {
+                    'Artwork and name',
+                    'from {C:red,E:2}Yu-Gi-Oh!{}'
                 }
             },
             -- Enhancement
@@ -173,7 +217,13 @@ return {
         Stake={},
         Tag={},
         Tarot={},
-        Voucher={}
+        Voucher={},
+        ["Content Set"] = {
+            set_giga_megaLegendary = {
+                name = "Mega Legendary",
+                text = {}
+            }   
+        }
     },
     misc = {
         achievement_descriptions={},

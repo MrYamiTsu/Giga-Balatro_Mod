@@ -27,6 +27,9 @@ Just download the zip file, extract it and place it in your Mod folder.
 - Pteranodon : If score hand is a 5, destroy it for 2$ and a Planet
 - Pablo : Each other round, create a Food card
 - Jack Mutator : Each 4 round, modify the rank of a random card to Jack
+- Blue-Eyes White Dragon : +10 Mult for each Club and X2.5 
+- Red-Eyes Black Dragon : *No effect right now*
+- Black Luster Soldier : +15 Mult for each card played and X1.5 Mult for each 9 played
 
 *Some Joker has secret interaction with other Jokers*
 

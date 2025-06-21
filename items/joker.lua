@@ -1,3 +1,11 @@
+SMODS.Rarity({
+	key = "megaLegendary",
+	loc_txt = {
+        name = "Mega Legendary",
+    },
+	badge_colour = HEX("dbd809"),
+})
+
 SMODS.Joker{ --CashPass
     key = 'cashPass',
     atlas = 'Jokers',
@@ -368,7 +376,7 @@ SMODS.Joker{ --HighRiskHighReward
         chances = 3
     }},
     loc_vars = function(self, info_queue, center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'hrhr_credit'}
+        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
         return {vars = {center.ability.extra.mult, center.ability.extra.odds, center.ability.extra.chances}}
     end,
     calculate = function(self, card, context)
@@ -554,7 +562,7 @@ SMODS.Joker{ --Pablo
     end
 }
 
-SMODS.Joker{ -- Jack Mutator
+SMODS.Joker{ --Jack Mutator
     key = 'jackMutator',
     atlas = 'Jokers',
     pos = {x = 4, y = 1},
@@ -601,6 +609,305 @@ SMODS.Joker{ -- Jack Mutator
                 end 
             }))
             card.ability.extra.round_left = card.ability.extra.round
+        end
+    end
+}
+
+SMODS.Joker{ --BlueEyesWhiteDragon
+    key = 'blueEyesWhiteDragon',
+    atlas = 'Jokers',
+    pos = {x = 6, y = 1},
+    soul_pos = {x = 5, y = 1},
+    cost = 10,
+    rarity = 4,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        mult = 10,
+        xmult = 2.5
+    }},
+    loc_vars = function(self,info_queue,center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
+        return{vars = {center.ability.extra.mult, center.ability.extra.xmult}}
+    end,
+    calculate = function(self,card,context)
+        local byud_ready = 0
+        for i, j in ipairs(G.jokers.cards) do
+            if j.ability and j.ability.name == 'j_giga_blueEyesWhiteDragon' then
+                byud_ready = byud_ready + 1
+                if byud_ready >= 3 then
+                    break
+                end 
+            end
+        end
+        local has_byud = false
+        for i, j in ipairs(G.jokers.cards) do
+            if j.ability and j.ability.name == 'j_giga_byud' then
+                has_byud = true
+                break
+            end
+        end
+        if context.setting_blind and byud_ready >= 3 then
+            if not has_byud then
+                local byud = create_card('Joker', G.jokers, nil, nil, nil, nil, 'j_giga_byud')
+                byud:set_edition('e_negative', true)
+                byud:add_to_deck()
+                G.jokers:emplace(byud)
+            end
+            G.E_MANAGER:add_event(Event({
+                blocking = true,
+                func = function()
+                    card:start_dissolve()
+                    G.E_MANAGER:add_event(Event({
+                        delay = 0.8,
+                        func = function()
+                            card:remove()
+                            return true
+                        end
+                    }))
+                    return true
+                end
+            }))
+        end
+        if context.individual and context.cardarea == G.play then
+            local effects = {}
+            if context.other_card:is_suit("Clubs", true) then
+                table.insert(effects, {
+                    card = card,
+                    mult_mod = card.ability.extra.mult,
+                    message = '+' .. card.ability.extra.mult,
+                    colour = G.C.MULT,
+                    delay = 0.4
+                })
+            end
+            if context.other_card:get_id() == 8 then
+                table.insert(effects, {
+                    card = card,
+                    Xmult_mod = card.ability.extra.xmult,
+                    message = 'X' .. card.ability.extra.xmult,
+                    colour = G.C.MULT,
+                    delay = 0.4
+                })
+            end
+            if #effects > 0 then
+                return SMODS.merge_effects(effects)
+            end
+        end
+    end
+}
+
+SMODS.Joker{ --RedEyesBlackDragon
+    key = 'redEyesBlackDragon',
+    atlas = 'Jokers',
+    pos = {x = 1, y = 2},
+    soul_pos = {x = 0, y = 2},
+    cost = 10,
+    rarity = 4,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = {},
+    loc_vars = function(self,info_queue,center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
+    end,
+}
+
+SMODS.Joker{ --BYUD
+    key = 'byud',
+    atlas = 'secret',
+    pos = {x = 1, y = 0},
+    soul_pos = {x = 0, y = 0},
+    cost = 20,
+    rarity = 'giga_megaLegendary',
+    blueprint_compat = true,
+    eternal_compat = true,
+    no_collection = true,
+    config = { extra = {
+        mult = 85,
+        xmult1 = 2.5,
+        xmult2 = 5
+    }},
+    loc_vars = function(self,info_queue,center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
+    end,
+    calculate = function(self,card,context)
+        local dmk_ready = false
+        for i, j in ipairs(G.jokers.cards) do
+            if j.ability and j.ability.name == 'j_giga_blackLusterSoldier' then
+                dmk_ready = true
+                break
+            end
+        end
+        if context.setting_blind and dmk_ready then
+            local ubywd = create_card('Joker', G.jokers, nil, nil, nil, nil, 'j_giga_dmk')
+            ubywd:set_edition('e_negative', true)
+            ubywd:add_to_deck()
+            G.jokers:emplace(ubywd)
+            G.E_MANAGER:add_event(Event({
+                blocking = true,
+                func = function()
+                    card:start_dissolve()
+                    G.E_MANAGER:add_event(Event({
+                        delay = 0.8,
+                        func = function()
+                            card:remove()
+                            return true
+                        end
+                    }))
+                    return true
+                end
+            }))
+        end
+        if context.individual and context.cardarea == G.play then
+            local effects = {}
+            table.insert(effects, {
+                card = card,
+                mult_mod = card.ability.extra.mult,
+                message = '+' .. card.ability.extra.mult,
+                colour = G.C.MULT,
+                delay = 0.6
+            })
+            if context.other_card:is_suit("Clubs", true) then
+                table.insert(effects, {
+                    card = card,
+                    Xmult_mod = card.ability.extra.xmult1,
+                    message = 'X' .. card.ability.extra.xmult1,
+                    colour = G.C.MULT,
+                    delay = 0.6
+                })
+            end
+            if context.other_card:get_id() >= 8 then
+                table.insert(effects, {
+                    card = card,
+                    Xmult_mod = card.ability.extra.xmult2,
+                    message = 'X' .. card.ability.extra.xmult2,
+                    colour = G.C.MULT,
+                    delay = 0.6
+                })
+            end
+            if #effects > 0 then
+                return SMODS.merge_effects(effects)
+            end
+        end
+    end
+}
+
+SMODS.Joker{ --DMK
+    key = 'dmk',
+    atlas = 'secret2',
+    pos = {x = 1, y = 0},
+    soul_pos = {x = 0, y = 0},
+    cost = 25,
+    rarity = 'giga_megaLegendary',
+    blueprint_compat = true,
+    eternal_compat = true,
+    no_collection = true,
+    config = { extra = {
+        mult = 100,
+        xmult1 = 3,
+        xmult2 = 8
+    }},
+    loc_vars = function(self,info_queue,center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
+    end,
+    calculate = function(self,card,context)
+        if context.individual and context.cardarea == G.play then
+            local effects = {}
+            table.insert(effects, {
+                card = card,
+                mult_mod = card.ability.extra.mult,
+                message = '+' .. card.ability.extra.mult,
+                colour = G.C.MULT,
+                delay = 0.6
+            })
+            if context.other_card:is_suit("Clubs", true) then
+                table.insert(effects, {
+                    card = card,
+                    Xmult_mod = card.ability.extra.xmult1,
+                    message = 'X' .. card.ability.extra.xmult1,
+                    colour = G.C.MULT,
+                    delay = 0.6
+                })
+            end
+            if context.other_card:get_id() >= 7 then
+                table.insert(effects, {
+                    card = card,
+                    Xmult_mod = card.ability.extra.xmult2,
+                    message = 'X' .. card.ability.extra.xmult2,
+                    colour = G.C.MULT,
+                    delay = 0.6
+                })
+            end
+            if #effects > 0 then
+                return SMODS.merge_effects(effects)
+            end
+        end
+    end
+}
+
+SMODS.Joker{ --BlackLusterSoldier
+    key = 'blackLusterSoldier',
+    atlas = 'Jokers',
+    pos = {x = 3, y = 2},
+    soul_pos = {x = 2, y = 2},
+    cost = 10,
+    rarity = 4,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        mult = 15,
+        xmult = 1.5
+    }},
+    loc_vars = function(self,info_queue,center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
+        return{vars = {center.ability.extra.mult, center.ability.extra.xmult}}
+    end,
+    calculate = function(self,card,context)
+        local dmk_ready = false
+        for i, j in ipairs(G.jokers.cards) do
+            if j.ability and j.ability.name == 'j_giga_byud' then
+                dmk_ready = true
+                break
+            end
+        end
+        if context.setting_blind and dmk_ready then
+            G.E_MANAGER:add_event(Event({
+                blocking = true,
+                func = function()
+                    card:start_dissolve()
+                    G.E_MANAGER:add_event(Event({
+                        delay = 0.8,
+                        func = function()
+                            card:remove()
+                            return true
+                        end
+                    }))
+                    return true
+                end
+            }))
+        end
+        if context.individual and context.cardarea == G.play then
+            local effects = {}
+            table.insert(effects, {
+                card = card,
+                mult_mod = card.ability.extra.mult,
+                message = '+' .. card.ability.extra.mult,
+                colour = G.C.MULT,
+                delay = 0.4
+            })
+            if context.other_card:get_id() == 9 then
+                table.insert(effects, {
+                    card = card,
+                    Xmult_mod = card.ability.extra.xmult,
+                    message = 'X' .. card.ability.extra.xmult,
+                    colour = G.C.MULT,
+                    delay = 0.4
+                })
+            end
+            if #effects > 0 then
+                return SMODS.merge_effects(effects)
+            end
         end
     end
 }
