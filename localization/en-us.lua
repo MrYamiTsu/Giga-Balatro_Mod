@@ -172,6 +172,22 @@ return {
                     'for each {C:attention}9{}'
                 }
             },
+            j_giga_darkMagician = {
+                name = 'Dark Magician',
+                text = {
+                    'Give {C:mult}+#1#{} Mult for each',
+                    '{C:diamond}Diamond{} played and {X:mult,C:white}X#2#{} Mult',
+                    'for each {C:attention}7{}'
+                }
+            },
+            j_giga_moc = {
+                name = 'Master of Chaos',
+                text = {
+                    '{s:1.25}Imagine an absolute soldier{}',
+                    '{s:1.25}that has master magic.{}',
+                    '{s:1.25}Thats him !{}'
+                }
+            },
         },
         Other={
             -- Credit

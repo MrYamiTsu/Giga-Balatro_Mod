@@ -111,7 +111,7 @@ SMODS.Joker{ --BlueEgg
     end
 }
 
-SMODS.Joker { --KingOfJacks
+SMODS.Joker{ --KingOfJacks
     key = 'kingOfJacks',
     atlas = 'Jokers',
     pos = {x = 3, y = 0},
@@ -714,7 +714,7 @@ SMODS.Joker{ --RedEyesBlackDragon
 
 SMODS.Joker{ --BYUD
     key = 'byud',
-    atlas = 'secret',
+    atlas = 'secret1',
     pos = {x = 1, y = 0},
     soul_pos = {x = 0, y = 0},
     cost = 20,
@@ -849,8 +849,8 @@ SMODS.Joker{ --DMK
 SMODS.Joker{ --BlackLusterSoldier
     key = 'blackLusterSoldier',
     atlas = 'Jokers',
-    pos = {x = 5, y = 2},
-    soul_pos = {x = 4, y = 2},
+    pos = {x = 3, y = 2},
+    soul_pos = {x = 2, y = 2},
     cost = 10,
     rarity = 4,
     blueprint_compat = true,
@@ -919,21 +919,22 @@ SMODS.Joker{ --BlackLusterSoldier
     end
 }
 
---[[SMODS.Joker{ --DarkMagician
+SMODS.Joker{ --DarkMagician
     key = 'darkMagician',
     atlas = 'Jokers',
-    pos = {x = 4, y = 2},
-    soul_pos = {x = 3, y = 2},
+    pos = {x = 5, y = 2},
+    soul_pos = {x = 4, y = 2},
     cost = 15,
-    rarity = 5,
+    rarity = 4,
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        mult = 20
+        mult = 15,
+        xmult = 1.75
     }},
     loc_vars = function(self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
-        return{vars = {center.ability.extra.mult}}
+        info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
+        return{vars = {center.ability.extra.mult, center.ability.extra.xmult}}
     end,
     calculate = function(self,card,context)
         local moc_ready = false
@@ -988,4 +989,57 @@ SMODS.Joker{ --BlackLusterSoldier
             end
         end
     end
-}]]--
+}
+
+SMODS.Joker{ --MOC
+    key = 'moc',
+    atlas = 'secret3',
+    pos = {x = 1, y = 0},
+    soul_pos = {x = 0, y = 0},
+    cost = 15,
+    rarity = 'giga_megaLegendary',
+    blueprint_compat = true,
+    eternal_compat = true,
+    no_collection = true,
+    config = { extra = {
+        mult1 = 15,
+        mult2 = 25,
+        xmult = 3
+    }},
+    loc_vars = function(self,info_queue,center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
+    end,
+    calculate = function(self,card,context)
+        if context.individual and context.cardarea == G.play then
+            local effects = {}
+            table.insert(effects, {
+                card = card,
+                mult_mod = card.ability.extra.mult1,
+                message = '+' .. card.ability.extra.mult1,
+                colour = G.C.MULT,
+                delay = 0.6
+            })
+            if context.other_card:is_suit("Diamonds", true) then
+                table.insert(effects, {
+                    card = card,
+                    mult_mod = card.ability.extra.mult2,
+                    message = '+' .. card.ability.extra.mult2,
+                    colour = G.C.MULT,
+                    delay = 0.6
+                })
+            end
+            if context.other_card:get_id() <= 9 then
+                table.insert(effects, {
+                    card = card,
+                    Xmult_mod = card.ability.extra.xmult,
+                    message = 'X' .. card.ability.extra.xmult,
+                    colour = G.C.MULT,
+                    delay = 0.6
+                })
+            end
+            if #effects > 0 then
+                return SMODS.merge_effects(effects)
+            end
+        end
+    end
+}
