@@ -623,7 +623,7 @@ SMODS.Joker{ --BlueEyesWhiteDragon
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        mult = 10,
+        mult = 12,
         xmult = 1.75
     }},
     loc_vars = function(self,info_queue,center)
@@ -856,7 +856,7 @@ SMODS.Joker{ --BlackLusterSoldier
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        mult = 10,
+        mult = 8,
         xmult = 1.75
     }},
     loc_vars = function(self,info_queue,center)
@@ -929,7 +929,7 @@ SMODS.Joker{ --DarkMagician
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        mult = 15,
+        mult = 12,
         xmult = 1.75
     }},
     loc_vars = function(self,info_queue,center)
