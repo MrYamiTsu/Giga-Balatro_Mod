@@ -624,7 +624,7 @@ SMODS.Joker{ --BlueEyesWhiteDragon
     eternal_compat = true,
     config = { extra = {
         mult = 10,
-        xmult = 2.5
+        xmult = 1.75
     }},
     loc_vars = function(self,info_queue,center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
@@ -723,9 +723,9 @@ SMODS.Joker{ --BYUD
     eternal_compat = true,
     no_collection = true,
     config = { extra = {
-        mult = 85,
-        xmult1 = 2.5,
-        xmult2 = 5
+        mult = 50,
+        xmult1 = 1.5,
+        xmult2 = 4
     }},
     loc_vars = function(self,info_queue,center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
@@ -804,9 +804,9 @@ SMODS.Joker{ --DMK
     eternal_compat = true,
     no_collection = true,
     config = { extra = {
-        mult = 100,
-        xmult1 = 3,
-        xmult2 = 8
+        mult = 80,
+        xmult1 = 2.5,
+        xmult2 = 6
     }},
     loc_vars = function(self,info_queue,center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
@@ -849,15 +849,15 @@ SMODS.Joker{ --DMK
 SMODS.Joker{ --BlackLusterSoldier
     key = 'blackLusterSoldier',
     atlas = 'Jokers',
-    pos = {x = 3, y = 2},
-    soul_pos = {x = 2, y = 2},
+    pos = {x = 5, y = 2},
+    soul_pos = {x = 4, y = 2},
     cost = 10,
     rarity = 4,
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        mult = 15,
-        xmult = 1.5
+        mult = 10,
+        xmult = 1.75
     }},
     loc_vars = function(self,info_queue,center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
@@ -871,7 +871,14 @@ SMODS.Joker{ --BlackLusterSoldier
                 break
             end
         end
-        if context.setting_blind and dmk_ready then
+        local moc_ready = false
+        for i, j in ipairs(G.jokers.cards) do
+            if j.ability and j.ability.name == 'j_giga_darkMagician' then
+                moc_ready = true
+                break
+            end
+        end
+        if context.setting_blind and (dmk_ready or moc_ready) then
             G.E_MANAGER:add_event(Event({
                 blocking = true,
                 func = function()
@@ -911,3 +918,74 @@ SMODS.Joker{ --BlackLusterSoldier
         end
     end
 }
+
+--[[SMODS.Joker{ --DarkMagician
+    key = 'darkMagician',
+    atlas = 'Jokers',
+    pos = {x = 4, y = 2},
+    soul_pos = {x = 3, y = 2},
+    cost = 15,
+    rarity = 5,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        mult = 20
+    }},
+    loc_vars = function(self,info_queue,center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        return{vars = {center.ability.extra.mult}}
+    end,
+    calculate = function(self,card,context)
+        local moc_ready = false
+        for i, j in ipairs(G.jokers.cards) do
+            if j.ability and j.ability.name == 'j_giga_blackLusterSoldier' then
+                moc_ready = true
+                break
+            end
+        end
+        if context.setting_blind and moc_ready then
+            local moc = create_card('Joker', G.jokers, nil, nil, nil, nil, 'j_giga_moc')
+            moc:set_edition('e_negative', true)
+            moc:add_to_deck()
+            G.jokers:emplace(moc)
+            G.E_MANAGER:add_event(Event({
+                blocking = true,
+                func = function()
+                    card:start_dissolve()
+                    G.E_MANAGER:add_event(Event({
+                        delay = 0.8,
+                        func = function()
+                            card:remove()
+                            return true
+                        end
+                    }))
+                    return true
+                end
+            }))
+        end
+        if context.individual and context.cardarea == G.play then
+            local effects = {}
+            if context.other_card:is_suit("Diamonds", true) then
+                table.insert(effects, {
+                    card = card,
+                    mult_mod = card.ability.extra.mult,
+                    message = '+' .. card.ability.extra.mult,
+                    colour = G.C.MULT,
+                    delay = 0.4
+                })
+            end
+            if context.other_card:get_id() == 7 then
+                table.insert(effects, {
+                    card = card,
+                    Xmult_mod = card.ability.extra.xmult,
+                    message = 'X' .. card.ability.extra.xmult,
+                    colour = G.C.MULT,
+                    delay = 0.4
+                })
+            end
+            if #effects > 0 then
+                return SMODS.merge_effects(effects)
+            end
+        end
+    end
+}]]--
