@@ -1,11 +1,3 @@
-SMODS.Rarity({
-	key = "megaLegendary",
-	loc_txt = {
-        name = "Mega Legendary",
-    },
-	badge_colour = HEX("dbd809"),
-})
-
 SMODS.Joker{ --CashPass
     key = 'cashPass',
     atlas = 'Jokers',
@@ -706,10 +698,40 @@ SMODS.Joker{ --RedEyesBlackDragon
     rarity = 4,
     blueprint_compat = true,
     eternal_compat = true,
-    config = {},
+    config = { extra = {
+        mult = 12,
+        xmult = 1.75
+    }},
     loc_vars = function(self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
+        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        return{vars = {center.ability.extra.mult, center.ability.extra.xmult}}
     end,
+    calculate = function(self,card,context)
+        if context.individual and context.cardarea == G.play then
+            local effects = {}
+            if context.other_card:is_suit("Spades", true) then
+                table.insert(effects, {
+                    card = card,
+                    mult_mod = card.ability.extra.mult,
+                    message = '+' .. card.ability.extra.mult,
+                    colour = G.C.MULT,
+                    delay = 0.4
+                })
+            end
+            if context.other_card:get_id() == 11 then
+                table.insert(effects, {
+                    card = card,
+                    Xmult_mod = card.ability.extra.xmult,
+                    message = 'X' .. card.ability.extra.xmult,
+                    colour = G.C.MULT,
+                    delay = 0.4
+                })
+            end
+            if #effects > 0 then
+                return SMODS.merge_effects(effects)
+            end
+        end
+    end
 }
 
 SMODS.Joker{ --BYUD

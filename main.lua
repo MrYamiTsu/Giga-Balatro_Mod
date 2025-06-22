@@ -50,3 +50,11 @@ SMODS.Atlas{
     px = 147,
     py = 184
 }
+
+SMODS.Rarity({
+	key = "megaLegendary",
+	loc_txt = {
+        name = "Mega Legendary",
+    },
+	badge_colour = HEX("dbd809"),
+})

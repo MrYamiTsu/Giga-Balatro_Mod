@@ -27,18 +27,19 @@ Just download the zip file, extract it and place it in your Mod folder.
 - Pteranodon : If score hand is a 5, destroy it for 2$ and a Planet
 - Pablo : Each other round, create a Food card
 - Jack Mutator : Each 4 round, modify the rank of a random card to Jack
-- Blue-Eyes White Dragon : +12 Mult for each Club and X1.75 for each 8
-- Red-Eyes Black Dragon : *No effect right now* *Probably (+12 Mult for each Spade and X1.75 for each J)
+- Blue-Eyes White Dragon : +12 Mult for each Club and X1.75 for each 8 played
+- Red-Eyes Black Dragon : +12 Mult for each Spade and X1.75 for each Jack played
 - Black Luster Soldier : +8 Mult for each card played and X1.5 Mult for each 9 played
-- Dark Magician : +12 Mult for each Diamond and X1.75 for each 7
+- Dark Magician : +12 Mult for each Diamond and X1.75 for each 7 played
 
 *Some Joker has secret interaction with other Jokers*
+*Their is some secret jokers*
 
 
 **Food (New consumable)**
 - Tacos : give 3$
 - Guacamole : draw 2 cards
-- Hot-Dog : Enhance 1 card in soil
+- Hot-Dog : Enhance 1 card in soil *Unoptainable right now
 
 
 **Enhancement**

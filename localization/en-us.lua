@@ -146,6 +146,9 @@ return {
             j_giga_redEyesBlackDragon = {
                 name = 'Red-Eyes Black Dragon',
                 text = {
+                    'Give {C:mult}+#1#{} Mult for each',
+                    '{C:spades}Spade{} played and {X:mult,C:white}X#2#{} Mult',
+                    'for each {C:attention}Jack{}'
                 }
             },
             j_giga_byud = {
@@ -184,7 +187,7 @@ return {
                 name = 'Master of Chaos',
                 text = {
                     '{s:1.25}Imagine an absolute soldier{}',
-                    '{s:1.25}that has master magic.{}',
+                    '{s:1.25}that has mastered magic.{}',
                     '{s:1.25}Thats him !{}'
                 }
             },
