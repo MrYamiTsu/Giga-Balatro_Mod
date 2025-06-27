@@ -1181,7 +1181,7 @@ SMODS.Joker{ --RainbowQuartz
                 end
             end
             if nb_poly > 0 then
-                local xmult_to_add = 1 + (nb_poly * card.ability.extra.xmult_add)
+                local xmult_to_add = 1 + (nb_poly * card.ability.extra.xmult)
                 return {
                     card = card,
                     xmult_mod = xmult_to_add,
