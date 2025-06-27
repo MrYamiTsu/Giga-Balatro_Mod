@@ -554,7 +554,7 @@ SMODS.Joker{ --Pablo
     end
 }
 
-SMODS.Joker{ --Jack Mutator
+SMODS.Joker{ --JackMutator
     key = 'jackMutator',
     atlas = 'Jokers',
     pos = {x = 4, y = 1},
@@ -1061,6 +1061,133 @@ SMODS.Joker{ --MOC
             end
             if #effects > 0 then
                 return SMODS.merge_effects(effects)
+            end
+        end
+    end
+}
+
+SMODS.Joker{ --PinkTourmaline
+    key = 'pinkTourmaline',
+    atlas = 'Jokers',
+    pos = {x = 7, y = 1},
+    cost = 5,
+    rarity = 1,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        mult = 12
+    }},
+    loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue+1] = G.P_CENTERS.e_holo
+        return {vars = {center.ability.extra.mult}}
+    end,
+    calculate = function(self, card, context)
+        if context.joker_main then
+            local nb_holo = 0
+            for i, held_card in ipairs(G.hand.cards) do
+                local is_play = false
+                for j, card_play in ipairs(G.play.cards) do
+                    if held_card == card_play then
+                        is_play = true
+                        break
+                    end
+                end
+                if not is_play and held_card.edition and held_card.edition.type == 'holo' then
+                    nb_holo = nb_holo + 1
+                end
+            end
+            if nb_holo > 0 then
+                return {
+                    card = card,
+                    mult_mod = nb_holo * card.ability.extra.mult,
+                    message = '+' .. nb_holo * card.ability.extra.mult,
+                    colour = G.C.MULT
+                }
+            end
+        end
+    end
+}
+
+SMODS.Joker{ --Moonstone
+    key = 'moonstone',
+    atlas = 'Jokers',
+    pos = {x = 6, y = 2},
+    cost = 5,
+    rarity = 1,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        chips = 65
+    }},
+    loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue+1] = G.P_CENTERS.e_foil
+        return {vars = {center.ability.extra.chips}}
+    end,
+    calculate = function(self, card, context)
+        if context.joker_main then
+            local nb_foil = 0
+            for i, card_held in ipairs(G.hand.cards) do
+                local is_play = false
+                for j, card_play in ipairs(G.play.cards) do
+                    if card_held == card_play then
+                        is_play = true
+                        break
+                    end
+                end
+                if not is_play and card_held.edition and card_held.edition.type == 'foil' then
+                    nb_foil = nb_foil + 1
+                end
+            end
+            if nb_foil > 0 then
+                return {
+                    card = card,
+                    chip_mod = nb_foil * card.ability.extra.chips,
+                    message = '+' .. nb_foil * card.ability.extra.chips,
+                    colour = G.C.CHIP
+                }
+            end
+        end
+    end
+}
+
+SMODS.Joker{ --RainbowQuartz
+    key = 'rainbowQuartz',
+    atlas = 'Jokers',
+    pos = {x = 7, y = 2},
+    cost = 5,
+    rarity = 1,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        xmult = 0.7
+    }},
+    loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue+1] = G.P_CENTERS.e_poly
+        return {vars = {center.ability.extra.xmult}}
+    end,
+    calculate = function(self, card, context)
+        if context.joker_main then
+            local nb_poly = 0
+            for i, card_held in ipairs(G.hand.cards) do
+                local is_play = false
+                for j, card_play in ipairs(G.play.cards) do
+                    if card_held == card_play then
+                        is_play = true
+                        break
+                    end
+                end
+                if not is_play and card_held.edition and card_held.edition.type == 'polychrome' then
+                    nb_poly = nb_poly + 1
+                end
+            end
+            if nb_poly > 0 then
+                local xmult_to_add = 1 + (nb_poly * card.ability.extra.xmult_add)
+                return {
+                    card = card,
+                    xmult_mod = xmult_to_add,
+                    message = 'X' .. xmult_to_add,
+                    colour = G.C.MULT
+                }
             end
         end
     end

@@ -191,6 +191,28 @@ return {
                     '{s:1.25}Thats him !{}'
                 }
             },
+            j_giga_pinkTourmaline = {
+                name = 'Pink Tourmaline',
+                text = {
+                    '{C:mult}+#1#{} Mult for each',
+                    '{C:dark_edition}Holographic{} card held in hand'
+                }
+            },
+            j_giga_moonstone = {
+                name = 'Moonstone',
+                text = {
+                    '{C:chips}+#1#{} Chips for each',
+                    '{C:dark_edition}Foil{} card held in hand'
+                }
+            },
+            j_giga_rainbowQuartz = {
+                name = 'Rainbow Quartz',
+                text = {
+                    '{X:mult,C:white}X#1#{} Mult for each',
+                    '{C:dark_edition}Polychrome{} card held in hand',
+                    '{s:0.9,C:inactive}Start at X1 Mult{}'
+                }
+            },
         },
         Other={
             -- Credit

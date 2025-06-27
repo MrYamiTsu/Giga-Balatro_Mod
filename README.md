@@ -24,13 +24,16 @@ Just download the zip file, extract it and place it in your Mod folder.
 - Velocyraptor : +6 Mult if hand doesn't contain Ace
 - High Risk, High Reward : X6 Mult on High Card, 1/3 chances to destroy the playing card
 - Shredded Ace : Create an Ace at the start of the round and +1 Mult for each Ace
-- Pteranodon : If score hand is a 5, destroy it for 2$ and a Planet
+- Pteranodon : If score hand is a 5, destroy it for 2$ and a Planet (no art yet)
 - Pablo : Each other round, create a Food card
 - Jack Mutator : Each 4 round, modify the rank of a random card to Jack
 - Blue-Eyes White Dragon : +12 Mult for each Club and X1.75 for each 8 played
 - Red-Eyes Black Dragon : +12 Mult for each Spade and X1.75 for each Jack played
 - Black Luster Soldier : +8 Mult for each card played and X1.5 Mult for each 9 played
 - Dark Magician : +12 Mult for each Diamond and X1.75 for each 7 played
+- Pink Tourmaline : +12 Mult for each Holographic card held in hand
+- Moonstone : +65 Chips for each Foil card held in hand (art isn't done)
+- Rainbow Quartz : X0.7 Mult for each Polychrome card held in hand (art isn't done)
 
 *Some Joker has secret interaction with other Jokers*
 *Their is some secret jokers*
@@ -50,7 +53,7 @@ Just download the zip file, extract it and place it in your Mod folder.
 
 ## Additionnals Infos
 
-If a whole asset is in comment, don't remove it from the comment. It's an idea and it make the game crash.
+If a whole asset is in comment, don't remove it from the comment. It's an idea and this may cause the game to crash.
 
 
 ## Credits
