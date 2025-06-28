@@ -24,7 +24,7 @@ Just download the zip file, extract it and place it in your Mod folder.
 - Velocyraptor : +6 Mult if hand doesn't contain Ace
 - High Risk, High Reward : X6 Mult on High Card, 1/3 chances to destroy the playing card
 - Shredded Ace : Create an Ace at the start of the round and +1 Mult for each Ace
-- Pteranodon : If score hand is a 5, destroy it for 2$ and a Planet (no art yet)
+- Pteranodon : If score hand is a 5, destroy it for 2$ and a Planet
 - Pablo : Each other round, create a Food card
 - Jack Mutator : Each 4 round, modify the rank of a random card to Jack
 - Blue-Eyes White Dragon : +12 Mult for each Club and X1.75 for each 8 played
@@ -34,12 +34,17 @@ Just download the zip file, extract it and place it in your Mod folder.
 - Pink Tourmaline : +12 Mult for each Holographic card held in hand
 - Moonstone : +65 Chips for each Foil card held in hand (art isn't done)
 - Rainbow Quartz : X0.7 Mult for each Polychrome card held in hand (art isn't done)
+- Left Leg of The Forbidden One : +80 Chips for every Spade
+- Right Leg of The Forbidden One : +80 Chips for every Club
+- Left Arm of The Forbidden One : +80 Chips for every Heart
+- Right Arm of The Forbidden One : +80 Chips for every Diamond
+- Exodia The Forbidden One : +10 Chips for every card played
 
 *Some Joker has secret interaction with other Jokers*
 *Their is some secret jokers*
 
 
-**Food (New consumable)**
+**Food (New consumable type)**
 - Tacos : give 3$
 - Guacamole : draw 2 cards
 - Hot-Dog : Enhance 1 card in soil *Unoptainable right now
@@ -58,5 +63,5 @@ If a whole asset is in comment, don't remove it from the comment. It's an idea a
 
 ## Credits
 
-- le_dugs for ideas and support
+- le_dugs for a lot of ideas
 - frogggy18 for some balance change

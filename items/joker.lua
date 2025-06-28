@@ -218,6 +218,313 @@ SMODS.Joker{ --SnapchatGirl
     end
 }
 
+SMODS.Joker{ --HighRiskHighReward
+    key = 'highRiskHighReward',
+    atlas = 'Jokers',
+    pos = {x = 0, y = 1},
+    cost = 8,
+    rarity = 3,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        mult = 6,
+        odds = 1,
+        chances = 3
+    }},
+    loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        return {vars = {center.ability.extra.mult, center.ability.extra.odds, center.ability.extra.chances}}
+    end,
+    calculate = function(self, card, context)
+        if context.scoring_name == 'High Card' then
+            if context.joker_main then
+                return {
+                    card = card,
+                    Xmult_mod = card.ability.extra.mult,
+                    message = 'X' .. card.ability.extra.mult,
+                    colour = G.C.MULT
+                }
+            end
+            if context.final_scoring_step then
+                local odds = card.ability.extra.odds or 1
+                local chances = card.ability.extra.chances or 3
+                local seed = pseudoseed(tostring(card:get_id()) .. tostring(context.scoring_name))
+                local roll = pseudorandom('giga_highRiskHighReward', seed)
+                if roll <= (odds / chances) then
+                    local to_destroy = context.full_hand[1]
+                    G.E_MANAGER:add_event(Event({
+                        blocking = true,
+                        func = function()
+                            to_destroy:start_dissolve()
+                            G.E_MANAGER:add_event(Event({
+                                delay = 0.4,
+                                func = function()
+                                    to_destroy:remove()
+                                    return true
+                                end
+                            }))
+                            return true
+                        end
+                    }))
+                end
+            end
+        end
+    end
+}
+
+SMODS.Joker{ --ShreddedAce
+    key = 'shreddedAce',
+    atlas = 'Jokers',
+    pos = {x = 1, y = 1},
+    cost = 7,
+    rarity = 2,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        mult = 1
+    }
+    },
+    loc_vars = function(self,info_queue,center)
+        return{vars = {center.ability.extra.mult}}
+    end,
+    calculate = function(self,card,context)
+        if context.setting_blind then
+            local suit = pseudorandom_element({'S','H','D','C'}, pseudoseed('giga_shreddedAce'))
+			local card = create_playing_card({
+				front = G.P_CARDS[suit..'_'..'A']
+			}, G.hand, false,false,nil)
+			card:add_to_deck()
+        end
+        if context.individual and context.cardarea == G.play and context.other_card:get_id() == 14 then
+            return {
+                    card = card,
+                    mult_mod = card.ability.extra.mult,
+                    message = '+' .. card.ability.extra.mult,
+                    colour = G.C.MULT
+                }
+        end
+    end
+}
+
+SMODS.Joker{ --Pablo
+    key = 'pablo',
+    atlas = 'Jokers',
+    pos = {x = 3, y = 1},
+    cost = 4,
+    rarity = 1,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        round_left = 1,
+        round_switch = true
+    }},
+    loc_vars = function(self,info_queue,center)
+        return{vars = {center.ability.extra.round_left}}
+    end,
+    calculate = function(self,card,context)
+        if context.end_of_round and context.cardarea == G.jokers then
+            if card.ability.extra.round_left > 0 then
+                card.ability.extra.round_left = card.ability.extra.round_left - 1
+            else
+                if card.ability.extra.round_switch then
+                    if #G.consumeables.cards < G.consumeables.config.card_limit then
+                        local food1 = create_card('Food',G.consumeables, nil, nil, nil, nil, 'c_giga_tacos', 'createFood1')
+                        food1:add_to_deck()
+                        G.consumeables:emplace(food1)
+                    end
+                    card.ability.extra.round_switch = false
+                elseif not card.ability.extra.round_switch then
+                    if #G.consumeables.cards < G.consumeables.config.card_limit then
+                        local food2 = create_card('Food',G.consumeables, nil, nil, nil, nil, 'c_giga_guacamole', 'createFood1')
+                        food2:add_to_deck()
+                        G.consumeables:emplace(food2)
+                    end
+                    card.ability.extra.round_switch = true
+                end
+                card.ability.extra.round_left = 1
+            end
+        end
+    end
+}
+
+SMODS.Joker{ --JackMutator
+    key = 'jackMutator',
+    atlas = 'Jokers',
+    pos = {x = 4, y = 1},
+    cost = 8,
+    rarity = 3,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        round = 3,
+        round_left = 3,
+    }},
+    loc_vars = function(self,info_queue,center)
+        return{vars = {center.ability.extra.round + 1, center.ability.extra.round_left}}
+    end,
+    calculate = function(self, card, context)
+        if context.end_of_round and context.cardarea == G.jokers then
+            card.ability.extra.round_left = card.ability.extra.round_left - 1
+        end
+        if card.ability.extra.round_left <= 0 and context.first_hand_drawn then
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after', 
+                delay = 0.4, 
+                func = function()
+                    local tpool = {}
+                    for i, k in pairs(G.hand.cards) do
+                        table.insert(tpool, k)
+                    end
+                    local selected_card = pseudorandom_element(tpool, pseudoseed("jackMutator"))
+                    local suit = string.sub(selected_card.base.suit, 1, 1) .. '_'
+                    local rank = selected_card:get_id()
+                    if rank == 11 then
+                        if SMODS.has_enhancement(selected_card, 'm_giga_richSoil') then
+                            selected_card:set_ability(G.P_CENTERS["m_giga_fossilSoil"])
+                        elseif SMODS.has_enhancement(selected_card, 'm_giga_soil') then
+                            selected_card:set_ability(G.P_CENTERS["m_giga_richSoil"])
+                        else
+                            selected_card:set_ability(G.P_CENTERS["m_giga_soil"])
+                        end
+                    else
+                        selected_card:set_base(G.P_CARDS[suit..'J'])
+                    end
+                    selected_card:juice_up(0.3, 0.5)
+                    return true 
+                end 
+            }))
+            card.ability.extra.round_left = card.ability.extra.round
+        end
+    end
+}
+
+SMODS.Joker{ --PinkTourmaline
+    key = 'pinkTourmaline',
+    atlas = 'Jokers',
+    pos = {x = 7, y = 1},
+    cost = 5,
+    rarity = 1,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        mult = 12
+    }},
+    loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue+1] = G.P_CENTERS.e_holo
+        return {vars = {center.ability.extra.mult}}
+    end,
+    calculate = function(self, card, context)
+        if context.joker_main then
+            local nb_holo = 0
+            for i, held_card in ipairs(G.hand.cards) do
+                local is_play = false
+                for j, card_play in ipairs(G.play.cards) do
+                    if held_card == card_play then
+                        is_play = true
+                        break
+                    end
+                end
+                if not is_play and held_card.edition and held_card.edition.type == 'holo' then
+                    nb_holo = nb_holo + 1
+                end
+            end
+            if nb_holo > 0 then
+                return {
+                    card = card,
+                    mult_mod = nb_holo * card.ability.extra.mult,
+                    message = '+' .. nb_holo * card.ability.extra.mult,
+                    colour = G.C.MULT
+                }
+            end
+        end
+    end
+}
+
+SMODS.Joker{ --Moonstone
+    key = 'moonstone',
+    atlas = 'Jokers',
+    pos = {x = 6, y = 2},
+    cost = 5,
+    rarity = 1,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        chips = 65
+    }},
+    loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue+1] = G.P_CENTERS.e_foil
+        return {vars = {center.ability.extra.chips}}
+    end,
+    calculate = function(self, card, context)
+        if context.joker_main then
+            local nb_foil = 0
+            for i, card_held in ipairs(G.hand.cards) do
+                local is_play = false
+                for j, card_play in ipairs(G.play.cards) do
+                    if card_held == card_play then
+                        is_play = true
+                        break
+                    end
+                end
+                if not is_play and card_held.edition and card_held.edition.type == 'foil' then
+                    nb_foil = nb_foil + 1
+                end
+            end
+            if nb_foil > 0 then
+                return {
+                    card = card,
+                    chip_mod = nb_foil * card.ability.extra.chips,
+                    message = '+' .. nb_foil * card.ability.extra.chips,
+                    colour = G.C.CHIP
+                }
+            end
+        end
+    end
+}
+
+SMODS.Joker{ --RainbowQuartz
+    key = 'rainbowQuartz',
+    atlas = 'Jokers',
+    pos = {x = 7, y = 2},
+    cost = 5,
+    rarity = 1,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        xmult = 0.7
+    }},
+    loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue+1] = G.P_CENTERS.e_poly
+        return {vars = {center.ability.extra.xmult}}
+    end,
+    calculate = function(self, card, context)
+        if context.joker_main then
+            local nb_poly = 0
+            for i, card_held in ipairs(G.hand.cards) do
+                local is_play = false
+                for j, card_play in ipairs(G.play.cards) do
+                    if card_held == card_play then
+                        is_play = true
+                        break
+                    end
+                end
+                if not is_play and card_held.edition and card_held.edition.type == 'polychrome' then
+                    nb_poly = nb_poly + 1
+                end
+            end
+            if nb_poly > 0 then
+                local xmult_to_add = 1 + (nb_poly * card.ability.extra.xmult)
+                return {
+                    card = card,
+                    xmult_mod = xmult_to_add,
+                    message = 'X' .. xmult_to_add,
+                    colour = G.C.MULT
+                }
+            end
+        end
+    end
+}
+
 SMODS.Joker{ --TRex
     key = 'tRex',
     atlas = 'Jokers',
@@ -354,94 +661,6 @@ SMODS.Joker{ --Velocyraptor
     end
 }
 
-SMODS.Joker{ --HighRiskHighReward
-    key = 'highRiskHighReward',
-    atlas = 'Jokers',
-    pos = {x = 0, y = 1},
-    cost = 8,
-    rarity = 3,
-    blueprint_compat = true,
-    eternal_compat = true,
-    config = { extra = {
-        mult = 6,
-        odds = 1,
-        chances = 3
-    }},
-    loc_vars = function(self, info_queue, center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
-        return {vars = {center.ability.extra.mult, center.ability.extra.odds, center.ability.extra.chances}}
-    end,
-    calculate = function(self, card, context)
-        if context.scoring_name == 'High Card' then
-            if context.joker_main then
-                return {
-                    card = card,
-                    Xmult_mod = card.ability.extra.mult,
-                    message = 'X' .. card.ability.extra.mult,
-                    colour = G.C.MULT
-                }
-            end
-            if context.final_scoring_step then
-                local odds = card.ability.extra.odds or 1
-                local chances = card.ability.extra.chances or 3
-                local seed = pseudoseed(tostring(card:get_id()) .. tostring(context.scoring_name))
-                local roll = pseudorandom('giga_highRiskHighReward', seed)
-                if roll <= (odds / chances) then
-                    local to_destroy = context.full_hand[1]
-                    G.E_MANAGER:add_event(Event({
-                        blocking = true,
-                        func = function()
-                            to_destroy:start_dissolve()
-                            G.E_MANAGER:add_event(Event({
-                                delay = 0.4,
-                                func = function()
-                                    to_destroy:remove()
-                                    return true
-                                end
-                            }))
-                            return true
-                        end
-                    }))
-                end
-            end
-        end
-    end
-}
-
-SMODS.Joker{ --ShreddedAce
-    key = 'shreddedAce',
-    atlas = 'Jokers',
-    pos = {x = 1, y = 1},
-    cost = 7,
-    rarity = 2,
-    blueprint_compat = true,
-    eternal_compat = true,
-    config = { extra = {
-        mult = 1
-    }
-    },
-    loc_vars = function(self,info_queue,center)
-        return{vars = {center.ability.extra.mult}}
-    end,
-    calculate = function(self,card,context)
-        if context.setting_blind then
-            local suit = pseudorandom_element({'S','H','D','C'}, pseudoseed('giga_shreddedAce'))
-			local card = create_playing_card({
-				front = G.P_CARDS[suit..'_'..'A']
-			}, G.hand, false,false,nil)
-			card:add_to_deck()
-        end
-        if context.individual and context.cardarea == G.play and context.other_card:get_id() == 14 then
-            return {
-                    card = card,
-                    mult_mod = card.ability.extra.mult,
-                    message = '+' .. card.ability.extra.mult,
-                    colour = G.C.MULT
-                }
-        end
-    end
-}
-
 SMODS.Joker{ --Pteranodon
     key = 'pteranodon',
     atlas = 'Jokers',
@@ -509,98 +728,6 @@ SMODS.Joker{ --Pteranodon
                     message = localize{type='variable',key='a_cash',vars={card.ability.extra.cash}}
                 }
             end
-        end
-    end
-}
-
-SMODS.Joker{ --Pablo
-    key = 'pablo',
-    atlas = 'Jokers',
-    pos = {x = 3, y = 1},
-    cost = 4,
-    rarity = 1,
-    blueprint_compat = true,
-    eternal_compat = true,
-    config = { extra = {
-        round_left = 1,
-        round_switch = true
-    }},
-    loc_vars = function(self,info_queue,center)
-        return{vars = {center.ability.extra.round_left}}
-    end,
-    calculate = function(self,card,context)
-        if context.end_of_round and context.cardarea == G.jokers then
-            if card.ability.extra.round_left > 0 then
-                card.ability.extra.round_left = card.ability.extra.round_left - 1
-            else
-                if card.ability.extra.round_switch then
-                    if #G.consumeables.cards < G.consumeables.config.card_limit then
-                        local food1 = create_card('Food',G.consumeables, nil, nil, nil, nil, 'c_giga_tacos', 'createFood1')
-                        food1:add_to_deck()
-                        G.consumeables:emplace(food1)
-                    end
-                    card.ability.extra.round_switch = false
-                elseif not card.ability.extra.round_switch then
-                    if #G.consumeables.cards < G.consumeables.config.card_limit then
-                        local food2 = create_card('Food',G.consumeables, nil, nil, nil, nil, 'c_giga_guacamole', 'createFood1')
-                        food2:add_to_deck()
-                        G.consumeables:emplace(food2)
-                    end
-                    card.ability.extra.round_switch = true
-                end
-                card.ability.extra.round_left = 1
-            end
-        end
-    end
-}
-
-SMODS.Joker{ --JackMutator
-    key = 'jackMutator',
-    atlas = 'Jokers',
-    pos = {x = 4, y = 1},
-    cost = 8,
-    rarity = 3,
-    blueprint_compat = true,
-    eternal_compat = true,
-    config = { extra = {
-        round = 3,
-        round_left = 3,
-    }},
-    loc_vars = function(self,info_queue,center)
-        return{vars = {center.ability.extra.round + 1, center.ability.extra.round_left}}
-    end,
-    calculate = function(self, card, context)
-        if context.end_of_round and context.cardarea == G.jokers then
-            card.ability.extra.round_left = card.ability.extra.round_left - 1
-        end
-        if card.ability.extra.round_left <= 0 and context.first_hand_drawn then
-            G.E_MANAGER:add_event(Event({
-                trigger = 'after', 
-                delay = 0.4, 
-                func = function()
-                    local tpool = {}
-                    for i, k in pairs(G.hand.cards) do
-                        table.insert(tpool, k)
-                    end
-                    local selected_card = pseudorandom_element(tpool, pseudoseed("jackMutator"))
-                    local suit = string.sub(selected_card.base.suit, 1, 1) .. '_'
-                    local rank = selected_card:get_id()
-                    if rank == 11 then
-                        if SMODS.has_enhancement(selected_card, 'm_giga_richSoil') then
-                            selected_card:set_ability(G.P_CENTERS["m_giga_fossilSoil"])
-                        elseif SMODS.has_enhancement(selected_card, 'm_giga_soil') then
-                            selected_card:set_ability(G.P_CENTERS["m_giga_richSoil"])
-                        else
-                            selected_card:set_ability(G.P_CENTERS["m_giga_soil"])
-                        end
-                    else
-                        selected_card:set_base(G.P_CARDS[suit..'J'])
-                    end
-                    selected_card:juice_up(0.3, 0.5)
-                    return true 
-                end 
-            }))
-            card.ability.extra.round_left = card.ability.extra.round
         end
     end
 }
@@ -1066,83 +1193,52 @@ SMODS.Joker{ --MOC
     end
 }
 
-SMODS.Joker{ --PinkTourmaline
-    key = 'pinkTourmaline',
+SMODS.Joker{ --LLOTFO
+    key = 'llotfo',
     atlas = 'Jokers',
-    pos = {x = 7, y = 1},
-    cost = 5,
-    rarity = 1,
+    pos = {x = 0, y = 3},
+    cost = 10,
+    rarity = 3,
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        mult = 12
+        chips = 80
     }},
     loc_vars = function(self, info_queue, center)
-        info_queue[#info_queue+1] = G.P_CENTERS.e_holo
-        return {vars = {center.ability.extra.mult}}
-    end,
-    calculate = function(self, card, context)
-        if context.joker_main then
-            local nb_holo = 0
-            for i, held_card in ipairs(G.hand.cards) do
-                local is_play = false
-                for j, card_play in ipairs(G.play.cards) do
-                    if held_card == card_play then
-                        is_play = true
-                        break
-                    end
-                end
-                if not is_play and held_card.edition and held_card.edition.type == 'holo' then
-                    nb_holo = nb_holo + 1
-                end
-            end
-            if nb_holo > 0 then
-                return {
-                    card = card,
-                    mult_mod = nb_holo * card.ability.extra.mult,
-                    message = '+' .. nb_holo * card.ability.extra.mult,
-                    colour = G.C.MULT
-                }
-            end
-        end
-    end
-}
-
-SMODS.Joker{ --Moonstone
-    key = 'moonstone',
-    atlas = 'Jokers',
-    pos = {x = 6, y = 2},
-    cost = 5,
-    rarity = 1,
-    blueprint_compat = true,
-    eternal_compat = true,
-    config = { extra = {
-        chips = 65
-    }},
-    loc_vars = function(self, info_queue, center)
-        info_queue[#info_queue+1] = G.P_CENTERS.e_foil
+        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
         return {vars = {center.ability.extra.chips}}
     end,
     calculate = function(self, card, context)
-        if context.joker_main then
-            local nb_foil = 0
-            for i, card_held in ipairs(G.hand.cards) do
-                local is_play = false
-                for j, card_play in ipairs(G.play.cards) do
-                    if card_held == card_play then
-                        is_play = true
-                        break
-                    end
-                end
-                if not is_play and card_held.edition and card_held.edition.type == 'foil' then
-                    nb_foil = nb_foil + 1
-                end
+        local tlei_ready = false
+        for i, j in ipairs(G.jokers.cards) do
+            if j.ability and j.ability.name == 'j_giga_etfo' then
+                tlei_ready = true
+                break
             end
-            if nb_foil > 0 then
+        end
+        if context.setting_blind and tlei_ready then
+            G.E_MANAGER:add_event(Event({
+                blocking = true,
+                func = function()
+                    card:start_dissolve()
+                    G.E_MANAGER:add_event(Event({
+                        delay = 0.8,
+                        func = function()
+                            card:remove()
+                            return true
+                        end
+                    }))
+                    return true
+                end
+            }))
+        end
+        if context.individual and context.cardarea == G.play then
+            if context.other_card:is_suit("Spades", true) then
                 return {
                     card = card,
-                    chip_mod = nb_foil * card.ability.extra.chips,
-                    message = '+' .. nb_foil * card.ability.extra.chips,
+                    chip_mod = card.ability.extra.chips,
+                    message = localize{type='variable',key='a_chips',vars={card.ability.extra.chips}},
                     colour = G.C.CHIP
                 }
             end
@@ -1150,45 +1246,261 @@ SMODS.Joker{ --Moonstone
     end
 }
 
-SMODS.Joker{ --RainbowQuartz
-    key = 'rainbowQuartz',
+SMODS.Joker{ --RLOTFO
+    key = 'rlotfo',
     atlas = 'Jokers',
-    pos = {x = 7, y = 2},
-    cost = 5,
-    rarity = 1,
+    pos = {x = 1, y = 3},
+    cost = 10,
+    rarity = 3,
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        xmult = 0.7
+        chips = 80
     }},
     loc_vars = function(self, info_queue, center)
-        info_queue[#info_queue+1] = G.P_CENTERS.e_poly
-        return {vars = {center.ability.extra.xmult}}
+        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
+        return {vars = {center.ability.extra.chips}}
     end,
     calculate = function(self, card, context)
-        if context.joker_main then
-            local nb_poly = 0
-            for i, card_held in ipairs(G.hand.cards) do
-                local is_play = false
-                for j, card_play in ipairs(G.play.cards) do
-                    if card_held == card_play then
-                        is_play = true
-                        break
-                    end
-                end
-                if not is_play and card_held.edition and card_held.edition.type == 'polychrome' then
-                    nb_poly = nb_poly + 1
-                end
+        local tlei_ready = false
+        for i, j in ipairs(G.jokers.cards) do
+            if j.ability and j.ability.name == 'j_giga_etfo' then
+                tlei_ready = true
+                break
             end
-            if nb_poly > 0 then
-                local xmult_to_add = 1 + (nb_poly * card.ability.extra.xmult)
+        end
+        if context.setting_blind and tlei_ready then
+            G.E_MANAGER:add_event(Event({
+                blocking = true,
+                func = function()
+                    card:start_dissolve()
+                    G.E_MANAGER:add_event(Event({
+                        delay = 0.8,
+                        func = function()
+                            card:remove()
+                            return true
+                        end
+                    }))
+                    return true
+                end
+            }))
+        end
+        if context.individual and context.cardarea == G.play then
+            if context.other_card:is_suit("Clubs", true) then
                 return {
                     card = card,
-                    xmult_mod = xmult_to_add,
-                    message = 'X' .. xmult_to_add,
-                    colour = G.C.MULT
+                    chip_mod = card.ability.extra.chips,
+                    message = localize{type='variable',key='a_chips',vars={card.ability.extra.chips}},
+                    colour = G.C.CHIP
                 }
             end
+        end
+    end
+}
+
+SMODS.Joker{ --LAOTFO
+    key = 'laotfo',
+    atlas = 'Jokers',
+    pos = {x = 2, y = 3},
+    cost = 10,
+    rarity = 3,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        chips = 80
+    }},
+    loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
+        return {vars = {center.ability.extra.chips}}
+    end,
+    calculate = function(self, card, context)
+        local tlei_ready = false
+        for i, j in ipairs(G.jokers.cards) do
+            if j.ability and j.ability.name == 'j_giga_etfo' then
+                tlei_ready = true
+                break
+            end
+        end
+        if context.setting_blind and tlei_ready then
+            G.E_MANAGER:add_event(Event({
+                blocking = true,
+                func = function()
+                    card:start_dissolve()
+                    G.E_MANAGER:add_event(Event({
+                        delay = 0.8,
+                        func = function()
+                            card:remove()
+                            return true
+                        end
+                    }))
+                    return true
+                end
+            }))
+        end
+        if context.individual and context.cardarea == G.play then
+            if context.other_card:is_suit("Hearts", true) then
+                return {
+                    card = card,
+                    chip_mod = card.ability.extra.chips,
+                    message = localize{type='variable',key='a_chips',vars={card.ability.extra.chips}},
+                    colour = G.C.CHIP
+                }
+            end
+        end
+    end
+}
+
+SMODS.Joker{ --RAOTFO
+    key = 'raotfo',
+    atlas = 'Jokers',
+    pos = {x = 3, y = 3},
+    cost = 10,
+    rarity = 3,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        chips = 80
+    }},
+    loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
+        return {vars = {center.ability.extra.chips}}
+    end,
+    calculate = function(self, card, context)
+        local tlei_ready = false
+        for i, j in ipairs(G.jokers.cards) do
+            if j.ability and j.ability.name == 'j_giga_etfo' then
+                tlei_ready = true
+                break
+            end
+        end
+        if context.setting_blind and tlei_ready then
+            G.E_MANAGER:add_event(Event({
+                blocking = true,
+                func = function()
+                    card:start_dissolve()
+                    G.E_MANAGER:add_event(Event({
+                        delay = 0.8,
+                        func = function()
+                            card:remove()
+                            return true
+                        end
+                    }))
+                    return true
+                end
+            }))
+        end
+        if context.individual and context.cardarea == G.play then
+            if context.other_card:is_suit("Diamonds", true) then
+                return {
+                    card = card,
+                    chip_mod = card.ability.extra.chips,
+                    message = localize{type='variable',key='a_chips',vars={card.ability.extra.chips}},
+                    colour = G.C.CHIP
+                }
+            end
+        end
+    end
+}
+
+SMODS.Joker{ --ETFO
+    key = 'etfo',
+    atlas = 'Jokers',
+    pos = {x = 4, y = 3},
+    cost = 10,
+    rarity = 3,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        chips = 10
+    }},
+    loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
+        return {vars = {center.ability.extra.chips}}
+    end,
+    calculate = function(self, card, context)
+        local tlei_ready = false
+        local bool1 = false
+        local bool2 = false
+        local bool3 = false
+        local bool4 = false
+        for i, j in ipairs(G.jokers.cards) do
+            if j.ability and j.ability.name == 'j_giga_llotfo' then
+                bool1 = true
+            end
+            if j.ability and j.ability.name == 'j_giga_rlotfo' then
+                bool2 = true
+            end
+            if j.ability and j.ability.name == 'j_giga_laotfo' then
+                bool3 = true
+            end
+            if j.ability and j.ability.name == 'j_giga_raotfo' then
+                bool4 = true
+            end
+            if bool1 and bool2 and bool3 and bool4 then
+                tlei_ready = true
+                break
+            end
+        end
+        if context.setting_blind and tlei_ready then
+            SMODS.add_card{key = "j_giga_tlei", edition = "e_negative"}
+            G.E_MANAGER:add_event(Event({
+                blocking = true,
+                func = function()
+                    card:start_dissolve()
+                    G.E_MANAGER:add_event(Event({
+                        delay = 0.8,
+                        func = function()
+                            card:remove()
+                            return true
+                        end
+                    }))
+                    return true
+                end
+            }))
+        end
+        if context.individual and context.cardarea == G.play then
+            return {
+                card = card,
+                chip_mod = card.ability.extra.chips,
+                message = localize{type='variable',key='a_chips',vars={card.ability.extra.chips}},
+                colour = G.C.CHIP
+            }
+        end
+    end
+}
+
+SMODS.Joker{ --TLEI
+    key = 'tlei',
+    atlas = 'secret4',
+    pos = {x = 1, y = 0},
+    soul_pos = {x = 0, y = 0},
+    cost = 25,
+    rarity = 'giga_megaLegendary',
+    blueprint_compat = true,
+    eternal_compat = true,
+    no_collection = true,
+    config = { extra = {
+        mult = 100,
+    }},
+    loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
+    end,
+    calculate = function(self, card, context)
+        if G.GAME.blind.boss and not G.GAME.blind.disabled then
+            G.GAME.blind:disable()
+        end
+        if context.joker_main then
+            return {
+                card = card,
+                xmult_mod = card.ability.extra.mult,
+                message = 'X' .. card.ability.extra.mult,
+                colour = G.C.MULT
+            }
         end
     end
 }

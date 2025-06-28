@@ -51,6 +51,13 @@ SMODS.Atlas{
     py = 184
 }
 
+SMODS.Atlas{
+    key = 'secret4',
+    path = 'secret4.png',
+    px = 191,
+    py = 170
+}
+
 SMODS.Rarity({
 	key = "megaLegendary",
 	loc_txt = {

@@ -213,6 +213,47 @@ return {
                     '{s:0.9,C:inactive}Start at X1 Mult{}'
                 }
             },
+            j_giga_llotfo = {
+                name = {'Left Leg of', 'The Forbidden One'},
+                text = {
+                    '{C:chips}+#1#{} Chips',
+                    'for each {C:spades}Spade{} played'
+                }
+            },
+            j_giga_rlotfo = {
+                name = {'Right Leg of', 'The Forbidden One'},
+                text = {
+                    '{C:chips}+#1#{} Chips',
+                    'for each {C:clubs}Club{} played'
+                }
+            },
+            j_giga_raotfo = {
+                name = {'Right Arm of', 'The Forbidden One'},
+                text = {
+                    '{C:chips}+#1#{} Chips',
+                    'for each {C:diamonds}Diamond{} played'
+                }
+            },
+            j_giga_laotfo = {
+                name = {'Left Arm of', 'The Forbidden One'},
+                text = {
+                    '{C:chips}+#1#{} Chips',
+                    'for each {C:hearts}Heart{} played'
+                }
+            },
+            j_giga_etfo = {
+                name = {'{s:1.2}Exodia{} The Forbidden One'},
+                text = {
+                    '{C:chips}+#1#{} Chips',
+                    'for each card played'
+                }
+            },
+            j_giga_tlei = {
+                name = {'The Legendary', 'Exodia Incarnate'},
+                text = {
+                    '{E:1}Unleash the Beast{}'
+                }
+            }
         },
         Other={
             -- Credit
