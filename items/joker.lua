@@ -57,9 +57,7 @@ SMODS.Joker{ --BlueChicken
             end
             if card.ability.extra.round == -1 then
                 if #G.jokers.cards < G.jokers.config.card_limit then
-                    local egg = create_card('Joker', G.jokers, nil, nil, nil, nil, 'j_giga_blueEgg')
-                    egg:add_to_deck()
-                    G.jokers:emplace(egg)
+                    SMODS.add_card{key = "j_giga_blueEgg"}
                 else
                     SMODS.calculate_effect({ message = localize('k_no_room_ex') }, card)
                 end
@@ -165,9 +163,7 @@ SMODS.Joker{ --FunnyCrown
         if context.selling_card and context.card == card then
             if card.ability.extra.round <= 0 then
                 if #G.jokers.cards < G.jokers.config.card_limit then
-                    local joker = create_card('Joker', G.jokers, nil, nil, nil, nil, 'j_giga_kingOfJacks')
-                    joker:add_to_deck()
-                    G.jokers:emplace(joker)
+                    SMODS.add_card{key = "j_giga_kingOfJacks"}
                 else
                     SMODS.calculate_effect({ message = localize('k_no_room_ex') }, card)
                 end
@@ -769,10 +765,7 @@ SMODS.Joker{ --BlueEyesWhiteDragon
         end
         if context.setting_blind and byud_ready >= 3 then
             if not has_byud then
-                local byud = create_card('Joker', G.jokers, nil, nil, nil, nil, 'j_giga_byud')
-                byud:set_edition('e_negative', true)
-                byud:add_to_deck()
-                G.jokers:emplace(byud)
+                SMODS.add_card{key = "j_giga_byud", edition = "e_negative"}
             end
             G.E_MANAGER:add_event(Event({
                 blocking = true,
@@ -889,10 +882,7 @@ SMODS.Joker{ --BYUD
             end
         end
         if context.setting_blind and dmk_ready then
-            local ubywd = create_card('Joker', G.jokers, nil, nil, nil, nil, 'j_giga_dmk')
-            ubywd:set_edition('e_negative', true)
-            ubywd:add_to_deck()
-            G.jokers:emplace(ubywd)
+            SMODS.add_card{key = "j_giga_dmk", edition = "e_negative"}
             G.E_MANAGER:add_event(Event({
                 blocking = true,
                 func = function()
@@ -1094,9 +1084,7 @@ SMODS.Joker{ --DarkMagician
             end
         end
         if context.setting_blind and moc_ready then
-            local moc = create_card('Joker', G.jokers, nil, nil, nil, nil, 'j_giga_moc')
-            moc:set_edition('e_negative', true)
-            moc:add_to_deck()
+            SMODS.add_card{key = "j_giga_moc", edition = "e_negative"}
             G.jokers:emplace(moc)
             G.E_MANAGER:add_event(Event({
                 blocking = true,
@@ -1484,7 +1472,7 @@ SMODS.Joker{ --TLEI
     eternal_compat = true,
     no_collection = true,
     config = { extra = {
-        mult = 100,
+        mult = 50,
     }},
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
@@ -1497,7 +1485,7 @@ SMODS.Joker{ --TLEI
         if context.joker_main then
             return {
                 card = card,
-                xmult_mod = card.ability.extra.mult,
+                Xmult_mod = card.ability.extra.mult,
                 message = 'X' .. card.ability.extra.mult,
                 colour = G.C.MULT
             }
