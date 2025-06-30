@@ -447,9 +447,9 @@ SMODS.Joker{ --PaleoExpert
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        mult = 3,
-        s1mult = 8,
-        s2mult = 20,
+        mult = 4,
+        s1mult = 10,
+        s2mult = 25,
     }},
     loc_vars = function(self,info_queue,center)
         return{vars = {center.ability.extra.mult}}

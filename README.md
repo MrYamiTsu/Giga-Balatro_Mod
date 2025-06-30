@@ -39,6 +39,8 @@ Just download the zip file, extract it and place it in your Mod folder.
 - Left Arm of The Forbidden One : +80 Chips for every Heart
 - Right Arm of The Forbidden One : +80 Chips for every Diamond
 - Exodia The Forbidden One : +10 Chips for every card played
+- Paleontologist : +30 Chips for each Soil card
+- Paleo Expert : +4 Mult for each Soil card (no art yet)
 
 *Some Joker has secret interaction with other Jokers*
 *Their is some secret jokers*
@@ -59,6 +61,8 @@ Just download the zip file, extract it and place it in your Mod folder.
 ## Additionnals Infos
 
 If a whole asset is in comment, don't remove it from the comment. It's an idea and this may cause the game to crash.
+
+*I know the commit name are kinda weird*
 
 
 ## Credits
