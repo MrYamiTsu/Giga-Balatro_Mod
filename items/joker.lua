@@ -394,6 +394,94 @@ SMODS.Joker{ --JackMutator
     end
 }
 
+SMODS.Joker{ --Paleontologist
+    key = 'paleontologist',
+    atlas = 'Jokers',
+    pos = {x = 5, y = 3},
+    cost = 4,
+    rarity = 1,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        chips = 30,
+        s1chips = 75,
+        s2chips = 150,
+    }},
+    loc_vars = function(self,info_queue,center)
+        return{vars = {center.ability.extra.chips}}
+    end,
+    calculate = function(self,card,context)
+        if context.individual and context.cardarea == G.play then
+            if SMODS.has_enhancement(context.other_card, 'm_giga_soil') then
+                return {
+                    card = card,
+                    chips_mod = card.ability.extra.chips,
+                    message = '+' .. card.ability.extra.chips,
+                    colour = G.C.CHIPS
+                }
+            elseif SMODS.has_enhancement(context.other_card, 'm_giga_richSoil') then
+                return {
+                    card = card,
+                    chips_mod = card.ability.extra.s1chips,
+                    message = '+' .. card.ability.extra.s1chips,
+                    colour = G.C.CHIPS
+                }
+            elseif SMODS.has_enhancement(context.other_card, 'm_giga_fossilSoil') then
+                return {
+                    card = card,
+                    chips_mod = card.ability.extra.s2chips,
+                    message = '+' .. card.ability.extra.s2chips,
+                    colour = G.C.CHIPS
+                }
+            end
+        end
+    end
+}
+
+SMODS.Joker{ --PaleoExpert
+    key = 'paleoExpert',
+    atlas = 'Jokers',
+    pos = {x = 6, y = 3},
+    cost = 6,
+    rarity = 2,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        mult = 3,
+        s1mult = 8,
+        s2mult = 20,
+    }},
+    loc_vars = function(self,info_queue,center)
+        return{vars = {center.ability.extra.mult}}
+    end,
+    calculate = function(self,card,context)
+        if context.individual and context.cardarea == G.play then
+            if SMODS.has_enhancement(context.other_card, 'm_giga_soil') then
+                return {
+                    card = card,
+                    mult_mod = card.ability.extra.mult,
+                    message = '+' .. card.ability.extra.mult,
+                    colour = G.C.CHIPS
+                }
+            elseif SMODS.has_enhancement(context.other_card, 'm_giga_richSoil') then
+                return {
+                    card = card,
+                    mult_mod = card.ability.extra.s1mult,
+                    message = '+' .. card.ability.extra.s1mult,
+                    colour = G.C.CHIPS
+                }
+            elseif SMODS.has_enhancement(context.other_card, 'm_giga_fossilSoil') then
+                return {
+                    card = card,
+                    mult_mod = card.ability.extra.s2mult,
+                    message = '+' .. card.ability.extra.s2mult,
+                    colour = G.C.CHIPS
+                }
+            end
+        end
+    end
+}
+
 SMODS.Joker{ --PinkTourmaline
     key = 'pinkTourmaline',
     atlas = 'Jokers',
