@@ -47,6 +47,9 @@ SMODS.Enhancement({ --RichSoil
 	loc_vars = function(self, info_queue, card)
 		return {vars = { card.ability.extra.chips, card.ability.extra.mult}}
 	end,
+	in_pool = function(self) 
+		return false 
+	end,
 	calculate = function(self, card, context, effect)
 		if context.main_scoring and context.cardarea == G.play then
 			return {
@@ -77,6 +80,9 @@ SMODS.Enhancement({ --FossilSoil
     }},
 	loc_vars = function(self, info_queue, card)
 		return {vars = { card.ability.extra.chips, card.ability.extra.mult}}
+	end,
+	in_pool = function(self) 
+		return false 
 	end,
 	calculate = function(self, card, context, effect)
 		if context.main_scoring and context.cardarea == G.play then
