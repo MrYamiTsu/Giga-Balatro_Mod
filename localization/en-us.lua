@@ -253,6 +253,20 @@ return {
                 text = {
                     '{E:1}Unleash the Beast{}'
                 }
+            },
+            j_giga_paleontologist = {
+                name = 'Paleontologist',
+                text = {
+                    '{C:chips}+#1#{} Chips for each',
+                    '{C:dark_edition}Soil{} card played'
+                }
+            },
+            j_giga_paleoExpert = {
+                name = 'Paleo Expert',
+                text = {
+                    '{C:mult}+#1#{} Chips for each',
+                    '{C:dark_edition}Soil{} card played'
+                }
             }
         },
         Other={
