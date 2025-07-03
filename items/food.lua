@@ -145,17 +145,18 @@ SMODS.Consumable{ --CaesarSalad
         text = {
             'A delicious Caesar Salad that',
             'will give a {C:tarot}Tarot{} in {C:attention}#1#{} rounds',
-            '{C:inactive}Not ready yet{}'
+            '{C:inactive}#2#{}'
         }
     },
     rarity = 1,
     cost = 2,
     config = { extra = {
         round = 1,
-        round_left = 1
+        round_left = 1,
+        txt = 'Not ready yet'
     }},
     loc_vars = function (self,info_queue,center)
-        return{vars = {center.ability.extra.round}}
+        return{vars = {center.ability.extra.round, center.ability.extra.txt}}
     end,
     can_use = function (self,card)
         if card.ability.extra.round_left <= 0 and #G.consumeables.cards < G.consumeables.config.card_limit then
@@ -172,6 +173,9 @@ SMODS.Consumable{ --CaesarSalad
         if context.end_of_round then
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
+        if card.ability.extra.round_left <= 0 and #G.consumeables.cards then
+            card.ability.extra.txt = 'Ready'
+        end
     end
 }
 
@@ -186,17 +190,18 @@ SMODS.Consumable{ --ClubSandwich
         text = {
             'A delicious Club Sandwich that',
             'will give a {C:planet}Planet{} in {C:attention}#1#{} rounds',
-            '{C:inactive}Not ready yet{}'
+            '{C:inactive}#2#{}'
         }
     },
     rarity = 1,
     cost = 2,
     config = { extra = {
         round = 1,
-        round_left = 1
+        round_left = 1,
+        txt = 'Not ready yet'
     }},
     loc_vars = function (self,info_queue,center)
-        return{vars = {center.ability.extra.round}}
+        return{vars = {center.ability.extra.round, center.ability.extra.txt}}
     end,
     can_use = function (self,card)
         if card.ability.extra.round_left <= 0 and #G.consumeables.cards < G.consumeables.config.card_limit then
@@ -213,6 +218,9 @@ SMODS.Consumable{ --ClubSandwich
         if context.end_of_round then
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
+        if card.ability.extra.round_left <= 0 and #G.consumeables.cards then
+            card.ability.extra.txt = 'Ready'
+        end
     end
 }
 
@@ -227,17 +235,18 @@ SMODS.Consumable{ --Pho
         text = {
             'A delicious Pho that will give a',
             '{C:spectral}Spectral{} card in {C:attention}#1#{} rounds',
-            '{C:inactive}Not ready yet{}'
+            '{C:inactive}#2#{}'
         }
     },
     rarity = 2,
     cost = 2,
     config = { extra = {
         round = 2,
-        round_left = 2
+        round_left = 2,
+        txt = 'Not ready yet'
     }},
     loc_vars = function (self,info_queue,center)
-        return{vars = {center.ability.extra.round}}
+        return{vars = {center.ability.extra.round, center.ability.extra.txt}}
     end,
     can_use = function (self,card)
         if card.ability.extra.round_left <= 0 and #G.consumeables.cards < G.consumeables.config.card_limit then
@@ -253,6 +262,9 @@ SMODS.Consumable{ --Pho
     calculate = function (self,card,context)
         if context.end_of_round then
             card.ability.extra.round_left = card.ability.extra.round_left - 1
+        end
+        if card.ability.extra.round_left <= 0 and #G.consumeables.cards then
+            card.ability.extra.txt = 'Ready'
         end
     end
 }
@@ -324,7 +336,7 @@ SMODS.Consumable{ --Steak
         card = 1
     }},
     loc_vars = function (self,info_queue,center)
-        info_queue[#info_queue+1] = G.P_CENTERS.m_bonus
+        info_queue[#info_queue+1] = G.P_CENTERS.m_stone
         return{vars = {center.ability.extra.card}}
     end,
     can_use = function (self,card)
