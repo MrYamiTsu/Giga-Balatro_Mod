@@ -40,40 +40,40 @@ Just download the zip file, extract it and place it in your Mod folder.
 - Right Arm of The Forbidden One : +80 Chips for every Diamond
 - Exodia The Forbidden One : +10 Chips for every card played
 - Paleontologist : +30 Chips for each Soil card
-- Paleo Expert : +4 Mult for each Soil card (no art yet)
+- Paleo Expert : +4 Mult for each Soil card
 
-*Some Joker has secret interaction with other Jokers*
-*Their is some secret jokers*
+*Some Joker has secret interaction with other Jokers.*
+*Their is some secret jokers.*
 
 
 **Food (New consumable type)**
 - Tacos : Give 3$
 - Guacamole : Draw 2 cards
 - Hot-Dog : Enhance 1 card in Soil
-- Caesar Salad : Give a Tarot after 1 round (art isn't done)
-- Club Sandwich : Give a Planet after 1 round (art isn't done)
+- Caesar Salad : Give a Tarot after 1 round
+- Club Sandwich : Give a Planet after 1 round
 - Pho : Give a Spectral after 2 round (art isn't done)
 - Spaghetti : Enhance 1 card into Bonus (art isn't done)
 - Steak : Enhance 1 card into Stone (art isn't done)
 
 
 **Booster**
-- Restaurant Pack : Choose 1 of up to 3 Food card
-- Jumbo Restaurant Pack : Choose 1 of up to 5 Food card
-- Mega Restaurant Pack : Choose 2 of up to 5 Food card
+- Restaurant Pack : Choose 1 of up to 3 Food card (art isn't done)
+- Jumbo Restaurant Pack : Choose 1 of up to 5 Food card (art isn't done)
+- Mega Restaurant Pack : Choose 2 of up to 5 Food card (art isn't done)
 
 
 **Enhancement**
 - Soil : X1.1 Chips
 
-*Their is some secret enhancements*
+*Their is some secret enhancements.*
 
 
 ## Additionnals Infos
 
 If a whole asset is in comment, don't remove it from the comment. It's an idea and this may cause the game to crash.
 
-*I know the commit name are kinda weird*
+*I know the commit names are kinda weird.*
 
 
 ## Credits
