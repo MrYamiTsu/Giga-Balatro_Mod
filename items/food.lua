@@ -166,11 +166,14 @@ SMODS.Consumable{ --CaesarSalad
     end,
     use = function (self,card,area,copier)
         local tarot = create_card('Tarot',G.consumeables, nil, nil, nil, nil, nil, 'createTarot')
+        if card.edition and card.edition.type == 'negative' then
+            tarot:set_edition('e_negative', true)
+        end
         tarot:add_to_deck()
         G.consumeables:emplace(tarot)
     end,
     calculate = function (self,card,context)
-        if context.end_of_round then
+        if context.end_of_round and context.main_eval then
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
         if card.ability.extra.round_left <= 0 and #G.consumeables.cards then
@@ -184,7 +187,7 @@ SMODS.Consumable{ --ClubSandwich
     set = 'food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 4, y = 0},
+    soul_pos = {x = 5, y = 0},
     loc_txt = {
         name = 'Club Sandwich',
         text = {
@@ -211,11 +214,14 @@ SMODS.Consumable{ --ClubSandwich
     end,
     use = function (self,card,area,copier)
         local planet = create_card('Planet',G.consumeables, nil, nil, nil, nil, nil, 'createPlanet')
+        if card.edition and card.edition.type == 'negative' then
+            planet:set_edition('e_negative', true)
+        end
         planet:add_to_deck()
         G.consumeables:emplace(planet)
     end,
     calculate = function (self,card,context)
-        if context.end_of_round then
+        if context.end_of_round and context.main_eval then
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
         if card.ability.extra.round_left <= 0 and #G.consumeables.cards then
@@ -256,11 +262,14 @@ SMODS.Consumable{ --Pho
     end,
     use = function (self,card,area,copier)
         local spectral = create_card('Spectral',G.consumeables, nil, nil, nil, nil, nil, 'createSpectral')
+        if card.edition and card.edition.type == 'negative' then
+            spectral:set_edition('e_negative', true)
+        end
         spectral:add_to_deck()
         G.consumeables:emplace(spectral)
     end,
     calculate = function (self,card,context)
-        if context.end_of_round then
+        if context.end_of_round and context.main_eval then
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
         if card.ability.extra.round_left <= 0 and #G.consumeables.cards then

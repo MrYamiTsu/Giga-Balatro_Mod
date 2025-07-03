@@ -105,8 +105,10 @@ return {
             j_giga_shreddedAce = {
                 name = 'Shredded Ace',
                 text = {
-                    'Create an {C:attention}Ace{} when blind is selected',
-                    '{C:mult}+#1#{} Mult for each {C:attention}Ace{} played'
+                    'Create an {C:attention}Ace{} when',
+                    'blind is selected',
+                    '{C:mult}+#1#{} Mult for each',
+                    '{C:attention}Ace{} played'
                 }
             },
             j_giga_pteranodon = {
@@ -121,7 +123,7 @@ return {
                 name = 'Pablo',
                 text = {
                     'Each other round, Pablo cook',
-                    'some Mexican food for you',
+                    'some Mexican {V:1}Food{} for you',
                     '{C:inactive}(Currently: {C:attention}#1#{C:inactive} round left)',
                     '{C:inactive}(Must have room)'
                 }
@@ -270,6 +272,16 @@ return {
             }
         },
         Other={
+            --Undiscovered
+            undiscovered_food = {
+                name = "Not Discovered",
+                text = {
+                    "Purchase or use",
+                    "this card in an",
+                    "unseeded run to",
+                    "learn what it does"
+                }
+            },
             -- Credit
             ledugs_credit = {
                 name = "Credit",
