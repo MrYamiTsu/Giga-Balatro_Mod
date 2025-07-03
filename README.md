@@ -47,9 +47,20 @@ Just download the zip file, extract it and place it in your Mod folder.
 
 
 **Food (New consumable type)**
-- Tacos : give 3$
-- Guacamole : draw 2 cards
-- Hot-Dog : Enhance 1 card in soil *Unoptainable right now
+- Tacos : Give 3$
+- Guacamole : Draw 2 cards
+- Hot-Dog : Enhance 1 card in Soil
+- Caesar Salad : Give a Tarot after 1 round (art isn't done)
+- Club Sandwich : Give a Planet after 1 round (art isn't done)
+- Pho : Give a Spectral after 2 round (art isn't done)
+- Spaghetti : Enhance 1 card into Bonus (art isn't done)
+- Steak : Enhance 1 card into Stone (art isn't done)
+
+
+**Booster**
+- Restaurant Pack : Choose 1 of up to 3 Food card
+- Jumbo Restaurant Pack : Choose 1 of up to 5 Food card
+- Mega Restaurant Pack : Choose 2 of up to 5 Food card
 
 
 **Enhancement**

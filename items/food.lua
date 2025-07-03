@@ -19,7 +19,7 @@ SMODS.Consumable{ --Tacos
     loc_txt = {
         name = 'Tacos',
         text = {
-            'A delicious tacos that',
+            'A delicious Tacos that',
             'gives you {C:money}$#1#{}'
         }
     },
@@ -48,7 +48,7 @@ SMODS.Consumable{ --Guacamole
     loc_txt = {
         name = 'Guacamole',
         text = {
-            'A delicious guacamole that',
+            'A delicious Guacamole that',
             'makes you draw {C:attention}#1#{} card',
         }
     },
@@ -89,7 +89,7 @@ SMODS.Consumable{ --HotDog
     loc_txt = {
         name = 'Hot-Dog',
         text = {
-            'A delicious hot-dog that',
+            'A delicious Hot-Dog that',
             'enhance {C:attention}#1#{} card',
             'into {C:dark_edition}Soil{}',
             '{s:0.5}"I wonder what could happen if its already soil"{}'
@@ -121,6 +121,223 @@ SMODS.Consumable{ --HotDog
             else
                 selected_card:set_ability(G.P_CENTERS["m_giga_soil"])
             end
+            G.E_MANAGER:add_event(Event({
+				trigger = "after",
+				delay = 0.2,
+				func = function()
+					G.hand:unhighlight_all()
+					return true
+				end,
+			}))
+			delay(0.5)
+		end
+    end
+}
+
+SMODS.Consumable{ --CaesarSalad
+    key = 'caesarSalad',
+    set = 'food',
+    atlas = 'Foods',
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 4, y = 0},
+    loc_txt = {
+        name = 'Caesar Salad',
+        text = {
+            'A delicious Caesar Salad that',
+            'will give a {C:tarot}Tarot{} in {C:attention}#1#{} rounds',
+            '{C:inactive}Not ready yet{}'
+        }
+    },
+    rarity = 1,
+    cost = 2,
+    config = { extra = {
+        round = 1,
+        round_left = 1
+    }},
+    loc_vars = function (self,info_queue,center)
+        return{vars = {center.ability.extra.round}}
+    end,
+    can_use = function (self,card)
+        if card.ability.extra.round_left <= 0 and #G.consumeables.cards < G.consumeables.config.card_limit then
+            return true
+        end
+        return false
+    end,
+    use = function (self,card,area,copier)
+        local tarot = create_card('Tarot',G.consumeables, nil, nil, nil, nil, nil, 'createTarot')
+        tarot:add_to_deck()
+        G.consumeables:emplace(tarot)
+    end,
+    calculate = function (self,card,context)
+        if context.end_of_round then
+            card.ability.extra.round_left = card.ability.extra.round_left - 1
+        end
+    end
+}
+
+SMODS.Consumable{ --ClubSandwich
+    key = 'clubSandwich',
+    set = 'food',
+    atlas = 'Foods',
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 4, y = 0},
+    loc_txt = {
+        name = 'Club Sandwich',
+        text = {
+            'A delicious Club Sandwich that',
+            'will give a {C:planet}Planet{} in {C:attention}#1#{} rounds',
+            '{C:inactive}Not ready yet{}'
+        }
+    },
+    rarity = 1,
+    cost = 2,
+    config = { extra = {
+        round = 1,
+        round_left = 1
+    }},
+    loc_vars = function (self,info_queue,center)
+        return{vars = {center.ability.extra.round}}
+    end,
+    can_use = function (self,card)
+        if card.ability.extra.round_left <= 0 and #G.consumeables.cards < G.consumeables.config.card_limit then
+            return true
+        end
+        return false
+    end,
+    use = function (self,card,area,copier)
+        local planet = create_card('Planet',G.consumeables, nil, nil, nil, nil, nil, 'createPlanet')
+        planet:add_to_deck()
+        G.consumeables:emplace(planet)
+    end,
+    calculate = function (self,card,context)
+        if context.end_of_round then
+            card.ability.extra.round_left = card.ability.extra.round_left - 1
+        end
+    end
+}
+
+SMODS.Consumable{ --Pho
+    key = 'pho',
+    set = 'food',
+    atlas = 'Foods',
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 6, y = 0},
+    loc_txt = {
+        name = 'Pho',
+        text = {
+            'A delicious Pho that will give a',
+            '{C:spectral}Spectral{} card in {C:attention}#1#{} rounds',
+            '{C:inactive}Not ready yet{}'
+        }
+    },
+    rarity = 2,
+    cost = 2,
+    config = { extra = {
+        round = 2,
+        round_left = 2
+    }},
+    loc_vars = function (self,info_queue,center)
+        return{vars = {center.ability.extra.round}}
+    end,
+    can_use = function (self,card)
+        if card.ability.extra.round_left <= 0 and #G.consumeables.cards < G.consumeables.config.card_limit then
+            return true
+        end
+        return false
+    end,
+    use = function (self,card,area,copier)
+        local spectral = create_card('Spectral',G.consumeables, nil, nil, nil, nil, nil, 'createSpectral')
+        spectral:add_to_deck()
+        G.consumeables:emplace(spectral)
+    end,
+    calculate = function (self,card,context)
+        if context.end_of_round then
+            card.ability.extra.round_left = card.ability.extra.round_left - 1
+        end
+    end
+}
+
+SMODS.Consumable{ --Spaghetti
+    key = 'spaghetti',
+    set = 'food',
+    atlas = 'Foods',
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 0, y = 1},
+    loc_txt = {
+        name = 'Spaghetti',
+        text = {
+            'A delicious Spaghetti that',
+            'enhance {C:attention}#1#{} card',
+            'into {C:dark_edition}Bonus{}'
+        }
+    },
+    rarity = 1,
+    cost = 2,
+    config = { extra = {
+        card = 1
+    }},
+    loc_vars = function (self,info_queue,center)
+        info_queue[#info_queue+1] = G.P_CENTERS.m_bonus
+        return{vars = {center.ability.extra.card}}
+    end,
+    can_use = function (self,card)
+        if G and G.hand then
+			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
+				return true
+			end
+		end
+		return false
+    end,
+    use = function (self,card,area,copier)
+        for i, selected_card in pairs(G.hand.highlighted) do
+            selected_card:set_ability(G.P_CENTERS["m_bonus"])
+            G.E_MANAGER:add_event(Event({
+				trigger = "after",
+				delay = 0.2,
+				func = function()
+					G.hand:unhighlight_all()
+					return true
+				end,
+			}))
+			delay(0.5)
+		end
+    end
+}
+
+SMODS.Consumable{ --Steak
+    key = 'steak',
+    set = 'food',
+    atlas = 'Foods',
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 1, y = 1},
+    loc_txt = {
+        name = 'Steak',
+        text = {
+            'A delicious Steak that',
+            'enhance {C:attention}#1#{} card',
+            'into {C:dark_edition}Stone{}'
+        }
+    },
+    rarity = 1,
+    cost = 2,
+    config = { extra = {
+        card = 1
+    }},
+    loc_vars = function (self,info_queue,center)
+        info_queue[#info_queue+1] = G.P_CENTERS.m_bonus
+        return{vars = {center.ability.extra.card}}
+    end,
+    can_use = function (self,card)
+        if G and G.hand then
+			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
+				return true
+			end
+		end
+		return false
+    end,
+    use = function (self,card,area,copier)
+        for i, selected_card in pairs(G.hand.highlighted) do
+            selected_card:set_ability(G.P_CENTERS["m_stone"])
             G.E_MANAGER:add_event(Event({
 				trigger = "after",
 				delay = 0.2,

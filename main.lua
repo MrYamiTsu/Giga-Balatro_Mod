@@ -1,6 +1,7 @@
-SMODS.load_file("items/joker.lua")()
-SMODS.load_file("items/food.lua")()
+SMODS.load_file("items/booster.lua")()
 SMODS.load_file("items/enhancement.lua")()
+SMODS.load_file("items/food.lua")()
+SMODS.load_file("items/joker.lua")()
 
 SMODS.Atlas{
     key = "modicon", 
@@ -26,6 +27,13 @@ SMODS.Atlas{
 SMODS.Atlas{
     key = 'Enhancements',
     path = 'Enhancement.png',
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas{
+    key = 'Boosters',
+    path = 'Boosters.png',
     px = 71,
     py = 95
 }

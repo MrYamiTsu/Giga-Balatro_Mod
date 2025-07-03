@@ -327,7 +327,9 @@ return {
         blind_stakes={},
         challenge_names={},
         collabs={},
-        dictionary={},
+        dictionary={
+            k_restaurant_pack = "Restaurant Pack"
+        },
         high_scores={},
         labels={},
         poker_hand_descriptions={},

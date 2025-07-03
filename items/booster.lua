@@ -1,0 +1,103 @@
+SMODS.Booster { --Normal1
+    key = 'restaurantPackNormal1',
+    atlas = 'Boosters',
+    pos = {x = 0, y = 0},
+    loc_txt = {
+        name = 'Restaurant Pack',
+        text = {
+            "Choose {C:attention}#1#{} of up to",
+            "{C:attention}#2#{V:1} Food{} cards to",
+            "add to your consumeables"
+        }
+    },
+    cost = 2,
+    config = {extra = 3, choose = 1},
+    loc_vars = function (self,info_queue,center)
+        return{vars = {center.ability.choose, center.ability.extra, colours={HEX('F7070BFF')}}}
+    end,
+    group_key = 'k_restaurant_pack',
+    create_card = function(self, card, i)
+        return {set = "food", area = G.pack_cards, skip_materialize = true, soulable = true, key_append = "giga"}
+    end,
+    select_card = "consumeables",
+    weight = 0.15,
+    kind = 'Food'
+}
+
+SMODS.Booster { --Normal2
+    key = 'restaurantPackNormal2',
+    atlas = 'Boosters',
+    pos = {x = 1, y = 0},
+   loc_txt = {
+        name = 'Restaurant Pack',
+        text = {
+            "Choose {C:attention}#1#{} of up to",
+            "{C:attention}#2#{V:1} Food{} cards to",
+            "add to your consumeables"
+        }
+    },
+    cost = 2,
+    config = {extra = 3, choose = 1},
+    loc_vars = function (self,info_queue,center)
+        return{vars = {center.ability.choose, center.ability.extra, colours={HEX('F7070BFF')}}}
+    end,
+    group_key = 'k_restaurant_pack',
+    create_card = function(self, card, i)
+        return {set = "food", area = G.pack_cards, skip_materialize = true, soulable = true, key_append = "giga"}
+    end,
+    select_card = "consumeables",
+    weight = 0.15,
+    kind = 'Food'
+}
+
+SMODS.Booster { --Jumbo
+    key = 'restaurantPackJumbo',
+    atlas = 'Boosters',
+    pos = {x = 2, y = 0},
+    loc_txt = {
+        name = 'Jumbo Restaurant Pack',
+        text = {
+            "Choose {C:attention}#1#{} of up to",
+            "{C:attention}#2#{V:1} Food{} cards to",
+            "add to your consumeables"
+        }
+    },
+    cost = 3,
+    config = {extra = 5, choose = 1},
+    loc_vars = function (self,info_queue,center)
+        return{vars = {center.ability.choose, center.ability.extra, colours={HEX('F7070BFF')}}}
+    end,
+    group_key = 'k_restaurant_pack',
+    create_card = function(self, card, i)
+        return {set = "food", area = G.pack_cards, skip_materialize = true, soulable = true, key_append = "giga"}
+    end,
+    select_card = "consumeables",
+    weight = 0.12,
+    kind = 'Food'
+}
+
+SMODS.Booster { --Mega
+    key = 'restaurantPackMega',
+    atlas = 'Boosters',
+    pos = {x = 3, y = 0},
+    loc_txt = {
+        name = 'Mega Restaurant Pack',
+        text = {
+            "Choose {C:attention}#1#{} of up to",
+            "{C:attention}#2#{V:1} Food{} cards to",
+            "add to your consumeables"
+        }
+    },
+    cost = 4,
+    config = {extra = 5, choose = 2},
+    loc_vars = function (self,info_queue,center)
+        return{vars = {center.ability.choose, center.ability.extra, colours={HEX('F7070BFF')}}}
+    end,
+    group_key = 'k_restaurant_pack',
+    create_card = function(self, card, i)
+        return {set = "food", area = G.pack_cards, skip_materialize = true, soulable = true, key_append = "giga"}
+    end,
+    select_card = "consumeables",
+    weight = 0.08,
+    kind = 'Food'
+}
