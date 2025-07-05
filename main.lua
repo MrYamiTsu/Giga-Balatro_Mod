@@ -3,6 +3,10 @@ SMODS.load_file("items/enhancement.lua")()
 SMODS.load_file("items/food.lua")()
 SMODS.load_file("items/joker.lua")()
 
+if next(SMODS.find_mod("Cryptid")) then
+	SMODS.load_file("items/CrossMod/cryptid.lua")()
+end
+
 SMODS.Atlas{
     key = "modicon", 
     path = "modicon.png", 

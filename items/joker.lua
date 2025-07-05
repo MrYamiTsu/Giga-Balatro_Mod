@@ -17,8 +17,7 @@ SMODS.Joker{ --CashPass
     calculate = function(self,card,context)
         if context.setting_blind then
             return {
-                dollars = cash,
-                message = localize{type='variable',key='a_cash',vars={card.ability.extra.cash}}
+                dollars = card.ability.extra.cash,
             }
         end
 
@@ -206,7 +205,7 @@ SMODS.Joker{ --SnapchatGirl
                     SMODS.add_card({set = 'Joker', rarity = 'Legendary'})
                 else
                     return {
-                        dollars = card.ability.extra.cash
+                        dollars = card.ability.extra.cash,
                     }
                 end
             end  
@@ -478,6 +477,50 @@ SMODS.Joker{ --PaleoExpert
                     colour = G.C.CHIPS
                 }
             end
+        end
+    end
+}
+
+SMODS.Joker{ --Refinery
+    key = 'refinery',
+    atlas = 'Jokers',
+    pos = {x = 7, y = 3},
+    cost = 5,
+    rarity = 1,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        cash = 4,
+        cashNow = 0
+    }},
+    loc_vars = function(self,info_queue,center)
+        info_queue[#info_queue+1] = G.P_CENTERS.m_stone
+        return{vars = {center.ability.extra.cash, center.ability.extra.cashNow}}
+    end,
+    calculate = function(self,card,context)
+        if context.individual and context.cardarea == G.play and not context.blueprint then
+            if SMODS.has_enhancement(context.other_card, 'm_stone')then
+                card.ability.extra.cashNow = card.ability.extra.cashNow + card.ability.extra.cash
+                return {
+                    message_card = card,
+                    message = 'Upgraded',
+                    colour = G.C.MONEY
+                }
+            else
+                if card.ability.extra.cashNow ~= 0 then
+                    card.ability.extra.cashNow = 0
+                    return {
+                        message_card = card,
+                        message = 'Reset',
+                        colour = G.C.MULT
+                    }
+                end
+            end
+        end
+        if context.end_of_round and context.main_eval then
+            return {
+                dollars = card.ability.extra.cashNow,
+            }
         end
     end
 }
@@ -809,7 +852,6 @@ SMODS.Joker{ --Pteranodon
                 end
                 return {
                     dollars = card.ability.extra.cash,
-                    message = localize{type='variable',key='a_cash',vars={card.ability.extra.cash}}
                 }
             end
         end

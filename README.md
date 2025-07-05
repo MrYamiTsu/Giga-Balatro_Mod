@@ -1,6 +1,6 @@
 # GIGA
 
-Some random addition for Balatro. Some assets work weirdly sometimes
+Some random addition for Balatro. Some assets work weirdly sometimes.
 
 
 ## Installation
@@ -10,6 +10,11 @@ Can be useful to have [Talisman](https://github.com/SpectralPack/Talisman) too.
 
 Just download the zip file, extract it and place it in your Mod folder.
 
+
+## Cross-Mod
+
+Their is some extra asset if you have some other mods. Here is a list :
+- [Cryptid](https://github.com/SpectralPack/Cryptid)
 
 ## Assets
 
@@ -41,6 +46,7 @@ Just download the zip file, extract it and place it in your Mod folder.
 - Exodia The Forbidden One : +10 Chips for every card played
 - Paleontologist : +30 Chips for each Soil card
 - Paleo Expert : +4 Mult for each Soil card
+- Refinery : 4$ for each consecutive Stone card in the round, reset otherwise (no art yet)
 
 *Some Joker has secret interaction with other Jokers.*
 *Their is some secret jokers.*
@@ -55,6 +61,9 @@ Just download the zip file, extract it and place it in your Mod folder.
 - Pho : Give a Spectral after 2 round (art isn't done)
 - Spaghetti : Enhance 1 card into Bonus (art isn't done)
 - Steak : Enhance 1 card into Stone (art isn't done)
+
+Only with Cryptid
+- Hawaiian Pizza : Give a Code after 1 round
 
 
 **Booster**

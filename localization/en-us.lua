@@ -269,6 +269,15 @@ return {
                     '{C:mult}+#1#{} Chips for each',
                     '{C:dark_edition}Soil{} card played'
                 }
+            },
+            j_giga_refinery = {
+                name = 'Refinery',
+                text = {
+                    'Earn {C:money}$#1#{} for each consecutive',
+                    '{C:dark_edition}Stone{} card played at the end of',
+                    'the round. Reset otherwise',
+                    '{C:inactive}Curently: {C:money}$#2#{}'
+                }
             }
         },
         Other={
