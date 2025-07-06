@@ -61,9 +61,10 @@ Their is some extra asset if you have some other mods. Here is a list :
 - Pho : Give a Spectral after 2 round (art isn't done)
 - Spaghetti : Enhance 1 card into Bonus (art isn't done)
 - Steak : Enhance 1 card into Stone (art isn't done)
+- Birthday Cake : +1 Consumable slot after one round
 
 Only with Cryptid
-- Hawaiian Pizza : Give a Code after 1 round
+- Hawaiian Pizza : Give a Code after 1 round (art isn't done)
 
 
 **Booster**

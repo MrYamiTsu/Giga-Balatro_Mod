@@ -371,3 +371,54 @@ SMODS.Consumable{ --Steak
 		end
     end
 }
+
+SMODS.Consumable{ --BirthdayCake
+    key = 'birthdayCake',
+    set = 'food',
+    atlas = 'Foods',
+    pos = {x = 2, y = 1},
+    soul_pos = {x = 3, y = 1},
+    loc_txt = {
+        name = 'Birthday Cake',
+        text = {
+            'A delicious Birthday Cake that will',
+            'permanently give you {C:attention}+#1#{} Consumable',
+            'slot in {C:attention}#2#{} rounds',
+            '{C:inactive}#3#{}'
+        }
+    },
+    rarity = 4,
+    hidden = true,
+    cost = 4,
+    config = { extra = {
+        round = 1,
+        round_left = 1,
+        consumSlot = 1,
+        txt = 'Not ready yet'
+    }},
+    loc_vars = function (self,info_queue,center)
+        return{vars = {center.ability.extra.consumSlot, center.ability.extra.round, center.ability.extra.txt}}
+    end,
+    can_use = function (self,card)
+		if card.ability.extra.round_left <= 0 then
+            return true
+        end
+        return false
+    end,
+    use = function (self,card,area,copier)
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                G.consumeables.config.card_limit = G.consumeables.config.card_limit + 1
+                return true
+            end
+        }))
+    end,
+    calculate = function (self,card,context)
+        if context.end_of_round and context.main_eval then
+            card.ability.extra.round_left = card.ability.extra.round_left - 1
+        end
+        if card.ability.extra.round_left <= 0 and #G.consumeables.cards then
+            card.ability.extra.txt = 'Ready'
+        end
+    end
+}

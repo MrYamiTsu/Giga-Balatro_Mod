@@ -3,7 +3,7 @@ SMODS.Consumable{ --HawaiianPizza
     set = 'food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 2, y = 1},
+    soul_pos = {x = 4, y = 1},
     loc_txt = {
         name = 'Hawaiian Pizza',
         text = {
