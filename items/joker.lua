@@ -1215,7 +1215,6 @@ SMODS.Joker{ --DarkMagician
         end
         if context.setting_blind and moc_ready then
             SMODS.add_card{key = "j_giga_moc", edition = "e_negative"}
-            G.jokers:emplace(moc)
             G.E_MANAGER:add_event(Event({
                 blocking = true,
                 func = function()
