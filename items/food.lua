@@ -107,7 +107,16 @@ SMODS.Consumable{ --HotDog
     can_use = function (self,card)
         if G and G.hand then
 			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
-				return true
+                local check = false
+                for i, selected_card in pairs(G.hand.highlighted) do
+                    if SMODS.has_enhancement(selected_card, 'm_giga_fossilSoil') then
+                        check = true
+                        break
+                    end
+                end
+                if not check then
+                    return true
+                end
 			end
 		end
 		return false

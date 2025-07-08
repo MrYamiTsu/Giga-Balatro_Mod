@@ -1002,6 +1002,7 @@ SMODS.Joker{ --BYUD
     loc_vars = function(self,info_queue,center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
         info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
+        info_queue[#info_queue+1] = {set = 'Other', key = 'byud_effect'}
     end,
     calculate = function(self,card,context)
         local dmk_ready = false
@@ -1079,6 +1080,7 @@ SMODS.Joker{ --DMK
     }},
     loc_vars = function(self,info_queue,center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
+        info_queue[#info_queue+1] = {set = 'Other', key = 'dmk_effect'}
     end,
     calculate = function(self,card,context)
         if context.individual and context.cardarea == G.play then
@@ -1274,6 +1276,7 @@ SMODS.Joker{ --MOC
     }},
     loc_vars = function(self,info_queue,center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
+        info_queue[#info_queue+1] = {set = 'Other', key = 'moc_effect'}
     end,
     calculate = function(self,card,context)
         if context.individual and context.cardarea == G.play then
@@ -1606,6 +1609,7 @@ SMODS.Joker{ --TLEI
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
         info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
+        info_queue[#info_queue+1] = {set = 'Other', key = 'tlei_effect'}
     end,
     calculate = function(self, card, context)
         if G.GAME.blind.boss and not G.GAME.blind.disabled then

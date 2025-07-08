@@ -310,21 +310,56 @@ return {
             soil_def = {
                 name = "Soil",
                 text = {
-                    "{X:chips,C:white}X1.1{} Chips"
+                    '{X:chips,C:white}X1.1{} Chips'
                 }
             },
             richSoil_def = {
                 name = "Rich Soil",
                 text = {
-                    "{X:chips,C:white}X#1.4{} Chips",
-                    "{C:mult}+7{} Mult"
+                    '{X:chips,C:white}X#1.4{} Chips',
+                    '{C:mult}+7{} Mult'
                 }
             },
             fossilSoil_def = {
                 name = "Fossil Soil",
                 text = {
-                    "{X:chips,C:white}X2{} Chips",
-                    "{X:mult,C:white}X1.5{} Mult"
+                    '{X:chips,C:white}X2{} Chips',
+                    '{X:mult,C:white}X1.5{} Mult'
+                }
+            },
+            -- Secret Joker
+            byud_effect = {
+                name = 'Effects',
+                text = {
+                    '{C:mult}+50{} Mult for each card',
+                    '{X:mult,C:white}X1.5{} Mult for each {C:clubs}Club{}',
+                    '{X:mult,C:white}X4{} Mult for card that',
+                    'equal or over {C:attention}8{}'
+                }
+            },
+            dmk_effect = {
+                name = 'Effects',
+                text = {
+                    '{C:mult}+80{} Mult for each card',
+                    '{X:mult,C:white}X2.5{} Mult for each {C:clubs}Club{}',
+                    '{X:mult,C:white}X6{} Mult for card that',
+                    'equal or over {C:attention}7{}'
+                }
+            },
+            moc_effect = {
+                name = 'Effects',
+                text = {
+                    '{C:mult}+15{} Mult for each card',
+                    '{C:mult}+25{} Mult for each {C:diamonds}Diamond{}',
+                    '{X:mult,C:white}X3{} Mult for card that',
+                    'equal or under {C:attention}9{}'
+                }
+            },
+            tlei_effect = {
+                name = 'Effects',
+                text = {
+                    'Disable the {C:attention}Boss Blind{}',
+                    '{X:mult,C:white}X50{} Mult'
                 }
             }
 
