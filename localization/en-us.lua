@@ -369,11 +369,32 @@ return {
         Stake={},
         Tag={},
         Tarot={},
-        Voucher={},
+        Voucher={
+            v_giga_newMenu = {
+                name = 'New Menu',
+                text = {
+                    'Restaurant Pack have',
+                    '{C:attention}#1#{} more choice'
+                }
+            },
+            v_giga_foodTruck = {
+                name = 'Food Truck',
+                text = {
+                    '{V:1}Food{} cards can',
+                    'appear in the {C:attention}shop'
+                }
+            },
+            v_giga_homeDelivery = {
+                name = 'Home Delivery',
+                text = {
+                    "{V:1}Food{} cards appear",
+                    "{C:attention}2.5X{} more frequently"
+                }
+            }
+        },
         ["Content Set"] = {
             set_giga_megaLegendary = {
                 name = "Mega Legendary",
-                text = {}
             }   
         }
     },

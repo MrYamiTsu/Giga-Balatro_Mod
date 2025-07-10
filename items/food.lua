@@ -91,7 +91,7 @@ SMODS.Consumable{ --HotDog
         text = {
             'A delicious Hot-Dog that',
             'enhance {C:attention}#1#{} card',
-            'into {C:dark_edition}Soil{}',
+            'into {C:dark_edition}Soil{} card',
             '{s:0.5}"I wonder what could happen if its already soil"{}'
         }
     },
@@ -298,7 +298,7 @@ SMODS.Consumable{ --Spaghetti
         text = {
             'A delicious Spaghetti that',
             'enhance {C:attention}#1#{} card',
-            'into {C:dark_edition}Bonus{}'
+            'into {C:dark_edition}Bonus{} card'
         }
     },
     rarity = 1,
@@ -345,7 +345,7 @@ SMODS.Consumable{ --Steak
         text = {
             'A delicious Steak that',
             'enhance {C:attention}#1#{} card',
-            'into {C:dark_edition}Stone{}'
+            'into {C:dark_edition}Stone{} card'
         }
     },
     rarity = 1,
@@ -378,6 +378,424 @@ SMODS.Consumable{ --Steak
 			}))
 			delay(0.5)
 		end
+    end
+}
+
+SMODS.Consumable{ --Sushis
+    key = 'sushis',
+    set = 'food',
+    atlas = 'Foods',
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 5, y = 1},
+    loc_txt = {
+        name = 'Sushis',
+        text = {
+            'Some delicious Sushis that',
+            'enhance {C:attention}#1#{} card',
+            'into a {C:dark_edition}Mult{} card'
+        }
+    },
+    rarity = 1,
+    cost = 2,
+    config = { extra = {
+        card = 1
+    }},
+    loc_vars = function (self,info_queue,center)
+        info_queue[#info_queue+1] = G.P_CENTERS.m_mult
+        return{vars = {center.ability.extra.card}}
+    end,
+    can_use = function (self,card)
+        if G and G.hand then
+			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
+				return true
+			end
+		end
+		return false
+    end,
+    use = function (self,card,area,copier)
+        for i, selected_card in pairs(G.hand.highlighted) do
+            selected_card:set_ability(G.P_CENTERS["m_mult"])
+            G.E_MANAGER:add_event(Event({
+				trigger = "after",
+				delay = 0.2,
+				func = function()
+					G.hand:unhighlight_all()
+					return true
+				end,
+			}))
+			delay(0.5)
+		end
+    end
+}
+
+SMODS.Consumable{ --[Untitled1]
+    key = '[Untitled1]',
+    set = 'food',
+    atlas = 'Foods',
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 5, y = 1},
+    loc_txt = {
+        name = '[Untitled]',
+        text = {
+            'Some delicious [Untitled] that',
+            'enhance {C:attention}#1#{} card',
+            'into a {C:dark_edition}Lucky{} card'
+        }
+    },
+    rarity = 1,
+    cost = 2,
+    config = { extra = {
+        card = 1
+    }},
+    loc_vars = function (self,info_queue,center)
+        info_queue[#info_queue+1] = G.P_CENTERS.m_lucky
+        return{vars = {center.ability.extra.card}}
+    end,
+    can_use = function (self,card)
+        if G and G.hand then
+			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
+				return true
+			end
+		end
+		return false
+    end,
+    use = function (self,card,area,copier)
+        for i, selected_card in pairs(G.hand.highlighted) do
+            selected_card:set_ability(G.P_CENTERS["m_lucky"])
+            G.E_MANAGER:add_event(Event({
+				trigger = "after",
+				delay = 0.2,
+				func = function()
+					G.hand:unhighlight_all()
+					return true
+				end,
+			}))
+			delay(0.5)
+		end
+    end
+}
+
+SMODS.Consumable{ --[Untitled2]
+    key = '[Untitled2]',
+    set = 'food',
+    atlas = 'Foods',
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 5, y = 1},
+    loc_txt = {
+        name = '[Untitled]',
+        text = {
+            'Some delicious [Untitled] that',
+            'enhance {C:attention}#1#{} card',
+            'into a {C:dark_edition}Glass{} card'
+        }
+    },
+    rarity = 1,
+    cost = 2,
+    config = { extra = {
+        card = 1
+    }},
+    loc_vars = function (self,info_queue,center)
+        info_queue[#info_queue+1] = G.P_CENTERS.m_glass
+        return{vars = {center.ability.extra.card}}
+    end,
+    can_use = function (self,card)
+        if G and G.hand then
+			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
+				return true
+			end
+		end
+		return false
+    end,
+    use = function (self,card,area,copier)
+        for i, selected_card in pairs(G.hand.highlighted) do
+            selected_card:set_ability(G.P_CENTERS["m_glass"])
+            G.E_MANAGER:add_event(Event({
+				trigger = "after",
+				delay = 0.2,
+				func = function()
+					G.hand:unhighlight_all()
+					return true
+				end,
+			}))
+			delay(0.5)
+		end
+    end
+}
+
+SMODS.Consumable{ --[Untitled3]
+    key = '[Untitled3]',
+    set = 'food',
+    atlas = 'Foods',
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 5, y = 1},
+    loc_txt = {
+        name = '[Untitled]',
+        text = {
+            'Some delicious [Untitled] that',
+            'enhance {C:attention}#1#{} card',
+            'into a {C:dark_edition}Gold{} card'
+        }
+    },
+    rarity = 1,
+    cost = 2,
+    config = { extra = {
+        card = 1
+    }},
+    loc_vars = function (self,info_queue,center)
+        info_queue[#info_queue+1] = G.P_CENTERS.m_gold
+        return{vars = {center.ability.extra.card}}
+    end,
+    can_use = function (self,card)
+        if G and G.hand then
+			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
+				return true
+			end
+		end
+		return false
+    end,
+    use = function (self,card,area,copier)
+        for i, selected_card in pairs(G.hand.highlighted) do
+            selected_card:set_ability(G.P_CENTERS["m_gold"])
+            G.E_MANAGER:add_event(Event({
+				trigger = "after",
+				delay = 0.2,
+				func = function()
+					G.hand:unhighlight_all()
+					return true
+				end,
+			}))
+			delay(0.5)
+		end
+    end
+}
+
+SMODS.Consumable{ --[Untitled4]
+    key = '[Untitled4]',
+    set = 'food',
+    atlas = 'Foods',
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 5, y = 1},
+    loc_txt = {
+        name = '[Untitled]',
+        text = {
+            'Some delicious [Untitled] that',
+            'enhance {C:attention}#1#{} card',
+            'into a {C:dark_edition}Wild{} card'
+        }
+    },
+    rarity = 1,
+    cost = 2,
+    config = { extra = {
+        card = 1
+    }},
+    loc_vars = function (self,info_queue,center)
+        info_queue[#info_queue+1] = G.P_CENTERS.m_wild
+        return{vars = {center.ability.extra.card}}
+    end,
+    can_use = function (self,card)
+        if G and G.hand then
+			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
+				return true
+			end
+		end
+		return false
+    end,
+    use = function (self,card,area,copier)
+        for i, selected_card in pairs(G.hand.highlighted) do
+            selected_card:set_ability(G.P_CENTERS["m_wild"])
+            G.E_MANAGER:add_event(Event({
+				trigger = "after",
+				delay = 0.2,
+				func = function()
+					G.hand:unhighlight_all()
+					return true
+				end,
+			}))
+			delay(0.5)
+		end
+    end
+}
+
+SMODS.Consumable{ --Lollipop
+    key = 'lollipop',
+    set = 'food',
+    atlas = 'Foods',
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 5, y = 1},
+    loc_txt = {
+        name = 'Lollipop',
+        text = {
+            'A delicious Lollipop that',
+            'enhance {C:attention}#1#{} card',
+            'into a {C:dark_edition}Steel{} card'
+        }
+    },
+    rarity = 1,
+    cost = 2,
+    config = { extra = {
+        card = 1
+    }},
+    loc_vars = function (self,info_queue,center)
+        info_queue[#info_queue+1] = G.P_CENTERS.m_steel
+        return{vars = {center.ability.extra.card}}
+    end,
+    can_use = function (self,card)
+        if G and G.hand then
+			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
+				return true
+			end
+		end
+		return false
+    end,
+    use = function (self,card,area,copier)
+        for i, selected_card in pairs(G.hand.highlighted) do
+            selected_card:set_ability(G.P_CENTERS["m_steel"])
+            G.E_MANAGER:add_event(Event({
+				trigger = "after",
+				delay = 0.2,
+				func = function()
+					G.hand:unhighlight_all()
+					return true
+				end,
+			}))
+			delay(0.5)
+		end
+    end
+}
+
+SMODS.Consumable{ --[Untitled5]
+    key = '[Untitled5]',
+    set = 'food',
+    atlas = 'Foods',
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 5, y = 1},
+    loc_txt = {
+        name = '[Untitled]',
+        text = {
+            'Some delicious [Untitled] that',
+            'create {C:attention}#1#{} random',
+            '{C:hearts}Heart{} suit card'
+        }
+    },
+    rarity = 1,
+    cost = 2,
+    config = { extra = {
+        card = 1
+    }},
+    loc_vars = function (self,info_queue,center)
+        return{vars = {center.ability.extra.card}}
+    end,
+    can_use = function (self,card)
+		return true
+    end,
+    use = function (self,card,area,copier)
+        local rank = pseudorandom_element({'2','3','4','5','6','7','8','9','10','J','Q','K','A'}, pseudoseed('giga_[Untitiled5]'))
+		local card = create_playing_card({
+		    front = G.P_CARDS['H_'..rank],
+		}, G.hand, false,false,nil)
+		card:add_to_deck()
+    end
+}
+
+SMODS.Consumable{ --[Untitled6]
+    key = '[Untitled6]',
+    set = 'food',
+    atlas = 'Foods',
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 5, y = 1},
+    loc_txt = {
+        name = '[Untitled]',
+        text = {
+            'Some delicious [Untitled] that',
+            'create {C:attention}#1#{} random',
+            '{C:spades}Spade{} suit card'
+        }
+    },
+    rarity = 1,
+    cost = 2,
+    config = { extra = {
+        card = 1
+    }},
+    loc_vars = function (self,info_queue,center)
+        return{vars = {center.ability.extra.card}}
+    end,
+    can_use = function (self,card)
+		return true
+    end,
+    use = function (self,card,area,copier)
+        local rank = pseudorandom_element({'2','3','4','5','6','7','8','9','10','J','Q','K','A'}, pseudoseed('giga_[Untitiled6]'))
+		local card = create_playing_card({
+		    front = G.P_CARDS['S_'..rank],
+		}, G.hand, false,false,nil)
+		card:add_to_deck()
+    end
+}
+
+SMODS.Consumable{ --[Untitled7]
+    key = '[Untitled7]',
+    set = 'food',
+    atlas = 'Foods',
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 5, y = 1},
+    loc_txt = {
+        name = '[Untitled]',
+        text = {
+            'Some delicious [Untitled] that',
+            'create {C:attention}#1#{} random',
+            '{C:diamonds}Diamond{} suit card'
+        }
+    },
+    rarity = 1,
+    cost = 2,
+    config = { extra = {
+        card = 1
+    }},
+    loc_vars = function (self,info_queue,center)
+        return{vars = {center.ability.extra.card}}
+    end,
+    can_use = function (self,card)
+		return true
+    end,
+    use = function (self,card,area,copier)
+        local rank = pseudorandom_element({'2','3','4','5','6','7','8','9','10','J','Q','K','A'}, pseudoseed('giga_[Untitiled7]'))
+		local card = create_playing_card({
+		    front = G.P_CARDS['D_'..rank],
+		}, G.hand, false,false,nil)
+		card:add_to_deck()
+    end
+}
+
+SMODS.Consumable{ --[Untitled8]
+    key = '[Untitled8]',
+    set = 'food',
+    atlas = 'Foods',
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 5, y = 1},
+    loc_txt = {
+        name = '[Untitled]',
+        text = {
+            'Some delicious [Untitled] that',
+            'create {C:attention}#1#{} random',
+            '{C:clubs}Club{} suit card'
+        }
+    },
+    rarity = 1,
+    cost = 2,
+    config = { extra = {
+        card = 1
+    }},
+    loc_vars = function (self,info_queue,center)
+        return{vars = {center.ability.extra.card}}
+    end,
+    can_use = function (self,card)
+		return true
+    end,
+    use = function (self,card,area,copier)
+        local rank = pseudorandom_element({'2','3','4','5','6','7','8','9','10','J','Q','K','A'}, pseudoseed('giga_[Untitiled8]'))
+		local card = create_playing_card({
+		    front = G.P_CARDS['C_'..rank],
+		}, G.hand, false,false,nil)
+		card:add_to_deck()
     end
 }
 

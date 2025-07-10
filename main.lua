@@ -2,6 +2,7 @@ SMODS.load_file("items/booster.lua")()
 SMODS.load_file("items/enhancement.lua")()
 SMODS.load_file("items/food.lua")()
 SMODS.load_file("items/joker.lua")()
+SMODS.load_file("items/voucher.lua")()
 
 if next(SMODS.find_mod("Cryptid")) then
 	SMODS.load_file("items/CrossMod/cryptid.lua")()
@@ -31,6 +32,13 @@ SMODS.Atlas{
 SMODS.Atlas{
     key = 'Enhancements',
     path = 'Enhancement.png',
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas{
+    key = 'Vouchers',
+    path = 'Vouchers.png',
     px = 71,
     py = 95
 }

@@ -168,7 +168,7 @@ SMODS.Joker{ --FunnyCrown
                 end
                 local suit = pseudorandom_element({'S','H','D','C'}, pseudoseed('giga_funnyCrown'))
 			    local card = create_playing_card({
-				    front = G.P_CARDS[suit..'_'..'J'],
+				    front = G.P_CARDS[suit..'_J'],
 				    center = G.P_CENTERS.m_bonus
 			    }, G.hand, false,false,nil)
 			    card:add_to_deck()
