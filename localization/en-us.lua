@@ -253,7 +253,7 @@ return {
             j_giga_tlei = {
                 name = {'The Legendary', 'Exodia Incarnate'},
                 text = {
-                    '{E:1}Unleash the Beast{}'
+                    '{s:1.4,E:1}Unleash the Beast{}'
                 }
             },
             j_giga_paleontologist = {

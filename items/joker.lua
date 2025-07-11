@@ -1318,11 +1318,11 @@ SMODS.Joker{ --LLOTFO
     atlas = 'Jokers',
     pos = {x = 0, y = 3},
     cost = 10,
-    rarity = 3,
+    rarity = 2,
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        chips = 80
+        chips = 75
     }},
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
@@ -1330,29 +1330,6 @@ SMODS.Joker{ --LLOTFO
         return {vars = {center.ability.extra.chips}}
     end,
     calculate = function(self, card, context)
-        local tlei_ready = false
-        for i, j in ipairs(G.jokers.cards) do
-            if j.ability and j.ability.name == 'j_giga_etfo' then
-                tlei_ready = true
-                break
-            end
-        end
-        if context.setting_blind and tlei_ready then
-            G.E_MANAGER:add_event(Event({
-                blocking = true,
-                func = function()
-                    card:start_dissolve()
-                    G.E_MANAGER:add_event(Event({
-                        delay = 0.8,
-                        func = function()
-                            card:remove()
-                            return true
-                        end
-                    }))
-                    return true
-                end
-            }))
-        end
         if context.individual and context.cardarea == G.play then
             if context.other_card:is_suit("Spades", true) then
                 return {
@@ -1371,11 +1348,11 @@ SMODS.Joker{ --RLOTFO
     atlas = 'Jokers',
     pos = {x = 1, y = 3},
     cost = 10,
-    rarity = 3,
+    rarity = 2,
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        chips = 80
+        chips = 75
     }},
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
@@ -1383,29 +1360,6 @@ SMODS.Joker{ --RLOTFO
         return {vars = {center.ability.extra.chips}}
     end,
     calculate = function(self, card, context)
-        local tlei_ready = false
-        for i, j in ipairs(G.jokers.cards) do
-            if j.ability and j.ability.name == 'j_giga_etfo' then
-                tlei_ready = true
-                break
-            end
-        end
-        if context.setting_blind and tlei_ready then
-            G.E_MANAGER:add_event(Event({
-                blocking = true,
-                func = function()
-                    card:start_dissolve()
-                    G.E_MANAGER:add_event(Event({
-                        delay = 0.8,
-                        func = function()
-                            card:remove()
-                            return true
-                        end
-                    }))
-                    return true
-                end
-            }))
-        end
         if context.individual and context.cardarea == G.play then
             if context.other_card:is_suit("Clubs", true) then
                 return {
@@ -1424,11 +1378,11 @@ SMODS.Joker{ --LAOTFO
     atlas = 'Jokers',
     pos = {x = 2, y = 3},
     cost = 10,
-    rarity = 3,
+    rarity = 2,
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        chips = 80
+        chips = 75
     }},
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
@@ -1436,29 +1390,6 @@ SMODS.Joker{ --LAOTFO
         return {vars = {center.ability.extra.chips}}
     end,
     calculate = function(self, card, context)
-        local tlei_ready = false
-        for i, j in ipairs(G.jokers.cards) do
-            if j.ability and j.ability.name == 'j_giga_etfo' then
-                tlei_ready = true
-                break
-            end
-        end
-        if context.setting_blind and tlei_ready then
-            G.E_MANAGER:add_event(Event({
-                blocking = true,
-                func = function()
-                    card:start_dissolve()
-                    G.E_MANAGER:add_event(Event({
-                        delay = 0.8,
-                        func = function()
-                            card:remove()
-                            return true
-                        end
-                    }))
-                    return true
-                end
-            }))
-        end
         if context.individual and context.cardarea == G.play then
             if context.other_card:is_suit("Hearts", true) then
                 return {
@@ -1477,11 +1408,11 @@ SMODS.Joker{ --RAOTFO
     atlas = 'Jokers',
     pos = {x = 3, y = 3},
     cost = 10,
-    rarity = 3,
+    rarity = 2,
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        chips = 80
+        chips = 75
     }},
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
@@ -1489,29 +1420,6 @@ SMODS.Joker{ --RAOTFO
         return {vars = {center.ability.extra.chips}}
     end,
     calculate = function(self, card, context)
-        local tlei_ready = false
-        for i, j in ipairs(G.jokers.cards) do
-            if j.ability and j.ability.name == 'j_giga_etfo' then
-                tlei_ready = true
-                break
-            end
-        end
-        if context.setting_blind and tlei_ready then
-            G.E_MANAGER:add_event(Event({
-                blocking = true,
-                func = function()
-                    card:start_dissolve()
-                    G.E_MANAGER:add_event(Event({
-                        delay = 0.8,
-                        func = function()
-                            card:remove()
-                            return true
-                        end
-                    }))
-                    return true
-                end
-            }))
-        end
         if context.individual and context.cardarea == G.play then
             if context.other_card:is_suit("Diamonds", true) then
                 return {
@@ -1534,7 +1442,7 @@ SMODS.Joker{ --ETFO
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        chips = 10
+        chips = 20
     }},
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
@@ -1581,6 +1489,27 @@ SMODS.Joker{ --ETFO
                     return true
                 end
             }))
+            for i, j in ipairs(G.jokers.cards) do
+                if j.ability and (j.ability.name == 'j_giga_llotfo' or
+                                  j.ability.name == 'j_giga_rlotfo' or
+                                  j.ability.name == 'j_giga_laotfo' or
+                                  j.ability.name == 'j_giga_raotfo') then
+                    G.E_MANAGER:add_event(Event({
+                        blocking = true,
+                        func = function()
+                            j:start_dissolve()
+                            G.E_MANAGER:add_event(Event({
+                                delay = 0.8,
+                                func = function()
+                                    j:remove()
+                                    return true
+                                end
+                            }))
+                            return true
+                        end
+                    }))
+                end
+            end
         end
         if context.individual and context.cardarea == G.play then
             return {

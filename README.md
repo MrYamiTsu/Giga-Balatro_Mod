@@ -39,11 +39,11 @@ Their is some extra asset if you have some other mods. Here is a list :
 - Pink Tourmaline : +12 Mult for each Holographic card held in hand
 - Moonstone : +65 Chips for each Foil card held in hand (art isn't done)
 - Rainbow Quartz : X0.7 Mult for each Polychrome card held in hand (art isn't done)
-- Left Leg of The Forbidden One : +80 Chips for every Spade
-- Right Leg of The Forbidden One : +80 Chips for every Club
-- Left Arm of The Forbidden One : +80 Chips for every Heart
-- Right Arm of The Forbidden One : +80 Chips for every Diamond
-- Exodia The Forbidden One : +10 Chips for every card played
+- Left Leg of The Forbidden One : +75 Chips for every Spade
+- Right Leg of The Forbidden One : +75 Chips for every Club
+- Left Arm of The Forbidden One : +75 Chips for every Heart
+- Right Arm of The Forbidden One : +75 Chips for every Diamond
+- Exodia The Forbidden One : +20 Chips for every card played
 - Paleontologist : +30 Chips for each Soil card
 - Paleo Expert : +4 Mult for each Soil card
 - Refinery : 4$ for each consecutive Stone card in the round, reset otherwise (no art yet)
@@ -58,13 +58,14 @@ Their is some extra asset if you have some other mods. Here is a list :
 - Hot-Dog : Enhance 1 card in Soil
 - Caesar Salad : Give a Tarot after 1 round
 - Club Sandwich : Give a Planet after 1 round
-- Pho : Give a Spectral after 2 round (art isn't done)
+- Pho : Give a Spectral after 2 round
 - Spaghetti : Enhance 1 card into Bonus (art isn't done)
 - Steak : Enhance 1 card into Stone (art isn't done)
 - Birthday Cake : +1 Consumable slot after one round
+- Sushis : Enhance 1 card into Mult (art isn't done)
 
 Only with Cryptid
-- Hawaiian Pizza : Give a Code after 1 round (art isn't done)
+- Hawaiian Pizza : Give a Code after 1 round
 
 
 **Booster**
@@ -78,6 +79,9 @@ Only with Cryptid
 
 *Their is some secret enhancements.*
 
+**Voucher**
+- Food Truck : Food can appear in the shop (art isn't done)
+- Home Delivery : Food appear 2.5X more in the shop (art isn't done)
 
 ## Additionnals Infos
 
