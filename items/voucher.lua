@@ -28,7 +28,7 @@
 SMODS.Voucher{ --FoodTruck
     key = 'foodTruck',
     atlas = 'Vouchers',
-    pos = {x = 1, y = 0},
+    pos = {x = 2, y = 0},
 	cost = 10,
     loc_vars = function(self, info_queue)
         return { vars = {colours={HEX('F7070BFF')}} }
@@ -46,7 +46,7 @@ SMODS.Voucher{ --FoodTruck
 SMODS.Voucher{ --HomeDelivery
     key = 'homeDelivery',
     atlas = 'Vouchers',
-    pos = {x = 1, y = 0},
+    pos = {x = 3, y = 0},
     cost = 10,
     loc_vars = function(self, info_queue)
         return {vars = {colours={HEX('F7070BFF')}}}

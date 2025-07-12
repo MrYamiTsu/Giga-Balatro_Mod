@@ -28,8 +28,8 @@
     <li>2 Vouchers</li>
 </ul>
 
-<p><em>Some Jokers have secret interactions with other Jokers.</em><br>
-<em>A lot of assets are unfinished or just don't have art yet.</em></p>
+<p><em>*Some Jokers have secret interactions with other Jokers.</em><br>
+<em>*A lot of assets are unfinished or just don't have art yet.</em></p>
 
 <hr>
 <h2>Additional Infos</h2>

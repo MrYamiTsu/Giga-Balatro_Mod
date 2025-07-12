@@ -78,10 +78,10 @@ SMODS.Atlas{
     py = 170
 }
 
-SMODS.Rarity({
+SMODS.Rarity{
 	key = "megaLegendary",
 	loc_txt = {
         name = "Mega Legendary",
     },
 	badge_colour = HEX("dbd809"),
-})
+}
