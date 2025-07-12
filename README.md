@@ -1,44 +1,47 @@
-# GIGA
+<h1>GIGA</h1>
 
-Some random addition for Balatro. Some assets work weirdly sometimes.
+<p>Some random additions for <strong>Balatro</strong>. Some assets work weirdly sometimes.</p>
 
+<hr>
+<h2>Installation</h2>
+<p>
+    Latest version of <a href="https://github.com/Steamodded/smods">Steamodded</a> and 
+    <a href="https://github.com/ethangreen-dev/lovely-injector">Lovely</a> are required.<br>
+    Can be useful to have <a href="https://github.com/SpectralPack/Talisman">Talisman</a> too.
+</p>
+<p>Just download the zip file, extract it and place it in your Mod folder.</p>
 
-## Installation
+<hr>
+<h2>Cross-Mod</h2>
+<p>There are some extra assets if you have other mods. Here is a list:</p>
+<ul>
+    <li><a href="https://github.com/SpectralPack/Cryptid">Cryptid</a></li>
+</ul>
 
-Latest version of [Steamodded](https://github.com/Steamodded/smods) and [Lovely](https://github.com/ethangreen-dev/lovely-injector) are required. 
-Can be useful to have [Talisman](https://github.com/SpectralPack/Talisman) too.
+<hr>
+<h2>Elements</h2>
+<ul>
+    <li>28+ Jokers</li>
+    <li>21 Foods (+1 CrossMod)</li>
+    <li>4 Booster Packs</li>
+    <li>3+ Enhancements</li>
+    <li>2 Vouchers</li>
+</ul>
 
-Just download the zip file, extract it and place it in your Mod folder.
+<p><em>Some Jokers have secret interactions with other Jokers.</em><br>
+<em>A lot of assets are unfinished or just don't have art yet.</em></p>
 
+<hr>
+<h2>Additional Infos</h2>
+<p>
+    If a whole asset is in comment, don't remove it from the comment. It's an idea and this may cause the game to crash.<br>
+    If you have any ideas for how the mod's elements might interact, feel free to DM me on Discord (<strong>@MrYamiTsu</strong>).
+    You can also send me artwork of the elements if you like (I'll mention you in the credits).
+</p>
 
-## Cross-Mod
-
-Their is some extra asset if you have some other mods. Here is a list :
-- [Cryptid](https://github.com/SpectralPack/Cryptid)
-
-## Elements
-
-- 28+ Jokers
-
-- 21 Foods (+1 CrossMod)
-
-- 4 Booster Packs
-
-- 3+ Enhancement
-
-- 2 Vouchers
-
-*Some Joker has secret interaction with other Jokers.*
-*A lot of assets have unfinish or just don't have art yet.*
-
-
-## Additionnals Infos
-
-If a whole asset is in comment, don't remove it from the comment. It's an idea and this may cause the game to crash.
-If you have any ideas for how the mod's elements might interact, feel free to DM me on Discord (@MrYamiTsu). You can also send me artwork of the elements if you like (I'll mention you in the credit).
-
-
-## Credits
-
-- le_dugs for a lot of ideas
-- frogggy18 for some balance change
+<hr>
+<h2>Credits</h2>
+<ul>
+    <li><strong>le_dugs</strong> for a lot of ideas</li>
+    <li><strong>frogggy18</strong> for some balance changes</li>
+</ul>
