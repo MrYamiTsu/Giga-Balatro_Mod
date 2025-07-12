@@ -313,14 +313,27 @@ SMODS.Consumable{ --Spaghetti
     can_use = function (self,card)
         if G and G.hand then
 			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
-				return true
+				local check = false
+                for i, selected_card in pairs(G.hand.highlighted) do
+                    if SMODS.has_enhancement(selected_card, 'm_giga_bigBonus') then
+                        check = true
+                        break
+                    end
+                end
+                if not check then
+                    return true
+                end
 			end
 		end
 		return false
     end,
     use = function (self,card,area,copier)
         for i, selected_card in pairs(G.hand.highlighted) do
-            selected_card:set_ability(G.P_CENTERS["m_bonus"])
+            if SMODS.has_enhancement(selected_card, 'm_bonus') then
+                selected_card:set_ability(G.P_CENTERS["m_giga_bigBonus"])
+            else
+                selected_card:set_ability(G.P_CENTERS["m_bonus"])
+            end
             G.E_MANAGER:add_event(Event({
 				trigger = "after",
 				delay = 0.2,
@@ -360,14 +373,27 @@ SMODS.Consumable{ --Steak
     can_use = function (self,card)
         if G and G.hand then
 			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
-				return true
+				local check = false
+                for i, selected_card in pairs(G.hand.highlighted) do
+                    if SMODS.has_enhancement(selected_card, 'm_giga_polishStone') then
+                        check = true
+                        break
+                    end
+                end
+                if not check then
+                    return true
+                end
 			end
 		end
 		return false
     end,
     use = function (self,card,area,copier)
         for i, selected_card in pairs(G.hand.highlighted) do
-            selected_card:set_ability(G.P_CENTERS["m_stone"])
+            if SMODS.has_enhancement(selected_card, 'm_stone') then
+                selected_card:set_ability(G.P_CENTERS["m_giga_polishStone"])
+            else
+                selected_card:set_ability(G.P_CENTERS["m_stone"])
+            end
             G.E_MANAGER:add_event(Event({
 				trigger = "after",
 				delay = 0.2,
@@ -428,16 +454,16 @@ SMODS.Consumable{ --Sushis
     end
 }
 
-SMODS.Consumable{ --[Untitled1]
-    key = '[Untitled1]',
+SMODS.Consumable{ --SugarPie
+    key = 'sugarPie',
     set = 'food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
     soul_pos = {x = 5, y = 1},
     loc_txt = {
-        name = '[Untitled]',
+        name = 'Sugar Pie',
         text = {
-            'Some delicious [Untitled] that',
+            'A delicious Sugar Pie that',
             'enhance {C:attention}#1#{} card',
             'into a {C:dark_edition}Lucky{} card'
         }
@@ -454,7 +480,15 @@ SMODS.Consumable{ --[Untitled1]
     can_use = function (self,card)
         if G and G.hand then
 			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
-				return true
+				for i, selected_card in pairs(G.hand.highlighted) do
+                    if SMODS.has_enhancement(selected_card, 'm_giga_luckiest') then
+                        check = true
+                        break
+                    end
+                end
+                if not check then
+                    return true
+                end
 			end
 		end
 		return false
@@ -796,6 +830,165 @@ SMODS.Consumable{ --[Untitled8]
 		    front = G.P_CARDS['C_'..rank],
 		}, G.hand, false,false,nil)
 		card:add_to_deck()
+    end
+}
+
+SMODS.Consumable{ --PB&JSandwich
+    key = 'pB&JSandwich',
+    set = 'food',
+    atlas = 'Foods',
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 5, y = 1},
+    loc_txt = {
+        name = 'PB&J Sandwich',
+        text = {
+            'A delicious PB&J Sandwich that',
+            'permenantly add {C:mult}+#1#{} Mult',
+            'to {C:attention}#2#{} selected card'
+        }
+    },
+    rarity = 1,
+    cost = 2,
+    config = { extra = {
+        mult = 1,
+        card = 2
+    }},
+    loc_vars = function (self,info_queue,center)
+        return{vars = {center.ability.extra.mult, center.ability.extra.card}}
+    end,
+    can_use = function (self,card)
+		if G and G.hand then
+			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
+				return true
+			end
+		end
+		return false
+    end,
+    use = function (self,card,area,copier)
+        for i, selected_card in pairs(G.hand.highlighted) do
+            selected_card.ability.perma_mult = selected_card.ability.perma_mult + card.ability.extra.mult
+		end
+    end
+}
+
+SMODS.Consumable{ --Burger
+    key = 'burger',
+    set = 'food',
+    atlas = 'Foods',
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 5, y = 1},
+    loc_txt = {
+        name = 'Burger',
+        text = {
+            'A delicious Burger that',
+            'permenantly add {C:chips}+#1#{} Chips',
+            'to {C:attention}#2#{} selected card'
+        }
+    },
+    rarity = 1,
+    cost = 2,
+    config = { extra = {
+        chips = 5,
+        card = 2
+    }},
+    loc_vars = function (self,info_queue,center)
+        return{vars = {center.ability.extra.chips, center.ability.extra.card}}
+    end,
+    can_use = function (self,card)
+		if G and G.hand then
+			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
+				return true
+			end
+		end
+		return false
+    end,
+    use = function (self,card,area,copier)
+        for i, selected_card in pairs(G.hand.highlighted) do
+            selected_card.ability.perma_bonus = selected_card.ability.perma_bonus + card.ability.extra.chips
+		end
+    end
+}
+
+SMODS.Consumable{ --FruitSalad
+    key = 'fruitSalad',
+    set = 'food',
+    atlas = 'Foods',
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 5, y = 1},
+    loc_txt = {
+        name = 'Fruit Salad',
+        text = {
+            'A delicious Fruit Salad that',
+            '{C:attention}upgrade{} the enhancement of',
+            '{C:attention}#1#{} card'
+        }
+    },
+    rarity = 1,
+    cost = 2,
+    config = { extra = {
+        card = 1
+    }},
+    loc_vars = function (self,info_queue,center)
+        return{vars = {center.ability.extra.card}}
+    end,
+    can_use = function (self,card)
+		if G and G.hand then
+			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
+                local has_enhancement = false
+				for i, selected_card in pairs(G.hand.highlighted) do
+                    if SMODS.has_enhancement(selected_card, 'm_giga_richSoil') or
+                       SMODS.has_enhancement(selected_card, 'm_giga_soil') or
+                       SMODS.has_enhancement(selected_card, 'm_bonus') or
+                       SMODS.has_enhancement(selected_card, 'm_stone') --[[or
+                       SMODS.has_enhancement(selected_card, 'm_mult') or
+                       SMODS.has_enhancement(selected_card, 'm_lucky') or
+                       SMODS.has_enhancement(selected_card, 'm_glass') or
+                       SMODS.has_enhancement(selected_card, 'm_gold') or
+                       SMODS.has_enhancement(selected_card, 'm_steel')]] then
+                        has_enhancement = true
+                    else
+                        has_enhancement = false
+                        break
+                    end
+		        end
+                if has_enhancement then
+                    return true
+                end
+			end
+		end
+		return false
+    end,
+    use = function (self,card,area,copier)
+        for i, selected_card in pairs(G.hand.highlighted) do
+            if SMODS.has_enhancement(selected_card, 'm_giga_soil') then
+                selected_card:set_ability(G.P_CENTERS["m_giga_richSoil"])
+            elseif SMODS.has_enhancement(selected_card, 'm_giga_richSoil') then
+                    selected_card:set_ability(G.P_CENTERS["m_giga_fossilSoil"])
+            elseif SMODS.has_enhancement(selected_card, 'm_bonus') then
+                selected_card:set_ability(G.P_CENTERS["m_giga_bigBonus"])
+            elseif SMODS.has_enhancement(selected_card, 'm_stone') then
+                selected_card:set_ability(G.P_CENTERS["m_giga_polishStone"])
+            --[[elseif SMODS.has_enhancement(selected_card, 'm_mult') then
+                selected_card:set_ability(G.P_CENTERS["m_giga_bigMult"])
+            elseif SMODS.has_enhancement(selected_card, 'm_lucky') then
+                selected_card:set_ability(G.P_CENTERS["m_giga_luckiest"])
+            elseif SMODS.has_enhancement(selected_card, 'm_glass') then
+                selected_card:set_ability(G.P_CENTERS["m_giga_reinforcedGlass"])
+            elseif SMODS.has_enhancement(selected_card, 'm_gold') then
+                selected_card:set_ability(G.P_CENTERS["m_giga_perfectGold"])
+            elseif SMODS.has_enhancement(selected_card, 'm_steel') then
+                selected_card:set_ability(G.P_CENTERS["m_giga_titanium"])]]
+            end
+            G.E_MANAGER:add_event(Event({
+				trigger = "after",
+				delay = 0.2,
+				func = function()
+					G.hand:unhighlight_all()
+					return true
+				end,
+			}))
+			delay(0.5)
+		end
     end
 }
 

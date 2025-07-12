@@ -5,29 +5,43 @@ return {
         Edition={},
         Enhanced={
             m_giga_soil = {
-				name = "Soil",
+				name = 'Soil Card',
 				text = {
-					"{X:chips,C:white}X#1#{} Chips"
+					'{X:chips,C:white}X#1#{} Chips'
 				}
 			},
             m_giga_richSoil = {
-                name = "Rich Soil",
+                name = 'Rich Soil Card',
                 text = {
-                    "{X:chips,C:white}X#1#{} Chips",
-                    "{C:mult}+#2#{} Mult"
+                    '{X:chips,C:white}X#1#{} Chips',
+                    '{C:mult}+#2#{} Mult'
                 }
             },
             m_giga_fossilSoil = {
-                name = "Fossil Soil",
+                name = 'Fossil Soil Card',
                 text = {
-                    "{X:chips,C:white}X#1#{} Chips",
-                    "{X:mult,C:white}X#2#{} Mult",
+                    '{X:chips,C:white}X#1#{} Chips',
+                    '{X:mult,C:white}X#2#{} Mult'
                 }
-            }
+            },
+            m_giga_bigBonus = {
+                name = 'Big Bonus Card',
+                text = {
+                    '{C:chips}+#1#{} extra chips'
+                }
+            },
+            m_giga_polishStone = {
+                name = 'Polished Stone Card',
+                text = {
+                    '{C:chips}+#1#{} chips',
+                    '{X:chips,C:white}X#2#{} chips',
+                    'no rank or suit'
+                }
+            },
         },
         Joker={
             j_giga_cashPass = {
-                name = "Cash Pass",
+                name = 'Cash Pass',
                 text = {
                     'When blind is selected,',
                     'earn {C:money}$#1#{}',
@@ -47,7 +61,7 @@ return {
             j_giga_blueEgg = {
                 name = 'Blue Egg',
                 text = {
-                    'This egg feels... blue'
+                    'This egg feels... Blue ?!?!'
                 }
             },
             j_giga_kingOfJacks = {
