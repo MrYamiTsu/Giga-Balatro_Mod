@@ -352,7 +352,7 @@ SMODS.Consumable{ --Steak
     set = 'food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 1, y = 1},
+    soul_pos = {x = 0, y = 1},
     loc_txt = {
         name = 'Steak',
         text = {
@@ -412,7 +412,7 @@ SMODS.Consumable{ --Sushis
     set = 'food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 5, y = 1},
+    soul_pos = {x = 0, y = 1},
     loc_txt = {
         name = 'Sushis',
         text = {
@@ -459,7 +459,7 @@ SMODS.Consumable{ --SugarPie
     set = 'food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 5, y = 1},
+    soul_pos = {x = 0, y = 1},
     loc_txt = {
         name = 'Sugar Pie',
         text = {
@@ -514,7 +514,7 @@ SMODS.Consumable{ --[Untitled2]
     set = 'food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 5, y = 1},
+    soul_pos = {x = 0, y = 1},
     loc_txt = {
         name = '[Untitled]',
         text = {
@@ -561,7 +561,7 @@ SMODS.Consumable{ --[Untitled3]
     set = 'food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 5, y = 1},
+    soul_pos = {x = 0, y = 1},
     loc_txt = {
         name = '[Untitled]',
         text = {
@@ -608,7 +608,7 @@ SMODS.Consumable{ --[Untitled4]
     set = 'food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 5, y = 1},
+    soul_pos = {x = 0, y = 1},
     loc_txt = {
         name = '[Untitled]',
         text = {
@@ -655,7 +655,7 @@ SMODS.Consumable{ --Lollipop
     set = 'food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 5, y = 1},
+    soul_pos = {x = 1, y = 1},
     loc_txt = {
         name = 'Lollipop',
         text = {
@@ -702,7 +702,7 @@ SMODS.Consumable{ --[Untitled5]
     set = 'food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 5, y = 1},
+    soul_pos = {x = 0, y = 1},
     loc_txt = {
         name = '[Untitled]',
         text = {
@@ -736,7 +736,7 @@ SMODS.Consumable{ --[Untitled6]
     set = 'food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 5, y = 1},
+    soul_pos = {x = 0, y = 1},
     loc_txt = {
         name = '[Untitled]',
         text = {
@@ -770,7 +770,7 @@ SMODS.Consumable{ --[Untitled7]
     set = 'food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 5, y = 1},
+    soul_pos = {x = 0, y = 1},
     loc_txt = {
         name = '[Untitled]',
         text = {
@@ -804,7 +804,7 @@ SMODS.Consumable{ --[Untitled8]
     set = 'food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 5, y = 1},
+    soul_pos = {x = 0, y = 1},
     loc_txt = {
         name = '[Untitled]',
         text = {
@@ -838,7 +838,7 @@ SMODS.Consumable{ --PB&JSandwich
     set = 'food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 5, y = 1},
+    soul_pos = {x = 0, y = 1},
     loc_txt = {
         name = 'PB&J Sandwich',
         text = {
@@ -876,7 +876,7 @@ SMODS.Consumable{ --Burger
     set = 'food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 5, y = 1},
+    soul_pos = {x = 0, y = 1},
     loc_txt = {
         name = 'Burger',
         text = {
@@ -914,7 +914,7 @@ SMODS.Consumable{ --FruitSalad
     set = 'food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 5, y = 1},
+    soul_pos = {x = 0, y = 1},
     loc_txt = {
         name = 'Fruit Salad',
         text = {
