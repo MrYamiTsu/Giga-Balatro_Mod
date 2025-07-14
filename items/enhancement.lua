@@ -83,8 +83,9 @@ SMODS.Enhancement{ --BigBonus
 	discovered = true,
 	unlocked = true,
 	weight = 0,
+	always_scores = true,
 	config = { extra = { 
-        chips = 90,
+        chips = 60,
     }},
 	loc_vars = function(self, info_queue, card)
 		return {vars = { card.ability.extra.chips}}
@@ -127,6 +128,32 @@ SMODS.Enhancement{ --PolishStone
 			return {
 				chips = card.ability.extra.chips,
 				x_chips = card.ability.extra.xchips
+			}
+		end
+	end
+}
+
+SMODS.Enhancement{ --MultPlus
+	key = 'multPlus',
+	atlas = "Enhancements",
+	pos = { x = 5, y = 0 },
+	discovered = true,
+	unlocked = true,
+	always_scores = true,
+	weight = 0,
+	config = { extra = { 
+        mult = 8
+    }},
+	loc_vars = function(self, info_queue, card)
+		return {vars = {card.ability.extra.mult}}
+	end,
+	in_pool = function(self) 
+		return false 
+	end,
+	calculate = function(self, card, context, effect)
+		if context.main_scoring and context.cardarea == G.play then
+			return {
+				mult = card.ability.extra.mult,
 			}
 		end
 	end

@@ -1,4 +1,4 @@
-SMODS.Booster { --Normal1
+SMODS.Booster { --RestaurantNormal1
     key = 'restaurantPackNormal1',
     atlas = 'Boosters',
     pos = {x = 0, y = 0},
@@ -20,11 +20,11 @@ SMODS.Booster { --Normal1
         return {set = "food", area = G.pack_cards, skip_materialize = true, soulable = true, key_append = "giga"}
     end,
     select_card = "consumeables",
-    weight = 0.15,
+    weight = 0.2,
     kind = 'Food'
 }
 
-SMODS.Booster { --Normal2
+SMODS.Booster { --RestaurantNormal2
     key = 'restaurantPackNormal2',
     atlas = 'Boosters',
     pos = {x = 1, y = 0},
@@ -46,11 +46,11 @@ SMODS.Booster { --Normal2
         return {set = "food", area = G.pack_cards, skip_materialize = true, soulable = true, key_append = "giga"}
     end,
     select_card = "consumeables",
-    weight = 0.15,
+    weight = 0.2,
     kind = 'Food'
 }
 
-SMODS.Booster { --Jumbo
+SMODS.Booster { --RestaurantJumbo
     key = 'restaurantPackJumbo',
     atlas = 'Boosters',
     pos = {x = 2, y = 0},
@@ -72,11 +72,11 @@ SMODS.Booster { --Jumbo
         return {set = "food", area = G.pack_cards, skip_materialize = true, soulable = true, key_append = "giga"}
     end,
     select_card = "consumeables",
-    weight = 0.12,
+    weight = 0.14,
     kind = 'Food'
 }
 
-SMODS.Booster { --Mega
+SMODS.Booster { --RestaurantMega
     key = 'restaurantPackMega',
     atlas = 'Boosters',
     pos = {x = 3, y = 0},

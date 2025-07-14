@@ -22,7 +22,7 @@
 <h2>Elements</h2>
 <ul>
     <li>28+ Jokers</li>
-    <li>21 Foods (+1 CrossMod)</li>
+    <li>23 Foods (+1 CrossMod)</li>
     <li>4 Booster Packs</li>
     <li>3+ Enhancements</li>
     <li>2 Vouchers</li>

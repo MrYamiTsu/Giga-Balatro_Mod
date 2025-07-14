@@ -27,7 +27,8 @@ return {
             m_giga_bigBonus = {
                 name = 'Big Bonus Card',
                 text = {
-                    '{C:chips}+#1#{} extra chips'
+                    '{C:chips}+#1#{} extra chips',
+                    'Always scores'
                 }
             },
             m_giga_polishStone = {
@@ -36,6 +37,13 @@ return {
                     '{C:chips}+#1#{} chips',
                     '{X:chips,C:white}X#2#{} chips',
                     'no rank or suit'
+                }
+            },
+            m_giga_multPlus = {
+                name = 'Mult Plus Card',
+                text = {
+                    '{C:mult}+#1#{} Mult',
+                    'Always scores'
                 }
             },
         },

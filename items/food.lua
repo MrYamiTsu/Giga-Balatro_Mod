@@ -433,14 +433,27 @@ SMODS.Consumable{ --Sushis
     can_use = function (self,card)
         if G and G.hand then
 			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
-				return true
+				local check = false
+                for i, selected_card in pairs(G.hand.highlighted) do
+                    if SMODS.has_enhancement(selected_card, 'm_giga_multPlus') then
+                        check = true
+                        break
+                    end
+                end
+                if not check then
+                    return true
+                end
 			end
 		end
 		return false
     end,
     use = function (self,card,area,copier)
         for i, selected_card in pairs(G.hand.highlighted) do
-            selected_card:set_ability(G.P_CENTERS["m_mult"])
+            if SMODS.has_enhancement(selected_card, 'm_mult') then
+                selected_card:set_ability(G.P_CENTERS["m_giga_multPlus"])
+            else
+                selected_card:set_ability(G.P_CENTERS["m_mult"])
+            end
             G.E_MANAGER:add_event(Event({
 				trigger = "after",
 				delay = 0.2,
@@ -850,7 +863,7 @@ SMODS.Consumable{ --PB&JSandwich
     rarity = 1,
     cost = 2,
     config = { extra = {
-        mult = 1,
+        mult = 2,
         card = 2
     }},
     loc_vars = function (self,info_queue,center)
@@ -888,7 +901,7 @@ SMODS.Consumable{ --Burger
     rarity = 1,
     cost = 2,
     config = { extra = {
-        chips = 5,
+        chips = 8,
         card = 2
     }},
     loc_vars = function (self,info_queue,center)
@@ -939,8 +952,8 @@ SMODS.Consumable{ --FruitSalad
                     if SMODS.has_enhancement(selected_card, 'm_giga_richSoil') or
                        SMODS.has_enhancement(selected_card, 'm_giga_soil') or
                        SMODS.has_enhancement(selected_card, 'm_bonus') or
-                       SMODS.has_enhancement(selected_card, 'm_stone') --[[or
-                       SMODS.has_enhancement(selected_card, 'm_mult') or
+                       SMODS.has_enhancement(selected_card, 'm_stone') or
+                       SMODS.has_enhancement(selected_card, 'm_mult') --[[or
                        SMODS.has_enhancement(selected_card, 'm_lucky') or
                        SMODS.has_enhancement(selected_card, 'm_glass') or
                        SMODS.has_enhancement(selected_card, 'm_gold') or
@@ -968,9 +981,9 @@ SMODS.Consumable{ --FruitSalad
                 selected_card:set_ability(G.P_CENTERS["m_giga_bigBonus"])
             elseif SMODS.has_enhancement(selected_card, 'm_stone') then
                 selected_card:set_ability(G.P_CENTERS["m_giga_polishStone"])
-            --[[elseif SMODS.has_enhancement(selected_card, 'm_mult') then
-                selected_card:set_ability(G.P_CENTERS["m_giga_bigMult"])
-            elseif SMODS.has_enhancement(selected_card, 'm_lucky') then
+            elseif SMODS.has_enhancement(selected_card, 'm_mult') then
+                selected_card:set_ability(G.P_CENTERS["m_giga_multPlus"])
+            --[[elseif SMODS.has_enhancement(selected_card, 'm_lucky') then
                 selected_card:set_ability(G.P_CENTERS["m_giga_luckiest"])
             elseif SMODS.has_enhancement(selected_card, 'm_glass') then
                 selected_card:set_ability(G.P_CENTERS["m_giga_reinforcedGlass"])
@@ -1029,6 +1042,57 @@ SMODS.Consumable{ --BirthdayCake
         G.E_MANAGER:add_event(Event({
             func = function()
                 G.consumeables.config.card_limit = G.consumeables.config.card_limit + 1
+                return true
+            end
+        }))
+    end,
+    calculate = function (self,card,context)
+        if context.end_of_round and context.main_eval then
+            card.ability.extra.round_left = card.ability.extra.round_left - 1
+        end
+        if card.ability.extra.round_left <= 0 and #G.consumeables.cards then
+            card.ability.extra.txt = 'Ready'
+        end
+    end
+}
+
+SMODS.Consumable{ --Turkey
+    key = 'turkey',
+    set = 'food',
+    atlas = 'Foods',
+    pos = {x = 2, y = 1},
+    soul_pos = {x = 0, y = 1},
+    loc_txt = {
+        name = 'Turkey',
+        text = {
+            'A delicious Turkey that will',
+            'permanently give you {C:attention}+#1#{}',
+            'Joker slot in {C:attention}#2#{} rounds',
+            '{C:inactive}#3#{}'
+        }
+    },
+    rarity = 4,
+    hidden = true,
+    cost = 4,
+    config = { extra = {
+        round = 3,
+        round_left = 3,
+        jokerSlot = 1,
+        txt = 'Not ready yet'
+    }},
+    loc_vars = function (self,info_queue,center)
+        return{vars = {center.ability.extra.jokerSlot, center.ability.extra.round, center.ability.extra.txt}}
+    end,
+    can_use = function (self,card)
+		if card.ability.extra.round_left <= 0 then
+            return true
+        end
+        return false
+    end,
+    use = function (self,card,area,copier)
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                G.jokers.config.card_limit = G.jokers.config.card_limit + card.ability.extra.jokerSlot
                 return true
             end
         }))
