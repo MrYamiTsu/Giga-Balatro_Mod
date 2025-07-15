@@ -508,7 +508,11 @@ SMODS.Consumable{ --SugarPie
     end,
     use = function (self,card,area,copier)
         for i, selected_card in pairs(G.hand.highlighted) do
-            selected_card:set_ability(G.P_CENTERS["m_lucky"])
+            if SMODS.has_enhancement(selected_card, 'm_lucky') then
+                selected_card:set_ability(G.P_CENTERS["m_giga_luckiest"])
+            else
+                selected_card:set_ability(G.P_CENTERS["m_lucky"])
+            end
             G.E_MANAGER:add_event(Event({
 				trigger = "after",
 				delay = 0.2,
@@ -953,8 +957,8 @@ SMODS.Consumable{ --FruitSalad
                        SMODS.has_enhancement(selected_card, 'm_giga_soil') or
                        SMODS.has_enhancement(selected_card, 'm_bonus') or
                        SMODS.has_enhancement(selected_card, 'm_stone') or
-                       SMODS.has_enhancement(selected_card, 'm_mult') --[[or
-                       SMODS.has_enhancement(selected_card, 'm_lucky') or
+                       SMODS.has_enhancement(selected_card, 'm_mult') or
+                       SMODS.has_enhancement(selected_card, 'm_lucky') --[[or
                        SMODS.has_enhancement(selected_card, 'm_glass') or
                        SMODS.has_enhancement(selected_card, 'm_gold') or
                        SMODS.has_enhancement(selected_card, 'm_steel')]] then
@@ -983,9 +987,9 @@ SMODS.Consumable{ --FruitSalad
                 selected_card:set_ability(G.P_CENTERS["m_giga_polishStone"])
             elseif SMODS.has_enhancement(selected_card, 'm_mult') then
                 selected_card:set_ability(G.P_CENTERS["m_giga_multPlus"])
-            --[[elseif SMODS.has_enhancement(selected_card, 'm_lucky') then
+            elseif SMODS.has_enhancement(selected_card, 'm_lucky') then
                 selected_card:set_ability(G.P_CENTERS["m_giga_luckiest"])
-            elseif SMODS.has_enhancement(selected_card, 'm_glass') then
+            --[[elseif SMODS.has_enhancement(selected_card, 'm_glass') then
                 selected_card:set_ability(G.P_CENTERS["m_giga_reinforcedGlass"])
             elseif SMODS.has_enhancement(selected_card, 'm_gold') then
                 selected_card:set_ability(G.P_CENTERS["m_giga_perfectGold"])

@@ -46,6 +46,17 @@ return {
                     'Always scores'
                 }
             },
+            m_giga_luckiest = {
+                name = 'Luckiest Card',
+                text = {
+                    '{C:green}#1# in #2#{} chance',
+                    'for {C:mult}+#3#{} Mult',
+                    '{C:green}#4# in #5#{} chance',
+                    'to win {C:money}$#6#{}',
+                    '{C:green}#7# in #8#{} chance',
+                    'to create {C:attention}#9#{} {C:dark_edition}Negative{} {V:1}Food{}',
+                }
+            },
         },
         Joker={
             j_giga_cashPass = {
