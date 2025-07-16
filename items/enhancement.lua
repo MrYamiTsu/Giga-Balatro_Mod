@@ -185,7 +185,6 @@ SMODS.Enhancement{ --Luckiest
 		return false 
 	end,
 	calculate = function(self, card, context, effect)
-		-- Try to correct the issue with the luckiest enhancement not working properly
 		if context.main_scoring and context.cardarea == G.play then
             local effects = {}
             if SMODS.pseudorandom_probability(card, 'giga_luckiest1', card.ability.extra.odds, card.ability.extra.chances1, 'luckiest_prob1') then
@@ -200,14 +199,17 @@ SMODS.Enhancement{ --Luckiest
                     delay = 0.6
                 })
             end
+			if SMODS.pseudorandom_probability(card, 'giga_luckiest2', card.ability.extra.odds, card.ability.extra.chances3, 'luckiest_prob3') then
+				table.insert(effects, { func = function() 
+						local food = create_card('food',G.consumeables, nil, nil, nil, nil, nil, 'createFood')
+						food:set_edition('e_negative', true)
+            			food:add_to_deck()
+            			G.consumeables:emplace(food)
+					end 
+				})
+			end
             if #effects > 0 then
                 return SMODS.merge_effects(effects)
-            end
-			if SMODS.pseudorandom_probability(card, 'giga_luckiest2', card.ability.extra.odds, card.ability.extra.chances3, 'luckiest_prob3') then
-                local food = create_card('food',G.consumeables, nil, nil, nil, nil, nil, 'createFood')
-				food:set_edition('e_negative', true)
-            	food:add_to_deck()
-            	G.consumeables:emplace(food)
             end
 		end
 	end
