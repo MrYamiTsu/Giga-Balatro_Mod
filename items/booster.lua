@@ -20,7 +20,7 @@ SMODS.Booster { --RestaurantNormal1
         return {set = "food", area = G.pack_cards, skip_materialize = true, soulable = true, key_append = "giga"}
     end,
     select_card = "consumeables",
-    weight = 0.2,
+    weight = 0.24,
     kind = 'Food'
 }
 
@@ -46,7 +46,7 @@ SMODS.Booster { --RestaurantNormal2
         return {set = "food", area = G.pack_cards, skip_materialize = true, soulable = true, key_append = "giga"}
     end,
     select_card = "consumeables",
-    weight = 0.2,
+    weight = 0.24,
     kind = 'Food'
 }
 
@@ -72,7 +72,7 @@ SMODS.Booster { --RestaurantJumbo
         return {set = "food", area = G.pack_cards, skip_materialize = true, soulable = true, key_append = "giga"}
     end,
     select_card = "consumeables",
-    weight = 0.14,
+    weight = 0.18,
     kind = 'Food'
 }
 
@@ -98,6 +98,6 @@ SMODS.Booster { --RestaurantMega
         return {set = "food", area = G.pack_cards, skip_materialize = true, soulable = true, key_append = "giga"}
     end,
     select_card = "consumeables",
-    weight = 0.08,
+    weight = 0.12,
     kind = 'Food'
 }
