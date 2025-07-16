@@ -168,8 +168,8 @@ SMODS.Enhancement{ --Luckiest
 	weight = 0,
 	config = { extra = { 
 		odds = 1,
-		chances1 = 2,
-		chances2 = 6,
+		chances1 = 3,
+		chances2 = 7,
 		chances3 = 10,
 		mult = 20,
 		cash = 20,
@@ -205,7 +205,10 @@ SMODS.Enhancement{ --Luckiest
 						food:set_edition('e_negative', true)
             			food:add_to_deck()
             			G.consumeables:emplace(food)
-					end 
+					end,
+					message = 'Create !',
+                	colour = G.C.MONEY,
+					delay = 0.6
 				})
 			end
             if #effects > 0 then
