@@ -176,9 +176,12 @@ SMODS.Enhancement{ --Luckiest
 		card = 1
 	}},
 	loc_vars = function(self, info_queue, card)
-		return {vars = {card.ability.extra.odds, card.ability.extra.chances1, card.ability.extra.mult, 
-						card.ability.extra.odds, card.ability.extra.chances2, card.ability.extra.cash, 
-						card.ability.extra.odds, card.ability.extra.chances3, card.ability.extra.card,
+		local odds1, chances1 = SMODS.get_probability_vars(card, card.ability.extra.odds, card.ability.extra.chances1, 'prob1')
+		local odds2, chances2 = SMODS.get_probability_vars(card, card.ability.extra.odds, card.ability.extra.chances2, 'prob2')
+		local odds3, chances3 = SMODS.get_probability_vars(card, card.ability.extra.odds, card.ability.extra.chances3, 'prob3')
+		return {vars = {odds1, chances1, card.ability.extra.mult, 
+						odds2, chances2, card.ability.extra.cash, 
+						odds3, chances3, card.ability.extra.card,
 					 	colours={HEX('F7070BFF')}}}
 	end,
 	in_pool = function(self) 

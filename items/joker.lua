@@ -193,15 +193,13 @@ SMODS.Joker{ --SnapchatGirl
         }
     },
     loc_vars = function(self,info_queue,center)
-        return{vars = {center.ability.extra.odds, center.ability.extra.chances, center.ability.extra.cash}}
+        local odds, chances = SMODS.get_probability_vars(center, center.ability.extra.odds, center.ability.extra.chances, 'prob')
+        return{vars = {odds, chances, center.ability.extra.cash}}
     end,
     calculate = function(self,card,context)
         if context.selling_card and context.card == card then
-            if #G.jokers.cards < G.jokers.config.card_limit then
-                local odds = card.ability.extra.odds or 1
-                local chances = card.ability.extra.chances or 6
-                local roll = pseudorandom('giga_snapchatGirl_'..tostring(math.random()))
-                if roll <= (odds / chances) then
+            if #G.jokers.cards - 1 < G.jokers.config.card_limit then
+                if SMODS.pseudorandom_probability(card, 'giga_snapchatGirl', card.ability.extra.odds, card.ability.extra.chances, 'scg_prob') then
                     SMODS.add_card({set = 'Joker', rarity = 'Legendary'})
                 else
                     return {
@@ -227,8 +225,9 @@ SMODS.Joker{ --HighRiskHighReward
         chances = 3
     }},
     loc_vars = function(self, info_queue, center)
+        local odds, chances = SMODS.get_probability_vars(center, center.ability.extra.odds, center.ability.extra.chances, 'prob')
         info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
-        return {vars = {center.ability.extra.mult, center.ability.extra.odds, center.ability.extra.chances}}
+        return {vars = {center.ability.extra.mult, odds, chances}}
     end,
     calculate = function(self, card, context)
         if context.scoring_name == 'High Card' then
@@ -241,11 +240,7 @@ SMODS.Joker{ --HighRiskHighReward
                 }
             end
             if context.final_scoring_step then
-                local odds = card.ability.extra.odds or 1
-                local chances = card.ability.extra.chances or 3
-                local seed = pseudoseed(tostring(card:get_id()) .. tostring(context.scoring_name))
-                local roll = pseudorandom('giga_highRiskHighReward', seed)
-                if roll <= (odds / chances) then
+                if SMODS.pseudorandom_probability(card, 'giga_highRiskHighReward', card.ability.extra.odds, card.ability.extra.chances, 'hrhr_prob') then
                     local to_destroy = context.full_hand[1]
                     G.E_MANAGER:add_event(Event({
                         blocking = true,
