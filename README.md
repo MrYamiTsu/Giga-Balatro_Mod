@@ -5,8 +5,7 @@
 <hr>
 <h2>Installation</h2>
 <p>
-    Latest version of <a href="https://github.com/Steamodded/smods">Steamodded</a> and 
-    <a href="https://github.com/ethangreen-dev/lovely-injector">Lovely</a> are required.<br>
+    <a href="https://github.com/Steamodded/smods">Steamodded 1.0.0~BETA-0711a or higher is required</a>.<br>
     Can be useful to have <a href="https://github.com/SpectralPack/Talisman">Talisman</a> too.
 </p>
 <p>Just download the zip file, extract it and place it in your Mod folder.</p>
