@@ -30,7 +30,7 @@
 </ul>
 
 <p><em>*Some Jokers have secret interactions with other Jokers.</em><br>
-<em>*A lot of assets are unfinished or just don't have art yet.</em></p>
+<em>*Many artworks are either unfinished or missing.</em></p>
 
 <hr>
 <h2>Additional Infos</h2>

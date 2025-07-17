@@ -855,7 +855,7 @@ SMODS.Consumable{ --PB&JSandwich
     set = 'food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 0, y = 1},
+    soul_pos = {x = 6, y = 1},
     loc_txt = {
         name = 'PB&J Sandwich',
         text = {
@@ -931,7 +931,7 @@ SMODS.Consumable{ --FruitSalad
     set = 'food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 0, y = 1},
+    soul_pos = {x = 5, y = 1},
     loc_txt = {
         name = 'Fruit Salad',
         text = {
