@@ -2,10 +2,12 @@
 
 <p>Some random additions for <strong>Balatro</strong>. Some assets work weirdly sometimes.</p>
 
+<img src="assets/other/content.png" alt="Content Screenshot">
+
 <hr>
 <h2>Installation</h2>
 <p>
-    <a href="https://github.com/Steamodded/smods">Steamodded 1.0.0~BETA-0711a or higher is required</a>.<br>
+    <a href="https://github.com/Steamodded/smods">Steamodded </a>1.0.0~BETA-0711a or higher is required.<br>
     Can be useful to have <a href="https://github.com/SpectralPack/Talisman">Talisman</a> too.
 </p>
 <p>Just download the zip file, extract it and place it in your Mod folder.</p>
