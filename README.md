@@ -25,7 +25,7 @@
     <li>28+ Jokers</li>
     <li>23 Foods (+1 CrossMod)</li>
     <li>4 Booster Packs</li>
-    <li>5+ Enhancements</li>
+    <li>6+ Enhancements</li>
     <li>2 Vouchers</li>
 </ul>
 

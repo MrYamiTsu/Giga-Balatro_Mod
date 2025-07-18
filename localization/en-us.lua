@@ -57,6 +57,15 @@ return {
                     'to create {C:attention}#9#{} {C:dark_edition}Negative{} {V:1}Food{}',
                 }
             },
+            m_giga_perfectGold = {
+                name = 'Perfect Gold Card',
+                text = {
+                    '{C:money}$#1#{} if this',
+                    'card is held in hand',
+                    'at end of round',
+                    '{C:money}+$#2#{} when played',
+                }
+            },
         },
         Joker={
             j_giga_cashPass = {

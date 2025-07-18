@@ -220,3 +220,38 @@ SMODS.Enhancement{ --Luckiest
 		end
 	end
 }
+
+SMODS.Enhancement{ --PerfectGold
+	key = 'perfectGold',
+	atlas = "Enhancements",
+	pos = { x = 1, y = 1 },
+	discovered = true,
+	unlocked = true,
+	always_scores = true,
+	weight = 0,
+	config = { extra = { 
+        cash = 6,
+		cash_mod = 1
+    }},
+	loc_vars = function(self, info_queue, card)
+		return {vars = {card.ability.extra.cash, card.ability.extra.cash_mod}}
+	end,
+	in_pool = function(self) 
+		return false 
+	end,
+	calculate = function(self, card, context, effect)
+		if context.main_scoring and context.cardarea == G.play then
+			card.ability.extra.cash = card.ability.extra.cash + card.ability.extra.cash_mod
+			return {
+				card = card,
+				message = 'Upgraded !',
+				color = G.C.MONEY,
+			}
+		end
+		if context.playing_card_end_of_round and context.cardarea == G.hand then
+			return {
+				dollars = card.ability.extra.cash,
+			}
+		end
+	end
+}
