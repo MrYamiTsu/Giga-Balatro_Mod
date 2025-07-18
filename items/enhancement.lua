@@ -230,7 +230,7 @@ SMODS.Enhancement{ --PerfectGold
 	always_scores = true,
 	weight = 0,
 	config = { extra = { 
-        cash = 6,
+        cash = 5,
 		cash_mod = 1
     }},
 	loc_vars = function(self, info_queue, card)
@@ -240,7 +240,7 @@ SMODS.Enhancement{ --PerfectGold
 		return false 
 	end,
 	calculate = function(self, card, context, effect)
-		if context.main_scoring and context.cardarea == G.play then
+		if context.final_scoring_step and context.cardarea == G.play then
 			card.ability.extra.cash = card.ability.extra.cash + card.ability.extra.cash_mod
 			return {
 				card = card,

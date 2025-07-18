@@ -63,7 +63,7 @@ return {
                     '{C:money}$#1#{} if this',
                     'card is held in hand',
                     'at end of round',
-                    '{C:money}+$#2#{} when played',
+                    'Increase by {C:money}$#2#{} if played',
                 }
             },
         },
