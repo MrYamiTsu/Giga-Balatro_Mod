@@ -1,6 +1,16 @@
 return {
     descriptions = {
-        Back={},
+        Back={
+            b_giga_foodie = {
+                name = "Foodie's Deck",
+                text = {
+                    'Create a {V:1}Food{}',
+                    'card at the start',
+                    'of every round and',
+                    'start with {C:attention,T:v_giga_foodTruck}Food Truck{}'
+                }
+            }
+        },
         Blind={},
         Edition={},
         Enhanced={
@@ -286,7 +296,7 @@ return {
                 }
             },
             j_giga_etfo = {
-                name = {'{s:1.2}Exodia{} The Forbidden One'},
+                name = {'{s:1.2}Exodia{}', 'The Forbidden One'},
                 text = {
                     '{C:chips}+#1#{} Chips',
                     'for each card played'

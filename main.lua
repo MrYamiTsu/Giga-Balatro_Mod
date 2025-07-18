@@ -1,4 +1,5 @@
 -- Loading Files --
+SMODS.load_file("items/deck.lua")()
 SMODS.load_file("items/booster.lua")()
 SMODS.load_file("items/enhancement.lua")()
 SMODS.load_file("items/food.lua")()
@@ -48,6 +49,13 @@ SMODS.Atlas{
 SMODS.Atlas{
     key = 'Boosters',
     path = 'Boosters.png',
+    px = 71,
+    py = 95
+}
+
+SMODS.Atlas{
+    key = 'Decks',
+    path = 'Deck.png',
     px = 71,
     py = 95
 }

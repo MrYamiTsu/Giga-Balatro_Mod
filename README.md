@@ -27,6 +27,7 @@
     <li>4 Booster Packs</li>
     <li>6+ Enhancements</li>
     <li>2 Vouchers</li>
+    <li>1 Deck</li>
 </ul>
 
 <p><em>*Some Jokers have secret interactions with other Jokers.</em><br>
