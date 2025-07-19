@@ -9,6 +9,9 @@ SMODS.load_file("items/voucher.lua")()
 if next(SMODS.find_mod("Cryptid")) then
 	SMODS.load_file("items/CrossMod/cryptid.lua")()
 end
+if next(SMODS.find_mod("partner")) then
+	SMODS.load_file("items/CrossMod/partner.lua")()
+end
 
 -- Atlas --
 SMODS.Atlas{
@@ -41,14 +44,14 @@ SMODS.Atlas{
 
 SMODS.Atlas{
     key = 'Vouchers',
-    path = 'Vouchers.png',
+    path = 'Voucher.png',
     px = 71,
     py = 95
 }
 
 SMODS.Atlas{
     key = 'Boosters',
-    path = 'Boosters.png',
+    path = 'Booster.png',
     px = 71,
     py = 95
 }
@@ -88,6 +91,7 @@ SMODS.Atlas{
     py = 170
 }
 
+-- Rarity --
 SMODS.Rarity{
 	key = "megaLegendary",
 	loc_txt = {
@@ -97,7 +101,6 @@ SMODS.Rarity{
 }
 
 -- Main Menu --
-
 SMODS.Joker{
 	key = "mainMenuJoker",
 	atlas = "Jokers",

@@ -1,4 +1,4 @@
-SMODS.Back{ --FoodieDeck
+SMODS.Back{ --Foodie'sDeck
     key = 'foodie',
     atlas = "Decks",
     pos = { x = 0, y = 0 },

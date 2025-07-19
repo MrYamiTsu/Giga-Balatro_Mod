@@ -416,6 +416,17 @@ return {
             }
 
         },
+        Partner = {
+            pnr_giga_pabloJr = {
+                name = 'Pablo Jr.',
+                text = {
+                    '{C:green}#1# in #2#{} chance',
+                    'to {C:attention}upgrade{} the',
+                    'enhancement of',
+                    'played card'
+                }
+            }
+        },
         Planet={},
         Spectral={},
         Stake={},
