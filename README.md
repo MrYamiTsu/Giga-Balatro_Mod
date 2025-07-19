@@ -24,11 +24,12 @@
 <h2>Elements</h2>
 <ul>
     <li>28+ Jokers</li>
-    <li>23 Foods (+1 CrossMod)</li>
+    <li>23 Foods (+1 Cross-Mod)</li>
     <li>4 Booster Packs</li>
     <li>6+ Enhancements</li>
     <li>2 Vouchers</li>
     <li>1 Deck</li>
+    <li>1 Partner (Cross-Mod)</li>
 </ul>
 
 <p><em>*Some Jokers have secret interactions with other Jokers.</em><br>
