@@ -428,6 +428,11 @@ return {
             }
         },
         Planet={},
+        Rarity={
+            giga_megaLegendary = {
+                name = 'Mega Legendary',
+            }
+        },
         Spectral={},
         Stake={},
         Tag={},
@@ -457,7 +462,7 @@ return {
         },
         ["Content Set"] = {
             set_giga_megaLegendary = {
-                name = "Mega Legendary",
+                name = 'Mega Legendary'
             }   
         }
     },
