@@ -573,16 +573,16 @@ SMODS.Consumable{ --[Untitled2]
     end
 }
 
-SMODS.Consumable{ --[Untitled3]
-    key = '[Untitled3]',
+SMODS.Consumable{ --Salmon
+    key = 'salmon',
     set = 'food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 0, y = 1},
+    soul_pos = {x = 0, y = 2},
     loc_txt = {
-        name = '[Untitled]',
+        name = 'Salmon',
         text = {
-            'Some delicious [Untitled] that',
+            'A delicious Salmon that',
             'enhance {C:attention}#1#{} card',
             'into a {C:dark_edition}Gold{} card'
         }
@@ -794,16 +794,16 @@ SMODS.Consumable{ --[Untitled6]
     end
 }
 
-SMODS.Consumable{ --[Untitled7]
-    key = '[Untitled7]',
+SMODS.Consumable{ --GummyBear
+    key = 'gummyBear',
     set = 'food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 0, y = 1},
+    soul_pos = {x = 1, y = 2},
     loc_txt = {
-        name = '[Untitled]',
+        name = 'Gummy Bear',
         text = {
-            'Some delicious [Untitled] that',
+            'A delicious Gummy Bear that',
             'create {C:attention}#1#{} random',
             '{C:diamonds}Diamond{} suit card'
         }
