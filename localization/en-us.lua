@@ -77,6 +77,201 @@ return {
                 }
             },
         },
+        Giga_Food = {
+            c_giga_tacos = {
+                name = 'Tacos',
+                text = {
+                    'A delicious Tacos that',
+                    'gives you {C:money}$#1#{}'
+                }
+            },
+            c_giga_guacamole = {
+                name = 'Guacamole',
+                text = {
+                    'A delicious Guacamole that',
+                    'makes you draw {C:attention}#1#{} card',
+                }
+            },
+            c_giga_hotDog = {
+                name = 'Hot-Dog',
+                text = {
+                    'A delicious Hot-Dog that',
+                    'enhance {C:attention}#1#{} card',
+                    'into {C:dark_edition}Soil{} card',
+                    '{s:0.5}"I wonder what could happen if its already soil"{}'
+                }
+            },
+            c_giga_caesarSalad = {
+                name = 'Caesar Salad',
+                text = {
+                    'A delicious Caesar Salad that',
+                    'will give a {C:tarot}Tarot{} in {C:attention}#1#{} rounds',
+                    '{C:inactive}#2#{}'
+                }
+            },
+            c_giga_clubSandwich = {
+                name = 'Club Sandwich',
+                text = {
+                    'A delicious Club Sandwich that',
+                    'will give a {C:planet}Planet{} in {C:attention}#1#{} rounds',
+                    '{C:inactive}#2#{}'
+                }
+            },
+            c_giga_pho = {
+                name = 'Pho',
+                text = {
+                    'A delicious Pho that will give a',
+                    '{C:spectral}Spectral{} card in {C:attention}#1#{} rounds',
+                    '{C:inactive}#2#{}'
+                }
+            },
+            c_giga_spaghetti = {
+                name = 'Spaghetti',
+                text = {
+                    'A delicious Spaghetti that',
+                    'enhance {C:attention}#1#{} card',
+                    'into {C:dark_edition}Bonus{} card'
+                }
+            },
+            c_giga_steak = {
+                name = 'Steak',
+                text = {
+                    'A delicious Steak that',
+                    'enhance {C:attention}#1#{} card',
+                    'into {C:dark_edition}Stone{} card'
+                }
+            },
+            c_giga_sushis = {
+                name = 'Sushis',
+                text = {
+                    'Some delicious Sushis that',
+                    'enhance {C:attention}#1#{} card',
+                    'into a {C:dark_edition}Mult{} card'
+                }
+            },
+            c_giga_sugarPie = {         
+                name = 'Sugar Pie',
+                text = {
+                    'A delicious Sugar Pie that',
+                    'enhance {C:attention}#1#{} card',
+                    'into a {C:dark_edition}Lucky{} card'
+                }
+            },
+            c_giga_Untitled2 = {            
+                name = '[Untitled]',
+                text = {
+                    'Some delicious [Untitled] that',
+                    'enhance {C:attention}#1#{} card',
+                    'into a {C:dark_edition}Glass{} card'
+                }
+            },
+            c_giga_salmon = {
+                name = 'Salmon',
+                text = {
+                    'A delicious Salmon that',
+                    'enhance {C:attention}#1#{} card',
+                    'into a {C:dark_edition}Gold{} card'
+                }
+            },
+            c_giga_Untitled4 = {
+                name = '[Untitled]',
+                text = {
+                    'Some delicious [Untitled] that',
+                    'enhance {C:attention}#1#{} card',
+                    'into a {C:dark_edition}Wild{} card'
+                }
+            },
+            c_giga_lollipop = {
+                name = 'Lollipop',
+                text = {
+                    'A delicious Lollipop that',
+                    'enhance {C:attention}#1#{} card',
+                    'into a {C:dark_edition}Steel{} card'
+                }
+            },
+            c_giga_Untitled5 = {
+                name = '[Untitled]',
+                text = {
+                    'Some delicious [Untitled] that',
+                    'create {C:attention}#1#{} random',
+                    '{C:hearts}Heart{} suit card'
+                }
+            },
+            c_giga_Untitled6 = {
+                name = '[Untitled]',
+                text = {
+                    'Some delicious [Untitled] that',
+                    'create {C:attention}#1#{} random',
+                    '{C:spades}Spade{} suit card'
+                }
+            },
+           c_giga_gummyBear = {
+                name = 'Gummy Bear',
+                text = {
+                    'A delicious Gummy Bear that',
+                    'create {C:attention}#1#{} random',
+                    '{C:diamonds}Diamond{} suit card'
+                }
+            },
+            c_giga_Untitled8 = {
+                name = '[Untitled]',
+                text = {
+                    'Some delicious [Untitled] that',
+                    'create {C:attention}#1#{} random',
+                    '{C:clubs}Club{} suit card'
+                }
+            },
+            c_giga_pBJSandwich = {
+                name = 'PB&J Sandwich',
+                text = {
+                    'A delicious PB&J Sandwich that',
+                    'permenantly add {C:mult}+#1#{} Mult',
+                    'to {C:attention}#2#{} selected card'
+                }
+            },
+            c_giga_burger = {
+                name = 'Burger',
+                text = {
+                    'A delicious Burger that',
+                    'permenantly add {C:chips}+#1#{} Chips',
+                    'to {C:attention}#2#{} selected card'
+                }
+            },
+            c_giga_fruitSalad = {
+                name = 'Fruit Salad',
+                text = {
+                    'A delicious Fruit Salad that',
+                    '{C:attention}upgrade{} the enhancement of',
+                    '{C:attention}#1#{} card'
+                }
+            },
+            c_giga_birthdayCake = {
+                name = 'Birthday Cake',
+                text = {
+                    'A delicious Birthday Cake that will',
+                    'permanently give you {C:attention}+#1#{} Consumable',
+                    'slot in {C:attention}#2#{} rounds',
+                    '{C:inactive}#3#{}'
+                }
+            },
+            c_giga_turkey = {
+                name = 'Turkey',
+                text = {
+                    'A delicious Turkey that will',
+                    'permanently give you {C:attention}+#1#{}',
+                    'Joker slot in {C:attention}#2#{} rounds',
+                    '{C:inactive}#3#{}'
+                }
+            },
+            c_giga_hawaiianPizza = {
+                name = 'Hawaiian Pizza',
+                text = {
+                    'A delicious Hawaiian Pizza that',
+                    'will give a {C:cry_code}Code{} in {C:attention}#1#{} rounds',
+                    '{C:inactive}#2#{}'
+                }
+            },
+        },
         Joker={
             j_giga_cashPass = {
                 name = 'Cash Pass',
@@ -428,11 +623,6 @@ return {
             }
         },
         Planet={},
-        Rarity={
-            giga_megaLegendary = {
-                name = 'Mega Legendary',
-            }
-        },
         Spectral={},
         Stake={},
         Tag={},

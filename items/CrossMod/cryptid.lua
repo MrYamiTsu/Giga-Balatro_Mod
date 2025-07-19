@@ -1,17 +1,9 @@
 SMODS.Consumable{ --HawaiianPizza
     key = 'hawaiianPizza',
-    set = 'food',
+    set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
     soul_pos = {x = 4, y = 1},
-    loc_txt = {
-        name = 'Hawaiian Pizza',
-        text = {
-            'A delicious Hawaiian Pizza that',
-            'will give a {C:cry_code}Code{} in {C:attention}#1#{} rounds',
-            '{C:inactive}#2#{}'
-        }
-    },
     dependencies = 'Cryptid',
     rarity = 1,
     cost = 2,

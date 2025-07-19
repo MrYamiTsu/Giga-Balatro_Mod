@@ -1,5 +1,5 @@
 SMODS.ConsumableType{
-    key = 'food',
+    key = 'Giga_Food',
     primary_colour = HEX("F7070BFF"),
     secondary_colour = HEX("F2A5A6FF"),
     loc_txt = {
@@ -12,21 +12,14 @@ SMODS.ConsumableType{
 
 SMODS.Consumable{ --Tacos
     key = 'tacos',
-    set = 'food',
+    set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
     soul_pos = {x = 1, y = 0},
-    loc_txt = {
-        name = 'Tacos',
-        text = {
-            'A delicious Tacos that',
-            'gives you {C:money}$#1#{}'
-        }
-    },
     rarity = 1,
     cost = 2,
     config = { extra = {
-        money = 3
+        money = 5
     }},
     loc_vars = function (self,info_queue,center)
         return{vars = {center.ability.extra.money}}
@@ -41,17 +34,10 @@ SMODS.Consumable{ --Tacos
 
 SMODS.Consumable{ --Guacamole
     key = 'guacamole',
-    set = 'food',
+    set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
     soul_pos = {x = 2, y = 0},
-    loc_txt = {
-        name = 'Guacamole',
-        text = {
-            'A delicious Guacamole that',
-            'makes you draw {C:attention}#1#{} card',
-        }
-    },
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -82,19 +68,10 @@ SMODS.Consumable{ --Guacamole
 
 SMODS.Consumable{ --HotDog
     key = 'hotDog',
-    set = 'food',
+    set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
     soul_pos = {x = 3, y = 0},
-    loc_txt = {
-        name = 'Hot-Dog',
-        text = {
-            'A delicious Hot-Dog that',
-            'enhance {C:attention}#1#{} card',
-            'into {C:dark_edition}Soil{} card',
-            '{s:0.5}"I wonder what could happen if its already soil"{}'
-        }
-    },
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -145,18 +122,10 @@ SMODS.Consumable{ --HotDog
 
 SMODS.Consumable{ --CaesarSalad
     key = 'caesarSalad',
-    set = 'food',
+    set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
     soul_pos = {x = 4, y = 0},
-    loc_txt = {
-        name = 'Caesar Salad',
-        text = {
-            'A delicious Caesar Salad that',
-            'will give a {C:tarot}Tarot{} in {C:attention}#1#{} rounds',
-            '{C:inactive}#2#{}'
-        }
-    },
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -193,18 +162,10 @@ SMODS.Consumable{ --CaesarSalad
 
 SMODS.Consumable{ --ClubSandwich
     key = 'clubSandwich',
-    set = 'food',
+    set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
     soul_pos = {x = 5, y = 0},
-    loc_txt = {
-        name = 'Club Sandwich',
-        text = {
-            'A delicious Club Sandwich that',
-            'will give a {C:planet}Planet{} in {C:attention}#1#{} rounds',
-            '{C:inactive}#2#{}'
-        }
-    },
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -241,18 +202,10 @@ SMODS.Consumable{ --ClubSandwich
 
 SMODS.Consumable{ --Pho
     key = 'pho',
-    set = 'food',
+    set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
     soul_pos = {x = 6, y = 0},
-    loc_txt = {
-        name = 'Pho',
-        text = {
-            'A delicious Pho that will give a',
-            '{C:spectral}Spectral{} card in {C:attention}#1#{} rounds',
-            '{C:inactive}#2#{}'
-        }
-    },
     rarity = 2,
     cost = 2,
     config = { extra = {
@@ -289,18 +242,10 @@ SMODS.Consumable{ --Pho
 
 SMODS.Consumable{ --Spaghetti
     key = 'spaghetti',
-    set = 'food',
+    set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
     soul_pos = {x = 0, y = 1},
-    loc_txt = {
-        name = 'Spaghetti',
-        text = {
-            'A delicious Spaghetti that',
-            'enhance {C:attention}#1#{} card',
-            'into {C:dark_edition}Bonus{} card'
-        }
-    },
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -349,18 +294,10 @@ SMODS.Consumable{ --Spaghetti
 
 SMODS.Consumable{ --Steak
     key = 'steak',
-    set = 'food',
+    set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
     soul_pos = {x = 0, y = 1},
-    loc_txt = {
-        name = 'Steak',
-        text = {
-            'A delicious Steak that',
-            'enhance {C:attention}#1#{} card',
-            'into {C:dark_edition}Stone{} card'
-        }
-    },
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -409,18 +346,10 @@ SMODS.Consumable{ --Steak
 
 SMODS.Consumable{ --Sushis
     key = 'sushis',
-    set = 'food',
+    set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
     soul_pos = {x = 0, y = 1},
-    loc_txt = {
-        name = 'Sushis',
-        text = {
-            'Some delicious Sushis that',
-            'enhance {C:attention}#1#{} card',
-            'into a {C:dark_edition}Mult{} card'
-        }
-    },
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -469,18 +398,10 @@ SMODS.Consumable{ --Sushis
 
 SMODS.Consumable{ --SugarPie
     key = 'sugarPie',
-    set = 'food',
+    set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
     soul_pos = {x = 0, y = 1},
-    loc_txt = {
-        name = 'Sugar Pie',
-        text = {
-            'A delicious Sugar Pie that',
-            'enhance {C:attention}#1#{} card',
-            'into a {C:dark_edition}Lucky{} card'
-        }
-    },
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -527,19 +448,11 @@ SMODS.Consumable{ --SugarPie
 }
 
 SMODS.Consumable{ --[Untitled2]
-    key = '[Untitled2]',
-    set = 'food',
+    key = 'Untitled2',
+    set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
     soul_pos = {x = 0, y = 1},
-    loc_txt = {
-        name = '[Untitled]',
-        text = {
-            'Some delicious [Untitled] that',
-            'enhance {C:attention}#1#{} card',
-            'into a {C:dark_edition}Glass{} card'
-        }
-    },
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -575,18 +488,10 @@ SMODS.Consumable{ --[Untitled2]
 
 SMODS.Consumable{ --Salmon
     key = 'salmon',
-    set = 'food',
+    set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
     soul_pos = {x = 0, y = 2},
-    loc_txt = {
-        name = 'Salmon',
-        text = {
-            'A delicious Salmon that',
-            'enhance {C:attention}#1#{} card',
-            'into a {C:dark_edition}Gold{} card'
-        }
-    },
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -633,19 +538,11 @@ SMODS.Consumable{ --Salmon
 }
 
 SMODS.Consumable{ --[Untitled4]
-    key = '[Untitled4]',
-    set = 'food',
+    key = 'Untitled4',
+    set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
     soul_pos = {x = 0, y = 1},
-    loc_txt = {
-        name = '[Untitled]',
-        text = {
-            'Some delicious [Untitled] that',
-            'enhance {C:attention}#1#{} card',
-            'into a {C:dark_edition}Wild{} card'
-        }
-    },
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -681,18 +578,10 @@ SMODS.Consumable{ --[Untitled4]
 
 SMODS.Consumable{ --Lollipop
     key = 'lollipop',
-    set = 'food',
+    set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
     soul_pos = {x = 1, y = 1},
-    loc_txt = {
-        name = 'Lollipop',
-        text = {
-            'A delicious Lollipop that',
-            'enhance {C:attention}#1#{} card',
-            'into a {C:dark_edition}Steel{} card'
-        }
-    },
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -727,19 +616,11 @@ SMODS.Consumable{ --Lollipop
 }
 
 SMODS.Consumable{ --[Untitled5]
-    key = '[Untitled5]',
-    set = 'food',
+    key = 'Untitled5',
+    set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
     soul_pos = {x = 0, y = 1},
-    loc_txt = {
-        name = '[Untitled]',
-        text = {
-            'Some delicious [Untitled] that',
-            'create {C:attention}#1#{} random',
-            '{C:hearts}Heart{} suit card'
-        }
-    },
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -749,7 +630,10 @@ SMODS.Consumable{ --[Untitled5]
         return{vars = {center.ability.extra.card}}
     end,
     can_use = function (self,card)
-		return true
+		if G.GAME.blind.in_blind then
+            return true
+        end
+        return false
     end,
     use = function (self,card,area,copier)
         local rank = pseudorandom_element({'2','3','4','5','6','7','8','9','10','J','Q','K','A'}, pseudoseed('giga_[Untitiled5]'))
@@ -761,19 +645,11 @@ SMODS.Consumable{ --[Untitled5]
 }
 
 SMODS.Consumable{ --[Untitled6]
-    key = '[Untitled6]',
-    set = 'food',
+    key = 'Untitled6',
+    set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
     soul_pos = {x = 0, y = 1},
-    loc_txt = {
-        name = '[Untitled]',
-        text = {
-            'Some delicious [Untitled] that',
-            'create {C:attention}#1#{} random',
-            '{C:spades}Spade{} suit card'
-        }
-    },
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -783,7 +659,10 @@ SMODS.Consumable{ --[Untitled6]
         return{vars = {center.ability.extra.card}}
     end,
     can_use = function (self,card)
-		return true
+		if G.GAME.blind.in_blind then
+            return true
+        end
+        return false
     end,
     use = function (self,card,area,copier)
         local rank = pseudorandom_element({'2','3','4','5','6','7','8','9','10','J','Q','K','A'}, pseudoseed('giga_[Untitiled6]'))
@@ -796,18 +675,10 @@ SMODS.Consumable{ --[Untitled6]
 
 SMODS.Consumable{ --GummyBear
     key = 'gummyBear',
-    set = 'food',
+    set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
     soul_pos = {x = 1, y = 2},
-    loc_txt = {
-        name = 'Gummy Bear',
-        text = {
-            'A delicious Gummy Bear that',
-            'create {C:attention}#1#{} random',
-            '{C:diamonds}Diamond{} suit card'
-        }
-    },
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -817,7 +688,10 @@ SMODS.Consumable{ --GummyBear
         return{vars = {center.ability.extra.card}}
     end,
     can_use = function (self,card)
-		return true
+		if G.GAME.blind.in_blind then
+            return true
+        end
+        return false
     end,
     use = function (self,card,area,copier)
         local rank = pseudorandom_element({'2','3','4','5','6','7','8','9','10','J','Q','K','A'}, pseudoseed('giga_[Untitiled7]'))
@@ -829,19 +703,11 @@ SMODS.Consumable{ --GummyBear
 }
 
 SMODS.Consumable{ --[Untitled8]
-    key = '[Untitled8]',
-    set = 'food',
+    key = 'Untitled8',
+    set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
     soul_pos = {x = 0, y = 1},
-    loc_txt = {
-        name = '[Untitled]',
-        text = {
-            'Some delicious [Untitled] that',
-            'create {C:attention}#1#{} random',
-            '{C:clubs}Club{} suit card'
-        }
-    },
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -851,7 +717,10 @@ SMODS.Consumable{ --[Untitled8]
         return{vars = {center.ability.extra.card}}
     end,
     can_use = function (self,card)
-		return true
+		if G.GAME.blind.in_blind then
+            return true
+        end
+        return false
     end,
     use = function (self,card,area,copier)
         local rank = pseudorandom_element({'2','3','4','5','6','7','8','9','10','J','Q','K','A'}, pseudoseed('giga_[Untitiled8]'))
@@ -863,19 +732,11 @@ SMODS.Consumable{ --[Untitled8]
 }
 
 SMODS.Consumable{ --PB&JSandwich
-    key = 'pB&JSandwich',
-    set = 'food',
+    key = 'pBsJSandwich',
+    set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
     soul_pos = {x = 6, y = 1},
-    loc_txt = {
-        name = 'PB&J Sandwich',
-        text = {
-            'A delicious PB&J Sandwich that',
-            'permenantly add {C:mult}+#1#{} Mult',
-            'to {C:attention}#2#{} selected card'
-        }
-    },
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -902,22 +763,14 @@ SMODS.Consumable{ --PB&JSandwich
 
 SMODS.Consumable{ --Burger
     key = 'burger',
-    set = 'food',
+    set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
     soul_pos = {x = 0, y = 1},
-    loc_txt = {
-        name = 'Burger',
-        text = {
-            'A delicious Burger that',
-            'permenantly add {C:chips}+#1#{} Chips',
-            'to {C:attention}#2#{} selected card'
-        }
-    },
     rarity = 1,
     cost = 2,
     config = { extra = {
-        chips = 8,
+        chips = 10,
         card = 2
     }},
     loc_vars = function (self,info_queue,center)
@@ -940,18 +793,10 @@ SMODS.Consumable{ --Burger
 
 SMODS.Consumable{ --FruitSalad
     key = 'fruitSalad',
-    set = 'food',
+    set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
     soul_pos = {x = 5, y = 1},
-    loc_txt = {
-        name = 'Fruit Salad',
-        text = {
-            'A delicious Fruit Salad that',
-            '{C:attention}upgrade{} the enhancement of',
-            '{C:attention}#1#{} card'
-        }
-    },
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -1023,19 +868,10 @@ SMODS.Consumable{ --FruitSalad
 
 SMODS.Consumable{ --BirthdayCake
     key = 'birthdayCake',
-    set = 'food',
+    set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 2, y = 1},
     soul_pos = {x = 3, y = 1},
-    loc_txt = {
-        name = 'Birthday Cake',
-        text = {
-            'A delicious Birthday Cake that will',
-            'permanently give you {C:attention}+#1#{} Consumable',
-            'slot in {C:attention}#2#{} rounds',
-            '{C:inactive}#3#{}'
-        }
-    },
     rarity = 4,
     hidden = true,
     cost = 4,
@@ -1074,19 +910,10 @@ SMODS.Consumable{ --BirthdayCake
 
 SMODS.Consumable{ --Turkey
     key = 'turkey',
-    set = 'food',
+    set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 2, y = 1},
     soul_pos = {x = 0, y = 1},
-    loc_txt = {
-        name = 'Turkey',
-        text = {
-            'A delicious Turkey that will',
-            'permanently give you {C:attention}+#1#{}',
-            'Joker slot in {C:attention}#2#{} rounds',
-            '{C:inactive}#3#{}'
-        }
-    },
     rarity = 4,
     hidden = true,
     cost = 4,
