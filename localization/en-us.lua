@@ -468,7 +468,8 @@ return {
         challenge_names={},
         collabs={},
         dictionary={
-            k_restaurant_pack = "Restaurant Pack"
+            k_restaurant_pack = "Restaurant Pack",
+            b_giga_custom_menu_card = "Disable Custom Menu Joker"
         },
         high_scores={},
         labels={},
