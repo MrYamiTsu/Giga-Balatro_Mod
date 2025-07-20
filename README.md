@@ -29,6 +29,7 @@
     <li>6+ Enhancements</li>
     <li>2 Vouchers</li>
     <li>1 Deck</li>
+    <li>1 Tarot</li>
     <li>1 Partner (Cross-Mod)</li>
 </ul>
 

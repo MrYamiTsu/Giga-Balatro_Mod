@@ -626,7 +626,15 @@ return {
         Spectral={},
         Stake={},
         Tag={},
-        Tarot={},
+        Tarot={
+            c_giga_cook = {
+                name = 'Cook',
+                text = {
+                    'Create up to {C:attention}#1#{}',
+                    '{V:1}Food{} cards'
+                }
+            },
+        },
         Voucher={
             v_giga_newMenu = {
                 name = 'New Menu',

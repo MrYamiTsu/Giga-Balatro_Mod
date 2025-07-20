@@ -3,8 +3,10 @@ Giga_path = SMODS.current_mod.path
 Giga_config = SMODS.current_mod.config
 
 -- LOADING FILES --
-SMODS.load_file("items/deck.lua")()
+
 SMODS.load_file("items/booster.lua")()
+SMODS.load_file("items/consumeable.lua")()
+SMODS.load_file("items/deck.lua")()
 SMODS.load_file("items/enhancement.lua")()
 SMODS.load_file("items/food.lua")()
 SMODS.load_file("items/joker.lua")()
@@ -56,6 +58,12 @@ SMODS.Atlas{
 SMODS.Atlas{
     key = 'Decks',
     path = 'Deck.png',
+    px = 71,
+    py = 95
+}
+SMODS.Atlas{
+    key = 'Consumeables',
+    path = 'Consumeable.png',
     px = 71,
     py = 95
 }
