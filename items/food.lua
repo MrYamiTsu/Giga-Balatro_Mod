@@ -47,7 +47,7 @@ SMODS.Consumable{ --Guacamole
         return{vars = {center.ability.extra.card}}
     end,
     can_use = function (self,card)
-        if G and G.hand then
+        if G.GAME.blind.in_blind then
             return true
         end
         return false
