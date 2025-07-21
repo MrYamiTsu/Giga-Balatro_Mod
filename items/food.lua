@@ -732,7 +732,7 @@ SMODS.Consumable{ --[Untitled8]
 }
 
 SMODS.Consumable{ --PB&JSandwich
-    key = 'pBsJSandwich',
+    key = 'pBJSandwich',
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
