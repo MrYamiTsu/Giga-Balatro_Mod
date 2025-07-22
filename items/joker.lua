@@ -519,6 +519,37 @@ SMODS.Joker{ --Refinery
     end
 }
 
+SMODS.Joker { --CrystalOfHungriness
+    key = "crystalOfHungriness",
+    atlas = "Jokers",
+    pos = { x = 0, y = 4 },
+    cost = 6,
+    rarity = 2,
+    unlocked = true,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        add = 0.05,
+        base = 1
+    }},
+    loc_vars = function(self, info_queue, card)
+        return {vars = {card.ability.extra.base, card.ability.extra.add, colours={HEX('F7070BFF')}}}
+    end,
+    calculate = function(self, card, context)
+        if context.using_consumeable and context.consumeable.ability.set == 'Giga_Food' and not context.blueprint then
+            card.ability.extra.base = card.ability.extra.base + card.ability.extra.add
+        end
+        if context.joker_main and card.ability.extra.base ~= 1 then
+            return {
+                card = card,
+                Xmult_mod = card.ability.extra.base,
+                message = 'X' .. card.ability.extra.base,
+                colour = G.C.MULT
+            }
+        end
+    end
+}
+
 SMODS.Joker{ --PinkTourmaline
     key = 'pinkTourmaline',
     atlas = 'Jokers',

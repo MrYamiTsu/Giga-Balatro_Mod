@@ -525,7 +525,15 @@ return {
                     'the round. Reset otherwise',
                     '{C:inactive}Curently: {C:money}$#2#{}'
                 }
-            }
+            },
+            j_giga_crystalOfHungriness = {
+                name = 'Crystal of Hungriness',
+                text = {
+                    '{X:mult,C:white}X#1#{} Mult, increase',
+                    'by {X:mult,C:white}X#2#{} for each',
+                    '{V:1}Food{} card used',
+                }
+            },
         },
         Other={
             --Undiscovered
