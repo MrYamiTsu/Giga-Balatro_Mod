@@ -22,7 +22,7 @@ SMODS.Consumable{ --HawaiianPizza
         return false
     end,
     use = function (self,card,area,copier)
-        _create_if_negative(card, 'Code', G.consumeables)
+        _create(card, 'Code', G.consumeables,true,true)
     end,
     calculate = function (self,card,context)
         if context.end_of_round and context.main_eval then

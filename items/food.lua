@@ -143,7 +143,7 @@ SMODS.Consumable{ --CaesarSalad
         return false
     end,
     use = function (self,card,area,copier)
-        _create_if_negative(card, 'Tarot', G.consumeables)
+        _create(card, 'Tarot', G.consumeables,true,true)
     end,
     calculate = function (self,card,context)
         if context.end_of_round and context.main_eval then
@@ -178,7 +178,7 @@ SMODS.Consumable{ --ClubSandwich
         return false
     end,
     use = function (self,card,area,copier)
-        _create_if_negative(card, 'Planet', G.consumeables)
+        _create(card, 'Planet', G.consumeables,true,true)
     end,
     calculate = function (self,card,context)
         if context.end_of_round and context.main_eval then
@@ -213,7 +213,7 @@ SMODS.Consumable{ --Pho
         return false
     end,
     use = function (self,card,area,copier)
-        _create_if_negative(card, 'Spectral', G.consumeables)
+        _create(card, 'Spectral', G.consumeables,true,true)
     end,
     calculate = function (self,card,context)
         if context.end_of_round and context.main_eval then

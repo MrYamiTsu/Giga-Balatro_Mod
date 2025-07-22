@@ -29,23 +29,16 @@ function upgrade_enhencement(selected_card)
 	delay(0.5)
 end
 
-function _create(type,place)
+function _create(card,type,place,negative,negative_condition)
     local obj = create_card(type,place, nil, nil, nil, nil, nil, 'create'..type)
-    obj:add_to_deck()
-    G.consumeables:emplace(obj)
-end
-
-function _create_negative(card,type,place)
-    local obj = create_card(type,place, nil, nil, nil, nil, nil, 'create'..type)
-    obj:set_edition('e_negative', true)
-    obj:add_to_deck()
-    G.consumeables:emplace(obj)
-end
-
-function _create_if_negative(card,type,place)
-    local obj = create_card(type,place, nil, nil, nil, nil, nil, 'create'..type)
-    if card.edition and card.edition.type == 'negative' then
-        obj:set_edition('e_negative', true)
+    if negative then
+        if negative_condition then
+            if card.edition and card.edition.type == 'negative' then
+                obj:set_edition('e_negative', true)
+            end
+        else
+            obj:set_edition('e_negative', true)
+        end 
     end
     obj:add_to_deck()
     G.consumeables:emplace(obj)

@@ -90,7 +90,7 @@ SMODS.Joker{ --BlueEgg
         end
         if context.selling_card and context.card == card then
             if #G.jokers.cards < G.jokers.config.card_limit then
-                _create('Joker', G.jokers)
+                _create(card,'Joker', G.jokers,false,false)
             else
                 SMODS.calculate_effect({ message = localize('k_no_room_ex') }, card)
             end  
@@ -738,9 +738,9 @@ SMODS.Joker{ --TRex
                 end
                 if #G.consumeables.cards < G.consumeables.config.card_limit then
                     if has_velociraptor then
-                        _create('Spectral', G.consumeables)
+                        _create(card,'Spectral',G.consumeables,false,false)
                     else
-                        _create('Tarot', G.consumeables)
+                        _create(card,'Tarot', G.consumeables,false,false)
                     end
                 else
                     SMODS.calculate_effect({ message = localize('k_no_room_ex') }, card)
@@ -858,9 +858,9 @@ SMODS.Joker{ --Pteranodon
                 }))
                 if #G.consumeables.cards < G.consumeables.config.card_limit then
                     if has_velociraptor then
-                        _create('Spectral',G.consumeables)
+                        _create(card,'Spectral',G.consumeables,false,false)
                     else
-                        _create('Planet',G.consumeables)
+                        _create(card,'Planet',G.consumeables,false,false)
                     end
                 else
                     SMODS.calculate_effect({ message = localize('k_no_room_ex') }, card)

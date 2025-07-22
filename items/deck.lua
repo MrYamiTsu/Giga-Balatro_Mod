@@ -9,9 +9,7 @@ SMODS.Back{ --Foodie'sDeck
     calculate = function(self, card, context)
         if context.setting_blind then
             if #G.consumeables.cards < G.consumeables.config.card_limit then
-                local food = create_card('Giga_Food',G.consumeables, nil, nil, nil, nil, nil, 'createFood')
-                food:add_to_deck()
-                G.consumeables:emplace(food)
+                _create(card,'Giga_Food',G.consumeables,false,false)
             end
         end
     end,
