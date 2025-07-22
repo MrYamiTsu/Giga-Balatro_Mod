@@ -22,12 +22,7 @@ SMODS.Consumable{ --HawaiianPizza
         return false
     end,
     use = function (self,card,area,copier)
-        local code = create_card('Code',G.consumeables, nil, nil, nil, nil, nil, 'createCode')
-        if card.edition and card.edition.type == 'negative' then
-            code:set_edition('e_negative', true)
-        end
-        code:add_to_deck()
-        G.consumeables:emplace(code)
+        _create_if_negative(card, 'Code', G.consumeables)
     end,
     calculate = function (self,card,context)
         if context.end_of_round and context.main_eval then

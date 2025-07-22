@@ -204,10 +204,7 @@ SMODS.Enhancement{ --Luckiest
             end
 			if SMODS.pseudorandom_probability(card, 'giga_luckiest2', card.ability.extra.odds, card.ability.extra.chances3, 'luckiest_prob3') then
 				table.insert(effects, { func = function() 
-						local food = create_card('food',G.consumeables, nil, nil, nil, nil, nil, 'createFood')
-						food:set_edition('e_negative', true)
-            			food:add_to_deck()
-            			G.consumeables:emplace(food)
+						_create_negative(card, 'Giga_Food', G.consumeables)
 					end,
 					message = 'Create !',
                 	colour = G.C.MONEY,

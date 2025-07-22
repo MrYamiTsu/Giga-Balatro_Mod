@@ -143,12 +143,7 @@ SMODS.Consumable{ --CaesarSalad
         return false
     end,
     use = function (self,card,area,copier)
-        local tarot = create_card('Tarot',G.consumeables, nil, nil, nil, nil, nil, 'createTarot')
-        if card.edition and card.edition.type == 'negative' then
-            tarot:set_edition('e_negative', true)
-        end
-        tarot:add_to_deck()
-        G.consumeables:emplace(tarot)
+        _create_if_negative(card, 'Tarot', G.consumeables)
     end,
     calculate = function (self,card,context)
         if context.end_of_round and context.main_eval then
@@ -183,12 +178,7 @@ SMODS.Consumable{ --ClubSandwich
         return false
     end,
     use = function (self,card,area,copier)
-        local planet = create_card('Planet',G.consumeables, nil, nil, nil, nil, nil, 'createPlanet')
-        if card.edition and card.edition.type == 'negative' then
-            planet:set_edition('e_negative', true)
-        end
-        planet:add_to_deck()
-        G.consumeables:emplace(planet)
+        _create_if_negative(card, 'Planet', G.consumeables)
     end,
     calculate = function (self,card,context)
         if context.end_of_round and context.main_eval then
@@ -223,12 +213,7 @@ SMODS.Consumable{ --Pho
         return false
     end,
     use = function (self,card,area,copier)
-        local spectral = create_card('Spectral',G.consumeables, nil, nil, nil, nil, nil, 'createSpectral')
-        if card.edition and card.edition.type == 'negative' then
-            spectral:set_edition('e_negative', true)
-        end
-        spectral:add_to_deck()
-        G.consumeables:emplace(spectral)
+        _create_if_negative(card, 'Spectral', G.consumeables)
     end,
     calculate = function (self,card,context)
         if context.end_of_round and context.main_eval then

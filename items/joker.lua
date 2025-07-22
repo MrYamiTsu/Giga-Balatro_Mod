@@ -90,9 +90,7 @@ SMODS.Joker{ --BlueEgg
         end
         if context.selling_card and context.card == card then
             if #G.jokers.cards < G.jokers.config.card_limit then
-                local egg = create_card('Joker', G.jokers, nil, nil, nil, nil, 'j_egg')
-                egg:add_to_deck()
-                G.jokers:emplace(egg)
+                _create('Joker', G.jokers)
             else
                 SMODS.calculate_effect({ message = localize('k_no_room_ex') }, card)
             end  
@@ -740,13 +738,9 @@ SMODS.Joker{ --TRex
                 end
                 if #G.consumeables.cards < G.consumeables.config.card_limit then
                     if has_velociraptor then
-                        local spectral = create_card('Spectral',G.consumeables, nil, nil, nil, nil, nil, 'createSpectral')
-                        spectral:add_to_deck()
-                        G.consumeables:emplace(spectral)
+                        _create('Spectral', G.consumeables)
                     else
-                        local tarot = create_card('Tarot',G.consumeables, nil, nil, nil, nil, nil, 'createTarot')
-                        tarot:add_to_deck()
-                        G.consumeables:emplace(tarot)
+                        _create('Tarot', G.consumeables)
                     end
                 else
                     SMODS.calculate_effect({ message = localize('k_no_room_ex') }, card)
@@ -864,13 +858,9 @@ SMODS.Joker{ --Pteranodon
                 }))
                 if #G.consumeables.cards < G.consumeables.config.card_limit then
                     if has_velociraptor then
-                        local spectral = create_card('Spectral',G.consumeables, nil, nil, nil, nil, nil, 'createSpectral')
-                        spectral:add_to_deck()
-                        G.consumeables:emplace(spectral)
+                        _create('Spectral',G.consumeables)
                     else
-                        local planet = create_card('Planet',G.consumeables, nil, nil, nil, nil, nil, 'createPlanet')
-                        planet:add_to_deck()
-                        G.consumeables:emplace(planet)
+                        _create('Planet',G.consumeables)
                     end
                 else
                     SMODS.calculate_effect({ message = localize('k_no_room_ex') }, card)
