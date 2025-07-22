@@ -16,7 +16,7 @@ SMODS.Consumable{ --HawaiianPizza
         return{vars = {center.ability.extra.round, center.ability.extra.txt}}
     end,
     can_use = function (self,card)
-        if card.ability.extra.round_left <= 0 and #G.consumeables.cards < G.consumeables.config.card_limit then
+        if card.ability.extra.round_left <= 0 and #G.consumeables.cards - 1 < G.consumeables.config.card_limit then
             return true
         end
         return false
