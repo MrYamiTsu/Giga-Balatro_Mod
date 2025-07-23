@@ -534,6 +534,15 @@ return {
                     '{V:1}Food{} card used',
                 }
             },
+            j_giga_doubleFork = {
+                name = 'Double Fork',
+                text = {
+                    'Using a {V:1}Food{} card',
+                    'during a blind, give a',
+                    'temporary {X:chips,C:white}X#1#{} Chips',
+                    '{C:inactive}#2#'
+                }
+            }
         },
         Other={
             --Undiscovered
