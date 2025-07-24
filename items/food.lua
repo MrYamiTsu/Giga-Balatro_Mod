@@ -621,11 +621,7 @@ SMODS.Consumable{ --[Untitled5]
         return false
     end,
     use = function (self,card,area,copier)
-        local rank = pseudorandom_element(SMODS.Ranks, pseudoseed('giga_[Untitiled5]')).key
-		local card = create_playing_card({
-		    front = G.P_CARDS['H_'..rank],
-		}, G.hand, false,false,nil)
-		card:add_to_deck()
+        SMODS.add_card { set = "Base", suit = "Hearts", area = G.hand }
     end
 }
 
@@ -650,11 +646,7 @@ SMODS.Consumable{ --[Untitled6]
         return false
     end,
     use = function (self,card,area,copier)
-        local rank = pseudorandom_element(SMODS.Ranks, pseudoseed('giga_[Untitiled6]')).key
-		local card = create_playing_card({
-		    front = G.P_CARDS['S_'..rank],
-		}, G.hand, false,false,nil)
-		card:add_to_deck()
+        SMODS.add_card { set = "Base", suit = "Spades", area = G.hand }
     end
 }
 
@@ -679,11 +671,7 @@ SMODS.Consumable{ --GummyBear
         return false
     end,
     use = function (self,card,area,copier)
-        local rank = pseudorandom_element(SMODS.Ranks, pseudoseed('giga_gummyBear')).key
-		local card = create_playing_card({
-		    front = G.P_CARDS['D_'..rank],
-		}, G.hand, false,false,nil)
-		card:add_to_deck()
+        SMODS.add_card { set = "Base", suit = "Diamonds", area = G.hand }
     end
 }
 
@@ -708,11 +696,7 @@ SMODS.Consumable{ --[Untitled8]
         return false
     end,
     use = function (self,card,area,copier)
-        local rank = pseudorandom_element(SMODS.Ranks, pseudoseed('giga_[Untitiled8]')).key
-		local card = create_playing_card({
-		    front = G.P_CARDS['C_'..rank],
-		}, G.hand, false,false,nil)
-		card:add_to_deck()
+        SMODS.add_card { set = "Base", suit = "Clubs", area = G.hand }
     end
 }
 
