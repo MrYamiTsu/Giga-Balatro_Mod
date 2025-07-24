@@ -552,8 +552,8 @@ SMODS.Joker { --DoubleFork
     key = "doubleFork",
     atlas = "Jokers",
     pos = { x = 1, y = 4 },
-    cost = 7,
-    rarity = 2,
+    cost = 5,
+    rarity = 1,
     unlocked = true,
     blueprint_compat = false,
     eternal_compat = true,
@@ -578,6 +578,48 @@ SMODS.Joker { --DoubleFork
             if card.ability.extra.active then
                 return {
                     x_chips = card.ability.extra.chips
+                }
+            end
+        end
+        if context.end_of_round and not context.blueprint then
+            if card.ability.extra.active then
+                card.ability.extra.txt = 'Innactive'
+                card.ability.extra.active = false
+            end
+        end
+    end
+}
+
+SMODS.Joker { --CrackedSkull
+    key = "crackedSkull",
+    atlas = "Jokers",
+    pos = { x = 0, y = 1 },
+    cost = 6,
+    rarity = 1,
+    unlocked = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    config = { extra = {
+        mult = 2.5,
+        txt = 'Innactive',
+        active = false
+    }},
+    loc_vars = function(self, info_queue, card)
+        return {vars = {card.ability.extra.mult, card.ability.extra.txt}}
+    end,
+    calculate = function(self, card, context)
+        if G.GAME.blind.in_blind then
+            if context.using_consumeable and context.consumeable.ability.set == 'Spectral' and not context.blueprint then
+                if not card.ability.extra.active then
+                    card.ability.extra.txt = 'Active'
+                    card.ability.extra.active = true
+                end
+            end
+        end
+        if context.joker_main then
+            if card.ability.extra.active then
+                return {
+                    x_mult = card.ability.extra.mult
                 }
             end
         end

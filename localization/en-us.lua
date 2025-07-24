@@ -542,6 +542,15 @@ return {
                     'temporary {X:chips,C:white}X#1#{} Chips',
                     '{C:inactive}#2#'
                 }
+            },
+            j_giga_crackedSkull = {
+                name = 'Cracked Skull',
+                text = {
+                    'Using a {C:spectral}Spectral{} card',
+                    'during a blind, give a',
+                    'temporary {X:mult,C:white}X#1#{} Mult',
+                    '{C:inactive}#2#'
+                }
             }
         },
         Other={
