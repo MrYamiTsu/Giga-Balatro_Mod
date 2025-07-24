@@ -551,7 +551,7 @@ SMODS.Joker { --CrystalOfHungriness
 SMODS.Joker { --DoubleFork
     key = "doubleFork",
     atlas = "Jokers",
-    pos = { x = 7, y = 3 },
+    pos = { x = 1, y = 4 },
     cost = 7,
     rarity = 2,
     unlocked = true,
