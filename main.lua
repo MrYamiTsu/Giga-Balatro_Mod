@@ -17,6 +17,9 @@ end
 if next(SMODS.find_mod("partner")) then
 	SMODS.load_file("items/CrossMod/partner.lua")()
 end
+if next(SMODS.find_mod("paperback")) then
+	SMODS.load_file("items/CrossMod/paperback.lua")()
+end
 
 -- ATLAS --
 SMODS.Atlas{

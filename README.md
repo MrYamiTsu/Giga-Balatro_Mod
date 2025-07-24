@@ -18,13 +18,14 @@
 <ul>
     <li><a href="https://github.com/SpectralPack/Cryptid">Cryptid</a></li>
     <li><a href="https://github.com/Icecanno/Partner-API/">Partner-API</a></li>
+    <li><a href="https://github.com/Balatro-Paperback/paperback">Paperback</a></li>
 </ul>
 
 <hr>
 <h2>Elements</h2>
 <ul>
     <li>31+ Jokers</li>
-    <li>23 Foods (+1 Cross-Mod)</li>
+    <li>23 Foods (+3 Cross-Mod)</li>
     <li>4 Booster Packs</li>
     <li>6+ Enhancements</li>
     <li>2 Vouchers</li>
