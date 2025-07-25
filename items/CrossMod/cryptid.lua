@@ -1,3 +1,4 @@
+-- FOODS CARDS --
 SMODS.Consumable{ --HawaiianPizza
     key = 'hawaiianPizza',
     set = 'Giga_Food',

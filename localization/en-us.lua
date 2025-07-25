@@ -245,6 +245,38 @@ return {
                     '{C:attention}#1#{} card'
                 }
             },
+            c_giga_Untitled9 = {
+                name = '[Untitled]',
+                text = {
+                    'A delicious [Untitled] that',
+                    'convert {C:attention}#1#{}',
+                    'into {C:hearts}Heart{} suit'
+                }
+            },
+            c_giga_Untitled10 = {
+                name = '[Untitled]',
+                text = {
+                    'A delicious [Untitled] that',
+                    'convert {C:attention}#1#{}',
+                    'into {C:spades}Spade{} suit'
+                }
+            },
+            c_giga_Untitled11 = {
+                name = '[Untitled]',
+                text = {
+                    'A delicious [Untitled] that',
+                    'convert {C:attention}#1#{}',
+                    'into {C:diamonds}Diamond{} suit'
+                }
+            },
+            c_giga_Untitled12 = {
+                name = '[Untitled]',
+                text = {
+                    'A delicious [Untitled] that',
+                    'convert {C:attention}#1#{}',
+                    'into {C:clubs}Club{} suit'
+                }
+            },
             c_giga_birthdayCake = {
                 name = 'Birthday Cake',
                 text = {
@@ -258,7 +290,7 @@ return {
                 name = 'Turkey',
                 text = {
                     'A delicious Turkey that will',
-                    'permanently give you {C:attention}+#1#{}',
+                    'permanently give you {C:dark_edition}+#1#{}',
                     'Joker slot in {C:attention}#2#{} rounds',
                     '{C:inactive}#3#{}'
                 }
@@ -269,6 +301,47 @@ return {
                     'A delicious Hawaiian Pizza that',
                     'will give a {C:cry_code}Code{} in {C:attention}#1#{} rounds',
                     '{C:inactive}#2#{}'
+                }
+            },
+            c_giga_UntitledCM1 = {
+                name = '[UntitleCM]',
+                text = {
+                    'A delicious [UntitledCM] that',
+                    'create {C:attention}#1#{} random',
+                    '{C:paperback_crowns}Crown{} suit card'
+                }
+            },
+            c_giga_UntitledCM2 = {
+                name = '[UntitleCM]',
+                text = {
+                    'A delicious [UntitledCM] that',
+                    'create {C:attention}#1#{} random',
+                    '{C:paperback_stars}Star{} suit card'
+                }
+            },
+            c_giga_UntitledCM3 = {
+                name = '[UntitleCM]',
+                text = {
+                    'A delicious [UntitledCM] that',
+                    'will give a {C:paperback_minor_arcana}Minor Arcana{} in',
+                    '{C:attention}#1#{} rounds',
+                    '{C:inactive}#2#{}'
+                }
+            },
+            c_giga_UntitledCM4 = {
+                name = '[UntitledCM]',
+                text = {
+                    'A delicious [UntitledCM] that',
+                    'convert {C:attention}#1#{}',
+                    'into {C:clubs}Crown{} suit'
+                }
+            },
+            c_giga_UntitledCM5 = {
+                name = '[UntitledCM]',
+                text = {
+                    'A delicious [UntitledCM] that',
+                    'convert {C:attention}#1#{}',
+                    'into {C:paperback_stars}Star{} suit'
                 }
             },
         },
@@ -549,6 +622,15 @@ return {
                     'Using a {C:spectral}Spectral{} card',
                     'during a blind, give a',
                     'temporary {X:mult,C:white}X#1#{} Mult',
+                    '{C:inactive}#2#'
+                }
+            },
+            j_giga_sagittariusA = {
+                name = 'Sagittarius A*',
+                text = {
+                    'Using a {C:planet}Planet{} card',
+                    'during a blind, give a',
+                    'temporary {X:mult,C:white}+#1#{} Chips',
                     '{C:inactive}#2#'
                 }
             }

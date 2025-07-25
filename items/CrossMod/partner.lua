@@ -1,3 +1,4 @@
+-- ATLAS --
 SMODS.Atlas{
     key = "Partners",
     path = "Partner.png",
@@ -5,6 +6,7 @@ SMODS.Atlas{
     py = 58,
 }
 
+-- PARTNERS --
 Partner_API.Partner{
     key = "pabloJr",
     name = "Pablo Jr. Partner",

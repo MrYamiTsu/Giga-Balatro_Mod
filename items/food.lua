@@ -1,3 +1,4 @@
+-- TYPE --
 SMODS.ConsumableType{
     key = 'Giga_Food',
     primary_colour = HEX("F7070BFF"),
@@ -7,9 +8,11 @@ SMODS.ConsumableType{
         name = 'Food'
     },
     collection_rows = {5,6},
+    default = 'c_giga_fruitSalad', 
     shop_rate = 0
 }
 
+-- NORMAL --
 SMODS.Consumable{ --Tacos
     key = 'tacos',
     set = 'Giga_Food',
@@ -31,7 +34,6 @@ SMODS.Consumable{ --Tacos
         SMODS.calculate_effect({dollars = card.ability.extra.money}, card)
     end
 }
-
 SMODS.Consumable{ --Guacamole
     key = 'guacamole',
     set = 'Giga_Food',
@@ -65,7 +67,6 @@ SMODS.Consumable{ --Guacamole
         }))
     end
 }
-
 SMODS.Consumable{ --HotDog
     key = 'hotDog',
     set = 'Giga_Food',
@@ -119,7 +120,6 @@ SMODS.Consumable{ --HotDog
 		end
     end
 }
-
 SMODS.Consumable{ --CaesarSalad
     key = 'caesarSalad',
     set = 'Giga_Food',
@@ -154,7 +154,6 @@ SMODS.Consumable{ --CaesarSalad
         end
     end
 }
-
 SMODS.Consumable{ --ClubSandwich
     key = 'clubSandwich',
     set = 'Giga_Food',
@@ -189,7 +188,6 @@ SMODS.Consumable{ --ClubSandwich
         end
     end
 }
-
 SMODS.Consumable{ --Pho
     key = 'pho',
     set = 'Giga_Food',
@@ -224,7 +222,6 @@ SMODS.Consumable{ --Pho
         end
     end
 }
-
 SMODS.Consumable{ --Spaghetti
     key = 'spaghetti',
     set = 'Giga_Food',
@@ -276,7 +273,6 @@ SMODS.Consumable{ --Spaghetti
 		end
     end
 }
-
 SMODS.Consumable{ --Steak
     key = 'steak',
     set = 'Giga_Food',
@@ -328,7 +324,6 @@ SMODS.Consumable{ --Steak
 		end
     end
 }
-
 SMODS.Consumable{ --Sushis
     key = 'sushis',
     set = 'Giga_Food',
@@ -380,7 +375,6 @@ SMODS.Consumable{ --Sushis
 		end
     end
 }
-
 SMODS.Consumable{ --SugarPie
     key = 'sugarPie',
     set = 'Giga_Food',
@@ -431,7 +425,6 @@ SMODS.Consumable{ --SugarPie
 		end
     end
 }
-
 SMODS.Consumable{ --[Untitled2]
     key = 'Untitled2',
     set = 'Giga_Food',
@@ -470,7 +463,6 @@ SMODS.Consumable{ --[Untitled2]
 		end
     end
 }
-
 SMODS.Consumable{ --Salmon
     key = 'salmon',
     set = 'Giga_Food',
@@ -521,7 +513,6 @@ SMODS.Consumable{ --Salmon
 		end
     end
 }
-
 SMODS.Consumable{ --[Untitled4]
     key = 'Untitled4',
     set = 'Giga_Food',
@@ -560,7 +551,6 @@ SMODS.Consumable{ --[Untitled4]
 		end
     end
 }
-
 SMODS.Consumable{ --Lollipop
     key = 'lollipop',
     set = 'Giga_Food',
@@ -599,7 +589,6 @@ SMODS.Consumable{ --Lollipop
 		end
     end
 }
-
 SMODS.Consumable{ --[Untitled5]
     key = 'Untitled5',
     set = 'Giga_Food',
@@ -624,7 +613,6 @@ SMODS.Consumable{ --[Untitled5]
         SMODS.add_card { set = "Base", suit = "Hearts", area = G.hand }
     end
 }
-
 SMODS.Consumable{ --[Untitled6]
     key = 'Untitled6',
     set = 'Giga_Food',
@@ -649,7 +637,6 @@ SMODS.Consumable{ --[Untitled6]
         SMODS.add_card { set = "Base", suit = "Spades", area = G.hand }
     end
 }
-
 SMODS.Consumable{ --GummyBear
     key = 'gummyBear',
     set = 'Giga_Food',
@@ -674,7 +661,6 @@ SMODS.Consumable{ --GummyBear
         SMODS.add_card { set = "Base", suit = "Diamonds", area = G.hand }
     end
 }
-
 SMODS.Consumable{ --[Untitled8]
     key = 'Untitled8',
     set = 'Giga_Food',
@@ -699,7 +685,6 @@ SMODS.Consumable{ --[Untitled8]
         SMODS.add_card { set = "Base", suit = "Clubs", area = G.hand }
     end
 }
-
 SMODS.Consumable{ --PB&JSandwich
     key = 'pBJSandwich',
     set = 'Giga_Food',
@@ -729,7 +714,6 @@ SMODS.Consumable{ --PB&JSandwich
 		end
     end
 }
-
 SMODS.Consumable{ --Burger
     key = 'burger',
     set = 'Giga_Food',
@@ -759,7 +743,6 @@ SMODS.Consumable{ --Burger
 		end
     end
 }
-
 SMODS.Consumable{ --FruitSalad
     key = 'fruitSalad',
     set = 'Giga_Food',
@@ -807,7 +790,156 @@ SMODS.Consumable{ --FruitSalad
 		end
     end
 }
+SMODS.Consumable{ --[Untitled9]
+    key = 'Untitled9',
+    set = 'Giga_Food',
+    atlas = 'Foods',
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 0, y = 1},
+    rarity = 1,
+    cost = 2,
+    config = { extra = {
+        card = 2
+    }},
+    loc_vars = function (self,info_queue,center)
+        return{vars = {center.ability.extra.card}}
+    end,
+    can_use = function (self,card)
+        if G and G.hand then
+			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
+				return true
+			end
+		end
+		return false
+    end,
+    use = function (self,card,area,copier)
+        for i, selected_card in pairs(G.hand.highlighted) do
+            SMODS.change_base(selected_card, 'Hearts')
+            G.E_MANAGER:add_event(Event({
+				trigger = "after",
+				delay = 0.2,
+				func = function()
+					G.hand:unhighlight_all()
+					return true
+				end,
+			}))
+			delay(0.5)
+		end
+    end
+}
+SMODS.Consumable{ --[Untitled10]
+    key = 'Untitled10',
+    set = 'Giga_Food',
+    atlas = 'Foods',
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 0, y = 1},
+    rarity = 1,
+    cost = 2,
+    config = { extra = {
+        card = 2
+    }},
+    loc_vars = function (self,info_queue,center)
+        return{vars = {center.ability.extra.card}}
+    end,
+    can_use = function (self,card)
+        if G and G.hand then
+			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
+				return true
+			end
+		end
+		return false
+    end,
+    use = function (self,card,area,copier)
+        for i, selected_card in pairs(G.hand.highlighted) do
+            SMODS.change_base(selected_card, 'Spades')
+            G.E_MANAGER:add_event(Event({
+				trigger = "after",
+				delay = 0.2,
+				func = function()
+					G.hand:unhighlight_all()
+					return true
+				end,
+			}))
+			delay(0.5)
+		end
+    end
+}
+SMODS.Consumable{ --[Untitled11]
+    key = 'Untitled11',
+    set = 'Giga_Food',
+    atlas = 'Foods',
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 0, y = 1},
+    rarity = 1,
+    cost = 2,
+    config = { extra = {
+        card = 2
+    }},
+    loc_vars = function (self,info_queue,center)
+        return{vars = {center.ability.extra.card}}
+    end,
+    can_use = function (self,card)
+        if G and G.hand then
+			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
+				return true
+			end
+		end
+		return false
+    end,
+    use = function (self,card,area,copier)
+        for i, selected_card in pairs(G.hand.highlighted) do
+            SMODS.change_base(selected_card, 'Diamonds')
+            G.E_MANAGER:add_event(Event({
+				trigger = "after",
+				delay = 0.2,
+				func = function()
+					G.hand:unhighlight_all()
+					return true
+				end,
+			}))
+			delay(0.5)
+		end
+    end
+}
+SMODS.Consumable{ --[Untitled12]
+    key = 'Untitled12',
+    set = 'Giga_Food',
+    atlas = 'Foods',
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 0, y = 1},
+    rarity = 1,
+    cost = 2,
+    config = { extra = {
+        card = 2
+    }},
+    loc_vars = function (self,info_queue,center)
+        return{vars = {center.ability.extra.card}}
+    end,
+    can_use = function (self,card)
+        if G and G.hand then
+			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
+				return true
+			end
+		end
+		return false
+    end,
+    use = function (self,card,area,copier)
+        for i, selected_card in pairs(G.hand.highlighted) do
+            SMODS.change_base(selected_card, 'Clubs')
+            G.E_MANAGER:add_event(Event({
+				trigger = "after",
+				delay = 0.2,
+				func = function()
+					G.hand:unhighlight_all()
+					return true
+				end,
+			}))
+			delay(0.5)
+		end
+    end
+}
 
+-- RARE --
 SMODS.Consumable{ --BirthdayCake
     key = 'birthdayCake',
     set = 'Giga_Food',
@@ -849,7 +981,6 @@ SMODS.Consumable{ --BirthdayCake
         end
     end
 }
-
 SMODS.Consumable{ --Turkey
     key = 'turkey',
     set = 'Giga_Food',

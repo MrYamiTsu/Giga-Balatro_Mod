@@ -1,3 +1,4 @@
+-- FOOD BOOSTER --
 SMODS.Booster { --RestaurantNormal1
     key = 'restaurantPackNormal1',
     atlas = 'Boosters',
@@ -23,7 +24,6 @@ SMODS.Booster { --RestaurantNormal1
     weight = 0.24,
     kind = 'Food'
 }
-
 SMODS.Booster { --RestaurantNormal2
     key = 'restaurantPackNormal2',
     atlas = 'Boosters',
@@ -49,7 +49,6 @@ SMODS.Booster { --RestaurantNormal2
     weight = 0.24,
     kind = 'Food'
 }
-
 SMODS.Booster { --RestaurantJumbo
     key = 'restaurantPackJumbo',
     atlas = 'Boosters',
@@ -75,7 +74,6 @@ SMODS.Booster { --RestaurantJumbo
     weight = 0.18,
     kind = 'Food'
 }
-
 SMODS.Booster { --RestaurantMega
     key = 'restaurantPackMega',
     atlas = 'Boosters',

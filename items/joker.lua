@@ -1,3 +1,4 @@
+-- NO CATEGORY JOKERS --
 SMODS.Joker{ --CashPass
     key = 'cashPass',
     atlas = 'Jokers',
@@ -31,7 +32,6 @@ SMODS.Joker{ --CashPass
         end
     end
 }
-
 SMODS.Joker{ --BlueChicken
     key = 'blueChicken',
     atlas = 'Jokers',
@@ -72,7 +72,6 @@ SMODS.Joker{ --BlueChicken
         end
     end
 }
-
 SMODS.Joker{ --BlueEgg
     key = 'blueEgg',
     atlas = 'Jokers',
@@ -97,7 +96,6 @@ SMODS.Joker{ --BlueEgg
         end
     end
 }
-
 SMODS.Joker{ --KingOfJacks
     key = 'kingOfJacks',
     atlas = 'Jokers',
@@ -133,7 +131,6 @@ SMODS.Joker{ --KingOfJacks
         end
     end
 }
-
 SMODS.Joker{ --FunnyCrown
     key = 'funnyCrown',
     atlas = 'Jokers',
@@ -174,7 +171,6 @@ SMODS.Joker{ --FunnyCrown
         end
     end
 }
-
 SMODS.Joker{ --SnapchatGirl
     key = 'snapchatGirl',
     atlas = 'Jokers',
@@ -207,7 +203,6 @@ SMODS.Joker{ --SnapchatGirl
         end
     end
 }
-
 SMODS.Joker{ --HighRiskHighReward
     key = 'highRiskHighReward',
     atlas = 'Jokers',
@@ -258,7 +253,6 @@ SMODS.Joker{ --HighRiskHighReward
         end
     end
 }
-
 SMODS.Joker{ --ShreddedAce
     key = 'shreddedAce',
     atlas = 'Jokers',
@@ -292,7 +286,6 @@ SMODS.Joker{ --ShreddedAce
         end
     end
 }
-
 SMODS.Joker{ --Pablo
     key = 'pablo',
     atlas = 'Jokers',
@@ -333,7 +326,6 @@ SMODS.Joker{ --Pablo
         end
     end
 }
-
 SMODS.Joker{ --JackMutator
     key = 'jackMutator',
     atlas = 'Jokers',
@@ -363,7 +355,6 @@ SMODS.Joker{ --JackMutator
                         table.insert(tpool, k)
                     end
                     local selected_card = pseudorandom_element(tpool, pseudoseed("jackMutator"))
-                    local suit = string.sub(selected_card.base.suit, 1, 1) .. '_'
                     local rank = selected_card:get_id()
                     if rank == 11 then
                         if SMODS.has_enhancement(selected_card, 'm_giga_richSoil') then
@@ -374,7 +365,7 @@ SMODS.Joker{ --JackMutator
                             selected_card:set_ability(G.P_CENTERS["m_giga_soil"])
                         end
                     else
-                        selected_card:set_base(G.P_CARDS[suit..'J'])
+                        SMODS.change_base(selected_card, nil, 'Jack')
                     end
                     selected_card:juice_up(0.3, 0.5)
                     return true 
@@ -384,7 +375,6 @@ SMODS.Joker{ --JackMutator
         end
     end
 }
-
 SMODS.Joker{ --Paleontologist
     key = 'paleontologist',
     atlas = 'Jokers',
@@ -428,7 +418,6 @@ SMODS.Joker{ --Paleontologist
         end
     end
 }
-
 SMODS.Joker{ --PaleoExpert
     key = 'paleoExpert',
     atlas = 'Jokers',
@@ -472,7 +461,6 @@ SMODS.Joker{ --PaleoExpert
         end
     end
 }
-
 SMODS.Joker{ --Refinery
     key = 'refinery',
     atlas = 'Jokers',
@@ -516,7 +504,6 @@ SMODS.Joker{ --Refinery
         end
     end
 }
-
 SMODS.Joker { --CrystalOfHungriness
     key = "crystalOfHungriness",
     atlas = "Jokers",
@@ -547,7 +534,6 @@ SMODS.Joker { --CrystalOfHungriness
         end
     end
 }
-
 SMODS.Joker { --DoubleFork
     key = "doubleFork",
     atlas = "Jokers",
@@ -589,7 +575,6 @@ SMODS.Joker { --DoubleFork
         end
     end
 }
-
 SMODS.Joker { --CrackedSkull
     key = "crackedSkull",
     atlas = "Jokers",
@@ -631,7 +616,49 @@ SMODS.Joker { --CrackedSkull
         end
     end
 }
+SMODS.Joker { --SagittariusA
+    key = "sagittariusA",
+    atlas = "Jokers",
+    pos = { x = 2, y = 4 },
+    cost = 5,
+    rarity = 1,
+    unlocked = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    config = { extra = {
+        chips = 75,
+        txt = 'Innactive',
+        active = false
+    }},
+    loc_vars = function(self, info_queue, card)
+        return {vars = {card.ability.extra.chips, card.ability.extra.txt}}
+    end,
+    calculate = function(self, card, context)
+        if G.GAME.blind.in_blind then
+            if context.using_consumeable and context.consumeable.ability.set == 'Planet' and not context.blueprint then
+                if not card.ability.extra.active then
+                    card.ability.extra.txt = 'Active'
+                    card.ability.extra.active = true
+                end
+            end
+        end
+        if context.joker_main then
+            if card.ability.extra.active then
+                return {
+                    chips = card.ability.extra.chips
+                }
+            end
+        end
+        if context.end_of_round and not context.blueprint then
+            if card.ability.extra.active then
+                card.ability.extra.txt = 'Innactive'
+                card.ability.extra.active = false
+            end
+        end
+    end
+}
 
+-- GEMS JOKERS --
 SMODS.Joker{ --PinkTourmaline
     key = 'pinkTourmaline',
     atlas = 'Jokers',
@@ -673,7 +700,6 @@ SMODS.Joker{ --PinkTourmaline
         end
     end
 }
-
 SMODS.Joker{ --Moonstone
     key = 'moonstone',
     atlas = 'Jokers',
@@ -715,7 +741,6 @@ SMODS.Joker{ --Moonstone
         end
     end
 }
-
 SMODS.Joker{ --RainbowQuartz
     key = 'rainbowQuartz',
     atlas = 'Jokers',
@@ -759,6 +784,7 @@ SMODS.Joker{ --RainbowQuartz
     end
 }
 
+-- PREHISTORICS JOKERS --
 SMODS.Joker{ --TRex
     key = 'tRex',
     atlas = 'Jokers',
@@ -847,7 +873,6 @@ SMODS.Joker{ --TRex
         end
     end
 }
-
 SMODS.Joker{ --Velocyraptor
     key = 'velocyraptor',
     atlas = 'Jokers',
@@ -890,7 +915,6 @@ SMODS.Joker{ --Velocyraptor
         end
     end
 }
-
 SMODS.Joker{ --Pteranodon
     key = 'pteranodon',
     atlas = 'Jokers',
@@ -957,6 +981,7 @@ SMODS.Joker{ --Pteranodon
     end
 }
 
+-- YU-GI-OH JOKERS --
 SMODS.Joker{ --BlueEyesWhiteDragon
     key = 'blueEyesWhiteDragon',
     atlas = 'Jokers',
@@ -1037,7 +1062,6 @@ SMODS.Joker{ --BlueEyesWhiteDragon
         end
     end
 }
-
 SMODS.Joker{ --RedEyesBlackDragon
     key = 'redEyesBlackDragon',
     atlas = 'Jokers',
@@ -1082,7 +1106,6 @@ SMODS.Joker{ --RedEyesBlackDragon
         end
     end
 }
-
 SMODS.Joker{ --BYUD
     key = 'byud',
     atlas = 'secret1',
@@ -1161,7 +1184,6 @@ SMODS.Joker{ --BYUD
         end
     end
 }
-
 SMODS.Joker{ --DMK
     key = 'dmk',
     atlas = 'secret2',
@@ -1215,7 +1237,6 @@ SMODS.Joker{ --DMK
         end
     end
 }
-
 SMODS.Joker{ --BlackLusterSoldier
     key = 'blackLusterSoldier',
     atlas = 'Jokers',
@@ -1288,7 +1309,6 @@ SMODS.Joker{ --BlackLusterSoldier
         end
     end
 }
-
 SMODS.Joker{ --DarkMagician
     key = 'darkMagician',
     atlas = 'Jokers',
@@ -1357,7 +1377,6 @@ SMODS.Joker{ --DarkMagician
         end
     end
 }
-
 SMODS.Joker{ --MOC
     key = 'moc',
     atlas = 'secret3',
@@ -1411,7 +1430,6 @@ SMODS.Joker{ --MOC
         end
     end
 }
-
 SMODS.Joker{ --LLOTFO
     key = 'llotfo',
     atlas = 'Jokers',
@@ -1441,7 +1459,6 @@ SMODS.Joker{ --LLOTFO
         end
     end
 }
-
 SMODS.Joker{ --RLOTFO
     key = 'rlotfo',
     atlas = 'Jokers',
@@ -1471,7 +1488,6 @@ SMODS.Joker{ --RLOTFO
         end
     end
 }
-
 SMODS.Joker{ --LAOTFO
     key = 'laotfo',
     atlas = 'Jokers',
@@ -1501,7 +1517,6 @@ SMODS.Joker{ --LAOTFO
         end
     end
 }
-
 SMODS.Joker{ --RAOTFO
     key = 'raotfo',
     atlas = 'Jokers',
@@ -1531,7 +1546,6 @@ SMODS.Joker{ --RAOTFO
         end
     end
 }
-
 SMODS.Joker{ --ETFO
     key = 'etfo',
     atlas = 'Jokers',
@@ -1620,7 +1634,6 @@ SMODS.Joker{ --ETFO
         end
     end
 }
-
 SMODS.Joker{ --TLEI
     key = 'tlei',
     atlas = 'secret4',

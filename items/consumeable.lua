@@ -1,3 +1,4 @@
+-- TAROTS --
 SMODS.Consumable{ --Cook
     key = 'cook',
     set = 'Tarot',

@@ -1,3 +1,4 @@
+-- BOOSTER UPGRADE --
 --Do not work
 --[[SMODS.Voucher{ --NewMenu
 	key = "newMenu",
@@ -25,6 +26,7 @@
     end
 }]]--
 
+-- SHOP APPEARANCE --
 SMODS.Voucher{ --FoodTruck
     key = 'foodTruck',
     atlas = 'Vouchers',
@@ -42,7 +44,6 @@ SMODS.Voucher{ --FoodTruck
         }))
     end
 }
-
 SMODS.Voucher{ --HomeDelivery
     key = 'homeDelivery',
     atlas = 'Vouchers',
