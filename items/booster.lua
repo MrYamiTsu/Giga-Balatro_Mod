@@ -18,7 +18,7 @@ SMODS.Booster { --RestaurantNormal1
     end,
     group_key = 'k_restaurant_pack',
     create_card = function(self, card, i)
-        return {set = "food", area = G.pack_cards, skip_materialize = true, soulable = true, key_append = "giga"}
+        return {set = "Giga_Food", area = G.pack_cards, skip_materialize = true, soulable = true, key_append = "giga"}
     end,
     select_card = "consumeables",
     weight = 0.24,
@@ -43,7 +43,7 @@ SMODS.Booster { --RestaurantNormal2
     end,
     group_key = 'k_restaurant_pack',
     create_card = function(self, card, i)
-        return {set = "food", area = G.pack_cards, skip_materialize = true, soulable = true, key_append = "giga"}
+        return {set = "Giga_Food", area = G.pack_cards, skip_materialize = true, soulable = true, key_append = "giga"}
     end,
     select_card = "consumeables",
     weight = 0.24,
@@ -68,7 +68,7 @@ SMODS.Booster { --RestaurantJumbo
     end,
     group_key = 'k_restaurant_pack',
     create_card = function(self, card, i)
-        return {set = "food", area = G.pack_cards, skip_materialize = true, soulable = true, key_append = "giga"}
+        return {set = "Giga_Food", area = G.pack_cards, skip_materialize = true, soulable = true, key_append = "giga"}
     end,
     select_card = "consumeables",
     weight = 0.18,
@@ -93,7 +93,7 @@ SMODS.Booster { --RestaurantMega
     end,
     group_key = 'k_restaurant_pack',
     create_card = function(self, card, i)
-        return {set = "food", area = G.pack_cards, skip_materialize = true, soulable = true, key_append = "giga"}
+        return {set = "Giga_Food", area = G.pack_cards, skip_materialize = true, soulable = true, key_append = "giga"}
     end,
     select_card = "consumeables",
     weight = 0.12,
