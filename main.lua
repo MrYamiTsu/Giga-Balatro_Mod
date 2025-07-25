@@ -10,6 +10,7 @@ SMODS.load_file("items/deck.lua")()
 SMODS.load_file("items/enhancement.lua")()
 SMODS.load_file("items/food.lua")()
 SMODS.load_file("items/joker.lua")()
+SMODS.load_file("items/seal.lua")()
 SMODS.load_file("items/voucher.lua")()
 if next(SMODS.find_mod("Cryptid")) then
 	SMODS.load_file("items/CrossMod/cryptid.lua")()
@@ -67,6 +68,12 @@ SMODS.Atlas{
 SMODS.Atlas{
     key = 'Consumeables',
     path = 'Consumeable.png',
+    px = 71,
+    py = 95
+}
+SMODS.Atlas{
+    key = 'Seals',
+    path = 'Seal.png',
     px = 71,
     py = 95
 }

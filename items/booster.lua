@@ -6,9 +6,9 @@ SMODS.Booster { --RestaurantNormal1
     loc_txt = {
         name = 'Restaurant Pack',
         text = {
-            "Choose {C:attention}#1#{} of up to",
-            "{C:attention}#2#{V:1} Food{} cards to",
-            "add to your consumeables"
+            'Choose {C:attention}#1#{} of up to',
+            '{C:attention}#2#{V:1} Food{} cards to',
+            'add to your consumeables'
         }
     },
     cost = 2,
@@ -31,9 +31,9 @@ SMODS.Booster { --RestaurantNormal2
    loc_txt = {
         name = 'Restaurant Pack',
         text = {
-            "Choose {C:attention}#1#{} of up to",
-            "{C:attention}#2#{V:1} Food{} cards to",
-            "add to your consumeables"
+            'Choose {C:attention}#1#{} of up to',
+            '{C:attention}#2#{V:1} Food{} cards to',
+            'add to your consumeables'
         }
     },
     cost = 2,
@@ -56,9 +56,9 @@ SMODS.Booster { --RestaurantJumbo
     loc_txt = {
         name = 'Jumbo Restaurant Pack',
         text = {
-            "Choose {C:attention}#1#{} of up to",
-            "{C:attention}#2#{V:1} Food{} cards to",
-            "add to your consumeables"
+            'Choose {C:attention}#1#{} of up to',
+            '{C:attention}#2#{V:1} Food{} cards to',
+            'add to your consumeables'
         }
     },
     cost = 3,
@@ -81,9 +81,9 @@ SMODS.Booster { --RestaurantMega
     loc_txt = {
         name = 'Mega Restaurant Pack',
         text = {
-            "Choose {C:attention}#1#{} of up to",
-            "{C:attention}#2#{V:1} Food{} cards to",
-            "add to your consumeables"
+            'Choose {C:attention}#1#{} of up to',
+            '{C:attention}#2#{V:1} Food{} cards to',
+            'add to your consumeables'
         }
     },
     cost = 4,
