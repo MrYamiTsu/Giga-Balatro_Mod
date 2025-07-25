@@ -505,7 +505,7 @@ SMODS.Joker{ --Refinery
     end
 }
 SMODS.Joker { --CrystalOfHungriness
-    key = "crystalOfHungriness",
+    key = 'crystalOfHungriness',
     atlas = "Jokers",
     pos = { x = 0, y = 4 },
     cost = 6,
@@ -535,7 +535,7 @@ SMODS.Joker { --CrystalOfHungriness
     end
 }
 SMODS.Joker { --DoubleFork
-    key = "doubleFork",
+    key = 'doubleFork',
     atlas = "Jokers",
     pos = { x = 1, y = 4 },
     cost = 5,
@@ -576,7 +576,7 @@ SMODS.Joker { --DoubleFork
     end
 }
 SMODS.Joker { --CrackedSkull
-    key = "crackedSkull",
+    key = 'crackedSkull',
     atlas = "Jokers",
     pos = { x = 7, y = 3 },
     cost = 6,
@@ -617,7 +617,7 @@ SMODS.Joker { --CrackedSkull
     end
 }
 SMODS.Joker { --SagittariusA
-    key = "sagittariusA",
+    key = 'sagittariusA',
     atlas = "Jokers",
     pos = { x = 2, y = 4 },
     cost = 5,
@@ -656,6 +656,37 @@ SMODS.Joker { --SagittariusA
             end
         end
     end
+}
+SMODS.Joker { --ColourfulCrystal
+    key = 'colourfulCrystal',
+    atlas = "Jokers",
+    pos = { x = 7, y = 3 },
+    cost = 6,
+    rarity = 1,
+    unlocked = true,
+    blueprint_compat = false,
+    eternal_compat = true,
+    config = { extra = {
+        mult = 16,
+        nerf_mult = -30
+    }},
+    loc_vars = function(self, info_queue, card)
+        return {vars = {card.ability.extra.mult, card.ability.extra.nerf_mult}}
+    end,
+    calculate = function(self, card, context)
+        if context.joker_main then
+            if next(context.poker_hands['Flush']) then
+                return {
+                    mult = card.ability.extra.mult
+                }
+            else
+                return {
+                    mult = card.ability.extra.nerf_mult
+                }
+            end
+        end
+    end
+    
 }
 
 -- GEMS JOKERS --

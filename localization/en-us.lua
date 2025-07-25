@@ -249,31 +249,31 @@ return {
                 name = '[Untitled]',
                 text = {
                     'A delicious [Untitled] that',
-                    'convert {C:attention}#1#{}',
+                    'that convert {C:attention}#1#{} card',
                     'into {C:hearts}Heart{} suit'
                 }
             },
             c_giga_Untitled10 = {
                 name = '[Untitled]',
                 text = {
-                    'A delicious [Untitled] that',
-                    'convert {C:attention}#1#{}',
+                    'A delicious [Untitled]',
+                    'that convert {C:attention}#1#{} card',
                     'into {C:spades}Spade{} suit'
                 }
             },
             c_giga_Untitled11 = {
                 name = '[Untitled]',
                 text = {
-                    'A delicious [Untitled] that',
-                    'convert {C:attention}#1#{}',
+                    'A delicious [Untitled]',
+                    'that convert {C:attention}#1#{} card',
                     'into {C:diamonds}Diamond{} suit'
                 }
             },
             c_giga_Untitled12 = {
                 name = '[Untitled]',
                 text = {
-                    'A delicious [Untitled] that',
-                    'convert {C:attention}#1#{}',
+                    'A delicious [Untitled]',
+                    'that convert {C:attention}#1#{} card',
                     'into {C:clubs}Club{} suit'
                 }
             },
@@ -331,16 +331,16 @@ return {
             c_giga_UntitledCM4 = {
                 name = '[UntitledCM]',
                 text = {
-                    'A delicious [UntitledCM] that',
-                    'convert {C:attention}#1#{}',
+                    'A delicious [UntitledCM]',
+                    'that convert {C:attention}#1#{} card',
                     'into {C:clubs}Crown{} suit'
                 }
             },
             c_giga_UntitledCM5 = {
                 name = '[UntitledCM]',
                 text = {
-                    'A delicious [UntitledCM] that',
-                    'convert {C:attention}#1#{}',
+                    'A delicious [UntitledCM]',
+                    'that convert {C:attention}#1#{} card',
                     'into {C:paperback_stars}Star{} suit'
                 }
             },
@@ -633,7 +633,15 @@ return {
                     'temporary {X:mult,C:white}+#1#{} Chips',
                     '{C:inactive}#2#'
                 }
-            }
+            },
+            j_giga_colourfulCrystal = {
+                name = 'Colourful Crystal',
+                text = {
+                    '{C:mult}+#1#{} Mult if played',
+                    'hand contains a {C:attention}Flush{}',
+                    'otherwise {C:mult}#2#{} Mult'
+                }
+            },
         },
         Other={
             --Undiscovered
