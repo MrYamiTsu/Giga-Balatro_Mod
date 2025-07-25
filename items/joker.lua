@@ -96,81 +96,6 @@ SMODS.Joker{ --BlueEgg
         end
     end
 }
-SMODS.Joker{ --KingOfJacks
-    key = 'kingOfJacks',
-    atlas = 'Jokers',
-    pos = {x = 3, y = 0},
-    rarity = 3,
-    cost = 9,
-    blueprint_compat = true,
-    eternal_compat = true,
-    config = { extra = {
-        add = 0.05,
-        base = 1
-    }
-    },
-    loc_vars = function(self,info_queue,center)
-        return{vars = {center.ability.extra.add, center.ability.extra.base}}
-    end,
-    calculate = function(self,card,context)
-        if context.individual and context.cardarea == G.play and context.other_card:get_id() == 11 then
-            if not context.blueprint then
-                card.ability.extra.base = card.ability.extra.base + card.ability.extra.add
-            end
-        end
-
-        if context.joker_main then
-            if card.ability.extra.base ~= 1 then
-                return {
-                    card = card,
-                    Xmult_mod = card.ability.extra.base,
-                    message = 'X' .. card.ability.extra.base,
-                    colour = G.C.MULT
-                }
-            end
-        end
-    end
-}
-SMODS.Joker{ --FunnyCrown
-    key = 'funnyCrown',
-    atlas = 'Jokers',
-    pos = {x = 4, y = 0},
-    cost = 6,
-    rarity = 3,
-    blueprint_compat = false,
-    eternal_compat = true,
-    config = { extra = {
-        round = 2
-    }
-    },
-    loc_vars = function(self,info_queue,center)
-        info_queue[#info_queue+1] = G.P_CENTERS.m_bonus
-        return{vars = {center.ability.extra.round}}
-    end,
-    calculate = function(self,card,context)
-        if context.end_of_round and context.cardarea == G.jokers then
-            if card.ability.extra.round > 0 then
-                card.ability.extra.round = card.ability.extra.round - 1
-            end
-        end
-
-        if context.selling_card and context.card == card then
-            if card.ability.extra.round <= 0 then
-                if #G.jokers.cards < G.jokers.config.card_limit then
-                    SMODS.add_card{key = "j_giga_kingOfJacks"}
-                else
-                    SMODS.calculate_effect({ message = localize('k_no_room_ex') }, card)
-                end
-                local suit = pseudorandom_element({'S','H','D','C'}, pseudoseed('giga_funnyCrown'))
-			    local card = create_playing_card({
-				    front = G.P_CARDS[suit..'_J'],
-				    center = G.P_CENTERS.m_bonus
-			    }, G.hand, false,false,nil)
-			    card:add_to_deck()
-            end
-        end
-    end
-}
 SMODS.Joker{ --SnapchatGirl
     key = 'snapchatGirl',
     atlas = 'Jokers',
@@ -326,55 +251,6 @@ SMODS.Joker{ --Pablo
         end
     end
 }
-SMODS.Joker{ --JackMutator
-    key = 'jackMutator',
-    atlas = 'Jokers',
-    pos = {x = 4, y = 1},
-    cost = 8,
-    rarity = 3,
-    blueprint_compat = true,
-    eternal_compat = true,
-    config = { extra = {
-        round = 3,
-        round_left = 3,
-    }},
-    loc_vars = function(self,info_queue,center)
-        return{vars = {center.ability.extra.round + 1, center.ability.extra.round_left}}
-    end,
-    calculate = function(self, card, context)
-        if context.end_of_round and context.cardarea == G.jokers then
-            card.ability.extra.round_left = card.ability.extra.round_left - 1
-        end
-        if card.ability.extra.round_left <= 0 and context.first_hand_drawn then
-            G.E_MANAGER:add_event(Event({
-                trigger = 'after', 
-                delay = 0.4, 
-                func = function()
-                    local tpool = {}
-                    for i, k in pairs(G.hand.cards) do
-                        table.insert(tpool, k)
-                    end
-                    local selected_card = pseudorandom_element(tpool, pseudoseed("jackMutator"))
-                    local rank = selected_card:get_id()
-                    if rank == 11 then
-                        if SMODS.has_enhancement(selected_card, 'm_giga_richSoil') then
-                            selected_card:set_ability(G.P_CENTERS["m_giga_fossilSoil"])
-                        elseif SMODS.has_enhancement(selected_card, 'm_giga_soil') then
-                            selected_card:set_ability(G.P_CENTERS["m_giga_richSoil"])
-                        else
-                            selected_card:set_ability(G.P_CENTERS["m_giga_soil"])
-                        end
-                    else
-                        SMODS.change_base(selected_card, nil, 'Jack')
-                    end
-                    selected_card:juice_up(0.3, 0.5)
-                    return true 
-                end 
-            }))
-            card.ability.extra.round_left = card.ability.extra.round
-        end
-    end
-}
 SMODS.Joker{ --Paleontologist
     key = 'paleontologist',
     atlas = 'Jokers',
@@ -514,7 +390,7 @@ SMODS.Joker { --CrystalOfHungriness
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        add = 0.05,
+        add = 0.1,
         base = 1
     }},
     loc_vars = function(self, info_queue, card)
@@ -687,6 +563,132 @@ SMODS.Joker { --ColourfulCrystal
         end
     end
     
+}
+
+-- JACKS JOKERS --
+SMODS.Joker{ --KingOfJacks
+    key = 'kingOfJacks',
+    atlas = 'Jokers',
+    pos = {x = 3, y = 0},
+    rarity = 3,
+    cost = 9,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        add = 0.05,
+        base = 1
+    }
+    },
+    loc_vars = function(self,info_queue,center)
+        return{vars = {center.ability.extra.add, center.ability.extra.base}}
+    end,
+    calculate = function(self,card,context)
+        if context.individual and context.cardarea == G.play and context.other_card:get_id() == 11 then
+            if not context.blueprint then
+                card.ability.extra.base = card.ability.extra.base + card.ability.extra.add
+            end
+        end
+
+        if context.joker_main then
+            if card.ability.extra.base ~= 1 then
+                return {
+                    card = card,
+                    Xmult_mod = card.ability.extra.base,
+                    message = 'X' .. card.ability.extra.base,
+                    colour = G.C.MULT
+                }
+            end
+        end
+    end
+}
+SMODS.Joker{ --FunnyCrown
+    key = 'funnyCrown',
+    atlas = 'Jokers',
+    pos = {x = 4, y = 0},
+    cost = 6,
+    rarity = 3,
+    blueprint_compat = false,
+    eternal_compat = true,
+    config = { extra = {
+        round = 2
+    }
+    },
+    loc_vars = function(self,info_queue,center)
+        info_queue[#info_queue+1] = G.P_CENTERS.m_bonus
+        return{vars = {center.ability.extra.round}}
+    end,
+    calculate = function(self,card,context)
+        if context.end_of_round and context.cardarea == G.jokers then
+            if card.ability.extra.round > 0 then
+                card.ability.extra.round = card.ability.extra.round - 1
+            end
+        end
+
+        if context.selling_card and context.card == card then
+            if card.ability.extra.round <= 0 then
+                if #G.jokers.cards < G.jokers.config.card_limit then
+                    SMODS.add_card{key = "j_giga_kingOfJacks"}
+                else
+                    SMODS.calculate_effect({ message = localize('k_no_room_ex') }, card)
+                end
+                local suit = pseudorandom_element({'S','H','D','C'}, pseudoseed('giga_funnyCrown'))
+			    local card = create_playing_card({
+				    front = G.P_CARDS[suit..'_J'],
+				    center = G.P_CENTERS.m_bonus
+			    }, G.hand, false,false,nil)
+			    card:add_to_deck()
+            end
+        end
+    end
+}
+SMODS.Joker{ --JackMutator
+    key = 'jackMutator',
+    atlas = 'Jokers',
+    pos = {x = 4, y = 1},
+    cost = 8,
+    rarity = 3,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        round = 3,
+        round_left = 3,
+    }},
+    loc_vars = function(self,info_queue,center)
+        return{vars = {center.ability.extra.round + 1, center.ability.extra.round_left}}
+    end,
+    calculate = function(self, card, context)
+        if context.end_of_round and context.cardarea == G.jokers then
+            card.ability.extra.round_left = card.ability.extra.round_left - 1
+        end
+        if card.ability.extra.round_left <= 0 and context.first_hand_drawn then
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after', 
+                delay = 0.4, 
+                func = function()
+                    local tpool = {}
+                    for i, k in pairs(G.hand.cards) do
+                        table.insert(tpool, k)
+                    end
+                    local selected_card = pseudorandom_element(tpool, pseudoseed("jackMutator"))
+                    local rank = selected_card:get_id()
+                    if rank == 11 then
+                        if SMODS.has_enhancement(selected_card, 'm_giga_richSoil') then
+                            selected_card:set_ability(G.P_CENTERS["m_giga_fossilSoil"])
+                        elseif SMODS.has_enhancement(selected_card, 'm_giga_soil') then
+                            selected_card:set_ability(G.P_CENTERS["m_giga_richSoil"])
+                        else
+                            selected_card:set_ability(G.P_CENTERS["m_giga_soil"])
+                        end
+                    else
+                        SMODS.change_base(selected_card, nil, 'Jack')
+                    end
+                    selected_card:juice_up(0.3, 0.5)
+                    return true 
+                end 
+            }))
+            card.ability.extra.round_left = card.ability.extra.round
+        end
+    end
 }
 
 -- GEMS JOKERS --

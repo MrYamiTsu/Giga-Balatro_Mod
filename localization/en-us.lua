@@ -630,7 +630,7 @@ return {
                 text = {
                     'Using a {C:planet}Planet{} card',
                     'during a blind, give a',
-                    'temporary {X:mult,C:white}+#1#{} Chips',
+                    'temporary {C:chips}+#1#{} Chips',
                     '{C:inactive}#2#'
                 }
             },
