@@ -137,13 +137,15 @@ SMODS.Consumable{ --CaesarSalad
         return{vars = {center.ability.extra.round, center.ability.extra.txt}}
     end,
     can_use = function (self,card)
-        if card.ability.extra.round_left <= 0 and #G.consumeables.cards < G.consumeables.config.card_limit then
+        if card.ability.extra.round_left <= 0 then
             return true
         end
         return false
     end,
     use = function (self,card,area,copier)
-        _create(card, 'Tarot', G.consumeables,true,true)
+        if #G.consumeables.cards < G.consumeables.config.card_limit then
+            _create(card, 'Tarot', G.consumeables,true,true)
+        end
     end,
     calculate = function (self,card,context)
         if context.end_of_round and context.main_eval then
@@ -171,13 +173,15 @@ SMODS.Consumable{ --ClubSandwich
         return{vars = {center.ability.extra.round, center.ability.extra.txt}}
     end,
     can_use = function (self,card)
-        if card.ability.extra.round_left <= 0 and #G.consumeables.cards < G.consumeables.config.card_limit then
+        if card.ability.extra.round_left <= 0 then
             return true
         end
         return false
     end,
     use = function (self,card,area,copier)
-        _create(card, 'Planet', G.consumeables,true,true)
+        if #G.consumeables.cards < G.consumeables.config.card_limit then
+            _create(card, 'Planet', G.consumeables,true,true)
+        end
     end,
     calculate = function (self,card,context)
         if context.end_of_round and context.main_eval then
@@ -205,13 +209,15 @@ SMODS.Consumable{ --Pho
         return{vars = {center.ability.extra.round, center.ability.extra.txt}}
     end,
     can_use = function (self,card)
-        if card.ability.extra.round_left <= 0 and #G.consumeables.cards < G.consumeables.config.card_limit then
+        if card.ability.extra.round_left <= 0 then
             return true
         end
         return false
     end,
     use = function (self,card,area,copier)
-        _create(card, 'Spectral', G.consumeables,true,true)
+        if #G.consumeables.cards < G.consumeables.config.card_limit then
+            _create(card, 'Spectral', G.consumeables,true,true)
+        end
     end,
     calculate = function (self,card,context)
         if context.end_of_round and context.main_eval then
