@@ -340,7 +340,7 @@ SMODS.Joker{ --PaleoExpert
 SMODS.Joker{ --Refinery
     key = 'refinery',
     atlas = 'Jokers',
-    pos = {x = 7, y = 3},
+    pos = {x = 3, y = 4},
     cost = 5,
     rarity = 1,
     blueprint_compat = true,
@@ -383,7 +383,7 @@ SMODS.Joker{ --Refinery
 SMODS.Joker { --CrystalOfHungriness
     key = 'crystalOfHungriness',
     atlas = "Jokers",
-    pos = { x = 0, y = 4 },
+    pos = {x = 0, y = 4},
     cost = 6,
     rarity = 2,
     unlocked = true,
@@ -413,7 +413,7 @@ SMODS.Joker { --CrystalOfHungriness
 SMODS.Joker { --DoubleFork
     key = 'doubleFork',
     atlas = "Jokers",
-    pos = { x = 1, y = 4 },
+    pos = {x = 1, y = 4},
     cost = 5,
     rarity = 1,
     unlocked = true,
@@ -454,7 +454,7 @@ SMODS.Joker { --DoubleFork
 SMODS.Joker { --CrackedSkull
     key = 'crackedSkull',
     atlas = "Jokers",
-    pos = { x = 7, y = 3 },
+    pos = {x = 7, y = 3},
     cost = 6,
     rarity = 1,
     unlocked = true,
@@ -495,7 +495,7 @@ SMODS.Joker { --CrackedSkull
 SMODS.Joker { --SagittariusA
     key = 'sagittariusA',
     atlas = "Jokers",
-    pos = { x = 2, y = 4 },
+    pos = {x = 2, y = 4},
     cost = 5,
     rarity = 1,
     unlocked = true,
@@ -536,7 +536,7 @@ SMODS.Joker { --SagittariusA
 SMODS.Joker { --ColourfulCrystal
     key = 'colourfulCrystal',
     atlas = "Jokers",
-    pos = { x = 7, y = 3 },
+    pos = {x = 7, y = 3},
     cost = 6,
     rarity = 1,
     unlocked = true,
