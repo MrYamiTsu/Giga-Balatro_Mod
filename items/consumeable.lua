@@ -17,7 +17,7 @@ SMODS.Consumable{ --Cook
     end,
     use = function (self,card,area,copier)
         for i = 1, card.ability.extra.card, 1 do
-            if #G.consumeables.cards - 1 < G.consumeables.config.card_limit then
+            if #G.consumeables.cards < G.consumeables.config.card_limit then
                 _create(card, 'Giga_Food', G.consumeables,true,true)
             else
                 break

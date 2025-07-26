@@ -1,26 +1,3 @@
--- NEW --
-SMODS.Enhancement{ --Soil
-	key = "soil",
-	atlas = "Enhancements",
-	pos = { x = 0, y = 0 },
-	discovered = true,
-	unlocked = true,
-	weight = 0,
-	config = { extra = { 
-        chips = 1.1
-    }},
-	loc_vars = function(self, info_queue, card)
-		return {vars = { card.ability.extra.chips}}
-	end,
-	calculate = function(self, card, context, effect)
-		if context.main_scoring and context.cardarea == G.play then
-			return {
-				x_chips = card.ability.extra.chips,
-			}
-		end
-	end
-}
-
 -- UPGRADED --
 SMODS.Enhancement{ --BigBonus
 	key = "bigBonus",
@@ -102,6 +79,40 @@ SMODS.Enhancement{ --PolishStone
 		end
 	end
 }
+SMODS.Enhancement{ --PerfectGold
+	key = 'perfectGold',
+	atlas = "Enhancements",
+	pos = { x = 1, y = 1 },
+	discovered = true,
+	unlocked = true,
+	always_scores = true,
+	weight = 0,
+	config = { extra = { 
+        cash = 5,
+		cash_mod = 1
+    }},
+	loc_vars = function(self, info_queue, card)
+		return {vars = {card.ability.extra.cash, card.ability.extra.cash_mod}}
+	end,
+	in_pool = function(self) 
+		return false 
+	end,
+	calculate = function(self, card, context, effect)
+		if context.final_scoring_step and context.cardarea == G.play then
+			card.ability.extra.cash = card.ability.extra.cash + card.ability.extra.cash_mod
+			return {
+				card = card,
+				message = 'Upgraded !',
+				color = G.C.MONEY,
+			}
+		end
+		if context.playing_card_end_of_round and context.cardarea == G.hand then
+			return {
+				dollars = card.ability.extra.cash,
+			}
+		end
+	end
+}
 SMODS.Enhancement{ --Luckiest
 	key = 'luckiest',
 	atlas = "Enhancements",
@@ -160,40 +171,6 @@ SMODS.Enhancement{ --Luckiest
 		end
 	end
 }
-SMODS.Enhancement{ --PerfectGold
-	key = 'perfectGold',
-	atlas = "Enhancements",
-	pos = { x = 1, y = 1 },
-	discovered = true,
-	unlocked = true,
-	always_scores = true,
-	weight = 0,
-	config = { extra = { 
-        cash = 5,
-		cash_mod = 1
-    }},
-	loc_vars = function(self, info_queue, card)
-		return {vars = {card.ability.extra.cash, card.ability.extra.cash_mod}}
-	end,
-	in_pool = function(self) 
-		return false 
-	end,
-	calculate = function(self, card, context, effect)
-		if context.final_scoring_step and context.cardarea == G.play then
-			card.ability.extra.cash = card.ability.extra.cash + card.ability.extra.cash_mod
-			return {
-				card = card,
-				message = 'Upgraded !',
-				color = G.C.MONEY,
-			}
-		end
-		if context.playing_card_end_of_round and context.cardarea == G.hand then
-			return {
-				dollars = card.ability.extra.cash,
-			}
-		end
-	end
-}
 SMODS.Enhancement{ --RichSoil
 	key = "richSoil",
 	atlas = "Enhancements",
@@ -244,6 +221,29 @@ SMODS.Enhancement{ --FossilSoil
 			return {
 				x_chips = card.ability.extra.chips,
                 x_mult = card.ability.extra.mult
+			}
+		end
+	end
+}
+
+-- NEW --
+SMODS.Enhancement{ --Soil
+	key = "soil",
+	atlas = "Enhancements",
+	pos = { x = 0, y = 0 },
+	discovered = true,
+	unlocked = true,
+	weight = 0,
+	config = { extra = { 
+        chips = 1.1
+    }},
+	loc_vars = function(self, info_queue, card)
+		return {vars = { card.ability.extra.chips}}
+	end,
+	calculate = function(self, card, context, effect)
+		if context.main_scoring and context.cardarea == G.play then
+			return {
+				x_chips = card.ability.extra.chips,
 			}
 		end
 	end

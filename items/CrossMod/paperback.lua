@@ -111,7 +111,7 @@ SMODS.Consumable{ --[UntitledCM4]
     end,
     use = function (self,card,area,copier)
         for i, selected_card in pairs(G.hand.highlighted) do
-            SMODS.change_base(selected_card, 'paperback_crowns')
+            SMODS.change_base(selected_card, 'paperback_Crowns')
             G.E_MANAGER:add_event(Event({
 				trigger = "after",
 				delay = 0.2,
@@ -149,7 +149,7 @@ SMODS.Consumable{ --[UntitledCM5]
     end,
     use = function (self,card,area,copier)
         for i, selected_card in pairs(G.hand.highlighted) do
-            SMODS.change_base(selected_card, 'paperback_stars')
+            SMODS.change_base(selected_card, 'paperback_Stars')
             G.E_MANAGER:add_event(Event({
 				trigger = "after",
 				delay = 0.2,
