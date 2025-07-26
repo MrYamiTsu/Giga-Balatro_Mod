@@ -17,13 +17,14 @@ SMODS.Consumable{ --HawaiianPizza
         return{vars = {center.ability.extra.round, center.ability.extra.txt}}
     end,
     can_use = function (self,card)
-        if card.ability.extra.round_left <= 0 and #G.consumeables.cards - 1 < G.consumeables.config.card_limit then
+        if card.ability.extra.round_left <= 0 then
             return true
         end
         return false
     end,
     use = function (self,card,area,copier)
-        _create(card, 'Code', G.consumeables,true,true)
+        _create(card, 'Giga_Food', G.consumeables,true,true)
+        delay(0.4)
     end,
     calculate = function (self,card,context)
         if context.end_of_round and context.main_eval then

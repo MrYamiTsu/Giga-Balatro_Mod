@@ -30,16 +30,26 @@ function upgrade_enhencement(selected_card)
 end
 
 function _create(card,type,place,negative,negative_condition)
-    local obj = create_card(type,place, nil, nil, nil, nil, nil, 'create'..type)
-    if negative then
-        if negative_condition then
-            if card.edition and card.edition.type == 'negative' then
-                obj:set_edition('e_negative', true)
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.4,
+        func = function()
+            if #G.consumeables.cards < G.consumeables.config.card_limit then
+                local obj = create_card(type,place, nil, nil, nil, nil, nil, 'create'..type)
+                if negative then
+                    if negative_condition then
+                        if card.edition and card.edition.type == 'negative' then
+                            obj:set_edition('e_negative', true)
+                        end
+                    else
+                        obj:set_edition('e_negative', true)
+                    end 
+                end
+            obj:add_to_deck()
+             G.consumeables:emplace(obj)
+                card:juice_up(0.3, 0.5)
             end
-        else
-            obj:set_edition('e_negative', true)
-        end 
-    end
-    obj:add_to_deck()
-    G.consumeables:emplace(obj)
+            return true
+        end
+    }))
 end
