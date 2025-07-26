@@ -143,9 +143,8 @@ SMODS.Consumable{ --CaesarSalad
         return false
     end,
     use = function (self,card,area,copier)
-        if #G.consumeables.cards < G.consumeables.config.card_limit then
-            _create(card, 'Tarot', G.consumeables,true,true)
-        end
+        _create(card, 'Giga_Food', G.consumeables,true,true)
+        delay(0.4)
     end,
     calculate = function (self,card,context)
         if context.end_of_round and context.main_eval then
@@ -179,9 +178,8 @@ SMODS.Consumable{ --ClubSandwich
         return false
     end,
     use = function (self,card,area,copier)
-        if #G.consumeables.cards < G.consumeables.config.card_limit then
-            _create(card, 'Planet', G.consumeables,true,true)
-        end
+        _create(card, 'Giga_Food', G.consumeables,true,true)
+        delay(0.4)
     end,
     calculate = function (self,card,context)
         if context.end_of_round and context.main_eval then
@@ -215,9 +213,8 @@ SMODS.Consumable{ --Pho
         return false
     end,
     use = function (self,card,area,copier)
-        if #G.consumeables.cards < G.consumeables.config.card_limit then
-            _create(card, 'Spectral', G.consumeables,true,true)
-        end
+        _create(card, 'Giga_Food', G.consumeables,true,true)
+        delay(0.4)
     end,
     calculate = function (self,card,context)
         if context.end_of_round and context.main_eval then
