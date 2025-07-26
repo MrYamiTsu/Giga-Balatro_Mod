@@ -355,7 +355,8 @@ SMODS.Joker{ --Refinery
     end,
     calculate = function(self,card,context)
         if context.individual and context.cardarea == G.play and not context.blueprint then
-            if SMODS.has_enhancement(context.other_card, 'm_stone')then
+            if SMODS.has_enhancement(context.other_card, 'm_stone') or
+               SMODS.has_enhancement(context.other_card, 'm_giga_polishStone') then
                 card.ability.extra.cashNow = card.ability.extra.cashNow + card.ability.extra.cash
                 return {
                     message_card = card,

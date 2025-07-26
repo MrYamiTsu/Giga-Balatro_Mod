@@ -47,36 +47,6 @@ SMODS.Enhancement{ --BigBonus
 		end
 	end
 }
-SMODS.Enhancement{ --PolishStone
-	key = "polishStone",
-	atlas = "Enhancements",
-	pos = { x = 4, y = 0 },
-	discovered = true,
-	unlocked = true,
-	replace_base_card = true,
-	no_rank = true,
-	no_suit = true,
-	always_scores = true,
-	weight = 0,
-	config = { extra = { 
-        chips = 15,
-		xchips = 1.4
-    }},
-	loc_vars = function(self, info_queue, card)
-		return {vars = {card.ability.extra.chips, card.ability.extra.xchips}}
-	end,
-	in_pool = function(self) 
-		return false 
-	end,
-	calculate = function(self, card, context, effect)
-		if context.main_scoring and context.cardarea == G.play then
-			return {
-				chips = card.ability.extra.chips,
-				x_chips = card.ability.extra.xchips
-			}
-		end
-	end
-}
 SMODS.Enhancement{ --MultPlus
 	key = 'multPlus',
 	atlas = "Enhancements",
@@ -98,6 +68,36 @@ SMODS.Enhancement{ --MultPlus
 		if context.main_scoring and context.cardarea == G.play then
 			return {
 				mult = card.ability.extra.mult,
+			}
+		end
+	end
+}
+SMODS.Enhancement{ --PolishStone
+	key = "polishStone",
+	atlas = "Enhancements",
+	pos = { x = 4, y = 0 },
+	discovered = true,
+	unlocked = true,
+	replace_base_card = true,
+	no_rank = true,
+	no_suit = true,
+	always_scores = true,
+	weight = 0,
+	config = { extra = { 
+        chips = 40,
+		xchips = 1.4
+    }},
+	loc_vars = function(self, info_queue, card)
+		return {vars = {card.ability.extra.chips, card.ability.extra.xchips}}
+	end,
+	in_pool = function(self) 
+		return false 
+	end,
+	calculate = function(self, card, context, effect)
+		if context.main_scoring and context.cardarea == G.play then
+			return {
+				chips = card.ability.extra.chips,
+				x_chips = card.ability.extra.xchips
 			}
 		end
 	end
