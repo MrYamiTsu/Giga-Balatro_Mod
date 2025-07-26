@@ -20,11 +20,8 @@ SMODS.Seal { --Pink
     calculate = function(self, card, context)
         if context.cardarea == G.play and context.main_scoring then
             for i = 1, self.config.extra.card, 1 do
-                if #G.consumeables.cards < G.consumeables.config.card_limit then
-                    _create(card, 'Giga_Food', G.consumeables,true,true)
-                else
-                    break
-                end
+                _create(card, 'Giga_Food', G.consumeables,true,true)
+                delay(0.4)
 		    end
         end
     end,
