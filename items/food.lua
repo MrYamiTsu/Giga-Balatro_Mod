@@ -102,11 +102,9 @@ SMODS.Consumable{ --HotDog
     use = function (self,card,area,copier)
         for i, selected_card in pairs(G.hand.highlighted) do
             if SMODS.has_enhancement(selected_card, 'm_giga_richSoil') then
-                selected_card:set_ability(G.P_CENTERS["m_giga_fossilSoil"])
-            elseif SMODS.has_enhancement(selected_card, 'm_giga_soil') then
-                selected_card:set_ability(G.P_CENTERS["m_giga_richSoil"])
+                upgrade_enhencement_specific(selected_card, 'm_giga_richSoil')
             else
-                selected_card:set_ability(G.P_CENTERS["m_giga_soil"])
+                upgrade_enhencement_specific(selected_card, 'm_giga_soil')
             end
             G.E_MANAGER:add_event(Event({
 				trigger = "after",
@@ -259,20 +257,7 @@ SMODS.Consumable{ --Spaghetti
     end,
     use = function (self,card,area,copier)
         for i, selected_card in pairs(G.hand.highlighted) do
-            if SMODS.has_enhancement(selected_card, 'm_bonus') then
-                selected_card:set_ability(G.P_CENTERS["m_giga_bigBonus"])
-            else
-                selected_card:set_ability(G.P_CENTERS["m_bonus"])
-            end
-            G.E_MANAGER:add_event(Event({
-				trigger = "after",
-				delay = 0.2,
-				func = function()
-					G.hand:unhighlight_all()
-					return true
-				end,
-			}))
-			delay(0.5)
+            upgrade_enhencement_specific(selected_card, 'm_bonus')
 		end
     end
 }
@@ -310,20 +295,7 @@ SMODS.Consumable{ --Steak
     end,
     use = function (self,card,area,copier)
         for i, selected_card in pairs(G.hand.highlighted) do
-            if SMODS.has_enhancement(selected_card, 'm_stone') then
-                selected_card:set_ability(G.P_CENTERS["m_giga_polishStone"])
-            else
-                selected_card:set_ability(G.P_CENTERS["m_stone"])
-            end
-            G.E_MANAGER:add_event(Event({
-				trigger = "after",
-				delay = 0.2,
-				func = function()
-					G.hand:unhighlight_all()
-					return true
-				end,
-			}))
-			delay(0.5)
+            upgrade_enhencement_specific(selected_card, 'm_stone')
 		end
     end
 }
@@ -361,20 +333,7 @@ SMODS.Consumable{ --Sushis
     end,
     use = function (self,card,area,copier)
         for i, selected_card in pairs(G.hand.highlighted) do
-            if SMODS.has_enhancement(selected_card, 'm_mult') then
-                selected_card:set_ability(G.P_CENTERS["m_giga_multPlus"])
-            else
-                selected_card:set_ability(G.P_CENTERS["m_mult"])
-            end
-            G.E_MANAGER:add_event(Event({
-				trigger = "after",
-				delay = 0.2,
-				func = function()
-					G.hand:unhighlight_all()
-					return true
-				end,
-			}))
-			delay(0.5)
+            upgrade_enhencement_specific(selected_card, 'm_mult')
 		end
     end
 }
@@ -411,20 +370,7 @@ SMODS.Consumable{ --SugarPie
     end,
     use = function (self,card,area,copier)
         for i, selected_card in pairs(G.hand.highlighted) do
-            if SMODS.has_enhancement(selected_card, 'm_lucky') then
-                selected_card:set_ability(G.P_CENTERS["m_giga_luckiest"])
-            else
-                selected_card:set_ability(G.P_CENTERS["m_lucky"])
-            end
-            G.E_MANAGER:add_event(Event({
-				trigger = "after",
-				delay = 0.2,
-				func = function()
-					G.hand:unhighlight_all()
-					return true
-				end,
-			}))
-			delay(0.5)
+            upgrade_enhencement_specific(selected_card, 'm_lucky')
 		end
     end
 }
@@ -499,20 +445,7 @@ SMODS.Consumable{ --Salmon
     end,
     use = function (self,card,area,copier)
         for i, selected_card in pairs(G.hand.highlighted) do
-            if SMODS.has_enhancement(selected_card, 'm_lucky') then
-                selected_card:set_ability(G.P_CENTERS["m_giga_perfectGold"])
-            else
-                selected_card:set_ability(G.P_CENTERS["m_gold"])
-            end
-            G.E_MANAGER:add_event(Event({
-				trigger = "after",
-				delay = 0.2,
-				func = function()
-					G.hand:unhighlight_all()
-					return true
-				end,
-			}))
-			delay(0.5)
+            upgrade_enhencement_specific(selected_card, 'm_gold')
 		end
     end
 }

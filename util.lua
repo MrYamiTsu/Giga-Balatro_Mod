@@ -1,3 +1,77 @@
+-- UPGRADE FUNCTIONS --
+function check_upgrade(base_enh)
+    local upgraded_enh = nil
+    if base_enh == 'm_giga_soil' then
+        upgraded_enh = 'm_giga_richSoil'
+    elseif base_enh == 'm_giga_richSoil' then
+        upgraded_enh = 'm_giga_fossilSoil'
+    elseif base_enh == 'm_bonus' then
+        upgraded_enh = 'm_giga_bigBonus'
+    elseif base_enh == 'm_stone' then
+        upgraded_enh = 'm_giga_polishStone'
+    elseif base_enh == 'm_mult' then
+        upgraded_enh = 'm_giga_multPlus'
+    elseif base_enh == 'm_lucky' then
+        upgraded_enh = 'm_giga_luckiest'
+    elseif base_enh == 'm_gold' then
+        upgraded_enh = 'm_giga_perfectGold'
+    --[[elseif base_enh == 'm_glass' then
+        upgraded_enh = 'm_giga_reinforcedGlass'
+    elseif base_enh == 'm_steel' then
+        upgraded_enh = 'm_giga_titanium']]
+    end
+    return upgraded_enh
+end
+function upgrade_enhencement_specific(selected_card, base_enh)
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.4,
+        func = function()
+            selected_card:juice_up(0.3, 0.5)
+            return true
+        end
+    }))
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.15,
+        func = function()
+            selected_card:flip()
+            selected_card:juice_up(0.3, 0.3)
+            return true
+        end
+    }))
+    delay(0.2)
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.1,
+        func = function()
+            if SMODS.has_enhancement(selected_card, base_enh) then
+                selected_card:set_ability(G.P_CENTERS[check_upgrade(base_enh)])
+            else
+                selected_card:set_ability(G.P_CENTERS[base_enh])
+            end
+            return true
+        end
+    }))
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.15,
+        func = function()
+            selected_card:flip()
+            selected_card:juice_up(0.3, 0.3)
+            return true
+        end
+    }))
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.2,
+        func = function()
+            G.hand:unhighlight_all()
+            return true
+        end
+    }))
+    delay(0.5)
+end
 function upgrade_enhencement(selected_card)
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
@@ -63,6 +137,7 @@ function upgrade_enhencement(selected_card)
     delay(0.5)
 end
 
+-- CREATE FUNCTIONS --
 function _create(card,type,place,negative,negative_condition)
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
