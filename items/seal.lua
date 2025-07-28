@@ -1,8 +1,7 @@
--- FOOD SEAL --
 SMODS.Seal { --Pink
     key = 'pinkSeal',
     atlas = "Seals",
-    pos = { x = 0, y = 0 },
+    pos = {x = 0, y = 0},
     loc_txt = {
         name = 'Pink Seal',
         text = {
@@ -27,20 +26,18 @@ SMODS.Seal { --Pink
     end,
     badge_colour = HEX("FF00E6")
 }
-
--- NORMAL SEAL --
-SMODS.Seal { --PermaMult
-    key = "permaMultSeal",
+SMODS.Seal { --Crimson
+    key = "crimsonSeal",
     atlas = "Seals",
-    pos = {x= 1, y= 0},
+    pos = {x = 1, y = 0},
     loc_txt = {
-        name = 'Perma-Mult Seal',
+        name = 'Crimson Seal',
         text = {
             'Gain {C:mult}+#1#{} Mult',
             'permanently while',
             'held in hand'
         },
-        label = 'Perma-Mult Seal'
+        label = 'Crimson Seal'
     },
     config = { extra = {
         mult = 2
@@ -57,5 +54,35 @@ SMODS.Seal { --PermaMult
             }
         end
     end,
-    badge_colour = HEX("ED1C24"),
+    badge_colour = HEX("DC143C")
+}
+SMODS.Seal { --Aqua
+    key = "aquaSeal",
+    atlas = "Seals",
+    pos = {x = 2, y = 0},
+    loc_txt = {
+        name = 'Aqua Seal',
+        text = {
+            'Gain {C:chips}+#1#{} Chips',
+            'permanently while',
+            'held in hand'
+        },
+        label = 'Aqua Seal'
+    },
+    config = { extra = {
+        chips = 20
+    }},
+    loc_vars = function(self, info_queue, center)
+        return {vars = {self.config.extra.chips}}
+    end,
+    calculate = function(self, card, context)
+        if context.main_scoring and context.cardarea == G.hand then
+            card.ability.perma_bonus = card.ability.perma_bonus + self.config.extra.chips
+            return {
+                message = 'Upgraded',
+                colour = G.C.MULT
+            }
+        end
+    end,
+    badge_colour = HEX("00FFF0")
 }
