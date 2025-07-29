@@ -64,7 +64,7 @@ return {
                     '{C:green}#4# in #5#{} chance',
                     'to win {C:money}$#6#{}',
                     '{C:green}#7# in #8#{} chance',
-                    'to create {C:attention}#9#{} {C:dark_edition}Negative{} {V:1}Food{}',
+                    'to create {C:attention}#9#{} {C:dark_edition}Negative{} {V:1}Food{}'
                 }
             },
             m_giga_perfectGold = {
@@ -275,6 +275,33 @@ return {
                     'A delicious [Untitled]',
                     'that convert {C:attention}#1#{} card',
                     'into {C:clubs}Club{} suit'
+                }
+            },
+            c_giga_Untitled13 = {
+                name = '[Untitled]',
+                text = {
+                    'A delicious [Untitled] that',
+                    'add a {V:1}Pink Seal{} on {C:attention}#1#{}',
+                    'card in {C:attention}#2#{} rounds',
+                    '{C:inactive}#3#{}'
+                }
+            },
+            c_giga_Untitled14 = {
+                name = '[Untitled]',
+                text = {
+                    'A delicious [Untitled] that',
+                    'add a {V:1}Pink Seal{} on {C:attention}#1#{}',
+                    'card in {C:attention}#2#{} rounds',
+                    '{C:inactive}#3#{}'
+                }
+            },
+            c_giga_Untitled15 = {
+                name = '[Untitled]',
+                text = {
+                    'A delicious [Untitled] that',
+                    'add a {V:1}Pink Seal{} on {C:attention}#1#{}',
+                    'card in {C:attention}#2#{} rounds',
+                    '{C:inactive}#3#{}'
                 }
             },
             c_giga_birthdayCake = {
@@ -646,24 +673,24 @@ return {
         Other={
             --Undiscovered
             undiscovered_food = {
-                name = "Not Discovered",
+                name = 'Not Discovered',
                 text = {
-                    "Purchase or use",
-                    "this card in an",
-                    "unseeded run to",
-                    "learn what it does"
+                    'Purchase or use',
+                    'this card in an',
+                    'unseeded run to',
+                    'learn what it does'
                 }
             },
             -- Credit
             ledugs_credit = {
-                name = "Credit",
+                name = 'Credit',
                 text = {
-                    "Original idea",
-                    "by {C:green,E:2}le_dugs{}",
+                    'Original idea',
+                    'by {C:green,E:2}le_dugs{}'
                 }
             },
             yugioh_credit = {
-                name = "Credit",
+                name = 'Credit',
                 text = {
                     'Artwork and name',
                     'from {C:red,E:2}Yu-Gi-Oh!{}'
@@ -671,23 +698,47 @@ return {
             },
             -- Enhancement
             soil_def = {
-                name = "Soil",
+                name = 'Soil',
                 text = {
                     '{X:chips,C:white}X1.1{} Chips'
                 }
             },
             richSoil_def = {
-                name = "Rich Soil",
+                name = 'Rich Soil',
                 text = {
                     '{X:chips,C:white}X#1.4{} Chips',
                     '{C:mult}+7{} Mult'
                 }
             },
             fossilSoil_def = {
-                name = "Fossil Soil",
+                name = 'Fossil Soil',
                 text = {
                     '{X:chips,C:white}X2{} Chips',
                     '{X:mult,C:white}X1.5{} Mult'
+                }
+            },
+            -- Seal
+            pinkSeal_def = {
+                name = 'Pink Seal',
+                text = {
+                    'When this card is {C:attention}scored{},',
+                    'create {C:attention}1{} Food card',
+                }  
+            },
+            crimsonSeal_def = {
+                name = 'Crimson Seal',
+                text = {
+                    'Gain {C:mult}+2{} Mult',
+                    'permanently while',
+                    'held in hand'
+                }
+            },
+            aquaSeal_def = {
+                name = 'Aqua Seal',
+                text = {
+                'Gain {C:chips}+20{} Chips',
+                'permanently while',
+                'held in hand'
                 }
             },
             -- Secret Joker

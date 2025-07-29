@@ -874,6 +874,200 @@ SMODS.Consumable{ --[Untitled12]
 		end
     end
 }
+SMODS.Consumable{ --[Untitled13]
+    key = 'Untitled13',
+    set = 'Giga_Food',
+    atlas = 'Foods',
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 0, y = 1},
+    rarity = 1,
+    cost = 2,
+    config = { extra = {
+        card = 1,
+        round = 1,
+        round_left = 1,
+        txt = 'Not ready yet'
+    }},
+    loc_vars = function (self,info_queue,center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'pinkSeal_def'}
+        return{vars = {colours={HEX('FF00E6')}, center.ability.extra.card, center.ability.extra.round, center.ability.extra.txt}}
+    end,
+    can_use = function (self,card)
+        if card.ability.extra.round_left <= 0 then
+            if G and G.hand then
+			    if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
+				    return true
+			    end
+		    end
+        end
+        return false
+    end,
+    use = function (self,card,area,copier)
+        for i, selected_card in pairs(G.hand.highlighted) do
+            G.E_MANAGER:add_event(Event({
+				func = function()
+					selected_card:juice_up(0.3, 0.5)
+					return true
+				end,
+			}))
+			G.E_MANAGER:add_event(Event({
+				trigger = "after",
+				delay = 0.1,
+				func = function()
+					selected_card:set_seal("giga_pinkSeal")
+					return true
+				end,
+			}))
+			delay(0.5)
+			G.E_MANAGER:add_event(Event({
+				trigger = "after",
+				delay = 0.2,
+				func = function()
+					G.hand:unhighlight_all()
+					return true
+				end,
+			}))
+		end
+    end,
+    calculate = function (self,card,context)
+        if context.end_of_round and context.main_eval then
+            card.ability.extra.round_left = card.ability.extra.round_left - 1
+        end
+        if card.ability.extra.round_left <= 0 and #G.consumeables.cards then
+            card.ability.extra.txt = 'Ready'
+        end
+    end
+}
+SMODS.Consumable{ --[Untitled14]
+    key = 'Untitled14',
+    set = 'Giga_Food',
+    atlas = 'Foods',
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 0, y = 1},
+    rarity = 1,
+    cost = 2,
+    config = { extra = {
+        card = 1,
+        round = 1,
+        round_left = 1,
+        txt = 'Not ready yet'
+    }},
+    loc_vars = function (self,info_queue,center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'crimsonSeal_def'}
+        return{vars = {colours={HEX('DC143C')}, center.ability.extra.card, center.ability.extra.round, center.ability.extra.txt}}
+    end,
+    can_use = function (self,card)
+        if card.ability.extra.round_left <= 0 then
+            if G and G.hand then
+			    if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
+				    return true
+			    end
+		    end
+        end
+        return false
+    end,
+    use = function (self,card,area,copier)
+        for i, selected_card in pairs(G.hand.highlighted) do
+            G.E_MANAGER:add_event(Event({
+				func = function()
+					selected_card:juice_up(0.3, 0.5)
+					return true
+				end,
+			}))
+			G.E_MANAGER:add_event(Event({
+				trigger = "after",
+				delay = 0.1,
+				func = function()
+					selected_card:set_seal("giga_crimsonSeal")
+					return true
+				end,
+			}))
+			delay(0.5)
+			G.E_MANAGER:add_event(Event({
+				trigger = "after",
+				delay = 0.2,
+				func = function()
+					G.hand:unhighlight_all()
+					return true
+				end,
+			}))
+		end
+    end,
+    calculate = function (self,card,context)
+        if context.end_of_round and context.main_eval then
+            card.ability.extra.round_left = card.ability.extra.round_left - 1
+        end
+        if card.ability.extra.round_left <= 0 and #G.consumeables.cards then
+            card.ability.extra.txt = 'Ready'
+        end
+    end
+}
+SMODS.Consumable{ --[Untitled15]
+    key = 'Untitled15',
+    set = 'Giga_Food',
+    atlas = 'Foods',
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 0, y = 1},
+    rarity = 1,
+    cost = 2,
+    config = { extra = {
+        card = 1,
+        round = 1,
+        round_left = 1,
+        txt = 'Not ready yet'
+    }},
+    loc_vars = function (self,info_queue,center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'aquaSeal_def'}
+        return{vars = {colours={HEX('00FFF0')}, center.ability.extra.card, center.ability.extra.round, center.ability.extra.txt}}
+    end,
+    can_use = function (self,card)
+        if card.ability.extra.round_left <= 0 then
+            if G and G.hand then
+			    if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
+				    return true
+			    end
+		    end
+        end
+        return false
+    end,
+    use = function (self,card,area,copier)
+        for i, selected_card in pairs(G.hand.highlighted) do
+            G.E_MANAGER:add_event(Event({
+                trigger = "after",
+				delay = 0.2,
+				func = function()
+					selected_card:juice_up(0.3, 0.5)
+					return true
+				end,
+			}))
+			G.E_MANAGER:add_event(Event({
+				trigger = "after",
+				delay = 0.1,
+				func = function()
+					selected_card:set_seal("giga_aquaSeal")
+					return true
+				end,
+			}))
+			delay(0.5)
+			G.E_MANAGER:add_event(Event({
+				trigger = "after",
+				delay = 0.2,
+				func = function()
+					G.hand:unhighlight_all()
+					return true
+				end,
+			}))
+		end
+    end,
+    calculate = function (self,card,context)
+        if context.end_of_round and context.main_eval then
+            card.ability.extra.round_left = card.ability.extra.round_left - 1
+        end
+        if card.ability.extra.round_left <= 0 and #G.consumeables.cards then
+            card.ability.extra.txt = 'Ready'
+        end
+    end
+}
 
 -- RARE --
 SMODS.Consumable{ --BirthdayCake

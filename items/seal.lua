@@ -22,6 +22,11 @@ SMODS.Seal { --Pink
                 _create(card, 'Giga_Food', G.consumeables,true,true)
                 delay(0.4)
 		    end
+            return {
+                message = 'Create !',
+                colour = G.C.MONEY,
+				delay = 0.6
+            }
         end
     end,
     badge_colour = HEX("FF00E6")
