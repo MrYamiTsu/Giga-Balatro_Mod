@@ -290,7 +290,7 @@ return {
                 name = '[Untitled]',
                 text = {
                     'A delicious [Untitled] that',
-                    'add a {V:1}Pink Seal{} on {C:attention}#1#{}',
+                    'add a {V:1}Crimson Seal{} on {C:attention}#1#{}',
                     'card in {C:attention}#2#{} rounds',
                     '{C:inactive}#3#{}'
                 }
@@ -299,7 +299,7 @@ return {
                 name = '[Untitled]',
                 text = {
                     'A delicious [Untitled] that',
-                    'add a {V:1}Pink Seal{} on {C:attention}#1#{}',
+                    'add a {V:1}Aqua Seal{} on {C:attention}#1#{}',
                     'card in {C:attention}#2#{} rounds',
                     '{C:inactive}#3#{}'
                 }
