@@ -154,9 +154,9 @@ function _create(card,type,place,negative,negative_condition)
                         obj:set_edition('e_negative', true)
                     end 
                 end
-            obj:add_to_deck()
-             G.consumeables:emplace(obj)
-                card:juice_up(0.3, 0.5)
+                obj:add_to_deck()
+                G.consumeables:emplace(obj)
+                obj:juice_up(0.3, 0.5)
             end
             return true
         end
