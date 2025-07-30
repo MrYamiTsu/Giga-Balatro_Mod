@@ -76,6 +76,23 @@ return {
                     'Increase by {C:money}$#2#{} if played',
                 }
             },
+            m_giga_titanium = {
+                name = 'Titanium Card',
+                text = {
+                    '{X:mult,C:white}X#1#{} if this',
+                    'card is held in hand',
+                    'Increase by {X:mult,C:white}X#2#{} if played',
+                }
+            },
+            m_giga_reinforcedGlass = {
+                name = 'Reinforced Glass Card',
+                text = {
+                    '{X:mult,C:white}X#1#{} Mult',
+                    '{C:green}#2# in #3#{} chance to',
+                    'destroy card and ',
+                    'create {C:spectral}Spectral{} card'
+                }
+            }
         },
         Giga_Food = {
             c_giga_tacos = {
@@ -669,6 +686,14 @@ return {
                     'otherwise {C:mult}#2#{} Mult'
                 }
             },
+            j_giga_4thEffect = {
+                name = '4th Effect',
+                text = {
+                    'Give {C:chips}+#1#{} Chips and {X:mult,C:white}X#2#{} Mult',
+                    'for each {C:attention}4{}, {C:attention}5{} or {C:attention}6{} of {V:1}#3#{}',
+                    '{C:inactive}Suit change for each card played{}'
+                }
+            }
         },
         Other={
             --Undiscovered

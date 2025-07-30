@@ -378,7 +378,7 @@ SMODS.Joker{ --Refinery
         end
     end
 }
-SMODS.Joker { --CrystalOfHungriness
+SMODS.Joker{ --CrystalOfHungriness
     key = 'crystalOfHungriness',
     atlas = "Jokers",
     pos = {x = 0, y = 4},
@@ -408,7 +408,7 @@ SMODS.Joker { --CrystalOfHungriness
         end
     end
 }
-SMODS.Joker { --DoubleFork
+SMODS.Joker{ --DoubleFork
     key = 'doubleFork',
     atlas = "Jokers",
     pos = {x = 1, y = 4},
@@ -449,7 +449,7 @@ SMODS.Joker { --DoubleFork
         end
     end
 }
-SMODS.Joker { --CrackedSkull
+SMODS.Joker{ --CrackedSkull
     key = 'crackedSkull',
     atlas = "Jokers",
     pos = {x = 7, y = 3},
@@ -490,7 +490,7 @@ SMODS.Joker { --CrackedSkull
         end
     end
 }
-SMODS.Joker { --SagittariusA
+SMODS.Joker{ --SagittariusA
     key = 'sagittariusA',
     atlas = "Jokers",
     pos = {x = 2, y = 4},
@@ -531,7 +531,7 @@ SMODS.Joker { --SagittariusA
         end
     end
 }
-SMODS.Joker { --ColourfulCrystal
+SMODS.Joker{ --ColourfulCrystal
     key = 'colourfulCrystal',
     atlas = "Jokers",
     pos = {x = 7, y = 3},
@@ -557,6 +557,58 @@ SMODS.Joker { --ColourfulCrystal
                 return {
                     mult = card.ability.extra.nerf_mult
                 }
+            end
+        end
+    end
+}
+SMODS.Joker{ --4thEffect
+    key = '4thEffect',
+    atlas = "Jokers",
+    pos = {x = 7, y = 3},
+    cost = 7,
+    rarity = 2,
+    unlocked = true,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        chips = 35,
+        mult = 1.5,
+        suit = 'Spade',
+        colour = G.C.SUITS.Spades
+    }},
+    loc_vars = function(self, info_queue, card)
+        return {vars = { colours={card.ability.extra.colour}, card.ability.extra.chips, card.ability.extra.mult, card.ability.extra.suit}}
+    end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play then
+            local effects = {}
+            if context.other_card:is_suit(card.ability.extra.suit..'s', true) and
+               context.other_card:get_id() >= 4 and
+               context.other_card:get_id() <= 6 then
+                table.insert(effects, {
+                    chips = card.ability.extra.chips,
+                    delay = 0.6
+                })
+                table.insert(effects, {
+                    x_mult = card.ability.extra.mult,
+                    delay = 0.6
+                })
+            end
+            if card.ability.extra.suit == 'Spade' then
+                card.ability.extra.suit = 'Heart'
+                card.ability.extra.colour = G.C.SUITS.Hearts
+            elseif card.ability.extra.suit == 'Heart' then
+                card.ability.extra.suit = 'Diamond'
+                card.ability.extra.colour = G.C.SUITS.Diamonds
+            elseif card.ability.extra.suit == 'Diamond' then
+                card.ability.extra.suit = 'Club'
+                card.ability.extra.colour = G.C.SUITS.Clubs
+            elseif card.ability.extra.suit == 'Club' then
+                card.ability.extra.suit = 'Spade'
+                card.ability.extra.colour = G.C.SUITS.Spades
+            end
+            if #effects > 0 then
+                return SMODS.merge_effects(effects)
             end
         end
     end

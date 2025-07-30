@@ -392,23 +392,22 @@ SMODS.Consumable{ --[Untitled2]
     can_use = function (self,card)
         if G and G.hand then
 			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
-				return true
+				for i, selected_card in pairs(G.hand.highlighted) do
+                    if SMODS.has_enhancement(selected_card, 'm_giga_reinforcedGlass') then
+                        check = true
+                        break
+                    end
+                end
+                if not check then
+                    return true
+                end
 			end
 		end
 		return false
     end,
     use = function (self,card,area,copier)
         for i, selected_card in pairs(G.hand.highlighted) do
-            selected_card:set_ability(G.P_CENTERS["m_glass"])
-            G.E_MANAGER:add_event(Event({
-				trigger = "after",
-				delay = 0.2,
-				func = function()
-					G.hand:unhighlight_all()
-					return true
-				end,
-			}))
-			delay(0.5)
+            upgrade_enhencement_specific(selected_card, 'm_glass')
 		end
     end
 }
@@ -505,23 +504,22 @@ SMODS.Consumable{ --Lollipop
     can_use = function (self,card)
         if G and G.hand then
 			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
-				return true
+				for i, selected_card in pairs(G.hand.highlighted) do
+                    if SMODS.has_enhancement(selected_card, 'm_giga_titanium') then
+                        check = true
+                        break
+                    end
+                end
+                if not check then
+                    return true
+                end
 			end
 		end
 		return false
     end,
     use = function (self,card,area,copier)
         for i, selected_card in pairs(G.hand.highlighted) do
-            selected_card:set_ability(G.P_CENTERS["m_steel"])
-            G.E_MANAGER:add_event(Event({
-				trigger = "after",
-				delay = 0.2,
-				func = function()
-					G.hand:unhighlight_all()
-					return true
-				end,
-			}))
-			delay(0.5)
+            upgrade_enhencement_specific(selected_card, 'm_steel')
 		end
     end
 }

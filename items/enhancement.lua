@@ -49,6 +49,70 @@ SMODS.Enhancement{ --MultPlus
 		end
 	end
 }
+SMODS.Enhancement { --ReinforcedGlass
+    key = 'reinforcedGlass',
+	atlas = "Enhancements",
+    pos = { x = 2, y = 1 },
+    config = { extra = {
+		mult = 3,
+		odds = 1,
+		chances = 10
+	}},
+    shatters = true,
+    loc_vars = function(self, info_queue, card)
+        local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.odds, card.ability.extra.chances, 'prob')
+        return { vars = { card.ability.extra.mult, numerator, denominator } }
+    end,
+    calculate = function(self, card, context)
+		if context.main_scoring and context.cardarea == G.play then
+			return {
+				x_mult = card.ability.extra.mult
+			}
+		end
+        if context.destroy_card and context.cardarea == G.play and context.destroy_card == card and
+            SMODS.pseudorandom_probability(card, 'giga_reinforcedGlass', card.ability.extra.odds, card.ability.extra.chances, 'rg_prob') then
+            card.glass_trigger = true 
+			_create(card,'Spectral',G.consumeables,true,true)
+            return { 
+				remove = true,
+			}
+        end
+    end,
+}
+SMODS.Enhancement{ --Titanium
+	key = 'titanium',
+	atlas = "Enhancements",
+	pos = { x = 3, y = 1 },
+	discovered = true,
+	unlocked = true,
+	always_scores = true,
+	weight = 0,
+	config = { extra = { 
+        mult = 1.75,
+		mult_mod = 0.05
+    }},
+	loc_vars = function(self, info_queue, card)
+		return {vars = {card.ability.extra.mult, card.ability.extra.mult_mod}}
+	end,
+	in_pool = function(self) 
+		return false 
+	end,
+	calculate = function(self, card, context, effect)
+		if context.final_scoring_step and context.cardarea == G.play then
+			card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_mod
+			return {
+				card = card,
+				message = 'Upgraded !',
+				color = G.C.MONEY,
+			}
+		end
+		if context.main_scoring and context.cardarea == G.hand then
+			return {
+				mult = card.ability.extra.mult,
+			}
+		end
+	end
+}
 SMODS.Enhancement{ --PolishStone
 	key = "polishStone",
 	atlas = "Enhancements",
@@ -172,6 +236,29 @@ SMODS.Enhancement{ --Luckiest
 		end
 	end
 }
+
+-- NEW --
+SMODS.Enhancement{ --Soil
+	key = "soil",
+	atlas = "Enhancements",
+	pos = { x = 0, y = 0 },
+	discovered = true,
+	unlocked = true,
+	weight = 0,
+	config = { extra = { 
+        chips = 1.1
+    }},
+	loc_vars = function(self, info_queue, card)
+		return {vars = { card.ability.extra.chips}}
+	end,
+	calculate = function(self, card, context, effect)
+		if context.main_scoring and context.cardarea == G.play then
+			return {
+				x_chips = card.ability.extra.chips,
+			}
+		end
+	end
+}
 SMODS.Enhancement{ --RichSoil
 	key = "richSoil",
 	atlas = "Enhancements",
@@ -222,29 +309,6 @@ SMODS.Enhancement{ --FossilSoil
 			return {
 				x_chips = card.ability.extra.chips,
                 x_mult = card.ability.extra.mult
-			}
-		end
-	end
-}
-
--- NEW --
-SMODS.Enhancement{ --Soil
-	key = "soil",
-	atlas = "Enhancements",
-	pos = { x = 0, y = 0 },
-	discovered = true,
-	unlocked = true,
-	weight = 0,
-	config = { extra = { 
-        chips = 1.1
-    }},
-	loc_vars = function(self, info_queue, card)
-		return {vars = { card.ability.extra.chips}}
-	end,
-	calculate = function(self, card, context, effect)
-		if context.main_scoring and context.cardarea == G.play then
-			return {
-				x_chips = card.ability.extra.chips,
 			}
 		end
 	end

@@ -7,6 +7,8 @@ function check_upgrade(base_enh)
         upgraded_enh = 'm_giga_fossilSoil'
     elseif base_enh == 'm_bonus' then
         upgraded_enh = 'm_giga_bigBonus'
+    elseif base_enh == 'm_steel' then
+        upgraded_enh = 'm_giga_titanium'
     elseif base_enh == 'm_stone' then
         upgraded_enh = 'm_giga_polishStone'
     elseif base_enh == 'm_mult' then
@@ -15,10 +17,8 @@ function check_upgrade(base_enh)
         upgraded_enh = 'm_giga_luckiest'
     elseif base_enh == 'm_gold' then
         upgraded_enh = 'm_giga_perfectGold'
-    --[[elseif base_enh == 'm_glass' then
+    elseif base_enh == 'm_glass' then
         upgraded_enh = 'm_giga_reinforcedGlass'
-    elseif base_enh == 'm_steel' then
-        upgraded_enh = 'm_giga_titanium']]
     end
     return upgraded_enh
 end
@@ -101,6 +101,8 @@ function upgrade_enhencement(selected_card)
                 selected_card:set_ability(G.P_CENTERS["m_giga_fossilSoil"])
             elseif SMODS.has_enhancement(selected_card, 'm_bonus') then
                 selected_card:set_ability(G.P_CENTERS["m_giga_bigBonus"])
+            elseif SMODS.has_enhancement(selected_card, 'm_steel') then
+                selected_card:set_ability(G.P_CENTERS["m_giga_titanium"])
             elseif SMODS.has_enhancement(selected_card, 'm_stone') then
                 selected_card:set_ability(G.P_CENTERS["m_giga_polishStone"])
             elseif SMODS.has_enhancement(selected_card, 'm_mult') then
@@ -109,10 +111,8 @@ function upgrade_enhencement(selected_card)
                 selected_card:set_ability(G.P_CENTERS["m_giga_luckiest"])
             elseif SMODS.has_enhancement(selected_card, 'm_gold') then
                 selected_card:set_ability(G.P_CENTERS["m_giga_perfectGold"])
-            --[[elseif SMODS.has_enhancement(selected_card, 'm_glass') then
+            elseif SMODS.has_enhancement(selected_card, 'm_glass') then
                 selected_card:set_ability(G.P_CENTERS["m_giga_reinforcedGlass"])
-            elseif SMODS.has_enhancement(selected_card, 'm_steel') then
-                selected_card:set_ability(G.P_CENTERS["m_giga_titanium"])]]
             end
             return true
         end
