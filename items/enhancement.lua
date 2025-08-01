@@ -56,7 +56,7 @@ SMODS.Enhancement { --ReinforcedGlass
     config = { extra = {
 		mult = 3,
 		odds = 1,
-		chances = 10
+		chances = 8
 	}},
     shatters = true,
     loc_vars = function(self, info_queue, card)
