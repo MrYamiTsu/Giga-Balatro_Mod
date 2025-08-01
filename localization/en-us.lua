@@ -444,18 +444,17 @@ return {
             j_giga_tRex = {
                 name = 'T-Rex',
                 text = {
-                    'Every other rounds, create a {C:tarot}Tarot{}',
+                    'Every other rounds, create a {V:1}#1#{}',
                     'and destroy a random comsumable',
-                    'for gaining {C:mult}+#1#{} Mult and {C:chips}+#2# Chips{}',
-                    '(Currently {C:mult}+#3#{} Mult / {C:chips}+#4#{} Chips)',
-                    '{C:inactive}(Currently: {C:attention}#5#{C:inactive} round left)'
+                    'for gaining {C:mult}+#2#{} Mult and {C:chips}+#3# Chips{}',
+                    '(Currently {C:mult}+#4#{} Mult / {C:chips}+#5#{} Chips)',
                 }
             },
             j_giga_velocyraptor = {
                 name = 'Velocyraptor',
                 text = {
-                    '{C:mult}+#1#{} Mult if played hand does not',
-                    'contains an {C:attention}Ace{}'
+                    '{C:mult}+#1#{} Mult if played hand does',
+                    'not contains an {C:attention}Ace{}'
                 }
             },
             j_giga_highRiskHighReward = {
@@ -479,8 +478,8 @@ return {
                 name = 'Pteranodon',
                 text = {
                     'If scored hand is a single {C:attention}5{},',
-                    'destroy it to create a {C:planet}Planet{}',
-                    'and gain {C:money}$#1#{}'
+                    'destroy it to create a {V:1}#1#{}',
+                    'and gain {C:money}$#2#{}'
                 }
             },
             j_giga_pablo = {
