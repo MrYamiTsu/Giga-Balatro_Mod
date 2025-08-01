@@ -723,11 +723,9 @@ SMODS.Joker{ --JackMutator
                     local rank = selected_card:get_id()
                     if rank == 11 then
                         if SMODS.has_enhancement(selected_card, 'm_giga_richSoil') then
-                            selected_card:set_ability(G.P_CENTERS["m_giga_fossilSoil"])
-                        elseif SMODS.has_enhancement(selected_card, 'm_giga_soil') then
-                            selected_card:set_ability(G.P_CENTERS["m_giga_richSoil"])
+                            upgrade_enhencement_specific(selected_card,'m_giga_richSoil')
                         else
-                            selected_card:set_ability(G.P_CENTERS["m_giga_soil"])
+                            upgrade_enhencement_specific(selected_card,'m_giga_soil')
                         end
                     else
                         SMODS.change_base(selected_card, nil, 'Jack')
