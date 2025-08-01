@@ -814,7 +814,32 @@ return {
             }
         },
         Planet={},
-        Spectral={},
+        Spectral={
+            c_giga_salt = {
+                name = 'Salt',
+                text = {
+                    'Add a {V:1}Pink Seal{}',
+                    'to {C:attention}#1#{} selected',
+                    'card in your hand'
+                }
+            },
+            c_giga_compass = {
+                name = 'Compass',
+                text = {
+                    'Add a {V:1}Crimson Seal{}',
+                    'to {C:attention}#1#{} selected',
+                    'card in your hand'
+                }
+            },
+            c_giga_wand = {
+                name = 'Wand',
+                text = {
+                    'Add a {V:1}Aqua Seal{}',
+                    'to {C:attention}#1#{} selected',
+                    'card in your hand'
+                }
+            }
+        },
         Stake={},
         Tag={},
         Tarot={

@@ -22,3 +22,155 @@ SMODS.Consumable{ --Cook
 		end
     end
 }
+
+-- SPECTRALS --
+SMODS.Consumable{ --Salt
+    key = 'salt',
+    set = 'Spectral',
+    atlas = 'Consumeables',
+    pos = {x = 1, y = 0},
+    rarity = 1,
+    cost = 2,
+    config = { extra = {
+        card = 1
+    }},
+    loc_vars = function (self,info_queue,center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'pinkSeal_def'}
+        return{vars = {colours={HEX('FF00E6')}, center.ability.extra.card}}
+    end,
+    can_use = function (self,card)
+        if G and G.hand then
+			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
+			    return true
+			end
+		end
+        return false
+    end,
+    use = function (self,card,area,copier)
+        for i, selected_card in pairs(G.hand.highlighted) do
+            G.E_MANAGER:add_event(Event({
+				func = function()
+					selected_card:juice_up(0.3, 0.5)
+					return true
+				end,
+			}))
+			G.E_MANAGER:add_event(Event({
+				trigger = "after",
+				delay = 0.1,
+				func = function()
+					selected_card:set_seal("giga_pinkSeal")
+					return true
+				end,
+			}))
+			delay(0.5)
+			G.E_MANAGER:add_event(Event({
+				trigger = "after",
+				delay = 0.2,
+				func = function()
+					G.hand:unhighlight_all()
+					return true
+				end,
+			}))
+		end
+    end
+}
+SMODS.Consumable{ --Compass
+    key = 'compass',
+    set = 'Spectral',
+    atlas = 'Consumeables',
+    pos = {x = 2, y = 0},
+    rarity = 1,
+    cost = 2,
+    config = { extra = {
+        card = 2
+    }},
+    loc_vars = function (self,info_queue,center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'crimsonSeal_def'}
+        return{vars = {colours={HEX('DC143C')}, center.ability.extra.card}}
+    end,
+    can_use = function (self,card)
+        if G and G.hand then
+			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
+			    return true
+			end
+		end
+        return false
+    end,
+    use = function (self,card,area,copier)
+        for i, selected_card in pairs(G.hand.highlighted) do
+            G.E_MANAGER:add_event(Event({
+				func = function()
+					selected_card:juice_up(0.3, 0.5)
+					return true
+				end,
+			}))
+			G.E_MANAGER:add_event(Event({
+				trigger = "after",
+				delay = 0.1,
+				func = function()
+					selected_card:set_seal("giga_crimsonSeal")
+					return true
+				end,
+			}))
+			delay(0.5)
+			G.E_MANAGER:add_event(Event({
+				trigger = "after",
+				delay = 0.2,
+				func = function()
+					G.hand:unhighlight_all()
+					return true
+				end,
+			}))
+		end
+    end
+}
+SMODS.Consumable{ --Wand
+    key = 'wand',
+    set = 'Spectral',
+    atlas = 'Consumeables',
+    pos = {x = 3, y = 0},
+    rarity = 1,
+    cost = 2,
+    config = { extra = {
+        card = 2
+    }},
+    loc_vars = function (self,info_queue,center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'aquaSeal_def'}
+        return{vars = {colours={HEX('00FFF0')}, center.ability.extra.card}}
+    end,
+    can_use = function (self,card)
+        if G and G.hand then
+			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
+			    return true
+			end
+		end
+        return false
+    end,
+    use = function (self,card,area,copier)
+        for i, selected_card in pairs(G.hand.highlighted) do
+            G.E_MANAGER:add_event(Event({
+				func = function()
+					selected_card:juice_up(0.3, 0.5)
+					return true
+				end,
+			}))
+			G.E_MANAGER:add_event(Event({
+				trigger = "after",
+				delay = 0.1,
+				func = function()
+					selected_card:set_seal("giga_aquaSeal")
+					return true
+				end,
+			}))
+			delay(0.5)
+			G.E_MANAGER:add_event(Event({
+				trigger = "after",
+				delay = 0.2,
+				func = function()
+					G.hand:unhighlight_all()
+					return true
+				end,
+			}))
+		end
+    end
+}
