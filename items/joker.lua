@@ -452,7 +452,7 @@ SMODS.Joker{ --DoubleFork
 SMODS.Joker{ --CrackedSkull
     key = 'crackedSkull',
     atlas = "Jokers",
-    pos = {x = 7, y = 3},
+    pos = {x = 4, y = 4},
     cost = 6,
     rarity = 1,
     unlocked = true,
