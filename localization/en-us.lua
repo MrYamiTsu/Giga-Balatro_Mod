@@ -9,6 +9,14 @@ return {
                     'of every round and',
                     'start with {C:attention,T:v_giga_foodTruck}Food Truck{}'
                 }
+            },
+            b_giga_reverseCheckered = {
+                name = "Reverse Checkered Deck",
+                text = {
+                    "Start run with",
+                    "{C:attention}26{C:clubs} Clubs{} and",
+                    "{C:attention}26{C:diamond} Diamonds{} in deck",
+                },
             }
         },
         Blind={},
@@ -319,6 +327,14 @@ return {
                     'add a {V:1}Aqua Seal{} on {C:attention}#1#{}',
                     'card in {C:attention}#2#{} rounds',
                     '{C:inactive}#3#{}'
+                }
+            },
+            c_giga_bagOfCandy = {
+                name = 'Bag of Candy',
+                text = {
+                    'A delicious Bag of Candy',
+                    'that {C:attention}upgrade{} the seal',
+                    'of {C:attention}#1#{} card'
                 }
             },
             c_giga_birthdayCake = {

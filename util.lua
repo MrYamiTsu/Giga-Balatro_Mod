@@ -136,6 +136,60 @@ function upgrade_enhencement(selected_card)
     }))
     delay(0.5)
 end
+function upgrade_seal(selected_card)
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.4,
+        func = function()
+            selected_card:juice_up(0.3, 0.5)
+            return true
+        end
+    }))
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.15,
+        func = function()
+            selected_card:flip()
+            selected_card:juice_up(0.3, 0.3)
+            return true
+        end
+    }))
+    delay(0.2)
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.1,
+        func = function()
+            if selected_card:get_seal() == "Red" then 
+                selected_card:set_seal("giga_redPlus")
+            elseif selected_card:get_seal() == "Blue" then
+                selected_card:set_seal("giga_bluePlus")
+            elseif selected_card:get_seal() == "Gold" then
+                selected_card:set_seal("giga_goldPlus")
+            elseif selected_card:get_seal() == "Purple" then
+                selected_card:set_seal("giga_purplePlus")
+            end
+            return true
+        end
+    }))
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.15,
+        func = function()
+            selected_card:flip()
+            selected_card:juice_up(0.3, 0.3)
+            return true
+        end
+    }))
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.2,
+        func = function()
+            G.hand:unhighlight_all()
+            return true
+        end
+    }))
+    delay(0.5)
+end
 
 -- CREATE FUNCTIONS --
 function _create(card,type,place,negative,negative_condition)

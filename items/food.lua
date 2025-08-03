@@ -702,9 +702,9 @@ SMODS.Consumable{ --FruitSalad
                        SMODS.has_enhancement(selected_card, 'm_stone') or
                        SMODS.has_enhancement(selected_card, 'm_mult') or
                        SMODS.has_enhancement(selected_card, 'm_lucky') or
-                       SMODS.has_enhancement(selected_card, 'm_gold') --[[or
+                       SMODS.has_enhancement(selected_card, 'm_gold') or
                        SMODS.has_enhancement(selected_card, 'm_glass') or
-                       SMODS.has_enhancement(selected_card, 'm_steel')]] then
+                       SMODS.has_enhancement(selected_card, 'm_steel') then
                         has_enhancement = true
                     else
                         has_enhancement = false
@@ -1064,6 +1064,48 @@ SMODS.Consumable{ --[Untitled15]
         if card.ability.extra.round_left <= 0 and #G.consumeables.cards then
             card.ability.extra.txt = 'Ready'
         end
+    end
+}
+SMODS.Consumable{ --BagOfCandy
+    key = 'bagOfCandy',
+    set = 'Giga_Food',
+    atlas = 'Foods',
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 0, y = 1},
+    rarity = 1,
+    cost = 2,
+    config = { extra = {
+        card = 1
+    }},
+    loc_vars = function (self,info_queue,center)
+        return{vars = {center.ability.extra.card}}
+    end,
+    can_use = function (self,card)
+		if G and G.hand then
+			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
+                local has_seal = false
+				for i, selected_card in pairs(G.hand.highlighted) do
+                    if selected_card:get_seal() == "Red" or
+                       selected_card:get_seal() == "Blue" or
+                       selected_card:get_seal() == "Gold" or
+                       selected_card:get_seal() == "Purple" then
+                        has_seal = true
+                    else
+                        has_seal = false
+                        break
+                    end
+		        end
+                if has_seal then
+                    return true
+                end
+			end
+		end
+		return false
+    end,
+    use = function (self,card,area,copier)
+        for i, selected_card in pairs(G.hand.highlighted) do
+            upgrade_seal(selected_card)
+		end
     end
 }
 
