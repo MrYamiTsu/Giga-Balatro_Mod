@@ -122,7 +122,7 @@ return {
                 text = {
                     'A delicious Hot-Dog that',
                     'enhance {C:attention}#1#{} card',
-                    'into {C:dark_edition}Soil{} card',
+                    'into {C:attention}Soil card{}',
                     '{s:0.5}"I wonder what could happen if its already soil"{}'
                 }
             },
@@ -155,7 +155,7 @@ return {
                 text = {
                     'A delicious Spaghetti that',
                     'enhance {C:attention}#1#{} card',
-                    'into {C:dark_edition}Bonus{} card'
+                    'into {C:attention}Bonus card{}'
                 }
             },
             c_giga_steak = {
@@ -163,7 +163,7 @@ return {
                 text = {
                     'A delicious Steak that',
                     'enhance {C:attention}#1#{} card',
-                    'into {C:dark_edition}Stone{} card'
+                    'into {C:attention}Stone card{}'
                 }
             },
             c_giga_sushis = {
@@ -171,7 +171,7 @@ return {
                 text = {
                     'Some delicious Sushis that',
                     'enhance {C:attention}#1#{} card',
-                    'into a {C:dark_edition}Mult{} card'
+                    'into a {C:attention}Mult card{}'
                 }
             },
             c_giga_sugarPie = {         
@@ -179,7 +179,7 @@ return {
                 text = {
                     'A delicious Sugar Pie that',
                     'enhance {C:attention}#1#{} card',
-                    'into a {C:dark_edition}Lucky{} card'
+                    'into a {C:attention}Lucky card{}'
                 }
             },
             c_giga_Untitled2 = {            
@@ -187,7 +187,7 @@ return {
                 text = {
                     'Some delicious [Untitled] that',
                     'enhance {C:attention}#1#{} card',
-                    'into a {C:dark_edition}Glass{} card'
+                    'into a {C:attention}Glass card{}'
                 }
             },
             c_giga_salmon = {
@@ -195,7 +195,7 @@ return {
                 text = {
                     'A delicious Salmon that',
                     'enhance {C:attention}#1#{} card',
-                    'into a {C:dark_edition}Gold{} card'
+                    'into a {C:attention}Gold card{}'
                 }
             },
             c_giga_Untitled4 = {
@@ -203,7 +203,7 @@ return {
                 text = {
                     'Some delicious [Untitled] that',
                     'enhance {C:attention}#1#{} card',
-                    'into a {C:dark_edition}Wild{} card'
+                    'into a {C:attention}Wild card{}'
                 }
             },
             c_giga_lollipop = {
@@ -211,7 +211,7 @@ return {
                 text = {
                     'A delicious Lollipop that',
                     'enhance {C:attention}#1#{} card',
-                    'into a {C:dark_edition}Steel{} card'
+                    'into a {C:attention}Steel card{}'
                 }
             },
             c_giga_Untitled5 = {
