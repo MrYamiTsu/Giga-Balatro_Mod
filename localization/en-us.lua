@@ -534,19 +534,29 @@ return {
             },
             j_giga_byud = {
                 name = 'Blue-Eyes Ultimate Dragon',
-                text = {
+                text = {{
                     '{s:1.25}They say that three dragons{}',
                     '{s:1.25}is better than one, I dont{}',
                     '{s:1.25}think so{}',
-                }
+                },{
+                    '{C:mult}+50{} Mult for each card',
+                    '{X:mult,C:white}X1.5{} Mult for each {C:clubs}Club{}',
+                    '{X:mult,C:white}X4{} Mult for card that',
+                    'is equal or over {C:attention}8{}'
+                }}
             },
             j_giga_dmk = {
                 name = 'Dragon Master Knight',
-                text = {
+                text = {{
                     '{s:1.25}You know what is stronger{}',
                     '{s:1.25}than a Ultimate Dragon,{}',
                     '{s:1.25}a Tamed Ultimate Dragon{}',
-                }
+                },{
+                    '{C:mult}+80{} Mult for each card',
+                    '{X:mult,C:white}X2.5{} Mult for each {C:clubs}Club{}',
+                    '{X:mult,C:white}X6{} Mult for card that',
+                    'is equal or over {C:attention}7{}'
+                }}
             },
             j_giga_blackLusterSoldier = {
                 name = 'Black Luster Soldier',
@@ -566,11 +576,16 @@ return {
             },
             j_giga_moc = {
                 name = 'Master of Chaos',
-                text = {
+                text = {{
                     '{s:1.25}Imagine an absolute soldier{}',
                     '{s:1.25}that has mastered magic.{}',
                     '{s:1.25}Thats him !{}'
-                }
+                },{
+                    '{C:mult}+15{} Mult for each card',
+                    '{C:mult}+25{} Mult for each {C:diamonds}Diamond{}',
+                    '{X:mult,C:white}X3{} Mult for card that',
+                    'is equal or under {C:attention}9{}'
+                }}
             },
             j_giga_pinkTourmaline = {
                 name = 'Pink Tourmaline',
@@ -631,9 +646,12 @@ return {
             },
             j_giga_tlei = {
                 name = {'The Legendary', 'Exodia Incarnate'},
-                text = {
+                text = {{
                     '{s:1.4,E:1}Unleash the Beast{}'
-                }
+                },{
+                    'Disable the {C:attention}Boss Blind{}',
+                    '{X:mult,C:white}X50{} Mult'
+                }}
             },
             j_giga_paleontologist = {
                 name = 'Paleontologist',
@@ -780,43 +798,7 @@ return {
                 'permanently while',
                 'held in hand'
                 }
-            },
-            -- Secret Joker
-            byud_effect = {
-                name = 'Effects',
-                text = {
-                    '{C:mult}+50{} Mult for each card',
-                    '{X:mult,C:white}X1.5{} Mult for each {C:clubs}Club{}',
-                    '{X:mult,C:white}X4{} Mult for card that',
-                    'equal or over {C:attention}8{}'
-                }
-            },
-            dmk_effect = {
-                name = 'Effects',
-                text = {
-                    '{C:mult}+80{} Mult for each card',
-                    '{X:mult,C:white}X2.5{} Mult for each {C:clubs}Club{}',
-                    '{X:mult,C:white}X6{} Mult for card that',
-                    'equal or over {C:attention}7{}'
-                }
-            },
-            moc_effect = {
-                name = 'Effects',
-                text = {
-                    '{C:mult}+15{} Mult for each card',
-                    '{C:mult}+25{} Mult for each {C:diamonds}Diamond{}',
-                    '{X:mult,C:white}X3{} Mult for card that',
-                    'equal or under {C:attention}9{}'
-                }
-            },
-            tlei_effect = {
-                name = 'Effects',
-                text = {
-                    'Disable the {C:attention}Boss Blind{}',
-                    '{X:mult,C:white}X50{} Mult'
-                }
             }
-
         },
         Partner = {
             pnr_giga_pabloJr = {
