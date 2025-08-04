@@ -193,11 +193,12 @@ end
 
 -- CREATE FUNCTIONS --
 function _create(card,type,place,negative,negative_condition)
-    G.E_MANAGER:add_event(Event({
-        trigger = 'after',
-        delay = 0.4,
-        func = function()
-            if #G.consumeables.cards < G.consumeables.config.card_limit then
+    if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+        G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.4,
+            func = function()
                 local obj = create_card(type,place, nil, nil, nil, nil, nil, 'create'..type)
                 if negative then
                     if negative_condition then
@@ -211,8 +212,9 @@ function _create(card,type,place,negative,negative_condition)
                 obj:add_to_deck()
                 G.consumeables:emplace(obj)
                 obj:juice_up(0.3, 0.5)
+                G.GAME.consumeable_buffer = 0
+                return true
             end
-            return true
-        end
-    }))
+        }))
+    end
 end

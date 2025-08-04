@@ -88,7 +88,9 @@ SMODS.Joker{ --BlueEgg
             }
         end
         if context.selling_card and context.card == card then
-            _create(card,'Joker', G.jokers,false,false)
+            local egg = create_card('Joker', G.jokers, nil, nil, nil, nil, 'j_egg')
+            egg:add_to_deck()
+            G.jokers:emplace(egg)
             delay(0.4)
         end
     end

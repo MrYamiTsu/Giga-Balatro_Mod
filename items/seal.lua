@@ -71,6 +71,7 @@ SMODS.Seal{ --Blue+
                 func = function()
                     if SMODS.pseudorandom_probability(card, 'giga_bluePlus', self.config.extra.odds, self.config.extra.chances, 'bp_prob') then
                         SMODS.add_card({key = 'c_black_hole'})
+                        G.GAME.consumeable_buffer = 0
                     else
                         if G.GAME.last_hand_played then
                             local planet = nil
