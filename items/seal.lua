@@ -23,6 +23,9 @@ SMODS.Seal{ --Red+
         local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'prob')
         return {vars = {self.config.extra.rep, odds, chances, self.config.extra.repPlus}}
     end,
+    in_pool = function(self) 
+		return false 
+	end,
     calculate = function(self, card, context)
         if context.repetition then
             if SMODS.pseudorandom_probability(card, 'giga_redPlus', self.config.extra.odds, self.config.extra.chances, 'rp_prob') then
@@ -61,6 +64,9 @@ SMODS.Seal{ --Blue+
         local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'prob')
         return {vars = {odds, chances}}
     end,
+    in_pool = function(self) 
+		return false 
+	end,
     calculate = function(self, card, context)
         -- From VanillaRemade (so thx VanillaRemade)
         if context.main_scoring and context.cardarea == G.hand and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
@@ -120,6 +126,9 @@ SMODS.Seal{ --Gold+
         info_queue[#info_queue+1] = G.P_CENTERS.m_gold
         return {vars = {self.config.extra.cash, self.config.extra.cashPlus}}
     end,
+    in_pool = function(self) 
+		return false 
+	end,
     calculate = function(self, card, context)
         if context.main_scoring and context.cardarea == G.play then
             for i, c in ipairs(context.full_hand or {}) do
@@ -189,6 +198,9 @@ SMODS.Seal{ --Purple+
         local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'prob')
         return {vars = {self.config.extra.card, odds, chances}}
     end,
+    in_pool = function(self) 
+		return false 
+	end,
     calculate = function(self, card, context)
         if context.discard and context.other_card == card then
             for i = 1, self.config.extra.card, 1 do
