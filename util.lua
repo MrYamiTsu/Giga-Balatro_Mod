@@ -190,6 +190,41 @@ function upgrade_seal(selected_card)
     }))
     delay(0.5)
 end
+function upgraded_enh_condition(card)
+    if SMODS.has_enhancement(card, 'm_giga_richSoil') then
+        return true
+    elseif SMODS.has_enhancement(card, 'm_giga_fossilSoil') then
+        return true
+    elseif SMODS.has_enhancement(card, 'm_giga_bigBonus') then
+        return true
+    elseif SMODS.has_enhancement(card, 'm_giga_titanium') then
+        return true
+    elseif SMODS.has_enhancement(card, 'm_giga_polishStone') then
+        return true
+    elseif SMODS.has_enhancement(card, 'm_giga_multPlus') then
+        return true
+    elseif SMODS.has_enhancement(card, 'm_giga_luckiest') then
+        return true
+    elseif SMODS.has_enhancement(card, 'm_giga_perfectGold') then
+        return true
+    elseif SMODS.has_enhancement(card, 'm_giga_reinforcedGlass') then
+        return true
+    end
+    return false
+end
+function upgraded_seal_condition(card)
+    if card:get_seal() == "giga_redPlus" then 
+        return true
+    elseif card:get_seal() == "giga_bluePlus" then
+        return true
+    elseif card:get_seal() == "giga_goldPlus" then
+        return true
+    elseif card:get_seal() == "giga_purplePlus" then
+        return true
+    end
+    return false
+end
+
 
 -- CREATE FUNCTIONS --
 function _create(card,type,place,negative,negative_condition)

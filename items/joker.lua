@@ -616,6 +616,59 @@ SMODS.Joker{ --4thEffect
     end
     
 }
+SMODS.Joker{ --UpgradedTicket
+    key = 'upgradedTicket',
+    atlas = "Jokers",
+    pos = {x = 5, y = 4},
+    cost = 7,
+    rarity = 2,
+    unlocked = true,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        cash1 = 2,
+        cash2 = 4
+    }},
+    loc_vars = function(self, info_queue, center)
+        return {vars = {center.ability.extra.cash1, center.ability.extra.cash2}}
+    end,
+    calculate = function(self, card, context)
+        if context.discard then
+            local effects = {}
+            if upgraded_enh_condition(context.other_card) then
+                table.insert(effects, {
+                    dollars = card.ability.extra.cash1,
+                    func = function() 
+                        G.E_MANAGER:add_event(Event({
+                            func = function()
+                                G.GAME.dollar_buffer = 0
+                                return true
+                            end
+                        }))
+                    end
+                })
+            end
+            if upgraded_seal_condition(context.other_card) then
+                table.insert(effects, {
+                    dollars = card.ability.extra.cash2,
+                    func = function() 
+                        G.E_MANAGER:add_event(Event({
+                            func = function()
+                                G.GAME.dollar_buffer = 0
+                                return true
+                            end
+                        }))
+                    end
+                })
+            end
+            if #effects > 0 then
+                return SMODS.merge_effects(effects)
+            end
+        end
+    end
+    
+}
+
 
 -- JACKS JOKERS --
 SMODS.Joker{ --KingOfJacks
@@ -1248,6 +1301,7 @@ SMODS.Joker{ --BYUD
     loc_vars = function(self,info_queue,center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
         info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
+        return {vars ={center.ability.extra.mult, center.ability.extra.xmult1, center.ability.extra.xmult2}}
     end,
     calculate = function(self,card,context)
         local dmk_ready = false
@@ -1324,6 +1378,7 @@ SMODS.Joker{ --DMK
     }},
     loc_vars = function(self,info_queue,center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
+        return {vars ={center.ability.extra.mult, center.ability.extra.xmult1, center.ability.extra.xmult2}}
     end,
     calculate = function(self,card,context)
         if context.individual and context.cardarea == G.play then
@@ -1516,6 +1571,7 @@ SMODS.Joker{ --MOC
     }},
     loc_vars = function(self,info_queue,center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
+        return {vars ={center.ability.extra.mult1, center.ability.extra.mult2, center.ability.extra.xmult}}
     end,
     calculate = function(self,card,context)
         if context.individual and context.cardarea == G.play then
@@ -1771,6 +1827,7 @@ SMODS.Joker{ --TLEI
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
         info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
+        return {vars ={center.ability.extra.mult}}
     end,
     calculate = function(self, card, context)
         if G.GAME.blind.boss and not G.GAME.blind.disabled then

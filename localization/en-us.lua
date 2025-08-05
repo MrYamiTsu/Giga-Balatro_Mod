@@ -15,7 +15,7 @@ return {
                 text = {
                     "Start run with",
                     "{C:attention}26{C:clubs} Clubs{} and",
-                    "{C:attention}26{C:diamond} Diamonds{} in deck",
+                    "{C:attention}26{C:diamonds} Diamonds{} in deck",
                 },
             }
         },
@@ -539,9 +539,9 @@ return {
                     '{s:1.25}is better than one, I dont{}',
                     '{s:1.25}think so{}',
                 },{
-                    '{C:mult}+50{} Mult for each card',
-                    '{X:mult,C:white}X1.5{} Mult for each {C:clubs}Club{}',
-                    '{X:mult,C:white}X4{} Mult for card that',
+                    '{C:mult}+#1#{} Mult for each card',
+                    '{X:mult,C:white}X#2#{} Mult for each {C:clubs}Club{}',
+                    '{X:mult,C:white}X#3#{} Mult for card that',
                     'is equal or over {C:attention}8{}'
                 }}
             },
@@ -552,9 +552,9 @@ return {
                     '{s:1.25}than a Ultimate Dragon,{}',
                     '{s:1.25}a Tamed Ultimate Dragon{}',
                 },{
-                    '{C:mult}+80{} Mult for each card',
-                    '{X:mult,C:white}X2.5{} Mult for each {C:clubs}Club{}',
-                    '{X:mult,C:white}X6{} Mult for card that',
+                    '{C:mult}+#1#{} Mult for each card',
+                    '{X:mult,C:white}X#2#{} Mult for each {C:clubs}Club{}',
+                    '{X:mult,C:white}X#2#{} Mult for card that',
                     'is equal or over {C:attention}7{}'
                 }}
             },
@@ -581,9 +581,9 @@ return {
                     '{s:1.25}that has mastered magic.{}',
                     '{s:1.25}Thats him !{}'
                 },{
-                    '{C:mult}+15{} Mult for each card',
-                    '{C:mult}+25{} Mult for each {C:diamonds}Diamond{}',
-                    '{X:mult,C:white}X3{} Mult for card that',
+                    '{C:mult}+#1#{} Mult for each card',
+                    '{C:mult}+#2#{} Mult for each {C:diamonds}Diamond{}',
+                    '{X:mult,C:white}X#3#{} Mult for card that',
                     'is equal or under {C:attention}9{}'
                 }}
             },
@@ -650,7 +650,7 @@ return {
                     '{s:1.4,E:1}Unleash the Beast{}'
                 },{
                     'Disable the {C:attention}Boss Blind{}',
-                    '{X:mult,C:white}X50{} Mult'
+                    '{X:mult,C:white}X#1#{} Mult'
                 }}
             },
             j_giga_paleontologist = {
@@ -725,6 +725,15 @@ return {
                     'Give {C:chips}+#1#{} Chips and {X:mult,C:white}X#2#{} Mult',
                     'for each {C:attention}4{}, {C:attention}5{} or {C:attention}6{} of {V:1}#3#{}',
                     '{C:inactive}Suit change for each card played{}'
+                }
+            },
+            j_giga_upgradedTicket = {
+                name = 'Upgraded Ticket',
+                text = {
+                    'Cards with {C:attention}upgraded enhancements{}',
+                    'give {C:money}$#1#{} each and with',
+                    '{C:attention}upgraded seals{} {C:money}$#2#{} each',
+                    'when {C:attention}discard{}'
                 }
             }
         },
