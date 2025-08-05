@@ -671,7 +671,7 @@ return {
                 name = 'Refinery',
                 text = {
                     'Earn {C:money}$#1#{} for each consecutive',
-                    '{C:dark_edition}Stone{} card played at the end of',
+                    '{C:attention}Stone{} card played at the end of',
                     'the round. Reset otherwise',
                     '{C:inactive}Curently: {C:money}$#2#{}'
                 }
