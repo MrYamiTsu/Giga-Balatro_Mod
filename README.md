@@ -24,7 +24,7 @@
 <hr>
 <h2>Elements</h2>
 <ul>
-    <li>34+ Jokers</li>
+    <li>36+ Jokers</li>
     <li>31 Foods (+6 Cross-Mod)</li>
     <li>8+ Enhancements</li>
     <li>7 Seals</li>
@@ -51,5 +51,4 @@
 <h2>Credits</h2>
 <ul>
     <li><strong>le_dugs</strong> for a lot of ideas</li>
-    <li><strong>frogggy18</strong> for some balance changes</li>
 </ul>
