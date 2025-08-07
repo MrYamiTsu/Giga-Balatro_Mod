@@ -735,6 +735,15 @@ return {
                     '{C:attention}upgraded seals{} {C:money}$#2#{} each',
                     'when {C:attention}discard{}'
                 }
+            },
+            j_giga_healthyRoots = {
+                name = 'Healthy Roots',
+                text = {
+                    'Give {C:mult}+#1#{} for',
+                    'each cards that as the',
+                    'same rank as the {C:attention}first{}',
+                    '{C:attention}held{} in hand card'
+                }
             }
         },
         Other={

@@ -620,8 +620,8 @@ SMODS.Joker{ --UpgradedTicket
     key = 'upgradedTicket',
     atlas = "Jokers",
     pos = {x = 5, y = 4},
-    cost = 7,
-    rarity = 2,
+    cost = 5,
+    rarity = 1,
     unlocked = true,
     blueprint_compat = true,
     eternal_compat = true,
@@ -663,6 +663,39 @@ SMODS.Joker{ --UpgradedTicket
             end
             if #effects > 0 then
                 return SMODS.merge_effects(effects)
+            end
+        end
+    end
+    
+}
+SMODS.Joker{ --HealthyRoots
+    key = 'healthyRoots',
+    atlas = "Jokers",
+    pos = {x = 6, y = 4},
+    cost = 6,
+    rarity = 1,
+    unlocked = true,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        mult = 5,
+        rank = nil
+    }},
+    loc_vars = function(self, info_queue, center)
+        return {vars = {center.ability.extra.mult}}
+    end,
+    calculate = function(self, card, context)
+        if context.before then
+            card.ability.extra.rank = nil
+            if #G.hand.cards > 0 then
+                card.ability.extra.rank = G.hand.cards[1]:get_id()
+            end
+        end
+        if context.individual and context.cardarea == G.play then
+            if context.other_card:get_id() == card.ability.extra.rank then
+                return {
+                    mult = card.ability.extra.mult
+                }
             end
         end
     end
