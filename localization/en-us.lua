@@ -417,9 +417,9 @@ return {
             j_giga_blueChicken = {
                 name = 'Blue Chicken',
                 text = {
+                    '{C:chips}+#1#{} Chips',
                     'Create a {C:attention}Blue Egg{}',
-                    'every {C:attention}4{} round and',
-                    'gain {C:chips}+#1#{} Chips',
+                    'every {C:attention}4{} round',
                     '{C:inactive}(Currently: {C:attention}#2#{C:inactive} round left)',
                     '{C:inactive}(Must have room)'
                 }

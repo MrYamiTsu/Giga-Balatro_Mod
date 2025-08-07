@@ -21,13 +21,9 @@ SMODS.Joker{ --CashPass
                 dollars = card.ability.extra.cash,
             }
         end
-
         if context.joker_main then
             return {
-                card = card,
-                Xmult_mod = card.ability.extra.mult,
-                message = 'X' .. card.ability.extra.mult,
-                colour = G.C.MULT
+                x_mult = card.ability.extra.mult
             }
         end
     end
@@ -43,7 +39,7 @@ SMODS.Joker{ --BlueChicken
     config = { extra = {
         round = 0,
         config_round = 3,
-        chips = 12
+        chips = 25
     }
     },
     loc_vars = function(self,info_queue,center)
@@ -66,8 +62,7 @@ SMODS.Joker{ --BlueChicken
 
         if context.cardarea == G.jokers and context.joker_main and card.ability.extra.chips > 0 then
             return{
-                message = localize{type='variable',key='a_chips',vars={card.ability.extra.chips}},
-                chip_mod = card.ability.extra.chips
+                chips = card.ability.extra.chips
             }
         end
     end
@@ -149,10 +144,7 @@ SMODS.Joker{ --HighRiskHighReward
         if context.scoring_name == 'High Card' then
             if context.joker_main then
                 return {
-                    card = card,
-                    Xmult_mod = card.ability.extra.mult,
-                    message = 'X' .. card.ability.extra.mult,
-                    colour = G.C.MULT
+                    x_mult = card.ability.extra.mult
                 }
             end
             if context.final_scoring_step then
@@ -202,10 +194,7 @@ SMODS.Joker{ --ShreddedAce
         end
         if context.individual and context.cardarea == G.play and context.other_card:get_id() == 14 then
             return {
-                    card = card,
-                    mult_mod = card.ability.extra.mult,
-                    message = '+' .. card.ability.extra.mult,
-                    colour = G.C.MULT
+                    mult = card.ability.extra.mult,
                 }
         end
     end
@@ -270,24 +259,15 @@ SMODS.Joker{ --Paleontologist
         if context.individual and context.cardarea == G.play then
             if SMODS.has_enhancement(context.other_card, 'm_giga_soil') then
                 return {
-                    card = card,
-                    chips_mod = card.ability.extra.chips,
-                    message = '+' .. card.ability.extra.chips,
-                    colour = G.C.CHIPS
+                    chips = card.ability.extra.chips
                 }
             elseif SMODS.has_enhancement(context.other_card, 'm_giga_richSoil') then
                 return {
-                    card = card,
-                    chips_mod = card.ability.extra.s1chips,
-                    message = '+' .. card.ability.extra.s1chips,
-                    colour = G.C.CHIPS
+                    chips = card.ability.extra.s1chips
                 }
             elseif SMODS.has_enhancement(context.other_card, 'm_giga_fossilSoil') then
                 return {
-                    card = card,
-                    chips_mod = card.ability.extra.s2chips,
-                    message = '+' .. card.ability.extra.s2chips,
-                    colour = G.C.CHIPS
+                    chips = card.ability.extra.s2chips
                 }
             end
         end
@@ -313,24 +293,15 @@ SMODS.Joker{ --PaleoExpert
         if context.individual and context.cardarea == G.play then
             if SMODS.has_enhancement(context.other_card, 'm_giga_soil') then
                 return {
-                    card = card,
-                    mult_mod = card.ability.extra.mult,
-                    message = '+' .. card.ability.extra.mult,
-                    colour = G.C.CHIPS
+                    mult = card.ability.extra.mult
                 }
             elseif SMODS.has_enhancement(context.other_card, 'm_giga_richSoil') then
                 return {
-                    card = card,
-                    mult_mod = card.ability.extra.s1mult,
-                    message = '+' .. card.ability.extra.s1mult,
-                    colour = G.C.CHIPS
+                    mult = card.ability.extra.s1mult
                 }
             elseif SMODS.has_enhancement(context.other_card, 'm_giga_fossilSoil') then
                 return {
-                    card = card,
-                    mult_mod = card.ability.extra.s2mult,
-                    message = '+' .. card.ability.extra.s2mult,
-                    colour = G.C.CHIPS
+                    mult = card.ability.extra.s2mult
                 }
             end
         end
@@ -689,6 +660,11 @@ SMODS.Joker{ --HealthyRoots
             card.ability.extra.rank = nil
             if #G.hand.cards > 0 then
                 card.ability.extra.rank = G.hand.cards[1]:get_id()
+                return {
+                    card = G.hand.cards[1],
+                    message = 'Set',
+                    colour = G.C.MONEY
+                }
             end
         end
         if context.individual and context.cardarea == G.play then
