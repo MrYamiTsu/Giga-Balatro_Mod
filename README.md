@@ -1,6 +1,6 @@
 <h1>GIGA</h1>
 
-<p>Some random additions for <strong>Balatro</strong>. Some assets work weirdly sometimes.</p>
+<p>What about adding some random things to <strong>Balatro</strong> !</p>
 
 <img src="assets/other/content.png" alt="Content Screenshot">
 
@@ -42,6 +42,7 @@
 <hr>
 <h2>Additional Infos</h2>
 <p>
+    Some content work weirdly sometimes.
     If a whole asset is in comment, don't remove it from the comment. It's an idea and this may cause the game to crash.<br>
     If you have any ideas for how the mod's elements might interact, feel free to DM me on Discord (<strong>@MrYamiTsu</strong>).
     You can also send me artwork of the elements if you like (I'll mention you in the credits).
