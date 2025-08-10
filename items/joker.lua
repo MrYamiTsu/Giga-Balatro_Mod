@@ -18,7 +18,7 @@ SMODS.Joker{ --CashPass
     calculate = function(self,card,context)
         if context.setting_blind then
             return {
-                dollars = card.ability.extra.cash,
+                dollars = card.ability.extra.cash
             }
         end
         if context.joker_main then

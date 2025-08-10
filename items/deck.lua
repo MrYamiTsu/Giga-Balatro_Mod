@@ -35,16 +35,16 @@ SMODS.Back{ --Foodie'sDeck
         end
     end
 }
-SMODS.Back{ --MomentumDeck
+--[[SMODS.Back{ --MomentumDeck
     key = 'momentum',
     atlas = "Decks",
     pos = {x = 2, y = 0},
     config = { extra = {
-        hand = 3,
-        cash = 3,
+        hand_size = 3,
+        cash = 3
     }},
     loc_vars = function(self, deck)
-        return {vars = {self.config.extra.hand, self.config.extra.cash}}
+        return {vars = {self.config.extra.hand_size, self.config.extra.cash}}
     end,
     calculate = function(self, card, context)
         if context.end_of_round and context.main_eval then
@@ -52,16 +52,16 @@ SMODS.Back{ --MomentumDeck
 			    ease_ante(1)
             end
             return {
-                dollars = self.config.extra.cash,
+                dollars = self.config.extra.cash
             }
         end
     end,
     apply = function(self)
         G.E_MANAGER:add_event(Event({
             func = function()
-			    G.hand:change_size(self.config.extra.hand)
+			    G.hand:change_size(self.config.extra.hand_size)
                 return true
             end
         }))
     end
-}
+}]]
