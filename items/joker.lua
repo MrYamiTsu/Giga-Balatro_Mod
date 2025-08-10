@@ -675,9 +675,54 @@ SMODS.Joker{ --HealthyRoots
             end
         end
     end
+}
+SMODS.Joker{ --Nahnahu
+    key = 'nahnahu',
+    atlas = "Jokers",
+    pos = {x = 7, y = 4},
+    cost = 6,
+    rarity = 2,
+    unlocked = true,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        mult = 2,
+        suit = 'Clubs',
+        colour = G.C.SUITS.Clubs
+    }},
+    loc_vars = function(self, info_queue, center)
+        return {vars = {colours={center.ability.extra.colour}, center.ability.extra.mult, center.ability.extra.suit}}
+    end,
+    calculate = function(self, card, context)
+        if context.joker_main then
+            local mult = 0
+            for i, c in pairs(G.playing_cards) do
+                if c.base.suit == card.ability.extra.suit then
+                    mult = mult + card.ability.extra.mult
+                end
+            end
+            return {
+                mult = mult
+            }
+        end
+        if context.end_of_round then
+            if card.ability.extra.suit == 'Spades' then
+                card.ability.extra.suit = 'Hearts'
+                card.ability.extra.colour = G.C.SUITS.Hearts
+            elseif card.ability.extra.suit == 'Hearts' then
+                card.ability.extra.suit = 'Diamonds'
+                card.ability.extra.colour = G.C.SUITS.Diamonds
+            elseif card.ability.extra.suit == 'Diamonds' then
+                card.ability.extra.suit = 'Clubs'
+                card.ability.extra.colour = G.C.SUITS.Clubs
+            elseif card.ability.extra.suit == 'Clubs' then
+                card.ability.extra.suit = 'Spades'
+                card.ability.extra.colour = G.C.SUITS.Spades
+            end
+        end
+    end
     
 }
-
 
 -- JACKS JOKERS --
 SMODS.Joker{ --KingOfJacks
@@ -1226,19 +1271,13 @@ SMODS.Joker{ --BlueEyesWhiteDragon
             local effects = {}
             if context.other_card:is_suit("Clubs", true) then
                 table.insert(effects, {
-                    card = card,
-                    mult_mod = card.ability.extra.mult,
-                    message = '+' .. card.ability.extra.mult,
-                    colour = G.C.MULT,
+                    mult = card.ability.extra.mult,
                     delay = 0.4
                 })
             end
             if context.other_card:get_id() == 8 then
                 table.insert(effects, {
-                    card = card,
-                    Xmult_mod = card.ability.extra.xmult,
-                    message = 'X' .. card.ability.extra.xmult,
-                    colour = G.C.MULT,
+                    x_mult = card.ability.extra.xmult,
                     delay = 0.4
                 })
             end

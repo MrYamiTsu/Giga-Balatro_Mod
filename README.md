@@ -24,14 +24,14 @@
 <hr>
 <h2>Elements</h2>
 <ul>
-    <li>36+ Jokers</li>
+    <li>37+ Jokers</li>
     <li>31 Foods (+6 Cross-Mod)</li>
     <li>8+ Enhancements</li>
     <li>7 Seals</li>
     <li>4 Booster Packs</li>
     <li>3 Spectral</li>
+    <li>3 Decks</li>
     <li>2 Vouchers</li>
-    <li>2 Decks</li>
     <li>1 Tarot</li>
     <li>1 Partner (Cross-Mod)</li>
 </ul>
@@ -42,7 +42,7 @@
 <hr>
 <h2>Additional Infos</h2>
 <p>
-    Some content work weirdly sometimes.
+    Some content work weirdly sometimes.<br>
     If a whole asset is in comment, don't remove it from the comment. It's an idea and this may cause the game to crash.<br>
     If you have any ideas for how the mod's elements might interact, feel free to DM me on Discord (<strong>@MrYamiTsu</strong>).
     You can also send me artwork of the elements if you like (I'll mention you in the credits).

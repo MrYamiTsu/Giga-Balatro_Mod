@@ -17,6 +17,16 @@ return {
                     "{C:attention}26{C:clubs} Clubs{} and",
                     "{C:attention}26{C:diamonds} Diamonds{} in deck",
                 },
+            },
+            b_giga_momentum = {
+                name = 'Momentum Deck',
+                text = {
+                    'Antes go faster',
+                    '{C:inactive}(1>2>4>6>8)',
+                    '{C:money}+#1#{} hand size',
+                    'Gain {C:money}$#2#{} at end',
+                    'of round'
+                }
             }
         },
         Blind={},
@@ -743,6 +753,14 @@ return {
                     'each cards that as the',
                     'same rank as the {C:attention}first{}',
                     '{C:attention}held{} in hand card'
+                }
+            },
+            j_giga_nahnahu = {
+                name = 'Nahnahu',
+                text = {
+                    'Give {C:mult}+#1#{} Mult for each',
+                    '{V:1}#2#{} card in the deck',
+                    '{C:inactive}Suit change every round{}'
                 }
             }
         },
