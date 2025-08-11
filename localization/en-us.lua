@@ -7,7 +7,7 @@ return {
                     'Create a {V:1}Food{}',
                     'card at the start',
                     'of every round and',
-                    'start with {C:attention,T:v_giga_foodTruck}Food Truck{}'
+                    'start with {C:attention,T:v_giga_foodTruck}Food Stand{}'
                 }
             },
             b_giga_reverseCheckered = {
@@ -230,10 +230,10 @@ return {
                     '{C:hearts}Heart{} suit card'
                 }
             },
-            c_giga_Untitled6 = {
-                name = '[Untitled]',
+            c_giga_paella = {
+                name = 'Paella',
                 text = {
-                    'Some delicious [Untitled] that',
+                    'A delicious Paella that',
                     'create {C:attention}#1#{} random',
                     '{C:spades}Spade{} suit card'
                 }
@@ -294,10 +294,10 @@ return {
                     'into {C:spades}Spade{} suit'
                 }
             },
-            c_giga_Untitled11 = {
-                name = '[Untitled]',
+            c_giga_macNCheese = {
+                name = "Mac n' Cheese",
                 text = {
-                    'A delicious [Untitled]',
+                    "A delicious Mac n' Cheese",
                     'that convert {C:attention}#1#{} card',
                     'into {C:diamonds}Diamond{} suit'
                 }

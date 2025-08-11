@@ -547,8 +547,8 @@ SMODS.Consumable{ --[Untitled5]
         SMODS.add_card { set = "Base", suit = "Hearts", area = G.hand }
     end
 }
-SMODS.Consumable{ --[Untitled6]
-    key = 'Untitled6',
+SMODS.Consumable{ --Paella
+    key = 'paella',
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
@@ -798,8 +798,8 @@ SMODS.Consumable{ --[Untitled10]
 		end
     end
 }
-SMODS.Consumable{ --[Untitled11]
-    key = 'Untitled11',
+SMODS.Consumable{ --MacN'Cheese
+    key = 'macNCheese',
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
