@@ -14,8 +14,8 @@
 }]]
 
 -- SHOP APPEARANCE --
-SMODS.Voucher{ --FoodTruck
-    key = 'foodTruck',
+SMODS.Voucher{ --FoodStand
+    key = 'foodStand',
     atlas = 'Vouchers',
     pos = {x = 2, y = 0},
 	cost = 10,
@@ -43,7 +43,9 @@ SMODS.Voucher{ --HomeDelivery
     redeem = function(self)
         G.E_MANAGER:add_event(Event({
             func = function()
-                G.GAME.food_rate = 5
+                if G.Game.food_rate < 5 then
+                    G.GAME.food_rate = G.GAME.food_rate * 2.5
+                end
                 return true
             end
         }))

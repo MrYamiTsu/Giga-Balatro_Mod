@@ -23,9 +23,7 @@ return {
                 text = {
                     'Antes go faster',
                     '{C:inactive}(1>2>4>6>8)',
-                    '{C:money}+#1#{} hand size',
-                    'Gain {C:money}$#2#{} at end',
-                    'of round'
+                    '{C:money}+#1#{} hand size'
                 }
             }
         },
@@ -893,8 +891,8 @@ return {
                     '{C:attention}#1#{} more choice'
                 }
             },
-            v_giga_foodTruck = {
-                name = 'Food Truck',
+            v_giga_foodStand = {
+                name = 'Food Stand',
                 text = {
                     '{V:1}Food{} cards can',
                     'appear in the {C:attention}shop'
