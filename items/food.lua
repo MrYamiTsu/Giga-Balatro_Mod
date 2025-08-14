@@ -761,8 +761,8 @@ SMODS.Consumable{ --[Untitled9]
 		end
     end
 }
-SMODS.Consumable{ --[Untitled10]
-    key = 'Untitled10',
+SMODS.Consumable{ --ChocolateBar
+    key = 'chocolateBar',
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
@@ -803,7 +803,7 @@ SMODS.Consumable{ --MacN'Cheese
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 0, y = 1},
+    soul_pos = {x = 4, y = 2},
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -1071,7 +1071,7 @@ SMODS.Consumable{ --BagOfCandy
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 0, y = 1},
+    soul_pos = {x = 5, y = 2},
     rarity = 1,
     cost = 2,
     config = { extra = {

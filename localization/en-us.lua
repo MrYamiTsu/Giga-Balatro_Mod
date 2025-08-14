@@ -286,10 +286,10 @@ return {
                     'into {C:hearts}Heart{} suit'
                 }
             },
-            c_giga_Untitled10 = {
-                name = '[Untitled]',
+            c_giga_chocolateBar = {
+                name = 'Chocolate Bar',
                 text = {
-                    'A delicious [Untitled]',
+                    'A delicious Chocolate Bar',
                     'that convert {C:attention}#1#{} card',
                     'into {C:spades}Spade{} suit'
                 }
