@@ -1117,8 +1117,9 @@ SMODS.Consumable{ --BirthdayCake
     pos = {x = 2, y = 1},
     soul_pos = {x = 3, y = 1},
     rarity = 4,
-    hidden = true,
     cost = 4,
+    hidden = true,
+    soul_set = 'Giga_Food',
     config = { extra = {
         round = 1,
         round_left = 1,
@@ -1158,8 +1159,9 @@ SMODS.Consumable{ --Turkey
     pos = {x = 2, y = 1},
     soul_pos = {x = 0, y = 1},
     rarity = 4,
-    hidden = true,
     cost = 4,
+    hidden = true,
+    soul_set = 'Giga_Food',
     config = { extra = {
         round = 3,
         round_left = 3,
