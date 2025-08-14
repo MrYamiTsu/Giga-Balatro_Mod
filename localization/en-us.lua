@@ -760,6 +760,14 @@ return {
                     '{V:1}#2#{} card in the deck',
                     '{C:inactive}Suit change every round{}'
                 }
+            },
+            j_giga_hergosu = {
+                name = 'Hergosu',
+                text = {
+                    '{C:green}#1# in #2#{} chance to',
+                    'give {C:dark_edition}+#3#{} Joker slot',
+                    'when using a {C:dark_edition}Soul{}'
+                }
             }
         },
         Other={

@@ -723,6 +723,50 @@ SMODS.Joker{ --Nahnahu
     end
     
 }
+SMODS.Joker{ --Hergosu
+    key = 'hergosu',
+    atlas = 'Jokers',
+    pos = {x = 7, y = 3},
+    cost = 5,
+    rarity = 1,
+    unlocked = true,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        odd= 1,
+        chance = 2,
+        jokerSlot = 1
+    }},
+    loc_vars = function(self,info_queue,center)
+        local numerator, denominator = SMODS.get_probability_vars(center, center.ability.extra.odd, center.ability.extra.chance, 'prob')
+        return{vars = {numerator, denominator, center.ability.extra.jokerSlot},
+            info = {
+                {set = 'Other', key = 'j_giga_hergosu'}
+            }
+        }
+    end,
+    calculate = function(self,card,context)
+        if context.using_consumeable and context.consumeable.config.center.key == 'c_soul' then
+            if SMODS.pseudorandom_probability(card, 'giga_hergosu', card.ability.extra.odd, card.ability.extra.chance, 'hgs_prob') then
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        G.jokers.config.card_limit = G.jokers.config.card_limit + card.ability.extra.jokerSlot
+                        return true
+                    end
+                }))
+                return {
+                    message = '+' .. card.ability.extra.jokerSlot .. ' Joker slot',
+                    colour = G.C.MULT
+                }
+            else
+                return {
+                    message = 'Nope',
+                    colour = G.C.SECONDARY_SET.Tarot
+                }
+            end
+        end
+    end
+}
 
 -- JACKS JOKERS --
 SMODS.Joker{ --KingOfJacks
