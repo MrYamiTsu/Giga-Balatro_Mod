@@ -24,7 +24,7 @@
 <hr>
 <h2>Elements</h2>
 <ul>
-    <li>37+ Jokers</li>
+    <li>38+ Jokers</li>
     <li>31 Foods (+6 Cross-Mod)</li>
     <li>8+ Enhancements</li>
     <li>7 Seals</li>
