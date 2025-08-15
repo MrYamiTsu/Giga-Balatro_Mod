@@ -780,7 +780,7 @@ SMODS.Joker{ --Tabaosl
         info_queue[#info_queue+1] = {set = 'Other', key = 'aij_back_credit'}
     end,
     calculate = function(self,card,context)
-        if context.before then
+        if context.before and context.main_eval and not context.blueprint then
             if #G.play.cards > 0 then
                 for i = 1, 2 do
                     if #G.play.cards >= i then
@@ -794,6 +794,14 @@ SMODS.Joker{ --Tabaosl
                            SMODS.has_enhancement(c, 'm_gold') or
                            SMODS.has_enhancement(c, 'm_glass') or
                            SMODS.has_enhancement(c, 'm_steel') then
+                            G.E_MANAGER:add_event(Event({
+                                trigger = 'before',
+                                delay = 0.15,
+                                func = function()
+                                    card:juice_up()
+                                    return true
+                                end
+                            }))
                             upgrade_enhencement(c)
                         end
                     else
