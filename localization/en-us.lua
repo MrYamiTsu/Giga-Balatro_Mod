@@ -768,6 +768,13 @@ return {
                     'give {C:dark_edition}+#3#{} Joker slot',
                     'when using a {C:dark_edition}Soul{}'
                 }
+            },
+            j_giga_tabaosl = {
+                name = 'Tabaosl',
+                text = {
+                    '{C:attention}Upgrade{} the {C:attention}first{} and',
+                    '{C:attention}second{} played card'
+                }
             }
         },
         Other={
@@ -794,6 +801,13 @@ return {
                 text = {
                     'Artwork and name',
                     'from {C:red,E:2}Yu-Gi-Oh!{}'
+                }
+            },
+            aij_back_credit = {
+                name = 'Credit',
+                text = {
+                    'Legendary background',
+                    'from {C:pink,E:2}All-In-Jest{}'
                 }
             },
             -- Enhancement

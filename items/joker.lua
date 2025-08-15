@@ -767,6 +767,43 @@ SMODS.Joker{ --Hergosu
         end
     end
 }
+SMODS.Joker{ --Tabaosl
+    key = 'tabaosl',
+    atlas = 'Jokers',
+    pos = {x = 0, y = 5},
+    soul_pos = {x = 1, y = 5},
+    cost = 10,
+    rarity = 4,
+    blueprint_compat = false,
+    eternal_compat = true,
+    loc_vars = function(self,info_queue,center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'aij_back_credit'}
+    end,
+    calculate = function(self,card,context)
+        if context.before then
+            if #G.play.cards > 0 then
+                for i = 1, 2 do
+                    if #G.play.cards >= i then
+                        local c = G.play.cards[i]
+                        if SMODS.has_enhancement(c, 'm_giga_richSoil') or
+                           SMODS.has_enhancement(c, 'm_giga_soil') or
+                           SMODS.has_enhancement(c, 'm_bonus') or
+                           SMODS.has_enhancement(c, 'm_stone') or
+                           SMODS.has_enhancement(c, 'm_mult') or
+                           SMODS.has_enhancement(c, 'm_lucky') or
+                           SMODS.has_enhancement(c, 'm_gold') or
+                           SMODS.has_enhancement(c, 'm_glass') or
+                           SMODS.has_enhancement(c, 'm_steel') then
+                            upgrade_enhencement(c)
+                        end
+                    else
+                        break
+                    end
+                end
+            end
+        end
+    end
+}
 
 -- JACKS JOKERS --
 SMODS.Joker{ --KingOfJacks
