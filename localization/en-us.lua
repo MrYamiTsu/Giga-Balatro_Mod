@@ -772,7 +772,8 @@ return {
             j_giga_tabaosl = {
                 name = 'Tabaosl',
                 text = {
-                    '{C:attention}Upgrade{} the {C:attention}first{} and',
+                    '{C:attention}Upgrade{} the {C:attention}enhancement{}',
+                    'of the {C:attention}first{} and',
                     '{C:attention}second{} played card'
                 }
             }
@@ -807,7 +808,7 @@ return {
                 name = 'Credit',
                 text = {
                     'Legendary background',
-                    'from {C:pink,E:2}All-In-Jest{}'
+                    'from {C:attention,E:2}All-In-Jest{}'
                 }
             },
             -- Enhancement
