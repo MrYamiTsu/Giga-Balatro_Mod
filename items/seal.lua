@@ -265,7 +265,7 @@ SMODS.Seal { --Crimson
         label = 'Crimson Seal'
     },
     config = { extra = {
-        mult = 2
+        mult = 1
     }},
     loc_vars = function(self, info_queue, center)
         return {vars = {self.config.extra.mult}}
@@ -295,7 +295,7 @@ SMODS.Seal { --Aqua
         label = 'Aqua Seal'
     },
     config = { extra = {
-        chips = 20
+        chips = 15
     }},
     loc_vars = function(self, info_queue, center)
         return {vars = {self.config.extra.chips}}

@@ -843,7 +843,7 @@ return {
             crimsonSeal_def = {
                 name = 'Crimson Seal',
                 text = {
-                    'Gain {C:mult}+2{} Mult',
+                    'Gain {C:mult}+1{} Mult',
                     'permanently while',
                     'held in hand'
                 }
@@ -851,7 +851,7 @@ return {
             aquaSeal_def = {
                 name = 'Aqua Seal',
                 text = {
-                'Gain {C:chips}+20{} Chips',
+                'Gain {C:chips}+15{} Chips',
                 'permanently while',
                 'held in hand'
                 }
