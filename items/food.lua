@@ -724,8 +724,8 @@ SMODS.Consumable{ --FruitSalad
 		end
     end
 }
-SMODS.Consumable{ --[Untitled9]
-    key = 'Untitled9',
+SMODS.Consumable{ --Ramen
+    key = 'ramen',
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
@@ -766,7 +766,7 @@ SMODS.Consumable{ --ChocolateBar
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 0, y = 1},
+    soul_pos = {x = 6, y = 2},
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -936,8 +936,8 @@ SMODS.Consumable{ --[Untitled13]
         end
     end
 }
-SMODS.Consumable{ --[Untitled14]
-    key = 'Untitled14',
+SMODS.Consumable{ --CranberryJuice
+    key = 'cranberryJuice',
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},

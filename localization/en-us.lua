@@ -278,10 +278,10 @@ return {
                     '{C:attention}#1#{} card'
                 }
             },
-            c_giga_Untitled9 = {
-                name = '[Untitled]',
+            c_giga_ramen = {
+                name = 'Ramen',
                 text = {
-                    'A delicious [Untitled] that',
+                    'A delicious Ramen that',
                     'that convert {C:attention}#1#{} card',
                     'into {C:hearts}Heart{} suit'
                 }
@@ -319,12 +319,12 @@ return {
                     '{C:inactive}#3#{}'
                 }
             },
-            c_giga_Untitled14 = {
-                name = '[Untitled]',
+            c_giga_cranberryJuice = {
+                name = 'Cranberry Juice',
                 text = {
-                    'A delicious [Untitled] that',
-                    'add a {V:1}Crimson Seal{} on {C:attention}#1#{}',
-                    'card in {C:attention}#2#{} rounds',
+                    'A delicious Cranberry Juice',
+                    'that add a {V:1}Crimson Seal{}',
+                    'on {C:attention}#1#{} card in {C:attention}#2#{} rounds',
                     '{C:inactive}#3#{}'
                 }
             },
