@@ -844,16 +844,27 @@ SMODS.Joker{ --StockMarket
         if context.final_scoring_step and context.cardarea == G.jokers and not context.blueprint then
             if card.ability.extra.cash > 0 then
                 if SMODS.pseudorandom_probability(card, 'giga_stockMarket1', 1, 4, 'st_prob1') then
-                    return {
-                        func = function()
-                            card.ability.extra.cash = round_number(card.ability.extra.cash / 2, 0)
-                            return true
-                        end,
-                        message = '/2',
-                        colour = G.C.MONEY
-                    }
+                    if SMODS.pseudorandom_probability(card, 'giga_stockMarket2', 1, 6, 'st_prob2') then
+                        return {
+                            func = function()
+                                card.ability.extra.cash = 0
+                                return true
+                            end,
+                            message = 'Crash!',
+                            colour = G.C.MULT
+                        }
+                    else
+                        return {
+                            func = function()
+                                card.ability.extra.cash = round_number(card.ability.extra.cash / 2, 0)
+                                return true
+                            end,
+                            message = '/2',
+                            colour = G.C.MONEY
+                        }
+                    end
                 else
-                    if SMODS.pseudorandom_probability(card, 'giga_stockMarket1', 1, 4, 'st_prob2') then
+                    if SMODS.pseudorandom_probability(card, 'giga_stockMarket3', 1, 4, 'st_prob3') then
                         return {
                             func = function()
                                 card.ability.extra.cash = round_number(card.ability.extra.cash * 2.5)
@@ -876,13 +887,15 @@ SMODS.Joker{ --StockMarket
             end
         end
         if context.end_of_round and context.main_eval and G.GAME.blind.boss then
-            return {
-                dollars = card.ability.extra.cash,
-                func = function()
-                    card.ability.extra.cash = 0
-                    return true
-                end
-            }
+            if card.ability.extra.cash > 0 then
+                return {
+                    dollars = card.ability.extra.cash,
+                    func = function()
+                        card.ability.extra.cash = 0
+                        return true
+                    end
+                }
+            end
         end
     end
 }
