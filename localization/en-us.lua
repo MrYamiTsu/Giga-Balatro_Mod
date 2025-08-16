@@ -783,9 +783,9 @@ return {
                     'Each time you play a {C:attention}face{}',
                     'card, invest {C:money}$#1#{}',
                     'The cash invested will',
-                    'fluctuate at end of round',
-                    '{C:attention}Cashout{} at the end of',
-                    '{C:attention}Boss Blind{}',
+                    'fluctuate at end of hand',
+                    '{C:attention}Cashout{} at the end',
+                    'of {C:attention}Boss Blind{}',
                     '{C:inactive}Curently: {C:money}$#2#{}'
                 }
             },
