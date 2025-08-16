@@ -812,6 +812,80 @@ SMODS.Joker{ --Tabaosl
         end
     end
 }
+SMODS.Joker{ --StockMarket
+    key = 'stockMarket',
+    atlas = 'Jokers',
+    pos = {x = 7, y = 3},
+    cost = 5,
+    rarity = 2,
+    blueprint_compat = false,
+    eternal_compat = true,
+    config = { extra = {
+        cash = 0,
+        cashPerFace = 2
+    }},
+    loc_vars = function(self,info_queue,center)
+        return{vars = {center.ability.extra.cashPerFace, center.ability.extra.cash}}
+    end,
+    calculate = function(self,card,context)
+        if context.individual and context.cardarea == G.play and not context.blueprint then
+            if context.other_card:is_face() then
+                if to_big(G.GAME.dollars) >= to_big(card.ability.extra.cashPerFace) then
+                    return {
+                        dollars = -card.ability.extra.cashPerFace,
+                        func = function()
+                            card.ability.extra.cash = card.ability.extra.cash + card.ability.extra.cashPerFace
+                            return true
+                        end
+                    }
+                end
+            end
+        end
+        if context.final_scoring_step and context.cardarea == G.jokers and not context.blueprint then
+            if card.ability.extra.cash > 0 then
+                if SMODS.pseudorandom_probability(card, 'giga_stockMarket1', 1, 4, 'st_prob1') then
+                    return {
+                        func = function()
+                            card.ability.extra.cash = round_number(card.ability.extra.cash / 2, 0)
+                            return true
+                        end,
+                        message = '/2',
+                        colour = G.C.MONEY
+                    }
+                else
+                    if SMODS.pseudorandom_probability(card, 'giga_stockMarket1', 1, 4, 'st_prob2') then
+                        return {
+                            func = function()
+                                card.ability.extra.cash = round_number(card.ability.extra.cash * 2.5)
+                                return true
+                            end,
+                            message = 'X2.5',
+                            colour = G.C.MONEY
+                        }
+                    else
+                        return {
+                            func = function()
+                                card.ability.extra.cash = round_number(card.ability.extra.cash * 1.5, 0) 
+                                return true
+                            end,
+                            message = 'X1.5',
+                            colour = G.C.MONEY
+                        }
+                    end
+                end
+            end
+        end
+        if context.end_of_round and context.main_eval and G.GAME.blind.boss then
+            return {
+                dollars = card.ability.extra.cash,
+                func = function()
+                    card.ability.extra.cash = 0
+                    return true
+                end
+            }
+        end
+    end
+}
 
 -- JACKS JOKERS --
 SMODS.Joker{ --KingOfJacks
@@ -918,8 +992,7 @@ SMODS.Joker{ --JackMutator
                         table.insert(tpool, k)
                     end
                     local selected_card = pseudorandom_element(tpool, pseudoseed("jackMutator"))
-                    local rank = selected_card:get_id()
-                    if rank == 11 then
+                    if selected_card:get_id() == 11 then
                         if SMODS.has_enhancement(selected_card, 'm_giga_richSoil') then
                             upgrade_enhencement_specific(selected_card,'m_giga_richSoil')
                         else

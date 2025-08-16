@@ -776,7 +776,19 @@ return {
                     'of the {C:attention}first{} and',
                     '{C:attention}second{} played card'
                 }
-            }
+            },
+            j_giga_stockMarket = {
+                name = 'Stock Market',
+                text = {
+                    'Each time you play a {C:attention}face{}',
+                    'card, invest {C:money}$#1#{}',
+                    'The cash invested will',
+                    'fluctuate at end of round',
+                    '{C:attention}Cashout{} at the end of',
+                    '{C:attention}Boss Blind{}',
+                    '{C:inactive}Curently: {C:money}$#2#{}'
+                }
+            },
         },
         Other={
             --Undiscovered

@@ -8,6 +8,7 @@
 <h2>Installation</h2>
 <p>
     <a href="https://github.com/Steamodded/smods">Steamodded </a>1.0.0~BETA-0711a or higher is required.<br>
+    Can be useful to have <a href="https://github.com/SpectralPack/Talisman">Talisman</a> too.
 </p>
 <p>Just download the zip file, extract it and place it in your Mod folder.</p>
 
@@ -23,7 +24,7 @@
 <hr>
 <h2>Elements</h2>
 <ul>
-    <li>39+ Jokers</li>
+    <li>40+ Jokers</li>
     <li>31 Foods (+6 Cross-Mod)</li>
     <li>8+ Enhancements</li>
     <li>7 Seals</li>

@@ -1,3 +1,6 @@
+-- TALISMAN --
+to_big = to_big or function(b) return b end
+
 -- UPGRADE FUNCTIONS --
 function check_upgrade(base_enh)
     local upgraded_enh = nil
