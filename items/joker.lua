@@ -1166,7 +1166,8 @@ SMODS.Joker{ --TRex
         round = 1,
         interac = {
             velo = false,
-            ptera = false
+            ptera = false,
+            trice = false
         },
         txt = 'Tarot',
         colour = G.C.SECONDARY_SET.Tarot
@@ -1203,6 +1204,19 @@ SMODS.Joker{ --TRex
         else
             card.ability.extra.txt = 'Tarot'
             card.ability.extra.colour = G.C.SECONDARY_SET.Tarot
+        end
+        for i, j in ipairs(G.jokers.cards) do
+            if j.ability and j.ability.name == 'j_giga_triceratops' then
+                card.ability.extra.interac.trice = true
+                break
+            else
+                card.ability.extra.interac.trice = false
+            end
+        end
+        if card.ability.extra.interac.ptera then
+            card.ability.extra.mult_add = 6
+        else
+            card.ability.extra.mult_add = 5
         end
         --Calculate
         if context.end_of_round and context.cardarea == G.jokers then
@@ -1382,6 +1396,62 @@ SMODS.Joker{ --Pteranodon
                 return {
                     dollars = card.ability.extra.cash
                 }
+            end
+        end
+    end
+}
+SMODS.Joker{ --Triceratops
+    key = 'triceratops',
+    atlas = 'Jokers',
+    pos = {x = 7, y = 3},
+    cost = 5,
+    rarity = 2,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        odds = 1,
+        chances = 9,
+        interac = {
+            ptera = false
+        }
+    }},
+    loc_vars = function(self, info_queue, card)
+        local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.odds, card.ability.extra.chances, 'prob')
+        info_queue[#info_queue+1] = G.P_CENTERS.m_mult
+        return { vars = { numerator, denominator } }
+    end,
+    calculate = function(self, card, context)
+        -- Interaction
+        for i, j in ipairs(G.jokers.cards) do
+            if j.ability and j.ability.name == 'j_giga_pteranodon' then
+                card.ability.extra.interac.ptera = true
+                break
+            else
+                card.ability.extra.interac.ptera = false
+            end
+        end
+        if card.ability.extra.interac.ptera then
+            card.ability.extra.chances = 8
+        else
+            card.ability.extra.chips_add = 9
+        end
+        -- Calculate
+        if context.individual and context.cardarea == G.play then 
+            if SMODS.has_enhancement(context.other_card, 'm_mult') then
+                if SMODS.pseudorandom_probability(card, 'giga_triceratops', card.ability.extra.odds, card.ability.extra.chances, 'tcrtp_prob1') then
+                    return {
+                        level_up = true,
+                        message = localize('k_level_up_ex')
+                    }
+                end
+            end
+            if SMODS.has_enhancement(context.other_card, 'm_giga_multPlus') then
+                if SMODS.pseudorandom_probability(card, 'giga_triceratops', card.ability.extra.odds * 2, card.ability.extra.chances, 'tcrtp_prob2') then
+                    return {
+                        level_up = true,
+                        message = localize('k_level_up_ex')
+                    }
+                end
             end
         end
     end

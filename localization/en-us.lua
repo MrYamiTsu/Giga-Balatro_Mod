@@ -25,6 +25,14 @@ return {
                     '{C:inactive}(1>2>4>6>8)',
                     '{C:money}+#1#{} hand size'
                 }
+            },
+            b_giga_drrunnkiDaecpk = {
+                name = 'Drrunnki Daecpk',
+                text = {
+                    'Naaaaaaaaaaaah, IIIIm not',
+                    'drunk, you eat pizzzzzzzzza',
+                    'Oh shiiiit, I shit on myself'
+                }
             }
         },
         Blind={},
@@ -789,6 +797,15 @@ return {
                     '{C:inactive}Curently: {C:money}$#2#{}'
                 }
             },
+            j_giga_triceratops = {
+                name = 'Triceratops',
+                text = {
+                    '{C:green}#1# in #2#{} chance to',
+                    'level up played hand',
+                    'for each {C:attention}Mult{}',
+                    'card played'
+                }
+            }
         },
         Other={
             --Undiscovered

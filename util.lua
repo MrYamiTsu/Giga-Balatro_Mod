@@ -221,7 +221,6 @@ function upgraded_seal_condition(card)
     return false
 end
 
-
 -- CREATE FUNCTIONS --
 function _create(card,type,place,negative,negative_condition)
     if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
