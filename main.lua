@@ -180,3 +180,35 @@ if not Giga_config.menu_card then
     	newcard.states.visible = true
     end
 end
+
+-- IDK --
+-- From TogaStuff (so thx TogaStuff)
+function ShuffleMyTable(t, seed)
+	seed = seed or 'shuffley'
+	local rt = {}
+	for i = 1, #t do
+		rt[#rt+1] = t[i]
+	end
+	pseudoshuffle(rt, pseudoseed(seed))
+	return rt
+end
+Giga.preprocess = function(context, input)
+	local output = input or context.cardarea and context.cardarea.cards or nil
+	if not output then
+		if context.cardarea == G.play then output = context.full_hand
+		elseif context.cardarea == G.hand then output = G.hand.cards
+		elseif context.cardarea == 'unscored' then output = context.full_hand end
+	end
+	if not output then return end
+	if G.GAME.modifiers.giga_randomscore then output = ShuffleMyTable(output, 'kjgas') end
+	return output
+end
+Giga.areaprocess = function(t)
+	t = t or {}
+	local output = t
+	if G.GAME.modifiers.giga_randomscore then output = ShuffleMyTable(output, 'kjgas') end
+	return output
+end
+Giga.areaorderprocess = function(t)
+	return Giga.areaprocess(t)
+end

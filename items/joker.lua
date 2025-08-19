@@ -253,6 +253,7 @@ SMODS.Joker{ --Paleontologist
         s2chips = 150,
     }},
     loc_vars = function(self,info_queue,center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'soil_def'}
         return{vars = {center.ability.extra.chips}}
     end,
     calculate = function(self,card,context)
@@ -287,6 +288,7 @@ SMODS.Joker{ --PaleoExpert
         s2mult = 25,
     }},
     loc_vars = function(self,info_queue,center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'soil_def'}
         return{vars = {center.ability.extra.mult}}
     end,
     calculate = function(self,card,context)
@@ -815,7 +817,7 @@ SMODS.Joker{ --Tabaosl
 SMODS.Joker{ --StockMarket
     key = 'stockMarket',
     atlas = 'Jokers',
-    pos = {x = 7, y = 3},
+    pos = {x = 2, y = 5},
     cost = 5,
     rarity = 2,
     blueprint_compat = false,
