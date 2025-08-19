@@ -1911,7 +1911,7 @@ SMODS.Joker{ --LLOTFO
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        chips = 75
+        chips = 45
     }},
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
@@ -1940,7 +1940,7 @@ SMODS.Joker{ --RLOTFO
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        chips = 75
+        chips = 45
     }},
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
@@ -1969,7 +1969,7 @@ SMODS.Joker{ --LAOTFO
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        chips = 75
+        chips = 45
     }},
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
@@ -1998,7 +1998,7 @@ SMODS.Joker{ --RAOTFO
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        chips = 75
+        chips = 45
     }},
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
