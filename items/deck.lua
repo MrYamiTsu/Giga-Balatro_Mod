@@ -51,15 +51,17 @@ SMODS.Back{ --MomentumDeck
         end
     end
 }
---[[SMODS.Back{ --DrrunnkiDaecpk 
+SMODS.Back{ --DrrunnkiDaecpk 
     key = 'drrunnkiDaecpk',
     atlas = "Decks",
     pos = {x = 3, y = 0},
     config = { randomize_rank_suit = true, giga_value_min = 0.1, giga_value_max = 10 },
     apply = function(self, back)
-		G.GAME.modifiers.toga_randomscore = true
-        G.GAME.modifiers.cry_misprint_min = (G.GAME.modifiers.cry_misprint_min or 1) * self.config.giga_value_min
-		G.GAME.modifiers.cry_misprint_max = (G.GAME.modifiers.cry_misprint_max or 1) * self.config.giga_value_max
+		G.GAME.modifiers.giga_randomscore = true
+        if next(SMODS.find_mod("Cryptid")) then
+	        G.GAME.modifiers.cry_misprint_min = (G.GAME.modifiers.cry_misprint_min or 1) * self.config.giga_value_min
+		    G.GAME.modifiers.cry_misprint_max = (G.GAME.modifiers.cry_misprint_max or 1) * self.config.giga_value_max
+        end
 	end,
     calculate = function(self, card, context)
         if context.before and context.main_eval then
@@ -74,4 +76,4 @@ SMODS.Back{ --MomentumDeck
             end
         end
     end
-}]]
+}

@@ -1,0 +1,65 @@
+# MANIFEST #
+[manifest]
+version = "1"
+dump_lua = true
+priority = 0
+
+# RANDOM SCORING ORDER #
+# From TogaStuff (so thx TogaStuff)
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/utils.lua"]'
+pattern = "for _, card in ipairs(context.cardarea.cards) do"
+position = "before"
+payload = "local scoreCards = Giga.preprocess(context)"
+match_indent = true
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/utils.lua"]'
+pattern = "for _, card in ipairs(context.cardarea.cards) do"
+position = "at"
+payload = '''
+if not scoreCards then return end
+for _, card in ipairs(scoreCards) do
+'''
+overwrite = true
+match_indent = true
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/utils.lua"]'
+pattern = "for i, card in ipairs(context.cardarea.cards) do"
+position = "before"
+payload = "local scoreCards = Giga.preprocess(context)"
+match_indent = true
+[[patches]]
+[patches.pattern]
+target = '=[SMODS _ "src/utils.lua"]'
+pattern = "for i, card in ipairs(context.cardarea.cards) do"
+position = "at"
+payload = "for i, card in ipairs(scoreCards) do"
+overwrite = true
+match_indent = true
+[[patches]]
+[patches.regex]
+target = 'main.lua'
+pattern = "Oops! The game crashed"
+position = "at"
+payload = "A problem has been detected and Balatro has been stopped"
+overwrite = true
+match_indent = true
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+pattern = "for _, area in ipairs(SMODS.get_card_areas('jokers')) do for _, _card in ipairs(area.cards) do"
+position = "at"
+payload = "local places = Giga.areaprocess(SMODS.get_card_areas('jokers')); for _, place in ipairs(places) do local scoreCards = Giga.areaprocess(place.cards); for _, _card in ipairs(scoreCards) do"
+overwrite = true
+match_indent = true
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+pattern = "for _, v in ipairs(SMODS.get_card_areas('playing_cards')) do"
+position = "at"
+payload = "local playedCardsPlace = Giga.areaorderprocess(SMODS.get_card_areas('playing_cards')); for _, v in ipairs(playedCardsPlace) do"
+overwrite = true
+match_indent = true
