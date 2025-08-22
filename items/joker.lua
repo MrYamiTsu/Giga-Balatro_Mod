@@ -34,11 +34,11 @@ SMODS.Joker{ --BlueChicken
     pos = {x = 1, y = 0},
     cost = 4,
     rarity = 1,
-    blueprint_compat = true,
+    blueprint_compat = false,
     eternal_compat = true,
     config = { extra = {
         round = 0,
-        config_round = 3,
+        config_round = 2,
         chips = 25
     }
     },
@@ -56,7 +56,7 @@ SMODS.Joker{ --BlueChicken
                 else
                     SMODS.calculate_effect({ message = localize('k_no_room_ex') }, card)
                 end
-                card.ability.extra.round = card.ability.extra.config_round or 1
+                card.ability.extra.round = card.ability.extra.config_round or 2
             end
         end
 
@@ -77,16 +77,18 @@ SMODS.Joker{ --BlueEgg
     eternal_compat = true,
     config = {},
     calculate = function(self,card,context)
-        if context.end_of_round and context.cardarea == G.jokers then
-            return{
-                dollars = 1
-            }
-        end
-        if context.selling_card and context.card == card then
-            local egg = create_card('Joker', G.jokers, nil, nil, nil, nil, 'j_egg')
-            egg:add_to_deck()
-            G.jokers:emplace(egg)
-            delay(0.4)
+        if not context.blueprint then
+            if context.end_of_round and context.cardarea == G.jokers then
+                return{
+                    dollars = 1
+                }
+            end
+            if context.selling_card and context.card == card then
+                local egg = create_card('Joker', G.jokers, nil, nil, nil, nil, 'j_egg')
+                egg:add_to_deck()
+                G.jokers:emplace(egg)
+                delay(0.4)
+            end
         end
     end
 }
@@ -109,16 +111,18 @@ SMODS.Joker{ --SnapchatGirl
         return{vars = {odds, chances, center.ability.extra.cash}}
     end,
     calculate = function(self,card,context)
-        if context.selling_card and context.card == card then
-            if #G.jokers.cards - 1 < G.jokers.config.card_limit then
-                if SMODS.pseudorandom_probability(card, 'giga_snapchatGirl', card.ability.extra.odds, card.ability.extra.chances, 'scg_prob') then
-                    SMODS.add_card({set = 'Joker', rarity = 'Legendary'})
-                else
-                    return {
-                        dollars = card.ability.extra.cash,
-                    }
-                end
-            end  
+        if not context.blueprint then
+            if context.selling_card and context.card == card then
+                if #G.jokers.cards - 1 < G.jokers.config.card_limit then
+                    if SMODS.pseudorandom_probability(card, 'giga_snapchatGirl', card.ability.extra.odds, card.ability.extra.chances, 'scg_prob') then
+                        SMODS.add_card({set = 'Joker', rarity = 'Legendary'})
+                    else
+                        return {
+                            dollars = card.ability.extra.cash,
+                        }
+                    end
+                end  
+            end
         end
     end
 }
@@ -186,11 +190,17 @@ SMODS.Joker{ --ShreddedAce
     end,
     calculate = function(self,card,context)
         if context.setting_blind then
-            local suit = pseudorandom_element({'S','H','D','C'}, pseudoseed('giga_shreddedAce'))
-			local card = create_playing_card({
-				front = G.P_CARDS[suit..'_'..'A']
-			}, G.hand, false,false,nil)
-			card:add_to_deck()
+            return {
+                func = function() 
+					local suit = pseudorandom_element({'S','H','D','C'}, pseudoseed('giga_shreddedAce'))
+			        local card = create_playing_card({
+				        front = G.P_CARDS[suit..'_'..'A']
+			        }, G.hand, false,false,nil)
+			        card:add_to_deck()
+				end,
+				message = 'Create !',
+                colour = G.C.SECONDARY_SET.Tarot
+            }
         end
         if context.individual and context.cardarea == G.play and context.other_card:get_id() == 14 then
             return {

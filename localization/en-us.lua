@@ -435,7 +435,7 @@ return {
                 text = {
                     '{C:chips}+#1#{} Chips',
                     'Create a {C:attention}Blue Egg{}',
-                    'every {C:attention}4{} round',
+                    'every {C:attention}3{} round',
                     '{C:inactive}(Currently: {C:attention}#2#{C:inactive} round left)',
                     '{C:inactive}(Must have room)'
                 }
