@@ -215,7 +215,7 @@ SMODS.Joker{ --Pablo
     pos = {x = 3, y = 1},
     cost = 4,
     rarity = 1,
-    blueprint_compat = true,
+    blueprint_compat = false,
     eternal_compat = true,
     config = { extra = {
         round_left = 1,
@@ -225,7 +225,7 @@ SMODS.Joker{ --Pablo
         return{vars = {colours={HEX('F7070BFF')}, center.ability.extra.round_left}}
     end,
     calculate = function(self,card,context)
-        if context.end_of_round and context.cardarea == G.jokers then
+        if context.end_of_round and context.cardarea == G.jokers and not context.blueprint then
             if card.ability.extra.round_left > 0 then
                 card.ability.extra.round_left = card.ability.extra.round_left - 1
             else
@@ -238,7 +238,7 @@ SMODS.Joker{ --Pablo
                     card.ability.extra.round_switch = false
                 elseif not card.ability.extra.round_switch then
                     if #G.consumeables.cards < G.consumeables.config.card_limit then
-                        local food2 = create_card('Food',G.consumeables, nil, nil, nil, nil, 'c_giga_guacamole', 'createFood1')
+                        local food2 = create_card('Food',G.consumeables, nil, nil, nil, nil, 'c_giga_guacamole', 'createFood2')
                         food2:add_to_deck()
                         G.consumeables:emplace(food2)
                     end
@@ -328,7 +328,7 @@ SMODS.Joker{ --Refinery
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        cash = 4,
+        cash = 3,
         cashNow = 0
     }},
     loc_vars = function(self,info_queue,center)
@@ -400,7 +400,7 @@ SMODS.Joker{ --DoubleFork
     cost = 5,
     rarity = 1,
     unlocked = true,
-    blueprint_compat = false,
+    blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
         chips = 2,
@@ -416,6 +416,11 @@ SMODS.Joker{ --DoubleFork
                 if not card.ability.extra.active then
                     card.ability.extra.txt = 'Active'
                     card.ability.extra.active = true
+                    return {
+                        card = card,
+                        message = 'Active',
+                        colour = G.C.GREEN
+                    }
                 end
             end
         end
@@ -430,6 +435,11 @@ SMODS.Joker{ --DoubleFork
             if card.ability.extra.active then
                 card.ability.extra.txt = 'Innactive'
                 card.ability.extra.active = false
+                return {
+                    card = card,
+                    message = 'Innactive',
+                    colour = G.C.RED
+                }
             end
         end
     end
@@ -441,7 +451,7 @@ SMODS.Joker{ --CrackedSkull
     cost = 6,
     rarity = 1,
     unlocked = true,
-    blueprint_compat = false,
+    blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
         mult = 2.5,
@@ -457,6 +467,11 @@ SMODS.Joker{ --CrackedSkull
                 if not card.ability.extra.active then
                     card.ability.extra.txt = 'Active'
                     card.ability.extra.active = true
+                    return {
+                        card = card,
+                        message = 'Active',
+                        colour = G.C.GREEN
+                    }
                 end
             end
         end
@@ -471,6 +486,11 @@ SMODS.Joker{ --CrackedSkull
             if card.ability.extra.active then
                 card.ability.extra.txt = 'Innactive'
                 card.ability.extra.active = false
+                return {
+                    card = card,
+                    message = 'Innactive',
+                    colour = G.C.RED
+                }
             end
         end
     end
@@ -482,7 +502,7 @@ SMODS.Joker{ --SagittariusA
     cost = 5,
     rarity = 1,
     unlocked = true,
-    blueprint_compat = false,
+    blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
         chips = 90,
@@ -498,6 +518,11 @@ SMODS.Joker{ --SagittariusA
                 if not card.ability.extra.active then
                     card.ability.extra.txt = 'Active'
                     card.ability.extra.active = true
+                    return {
+                        card = card,
+                        message = 'Active',
+                        colour = G.C.GREEN
+                    }
                 end
             end
         end
@@ -512,6 +537,11 @@ SMODS.Joker{ --SagittariusA
             if card.ability.extra.active then
                 card.ability.extra.txt = 'Innactive'
                 card.ability.extra.active = false
+                return {
+                    card = card,
+                    message = 'Innactive',
+                    colour = G.C.RED
+                }
             end
         end
     end
@@ -1052,26 +1082,10 @@ SMODS.Joker{ --PinkTourmaline
         return {vars = {center.ability.extra.mult}}
     end,
     calculate = function(self, card, context)
-        if context.joker_main then
-            local nb_holo = 0
-            for i, held_card in ipairs(G.hand.cards) do
-                local is_play = false
-                for j, card_play in ipairs(G.play.cards) do
-                    if held_card == card_play then
-                        is_play = true
-                        break
-                    end
-                end
-                if not is_play and held_card.edition and held_card.edition.type == 'holo' then
-                    nb_holo = nb_holo + 1
-                end
-            end
-            if nb_holo > 0 then
+        if context.individual and context.cardarea == G.hand and not context.end_of_round then
+            if context.other_card.edition and context.other_card.edition.type == 'holo' then
                 return {
-                    card = card,
-                    mult_mod = nb_holo * card.ability.extra.mult,
-                    message = '+' .. nb_holo * card.ability.extra.mult,
-                    colour = G.C.MULT
+                    mult = card.ability.extra.mult
                 }
             end
         end
@@ -1093,26 +1107,10 @@ SMODS.Joker{ --Moonstone
         return {vars = {center.ability.extra.chips}}
     end,
     calculate = function(self, card, context)
-        if context.joker_main then
-            local nb_foil = 0
-            for i, card_held in ipairs(G.hand.cards) do
-                local is_play = false
-                for j, card_play in ipairs(G.play.cards) do
-                    if card_held == card_play then
-                        is_play = true
-                        break
-                    end
-                end
-                if not is_play and card_held.edition and card_held.edition.type == 'foil' then
-                    nb_foil = nb_foil + 1
-                end
-            end
-            if nb_foil > 0 then
+        if context.individual and context.cardarea == G.hand and not context.end_of_round then
+            if context.other_card.edition and context.other_card.edition.type == 'foil' then
                 return {
-                    card = card,
-                    chip_mod = nb_foil * card.ability.extra.chips,
-                    message = '+' .. nb_foil * card.ability.extra.chips,
-                    colour = G.C.CHIP
+                    chips = card.ability.extra.chips
                 }
             end
         end
@@ -1127,34 +1125,17 @@ SMODS.Joker{ --RainbowQuartz
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        xmult = 0.7
+        xmult = 1.75
     }},
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue+1] = G.P_CENTERS.e_poly
         return {vars = {center.ability.extra.xmult}}
     end,
     calculate = function(self, card, context)
-        if context.joker_main then
-            local nb_poly = 0
-            for i, card_held in ipairs(G.hand.cards) do
-                local is_play = false
-                for j, card_play in ipairs(G.play.cards) do
-                    if card_held == card_play then
-                        is_play = true
-                        break
-                    end
-                end
-                if not is_play and card_held.edition and card_held.edition.type == 'polychrome' then
-                    nb_poly = nb_poly + 1
-                end
-            end
-            if nb_poly > 0 then
-                local xmult_to_add = 1 + (nb_poly * card.ability.extra.xmult)
+        if context.individual and context.cardarea == G.hand and not context.end_of_round then
+            if context.other_card.edition and context.other_card.edition.type == 'polychrome' then
                 return {
-                    card = card,
-                    xmult_mod = xmult_to_add,
-                    message = 'X' .. xmult_to_add,
-                    colour = G.C.MULT
+                    x_mult = card.ability.extra.xmult
                 }
             end
         end

@@ -519,7 +519,7 @@ return {
                 text = {
                     'Each other round, Pablo cook',
                     'some Mexican {V:1}Food{} for you',
-                    '{C:inactive}(Currently: {C:attention}#1#{C:inactive} round left)',
+                    '{C:inactive}({C:attention}#1#{C:inactive} round left)',
                     '{C:inactive}(Must have room)'
                 }
             },
@@ -621,8 +621,7 @@ return {
                 name = 'Rainbow Quartz',
                 text = {
                     '{X:mult,C:white}X#1#{} Mult for each',
-                    '{C:dark_edition}Polychrome{} card held in hand',
-                    '{s:0.9,C:inactive}Start at X1 Mult{}'
+                    '{C:dark_edition}Polychrome{} card held in hand'
                 }
             },
             j_giga_llotfo = {

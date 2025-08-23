@@ -224,7 +224,8 @@ SMODS.Enhancement{ --Luckiest
                 })
             end
 			if SMODS.pseudorandom_probability(card, 'giga_luckiest2', card.ability.extra.odds, card.ability.extra.chances3, 'luckiest_prob3') then
-				table.insert(effects, { func = function() 
+				table.insert(effects, { 
+					func = function() 
 						_create(card, 'Giga_Food', G.consumeables,true,true)
             			delay(0.4)
 					end,
