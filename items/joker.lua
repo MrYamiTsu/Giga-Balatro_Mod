@@ -649,9 +649,20 @@ SMODS.Joker{ --UpgradedTicket
     end,
     calculate = function(self, card, context)
         if context.discard then
-            local effects = {}
-            if upgraded_enh_condition(context.other_card) then
-                table.insert(effects, {
+            if upgraded_enh_condition(context.other_card) and upgraded_seal_condition(context.other_card) then
+                return {
+                    dollars = card.ability.extra.cash1 + card.ability.extra.cash2,
+                    func = function() 
+                        G.E_MANAGER:add_event(Event({
+                            func = function()
+                                G.GAME.dollar_buffer = 0
+                                return true
+                            end
+                        }))
+                    end
+                }
+            elseif upgraded_enh_condition(context.other_card) then
+                return {
                     dollars = card.ability.extra.cash1,
                     func = function() 
                         G.E_MANAGER:add_event(Event({
@@ -661,10 +672,9 @@ SMODS.Joker{ --UpgradedTicket
                             end
                         }))
                     end
-                })
-            end
-            if upgraded_seal_condition(context.other_card) then
-                table.insert(effects, {
+                }
+            elseif upgraded_seal_condition(context.other_card) then
+                return {
                     dollars = card.ability.extra.cash2,
                     func = function() 
                         G.E_MANAGER:add_event(Event({
@@ -674,10 +684,7 @@ SMODS.Joker{ --UpgradedTicket
                             end
                         }))
                     end
-                })
-            end
-            if #effects > 0 then
-                return SMODS.merge_effects(effects)
+                }
             end
         end
     end
