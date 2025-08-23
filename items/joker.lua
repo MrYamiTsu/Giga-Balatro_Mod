@@ -707,7 +707,7 @@ SMODS.Joker{ --HealthyRoots
         return {vars = {center.ability.extra.mult}}
     end,
     calculate = function(self, card, context)
-        if context.before then
+        if context.before and not context.blueprint then
             card.ability.extra.rank = nil
             if #G.hand.cards > 0 then
                 card.ability.extra.rank = G.hand.cards[1]:get_id()
