@@ -804,6 +804,15 @@ return {
                     'for each {C:attention}Mult{}',
                     'card played'
                 }
+            },
+            j_giga_bonoboJoker = {
+                name = 'Bonobo Joker',
+                text = {
+                    'Give {C:attention}half{} the {C:attention}rank{} of',
+                    'each {C:attention}held{} in hand cards',
+                    'as {C:mult}Mult{}, if {C:attention}5{} cards are',
+                    'played'
+                }
             }
         },
         Other={

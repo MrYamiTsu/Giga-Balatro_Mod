@@ -553,7 +553,7 @@ SMODS.Joker{ --ColourfulCrystal
     cost = 6,
     rarity = 1,
     unlocked = true,
-    blueprint_compat = false,
+    blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
         mult = 16,
@@ -609,18 +609,20 @@ SMODS.Joker{ --4thEffect
                     delay = 0.6
                 })
             end
-            if card.ability.extra.suit == 'Spade' then
-                card.ability.extra.suit = 'Heart'
-                card.ability.extra.colour = G.C.SUITS.Hearts
-            elseif card.ability.extra.suit == 'Heart' then
-                card.ability.extra.suit = 'Diamond'
-                card.ability.extra.colour = G.C.SUITS.Diamonds
-            elseif card.ability.extra.suit == 'Diamond' then
-                card.ability.extra.suit = 'Club'
-                card.ability.extra.colour = G.C.SUITS.Clubs
-            elseif card.ability.extra.suit == 'Club' then
-                card.ability.extra.suit = 'Spade'
-                card.ability.extra.colour = G.C.SUITS.Spades
+            if not context.blueprint then
+                if card.ability.extra.suit == 'Spade' then
+                    card.ability.extra.suit = 'Heart'
+                    card.ability.extra.colour = G.C.SUITS.Hearts
+                elseif card.ability.extra.suit == 'Heart' then
+                    card.ability.extra.suit = 'Diamond'
+                    card.ability.extra.colour = G.C.SUITS.Diamonds
+                elseif card.ability.extra.suit == 'Diamond' then
+                    card.ability.extra.suit = 'Club'
+                    card.ability.extra.colour = G.C.SUITS.Clubs
+                elseif card.ability.extra.suit == 'Club' then
+                    card.ability.extra.suit = 'Spade'
+                    card.ability.extra.colour = G.C.SUITS.Spades
+                end
             end
             if #effects > 0 then
                 return SMODS.merge_effects(effects)
@@ -936,6 +938,32 @@ SMODS.Joker{ --StockMarket
                         card.ability.extra.cash = 0
                         return true
                     end
+                }
+            end
+        end
+    end
+}
+SMODS.Joker{ --BonoboJoker
+    key = 'bonoboJoker',
+    atlas = 'Jokers',
+    pos = {x = 7, y = 3},
+    cost = 6,
+    rarity = 1,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        i = 1
+    }},
+    calculate = function(self,card,context)
+        if context.before then
+            card.ability.extra.i = 1
+        end
+        if #G.play.cards >= 5 then
+            if context.individual and context.cardarea == G.hand and not context.end_of_round then
+                local mult_to_give = round_number(G.hand.cards[card.ability.extra.i]:get_id() / 2, 0)
+                card.ability.extra.i = card.ability.extra.i + 1
+                return {
+                    mult = mult_to_give
                 }
             end
         end
