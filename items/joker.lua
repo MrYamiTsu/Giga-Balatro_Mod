@@ -756,7 +756,7 @@ SMODS.Joker{ --Nahnahu
                 mult = mult
             }
         end
-        if context.end_of_round then
+        if context.end_of_round and not context.blueprint then
             if card.ability.extra.suit == 'Spades' then
                 card.ability.extra.suit = 'Hearts'
                 card.ability.extra.colour = G.C.SUITS.Hearts
@@ -777,7 +777,7 @@ SMODS.Joker{ --Nahnahu
 SMODS.Joker{ --Hergosu
     key = 'hergosu',
     atlas = 'Jokers',
-    pos = {x = 7, y = 3},
+    pos = {x = 3, y = 5},
     cost = 5,
     rarity = 1,
     unlocked = true,
