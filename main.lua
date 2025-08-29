@@ -12,6 +12,9 @@ SMODS.load_file("items/food.lua")()
 SMODS.load_file("items/joker.lua")()
 SMODS.load_file("items/seal.lua")()
 SMODS.load_file("items/voucher.lua")()
+if CardSleeves then
+	SMODS.load_file("items/CrossMod/cardsleeves.lua")()
+end
 if next(SMODS.find_mod("Cryptid")) then
 	SMODS.load_file("items/CrossMod/cryptid.lua")()
 end
@@ -183,15 +186,6 @@ end
 
 -- IDK --
 -- From TogaStuff (so thx TogaStuff)
-function ShuffleMyTable(t, seed)
-	seed = seed or 'shuffley'
-	local rt = {}
-	for i = 1, #t do
-		rt[#rt+1] = t[i]
-	end
-	pseudoshuffle(rt, pseudoseed(seed))
-	return rt
-end
 Giga.preprocess = function(context, input)
 	local output = input or context.cardarea and context.cardarea.cards or nil
 	if not output then

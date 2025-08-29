@@ -13,9 +13,9 @@ return {
             b_giga_reverseCheckered = {
                 name = "Reverse Checkered Deck",
                 text = {
-                    "Start run with",
-                    "{C:attention}26{C:clubs} Clubs{} and",
-                    "{C:attention}26{C:diamonds} Diamonds{} in deck",
+                    'Start run with',
+                    '{C:attention}26{C:clubs} Clubs{} and',
+                    '{C:attention}26{C:diamonds} Diamonds{} in deck'
                 },
             },
             b_giga_momentum = {
@@ -906,6 +906,32 @@ return {
             }
         },
         Planet={},
+        Sleeve = {
+            sleeve_giga_reverseCheckeredSleeve = {
+                name = 'Reversed Checkered Sleeve',
+                text = {
+                    'Start run with',
+                    '{C:attention}26{} {C:clubs}Clubs{} and',
+                    '{C:attention}26{} {C:diamonds}Diamonds{} in deck'
+                }
+            },
+            sleeve_giga_reverseCheckeredSleeve_alt = {
+                name = 'Reversed Checkered Sleeve',
+                text = {
+                    '{C:clubs}Clubs{} become {T:m_bonus,C:attention}Bonus{} and',
+                    '{C:diamonds}Diamonds{} become {T:m_mult,C:attention}Mult{}'
+                }
+            },
+            sleeve_giga_foodieSleeve = {
+                name = "Foodie's Sleeve",
+                text = {
+                    'Create a {V:1}Food{}',
+                    'card at the start',
+                    'of every round'
+
+                }
+            }
+        },
         Spectral={
             c_giga_salt = {
                 name = 'Salt',

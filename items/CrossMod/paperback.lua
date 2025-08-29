@@ -75,7 +75,7 @@ SMODS.Consumable{ --[UntitledCM3]
         return false
     end,
     use = function (self,card,area,copier)
-        _create(card, 'Giga_Food', G.consumeables,true,true)
+        _create(card, 'paperback_minor_arcana', G.consumeables,true,true)
         delay(0.4)
     end,
     calculate = function (self,card,context)

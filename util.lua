@@ -248,3 +248,14 @@ function _create(card,type,place,negative,negative_condition)
         }))
     end
 end
+
+-- SHUFFLE FUNCTION --
+function ShuffleMyTable(t, seed)
+	seed = seed or 'shuffley'
+	local rt = {}
+	for i = 1, #t do
+		rt[#rt+1] = t[i]
+	end
+	pseudoshuffle(rt, pseudoseed(seed))
+	return rt
+end
