@@ -1012,7 +1012,21 @@ return {
         labels={},
         poker_hand_descriptions={},
         poker_hands={},
-        quips={},
+        quips={
+			pnr_giga_pabloJr_1 = {
+				'Hola, mi amigo'
+			},
+			pnr_giga_pabloJr_2 = {
+				"Working 'ard, mi amigo",
+			},
+			pnr_giga_pabloJr_3 = {
+				'Papá can give you',
+                'some Tacos, mi amigo'
+			},
+			pnr_giga_pabloJr_4 = {
+				'Buena suerte, mi amigo'
+			}
+        },
         ranks={},
         suits_plural={},
         suits_singular={},
