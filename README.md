@@ -24,13 +24,14 @@
 <hr>
 <h2>Elements</h2>
 <ul>
-    <li>41+ Jokers</li>
+    <li>42+ Jokers</li>
     <li>31 Foods (+6 Cross-Mod)</li>
     <li>8+ Enhancements</li>
     <li>7 Seals</li>
     <li>4 Booster Packs</li>
+    <li>4 Decks</li>
     <li>3 Spectral</li>
-    <li>3 Decks</li>
+    <li>2 Sleeves (Cross-Mod)</li>
     <li>2 Vouchers</li>
     <li>1 Tarot</li>
     <li>1 Partner (Cross-Mod)</li>
