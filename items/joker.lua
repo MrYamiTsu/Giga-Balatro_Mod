@@ -730,7 +730,7 @@ SMODS.Joker{ --HealthyRoots
 SMODS.Joker{ --Nahnahu
     key = 'nahnahu',
     atlas = "Jokers",
-    pos = {x = 7, y = 4},
+    pos = {x = 3, y = 5},
     cost = 6,
     rarity = 2,
     unlocked = true,
@@ -777,7 +777,7 @@ SMODS.Joker{ --Nahnahu
 SMODS.Joker{ --Hergosu
     key = 'hergosu',
     atlas = 'Jokers',
-    pos = {x = 3, y = 5},
+    pos = {x = 4, y = 7},
     cost = 5,
     rarity = 1,
     unlocked = true,
