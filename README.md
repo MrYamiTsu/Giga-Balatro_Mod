@@ -16,6 +16,7 @@
 <h2>Cross-Mod</h2>
 <p>There are some extra assets if you have other mods. Here is a list:</p>
 <ul>
+    <li><a href="https://github.com/larswijn/CardSleeves">CardSleeves</a></li>
     <li><a href="https://github.com/SpectralPack/Cryptid">Cryptid</a></li>
     <li><a href="https://github.com/Icecanno/Partner-API/">Partner-API</a></li>
     <li><a href="https://github.com/Balatro-Paperback/paperback">Paperback</a></li>
