@@ -14,7 +14,7 @@ SMODS.Atlas{
 }
 
 -- SLEEVES --
-CardSleeves.Sleeve{
+CardSleeves.Sleeve{ --ReverseCheckered
     key = 'reverseCheckeredSleeve',
     atlas = "Sleeves",
     pos = {x = 0, y = 0},
@@ -56,7 +56,7 @@ CardSleeves.Sleeve{
         end
     end
 }
-CardSleeves.Sleeve{
+CardSleeves.Sleeve{ --Foodie
     key = 'foodieSleeve',
     atlas = "Sleeves",
     pos = {x = 1, y = 0},

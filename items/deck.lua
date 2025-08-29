@@ -19,7 +19,7 @@ SMODS.Back{ --ReverseCheckered
         }))
     end
 }
-SMODS.Back{ --Foodie'sDeck
+SMODS.Back{ --Foodie
     key = 'foodie',
     atlas = "Decks",
     pos = {x = 0, y = 0},
@@ -35,7 +35,7 @@ SMODS.Back{ --Foodie'sDeck
         end
     end
 }
-SMODS.Back{ --MomentumDeck
+SMODS.Back{ --Momentum
     key = 'momentum',
     atlas = "Decks",
     pos = {x = 2, y = 0},
