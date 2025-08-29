@@ -63,3 +63,19 @@ position = "at"
 payload = "local playedCardsPlace = Giga.areaorderprocess(SMODS.get_card_areas('playing_cards')); for _, v in ipairs(playedCardsPlace) do"
 overwrite = true
 match_indent = true
+
+# PACKS MODIFICATION #
+[[patches]]
+[patches.pattern]
+target = 'card.lua'
+position = 'after'
+pattern = '''
+booster_obj = self.config.center
+'''
+payload = '''
+if self.config.center.group_key == 'k_restaurant_pack' then
+    self.ability.extra = self.ability.extra + G.GAME.giga.vouchers.newMenu
+end
+'''
+overwrite = true
+match_indent = true

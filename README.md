@@ -32,8 +32,8 @@
     <li>4 Booster Packs</li>
     <li>4 Decks</li>
     <li>3 Spectral</li>
+    <li>3 Vouchers</li>
     <li>2 Sleeves (Cross-Mod)</li>
-    <li>2 Vouchers</li>
     <li>1 Tarot</li>
     <li>1 Partner (Cross-Mod)</li>
 </ul>
@@ -54,4 +54,5 @@
 <h2>Credits</h2>
 <ul>
     <li><strong>le_dugs</strong> for a lot of ideas</li>
+    <li>*All the dev in the Balatro modding community*</li>
 </ul>

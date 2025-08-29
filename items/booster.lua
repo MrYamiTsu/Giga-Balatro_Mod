@@ -20,20 +20,9 @@ SMODS.Booster { --RestaurantNormal1
     create_card = function(self, card, i)
         return {set = "Giga_Food", area = G.pack_cards, skip_materialize = true, soulable = true, key_append = "giga"}
     end,
-    --Doesn't work either
-    --[[calculate = function(self, card, context)
-        for i, v in ipairs(G.vouchers.cards) do
-			if v.config.center.key == 'v_giga_newMenu' then
-                card.ability.extra = card.ability.extra + 1
-                break
-            else
-                card.ability.extra = card.ability.extras.reset
-            end
-		end
-    end,]]
     select_card = "consumeables",
     weight = 0.28,
-    kind = 'Food'
+    kind = 'Restaurant'
 }
 SMODS.Booster { --RestaurantNormal2
     key = 'restaurantPackNormal2',
@@ -58,7 +47,7 @@ SMODS.Booster { --RestaurantNormal2
     end,
     select_card = "consumeables",
     weight = 0.28,
-    kind = 'Food'
+    kind = 'Restaurant'
 }
 SMODS.Booster { --RestaurantJumbo
     key = 'restaurantPackJumbo',
@@ -83,7 +72,7 @@ SMODS.Booster { --RestaurantJumbo
     end,
     select_card = "consumeables",
     weight = 0.22,
-    kind = 'Food'
+    kind = 'Restaurant'
 }
 SMODS.Booster { --RestaurantMega
     key = 'restaurantPackMega',
@@ -108,5 +97,5 @@ SMODS.Booster { --RestaurantMega
     end,
     select_card = "consumeables",
     weight = 0.14,
-    kind = 'Food'
+    kind = 'Restaurant'
 }

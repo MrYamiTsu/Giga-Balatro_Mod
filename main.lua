@@ -184,6 +184,15 @@ if not Giga_config.menu_card then
     end
 end
 
+-- ON RUN START --
+-- Thx TheOneGoofAli for this code
+SMODS.current_mod.reset_game_globals = function(run_start)
+    if run_start then
+        G.GAME.giga = {}
+        G.GAME.giga.vouchers = {}
+    end
+end
+
 -- IDK --
 -- From TogaStuff (so thx TogaStuff)
 Giga.preprocess = function(context, input)

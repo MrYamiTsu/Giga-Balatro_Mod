@@ -1,6 +1,5 @@
 -- BOOSTER UPGRADE --
---Does not work
---[[SMODS.Voucher{ --NewMenu
+SMODS.Voucher{ --NewMenu
 	key = "newMenu",
 	atlas = "Vouchers",
 	pos = {x = 0, y = 0},
@@ -10,8 +9,11 @@
     }},
     loc_vars = function(self, info_queue, card)
         return {vars = {card.ability.extra.choice}}
+    end,
+    redeem = function(self, vouchers)
+        G.GAME.giga.vouchers.newMenu = (G.GAME.giga.vouchers.newMenu or 0) + vouchers.ability.extra.choice
     end
-}]]
+}
 
 -- SHOP APPEARANCE --
 SMODS.Voucher{ --FoodStand
