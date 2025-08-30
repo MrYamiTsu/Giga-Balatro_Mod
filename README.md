@@ -31,8 +31,8 @@
     <li>7 Seals</li>
     <li>4 Booster Packs</li>
     <li>4 Decks</li>
+    <li>4 Vouchers</li>
     <li>3 Spectral</li>
-    <li>3 Vouchers</li>
     <li>2 Sleeves (Cross-Mod)</li>
     <li>1 Tarot</li>
     <li>1 Partner (Cross-Mod)</li>

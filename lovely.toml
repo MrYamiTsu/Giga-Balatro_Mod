@@ -74,7 +74,10 @@ booster_obj = self.config.center
 '''
 payload = '''
 if self.config.center.group_key == 'k_restaurant_pack' then
-    self.ability.extra = self.ability.extra + G.GAME.giga.vouchers.newMenu
+    self.ability.extra = self.ability.extra + (G.GAME.giga and G.GAME.giga.vouchers and G.GAME.giga.vouchers.newMenu or 0)
+end
+if self.config.center.group_key == 'k_restaurant_pack' then
+    self.ability.choose = self.ability.choose + (G.GAME.giga and G.GAME.giga.vouchers and G.GAME.giga.vouchers._courseMeal or 0)
 end
 '''
 overwrite = true

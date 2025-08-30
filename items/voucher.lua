@@ -5,13 +5,29 @@ SMODS.Voucher{ --NewMenu
 	pos = {x = 0, y = 0},
 	cost = 10,
     config = {extra = {
+        card = 1
+    }},
+    loc_vars = function(self, info_queue, card)
+        return {vars = {card.ability.extra.card}}
+    end,
+    redeem = function(self, vouchers)
+        G.GAME.giga.vouchers.newMenu = (G.GAME.giga.vouchers.newMenu or 0) + vouchers.ability.extra.card
+    end
+}
+SMODS.Voucher{ --5-CourseMeal
+    key = '5courseMeal',
+    atlas = 'Vouchers',
+    pos = {x = 1, y = 0},
+	cost = 10,
+    config = {extra = {
         choice = 1
     }},
     loc_vars = function(self, info_queue, card)
         return {vars = {card.ability.extra.choice}}
     end,
+    requires = {'v_giga_newMenu'},
     redeem = function(self, vouchers)
-        G.GAME.giga.vouchers.newMenu = (G.GAME.giga.vouchers.newMenu or 0) + vouchers.ability.extra.choice
+        G.GAME.giga.vouchers._courseMeal = (G.GAME.giga.vouchers._courseMeal or 0) + vouchers.ability.extra.choice
     end
 }
 
