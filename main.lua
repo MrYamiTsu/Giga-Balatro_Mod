@@ -184,8 +184,8 @@ if not Giga_config.menu_card then
     end
 end
 
--- ON RUN START --
--- Thx TheOneGoofAli for this code
+-- INITIALISATION --
+-- Thx TheOneGoofAli for this block of code
 SMODS.current_mod.reset_game_globals = function(run_start)
     if run_start then
         G.GAME.giga = {}
@@ -193,7 +193,7 @@ SMODS.current_mod.reset_game_globals = function(run_start)
     end
 end
 
--- IDK --
+-- RANDOM SCORING ORDER --
 -- From TogaStuff (so thx TogaStuff)
 Giga.preprocess = function(context, input)
 	local output = input or context.cardarea and context.cardarea.cards or nil

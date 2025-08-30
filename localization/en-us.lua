@@ -974,6 +974,13 @@ return {
                 name = 'New Menu',
                 text = {
                     'Restaurant Pack have',
+                    '{C:attention}#1#{} more card'
+                }
+            },
+            v_giga_5courseMeal = {
+                name = '5-Course Meal',
+                text = {
+                    'Restaurant Pack have',
                     '{C:attention}#1#{} more choice'
                 }
             },
