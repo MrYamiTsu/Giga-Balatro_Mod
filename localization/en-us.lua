@@ -874,7 +874,7 @@ return {
                 name = 'Pink Seal',
                 text = {
                     'When this card is {C:attention}scored{},',
-                    'create {C:attention}#1#{} {V:1}Food{} card',
+                    'create {C:attention}1{} {C:attention}Food{} card',
                 }
             },
             giga_crimsonseal_seal = {
