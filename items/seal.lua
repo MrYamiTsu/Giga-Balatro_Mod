@@ -437,25 +437,22 @@ SMODS.Seal{ --Purple++
     loc_txt = {
         name = 'Purple++ Seal',
         text = {
-            'Spawns {C:attention}#1#{} {C:tarot}Tarot{} card',
+            'Spawns {C:attention}#1#{} {C:dark_edition}Negative{} {C:tarot}Tarot{}',
+            'and a {C:attention}Charm Tag{}',
             'when {C:attention}discarded{}',
-            '{C:green}#2# in #3#{} to be {C:dark_edition}Negative{}',
-            'and {C:green}#4# in #5#{} to spawns a',
-            '{C:spectral}Spectral{} card instead'
+            '{C:green}#2# in #3#{} to create an',
+            '{C:attention}Ethereal Tag{} instead'
         },
         label = 'Purple++ Seal'
     },
     config = { extra = {
-        card = 3,
-        odds1 = 1,
-        chances1 = 2,
-        odds2 = 1,
-        chances2 = 6
+        card = 1,
+        odds = 1,
+        chances = 6,
     }},
     loc_vars = function(self, info_queue, card)
-        local odds1, chances1 = SMODS.get_probability_vars(card, self.config.extra.odds1, self.config.extra.chances1, 'prob1')
-        local odds2, chances2 = SMODS.get_probability_vars(card, self.config.extra.odds2, self.config.extra.chances2, 'prob2')
-        return {vars = {self.config.extra.card, odds1, chances1, odds2, chances2}}
+        local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'prob1')
+        return {vars = {self.config.extra.card, odds, chances}}
     end,
     in_pool = function(self) 
 		return false 
@@ -463,24 +460,19 @@ SMODS.Seal{ --Purple++
     calculate = function(self, card, context)
         if context.discard and context.other_card == card then
             for i = 1, self.config.extra.card, 1 do
-                if SMODS.pseudorandom_probability(card, 'giga_purplePlusPlus', self.config.extra.odds1, self.config.extra.chances1, 'ppp_prob1') then
-                    if SMODS.pseudorandom_probability(card, 'giga_purplePlusPlus', self.config.extra.odds2, self.config.extra.chances2, 'ppp_prob2') then
-                        _create(self,'Spectral', G.consumeables,true,false)
-                        delay(0.4)
-                    else
-                        _create(self,'Tarot', G.consumeables,true,false)
-                        delay(0.4)
-                    end
-                else
-                    if SMODS.pseudorandom_probability(card, 'giga_purplePlusPlus', self.config.extra.odds2, self.config.extra.chances2, 'ppp_prob2') then
-                        _create(self,'Spectral', G.consumeables,false,false)
-                        delay(0.4)
-                    else
-                        _create(self,'Tarot', G.consumeables,false,false)
-                        delay(0.4)
-                    end
-                end
+                _create(self,'Tarot', G.consumeables,true,false)
+                delay(0.4)
 		    end
+            G.E_MANAGER:add_event(Event({
+                func = (function()
+                    if SMODS.pseudorandom_probability(card, 'giga_purplePlusPlus', self.config.extra.odds, self.config.extra.chances, 'ppp_prob') then
+                        add_tag(Tag('tag_ethereal'))
+                    else
+                        add_tag(Tag('tag_charm'))
+                    end
+                    return true
+                end)
+            }))
         end
     end,
     badge_colour = G.C.PURPLE
