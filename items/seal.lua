@@ -328,9 +328,10 @@ SMODS.Seal{ --Gold++
         text = {
             'Earn {C:money}$#1#{} when this',
             'card is played, increase',
-            'by {C:money}$#2#{} at end of round',
+            'by {C:money}$#2#{} after hand played',
             'and earn {C:money}+$#3#{} if hand',
-            'contains a {C:attention}Gold{} card'
+            'contains a {C:attention}Gold{} card',
+            'Reset at end of round'
         },
         label = 'Gold++ Seal'
     },
