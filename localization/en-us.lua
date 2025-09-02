@@ -870,14 +870,14 @@ return {
                 }
             },
             -- Seal
-            pinkSeal_def = {
+            giga_pinkseal_seal = {
                 name = 'Pink Seal',
                 text = {
                     'When this card is {C:attention}scored{},',
-                    'create {C:attention}1{} Food card',
-                }  
+                    'create {C:attention}1{} {C:attention}Food{} card',
+                }
             },
-            crimsonSeal_def = {
+            giga_crimsonseal_seal = {
                 name = 'Crimson Seal',
                 text = {
                     'Gain {C:mult}+1{} Mult',
@@ -885,12 +885,89 @@ return {
                     'held in hand'
                 }
             },
-            aquaSeal_def = {
+            giga_aquaseal_seal = {
                 name = 'Aqua Seal',
                 text = {
                 'Gain {C:chips}+15{} Chips',
                 'permanently while',
                 'held in hand'
+                }
+            },
+            giga_redplus_seal = {
+                name = 'Red+ Seal',
+                text = {
+                    'Retrigger this',
+                    'card {C:attention}#1#{} times',
+                    '{C:green}#2# in #3#{} to retrigger',
+                    '{C:attention}#4#{} more time'
+                }
+            },
+            giga_blueplus_seal = {
+                name = 'Blue+ Seal',
+                text = {
+                    'Create a {C:planet}Planet{} card',
+                    'if this card is',
+                    '{C:attention}held{} in hand',
+                    '{C:green}#1# in #2#{} to create',
+                    'a {T:c_black_hole}Black Hole{} instead'
+                }
+            },
+            giga_goldplus_seal = {
+                name = 'Gold+ Seal',
+                text = {
+                    'Earn {C:money}$#1#{} when this',
+                    'card is played and',
+                    'earn {C:money}+$#2#{} if hand',
+                    'contains a {C:attention}Gold{} card'
+                }
+            },
+            giga_purpleplus_seal = {
+                name = 'Purple+ Seal',
+                text = {
+                    'Create {C:attention}#1#{} {C:tarot}Tarot{} card',
+                    'when {C:attention}discarded{}',
+                    '{C:green}#2# in #3#{} to create a',
+                    '{C:spectral}Spectral{} card instead'
+                }
+            },
+            giga_redplusplus_seal = {
+                name = 'Red++ Seal',
+                text = {
+                    'Retrigger this card {C:attention}#1#{}',
+                    'times. Retrigger {C:attention}1{} additionnal',
+                    'time for each {C:attention}2{} {C:attention}Red++{} Seals',
+                    '{C:attention}played{} or {C:attention}held{} in hand'
+                }
+            },
+            giga_blueplusplus_seal = {
+                name = 'Blue++ Seal',
+                text = {
+                    'Create a {C:dark_edition}Negative{} {C:planet}Planet{}',
+                    'card if this card is {C:attention}played{}',
+                    'or {C:attention}held{} in hand',
+                    '{C:green}#1# in #2#{} to create',
+                    'a {T:c_black_hole}Black Hole{} instead'
+                }
+            },
+            giga_goldplusplus_seal = {
+                name = 'Gold++ Seal',
+                text = {
+                    'Earn {C:money}$#1#{} when this',
+                    'card is played, increase',
+                    'by {C:money}$#2#{} after hand played',
+                    'and earn {C:money}+$#3#{} if hand',
+                    'contains a {C:attention}Gold{} card',
+                    'Reset at end of round'
+                }
+            },
+            giga_purpleplusplus_seal = {
+                name = 'Purple++ Seal',
+                text = {
+                    'Create {C:attention}#1#{} {C:dark_edition}Negative{} {C:tarot}Tarot{}',
+                    'and a {C:attention}Charm Tag{}',
+                    'when {C:attention}discarded{}',
+                    '{C:green}#2# in #3#{} to create an',
+                    '{C:attention}Ethereal Tag{} instead'
                 }
             }
         },
@@ -1016,7 +1093,19 @@ return {
             b_giga_custom_menu_card = "Disable Custom Menu Joker"
         },
         high_scores={},
-        labels={},
+        labels={
+            giga_pinkseal_seal = 'Pink Seal',
+            giga_crimsonseal_seal = 'Crimson Seal',
+            giga_aquaseal_seal = 'Aqua Seal',
+            giga_redplus_seal = 'Red+',
+            giga_blueplus_seal = 'Blue+',
+            giga_goldplus_seal = 'Gold+',
+            giga_purpleplus_seal = 'Purple+',
+            giga_redplusplus_seal = 'Red++',
+            giga_blueplusplus_seal = 'Blue++',
+            giga_goldplusplus_seal = 'Gold++',
+            giga_purpleplusplus_seal = 'Purple++'
+        },
         poker_hand_descriptions={},
         poker_hands={},
         quips={

@@ -902,7 +902,7 @@ SMODS.Consumable{ --[Untitled13]
         txt = 'Not ready yet'
     }},
     loc_vars = function (self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'pinkSeal_def'}
+        info_queue[#info_queue+1] = {set = 'Other', key = 'giga_pinkseal_seal'}
         return{vars = {colours={HEX('FF00E6')}, center.ability.extra.card, center.ability.extra.round, center.ability.extra.txt}}
     end,
     can_use = function (self,card)
@@ -923,15 +923,7 @@ SMODS.Consumable{ --[Untitled13]
 					return true
 				end,
 			}))
-			G.E_MANAGER:add_event(Event({
-				trigger = "after",
-				delay = 0.1,
-				func = function()
-					selected_card:set_seal("giga_pinkSeal")
-					return true
-				end,
-			}))
-			delay(0.5)
+			selected_card:set_seal("giga_pinkseal")
 			G.E_MANAGER:add_event(Event({
 				trigger = "after",
 				delay = 0.2,
@@ -966,7 +958,7 @@ SMODS.Consumable{ --CranberryJuice
         txt = 'Not ready yet'
     }},
     loc_vars = function (self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'crimsonSeal_def'}
+        info_queue[#info_queue+1] = {set = 'Other', key = 'giga_crimsonseal_seal'}
         return{vars = {colours={HEX('DC143C')}, center.ability.extra.card, center.ability.extra.round, center.ability.extra.txt}}
     end,
     can_use = function (self,card)
@@ -987,15 +979,7 @@ SMODS.Consumable{ --CranberryJuice
 					return true
 				end,
 			}))
-			G.E_MANAGER:add_event(Event({
-				trigger = "after",
-				delay = 0.1,
-				func = function()
-					selected_card:set_seal("giga_crimsonSeal")
-					return true
-				end,
-			}))
-			delay(0.5)
+			selected_card:set_seal("giga_crimsonseal")
 			G.E_MANAGER:add_event(Event({
 				trigger = "after",
 				delay = 0.2,
@@ -1030,7 +1014,7 @@ SMODS.Consumable{ --[Untitled15]
         txt = 'Not ready yet'
     }},
     loc_vars = function (self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'aquaSeal_def'}
+        info_queue[#info_queue+1] = {set = 'Other', key = 'giga_aquaseal_seal'}
         return{vars = {colours={HEX('00FFF0')}, center.ability.extra.card, center.ability.extra.round, center.ability.extra.txt}}
     end,
     can_use = function (self,card)
@@ -1053,15 +1037,7 @@ SMODS.Consumable{ --[Untitled15]
 					return true
 				end,
 			}))
-			G.E_MANAGER:add_event(Event({
-				trigger = "after",
-				delay = 0.1,
-				func = function()
-					selected_card:set_seal("giga_aquaSeal")
-					return true
-				end,
-			}))
-			delay(0.5)
+			selected_card:set_seal("giga_aquaSeal")
 			G.E_MANAGER:add_event(Event({
 				trigger = "after",
 				delay = 0.2,
