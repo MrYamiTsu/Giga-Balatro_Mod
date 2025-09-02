@@ -54,6 +54,7 @@
 <h2>Credits</h2>
 <ul>
     <li><strong>le_dugs</strong> for a lot of ideas and playtest</li>
-    <li><strong>Eris</strong> and <strong>jogla_the_wizard</strong> for playtest</li>
+    <li><strong>Eris</strong> for playtest</li>
+    <li><strong>jogla_the_wizard</strong> spanish translation</li>
     <li>*All the dev in the Balatro modding community*</li>
 </ul>
