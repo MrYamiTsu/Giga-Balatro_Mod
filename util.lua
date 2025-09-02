@@ -147,19 +147,19 @@ function upgrade_seal(selected_card)
     if selected_card:get_seal() == "Red" then 
         selected_card:set_seal("giga_redPlus")
     elseif selected_card:get_seal() == "Blue" then
-        selected_card:set_seal("giga_bluePlus")
+        selected_card:set_seal("giga_blueplus")
     elseif selected_card:get_seal() == "Gold" then
-        selected_card:set_seal("giga_goldPlus")
+        selected_card:set_seal("giga_goldplus")
     elseif selected_card:get_seal() == "Purple" then
-        selected_card:set_seal("giga_purplePlus")
-    elseif selected_card:get_seal() == "giga_redPlus" then
-        selected_card:set_seal("giga_redPlusPlus")
-    elseif selected_card:get_seal() == "giga_bluePlus" then
-        selected_card:set_seal("giga_bluePlusPlus")
-    elseif selected_card:get_seal() == "giga_goldPlus" then
-        selected_card:set_seal("giga_goldPlusPlus")
-    elseif selected_card:get_seal() == "giga_purplePlus" then
-        selected_card:set_seal("giga_purplePlusPlus")
+        selected_card:set_seal("giga_purpleplus")
+    elseif selected_card:get_seal() == "giga_redplus" then
+        selected_card:set_seal("giga_redplusplus")
+    elseif selected_card:get_seal() == "giga_blueplus" then
+        selected_card:set_seal("giga_blueplusplus")
+    elseif selected_card:get_seal() == "giga_goldplus" then
+        selected_card:set_seal("giga_goldplusplus")
+    elseif selected_card:get_seal() == "giga_purpleplus" then
+        selected_card:set_seal("giga_purpleplusplus")
     end
     G.E_MANAGER:add_event(Event({
         trigger = 'after',

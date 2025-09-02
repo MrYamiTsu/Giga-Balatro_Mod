@@ -1,18 +1,8 @@
 -- UPGRADED SEALS --
 SMODS.Seal{ --Red+
-    key = 'redPlus',
+    key = 'redplus',
     atlas = "Seals",
     pos = {x = 0, y = 1},
-    loc_txt = {
-        name = 'Red+ Seal',
-        text = {
-            'Retrigger this',
-            'card {C:attention}#1#{} times',
-            '{C:green}#2# in #3#{} to retrigger',
-            '{C:attention}#4#{} more time'
-        },
-        label = 'Red+ Seal'
-    },
     config = { extra = {
         rep = 2,
         repPlus = 1,
@@ -42,20 +32,9 @@ SMODS.Seal{ --Red+
     badge_colour = G.C.RED
 }
 SMODS.Seal{ --Blue+
-    key = 'bluePlus',
+    key = 'blueplus',
     atlas = "Seals",
     pos = {x = 1, y = 1},
-    loc_txt = {
-        name = 'Blue+ Seal',
-        text = {
-            'Create a {C:planet}Planet{} card',
-            'if this card is',
-            '{C:attention}held{} in hand',
-            '{C:green}#1# in #2#{} to create',
-            'a {T:c_black_hole}Black Hole{} instead'
-        },
-        label = 'Blue+ Seal'
-    },
     config = { extra = {
         odds = 1,
         chances = 6
@@ -101,19 +80,9 @@ SMODS.Seal{ --Blue+
     badge_colour = G.C.BLUE,
 }
 SMODS.Seal{ --Gold+
-    key = 'goldPlus',
+    key = 'goldplus',
     atlas = "Seals",
     pos = {x = 2, y = 1},
-    loc_txt = {
-        name = 'Gold+ Seal',
-        text = {
-            'Earn {C:money}$#1#{} when this',
-            'card is played and',
-            'earn {C:money}+$#2#{} if hand',
-            'contains a {C:attention}Gold{} card'
-        },
-        label = 'Gold+ Seal'
-    },
     config = { extra = {
         cash = 6,
         cashPlus = 6,
@@ -176,19 +145,9 @@ SMODS.Seal{ --Gold+
     badge_colour = G.C.GOLD
 }
 SMODS.Seal{ --Purple+
-    key = 'purplePlus',
+    key = 'purpleplus',
     atlas = "Seals",
     pos = {x = 3, y = 0},
-    loc_txt = {
-        name = 'Purple+ Seal',
-        text = {
-            'Create {C:attention}#1#{} {C:tarot}Tarot{} card',
-            'when {C:attention}discarded{}',
-            '{C:green}#2# in #3#{} to create a',
-            '{C:spectral}Spectral{} card instead'
-        },
-        label = 'Purple+ Seal'
-    },
     config = { extra = {
         card = 2,
         odds = 1,
@@ -217,19 +176,9 @@ SMODS.Seal{ --Purple+
     badge_colour = G.C.PURPLE
 }
 SMODS.Seal{ --Red++
-    key = 'redPlusPlus',
+    key = 'redplusplus',
     atlas = "Seals",
     pos = {x = 3, y = 1},
-    loc_txt = {
-        name = 'Red++ Seal',
-        text = {
-            'Retrigger this card {C:attention}#1#{}',
-            'times. Retrigger {C:attention}1{} additionnal',
-            'time for each {C:attention}2{} {C:attention}Red++{} Seals',
-            '{C:attention}played{} or {C:attention}held{} in hand'
-        },
-        label = 'Red++ Seal'
-    },
     config = { extra = {
         rep = 3
     }},
@@ -261,20 +210,9 @@ SMODS.Seal{ --Red++
     badge_colour = G.C.RED
 }
 SMODS.Seal{ --Blue++
-    key = 'bluePlusPlus',
+    key = 'blueplusplus',
     atlas = "Seals",
     pos = {x = 1, y = 1},
-    loc_txt = {
-        name = 'Blue++ Seal',
-        text = {
-            'Create a {C:dark_edition}Negative{} {C:planet}Planet{}',
-            'card if this card is {C:attention}played{}',
-            'or {C:attention}held{} in hand',
-            '{C:green}#1# in #2#{} to create',
-            'a {T:c_black_hole}Black Hole{} instead'
-        },
-        label = 'Blue++ Seal'
-    },
     config = { extra = {
         odds = 1,
         chances = 3
@@ -320,21 +258,9 @@ SMODS.Seal{ --Blue++
     badge_colour = G.C.BLUE,
 }
 SMODS.Seal{ --Gold++
-    key = 'goldPlusPlus',
+    key = 'goldplusplus',
     atlas = "Seals",
     pos = {x = 2, y = 1},
-    loc_txt = {
-        name = 'Gold++ Seal',
-        text = {
-            'Earn {C:money}$#1#{} when this',
-            'card is played, increase',
-            'by {C:money}$#2#{} after hand played',
-            'and earn {C:money}+$#3#{} if hand',
-            'contains a {C:attention}Gold{} card',
-            'Reset at end of round'
-        },
-        label = 'Gold++ Seal'
-    },
     config = { extra = {
         cash = 8,
         cashAdd = 2,
@@ -431,20 +357,9 @@ SMODS.Seal{ --Gold++
     badge_colour = G.C.GOLD
 }
 SMODS.Seal{ --Purple++
-    key = 'purplePlusPlus',
+    key = 'purpleplusplus',
     atlas = "Seals",
     pos = {x = 3, y = 0},
-    loc_txt = {
-        name = 'Purple++ Seal',
-        text = {
-            'Create {C:attention}#1#{} {C:dark_edition}Negative{} {C:tarot}Tarot{}',
-            'and a {C:attention}Charm Tag{}',
-            'when {C:attention}discarded{}',
-            '{C:green}#2# in #3#{} to create an',
-            '{C:attention}Ethereal Tag{} instead'
-        },
-        label = 'Purple++ Seal'
-    },
     config = { extra = {
         card = 2,
         odds = 1,
@@ -482,17 +397,9 @@ SMODS.Seal{ --Purple++
 
 -- NEW SEALS
 SMODS.Seal { --Pink
-    key = 'pinkSeal',
+    key = 'pinkseal',
     atlas = "Seals",
     pos = {x = 0, y = 0},
-    loc_txt = {
-        name = 'Pink Seal',
-        text = {
-            'When this card is {C:attention}scored{},',
-            'create {C:attention}#1#{} {V:1}Food{} card',
-        },
-        label = 'Pink Seal'
-    },
     config = { extra = {
         card = 1
     }},
@@ -515,18 +422,9 @@ SMODS.Seal { --Pink
     badge_colour = HEX("FF00E6")
 }
 SMODS.Seal { --Crimson
-    key = "crimsonSeal",
+    key = "crimsonseal",
     atlas = "Seals",
     pos = {x = 1, y = 0},
-    loc_txt = {
-        name = 'Crimson Seal',
-        text = {
-            'Gain {C:mult}+#1#{} Mult',
-            'permanently while',
-            'held in hand'
-        },
-        label = 'Crimson Seal'
-    },
     config = { extra = {
         mult = 1
     }},
@@ -545,18 +443,9 @@ SMODS.Seal { --Crimson
     badge_colour = HEX("DC143C")
 }
 SMODS.Seal { --Aqua
-    key = "aquaSeal",
+    key = "aquaseal",
     atlas = "Seals",
     pos = {x = 2, y = 0},
-    loc_txt = {
-        name = 'Aqua Seal',
-        text = {
-            'Gain {C:chips}+#1#{} Chips',
-            'permanently while',
-            'held in hand'
-        },
-        label = 'Aqua Seal'
-    },
     config = { extra = {
         chips = 15
     }},
