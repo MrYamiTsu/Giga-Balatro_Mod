@@ -219,7 +219,7 @@ SMODS.Seal{ --Purple+
 SMODS.Seal{ --Red++
     key = 'redPlusPlus',
     atlas = "Seals",
-    pos = {x = 0, y = 1},
+    pos = {x = 3, y = 1},
     loc_txt = {
         name = 'Red++ Seal',
         text = {
