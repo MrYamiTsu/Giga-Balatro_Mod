@@ -10,7 +10,7 @@ SMODS.Consumable{ --Cook
         card = 3
     }},
     loc_vars = function (self,info_queue,center)
-        return{vars = {center.ability.extra.card, colours={HEX('F7070BFF')}}}
+        return{vars = {center.ability.extra.card}}
     end,
     can_use = function (self,card)
 		return true

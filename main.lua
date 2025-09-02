@@ -114,6 +114,10 @@ SMODS.Rarity{
 	badge_colour = HEX("dbd809"),
 }
 
+-- CUSTOM COLOUR --
+loc_colour()
+G.ARGS.LOC_COLOURS.giga_Food = HEX('F7070BFF')
+
 -- CONFIG --
 -- From Maximus (so thx Maximus)
 Giga.config_tab = function()
