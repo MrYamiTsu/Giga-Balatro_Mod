@@ -27,8 +27,8 @@
 <ul>
     <li>42+ Jokers</li>
     <li>31 Foods (+6 Cross-Mod)</li>
+    <li>11 Seals</li>
     <li>8+ Enhancements</li>
-    <li>7 Seals</li>
     <li>4 Booster Packs</li>
     <li>4 Decks</li>
     <li>4 Vouchers</li>

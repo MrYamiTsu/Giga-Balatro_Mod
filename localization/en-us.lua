@@ -214,10 +214,10 @@ return {
                     'into a {C:attention}Gold card{}'
                 }
             },
-            c_giga_Untitled4 = {
-                name = '[Untitled]',
+            c_giga_waffle = {
+                name = 'Waffle',
                 text = {
-                    'Some delicious [Untitled] that',
+                    'Some delicious Waffle that',
                     'enhance {C:attention}#1#{} card',
                     'into a {C:attention}Wild card{}'
                 }

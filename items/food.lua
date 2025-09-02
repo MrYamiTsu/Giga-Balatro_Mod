@@ -448,8 +448,8 @@ SMODS.Consumable{ --Salmon
 		end
     end
 }
-SMODS.Consumable{ --[Untitled4]
-    key = 'Untitled4',
+SMODS.Consumable{ --Waffle
+    key = 'waffle',
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
@@ -1088,7 +1088,11 @@ SMODS.Consumable{ --BagOfCandy
                     if selected_card:get_seal() == "Red" or
                        selected_card:get_seal() == "Blue" or
                        selected_card:get_seal() == "Gold" or
-                       selected_card:get_seal() == "Purple" then
+                       selected_card:get_seal() == "Purple" or
+                       selected_card:get_seal() == "giga_redPlus" or
+                       selected_card:get_seal() == "giga_bluePlus" or
+                       selected_card:get_seal() == "giga_goldPlus" or
+                       selected_card:get_seal() == "giga_purplePlus" then
                         has_seal = true
                     else
                         has_seal = false
