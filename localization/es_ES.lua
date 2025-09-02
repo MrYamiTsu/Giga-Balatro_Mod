@@ -895,6 +895,83 @@ return {
                 'permanentes si se',
                 'mantiene en la mano'
                 }
+            },
+            giga_redplus_seal = {
+                name = 'Sello rojo+',
+                text = {
+                    'Reactiva esta',
+                    'carta {C:attention}#1#{} veces',
+                    '{C:green}#2# en #3#{} probabilidades',
+                    'de reactivar {C:attention}#4#{} vez más'
+                }
+            },
+            giga_blueplus_seal = {
+                name = 'Sello azul+',
+                text = {
+                    'Crea una carta de {C:planet}planeta{}',
+                    'si esta carta se',
+                    '{C:attention}mantiene{} en la mano',
+                    '{C:green}#1# en #2#{} probabilidades de',
+                    'crear un {T:c_black_hole}agujero negro{}'
+                }
+            },
+            giga_goldplus_seal = {
+                name = 'Sello dorado+',
+                text = {
+                    'Gana {C:money}$#1#{} cuando se',
+                    'juega esta carta y',
+                    'gana {C:money}+$#2#{} si la mano',
+                    'contiene una {C:attention}carta dorada{}'
+                }
+            },
+            giga_purpleplus_seal = {
+                name = 'Sello morado+',
+                text = {
+                    'Crea {C:attention}#1#{} carta de {C:tarot}Tarot{}',
+                    'cuando es {C:attention}descartada{}',
+                    '{C:green}#2# en #3#{} de crear una ',
+                    'carta {C:spectral}espectral{}'
+                }
+            },
+            giga_redplusplus_seal = {
+                name = 'Sello rojo++',
+                text = {
+                    'Reactiva esta carta {C:attention}#1#{}',
+                    'veces. Reactiva {C:attention}1{} vez adicional',
+                    'por cada {C:attention}2{} sellos {C:attention}rojos++{}',
+                    '{C:attention}jugados{} o {C:attention}en la mano{}'
+                }
+            },
+            giga_blueplusplus_seal = {
+                name = 'Sello azul++',
+                text = {
+                    'Crea una carta {C:planet}Planet{} {C:dark_edition}negativa{} ',
+                    'si se {C:attention}juega{} o se {C:attention}mantiene{}',
+                    'esta carta en la mano',
+                    '{C:green}#1# en #2#{} probabilidades de crear',
+                    'un {T:c_black_hole}agujero negro{}'
+                }
+            },
+            giga_goldplusplus_seal = {
+                name = 'Sello dorado++',
+                text = {
+                    'Gana {C:money}$#1#{} cuando esta',
+                    'card es jugada, aumenta',
+                    'en {C:money}$#2#{} tras jugar la mano',
+                    'y gana{C:money}+$#3#{} si la mano',
+                    'contiene una {C:attention}carta dorada{}',
+                    'Se reinicia al final de la ronda'
+                }
+            },
+            giga_purpleplusplus_seal = {
+                name = 'Sello morado++',
+                text = {
+                    'Crea {C:attention}#1#{} carta de {C:tarot}Tarot{} {C:dark_edition}negativa{}',
+                    'y una {C:attention}etiqueta encantada{}',
+                    'cuando es {C:attention}descartada{}',
+                    '{C:green}#2# en #3#{} probabilidad de crear',
+                    'una {C:attention}etiqueta etérea{}'
+                }
             }
         },
         Partner = {
@@ -1019,7 +1096,19 @@ return {
             b_giga_custom_menu_card = "Deshabilitar menú personalizado de comodines"
         },
         high_scores={},
-        labels={},
+        labels={
+            giga_pinkseal_seal = 'Sello rosa',
+            giga_crimsonseal_seal = 'Sello carmesí',
+            giga_aquaseal_seal = 'Sello acuamarina',
+            giga_redplus_seal = 'Rojo+',
+            giga_blueplus_seal = 'azul+',
+            giga_goldplus_seal = 'Dorado+',
+            giga_purpleplus_seal = 'Morado+',
+            giga_redplusplus_seal = 'Rojo++',
+            giga_blueplusplus_seal = 'Azul++',
+            giga_goldplusplus_seal = 'Dorado++',
+            giga_purpleplusplus_seal = 'Morado++'
+        },
         poker_hand_descriptions={},
         poker_hands={},
         quips={
