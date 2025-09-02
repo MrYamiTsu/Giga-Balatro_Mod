@@ -876,8 +876,8 @@ return {
             pinkSeal_def = {
                 name = 'Sello rosa',
                 text = {
-                    'When this card is {C:attention}scored{},',
-                    'create {C:attention}1{} Food card',
+                    'Cuando esta carta {C:attention}puntua{},',
+                    'crea {C:attention}1{} carta de comida',
                 }  
             },
             crimsonSeal_def = {
