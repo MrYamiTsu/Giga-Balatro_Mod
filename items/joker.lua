@@ -967,7 +967,7 @@ SMODS.Joker{ --BonoboJoker
         end
         if #G.play.cards >= 5 then
             if context.individual and context.cardarea == G.hand and not context.end_of_round then
-                local mult_to_give = round_number(G.hand.cards[card.ability.extra.i]:get_id() / 2, 0)
+                local mult_to_give = math.floor(G.hand.cards[card.ability.extra.i]:get_id() / 2)
                 card.ability.extra.i = card.ability.extra.i + 1
                 return {
                     mult = mult_to_give

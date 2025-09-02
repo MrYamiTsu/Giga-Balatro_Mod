@@ -44,18 +44,11 @@ function upgrade_enhencement_specific(selected_card, base_enh)
         end
     }))
     delay(0.2)
-    G.E_MANAGER:add_event(Event({
-        trigger = 'after',
-        delay = 0.1,
-        func = function()
-            if SMODS.has_enhancement(selected_card, base_enh) then
-                selected_card:set_ability(G.P_CENTERS[check_upgrade(base_enh)])
-            else
-                selected_card:set_ability(G.P_CENTERS[base_enh])
-            end
-            return true
-        end
-    }))
+    if SMODS.has_enhancement(selected_card, base_enh) then
+        selected_card:set_ability(G.P_CENTERS[check_upgrade(base_enh)])
+    else
+        selected_card:set_ability(G.P_CENTERS[base_enh])
+    end
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
         delay = 0.15,

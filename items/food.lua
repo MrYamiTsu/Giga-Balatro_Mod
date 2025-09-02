@@ -688,7 +688,22 @@ SMODS.Consumable{ --FruitSalad
     config = { extra = {
         card = 1
     }},
-    loc_vars = function (self,info_queue,center)
+    loc_vars = function (self,info_queue,center, card)
+        for i, _card in ipairs(G.hand.highlighted) do
+            if _card.config.center_key ~= 'c_base' then
+                local enh = check_upgrade(_card.config.center_key)
+                local duplicate = false
+                for _, v in ipairs(info_queue) do
+                    if v == G.P_CENTERS[enh] then
+                        duplicate = true
+                        break
+                    end
+                end
+                if G.P_CENTERS[enh] and not duplicate then
+                    info_queue[#info_queue+1] = G.P_CENTERS[enh]
+                end
+            end
+        end
         return{vars = {center.ability.extra.card}}
     end,
     can_use = function (self,card)
