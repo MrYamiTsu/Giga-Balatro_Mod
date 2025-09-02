@@ -182,9 +182,9 @@ SMODS.Seal{ --Purple+
     loc_txt = {
         name = 'Purple+ Seal',
         text = {
-            'Spawns {C:attention}#1#{} {C:tarot}Tarot{} card',
+            'Create {C:attention}#1#{} {C:tarot}Tarot{} card',
             'when {C:attention}discarded{}',
-            '{C:green}#2# in #3#{} to spawns a',
+            '{C:green}#2# in #3#{} to create a',
             '{C:spectral}Spectral{} card instead'
         },
         label = 'Purple+ Seal'
@@ -437,7 +437,7 @@ SMODS.Seal{ --Purple++
     loc_txt = {
         name = 'Purple++ Seal',
         text = {
-            'Spawns {C:attention}#1#{} {C:dark_edition}Negative{} {C:tarot}Tarot{}',
+            'Create {C:attention}#1#{} {C:dark_edition}Negative{} {C:tarot}Tarot{}',
             'and a {C:attention}Charm Tag{}',
             'when {C:attention}discarded{}',
             '{C:green}#2# in #3#{} to create an',
