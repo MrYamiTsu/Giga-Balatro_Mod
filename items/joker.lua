@@ -777,7 +777,7 @@ SMODS.Joker{ --Nahnahu
 SMODS.Joker{ --Hergosu
     key = 'hergosu',
     atlas = 'Jokers',
-    pos = {x = 4, y = 7},
+    pos = {x = 7, y = 4},
     cost = 5,
     rarity = 1,
     unlocked = true,

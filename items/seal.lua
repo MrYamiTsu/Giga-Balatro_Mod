@@ -446,11 +446,13 @@ SMODS.Seal{ --Purple++
         label = 'Purple++ Seal'
     },
     config = { extra = {
-        card = 1,
+        card = 2,
         odds = 1,
         chances = 6,
     }},
     loc_vars = function(self, info_queue, card)
+        info_queue[#info_queue + 1] = { set = 'Tag', key = 'tag_charm' }
+        info_queue[#info_queue + 1] = { set = 'Tag', key = 'tag_ethereal'}
         local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'prob1')
         return {vars = {self.config.extra.card, odds, chances}}
     end,

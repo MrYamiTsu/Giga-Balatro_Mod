@@ -23,7 +23,7 @@ SMODS.Back{ --Foodie
     key = 'foodie',
     atlas = "Decks",
     pos = {x = 0, y = 0},
-    config = { voucher = 'v_giga_foodTruck' },
+    config = { voucher = 'v_giga_foodStand' },
     loc_vars = function(self, deck)
         return {vars = {colours={HEX('F7070BFF')}}}
     end,
