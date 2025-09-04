@@ -861,7 +861,7 @@ return {
             richSoil_def = {
                 name = 'Barro enriquecido',
                 text = {
-                    '{X:chips,C:white}X#1.4{} fichas',
+                    '{X:chips,C:white}X1.4{} fichas',
                     '{C:mult}+7{} multi'
                 }
             },

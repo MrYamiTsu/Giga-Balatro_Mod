@@ -80,6 +80,26 @@ SMODS.Consumable{ --HotDog
     }},
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'soil_def'}
+        local has_enhancement1 = false
+        local has_enhancement2 = false
+        for i, _card in ipairs(G.hand.highlighted) do
+            if SMODS.has_enhancement(_card, 'm_giga_soil') then
+                has_enhancement1 = true
+                break
+            end
+        end
+        for i, _card in ipairs(G.hand.highlighted) do
+            if SMODS.has_enhancement(_card, 'm_giga_richSoil') then
+                has_enhancement2 = true
+                break
+            end
+        end
+        if has_enhancement1 then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'richSoil_def'}
+        end
+        if has_enhancement2 then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'fossilSoil_def'}
+        end
         return{vars = {center.ability.extra.card}}
     end,
     can_use = function (self,card)

@@ -858,7 +858,7 @@ return {
             richSoil_def = {
                 name = 'Rich Soil',
                 text = {
-                    '{X:chips,C:white}X#1.4{} Chips',
+                    '{X:chips,C:white}X1.4{} Chips',
                     '{C:mult}+7{} Mult'
                 }
             },

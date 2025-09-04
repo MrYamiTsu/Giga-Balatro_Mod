@@ -47,7 +47,7 @@
     Some content work weirdly sometimes.<br>
     If a whole asset is in comment, don't remove it from the comment. It's an idea and this may cause the game to crash.<br>
     If you have any ideas for how the mod's elements might interact, feel free to DM me on Discord (<strong>@MrYamiTsu</strong>).
-    You can also send me artwork of the elements if you like (I'll mention you in the credits).
+    You can also send me artwork of some elements if you want (I'll mention you in the credits).
 </p>
 
 <hr>
