@@ -37,9 +37,6 @@ SMODS.Voucher{ --FoodStand
     atlas = 'Vouchers',
     pos = {x = 2, y = 0},
 	cost = 10,
-    loc_vars = function(self, info_queue)
-        return { vars = {colours={HEX('F7070BFF')}} }
-    end,
     redeem = function(self)
         G.E_MANAGER:add_event(Event({
             func = function()
@@ -54,9 +51,6 @@ SMODS.Voucher{ --HomeDelivery
     atlas = 'Vouchers',
     pos = {x = 3, y = 0},
     cost = 10,
-    loc_vars = function(self, info_queue)
-        return {vars = {colours={HEX('F7070BFF')}}}
-    end,
     requires = {'v_giga_foodTruck'},
     redeem = function(self)
         G.E_MANAGER:add_event(Event({

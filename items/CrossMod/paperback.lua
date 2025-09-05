@@ -21,10 +21,11 @@ SMODS.Consumable{ --[UntitledCM1]
         return false
     end,
     use = function (self,card,area,copier)
-        SMODS.add_card { set = "Base", suit = "paperback_Crowns", area = G.hand }
+        for i = 1, card.ability.extra.card do
+            SMODS.add_card { set = "Base", suit = "paperback_Crowns", area = G.hand }
+        end
     end
 }
-
 SMODS.Consumable{ --[UntitledCM2]
     key = 'UntitledCM2',
     set = 'Giga_Food',
@@ -47,10 +48,11 @@ SMODS.Consumable{ --[UntitledCM2]
         return false
     end,
     use = function (self,card,area,copier)
-        SMODS.add_card { set = "Base", suit = "paperback_Stars", area = G.hand }
+        for i = 1, card.ability.extra.card do
+            SMODS.add_card { set = "Base", suit = "paperback_Stars", area = G.hand }
+        end
     end
 }
-
 SMODS.Consumable{ --[UntitledCM3]
     key = 'UntitledCM3',
     set = 'Giga_Food',
@@ -87,7 +89,6 @@ SMODS.Consumable{ --[UntitledCM3]
         end
     end
 }
-
 SMODS.Consumable{ --[UntitledCM4]
     key = 'UntitledCM4',
     set = 'Giga_Food',
@@ -125,7 +126,6 @@ SMODS.Consumable{ --[UntitledCM4]
 		end
     end
 }
-
 SMODS.Consumable{ --[UntitledCM5]
     key = 'UntitledCM5',
     set = 'Giga_Food',

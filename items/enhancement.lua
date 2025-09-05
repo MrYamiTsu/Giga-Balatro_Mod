@@ -202,8 +202,7 @@ SMODS.Enhancement{ --Luckiest
 		local odds3, chances3 = SMODS.get_probability_vars(card, card.ability.extra.odds, card.ability.extra.chances3, 'prob3')
 		return {vars = {odds1, chances1, card.ability.extra.mult, 
 						odds2, chances2, card.ability.extra.cash, 
-						odds3, chances3, card.ability.extra.card,
-					 	colours={HEX('F7070BFF')}}}
+						odds3, chances3, card.ability.extra.card}}
 	end,
 	in_pool = function(self) 
 		return false 

@@ -47,13 +47,14 @@
     Some content work weirdly sometimes.<br>
     If a whole asset is in comment, don't remove it from the comment. It's an idea and this may cause the game to crash.<br>
     If you have any ideas for how the mod's elements might interact, feel free to DM me on Discord (<strong>@MrYamiTsu</strong>).
-    You can also send me artwork of the elements if you like (I'll mention you in the credits).
+    You can also send me artwork of some elements if you want (I'll mention you in the credits).
 </p>
 
 <hr>
 <h2>Credits</h2>
 <ul>
     <li><strong>le_dugs</strong> for a lot of ideas and playtest</li>
-    <li><strong>Eris</strong> and <strong>jogla_the_wizard</strong> for playtest</li>
+    <li><strong>Eris</strong> for playtest</li>
+    <li><strong>Jogla</strong> for spanish translation</li>
     <li>*All the dev in the Balatro modding community*</li>
 </ul>

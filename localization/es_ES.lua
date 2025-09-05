@@ -5,7 +5,7 @@ return {
                 name = "Baraja de comida",
                 text = {
                     'Crea una carta de ',
-                    '{V:1}comida{} al comienzo',
+                    '{C:giga_Food}comida{} al comienzo',
                     'de cada ronda.',
                     'Comienza con un {C:attention,T:v_giga_foodTruck}puesto de comida{}'
                 }
@@ -89,7 +89,7 @@ return {
                     '{C:green}#4# en #5#{} de probabilidades',
                     'para ganar {C:money}$#6#{}',
                     '{C:green}#7# in #8#{} de probabilidades',
-                    'de crear {C:attention}#9#{} {V:1}comída{} {C:dark_edition}negativa{} '
+                    'de crear {C:attention}#9#{} {C:giga_Food}comída{} {C:dark_edition}negativa{} '
                 }
             },
             m_giga_perfectGold = {
@@ -521,7 +521,7 @@ return {
                 name = 'Pablo',
                 text = {
                     'Cada dos rondas, Pablo cocina',
-                    'un poco de {V:1}comida{} mejicana para tí',
+                    'un poco de {C:giga_Food}comida{} mejicana para tí',
                     '{C:inactive}(Quedan {C:attention}#1#{C:inactive} rondas)',
                     '{C:inactive}(Debe haber espacio)'
                 }
@@ -701,13 +701,13 @@ return {
                 text = {
                     '{X:mult,C:white}X#1#{} multi, aumenta',
                     'en {X:mult,C:white}X#2#{} por cada',
-                    'carta de {V:1}comida{} usada',
+                    'carta de {C:giga_Food}comida{} usada',
                 }
             },
             j_giga_doubleFork = {
                 name = 'Tenedor dividido',
                 text = {
-                    'Usar una carta de {V:1}comida{}',
+                    'Usar una carta de {C:giga_Food}comida{}',
                     'durante una ciega da',
                     '{X:chips,C:white}X#1#{} fichas temporales',
                     '{C:inactive}#2#'
@@ -861,7 +861,7 @@ return {
             richSoil_def = {
                 name = 'Barro enriquecido',
                 text = {
-                    '{X:chips,C:white}X#1.4{} fichas',
+                    '{X:chips,C:white}X1.4{} fichas',
                     '{C:mult}+7{} multi'
                 }
             },
@@ -877,7 +877,7 @@ return {
                 name = 'Sello rosa',
                 text = {
                     'Cuando esta carta {C:attention}puntua{},',
-                    'crea {C:attention}1{} carta de comida',
+                    'crea {C:attention}1{} carta de {C:giga_Food}comida{}',
                 }  
             },
             crimsonSeal_def = {
@@ -1005,7 +1005,7 @@ return {
             sleeve_giga_foodieSleeve = {
                 name = "Funda de comida",
                 text = {
-                    'Crea una carta de {V:1}comida{}',
+                    'Crea una carta de {C:giga_Food}comida{}',
                     'al comienzo de',
                     'cada ronda'
 
@@ -1045,7 +1045,7 @@ return {
                 name = 'Cocina',
                 text = {
                     'Crea hasta {C:attention}#1#{}',
-                    'cartas de {V:1}comida{}'
+                    'cartas de {C:giga_Food}comida{}'
                 }
             },
         },
@@ -1067,14 +1067,14 @@ return {
             v_giga_foodStand = {
                 name = 'Puesto de comida',
                 text = {
-                    'Cartas de {V:1}comida{}',
+                    'Cartas de {C:giga_Food}comida{}',
                     'pueden aparecer en la {C:attention}tienda'
                 }
             },
             v_giga_homeDelivery = {
                 name = 'Pedido a domicilio',
                 text = {
-                    "Las cartas de {V:1}comida{} aparecen",
+                    "Las cartas de {C:giga_Food}comida{} aparecen",
                     "{C:attention}X 2.5{} más frecuente"
                 }
             }

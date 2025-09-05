@@ -222,7 +222,7 @@ SMODS.Joker{ --Pablo
         round_switch = true
     }},
     loc_vars = function(self,info_queue,center)
-        return{vars = {colours={HEX('F7070BFF')}, center.ability.extra.round_left}}
+        return{vars = {center.ability.extra.round_left}}
     end,
     calculate = function(self,card,context)
         if context.end_of_round and context.cardarea == G.jokers and not context.blueprint then
@@ -377,7 +377,7 @@ SMODS.Joker{ --CrystalOfHungriness
         base = 1
     }},
     loc_vars = function(self, info_queue, card)
-        return {vars = {card.ability.extra.base, card.ability.extra.add, colours={HEX('F7070BFF')}}}
+        return {vars = {card.ability.extra.base, card.ability.extra.add}}
     end,
     calculate = function(self, card, context)
         if context.using_consumeable and context.consumeable.ability.set == 'Giga_Food' and not context.blueprint then
@@ -408,7 +408,7 @@ SMODS.Joker{ --DoubleFork
         active = false
     }},
     loc_vars = function(self, info_queue, card)
-        return {vars = {card.ability.extra.chips, card.ability.extra.txt, colours={HEX('F7070BFF')}}}
+        return {vars = {card.ability.extra.chips, card.ability.extra.txt}}
     end,
     calculate = function(self, card, context)
         if G.GAME.blind.in_blind then

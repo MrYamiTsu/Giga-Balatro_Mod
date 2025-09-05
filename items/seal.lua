@@ -404,7 +404,7 @@ SMODS.Seal { --Pink
         card = 1
     }},
     loc_vars = function(self, info_queue, center)
-        return {vars = {self.config.extra.card, colours={HEX('F7070BFF')}}}
+        return {vars = {self.config.extra.card}}
     end,
     calculate = function(self, card, context)
         if context.cardarea == G.play and context.main_scoring then

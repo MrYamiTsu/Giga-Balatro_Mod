@@ -4,7 +4,7 @@ return {
             b_giga_foodie = {
                 name = "Foodie's Deck",
                 text = {
-                    'Create a {V:1}Food{}',
+                    'Create a {C:giga_Food}Food{}',
                     'card at the start',
                     'of every round and',
                     'start with {C:attention,T:v_giga_foodTruck}Food Stand{}'
@@ -88,7 +88,7 @@ return {
                     '{C:green}#4# in #5#{} chance',
                     'to win {C:money}$#6#{}',
                     '{C:green}#7# in #8#{} chance',
-                    'to create {C:attention}#9#{} {C:dark_edition}Negative{} {V:1}Food{}'
+                    'to create {C:attention}#9#{} {C:dark_edition}Negative{} {C:giga_Food}Food{}'
                 }
             },
             m_giga_perfectGold = {
@@ -518,7 +518,7 @@ return {
                 name = 'Pablo',
                 text = {
                     'Each other round, Pablo cook',
-                    'some Mexican {V:1}Food{} for you',
+                    'some Mexican {C:giga_Food}Food{} for you',
                     '{C:inactive}({C:attention}#1#{C:inactive} round left)',
                     '{C:inactive}(Must have room)'
                 }
@@ -696,13 +696,13 @@ return {
                 text = {
                     '{X:mult,C:white}X#1#{} Mult, increase',
                     'by {X:mult,C:white}X#2#{} for each',
-                    '{V:1}Food{} card used',
+                    '{C:giga_Food}Food{} card used',
                 }
             },
             j_giga_doubleFork = {
                 name = 'Double Fork',
                 text = {
-                    'Using a {V:1}Food{} card',
+                    'Using a {C:giga_Food}Food{} card',
                     'during a blind, give a',
                     'temporary {X:chips,C:white}X#1#{} Chips',
                     '{C:inactive}#2#'
@@ -858,7 +858,7 @@ return {
             richSoil_def = {
                 name = 'Rich Soil',
                 text = {
-                    '{X:chips,C:white}X#1.4{} Chips',
+                    '{X:chips,C:white}X1.4{} Chips',
                     '{C:mult}+7{} Mult'
                 }
             },
@@ -874,7 +874,7 @@ return {
                 name = 'Pink Seal',
                 text = {
                     'When this card is {C:attention}scored{},',
-                    'create {C:attention}1{} {C:attention}Food{} card',
+                    'create {C:attention}1{} {C:giga_Food}Food{} card',
                 }
             },
             giga_crimsonseal_seal = {
@@ -1002,7 +1002,7 @@ return {
             sleeve_giga_foodieSleeve = {
                 name = "Foodie's Sleeve",
                 text = {
-                    'Create a {V:1}Food{}',
+                    'Create a {C:giga_Food}Food{}',
                     'card at the start',
                     'of every round'
 
@@ -1042,7 +1042,7 @@ return {
                 name = 'Cook',
                 text = {
                     'Create up to {C:attention}#1#{}',
-                    '{V:1}Food{} cards'
+                    '{C:giga_Food}Food{} cards'
                 }
             },
         },
@@ -1064,14 +1064,14 @@ return {
             v_giga_foodStand = {
                 name = 'Food Stand',
                 text = {
-                    '{V:1}Food{} cards can',
+                    '{C:giga_Food}Food{} cards can',
                     'appear in the {C:attention}shop'
                 }
             },
             v_giga_homeDelivery = {
                 name = 'Home Delivery',
                 text = {
-                    "{V:1}Food{} cards appear",
+                    "{C:giga_Food}Food{} cards appear",
                     "{C:attention}2.5X{} more frequently"
                 }
             }

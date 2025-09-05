@@ -7,7 +7,7 @@ SMODS.Booster { --RestaurantNormal1
         name = 'Restaurant Pack',
         text = {
             'Choose {C:attention}#1#{} of up to',
-            '{C:attention}#2#{V:1} Food{} cards to',
+            '{C:attention}#2#{} {C:giga_Food}Food{} cards to',
             'add to your consumeables'
         }
     },
@@ -32,14 +32,14 @@ SMODS.Booster { --RestaurantNormal2
         name = 'Restaurant Pack',
         text = {
             'Choose {C:attention}#1#{} of up to',
-            '{C:attention}#2#{V:1} Food{} cards to',
+            '{C:attention}#2#{} {C:giga_Food}Food{} cards to',
             'add to your consumeables'
         }
     },
     cost = 2,
     config = {extra = 3, choose = 1},
     loc_vars = function (self,info_queue,center)
-        return{vars = {center.ability.choose, center.ability.extra, colours={HEX('F7070BFF')}}}
+        return{vars = {center.ability.choose, center.ability.extra}}
     end,
     group_key = 'k_restaurant_pack',
     create_card = function(self, card, i)
@@ -57,14 +57,14 @@ SMODS.Booster { --RestaurantJumbo
         name = 'Jumbo Restaurant Pack',
         text = {
             'Choose {C:attention}#1#{} of up to',
-            '{C:attention}#2#{V:1} Food{} cards to',
+            '{C:attention}#2#{} {C:giga_Food}Food{} cards to',
             'add to your consumeables'
         }
     },
     cost = 3,
     config = {extra = 5, choose = 1},
     loc_vars = function (self,info_queue,center)
-        return{vars = {center.ability.choose, center.ability.extra, colours={HEX('F7070BFF')}}}
+        return{vars = {center.ability.choose, center.ability.extra}}
     end,
     group_key = 'k_restaurant_pack',
     create_card = function(self, card, i)
@@ -82,7 +82,7 @@ SMODS.Booster { --RestaurantMega
         name = 'Mega Restaurant Pack',
         text = {
             'Choose {C:attention}#1#{} of up to',
-            '{C:attention}#2#{V:1} Food{} cards to',
+            '{C:attention}#2#{} {C:giga_Food}Food{} cards to',
             'add to your consumeables'
         }
     },
