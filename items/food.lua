@@ -79,7 +79,7 @@ SMODS.Consumable{ --HotDog
         card = 1
     }},
     loc_vars = function (self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'soil_def'}
+        info_queue[#info_queue+1] = G.P_CENTERS['m_giga_soil']
         local has_enhancement1 = false
         local has_enhancement2 = false
         for i, _card in ipairs(G.hand.highlighted) do
@@ -95,10 +95,10 @@ SMODS.Consumable{ --HotDog
             end
         end
         if has_enhancement1 then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'richSoil_def'}
+            info_queue[#info_queue+1] = G.P_CENTERS['m_giga_richSoil']
         end
         if has_enhancement2 then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'fossilSoil_def'}
+            info_queue[#info_queue+1] = G.P_CENTERS['m_giga_fossilSoil']
         end
         return{vars = {center.ability.extra.card}}
     end,
@@ -256,6 +256,16 @@ SMODS.Consumable{ --Spaghetti
     }},
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = G.P_CENTERS.m_bonus
+        local has_enhancement = false
+        for i, _card in ipairs(G.hand.highlighted) do
+            if SMODS.has_enhancement(_card, 'm_bonus') then
+                has_enhancement = true
+                break
+            end
+        end
+        if has_enhancement then
+            info_queue[#info_queue+1] = G.P_CENTERS['m_giga_bigBonus']
+        end
         return{vars = {center.ability.extra.card}}
     end,
     can_use = function (self,card)
@@ -294,6 +304,16 @@ SMODS.Consumable{ --Steak
     }},
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = G.P_CENTERS.m_stone
+        local has_enhancement = false
+        for i, _card in ipairs(G.hand.highlighted) do
+            if SMODS.has_enhancement(_card, 'm_giga_polishStone') then
+                has_enhancement = true
+                break
+            end
+        end
+        if has_enhancement then
+            info_queue[#info_queue+1] = G.P_CENTERS['m_giga_polishStone']
+        end
         return{vars = {center.ability.extra.card}}
     end,
     can_use = function (self,card)
@@ -332,6 +352,16 @@ SMODS.Consumable{ --Sushis
     }},
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = G.P_CENTERS.m_mult
+        local has_enhancement = false
+        for i, _card in ipairs(G.hand.highlighted) do
+            if SMODS.has_enhancement(_card, 'm_giga_multPlus') then
+                has_enhancement = true
+                break
+            end
+        end
+        if has_enhancement then
+            info_queue[#info_queue+1] = G.P_CENTERS['m_giga_multPlus']
+        end
         return{vars = {center.ability.extra.card}}
     end,
     can_use = function (self,card)
@@ -370,6 +400,16 @@ SMODS.Consumable{ --SugarPie
     }},
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = G.P_CENTERS.m_lucky
+        local has_enhancement = false
+        for i, _card in ipairs(G.hand.highlighted) do
+            if SMODS.has_enhancement(_card, 'm_giga_luckiest') then
+                has_enhancement = true
+                break
+            end
+        end
+        if has_enhancement then
+            info_queue[#info_queue+1] = G.P_CENTERS['m_giga_luckiest']
+        end
         return{vars = {center.ability.extra.card}}
     end,
     can_use = function (self,card)
@@ -407,6 +447,16 @@ SMODS.Consumable{ --[Untitled2]
     }},
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = G.P_CENTERS.m_glass
+        local has_enhancement = false
+        for i, _card in ipairs(G.hand.highlighted) do
+            if SMODS.has_enhancement(_card, 'm_giga_reinforcedGlass') then
+                has_enhancement = true
+                break
+            end
+        end
+        if has_enhancement then
+            info_queue[#info_queue+1] = G.P_CENTERS['m_giga_reinforcedGlass']
+        end
         return{vars = {center.ability.extra.card}}
     end,
     can_use = function (self,card)
@@ -444,6 +494,16 @@ SMODS.Consumable{ --Salmon
     }},
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = G.P_CENTERS.m_gold
+        local has_enhancement = false
+        for i, _card in ipairs(G.hand.highlighted) do
+            if SMODS.has_enhancement(_card, 'm_giga_perfectGold') then
+                has_enhancement = true
+                break
+            end
+        end
+        if has_enhancement then
+            info_queue[#info_queue+1] = G.P_CENTERS['m_giga_perfectGold']
+        end
         return{vars = {center.ability.extra.card}}
     end,
     can_use = function (self,card)
@@ -519,6 +579,16 @@ SMODS.Consumable{ --Lollipop
     }},
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = G.P_CENTERS.m_steel
+        local has_enhancement = false
+        for i, _card in ipairs(G.hand.highlighted) do
+            if SMODS.has_enhancement(_card, 'm_giga_titanium') then
+                has_enhancement = true
+                break
+            end
+        end
+        if has_enhancement then
+            info_queue[#info_queue+1] = G.P_CENTERS['m_giga_titanium']
+        end
         return{vars = {center.ability.extra.card}}
     end,
     can_use = function (self,card)
@@ -564,7 +634,9 @@ SMODS.Consumable{ --[Untitled5]
         return false
     end,
     use = function (self,card,area,copier)
-        SMODS.add_card { set = "Base", suit = "Hearts", area = G.hand }
+        for i = 1, card.ability.extra.card do
+            SMODS.add_card { set = "Base", suit = "Hearts", area = G.hand }
+        end
     end
 }
 SMODS.Consumable{ --Paella
@@ -588,7 +660,9 @@ SMODS.Consumable{ --Paella
         return false
     end,
     use = function (self,card,area,copier)
-        SMODS.add_card { set = "Base", suit = "Spades", area = G.hand }
+        for i = 1, card.ability.extra.card do
+            SMODS.add_card { set = "Base", suit = "Spades", area = G.hand }
+        end
     end
 }
 SMODS.Consumable{ --GummyBear
@@ -612,7 +686,9 @@ SMODS.Consumable{ --GummyBear
         return false
     end,
     use = function (self,card,area,copier)
-        SMODS.add_card { set = "Base", suit = "Diamonds", area = G.hand }
+        for i = 1, card.ability.extra.card do
+            SMODS.add_card { set = "Base", suit = "Diamonds", area = G.hand }
+        end
     end
 }
 SMODS.Consumable{ --[Untitled8]
@@ -636,7 +712,9 @@ SMODS.Consumable{ --[Untitled8]
         return false
     end,
     use = function (self,card,area,copier)
-        SMODS.add_card { set = "Base", suit = "Clubs", area = G.hand }
+        for i = 1, card.ability.extra.card do
+            SMODS.add_card { set = "Base", suit = "Clubs", area = G.hand }
+        end
     end
 }
 SMODS.Consumable{ --PB&JSandwich
