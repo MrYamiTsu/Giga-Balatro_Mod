@@ -55,6 +55,6 @@
 <ul>
     <li><strong>le_dugs</strong> for a lot of ideas and playtest</li>
     <li><strong>Eris</strong> for playtest</li>
-    <li><strong>Jogla</strong> for spanish translation</li>
+    <li><strong>Jogla</strong> for spanish translation and fixes</li>
     <li>*All the dev in the Balatro modding community*</li>
 </ul>
