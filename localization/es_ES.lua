@@ -851,27 +851,6 @@ return {
                     'de {C:attention,E:2}All-In-Jest{}'
                 }
             },
-            -- Enhancement
-            soil_def = {
-                name = 'Barro',
-                text = {
-                    '{X:chips,C:white}X1.1{} fichas'
-                }
-            },
-            richSoil_def = {
-                name = 'Barro enriquecido',
-                text = {
-                    '{X:chips,C:white}X1.4{} fichas',
-                    '{C:mult}+7{} multi'
-                }
-            },
-            fossilSoil_def = {
-                name = 'Barro fosilizado',
-                text = {
-                    '{X:chips,C:white}X2{} fichas',
-                    '{X:mult,C:white}X1.5{} multi'
-                }
-            },
             -- Seal
             pinkSeal_def = {
                 name = 'Sello rosa',

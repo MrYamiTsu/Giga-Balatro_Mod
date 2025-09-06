@@ -848,27 +848,6 @@ return {
                     'from {C:attention,E:2}All-In-Jest{}'
                 }
             },
-            -- Enhancement
-            soil_def = {
-                name = 'Soil',
-                text = {
-                    '{X:chips,C:white}X1.1{} Chips'
-                }
-            },
-            richSoil_def = {
-                name = 'Rich Soil',
-                text = {
-                    '{X:chips,C:white}X1.4{} Chips',
-                    '{C:mult}+7{} Mult'
-                }
-            },
-            fossilSoil_def = {
-                name = 'Fossil Soil',
-                text = {
-                    '{X:chips,C:white}X2{} Chips',
-                    '{X:mult,C:white}X1.5{} Mult'
-                }
-            },
             -- Seal
             giga_pinkseal_seal = {
                 name = 'Pink Seal',

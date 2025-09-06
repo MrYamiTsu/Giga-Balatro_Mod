@@ -1178,10 +1178,10 @@ SMODS.Consumable{ --BagOfCandy
                        selected_card:get_seal() == "Blue" or
                        selected_card:get_seal() == "Gold" or
                        selected_card:get_seal() == "Purple" or
-                       selected_card:get_seal() == "giga_redPlus" or
-                       selected_card:get_seal() == "giga_bluePlus" or
-                       selected_card:get_seal() == "giga_goldPlus" or
-                       selected_card:get_seal() == "giga_purplePlus" then
+                       selected_card:get_seal() == "giga_redplus" or
+                       selected_card:get_seal() == "giga_blueplus" or
+                       selected_card:get_seal() == "giga_goldplus" or
+                       selected_card:get_seal() == "giga_purpleplus" then
                         has_seal = true
                     else
                         has_seal = false
