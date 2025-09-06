@@ -35,7 +35,7 @@ SMODS.Consumable{ --Salt
         card = 1
     }},
     loc_vars = function (self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'pinkSeal_def'}
+        info_queue[#info_queue+1] = G.P_SEALS.giga_pinkseal
         return{vars = {colours={HEX('FF00E6')}, center.ability.extra.card}}
     end,
     can_use = function (self,card)
@@ -58,7 +58,7 @@ SMODS.Consumable{ --Salt
 				trigger = "after",
 				delay = 0.1,
 				func = function()
-					selected_card:set_seal("giga_pinkSeal")
+					selected_card:set_seal("giga_pinkseal")
 					return true
 				end,
 			}))
@@ -85,7 +85,7 @@ SMODS.Consumable{ --Compass
         card = 2
     }},
     loc_vars = function (self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'crimsonSeal_def'}
+        info_queue[#info_queue+1] = G.P_SEALS.giga_crimsonseal
         return{vars = {colours={HEX('DC143C')}, center.ability.extra.card}}
     end,
     can_use = function (self,card)
@@ -108,7 +108,7 @@ SMODS.Consumable{ --Compass
 				trigger = "after",
 				delay = 0.1,
 				func = function()
-					selected_card:set_seal("giga_crimsonSeal")
+					selected_card:set_seal("giga_crimsonseal")
 					return true
 				end,
 			}))
@@ -135,7 +135,7 @@ SMODS.Consumable{ --Wand
         card = 2
     }},
     loc_vars = function (self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'aquaSeal_def'}
+        info_queue[#info_queue+1] = G.P_SEALS.giga_aquaseal
         return{vars = {colours={HEX('00FFF0')}, center.ability.extra.card}}
     end,
     can_use = function (self,card)
@@ -158,7 +158,7 @@ SMODS.Consumable{ --Wand
 				trigger = "after",
 				delay = 0.1,
 				func = function()
-					selected_card:set_seal("giga_aquaSeal")
+					selected_card:set_seal("giga_aquaseal")
 					return true
 				end,
 			}))
