@@ -212,7 +212,7 @@ SMODS.Seal{ --Red++
 SMODS.Seal{ --Blue++
     key = 'blueplusplus',
     atlas = "Seals",
-    pos = {x = 1, y = 1},
+    pos = {x = 0, y = 2},
     config = { extra = {
         odds = 1,
         chances = 3
