@@ -77,7 +77,6 @@ function upgrade_enhencement(selected_card)
             return true
         end
     }))
-    delay(0.1)
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
         delay = 0.15,
@@ -116,7 +115,6 @@ function upgrade_enhencement(selected_card)
             return true
         end
     }))
-    delay(0.1)
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
         delay = 0.2,
@@ -136,7 +134,6 @@ function upgrade_seal(selected_card)
             return true
         end
     }))
-    delay(0.1)
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
         delay = 0.15,
@@ -148,21 +145,21 @@ function upgrade_seal(selected_card)
     }))
     delay(0.2)
     if selected_card:get_seal() == "Red" then 
-        selected_card:set_seal("giga_redplus", nil, true)
+        selected_card:set_seal("giga_redplus")
     elseif selected_card:get_seal() == "Blue" then
-        selected_card:set_seal("giga_blueplus", nil, true)
+        selected_card:set_seal("giga_blueplus")
     elseif selected_card:get_seal() == "Gold" then
-        selected_card:set_seal("giga_goldplus", nil, true)
+        selected_card:set_seal("giga_goldplus")
     elseif selected_card:get_seal() == "Purple" then
-        selected_card:set_seal("giga_purpleplus", nil, true)
+        selected_card:set_seal("giga_purpleplus")
     elseif selected_card:get_seal() == "giga_redplus" then
-        selected_card:set_seal("giga_redplusplus", nil, true)
+        selected_card:set_seal("giga_redplusplus")
     elseif selected_card:get_seal() == "giga_blueplus" then
-        selected_card:set_seal("giga_blueplusplus", nil, true)
+        selected_card:set_seal("giga_blueplusplus")
     elseif selected_card:get_seal() == "giga_goldplus" then
-        selected_card:set_seal("giga_goldplusplus", nil, true)
+        selected_card:set_seal("giga_goldplusplus")
     elseif selected_card:get_seal() == "giga_purpleplus" then
-        selected_card:set_seal("giga_purpleplusplus", nil, true)
+        selected_card:set_seal("giga_purpleplusplus")
     end
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
@@ -173,7 +170,6 @@ function upgrade_seal(selected_card)
             return true
         end
     }))
-    delay(0.1)
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
         delay = 0.2,
