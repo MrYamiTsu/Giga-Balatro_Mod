@@ -49,6 +49,34 @@ SMODS.Enhancement{ --MultPlus
 		end
 	end
 }
+SMODS.Enhancement{ --EvolvedWild
+	key = 'evolvedWild',
+	atlas = "Enhancements",
+	pos = { x = 3, y = 0 },
+	discovered = true,
+	unlocked = true,
+	weight = 0,
+	in_pool = function(self) 
+		return false
+	end,
+	calculate = function(self, card, context, effect)
+		if context.hand_drawn then
+			G.E_MANAGER:add_event(Event({
+			    func = function()
+					for i, c in ipairs(G.playing_cards) do
+            			SMODS.recalc_debuff(c)
+					end
+    				return true
+        		end
+    		}))
+		end
+		if context.cardarea == card.area and context.cardarea ~= G.deck then
+			return {
+				prevent_debuff = true
+			}
+		end
+	end
+}
 SMODS.Enhancement { --ReinforcedGlass
     key = 'reinforcedGlass',
 	atlas = "Enhancements",

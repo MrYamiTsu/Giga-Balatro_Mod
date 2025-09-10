@@ -116,6 +116,14 @@ return {
                     'destroy card and ',
                     'create {C:spectral}Spectral{} card'
                 }
+            },
+            m_giga_evolvedWild = {
+                name = 'Evolved Wild Card',
+                text = {
+                    "Can't be {C:attention}debuff{}",
+                    '{C:attention}Remove debuff{} of',
+                    'other card when {C:attention}drawn{}'
+                }
             }
         },
         Giga_Food = {
@@ -420,6 +428,25 @@ return {
                     'into {C:paperback_stars}Star{} suit'
                 }
             },
+            c_giga_migas = {
+                name = 'Migas',
+                text = {
+                    'A delicious Migas that',
+                    'will give an {C:purple}Aberration{}',
+                    'card in {C:attention}#1#{} rounds',
+                    '{C:inactive}#2#{}'
+                }
+            },
+            c_giga_bananaSplit = {
+                name = 'Banana Split',
+                text = {
+                    'A delicious Banana Split that',
+                    'will give a {C:attention}Power{} card',
+                    'in {C:attention}#1#{} rounds',
+                    '{C:inactive}#2#{}'
+                }
+            },
+
         },
         Joker={
             j_giga_cashPass = {
@@ -834,6 +861,13 @@ return {
                     'by {C:green,E:2}le_dugs{}'
                 }
             },
+            jogla_credit = {
+                name = 'Credit',
+                text = {
+                    'Original idea',
+                    'by {C:green,E:2}Jogla{}'
+                }
+            },
             yugioh_credit = {
                 name = 'Credit',
                 text = {
@@ -1076,14 +1110,14 @@ return {
             giga_pinkseal_seal = 'Pink Seal',
             giga_crimsonseal_seal = 'Crimson Seal',
             giga_aquaseal_seal = 'Aqua Seal',
-            giga_redplus_seal = 'Red+',
-            giga_blueplus_seal = 'Blue+',
-            giga_goldplus_seal = 'Gold+',
-            giga_purpleplus_seal = 'Purple+',
-            giga_redplusplus_seal = 'Red++',
-            giga_blueplusplus_seal = 'Blue++',
-            giga_goldplusplus_seal = 'Gold++',
-            giga_purpleplusplus_seal = 'Purple++'
+            giga_redplus_seal = 'Red+ Seal',
+            giga_blueplus_seal = 'Blue+ Seal',
+            giga_goldplus_seal = 'Gold+ Seal',
+            giga_purpleplus_seal = 'Purple+ Seal',
+            giga_redplusplus_seal = 'Red++ Seal',
+            giga_blueplusplus_seal = 'Blue++ Seal',
+            giga_goldplusplus_seal = 'Gold++ Seal',
+            giga_purpleplusplus_seal = 'Purple++ Seal'
         },
         poker_hand_descriptions={},
         poker_hands={},

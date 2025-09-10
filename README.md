@@ -18,6 +18,7 @@
 <ul>
     <li><a href="https://github.com/larswijn/CardSleeves">CardSleeves</a></li>
     <li><a href="https://github.com/SpectralPack/Cryptid">Cryptid</a></li>
+    <li><a href="https://github.com/Joglacraft/Fools-Gambit">Fool's Gambit</a></li>
     <li><a href="https://github.com/Icecanno/Partner-API/">Partner-API</a></li>
     <li><a href="https://github.com/Balatro-Paperback/paperback">Paperback</a></li>
 </ul>
@@ -26,9 +27,9 @@
 <h2>Elements</h2>
 <ul>
     <li>42+ Jokers</li>
-    <li>31 Foods (+6 Cross-Mod)</li>
+    <li>31 Foods (+7 Cross-Mod)</li>
     <li>11 Seals</li>
-    <li>8+ Enhancements</li>
+    <li>9+ Enhancements</li>
     <li>4 Booster Packs</li>
     <li>4 Decks</li>
     <li>4 Vouchers</li>

@@ -12,11 +12,17 @@ SMODS.load_file("items/food.lua")()
 SMODS.load_file("items/joker.lua")()
 SMODS.load_file("items/seal.lua")()
 SMODS.load_file("items/voucher.lua")()
+if next(SMODS.find_mod("bloonlatro")) then
+    assert(SMODS.load_file("items/CrossMod/bloonlatro.lua"))()
+end
 if CardSleeves then
 	SMODS.load_file("items/CrossMod/cardsleeves.lua")()
 end
 if next(SMODS.find_mod("Cryptid")) then
 	SMODS.load_file("items/CrossMod/cryptid.lua")()
+end
+if next(SMODS.find_mod("foolsGambit")) then
+    SMODS.load_file("items/CrossMod/foolsgambit.lua")()
 end
 if next(SMODS.find_mod("partner")) then
 	SMODS.load_file("items/CrossMod/partner.lua")()

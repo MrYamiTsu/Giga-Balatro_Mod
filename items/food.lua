@@ -817,7 +817,8 @@ SMODS.Consumable{ --FruitSalad
                        SMODS.has_enhancement(selected_card, 'm_lucky') or
                        SMODS.has_enhancement(selected_card, 'm_gold') or
                        SMODS.has_enhancement(selected_card, 'm_glass') or
-                       SMODS.has_enhancement(selected_card, 'm_steel') then
+                       SMODS.has_enhancement(selected_card, 'm_steel') or
+                       SMODS.has_enhancement(selected_card, 'm_wild') then
                         has_enhancement = true
                     else
                         has_enhancement = false

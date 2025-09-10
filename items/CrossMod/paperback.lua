@@ -95,6 +95,7 @@ SMODS.Consumable{ --[UntitledCM4]
     atlas = 'Foods',
     pos = {x = 0, y = 0},
     soul_pos = {x = 0, y = 1},
+    dependencies = 'paperback',
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -132,6 +133,7 @@ SMODS.Consumable{ --[UntitledCM5]
     atlas = 'Foods',
     pos = {x = 0, y = 0},
     soul_pos = {x = 0, y = 1},
+    dependencies = 'paperback',
     rarity = 1,
     cost = 2,
     config = { extra = {

@@ -22,6 +22,8 @@ function check_upgrade(base_enh)
         upgraded_enh = 'm_giga_perfectGold'
     elseif base_enh == 'm_glass' then
         upgraded_enh = 'm_giga_reinforcedGlass'
+    elseif base_enh == 'm_wild' then
+        upgraded_enh = 'm_giga_evolvedWild'
     end
     return upgraded_enh
 end
@@ -105,6 +107,8 @@ function upgrade_enhencement(selected_card)
         selected_card:set_ability(G.P_CENTERS["m_giga_perfectGold"], nil, true)
     elseif SMODS.has_enhancement(selected_card, 'm_glass') then
         selected_card:set_ability(G.P_CENTERS["m_giga_reinforcedGlass"], nil, true)
+    elseif SMODS.has_enhancement(selected_card, 'm_wild') then
+        selected_card:set_ability(G.P_CENTERS["m_giga_evolvedWild"], nil, true)
     end
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
