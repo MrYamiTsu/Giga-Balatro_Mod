@@ -55,6 +55,7 @@ SMODS.Enhancement{ --EvolvedWild
 	pos = { x = 4, y = 1 },
 	discovered = true,
 	unlocked = true,
+	any_suit = true,
 	weight = 0,
 	in_pool = function(self) 
 		return false
