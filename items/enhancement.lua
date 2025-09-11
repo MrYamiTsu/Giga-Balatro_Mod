@@ -52,7 +52,7 @@ SMODS.Enhancement{ --MultPlus
 SMODS.Enhancement{ --EvolvedWild
 	key = 'evolvedWild',
 	atlas = "Enhancements",
-	pos = { x = 3, y = 0 },
+	pos = { x = 4, y = 1 },
 	discovered = true,
 	unlocked = true,
 	weight = 0,
