@@ -146,8 +146,7 @@ return {
                 text = {
                     'A delicious Hot-Dog that',
                     'enhance {C:attention}#1#{} card',
-                    'into {C:attention}Soil card{}',
-                    '{s:0.5}"I wonder what could happen if its already soil"{}'
+                    'into {C:attention}Soil card{}'
                 }
             },
             c_giga_caesarSalad = {
@@ -238,12 +237,12 @@ return {
                     'into a {C:attention}Steel card{}'
                 }
             },
-            c_giga_Untitled5 = {
-                name = '[Untitled]',
+            c_giga_quicheLorraine = {
+                name = 'Quiche Lorraine',
                 text = {
-                    'Some delicious [Untitled] that',
-                    'create {C:attention}#1#{} random',
-                    '{C:hearts}Heart{} suit card'
+                    'Some delicious Quiche Lorraine',
+                    'that create {C:attention}#1#{}',
+                    'random {C:hearts}Heart{} suit card'
                 }
             },
             c_giga_paella = {
@@ -387,10 +386,10 @@ return {
                     '{C:inactive}#2#{}'
                 }
             },
-            c_giga_UntitledCM1 = {
-                name = '[UntitleCM]',
+            c_giga_appleJuice = {
+                name = 'Apple Juice',
                 text = {
-                    'A delicious [UntitledCM] that',
+                    'A delicious Apple Juice that',
                     'create {C:attention}#1#{} random',
                     '{C:paperback_crowns}Crown{} suit card'
                 }

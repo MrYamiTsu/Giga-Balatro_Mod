@@ -1,6 +1,6 @@
 -- FOODS CARDS --
-SMODS.Consumable{ --[UntitledCM1]
-    key = 'UntitledCM1',
+SMODS.Consumable{ --AppleJuice
+    key = 'appleJuice',
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
