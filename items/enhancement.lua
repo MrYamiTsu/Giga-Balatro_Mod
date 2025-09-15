@@ -64,14 +64,14 @@ SMODS.Enhancement{ --EvolvedWild
 		if context.hand_drawn then
 			G.E_MANAGER:add_event(Event({
 			    func = function()
-					for i, c in ipairs(G.playing_cards) do
+					for i, c in ipairs(G.hand.cards) do
             			SMODS.recalc_debuff(c)
 					end
     				return true
         		end
     		}))
 		end
-		if context.cardarea == card.area and context.cardarea ~= G.deck then
+		if context.cardarea == card.area then
 			return {
 				prevent_debuff = true
 			}

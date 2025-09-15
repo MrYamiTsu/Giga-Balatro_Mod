@@ -1022,11 +1022,13 @@ SMODS.Joker{ --FunnyCrown
     blueprint_compat = false,
     eternal_compat = true,
     config = { extra = {
-        round = 2
+        round = 2,
+        shaking = false
     }
     },
     loc_vars = function(self,info_queue,center)
         info_queue[#info_queue+1] = G.P_CENTERS.m_bonus
+        info_queue[#info_queue+1] = G.P_CENTERS['j_giga_kingOfJacks']
         return{vars = {center.ability.extra.round}}
     end,
     calculate = function(self,card,context)
@@ -1034,8 +1036,14 @@ SMODS.Joker{ --FunnyCrown
             if card.ability.extra.round > 0 then
                 card.ability.extra.round = card.ability.extra.round - 1
             end
+            if card.ability.extra.round <= 0 and not card.ability.extra.shaking then
+                local check_remove = function(card) 
+                    return not card.REMOVED 
+                end
+                juice_card_until(card, check_remove, true)
+                card.ability.extra.shaking = true
+            end
         end
-
         if context.selling_card and context.card == card then
             if card.ability.extra.round <= 0 then
                 if #G.jokers.cards < G.jokers.config.card_limit then
@@ -1043,12 +1051,21 @@ SMODS.Joker{ --FunnyCrown
                 else
                     SMODS.calculate_effect({ message = localize('k_no_room_ex') }, card)
                 end
-                local suit = pseudorandom_element({'S','H','D','C'}, pseudoseed('giga_funnyCrown'))
-			    local card = create_playing_card({
-				    front = G.P_CARDS[suit..'_J'],
-				    center = G.P_CENTERS.m_bonus
-			    }, G.hand, false,false,nil)
-			    card:add_to_deck()
+                if G.GAME.blind.in_blind then
+                    local suit = pseudorandom_element({'S','H','D','C'}, pseudoseed('giga_funnyCrown'))
+			        local card = create_playing_card({
+				        front = G.P_CARDS[suit..'_J'],
+				        center = G.P_CENTERS.m_bonus
+			        }, G.hand, false,false,nil)
+			        card:add_to_deck()
+                else
+                    local suit = pseudorandom_element({'S','H','D','C'}, pseudoseed('giga_funnyCrown'))
+			        local card = create_playing_card({
+				        front = G.P_CARDS[suit..'_J'],
+				        center = G.P_CENTERS.m_bonus
+			        }, G.deck, false,false,nil)
+			        card:add_to_deck()
+                end
             end
         end
     end
