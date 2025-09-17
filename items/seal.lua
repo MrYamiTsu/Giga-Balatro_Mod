@@ -260,7 +260,7 @@ SMODS.Seal{ --Blue++
 SMODS.Seal{ --Gold++
     key = 'goldplusplus',
     atlas = "Seals",
-    pos = {x = 2, y = 1},
+    pos = {x = 2, y = 2},
     config = { extra = {
         cash = 8,
         cashAdd = 2,
@@ -359,7 +359,7 @@ SMODS.Seal{ --Gold++
 SMODS.Seal{ --Purple++
     key = 'purpleplusplus',
     atlas = "Seals",
-    pos = {x = 3, y = 0},
+    pos = {x = 1, y = 2},
     config = { extra = {
         card = 2,
         odds = 1,
