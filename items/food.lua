@@ -547,7 +547,7 @@ SMODS.Consumable{ --Waffle
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 0, y = 1},
+    soul_pos = {x = 2, y = 3},
     rarity = 1,
     cost = 2,
     config = { extra = {
