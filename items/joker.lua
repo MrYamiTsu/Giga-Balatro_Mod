@@ -895,7 +895,7 @@ SMODS.Joker{ --StockMarket
         if context.final_scoring_step and context.cardarea == G.jokers and not context.blueprint then
             if card.ability.extra.cash > 0 then
                 if SMODS.pseudorandom_probability(card, 'giga_stockMarket1', 3, 8, 'st_prob1') then
-                    if SMODS.pseudorandom_probability(card, 'giga_stockMarket2', 1, 10, 'st_prob2') then
+                    if SMODS.pseudorandom_probability(card, 'giga_stockMarket2', 1, 9, 'st_prob2') then
                         return {
                             func = function()
                                 card.ability.extra.cash = 0
@@ -915,7 +915,7 @@ SMODS.Joker{ --StockMarket
                         }
                     end
                 else
-                    if SMODS.pseudorandom_probability(card, 'giga_stockMarket3', 1, 9, 'st_prob3') then
+                    if SMODS.pseudorandom_probability(card, 'giga_stockMarket3', 1, 10, 'st_prob3') then
                         return {
                             func = function()
                                 card.ability.extra.cash = round_number(card.ability.extra.cash * 2.5)

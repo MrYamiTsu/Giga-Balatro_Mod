@@ -26,6 +26,14 @@ return {
                     '{C:money}+#1#{} hand size'
                 }
             },
+            b_giga_gamblingAddict = {
+                name = 'Gambling Addict Deck',
+                text = {
+                    "This game isn't",
+                    'about winning, its',
+                    'about {C:attention,E:1,T:j_giga_stockMarket}GAMBLING{}',
+                }
+            },
             b_giga_drrunnkiDaecpk = {
                 name = 'Drrunnki Daecpk',
                 text = {

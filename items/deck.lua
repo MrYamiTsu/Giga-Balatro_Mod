@@ -48,6 +48,20 @@ SMODS.Back{ --Momentum
         end
     end
 }
+SMODS.Back{ --GamblingAddict
+    key = 'gamblingAddict',
+    atlas = "Decks",
+    pos = {x = 3, y = 0},
+    config = {},
+    apply = function(self, back)
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                SMODS.add_card{key = 'j_giga_stockMarket', stickers = {"eternal"}, force_stickers = true}
+                return true
+            end
+        }))
+	end
+}
 SMODS.Back{ --DrrunnkiDaecpk 
     key = 'drrunnkiDaecpk',
     atlas = "Decks",
