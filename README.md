@@ -31,8 +31,8 @@
     <li>31 Foods (+7 Cross-Mod)</li>
     <li>11 Seals</li>
     <li>9+ Enhancements</li>
+    <li>5 Decks</li>
     <li>4 Booster Packs</li>
-    <li>4 Decks</li>
     <li>4 Vouchers</li>
     <li>3 Spectral</li>
     <li>2 Sleeves (Cross-Mod)</li>
