@@ -51,7 +51,7 @@ SMODS.Back{ --Momentum
 SMODS.Back{ --GamblingAddict
     key = 'gamblingAddict',
     atlas = "Decks",
-    pos = {x = 3, y = 0},
+    pos = {x = 4, y = 0},
     config = {},
     apply = function(self, back)
         G.E_MANAGER:add_event(Event({
