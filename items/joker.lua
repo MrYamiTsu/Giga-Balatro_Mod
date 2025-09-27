@@ -1448,7 +1448,7 @@ SMODS.Joker{ --Pteranodon
 SMODS.Joker{ --Triceratops
     key = 'triceratops',
     atlas = 'Jokers',
-    pos = {x = 7, y = 3},
+    pos = {x = 4, y = 5},
     cost = 5,
     rarity = 2,
     blueprint_compat = true,
