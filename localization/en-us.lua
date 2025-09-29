@@ -269,10 +269,10 @@ return {
                     '{C:diamonds}Diamond{} suit card'
                 }
             },
-            c_giga_Untitled8 = {
-                name = '[Untitled]',
+            c_giga_empanadas = {
+                name = 'Empanadas',
                 text = {
-                    'Some delicious [Untitled] that',
+                    'Some delicious Empanadas that',
                     'create {C:attention}#1#{} random',
                     '{C:clubs}Club{} suit card'
                 }

@@ -719,12 +719,12 @@ SMODS.Consumable{ --GummyBear
         end
     end
 }
-SMODS.Consumable{ --[Untitled8]
-    key = 'Untitled8',
+SMODS.Consumable{ --Empanadas
+    key = 'empanadas',
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 0, y = 1},
+    soul_pos = {x = 4, y = 3},
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -779,7 +779,7 @@ SMODS.Consumable{ --Burger
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 0, y = 1},
+    soul_pos = {x = 5, y = 3},
     rarity = 1,
     cost = 2,
     config = { extra = {
