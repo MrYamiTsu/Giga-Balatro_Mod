@@ -1038,7 +1038,7 @@ SMODS.Joker{ --FunnyCrown
             end
             if card.ability.extra.round <= 0 and not card.ability.extra.shaking then
                 local check_remove = function(card) 
-                    return not card.REMOVED 
+                    return not card.REMOVED
                 end
                 juice_card_until(card, check_remove, true)
                 card.ability.extra.shaking = true

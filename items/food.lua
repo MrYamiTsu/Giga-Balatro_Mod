@@ -170,7 +170,11 @@ SMODS.Consumable{ --CaesarSalad
         if context.end_of_round and context.main_eval then
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
-        if card.ability.extra.round_left <= 0 and #G.consumeables.cards then
+        if card.ability.extra.round <= 0 and card.ability.extra.txt == 'Not ready yet' and #G.consumeables.cards then
+            local check_remove = function(card) 
+                return not card.REMOVED
+            end
+            juice_card_until(card, check_remove, true)
             card.ability.extra.txt = 'Ready'
         end
     end
@@ -205,7 +209,11 @@ SMODS.Consumable{ --ClubSandwich
         if context.end_of_round and context.main_eval then
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
-        if card.ability.extra.round_left <= 0 and #G.consumeables.cards then
+        if card.ability.extra.round <= 0 and card.ability.extra.txt == 'Not ready yet' and #G.consumeables.cards then
+            local check_remove = function(card) 
+                return not card.REMOVED
+            end
+            juice_card_until(card, check_remove, true)
             card.ability.extra.txt = 'Ready'
         end
     end
@@ -240,7 +248,11 @@ SMODS.Consumable{ --Pho
         if context.end_of_round and context.main_eval then
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
-        if card.ability.extra.round_left <= 0 and #G.consumeables.cards then
+        if card.ability.extra.round <= 0 and card.ability.extra.txt == 'Not ready yet' and #G.consumeables.cards then
+            local check_remove = function(card) 
+                return not card.REMOVED
+            end
+            juice_card_until(card, check_remove, true)
             card.ability.extra.txt = 'Ready'
         end
     end
@@ -444,12 +456,12 @@ SMODS.Consumable{ --SugarPie
 		end
     end
 }
-SMODS.Consumable{ --[Untitled2]
-    key = 'Untitled2',
+SMODS.Consumable{ --Durian
+    key = 'durian',
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 0, y = 1},
+    soul_pos = {x = 6, y = 3},
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -979,12 +991,12 @@ SMODS.Consumable{ --MacN'Cheese
 		end
     end
 }
-SMODS.Consumable{ --[Untitled12]
-    key = 'Untitled12',
+SMODS.Consumable{ --BlueberryMuffin
+    key = 'blueberryMuffin',
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 0, y = 1},
+    soul_pos = {x = 0, y = 4},
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -1067,7 +1079,11 @@ SMODS.Consumable{ --[Untitled13]
         if context.end_of_round and context.main_eval then
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
-        if card.ability.extra.round_left <= 0 and #G.consumeables.cards then
+        if card.ability.extra.round <= 0 and card.ability.extra.txt == 'Not ready yet' and #G.consumeables.cards then
+            local check_remove = function(card) 
+                return not card.REMOVED
+            end
+            juice_card_until(card, check_remove, true)
             card.ability.extra.txt = 'Ready'
         end
     end
@@ -1123,7 +1139,11 @@ SMODS.Consumable{ --CranberryJuice
         if context.end_of_round and context.main_eval then
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
-        if card.ability.extra.round_left <= 0 and #G.consumeables.cards then
+        if card.ability.extra.round <= 0 and card.ability.extra.txt == 'Not ready yet' and #G.consumeables.cards then
+            local check_remove = function(card) 
+                return not card.REMOVED
+            end
+            juice_card_until(card, check_remove, true)
             card.ability.extra.txt = 'Ready'
         end
     end
@@ -1181,7 +1201,11 @@ SMODS.Consumable{ --[Untitled15]
         if context.end_of_round and context.main_eval then
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
-        if card.ability.extra.round_left <= 0 and #G.consumeables.cards then
+        if card.ability.extra.round <= 0 and card.ability.extra.txt == 'Not ready yet' and #G.consumeables.cards then
+            local check_remove = function(card) 
+                return not card.REMOVED
+            end
+            juice_card_until(card, check_remove, true)
             card.ability.extra.txt = 'Ready'
         end
     end
@@ -1271,7 +1295,11 @@ SMODS.Consumable{ --BirthdayCake
         if context.end_of_round and context.main_eval then
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
-        if card.ability.extra.round_left <= 0 and #G.consumeables.cards then
+        if card.ability.extra.round <= 0 and card.ability.extra.txt == 'Not ready yet' and #G.consumeables.cards then
+            local check_remove = function(card) 
+                return not card.REMOVED
+            end
+            juice_card_until(card, check_remove, true)
             card.ability.extra.txt = 'Ready'
         end
     end
@@ -1313,7 +1341,11 @@ SMODS.Consumable{ --Turkey
         if context.end_of_round and context.main_eval then
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
-        if card.ability.extra.round_left <= 0 and #G.consumeables.cards then
+        if card.ability.extra.round <= 0 and card.ability.extra.txt == 'Not ready yet' and #G.consumeables.cards then
+            local check_remove = function(card) 
+                return not card.REMOVED
+            end
+            juice_card_until(card, check_remove, true)
             card.ability.extra.txt = 'Ready'
         end
     end

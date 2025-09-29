@@ -213,10 +213,10 @@ return {
                     'into a {C:attention}Lucky card{}'
                 }
             },
-            c_giga_Untitled2 = {            
-                name = '[Untitled]',
+            c_giga_durian = {            
+                name = 'Durian',
                 text = {
-                    'Some delicious [Untitled] that',
+                    'A delicious Durian that',
                     'enhance {C:attention}#1#{} card',
                     'into a {C:attention}Glass card{}'
                 }
@@ -325,12 +325,12 @@ return {
                     'into {C:diamonds}Diamond{} suit'
                 }
             },
-            c_giga_Untitled12 = {
-                name = '[Untitled]',
+            c_giga_blueberryMuffin = {
+                name = 'Blueberry Muffin',
                 text = {
-                    'A delicious [Untitled]',
-                    'that convert {C:attention}#1#{} card',
-                    'into {C:clubs}Club{} suit'
+                    'Some delicious Blueberry',
+                    'Muffin that convert {C:attention}#1#{}',
+                    'card into {C:clubs}Club{} suit'
                 }
             },
             c_giga_Untitled13 = {
