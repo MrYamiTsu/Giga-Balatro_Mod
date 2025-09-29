@@ -953,7 +953,7 @@ SMODS.Joker{ --StockMarket
 SMODS.Joker{ --BonoboJoker
     key = 'bonoboJoker',
     atlas = 'Jokers',
-    pos = {x = 7, y = 3},
+    pos = {x = 5, y = 5},
     cost = 6,
     rarity = 1,
     blueprint_compat = true,
