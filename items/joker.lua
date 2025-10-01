@@ -549,7 +549,7 @@ SMODS.Joker{ --SagittariusA
 SMODS.Joker{ --ColourfulCrystal
     key = 'colourfulCrystal',
     atlas = "Jokers",
-    pos = {x = 7, y = 3},
+    pos = {x = 6, y = 5},
     cost = 6,
     rarity = 1,
     unlocked = true,
