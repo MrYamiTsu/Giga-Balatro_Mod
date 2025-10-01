@@ -351,10 +351,10 @@ return {
                     '{C:inactive}#3#{}'
                 }
             },
-            c_giga_Untitled15 = {
-                name = '[Untitled]',
+            c_giga_bubbleTea = {
+                name = 'Bubble Tea',
                 text = {
-                    'A delicious [Untitled] that',
+                    'A delicious Bubble Tea that',
                     'add a {V:1}Aqua Seal{} on {C:attention}#1#{}',
                     'card in {C:attention}#2#{} rounds',
                     '{C:inactive}#3#{}'

@@ -1148,12 +1148,12 @@ SMODS.Consumable{ --CranberryJuice
         end
     end
 }
-SMODS.Consumable{ --[Untitled15]
-    key = 'Untitled15',
+SMODS.Consumable{ --BubbleTea
+    key = 'bubbleTea',
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 0, y = 1},
+    soul_pos = {x = 1, y = 4},
     rarity = 1,
     cost = 2,
     config = { extra = {
