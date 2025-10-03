@@ -768,8 +768,8 @@ return {
                     'otherwise {C:mult}#2#{} Mult'
                 }
             },
-            j_giga_4thEffect = {
-                name = '4th Effect',
+            j_giga_marvinTheFourth = {
+                name = 'Marvin, The Fourth',
                 text = {
                     'Give {C:chips}+#1#{} Chips and {X:mult,C:white}X#2#{} Mult',
                     'for each {C:attention}4{}, {C:attention}5{} or {C:attention}6{} of {V:1}#3#{}',

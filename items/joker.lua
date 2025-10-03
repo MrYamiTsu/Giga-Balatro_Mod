@@ -576,10 +576,10 @@ SMODS.Joker{ --ColourfulCrystal
         end
     end
 }
-SMODS.Joker{ --4thEffect
-    key = '4thEffect',
+SMODS.Joker{ --MarvinTheFourth
+    key = 'marvinTheFourth',
     atlas = "Jokers",
-    pos = {x = 7, y = 3},
+    pos = {x = 7, y = 5},
     cost = 7,
     rarity = 2,
     unlocked = true,
@@ -629,7 +629,6 @@ SMODS.Joker{ --4thEffect
             end
         end
     end
-    
 }
 SMODS.Joker{ --UpgradedTicket
     key = 'upgradedTicket',
@@ -1079,8 +1078,8 @@ SMODS.Joker{ --JackMutator
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        round = 3,
-        round_left = 3,
+        round = 2,
+        round_left = 2,
     }},
     loc_vars = function(self,info_queue,center)
         return{vars = {center.ability.extra.round + 1, center.ability.extra.round_left}}
