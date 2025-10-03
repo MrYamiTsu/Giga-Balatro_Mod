@@ -334,9 +334,9 @@ return {
                 }
             },
             c_giga_Untitled13 = {
-                name = '[Untitled]',
+                name = 'Donut',
                 text = {
-                    'A delicious [Untitled] that',
+                    'A delicious Donut that',
                     'add a {V:1}Pink Seal{} on {C:attention}#1#{}',
                     'card in {C:attention}#2#{} rounds',
                     '{C:inactive}#3#{}'

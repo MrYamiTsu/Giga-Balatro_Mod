@@ -817,51 +817,6 @@ SMODS.Joker{ --Hergosu
         end
     end
 }
-SMODS.Joker{ --Tabaosl
-    key = 'tabaosl',
-    atlas = 'Jokers',
-    pos = {x = 0, y = 5},
-    soul_pos = {x = 1, y = 5},
-    cost = 10,
-    rarity = 4,
-    blueprint_compat = false,
-    eternal_compat = true,
-    loc_vars = function(self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'aij_back_credit'}
-    end,
-    calculate = function(self,card,context)
-        if context.before and context.main_eval and not context.blueprint then
-            if #G.play.cards > 0 then
-                for i = 1, 2 do
-                    if #G.play.cards >= i then
-                        local c = G.play.cards[i]
-                        if SMODS.has_enhancement(c, 'm_giga_richSoil') or
-                           SMODS.has_enhancement(c, 'm_giga_soil') or
-                           SMODS.has_enhancement(c, 'm_bonus') or
-                           SMODS.has_enhancement(c, 'm_stone') or
-                           SMODS.has_enhancement(c, 'm_mult') or
-                           SMODS.has_enhancement(c, 'm_lucky') or
-                           SMODS.has_enhancement(c, 'm_gold') or
-                           SMODS.has_enhancement(c, 'm_glass') or
-                           SMODS.has_enhancement(c, 'm_steel') then
-                            G.E_MANAGER:add_event(Event({
-                                trigger = 'before',
-                                delay = 0.15,
-                                func = function()
-                                    card:juice_up()
-                                    return true
-                                end
-                            }))
-                            upgrade_enhencement(c)
-                        end
-                    else
-                        break
-                    end
-                end
-            end
-        end
-    end
-}
 SMODS.Joker{ --StockMarket
     key = 'stockMarket',
     atlas = 'Jokers',
@@ -971,6 +926,51 @@ SMODS.Joker{ --BonoboJoker
                 return {
                     mult = mult_to_give
                 }
+            end
+        end
+    end
+}
+SMODS.Joker{ --Tabaosl
+    key = 'tabaosl',
+    atlas = 'Jokers',
+    pos = {x = 0, y = 5},
+    soul_pos = {x = 1, y = 5},
+    cost = 10,
+    rarity = 4,
+    blueprint_compat = false,
+    eternal_compat = true,
+    loc_vars = function(self,info_queue,center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'aij_back_credit'}
+    end,
+    calculate = function(self,card,context)
+        if context.before and context.main_eval and not context.blueprint then
+            if #G.play.cards > 0 then
+                for i = 1, 2 do
+                    if #G.play.cards >= i then
+                        local c = G.play.cards[i]
+                        if SMODS.has_enhancement(c, 'm_giga_richSoil') or
+                           SMODS.has_enhancement(c, 'm_giga_soil') or
+                           SMODS.has_enhancement(c, 'm_bonus') or
+                           SMODS.has_enhancement(c, 'm_stone') or
+                           SMODS.has_enhancement(c, 'm_mult') or
+                           SMODS.has_enhancement(c, 'm_lucky') or
+                           SMODS.has_enhancement(c, 'm_gold') or
+                           SMODS.has_enhancement(c, 'm_glass') or
+                           SMODS.has_enhancement(c, 'm_steel') then
+                            G.E_MANAGER:add_event(Event({
+                                trigger = 'before',
+                                delay = 0.15,
+                                func = function()
+                                    card:juice_up()
+                                    return true
+                                end
+                            }))
+                            upgrade_enhencement(c)
+                        end
+                    else
+                        break
+                    end
+                end
             end
         end
     end
@@ -1117,31 +1117,6 @@ SMODS.Joker{ --JackMutator
 }
 
 -- GEMS JOKERS --
-SMODS.Joker{ --PinkTourmaline
-    key = 'pinkTourmaline',
-    atlas = 'Jokers',
-    pos = {x = 7, y = 1},
-    cost = 5,
-    rarity = 1,
-    blueprint_compat = true,
-    eternal_compat = true,
-    config = { extra = {
-        mult = 12
-    }},
-    loc_vars = function(self, info_queue, center)
-        info_queue[#info_queue+1] = G.P_CENTERS.e_holo
-        return {vars = {center.ability.extra.mult}}
-    end,
-    calculate = function(self, card, context)
-        if context.individual and context.cardarea == G.hand and not context.end_of_round then
-            if context.other_card.edition and context.other_card.edition.type == 'holo' then
-                return {
-                    mult = card.ability.extra.mult
-                }
-            end
-        end
-    end
-}
 SMODS.Joker{ --Moonstone
     key = 'moonstone',
     atlas = 'Jokers',
@@ -1162,6 +1137,31 @@ SMODS.Joker{ --Moonstone
             if context.other_card.edition and context.other_card.edition.type == 'foil' then
                 return {
                     chips = card.ability.extra.chips
+                }
+            end
+        end
+    end
+}
+SMODS.Joker{ --PinkTourmaline
+    key = 'pinkTourmaline',
+    atlas = 'Jokers',
+    pos = {x = 7, y = 1},
+    cost = 5,
+    rarity = 1,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        mult = 12
+    }},
+    loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue+1] = G.P_CENTERS.e_holo
+        return {vars = {center.ability.extra.mult}}
+    end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.hand and not context.end_of_round then
+            if context.other_card.edition and context.other_card.edition.type == 'holo' then
+                return {
+                    mult = card.ability.extra.mult
                 }
             end
         end

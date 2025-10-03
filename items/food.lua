@@ -1028,12 +1028,12 @@ SMODS.Consumable{ --BlueberryMuffin
 		end
     end
 }
-SMODS.Consumable{ --[Untitled13]
-    key = 'Untitled13',
+SMODS.Consumable{ --Donut
+    key = 'donut',
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 0, y = 1},
+    soul_pos = {x = 4, y = 4},
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -1309,7 +1309,7 @@ SMODS.Consumable{ --Turkey
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 2, y = 1},
-    soul_pos = {x = 0, y = 1},
+    soul_pos = {x = 3, y = 4},
     rarity = 4,
     cost = 4,
     hidden = true,
