@@ -1092,6 +1092,14 @@ SMODS.Joker{ --Moonstone
                 }
             end
         end
+    end,
+    in_pool = function (self, args)
+        for _, c in pairs(G.playing_cards or {}) do
+            if c.edition and c.edition.key == "e_foil" then
+                return true
+            end
+        end
+        return false
     end
 }
 SMODS.Joker{ --PinkTourmaline
@@ -1117,6 +1125,14 @@ SMODS.Joker{ --PinkTourmaline
                 }
             end
         end
+    end,
+    in_pool = function (self, args)
+        for _, c in pairs(G.playing_cards or {}) do
+            if c.edition and c.edition.key == "e_holo" then
+                return true
+            end
+        end
+        return false
     end
 }
 SMODS.Joker{ --RainbowQuartz
@@ -1142,6 +1158,14 @@ SMODS.Joker{ --RainbowQuartz
                 }
             end
         end
+    end,
+    in_pool = function (self, args)
+        for _, c in pairs(G.playing_cards or {}) do
+            if c.edition and c.edition.key == "e_polychrome" then
+                return true
+            end
+        end
+        return false
     end
 }
 
