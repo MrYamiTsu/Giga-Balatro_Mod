@@ -1110,7 +1110,8 @@ return {
         collabs={},
         dictionary={
             k_restaurant_pack = "Restaurant Pack",
-            b_giga_custom_menu_card = "Disable Custom Menu Joker"
+            b_giga_custom_menu_card = "Disable Custom Menu Joker",
+            k_inactive = "Inactive"
         },
         high_scores={},
         labels={
