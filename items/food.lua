@@ -658,7 +658,7 @@ SMODS.Consumable{ --QuicheLorraine
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 0, y = 1},
+    soul_pos = {x = 6, y = 4},
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -885,7 +885,7 @@ SMODS.Consumable{ --Ramen
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 0, y = 1},
+    soul_pos = {x = 5, y = 4},
     rarity = 1,
     cost = 2,
     config = { extra = {
