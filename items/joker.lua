@@ -143,7 +143,7 @@ SMODS.Joker{ --HighRiskHighReward
         chances = 3
     }},
     loc_vars = function(self, info_queue, center)
-        local odds, chances = SMODS.get_probability_vars(center, center.ability.extra.odds, center.ability.extra.chances, 'prob')
+        local odds, chances = SMODS.get_probability_vars(center, center.ability.extra.odds, center.ability.extra.chances, 'giga_highRiskHighReward')
         info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
         return {vars = {center.ability.extra.mult, odds, chances}}
     end,
@@ -154,24 +154,10 @@ SMODS.Joker{ --HighRiskHighReward
                     x_mult = card.ability.extra.mult
                 }
             end
-            if context.final_scoring_step then
-                if SMODS.pseudorandom_probability(card, 'giga_highRiskHighReward', card.ability.extra.odds, card.ability.extra.chances, 'hrhr_prob') then
-                    local to_destroy = context.full_hand[1]
-                    G.E_MANAGER:add_event(Event({
-                        blocking = true,
-                        func = function()
-                            to_destroy:start_dissolve()
-                            G.E_MANAGER:add_event(Event({
-                                delay = 0.4,
-                                func = function()
-                                    to_destroy:remove()
-                                    return true
-                                end
-                            }))
-                            return true
-                        end
-                    }))
-                end
+            if context.destroy_card and context.destroy_card == context.full_hand[1] and SMODS.pseudorandom_probability(card, 'giga_highRiskHighReward', card.ability.extra.odds, card.ability.extra.chances) then
+                return {
+                    remove = true
+                }
             end
         end
     end
@@ -266,7 +252,7 @@ SMODS.Joker{ --Paleontologist
         s2chips = 150,
     }},
     loc_vars = function(self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'soil_def'}
+        info_queue[#info_queue+1] = G.P_CENTERS.m_giga_soil
         return{vars = {center.ability.extra.chips}}
     end,
     calculate = function(self,card,context)
@@ -301,7 +287,7 @@ SMODS.Joker{ --PaleoExpert
         s2mult = 25,
     }},
     loc_vars = function(self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'soil_def'}
+        info_queue[#info_queue+1] = G.P_CENTERS.m_giga_soil --what was here before doesnt exist, so i assume its meant to be this?
         return{vars = {center.ability.extra.mult}}
     end,
     calculate = function(self,card,context)
@@ -353,13 +339,13 @@ SMODS.Joker{ --Refinery
                     card.ability.extra.cashNow = 0
                     return {
                         message_card = card,
-                        message = 'Reset',
+                        message = localize("k_reset"),
                         colour = G.C.MULT
                     }
                 end
             end
         end
-        if context.end_of_round and context.main_eval then
+        if context.end_of_round and context.main_eval then --was this supposed to be like gold joker?
             return {
                 dollars = card.ability.extra.cashNow,
             }
@@ -388,10 +374,7 @@ SMODS.Joker{ --CrystalOfHungriness
         end
         if context.joker_main and card.ability.extra.base ~= 1 then
             return {
-                card = card,
-                Xmult_mod = card.ability.extra.base,
-                message = 'X' .. card.ability.extra.base,
-                colour = G.C.MULT
+                xmult = card.ability.extra.base,
             }
         end
     end
