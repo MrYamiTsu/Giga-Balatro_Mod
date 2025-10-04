@@ -684,19 +684,8 @@ SMODS.Joker{ --HealthyRoots
         return {vars = {center.ability.extra.mult}}
     end,
     calculate = function(self, card, context)
-        if context.before and not context.blueprint then
-            card.ability.extra.rank = nil
-            if #G.hand.cards > 0 then
-                card.ability.extra.rank = G.hand.cards[1]:get_id()
-                return {
-                    card = G.hand.cards[1],
-                    message = 'Set',
-                    colour = G.C.MONEY
-                }
-            end
-        end
         if context.individual and context.cardarea == G.play then
-            if context.other_card:get_id() == card.ability.extra.rank then
+            if G.hand.cards[1] and context.other_card:get_id() == G.hand.cards[1]:get_id() then
                 return {
                     mult = card.ability.extra.mult
                 }
@@ -715,16 +704,21 @@ SMODS.Joker{ --Nahnahu
     eternal_compat = true,
     config = { extra = {
         mult = 2,
-        suit = 'Clubs',
-        colour = G.C.SUITS.Clubs
+        suit = 'Clubs'
     }},
     loc_vars = function(self, info_queue, center)
-        return {vars = {colours={center.ability.extra.colour}, center.ability.extra.mult, center.ability.extra.suit}}
+        local cards = 0
+        for _, c in pairs(G.playing_cards) do
+            if c:is_suit(center.ability.extra.suit) then
+                cards = cards+1
+            end
+        end
+        return {vars = {colours={G.C.SUITS[center.ability.suit]}, center.ability.extra.mult, center.ability.extra.suit, center.ability.extra.mult*cards}}
     end,
     calculate = function(self, card, context)
         if context.joker_main then
             local mult = 0
-            for i, c in pairs(G.playing_cards) do
+            for _, c in pairs(G.playing_cards) do
                 if c.base.suit == card.ability.extra.suit then
                     mult = mult + card.ability.extra.mult
                 end
@@ -736,16 +730,12 @@ SMODS.Joker{ --Nahnahu
         if context.end_of_round and not context.blueprint then
             if card.ability.extra.suit == 'Spades' then
                 card.ability.extra.suit = 'Hearts'
-                card.ability.extra.colour = G.C.SUITS.Hearts
             elseif card.ability.extra.suit == 'Hearts' then
                 card.ability.extra.suit = 'Diamonds'
-                card.ability.extra.colour = G.C.SUITS.Diamonds
             elseif card.ability.extra.suit == 'Diamonds' then
                 card.ability.extra.suit = 'Clubs'
-                card.ability.extra.colour = G.C.SUITS.Clubs
             elseif card.ability.extra.suit == 'Clubs' then
                 card.ability.extra.suit = 'Spades'
-                card.ability.extra.colour = G.C.SUITS.Spades
             end
         end
     end

@@ -799,7 +799,8 @@ return {
                 text = {
                     'Give {C:mult}+#1#{} Mult for each',
                     '{V:1}#2#{} card in the deck',
-                    '{C:inactive}Suit change every round{}'
+                    '{C:inactive}Suit change every round{}',
+                    '{C:inactive}(Currently {C:mult}+#3#{C:inactive} Mult)'
                 }
             },
             j_giga_hergosu = {
