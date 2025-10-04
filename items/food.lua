@@ -892,7 +892,7 @@ SMODS.Consumable{ --Donut
         txt = 'Not ready yet'
     }},
     loc_vars = function (self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'giga_pinkseal_seal'}
+        info_queue[#info_queue+1] = G.P_SEALS.giga_pinkseal
         return{vars = {colours={HEX('FF00E6')}, center.ability.extra.card, center.ability.extra.round, center.ability.extra.txt}}
     end,
     can_use = function (self,card)
@@ -928,7 +928,7 @@ SMODS.Consumable{ --Donut
         if context.end_of_round and context.main_eval then
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
-        if card.ability.extra.round <= 0 and card.ability.extra.txt == 'Not ready yet' and #G.consumeables.cards then
+        if card.ability.extra.round_left <= 0 and card.ability.extra.txt == 'Not ready yet' and #G.consumeables.cards then
             local check_remove = function(card) 
                 return not card.REMOVED
             end
@@ -952,7 +952,7 @@ SMODS.Consumable{ --CranberryJuice
         txt = 'Not ready yet'
     }},
     loc_vars = function (self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'giga_crimsonseal_seal'}
+        info_queue[#info_queue+1] = G.P_SEALS.giga_crimsonseal
         return{vars = {colours={HEX('DC143C')}, center.ability.extra.card, center.ability.extra.round, center.ability.extra.txt}}
     end,
     can_use = function (self,card)
@@ -988,7 +988,7 @@ SMODS.Consumable{ --CranberryJuice
         if context.end_of_round and context.main_eval then
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
-        if card.ability.extra.round <= 0 and card.ability.extra.txt == 'Not ready yet' and #G.consumeables.cards then
+        if card.ability.extra.round_left <= 0 and card.ability.extra.txt == 'Not ready yet' and #G.consumeables.cards then
             local check_remove = function(card) 
                 return not card.REMOVED
             end
@@ -1012,7 +1012,7 @@ SMODS.Consumable{ --BubbleTea
         txt = 'Not ready yet'
     }},
     loc_vars = function (self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'giga_aquaseal_seal'}
+        info_queue[#info_queue+1] = G.P_SEALS.giga_aquaseal
         return{vars = {colours={HEX('00FFF0')}, center.ability.extra.card, center.ability.extra.round, center.ability.extra.txt}}
     end,
     can_use = function (self,card)
@@ -1050,7 +1050,7 @@ SMODS.Consumable{ --BubbleTea
         if context.end_of_round and context.main_eval then
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
-        if card.ability.extra.round <= 0 and card.ability.extra.txt == 'Not ready yet' and #G.consumeables.cards then
+        if card.ability.extra.round_left <= 0 and card.ability.extra.txt == 'Not ready yet' and #G.consumeables.cards then
             local check_remove = function(card) 
                 return not card.REMOVED
             end
@@ -1078,14 +1078,7 @@ SMODS.Consumable{ --BagOfCandy
 			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
                 local has_seal = false
 				for i, selected_card in pairs(G.hand.highlighted) do
-                    if selected_card:get_seal() == "Red" or
-                       selected_card:get_seal() == "Blue" or
-                       selected_card:get_seal() == "Gold" or
-                       selected_card:get_seal() == "Purple" or
-                       selected_card:get_seal() == "giga_redplus" or
-                       selected_card:get_seal() == "giga_blueplus" or
-                       selected_card:get_seal() == "giga_goldplus" or
-                       selected_card:get_seal() == "giga_purpleplus" then
+                    if Giga.seal_upgrades[selected_card:get_seal()] then
                         has_seal = true
                     else
                         has_seal = false
