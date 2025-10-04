@@ -60,7 +60,7 @@ SMODS.Joker{ --BlueChicken
             end
         end
 
-        if context.cardarea == G.jokers and context.joker_main and card.ability.extra.chips > 0 then
+        if context.joker_main then --other two checks shouldnt be needed since they are for values that dont change here
             return{
                 chips = card.ability.extra.chips
             }
@@ -84,10 +84,13 @@ SMODS.Joker{ --BlueEgg
                 }
             end
             if context.selling_card and context.card == card then
-                local egg = create_card('Joker', G.jokers, nil, nil, nil, nil, 'j_egg')
-                egg:add_to_deck()
-                G.jokers:emplace(egg)
-                delay(0.4)
+                G.E_MANAGER:add_event(Event({
+                    func = function ()
+                        SMODS.add_card({
+                            key = "j_egg"
+                        })
+                    end
+                }))
             end
         end
     end

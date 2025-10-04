@@ -161,6 +161,7 @@ SMODS.Seal{ --Purple+
                         else
                             _create(self,'Tarot', G.consumeables,false,false)
                         end
+                        return true
                     end
                 }))
                 SMODS.calculate_effect({ message = localize(spectral and "k_plus_spectral" or "k_plus_tarot"), colour = G.C.PURPLE }, card)
@@ -340,6 +341,7 @@ SMODS.Seal{ --Purple++
                 G.E_MANAGER:add_event(Event({
                     func = function ()
                         _create(self,'Tarot', G.consumeables,true,false)
+                        return true
                     end
                 }))
 		    end
