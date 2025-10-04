@@ -756,7 +756,7 @@ SMODS.Joker{ --Hergosu
         jokerSlot = 1
     }},
     loc_vars = function(self,info_queue,center)
-        local numerator, denominator = SMODS.get_probability_vars(center, center.ability.extra.odd, center.ability.extra.chance, 'prob')
+        local numerator, denominator = SMODS.get_probability_vars(center, center.ability.extra.odd, center.ability.extra.chance, 'giga_hergosu')
         return{vars = {numerator, denominator, center.ability.extra.jokerSlot},
             info = {
                 {set = 'Other', key = 'j_giga_hergosu'}
@@ -765,7 +765,7 @@ SMODS.Joker{ --Hergosu
     end,
     calculate = function(self,card,context)
         if context.using_consumeable and context.consumeable.config.center.key == 'c_soul' then
-            if SMODS.pseudorandom_probability(card, 'giga_hergosu', card.ability.extra.odd, card.ability.extra.chance, 'hgs_prob') then
+            if SMODS.pseudorandom_probability(card, 'giga_hergosu', card.ability.extra.odd, card.ability.extra.chance) then
                 G.E_MANAGER:add_event(Event({
                     func = function()
                         G.jokers.config.card_limit = G.jokers.config.card_limit + card.ability.extra.jokerSlot
@@ -778,7 +778,7 @@ SMODS.Joker{ --Hergosu
                 }
             else
                 return {
-                    message = 'Nope',
+                    message = localize('k_nope_ex'),
                     colour = G.C.SECONDARY_SET.Tarot
                 }
             end
@@ -884,9 +884,6 @@ SMODS.Joker{ --BonoboJoker
         i = 1
     }},
     calculate = function(self,card,context)
-        if context.before then
-            card.ability.extra.i = 1
-        end
         if #G.play.cards >= 5 then
             if context.individual and context.cardarea == G.hand and not context.end_of_round then
                 local mult_to_give = math.floor(G.hand.cards[card.ability.extra.i]:get_id() / 2)
@@ -916,24 +913,16 @@ SMODS.Joker{ --Tabaosl
                 for i = 1, 2 do
                     if #G.play.cards >= i then
                         local c = G.play.cards[i]
-                        if SMODS.has_enhancement(c, 'm_giga_richSoil') or
-                           SMODS.has_enhancement(c, 'm_giga_soil') or
-                           SMODS.has_enhancement(c, 'm_bonus') or
-                           SMODS.has_enhancement(c, 'm_stone') or
-                           SMODS.has_enhancement(c, 'm_mult') or
-                           SMODS.has_enhancement(c, 'm_lucky') or
-                           SMODS.has_enhancement(c, 'm_gold') or
-                           SMODS.has_enhancement(c, 'm_glass') or
-                           SMODS.has_enhancement(c, 'm_steel') then
+                        if check_upgrade(c.config.center.key) then
                             G.E_MANAGER:add_event(Event({
                                 trigger = 'before',
                                 delay = 0.15,
                                 func = function()
                                     card:juice_up()
+                                    upgrade_enhencement(c)
                                     return true
                                 end
                             }))
-                            upgrade_enhencement(c)
                         end
                     else
                         break
@@ -971,10 +960,7 @@ SMODS.Joker{ --KingOfJacks
         if context.joker_main then
             if card.ability.extra.base ~= 1 then
                 return {
-                    card = card,
-                    Xmult_mod = card.ability.extra.base,
-                    message = 'X' .. card.ability.extra.base,
-                    colour = G.C.MULT
+                    xmult = card.ability.extra.base
                 }
             end
         end
@@ -999,7 +985,7 @@ SMODS.Joker{ --FunnyCrown
         return{vars = {center.ability.extra.round}}
     end,
     calculate = function(self,card,context)
-        if context.end_of_round and context.cardarea == G.jokers then
+        if context.end_of_round and context.main_eval then
             if card.ability.extra.round > 0 then
                 card.ability.extra.round = card.ability.extra.round - 1
             end
@@ -1014,25 +1000,23 @@ SMODS.Joker{ --FunnyCrown
         if context.selling_card and context.card == card then
             if card.ability.extra.round <= 0 then
                 if #G.jokers.cards < G.jokers.config.card_limit then
-                    SMODS.add_card{key = "j_giga_kingOfJacks"}
+                    G.E_MANAGER:add_event(Event({
+                        func = function ()
+                            SMODS.add_card{key = "j_giga_kingOfJacks"}
+                        end
+                    })) 
                 else
                     SMODS.calculate_effect({ message = localize('k_no_room_ex') }, card)
                 end
-                if G.GAME.blind.in_blind then
-                    local suit = pseudorandom_element({'S','H','D','C'}, pseudoseed('giga_funnyCrown'))
-			        local card = create_playing_card({
-				        front = G.P_CARDS[suit..'_J'],
-				        center = G.P_CENTERS.m_bonus
-			        }, G.hand, false,false,nil)
-			        card:add_to_deck()
-                else
-                    local suit = pseudorandom_element({'S','H','D','C'}, pseudoseed('giga_funnyCrown'))
-			        local card = create_playing_card({
-				        front = G.P_CARDS[suit..'_J'],
-				        center = G.P_CENTERS.m_bonus
-			        }, G.deck, false,false,nil)
-			        card:add_to_deck()
-                end
+                G.E_MANAGER:add_event(Event({
+                    func = function ()
+                        SMODS.add_card({
+                            rank = 'Jack',
+                            enhancement = 'm_bonus',
+                            area = G.deck
+                        })
+                    end
+                }))
             end
         end
     end
@@ -1067,7 +1051,7 @@ SMODS.Joker{ --JackMutator
                     end
                     local selected_card = pseudorandom_element(tpool, pseudoseed("jackMutator"))
                     if selected_card:get_id() == 11 then
-                        if SMODS.has_enhancement(selected_card, 'm_giga_richSoil') then
+                        if selected_card.config.center.key == "m_giga_soil" then
                             upgrade_enhencement_specific(selected_card,'m_giga_richSoil')
                         else
                             upgrade_enhencement_specific(selected_card,'m_giga_soil')
