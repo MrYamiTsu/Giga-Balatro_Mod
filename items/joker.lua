@@ -1185,10 +1185,10 @@ SMODS.Joker{ --TRex
         },
     }},
     loc_vars = function(self, info_queue, center)
-        local set = next(SMODS.find_card("j_giga_velocyraptor")) and 'spectral' or 'tarot'
+        local set = next(SMODS.find_card("j_giga_velocyraptor")) and 'Spectral' or 'Tarot'
         local _mult = next(SMODS.find_card("j_giga_pteranodon")) and center.ability.extra.interac.ptera_mult or center.ability.extra.mult_add
         local _chips = next(SMODS.find_card("j_giga_pteranodon")) and center.ability.extra.interac.ptera_chips or center.ability.extra.chips_add
-        return {vars = {colours={G.C.SECONDARY_SET[set]}, localize(set, "labels"), _mult, _chips, center.ability.extra.mult, center.ability.extra.chips}}
+        return {vars = {colours={G.C.SECONDARY_SET[set]}, localize(set:lower(), "labels"), _mult, _chips, center.ability.extra.mult, center.ability.extra.chips}}
     end,
     calculate = function(self, card, context)
         if context.end_of_round and context.cardarea == G.jokers then
@@ -1253,29 +1253,15 @@ SMODS.Joker{ --Velocyraptor
     config = { extra = {
         mult = 6,
         interac = {
-            rex = false
+            rex_mult = 10
         }
     }},
     loc_vars = function(self, info_queue, center)
-        return {vars = {center.ability.extra.mult}}
+        local _mult = next(SMODS.find_card("j_giga_tRex")) and center.ability.extra.interac.rex_mult or center.ability.extra.mult
+        return {vars = {_mult}}
     end,
     calculate = function(self, card, context)
-        --Interaction
-        for i, j in ipairs(G.jokers.cards) do
-            if j.ability and j.ability.name == 'j_giga_tRex' then
-                card.ability.extra.interac.rex = true
-                break
-            else
-                card.ability.extra.interac.rex = false
-            end
-        end
-        if card.ability.extra.interac.rex then
-            card.ability.extra.mult = 10
-        else
-            card.ability.extra.mult = 6
-        end
-        --Calculate
-        if context.joker_main and card.ability.extra.mult > 0 then
+        if context.joker_main then
             local has_ace = false
             for i, c in ipairs(context.full_hand or {}) do
                 if c:get_id() == 14 then
@@ -1302,46 +1288,18 @@ SMODS.Joker{ --Pteranodon
     config = { extra = {
         cash = 3,
         interac = {
-            rex = false,
+            rex_cash = 8,
             velo = false
         },
         txt = 'Planet',
         colour = G.C.SECONDARY_SET.Planet
     }},
     loc_vars = function(self, info_queue, center)
-        return {vars = {colours={center.ability.extra.colour}, center.ability.extra.txt, center.ability.extra.cash}}
+        local cash = next(SMODS.find_card("j_giga_tRex")) and center.ability.extra.interac.rex_cash or center.ability.extra.cash
+        local set = next(SMODS.find_card("j_giga_velocyraptor")) and 'Spectral' or 'Planet'
+        return {vars = {colours={G.C.SECONDARY_SET[set]}, localize(set:lower(), "labels"), cash}}
     end,
     calculate = function(self, card, context)
-        --Interaction
-        for i, j in ipairs(G.jokers.cards) do
-            if j.ability and j.ability.name == 'j_giga_tRex' then
-                card.ability.extra.interac.rex = true
-                break
-            else
-                card.ability.extra.interac.rex = false
-            end
-        end
-        if card.ability.extra.interac.rex then
-            card.ability.extra.cash = 8
-        else
-            card.ability.extra.cash = 3
-        end
-        for i, j in ipairs(G.jokers.cards) do
-            if j.ability and j.ability.name == 'j_giga_velocyraptor' then
-                card.ability.extra.interac.velo = true
-                break
-            else
-                card.ability.extra.interac.velo = false
-            end
-        end
-        if card.ability.extra.interac.velo then
-            card.ability.extra.txt = 'Spectral'
-            card.ability.extra.colour = G.C.SECONDARY_SET.Spectral
-        else
-            card.ability.extra.txt = 'Planet'
-            card.ability.extra.colour = G.C.SECONDARY_SET.Planet
-        end
-        --Calculate
         if context.scoring_name == 'High Card' then
             if context.individual and context.cardarea == G.play and context.other_card:get_id() == 5 then
                 local to_destroy = context.full_hand[1]
@@ -1384,30 +1342,16 @@ SMODS.Joker{ --Triceratops
         odds = 1,
         chances = 9,
         interac = {
-            ptera = false
+            ptera_chance = 8
         }
     }},
     loc_vars = function(self, info_queue, card)
-        local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.odds, card.ability.extra.chances, 'prob')
+        local chances = next(SMODS.find_card("j_giga_pteranodon")) and card.ability.extra.interac.ptera_chance or card.ability.extra.chances
+        local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.odds, chances, 'prob')
         info_queue[#info_queue+1] = G.P_CENTERS.m_mult
         return { vars = { numerator, denominator } }
     end,
     calculate = function(self, card, context)
-        -- Interaction
-        for i, j in ipairs(G.jokers.cards) do
-            if j.ability and j.ability.name == 'j_giga_pteranodon' then
-                card.ability.extra.interac.ptera = true
-                break
-            else
-                card.ability.extra.interac.ptera = false
-            end
-        end
-        if card.ability.extra.interac.ptera then
-            card.ability.extra.chances = 8
-        else
-            card.ability.extra.chips_add = 9
-        end
-        -- Calculate
         if context.individual and context.cardarea == G.play then 
             if SMODS.has_enhancement(context.other_card, 'm_mult') then
                 if SMODS.pseudorandom_probability(card, 'giga_triceratops', card.ability.extra.odds, card.ability.extra.chances, 'tcrtp_prob1') then
