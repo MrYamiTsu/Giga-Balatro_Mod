@@ -16,7 +16,7 @@ SMODS.Enhancement{ --BigBonus
 	in_pool = function(self) 
 		return false 
 	end,
-	calculate = function(self, card, context, effect)
+	calculate = function(self, card, context)
 		if context.main_scoring and context.cardarea == G.play then
 			return {
 				chips = card.ability.extra.chips,
@@ -41,7 +41,7 @@ SMODS.Enhancement{ --MultPlus
 	in_pool = function(self) 
 		return false 
 	end,
-	calculate = function(self, card, context, effect)
+	calculate = function(self, card, context)
 		if context.main_scoring and context.cardarea == G.play then
 			return {
 				mult = card.ability.extra.mult,
@@ -66,7 +66,7 @@ SMODS.Enhancement{ --EvolvedWild
 	in_pool = function(self) 
 		return false
 	end,
-	calculate = function(self, card, context, effect)
+	calculate = function(self, card, context)
 		if context.before then
 			card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chipsAdd
 			card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.multAdd
@@ -136,7 +136,7 @@ SMODS.Enhancement{ --Titanium
 	in_pool = function(self) 
 		return false 
 	end,
-	calculate = function(self, card, context, effect)
+	calculate = function(self, card, context)
 		if context.final_scoring_step and context.cardarea == G.play then
 			card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_mod
 			return {
@@ -173,7 +173,7 @@ SMODS.Enhancement{ --PolishStone
 	in_pool = function(self) 
 		return false 
 	end,
-	calculate = function(self, card, context, effect)
+	calculate = function(self, card, context)
 		if context.main_scoring and context.cardarea == G.play then
 			return {
 				chips = card.ability.extra.chips,
@@ -200,7 +200,7 @@ SMODS.Enhancement{ --PerfectGold
 	in_pool = function(self) 
 		return false 
 	end,
-	calculate = function(self, card, context, effect)
+	calculate = function(self, card, context)
 		if context.final_scoring_step and context.cardarea == G.play then
 			card.ability.extra.cash = card.ability.extra.cash + card.ability.extra.cash_mod
 			return {
@@ -243,7 +243,7 @@ SMODS.Enhancement{ --Luckiest
 	in_pool = function(self) 
 		return false 
 	end,
-	calculate = function(self, card, context, effect)
+	calculate = function(self, card, context)
 		if context.main_scoring and context.cardarea == G.play then
             local effects = {}
             if SMODS.pseudorandom_probability(card, 'giga_luckiest1', card.ability.extra.odds, card.ability.extra.chances1, 'luckiest_prob1') then
@@ -290,7 +290,7 @@ SMODS.Enhancement{ --Soil
 	loc_vars = function(self, info_queue, card)
 		return {vars = { card.ability.extra.chips}}
 	end,
-	calculate = function(self, card, context, effect)
+	calculate = function(self, card, context)
 		if context.main_scoring and context.cardarea == G.play then
 			return {
 				x_chips = card.ability.extra.chips,
@@ -316,7 +316,7 @@ SMODS.Enhancement{ --RichSoil
 	in_pool = function(self) 
 		return false 
 	end,
-	calculate = function(self, card, context, effect)
+	calculate = function(self, card, context)
 		if context.main_scoring and context.cardarea == G.play then
 			return {
 				x_chips = card.ability.extra.chips,
@@ -343,7 +343,7 @@ SMODS.Enhancement{ --FossilSoil
 	in_pool = function(self) 
 		return false 
 	end,
-	calculate = function(self, card, context, effect)
+	calculate = function(self, card, context)
 		if context.main_scoring and context.cardarea == G.play then
 			return {
 				x_chips = card.ability.extra.chips,
