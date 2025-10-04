@@ -1,31 +1,33 @@
 -- TALISMAN --
 to_big = to_big or function(b) return b end
 
+Giga.enhancement_upgrades = {
+    m_giga_soil = "m_giga_richSoil",
+    m_giga_richSoil = "m_giga_fossilSoil",
+    m_bonus = "m_giga_bigBonus",
+    m_steel = "m_giga_titanium",
+    m_stone = "m_giga_polishStone",
+    m_mult = "m_giga_multPlus",
+    m_lucky = "m_giga_luckiest",
+    m_gold = "m_giga_perfectGold",
+    m_glass = "m_giga_reinforcedGlass",
+    m_wild = "m_giga_evolvedWild"
+}
+
+Giga.seal_upgrades = {
+    Red = "giga_redplus",
+    Blue = "giga_blueplus",
+    Gold = "giga_goldplus",
+    Purple = "giga_purpleplus",
+    giga_redplus = "giga_redplusplus",
+    giga_blueplus = "giga_blueplusplus",
+    giga_goldplus = "giga_goldplusplus",
+    giga_purpleplus = "giga_purpleplusplus"
+}
+
 -- UPGRADE FUNCTIONS --
-function check_upgrade(base_enh)
-    local upgraded_enh = nil
-    if base_enh == 'm_giga_soil' then
-        upgraded_enh = 'm_giga_richSoil'
-    elseif base_enh == 'm_giga_richSoil' then
-        upgraded_enh = 'm_giga_fossilSoil'
-    elseif base_enh == 'm_bonus' then
-        upgraded_enh = 'm_giga_bigBonus'
-    elseif base_enh == 'm_steel' then
-        upgraded_enh = 'm_giga_titanium'
-    elseif base_enh == 'm_stone' then
-        upgraded_enh = 'm_giga_polishStone'
-    elseif base_enh == 'm_mult' then
-        upgraded_enh = 'm_giga_multPlus'
-    elseif base_enh == 'm_lucky' then
-        upgraded_enh = 'm_giga_luckiest'
-    elseif base_enh == 'm_gold' then
-        upgraded_enh = 'm_giga_perfectGold'
-    elseif base_enh == 'm_glass' then
-        upgraded_enh = 'm_giga_reinforcedGlass'
-    elseif base_enh == 'm_wild' then
-        upgraded_enh = 'm_giga_evolvedWild'
-    end
-    return upgraded_enh
+function check_upgrade(base_enh) --only keeping the function because i cba to replace it everywhere
+    return Giga.enhancement_upgrades[base_enh]
 end
 function upgrade_enhencement_specific(selected_card, base_enh)
     G.E_MANAGER:add_event(Event({
@@ -89,27 +91,7 @@ function upgrade_enhencement(selected_card)
         end
     }))
     delay(0.2)
-    if SMODS.has_enhancement(selected_card, 'm_giga_soil') then
-        selected_card:set_ability(G.P_CENTERS["m_giga_richSoil"], nil, true)
-    elseif SMODS.has_enhancement(selected_card, 'm_giga_richSoil') then
-        selected_card:set_ability(G.P_CENTERS["m_giga_fossilSoil"], nil, true)
-    elseif SMODS.has_enhancement(selected_card, 'm_bonus') then
-        selected_card:set_ability(G.P_CENTERS["m_giga_bigBonus"], nil, true)
-    elseif SMODS.has_enhancement(selected_card, 'm_steel') then
-        selected_card:set_ability(G.P_CENTERS["m_giga_titanium"], nil, true)
-    elseif SMODS.has_enhancement(selected_card, 'm_stone') then
-        selected_card:set_ability(G.P_CENTERS["m_giga_polishStone"], nil, true)
-    elseif SMODS.has_enhancement(selected_card, 'm_mult') then
-        selected_card:set_ability(G.P_CENTERS["m_giga_multPlus"], nil, true)
-    elseif SMODS.has_enhancement(selected_card, 'm_lucky') then
-        selected_card:set_ability(G.P_CENTERS["m_giga_luckiest"], nil, true)
-    elseif SMODS.has_enhancement(selected_card, 'm_gold') then
-        selected_card:set_ability(G.P_CENTERS["m_giga_perfectGold"], nil, true)
-    elseif SMODS.has_enhancement(selected_card, 'm_glass') then
-        selected_card:set_ability(G.P_CENTERS["m_giga_reinforcedGlass"], nil, true)
-    elseif SMODS.has_enhancement(selected_card, 'm_wild') then
-        selected_card:set_ability(G.P_CENTERS["m_giga_evolvedWild"], nil, true)
-    end
+    selected_card:set_ability(check_upgrade(selected_card.config.center.key))
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
         delay = 0.15,
@@ -148,23 +130,7 @@ function upgrade_seal(selected_card)
         end
     }))
     delay(0.2)
-    if selected_card:get_seal() == "Red" then 
-        selected_card:set_seal("giga_redplus")
-    elseif selected_card:get_seal() == "Blue" then
-        selected_card:set_seal("giga_blueplus")
-    elseif selected_card:get_seal() == "Gold" then
-        selected_card:set_seal("giga_goldplus")
-    elseif selected_card:get_seal() == "Purple" then
-        selected_card:set_seal("giga_purpleplus")
-    elseif selected_card:get_seal() == "giga_redplus" then
-        selected_card:set_seal("giga_redplusplus")
-    elseif selected_card:get_seal() == "giga_blueplus" then
-        selected_card:set_seal("giga_blueplusplus")
-    elseif selected_card:get_seal() == "giga_goldplus" then
-        selected_card:set_seal("giga_goldplusplus")
-    elseif selected_card:get_seal() == "giga_purpleplus" then
-        selected_card:set_seal("giga_purpleplusplus")
-    end
+    selected_card:set_seal(Giga.seal_upgrades[selected_card:get_seal()])
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
         delay = 0.15,
@@ -185,38 +151,22 @@ function upgrade_seal(selected_card)
     delay(0.5)
 end
 function upgraded_enh_condition(card)
-    if SMODS.has_enhancement(card, 'm_giga_richSoil') then
-        return true
-    elseif SMODS.has_enhancement(card, 'm_giga_fossilSoil') then
-        return true
-    elseif SMODS.has_enhancement(card, 'm_giga_bigBonus') then
-        return true
-    elseif SMODS.has_enhancement(card, 'm_giga_titanium') then
-        return true
-    elseif SMODS.has_enhancement(card, 'm_giga_polishStone') then
-        return true
-    elseif SMODS.has_enhancement(card, 'm_giga_multPlus') then
-        return true
-    elseif SMODS.has_enhancement(card, 'm_giga_luckiest') then
-        return true
-    elseif SMODS.has_enhancement(card, 'm_giga_perfectGold') then
-        return true
-    elseif SMODS.has_enhancement(card, 'm_giga_reinforcedGlass') then
-        return true
+    local is_upgraded = false
+    for _, enh in pairs(Giga.enhancement_upgrades) do
+        if enh == card.config.center.key then
+            is_upgraded = true
+        end
     end
-    return false
+    return is_upgraded
 end
 function upgraded_seal_condition(card)
-    if card:get_seal() == "giga_redPlus" then 
-        return true
-    elseif card:get_seal() == "giga_bluePlus" then
-        return true
-    elseif card:get_seal() == "giga_goldPlus" then
-        return true
-    elseif card:get_seal() == "giga_purplePlus" then
-        return true
+    local is_upgraded = false
+    for _, seal in pairs(Giga.seal_upgrades) do
+        if card:get_seal() == seal then
+            is_upgraded = true
+        end
     end
-    return false
+    return is_upgraded
 end
 
 -- CREATE FUNCTIONS --

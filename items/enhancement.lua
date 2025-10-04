@@ -1,4 +1,4 @@
--- UPGRADED --
+--#region UPGRADED VANILLA --
 SMODS.Enhancement{ --BigBonus
 	key = "bigBonus",
 	atlas = "Enhancements",
@@ -7,21 +7,12 @@ SMODS.Enhancement{ --BigBonus
 	unlocked = true,
 	weight = 0,
 	always_scores = true,
-	config = { extra = { 
-        chips = 60,
-    }},
+	config = { bonus = 60 },
 	loc_vars = function(self, info_queue, card)
-		return {vars = { card.ability.extra.chips}}
+		return {vars = { card.ability.bonus}}
 	end,
 	in_pool = function(self) 
 		return false 
-	end,
-	calculate = function(self, card, context, effect)
-		if context.main_scoring and context.cardarea == G.play then
-			return {
-				chips = card.ability.extra.chips,
-			}
-		end
 	end
 }
 SMODS.Enhancement{ --MultPlus
@@ -32,21 +23,12 @@ SMODS.Enhancement{ --MultPlus
 	unlocked = true,
 	always_scores = true,
 	weight = 0,
-	config = { extra = { 
-        mult = 8
-    }},
+	config = { mult = 8},
 	loc_vars = function(self, info_queue, card)
-		return {vars = {card.ability.extra.mult}}
+		return {vars = {card.ability.mult}}
 	end,
 	in_pool = function(self) 
 		return false 
-	end,
-	calculate = function(self, card, context, effect)
-		if context.main_scoring and context.cardarea == G.play then
-			return {
-				mult = card.ability.extra.mult,
-			}
-		end
 	end
 }
 SMODS.Enhancement{ --EvolvedWild
@@ -60,28 +42,14 @@ SMODS.Enhancement{ --EvolvedWild
 	config = { extra = { 
 		chipsAdd = 20,
 		multAdd = 2,
-		chips = 0,
-		mult = 0
-	}},
+	}, bonus = 0, mult = 0},
 	in_pool = function(self) 
 		return false
 	end,
-	calculate = function(self, card, context, effect)
+	calculate = function(self, card, context)
 		if context.before then
-			card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chipsAdd
-			card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.multAdd
-		end
-		if context.main_scoring and context.cardarea == G.play then
-			if card.ability.extra.chips > 0 then
-				return {
-					chips = card.ability.extra.chips
-				}
-			end
-			if card.ability.extra.mult > 0 then
-				return {
-					mult = card.ability.extra.mult
-				}
-			end
+			card.ability.bonus = card.ability.bonus + card.ability.extra.chipsAdd
+			card.ability.mult = card.ability.mult + card.ability.extra.multAdd
 		end
 	end
 }
@@ -90,24 +58,18 @@ SMODS.Enhancement { --ReinforcedGlass
 	atlas = "Enhancements",
     pos = { x = 2, y = 1 },
     config = { extra = {
-		mult = 3,
 		odds = 1,
 		chances = 7
-	}},
+	}, x_mult = 3},
     shatters = true,
     loc_vars = function(self, info_queue, card)
         local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.odds, card.ability.extra.chances, 'prob')
-        return { vars = { card.ability.extra.mult, numerator, denominator } }
+        return { vars = { card.ability.x_mult, numerator, denominator } }
     end,
 	in_pool = function(self) 
 		return false 
 	end,
     calculate = function(self, card, context)
-		if context.main_scoring and context.cardarea == G.play then
-			return {
-				x_mult = card.ability.extra.mult
-			}
-		end
         if context.destroy_card and context.cardarea == G.play and context.destroy_card == card and
             SMODS.pseudorandom_probability(card, 'giga_reinforcedGlass', card.ability.extra.odds, card.ability.extra.chances, 'rg_prob') then
             card.glass_trigger = true 
@@ -126,28 +88,22 @@ SMODS.Enhancement{ --Titanium
 	unlocked = true,
 	always_scores = true,
 	weight = 0,
-	config = { extra = { 
-        mult = 1.75,
+	config = { extra = {
 		mult_mod = 0.05
-    }},
+    }, h_x_mult = 1.75 },
 	loc_vars = function(self, info_queue, card)
-		return {vars = {card.ability.extra.mult, card.ability.extra.mult_mod}}
+		return {vars = {card.ability.h_x_mult, card.ability.extra.mult_mod}}
 	end,
 	in_pool = function(self) 
 		return false 
 	end,
-	calculate = function(self, card, context, effect)
+	calculate = function(self, card, context)
 		if context.final_scoring_step and context.cardarea == G.play then
 			card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_mod
 			return {
 				card = card,
 				message = 'Upgraded !',
-				color = G.C.MONEY,
-			}
-		end
-		if context.main_scoring and context.cardarea == G.hand then
-			return {
-				mult = card.ability.extra.mult,
+				color = G.C.FLITER,
 			}
 		end
 	end
@@ -163,24 +119,13 @@ SMODS.Enhancement{ --PolishStone
 	no_suit = true,
 	always_scores = true,
 	weight = 0,
-	config = { extra = { 
-        chips = 40,
-		xchips = 1.4
-    }},
+	config = { bonus = 40, x_chips = 1.4 },
 	loc_vars = function(self, info_queue, card)
-		return {vars = {card.ability.extra.chips, card.ability.extra.xchips}}
+		return {vars = {card.ability.bonus, card.ability.x_chips}}
 	end,
 	in_pool = function(self) 
 		return false 
 	end,
-	calculate = function(self, card, context, effect)
-		if context.main_scoring and context.cardarea == G.play then
-			return {
-				chips = card.ability.extra.chips,
-				x_chips = card.ability.extra.xchips
-			}
-		end
-	end
 }
 SMODS.Enhancement{ --PerfectGold
 	key = 'perfectGold',
@@ -191,27 +136,21 @@ SMODS.Enhancement{ --PerfectGold
 	always_scores = true,
 	weight = 0,
 	config = { extra = { 
-        cash = 5,
 		cash_mod = 1
-    }},
+    }, h_dollars = 5 },
 	loc_vars = function(self, info_queue, card)
-		return {vars = {card.ability.extra.cash, card.ability.extra.cash_mod}}
+		return {vars = {card.ability.h_dollars, card.ability.extra.cash_mod}}
 	end,
 	in_pool = function(self) 
 		return false 
 	end,
-	calculate = function(self, card, context, effect)
+	calculate = function(self, card, context)
 		if context.final_scoring_step and context.cardarea == G.play then
-			card.ability.extra.cash = card.ability.extra.cash + card.ability.extra.cash_mod
+			card.ability.h_dollars = card.ability.h_dollars + card.ability.extra.cash_mod
 			return {
 				card = card,
 				message = 'Upgraded !',
 				color = G.C.MONEY,
-			}
-		end
-		if context.playing_card_end_of_round and context.cardarea == G.hand then
-			return {
-				dollars = card.ability.extra.cash,
 			}
 		end
 	end
@@ -243,7 +182,7 @@ SMODS.Enhancement{ --Luckiest
 	in_pool = function(self) 
 		return false 
 	end,
-	calculate = function(self, card, context, effect)
+	calculate = function(self, card, context)
 		if context.main_scoring and context.cardarea == G.play then
             local effects = {}
             if SMODS.pseudorandom_probability(card, 'giga_luckiest1', card.ability.extra.odds, card.ability.extra.chances1, 'luckiest_prob1') then
@@ -275,8 +214,8 @@ SMODS.Enhancement{ --Luckiest
 		end
 	end
 }
-
--- NEW --
+--#endregion
+--#region NEW --
 SMODS.Enhancement{ --Soil
 	key = "soil",
 	atlas = "Enhancements",
@@ -284,19 +223,10 @@ SMODS.Enhancement{ --Soil
 	discovered = true,
 	unlocked = true,
 	weight = 0,
-	config = { extra = { 
-        chips = 1.1
-    }},
+	config = { x_chips = 1.1 },
 	loc_vars = function(self, info_queue, card)
-		return {vars = { card.ability.extra.chips}}
+		return {vars = { card.ability.x_chips}}
 	end,
-	calculate = function(self, card, context, effect)
-		if context.main_scoring and context.cardarea == G.play then
-			return {
-				x_chips = card.ability.extra.chips,
-			}
-		end
-	end
 }
 SMODS.Enhancement{ --RichSoil
 	key = "richSoil",
@@ -306,24 +236,13 @@ SMODS.Enhancement{ --RichSoil
 	unlocked = true,
 	weight = 0,
     no_collection = true,
-	config = { extra = { 
-        chips = 1.5,
-        mult = 7
-    }},
+	config = { x_chips = 1.5, mult = 7 },
 	loc_vars = function(self, info_queue, card)
-		return {vars = { card.ability.extra.chips, card.ability.extra.mult}}
+		return {vars = { card.ability.x_chips, card.ability.mult}}
 	end,
 	in_pool = function(self) 
 		return false 
 	end,
-	calculate = function(self, card, context, effect)
-		if context.main_scoring and context.cardarea == G.play then
-			return {
-				x_chips = card.ability.extra.chips,
-                mult = card.ability.extra.mult
-			}
-		end
-	end
 }
 SMODS.Enhancement{ --FossilSoil
 	key = "fossilSoil",
@@ -333,22 +252,12 @@ SMODS.Enhancement{ --FossilSoil
 	unlocked = true,
 	weight = 0,
     no_collection = true,
-	config = { extra = { 
-        chips = 2,
-        mult = 1.5
-    }},
+	config = { x_chips = 2, x_mult = 1.5 },
 	loc_vars = function(self, info_queue, card)
-		return {vars = { card.ability.extra.chips, card.ability.extra.mult}}
+		return {vars = { card.ability.x_chips, card.ability.x_mult}}
 	end,
 	in_pool = function(self) 
 		return false 
 	end,
-	calculate = function(self, card, context, effect)
-		if context.main_scoring and context.cardarea == G.play then
-			return {
-				x_chips = card.ability.extra.chips,
-                x_mult = card.ability.extra.mult
-			}
-		end
-	end
 }
+--#endregion

@@ -1,4 +1,4 @@
--- FOOD BOOSTER --
+--#region FOOD BOOSTER --
 SMODS.Booster { --RestaurantNormal1
     key = 'restaurantPackNormal1',
     atlas = 'Boosters',
@@ -99,3 +99,4 @@ SMODS.Booster { --RestaurantMega
     weight = 0.14,
     kind = 'Restaurant'
 }
+--#endregion
