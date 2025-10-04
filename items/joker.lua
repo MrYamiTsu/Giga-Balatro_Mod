@@ -1495,14 +1495,7 @@ SMODS.Joker{ --BYUD
             G.E_MANAGER:add_event(Event({
                 blocking = true,
                 func = function()
-                    card:start_dissolve()
-                    G.E_MANAGER:add_event(Event({
-                        delay = 0.8,
-                        func = function()
-                            card:remove()
-                            return true
-                        end
-                    }))
+                    SMODS.destroy_cards(card)
                     return true
                 end
             }))
@@ -1565,7 +1558,7 @@ SMODS.Joker{ --DMK
             end
             if context.other_card:get_id() >= 7 then
                 table.insert(effects, {
-                    xmult = card.ability.extra.xmult2,
+                    xmult = card.ability.extra.xmult2, --duplicate entry xmult, old one gets overridden if this succeeds
                     delay = 0.6
                 })
             end
@@ -1613,10 +1606,7 @@ SMODS.Joker{ --BlackLusterSoldier
         if context.individual and context.cardarea == G.play then
             local effects = {}
             table.insert(effects, {
-                card = card,
-                mult_mod = card.ability.extra.mult,
-                message = '+' .. card.ability.extra.mult,
-                colour = G.C.MULT,
+                mult = card.ability.extra.mult,
                 delay = 0.4
             })
             if context.other_card:get_id() == 9 then
@@ -1653,25 +1643,15 @@ SMODS.Joker{ --DarkMagician
     end,
     calculate = function(self,card,context)
         local moc_ready = false
-        for i, j in ipairs(G.jokers.cards) do
-            if j.ability and j.ability.name == 'j_giga_blackLusterSoldier' then
-                moc_ready = true
-                break
-            end
+        if next(SMODS.find_card("j_giga_blackLusterSoldier")) then
+            moc_ready = true
         end
         if context.setting_blind and moc_ready then
-            SMODS.add_card{key = "j_giga_moc", edition = "e_negative"}
             G.E_MANAGER:add_event(Event({
                 blocking = true,
                 func = function()
-                    card:start_dissolve()
-                    G.E_MANAGER:add_event(Event({
-                        delay = 0.8,
-                        func = function()
-                            card:remove()
-                            return true
-                        end
-                    }))
+                    SMODS.add_card{key = "j_giga_moc", edition = "e_negative"}
+                    SMODS.destroy_cards(card)
                     return true
                 end
             }))
@@ -1680,19 +1660,13 @@ SMODS.Joker{ --DarkMagician
             local effects = {}
             if context.other_card:is_suit("Diamonds", true) then
                 table.insert(effects, {
-                    card = card,
-                    mult_mod = card.ability.extra.mult,
-                    message = '+' .. card.ability.extra.mult,
-                    colour = G.C.MULT,
+                    mult = card.ability.extra.mult,
                     delay = 0.4
                 })
             end
             if context.other_card:get_id() == 7 then
                 table.insert(effects, {
-                    card = card,
                     xmult = card.ability.extra.xmult,
-                    message = 'X' .. card.ability.extra.xmult,
-                    colour = G.C.MULT,
                     delay = 0.4
                 })
             end
@@ -1725,27 +1699,18 @@ SMODS.Joker{ --MOC
         if context.individual and context.cardarea == G.play then
             local effects = {}
             table.insert(effects, {
-                card = card,
-                mult_mod = card.ability.extra.mult1,
-                message = '+' .. card.ability.extra.mult1,
-                colour = G.C.MULT,
+                mult = card.ability.extra.mult1,
                 delay = 0.6
             })
             if context.other_card:is_suit("Diamonds", true) then
                 table.insert(effects, {
-                    card = card,
-                    mult_mod = card.ability.extra.mult2,
-                    message = '+' .. card.ability.extra.mult2,
-                    colour = G.C.MULT,
+                    mult = card.ability.extra.mult2,
                     delay = 0.6
                 })
             end
             if context.other_card:get_id() <= 9 then
                 table.insert(effects, {
-                    card = card,
                     xmult = card.ability.extra.xmult,
-                    message = 'X' .. card.ability.extra.xmult,
-                    colour = G.C.MULT,
                     delay = 0.6
                 })
             end
@@ -1775,10 +1740,7 @@ SMODS.Joker{ --LLOTFO
         if context.individual and context.cardarea == G.play then
             if context.other_card:is_suit("Spades", true) then
                 return {
-                    card = card,
-                    chip_mod = card.ability.extra.chips,
-                    message = localize{type='variable',key='a_chips',vars={card.ability.extra.chips}},
-                    colour = G.C.CHIP
+                    chips = card.ability.extra.chips,
                 }
             end
         end
@@ -1804,10 +1766,7 @@ SMODS.Joker{ --RLOTFO
         if context.individual and context.cardarea == G.play then
             if context.other_card:is_suit("Clubs", true) then
                 return {
-                    card = card,
-                    chip_mod = card.ability.extra.chips,
-                    message = localize{type='variable',key='a_chips',vars={card.ability.extra.chips}},
-                    colour = G.C.CHIP
+                    chips = card.ability.extra.chips,
                 }
             end
         end
@@ -1833,10 +1792,7 @@ SMODS.Joker{ --LAOTFO
         if context.individual and context.cardarea == G.play then
             if context.other_card:is_suit("Hearts", true) then
                 return {
-                    card = card,
-                    chip_mod = card.ability.extra.chips,
-                    message = localize{type='variable',key='a_chips',vars={card.ability.extra.chips}},
-                    colour = G.C.CHIP
+                    chips = card.ability.extra.chips,
                 }
             end
         end
@@ -1862,10 +1818,7 @@ SMODS.Joker{ --RAOTFO
         if context.individual and context.cardarea == G.play then
             if context.other_card:is_suit("Diamonds", true) then
                 return {
-                    card = card,
-                    chip_mod = card.ability.extra.chips,
-                    message = localize{type='variable',key='a_chips',vars={card.ability.extra.chips}},
-                    colour = G.C.CHIP
+                    chips = card.ability.extra.chips,
                 }
             end
         end
@@ -1893,40 +1846,31 @@ SMODS.Joker{ --ETFO
         local bool2 = false
         local bool3 = false
         local bool4 = false
-        for i, j in ipairs(G.jokers.cards) do
-            if j.ability and j.ability.name == 'j_giga_llotfo' then
-                bool1 = true
-            end
-            if j.ability and j.ability.name == 'j_giga_rlotfo' then
-                bool2 = true
-            end
-            if j.ability and j.ability.name == 'j_giga_laotfo' then
-                bool3 = true
-            end
-            if j.ability and j.ability.name == 'j_giga_raotfo' then
-                bool4 = true
-            end
-            if bool1 and bool2 and bool3 and bool4 then
-                tlei_ready = true
-                break
-            end
+        if next(SMODS.find_card('j_giga_llotfo')) then
+            bool1 = true
+        end
+        if next(SMODS.find_card('j_giga_rlotfo')) then
+            bool2 = true
+        end
+        if next(SMODS.find_card('j_giga_laotfo')) then
+            bool3 = true
+        end
+        if next(SMODS.find_card('j_giga_raotfo')) then
+            bool4 = true
+        end
+        if bool1 and bool2 and bool3 and bool4 then
+            tlei_ready = true
         end
         if context.setting_blind and tlei_ready then
             SMODS.add_card{key = "j_giga_tlei", edition = "e_negative"}
             G.E_MANAGER:add_event(Event({
                 blocking = true,
                 func = function()
-                    card:start_dissolve()
-                    G.E_MANAGER:add_event(Event({
-                        delay = 0.8,
-                        func = function()
-                            card:remove()
-                            return true
-                        end
-                    }))
+                    SMODS.destroy_cards(card)
                     return true
                 end
             }))
+            local _first_dissolve = false
             for i, j in ipairs(G.jokers.cards) do
                 if j.ability and (j.ability.name == 'j_giga_llotfo' or
                                   j.ability.name == 'j_giga_rlotfo' or
@@ -1935,7 +1879,7 @@ SMODS.Joker{ --ETFO
                     G.E_MANAGER:add_event(Event({
                         blocking = true,
                         func = function()
-                            j:start_dissolve()
+                            j:start_dissolve(nil, _first_dissolve)
                             G.E_MANAGER:add_event(Event({
                                 delay = 0.8,
                                 func = function()
@@ -1983,10 +1927,7 @@ SMODS.Joker{ --TLEI
         end
         if context.joker_main then
             return {
-                card = card,
                 xmult = card.ability.extra.mult,
-                message = 'X' .. card.ability.extra.mult,
-                colour = G.C.MULT
             }
         end
     end
