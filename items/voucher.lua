@@ -11,7 +11,7 @@ SMODS.Voucher{ --NewMenu
         return {vars = {card.ability.extra.card}}
     end,
     redeem = function(self, vouchers)
-        G.GAME.giga.vouchers.newMenu = (G.GAME.giga.vouchers.newMenu or 0) + vouchers.ability.extra.card
+        G.GAME.giga.vouchers.newMenu = (G.GAME.giga.vouchers.newMenu or 0) + vouchers.ability.extra.card --same here
     end
 }
 SMODS.Voucher{ --5-CourseMeal
@@ -27,7 +27,7 @@ SMODS.Voucher{ --5-CourseMeal
     end,
     requires = {'v_giga_newMenu'},
     redeem = function(self, vouchers)
-        G.GAME.giga.vouchers._courseMeal = (G.GAME.giga.vouchers._courseMeal or 0) + vouchers.ability.extra.choice
+        G.GAME.giga.vouchers._courseMeal = (G.GAME.giga.vouchers._courseMeal or 0) + vouchers.ability.extra.choice --this isnt used anywhere else, is this needed?
     end
 }
 
@@ -40,7 +40,7 @@ SMODS.Voucher{ --FoodStand
     redeem = function(self)
         G.E_MANAGER:add_event(Event({
             func = function()
-                G.GAME.food_rate = 2
+                G.GAME.giga_food_rate = 2
                 return true
             end
         }))
@@ -55,8 +55,8 @@ SMODS.Voucher{ --HomeDelivery
     redeem = function(self)
         G.E_MANAGER:add_event(Event({
             func = function()
-                if G.Game.food_rate < 5 then
-                    G.GAME.food_rate = G.GAME.food_rate * 2.5
+                if G.GAME.giga_food_rate < 5 then --not sure why this check is needed, you cant get duplicate vouchers anyway
+                    G.GAME.giga_food_rate = G.GAME.giga_food_rate * 2.5
                 end
                 return true
             end
