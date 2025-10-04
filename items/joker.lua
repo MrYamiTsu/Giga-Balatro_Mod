@@ -1200,14 +1200,7 @@ SMODS.Joker{ --TRex
                     G.E_MANAGER:add_event(Event({
                         blocking = true,
                         func = function()
-                            to_destroy:start_dissolve()
-                            G.E_MANAGER:add_event(Event({
-                                delay = 0.4,
-                                func = function()
-                                    to_destroy:remove()
-                                    return true
-                                end
-                            }))
+                            SMODS.destroy_cards(to_destroy)
                             return true
                         end
                     }))
@@ -1306,14 +1299,7 @@ SMODS.Joker{ --Pteranodon
                 G.E_MANAGER:add_event(Event({
                     blocking = true,
                     func = function()
-                        to_destroy:start_dissolve()
-                        G.E_MANAGER:add_event(Event({
-                            delay = 0.4,
-                            func = function()
-                                to_destroy:remove()
-                                return true
-                            end
-                        }))
+                        SMODS.destroy_cards(to_destroy)
                         return true
                     end
                 }))
@@ -1395,7 +1381,7 @@ SMODS.Joker{ --BlueEyesWhiteDragon
     calculate = function(self,card,context)
         local byud_ready = 0
         for i, j in ipairs(G.jokers.cards) do
-            if j.ability and j.ability.name == 'j_giga_blueEyesWhiteDragon' then
+            if j.config.center.key == 'j_giga_blueEyesWhiteDragon' then
                 byud_ready = byud_ready + 1
                 if byud_ready >= 3 then
                     break
@@ -1404,7 +1390,7 @@ SMODS.Joker{ --BlueEyesWhiteDragon
         end
         local has_byud = false
         for i, j in ipairs(G.jokers.cards) do
-            if j.ability and j.ability.name == 'j_giga_byud' then
+            if j.config.center.key == 'j_giga_byud' then
                 has_byud = true
                 break
             end
@@ -1416,14 +1402,7 @@ SMODS.Joker{ --BlueEyesWhiteDragon
             G.E_MANAGER:add_event(Event({
                 blocking = true,
                 func = function()
-                    card:start_dissolve()
-                    G.E_MANAGER:add_event(Event({
-                        delay = 0.8,
-                        func = function()
-                            card:remove()
-                            return true
-                        end
-                    }))
+                    SMODS.destroy_cards(card)
                     return true
                 end
             }))
@@ -1470,19 +1449,13 @@ SMODS.Joker{ --RedEyesBlackDragon
             local effects = {}
             if context.other_card:is_suit("Spades", true) then
                 table.insert(effects, {
-                    card = card,
-                    mult_mod = card.ability.extra.mult,
-                    message = '+' .. card.ability.extra.mult,
-                    colour = G.C.MULT,
+                    mult = card.ability.extra.mult,
                     delay = 0.4
                 })
             end
             if context.other_card:get_id() == 11 then
                 table.insert(effects, {
-                    card = card,
-                    Xmult_mod = card.ability.extra.xmult,
-                    message = 'X' .. card.ability.extra.xmult,
-                    colour = G.C.MULT,
+                    xmult = card.ability.extra.xmult,
                     delay = 0.4
                 })
             end
@@ -1514,11 +1487,8 @@ SMODS.Joker{ --BYUD
     end,
     calculate = function(self,card,context)
         local dmk_ready = false
-        for i, j in ipairs(G.jokers.cards) do
-            if j.ability and j.ability.name == 'j_giga_blackLusterSoldier' then
-                dmk_ready = true
-                break
-            end
+        if next(SMODS.find_card('j_giga_blackLusterSoldier')) then
+            dmk_ready = true
         end
         if context.setting_blind and dmk_ready then
             SMODS.add_card{key = "j_giga_dmk", edition = "e_negative"}
@@ -1540,27 +1510,18 @@ SMODS.Joker{ --BYUD
         if context.individual and context.cardarea == G.play then
             local effects = {}
             table.insert(effects, {
-                card = card,
-                mult_mod = card.ability.extra.mult,
-                message = '+' .. card.ability.extra.mult,
-                colour = G.C.MULT,
+                mult = card.ability.extra.mult,
                 delay = 0.6
             })
             if context.other_card:is_suit("Clubs", true) then
                 table.insert(effects, {
-                    card = card,
-                    Xmult_mod = card.ability.extra.xmult1,
-                    message = 'X' .. card.ability.extra.xmult1,
-                    colour = G.C.MULT,
+                    xmult = card.ability.extra.xmult1,
                     delay = 0.6
                 })
             end
             if context.other_card:get_id() >= 8 then
                 table.insert(effects, {
-                    card = card,
-                    Xmult_mod = card.ability.extra.xmult2,
-                    message = 'X' .. card.ability.extra.xmult2,
-                    colour = G.C.MULT,
+                    xmult = card.ability.extra.xmult2,
                     delay = 0.6
                 })
             end
@@ -1593,27 +1554,18 @@ SMODS.Joker{ --DMK
         if context.individual and context.cardarea == G.play then
             local effects = {}
             table.insert(effects, {
-                card = card,
-                mult_mod = card.ability.extra.mult,
-                message = '+' .. card.ability.extra.mult,
-                colour = G.C.MULT,
+                mult = card.ability.extra.mult,
                 delay = 0.6
             })
             if context.other_card:is_suit("Clubs", true) then
                 table.insert(effects, {
-                    card = card,
-                    Xmult_mod = card.ability.extra.xmult1,
-                    message = 'X' .. card.ability.extra.xmult1,
-                    colour = G.C.MULT,
+                    xmult = card.ability.extra.xmult1,
                     delay = 0.6
                 })
             end
             if context.other_card:get_id() >= 7 then
                 table.insert(effects, {
-                    card = card,
-                    Xmult_mod = card.ability.extra.xmult2,
-                    message = 'X' .. card.ability.extra.xmult2,
-                    colour = G.C.MULT,
+                    xmult = card.ability.extra.xmult2,
                     delay = 0.6
                 })
             end
@@ -1642,31 +1594,18 @@ SMODS.Joker{ --BlackLusterSoldier
     end,
     calculate = function(self,card,context)
         local dmk_ready = false
-        for i, j in ipairs(G.jokers.cards) do
-            if j.ability and j.ability.name == 'j_giga_byud' then
-                dmk_ready = true
-                break
-            end
+        if next(SMODS.find_card('j_giga_byud')) then
+            dmk_ready = true
         end
         local moc_ready = false
-        for i, j in ipairs(G.jokers.cards) do
-            if j.ability and j.ability.name == 'j_giga_darkMagician' then
-                moc_ready = true
-                break
-            end
+        if next(SMODS.find_card('j_giga_darkMagician')) then
+            moc_ready = true
         end
         if context.setting_blind and (dmk_ready or moc_ready) then
             G.E_MANAGER:add_event(Event({
                 blocking = true,
                 func = function()
-                    card:start_dissolve()
-                    G.E_MANAGER:add_event(Event({
-                        delay = 0.8,
-                        func = function()
-                            card:remove()
-                            return true
-                        end
-                    }))
+                    SMODS.destroy_cards(card)
                     return true
                 end
             }))
@@ -1683,7 +1622,7 @@ SMODS.Joker{ --BlackLusterSoldier
             if context.other_card:get_id() == 9 then
                 table.insert(effects, {
                     card = card,
-                    Xmult_mod = card.ability.extra.xmult,
+                    xmult = card.ability.extra.xmult,
                     message = 'X' .. card.ability.extra.xmult,
                     colour = G.C.MULT,
                     delay = 0.4
@@ -1751,7 +1690,7 @@ SMODS.Joker{ --DarkMagician
             if context.other_card:get_id() == 7 then
                 table.insert(effects, {
                     card = card,
-                    Xmult_mod = card.ability.extra.xmult,
+                    xmult = card.ability.extra.xmult,
                     message = 'X' .. card.ability.extra.xmult,
                     colour = G.C.MULT,
                     delay = 0.4
@@ -1804,7 +1743,7 @@ SMODS.Joker{ --MOC
             if context.other_card:get_id() <= 9 then
                 table.insert(effects, {
                     card = card,
-                    Xmult_mod = card.ability.extra.xmult,
+                    xmult = card.ability.extra.xmult,
                     message = 'X' .. card.ability.extra.xmult,
                     colour = G.C.MULT,
                     delay = 0.6
@@ -2045,7 +1984,7 @@ SMODS.Joker{ --TLEI
         if context.joker_main then
             return {
                 card = card,
-                Xmult_mod = card.ability.extra.mult,
+                xmult = card.ability.extra.mult,
                 message = 'X' .. card.ability.extra.mult,
                 colour = G.C.MULT
             }
