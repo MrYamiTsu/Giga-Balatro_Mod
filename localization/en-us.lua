@@ -128,9 +128,10 @@ return {
             m_giga_evolvedWild = {
                 name = 'Evolved Wild Card',
                 text = {
-                    "Can't be {C:attention}debuff{}",
-                    '{C:attention}Remove debuff{} of',
-                    'other card when {C:attention}drawn{}'
+                    '{C:mult}+#1#{} Mult, {C:chips}+#2#{} Chips',
+                    'increase by {C:mult}+#3#{} Mult,',
+                    '{C:chips}+#4#{} Chips when {C:attention}played{}',
+                    '{C:inactive,s:0.7}This effect is temporary{}'
                 }
             }
         },
@@ -333,7 +334,7 @@ return {
                     'card into {C:clubs}Club{} suit'
                 }
             },
-            c_giga_Untitled13 = {
+            c_giga_donut = {
                 name = 'Donut',
                 text = {
                     'A delicious Donut that',
@@ -843,10 +844,10 @@ return {
             j_giga_bonoboJoker = {
                 name = 'Bonobo Joker',
                 text = {
-                    'Give {C:attention}half{} the {C:attention}rank{} of',
-                    'each {C:attention}held{} in hand cards',
-                    'as {C:mult}Mult{}, if {C:attention}5{} cards are',
-                    'played'
+                    'Give {C:attention}half{} the {C:attention}chip{} value',
+                    'of each {C:attention}held{} in hand',
+                    'cards as {C:mult}Mult{}, if {C:attention}5{} cards',
+                    'are {C:attention}played{}'
                 }
             }
         },
