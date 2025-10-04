@@ -28,7 +28,7 @@
 <h2>Elements</h2>
 <ul>
     <li>42+ Jokers</li>
-    <li>31 Foods (+7 Cross-Mod)</li>
+    <li>31 Food cards (+8 Cross-Mod)</li>
     <li>11 Seals</li>
     <li>9+ Enhancements</li>
     <li>5 Decks</li>
