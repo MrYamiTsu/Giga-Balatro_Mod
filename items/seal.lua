@@ -40,7 +40,7 @@ SMODS.Seal{ --Blue+
         chances = 6
     }},
     loc_vars = function(self, info_queue, card)
-        local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'prob')
+        local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'giga_bluePlus')
         return {vars = {odds, chances}}
     end,
     in_pool = function(self) 
@@ -54,9 +54,8 @@ SMODS.Seal{ --Blue+
                 trigger = 'before',
                 delay = 0.0,
                 func = function()
-                    if SMODS.pseudorandom_probability(card, 'giga_bluePlus', self.config.extra.odds, self.config.extra.chances, 'bp_prob') then
+                    if SMODS.pseudorandom_probability(card, 'giga_bluePlus', self.config.extra.odds, self.config.extra.chances) then
                         SMODS.add_card({key = 'c_black_hole'})
-                        G.GAME.consumeable_buffer = 0
                     else
                         if G.GAME.last_hand_played then
                             local planet = nil
@@ -68,9 +67,9 @@ SMODS.Seal{ --Blue+
                             if planet then
                                 SMODS.add_card({key = planet})
                             end
-                            G.GAME.consumeable_buffer = 0
                         end
                     end
+                    G.GAME.consumeable_buffer = 0
                     return true
                 end
             }))
@@ -86,10 +85,6 @@ SMODS.Seal{ --Gold+
     config = { extra = {
         cash = 6,
         cashPlus = 6,
-        interac = {
-            has_gold = false,
-            has_pGold = false
-        }
     }},
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = G.P_CENTERS.m_gold
@@ -100,38 +95,30 @@ SMODS.Seal{ --Gold+
 	end,
     calculate = function(self, card, context)
         if context.main_scoring and context.cardarea == G.play then
+            local has_pGold, has_gold
             for i, c in ipairs(context.full_hand or {}) do
                 if SMODS.has_enhancement(c, 'm_giga_perfectGold') then
-                    self.config.extra.interac.has_pGold = true
+                    has_pGold = true
                 elseif SMODS.has_enhancement(c, 'm_gold') then
-                    self.config.extra.interac.has_gold = true
+                    has_gold = true
                 end
-                if self.config.extra.interac.has_pGold then
+                if has_pGold then
                     break
                 end
             end
-            local effects = {}
-            if self.config.extra.interac.has_pGold then
-                table.insert(effects, {
-                    dollars = self.config.extra.cash + (self.config.extra.cashPlus * 2),
-                    delay = 0.6
-                })
-            elseif self.config.extra.interac.has_gold then
-                table.insert(effects, {
-                    dollars = self.config.extra.cash + self.config.extra.cashPlus,
-                    delay = 0.6
-                })
+            if has_pGold then
+                return {
+                    dollars = self.config.extra.cash + (self.config.extra.cashPlus * 2)
+                }
+            elseif has_gold then
+                return {
+                    dollars = self.config.extra.cash + self.config.extra.cashPlus
+                }
             else
-                table.insert(effects, {
-                    dollars = self.config.extra.cash,
-                    delay = 0.6
-                })
+                return {
+                    dollars = self.config.extra.cash
+                }
             end
-            if #effects > 0 then
-                return SMODS.merge_effects(effects)
-            end
-            self.config.extra.interac.has_pGold = false
-            self.config.extra.interac.has_gold = false
         end
     end,
     -- From VanillaRemade (so thx VanillaRemade)
@@ -154,7 +141,7 @@ SMODS.Seal{ --Purple+
         chances = 8
     }},
     loc_vars = function(self, info_queue, card)
-        local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'prob')
+        local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'giga_purplePlus')
         return {vars = {self.config.extra.card, odds, chances}}
     end,
     in_pool = function(self) 
@@ -162,14 +149,21 @@ SMODS.Seal{ --Purple+
 	end,
     calculate = function(self, card, context)
         if context.discard and context.other_card == card then
-            for i = 1, self.config.extra.card, 1 do
-                if SMODS.pseudorandom_probability(card, 'giga_purplePlus', self.config.extra.odds, self.config.extra.chances, 'pp_prob') then
-                    _create(self,'Spectral', G.consumeables,false,false)
-                    delay(0.4)
-                else
-                    _create(self,'Tarot', G.consumeables,false,false)
-                    delay(0.4)
+            for _ = 1, self.config.extra.card, 1 do
+                local spectral
+                if SMODS.pseudorandom_probability(card, 'giga_purplePlus', self.config.extra.odds, self.config.extra.chances) then 
+                    spectral = true
                 end
+                G.E_MANAGER:add_event(Event({
+                    func = function ()
+                        if spectral then
+                            _create(self,'Spectral', G.consumeables,false,false)
+                        else
+                            _create(self,'Tarot', G.consumeables,false,false)
+                        end
+                    end
+                }))
+                SMODS.calculate_effect({ message = localize(spectral and "k_plus_spectral" or "k_plus_tarot"), colour = G.C.PURPLE }, card)
 		    end
         end
     end,
@@ -191,7 +185,7 @@ SMODS.Seal{ --Red++
     calculate = function(self, card, context)
         if context.repetition then
             local additionalRep = -1
-            for i, c in pairs(G.hand.cards) do
+            for _, c in pairs(G.hand.cards) do
                 if c:get_seal() == 'giga_redPlusPlus' then
                     additionalRep = additionalRep + 0.5
                 end
@@ -200,8 +194,7 @@ SMODS.Seal{ --Red++
                 if c:get_seal() == 'giga_redPlusPlus' then
                     additionalRep = additionalRep + 0.5
                 end
-            end
-            math.floor(additionalRep)
+            end --flooring this is unneeded, decimal retriggers are ignored
             return {
                 repetitions = self.config.extra.rep + additionalRep
             }
@@ -218,7 +211,7 @@ SMODS.Seal{ --Blue++
         chances = 3
     }},
     loc_vars = function(self, info_queue, card)
-        local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'prob')
+        local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'giga_bluePlusPlus')
         return {vars = {odds, chances}}
     end,
     in_pool = function(self) 
@@ -232,7 +225,7 @@ SMODS.Seal{ --Blue++
                 trigger = 'before',
                 delay = 0.0,
                 func = function()
-                    if SMODS.pseudorandom_probability(card, 'giga_bluePlus', self.config.extra.odds, self.config.extra.chances, 'bp_prob') then
+                    if SMODS.pseudorandom_probability(card, 'giga_bluePlusPlus', self.config.extra.odds, self.config.extra.chances) then
                         SMODS.add_card({key = 'c_black_hole', edition = 'e_negative'})
                         G.GAME.consumeable_buffer = 0
                     else
@@ -265,14 +258,10 @@ SMODS.Seal{ --Gold++
         cash = 8,
         cashAdd = 2,
         cashPlus = 6,
-        interac = {
-            has_gold = false,
-            has_pGold = false
-        }
     }},
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = G.P_CENTERS.m_gold
-        return {vars = {self.config.extra.cash, self.config.extra.cashAdd, self.config.extra.cashPlus}}
+        return {vars = {self.config.extra.cash + (card.ability.giga_goldplusplus_increase or 0), self.config.extra.cashAdd, self.config.extra.cashPlus}}
     end,
     in_pool = function(self) 
 		return false 
@@ -283,65 +272,36 @@ SMODS.Seal{ --Gold++
                 message = 'Upgraded',
                 colour = G.C.MONEY,
                 func = function()
-                    self.config.extra.cash = self.config.extra.cash + self.config.extra.cashAdd
+                    card.ability.giga_goldplusplus_increase = (card.ability.giga_goldplusplus_increase or 0) + self.ability.cashAdd
                     return true
                 end
             }
         end
         if context.main_scoring and context.cardarea == G.play then
+            local has_pGold, has_gold
             for i, c in ipairs(context.full_hand or {}) do
                 if SMODS.has_enhancement(c, 'm_giga_perfectGold') then
-                    self.config.extra.interac.has_pGold = true
+                    has_pGold = true
                 elseif SMODS.has_enhancement(c, 'm_gold') then
-                    self.config.extra.interac.has_gold = true
+                    has_gold = true
                 end
-                if self.config.extra.interac.has_pGold then
+                if has_pGold then
                     break
                 end
             end
-            local effects = {}
-            if self.config.extra.interac.has_pGold then
-                table.insert(effects, {
-                    dollars = self.config.extra.cash + (self.config.extra.cashPlus * 2),
-                    delay = 0.6
-                })
-            elseif self.config.extra.interac.has_gold then
-                table.insert(effects, {
-                    dollars = self.config.extra.cash + self.config.extra.cashPlus,
-                    delay = 0.6
-                })
-            else
-                table.insert(effects, {
-                    dollars = self.config.extra.cash,
-                    delay = 0.6
-                })
-            end
-            if self.config.extra.cash > 8 then
-                table.insert(effects, {
-                    message = 'Reset',
-                    colour = G.C.MULT,
-                    func = function()
-                        self.config.extra.cash = 8
-                        return true
-                    end,
-                    delay = 0.6
-                })
-            end
-            if #effects > 0 then
-                return SMODS.merge_effects(effects)
-            end
-            self.config.extra.interac.has_pGold = false
-            self.config.extra.interac.has_gold = false
-        end
-        if context.end_of_round and context.main_eval then
-            if self.config.extra.cash > 8 then
+            if has_pGold then
                 return {
-                    message = 'Reset',
-                    colour = G.C.MULT,
-                    func = function()
-                        self.config.extra.cash = 8
-                        return true
-                    end
+                    dollars = self.config.extra.cash + (self.config.extra.cashPlus * 2) + (card.ability.giga_goldplusplus_increase or 0),
+                    delay = 0.6
+                }
+            elseif has_gold then
+                return{
+                    dollars = self.config.extra.cash + self.config.extra.cashPlus + (card.ability.giga_goldplusplus_increase or 0),
+                    delay = 0.6
+                }
+            else
+                return {
+                    dollars = self.config.extra.cash + (card.ability.giga_goldplusplus_increase or 0)
                 }
             end
         end
@@ -368,7 +328,7 @@ SMODS.Seal{ --Purple++
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = { set = 'Tag', key = 'tag_charm' }
         info_queue[#info_queue + 1] = { set = 'Tag', key = 'tag_ethereal'}
-        local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'prob1')
+        local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'giga_purplePlusPlus')
         return {vars = {self.config.extra.card, odds, chances}}
     end,
     in_pool = function(self) 
@@ -377,12 +337,15 @@ SMODS.Seal{ --Purple++
     calculate = function(self, card, context)
         if context.discard and context.other_card == card then
             for i = 1, self.config.extra.card, 1 do
-                _create(self,'Tarot', G.consumeables,true,false)
-                delay(0.4)
+                G.E_MANAGER:add_event(Event({
+                    func = function ()
+                        _create(self,'Tarot', G.consumeables,true,false)
+                    end
+                }))
 		    end
             G.E_MANAGER:add_event(Event({
                 func = (function()
-                    if SMODS.pseudorandom_probability(card, 'giga_purplePlusPlus', self.config.extra.odds, self.config.extra.chances, 'ppp_prob') then
+                    if SMODS.pseudorandom_probability(card, 'giga_purplePlusPlus', self.config.extra.odds, self.config.extra.chances) then
                         add_tag(Tag('tag_ethereal'))
                     else
                         add_tag(Tag('tag_charm'))
@@ -409,8 +372,12 @@ SMODS.Seal { --Pink
     calculate = function(self, card, context)
         if context.cardarea == G.play and context.main_scoring then
             for i = 1, self.config.extra.card, 1 do
-                _create(card, 'Giga_Food', G.consumeables,true,true)
-                delay(0.4)
+                G.E_MANAGER:add_event(Event({
+                    func = function ()
+                        _create(card, 'Giga_Food', G.consumeables,true,true)
+                    end
+                }))
+                
 		    end
             return {
                 message = 'Create !',
@@ -457,7 +424,7 @@ SMODS.Seal { --Aqua
             card.ability.perma_bonus = card.ability.perma_bonus + self.config.extra.chips
             return {
                 message = 'Upgraded',
-                colour = G.C.MULT
+                colour = G.C.CHIPS --i dont think this was supposed to be mult?
             }
         end
     end,
