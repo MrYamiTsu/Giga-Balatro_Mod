@@ -717,12 +717,12 @@ SMODS.Joker{ --Nahnahu
     }},
     loc_vars = function(self, info_queue, center)
         local cards = 0
-        for _, c in pairs(G.playing_cards) do
+        for _, c in pairs(G.playing_cards or {}) do
             if c:is_suit(center.ability.extra.suit) then
                 cards = cards+1
             end
         end
-        return {vars = {colours={G.C.SUITS[center.ability.suit]}, center.ability.extra.mult, center.ability.extra.suit, center.ability.extra.mult*cards}}
+        return {vars = {colours={G.C.SUITS[center.ability.extra.suit]}, center.ability.extra.mult, center.ability.extra.suit, center.ability.extra.mult * cards}}
     end,
     calculate = function(self, card, context)
         if context.joker_main then
