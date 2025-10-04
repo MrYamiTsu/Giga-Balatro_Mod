@@ -684,6 +684,15 @@ SMODS.Joker{ --HealthyRoots
         return {vars = {center.ability.extra.mult}}
     end,
     calculate = function(self, card, context)
+        if context.before and not context.blueprint then
+            if #G.hand.cards > 0 then
+                return {
+                    card = G.hand.cards[1],
+                    message = 'Set',
+                    colour = G.C.MONEY
+                }
+            end
+        end
         if context.individual and context.cardarea == G.play then
             if G.hand.cards[1] and context.other_card:get_id() == G.hand.cards[1]:get_id() then
                 return {
@@ -1180,13 +1189,13 @@ SMODS.Joker{ --TRex
         chips_add = 25,
         round = 1,
         interac = {
-            ptera_mult = 6,
-            ptera_chips = 35,
-        },
+            trice_mult = 6,
+            ptera_chips = 35
+        }
     }},
     loc_vars = function(self, info_queue, center)
         local set = next(SMODS.find_card("j_giga_velocyraptor")) and 'Spectral' or 'Tarot'
-        local _mult = next(SMODS.find_card("j_giga_pteranodon")) and center.ability.extra.interac.ptera_mult or center.ability.extra.mult_add
+        local _mult = next(SMODS.find_card("j_giga_triceratops")) and center.ability.extra.interac.trice_mult or center.ability.extra.mult_add
         local _chips = next(SMODS.find_card("j_giga_pteranodon")) and center.ability.extra.interac.ptera_chips or center.ability.extra.chips_add
         return {vars = {colours={G.C.SECONDARY_SET[set]}, localize(set:lower(), "labels"), _mult, _chips, center.ability.extra.mult, center.ability.extra.chips}}
     end,
