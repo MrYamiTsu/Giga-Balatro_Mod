@@ -166,7 +166,7 @@ SMODS.Consumable{ --CaesarSalad
         if context.end_of_round and context.main_eval then
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
-        if card.ability.extra.round <= 0 and card.ability.extra.txt == 'Not ready yet' and #G.consumeables.cards then
+        if card.ability.extra.round_left <= 0 and card.ability.extra.txt == 'Not ready yet' and #G.consumeables.cards then
             local check_remove = function(card) 
                 return not card.REMOVED
             end
@@ -205,7 +205,7 @@ SMODS.Consumable{ --ClubSandwich
         if context.end_of_round and context.main_eval then
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
-        if card.ability.extra.round <= 0 and card.ability.extra.txt == 'Not ready yet' and #G.consumeables.cards then
+        if card.ability.extra.round_left <= 0 and card.ability.extra.txt == 'Not ready yet' and #G.consumeables.cards then
             local check_remove = function(card) 
                 return not card.REMOVED
             end
@@ -244,7 +244,7 @@ SMODS.Consumable{ --Pho
         if context.end_of_round and context.main_eval then
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
-        if card.ability.extra.round <= 0 and card.ability.extra.txt == 'Not ready yet' and #G.consumeables.cards then
+        if card.ability.extra.round_left <= 0 and card.ability.extra.txt == 'Not ready yet' and #G.consumeables.cards then
             local check_remove = function(card) 
                 return not card.REMOVED
             end
@@ -267,15 +267,11 @@ SMODS.Consumable{ --Spaghetti
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = G.P_CENTERS.m_bonus
         if G.hand then
-            local has_enhancement = false
             for i, _card in ipairs(G.hand.highlighted) do
                 if SMODS.has_enhancement(_card, 'm_bonus') then
-                    has_enhancement = true
+                    info_queue[#info_queue+1] = G.P_CENTERS['m_giga_bigBonus']
                     break
                 end
-            end
-            if has_enhancement then
-                info_queue[#info_queue+1] = G.P_CENTERS['m_giga_bigBonus']
             end
         end
         return{vars = {center.ability.extra.card}}
@@ -317,15 +313,11 @@ SMODS.Consumable{ --Steak
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = G.P_CENTERS.m_stone
         if G.hand then
-            local has_enhancement = false
             for i, _card in ipairs(G.hand.highlighted) do
                 if SMODS.has_enhancement(_card, 'm_stone') then
-                    has_enhancement = true
+                    info_queue[#info_queue+1] = G.P_CENTERS['m_giga_polishStone']
                     break
                 end
-            end
-            if has_enhancement then
-                info_queue[#info_queue+1] = G.P_CENTERS['m_giga_polishStone']
             end
         end
         return{vars = {center.ability.extra.card}}
@@ -367,15 +359,11 @@ SMODS.Consumable{ --Sushis
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = G.P_CENTERS.m_mult
         if G.hand then
-            local has_enhancement = false
             for i, _card in ipairs(G.hand.highlighted) do
                 if SMODS.has_enhancement(_card, 'm_mult') then
-                    has_enhancement = true
+                    info_queue[#info_queue+1] = G.P_CENTERS['m_giga_multPlus']
                     break
                 end
-            end
-            if has_enhancement then
-                info_queue[#info_queue+1] = G.P_CENTERS['m_giga_multPlus']
             end
         end
         return{vars = {center.ability.extra.card}}
@@ -417,15 +405,11 @@ SMODS.Consumable{ --SugarPie
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = G.P_CENTERS.m_lucky
         if G.hand then
-            local has_enhancement = false
             for i, _card in ipairs(G.hand.highlighted) do
                 if SMODS.has_enhancement(_card, 'm_lucky') then
-                    has_enhancement = true
+                    info_queue[#info_queue+1] = G.P_CENTERS['m_giga_luckiest']
                     break
                 end
-            end
-            if has_enhancement then
-                info_queue[#info_queue+1] = G.P_CENTERS['m_giga_luckiest']
             end
         end
         return{vars = {center.ability.extra.card}}
@@ -466,15 +450,11 @@ SMODS.Consumable{ --Durian
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = G.P_CENTERS.m_glass
         if G.hand then
-            local has_enhancement = false
             for i, _card in ipairs(G.hand.highlighted) do
                 if SMODS.has_enhancement(_card, 'm_glass') then
-                    has_enhancement = true
+                    info_queue[#info_queue+1] = G.P_CENTERS['m_giga_reinforcedGlass']
                     break
                 end
-            end
-            if has_enhancement then
-                info_queue[#info_queue+1] = G.P_CENTERS['m_giga_reinforcedGlass']
             end
         end
         return{vars = {center.ability.extra.card}}
@@ -515,15 +495,11 @@ SMODS.Consumable{ --Salmon
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = G.P_CENTERS.m_gold
         if G.hand then
-            local has_enhancement = false
             for i, _card in ipairs(G.hand.highlighted) do
                 if SMODS.has_enhancement(_card, 'm_gold') then
-                    has_enhancement = true
+                    info_queue[#info_queue+1] = G.P_CENTERS['m_giga_perfectGold']
                     break
                 end
-            end
-            if has_enhancement then
-                info_queue[#info_queue+1] = G.P_CENTERS['m_giga_perfectGold']
             end
         end
         return{vars = {center.ability.extra.card}}
@@ -564,15 +540,11 @@ SMODS.Consumable{ --Waffle
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = G.P_CENTERS.m_wild
         if G.hand then
-            local has_enhancement = false
             for i, _card in ipairs(G.hand.highlighted) do
                 if SMODS.has_enhancement(_card, 'm_wild') then
-                    has_enhancement = true
+                    info_queue[#info_queue+1] = G.P_CENTERS['m_giga_evolvedWild']
                     break
                 end
-            end
-            if has_enhancement then
-                info_queue[#info_queue+1] = G.P_CENTERS['m_giga_evolvedWild']
             end
         end
         return{vars = {center.ability.extra.card}}
@@ -614,15 +586,11 @@ SMODS.Consumable{ --Lollipop
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = G.P_CENTERS.m_steel
         if G.hand then
-            local has_enhancement = false
             for i, _card in ipairs(G.hand.highlighted) do
                 if SMODS.has_enhancement(_card, 'm_steel') then
-                    has_enhancement = true
+                    info_queue[#info_queue+1] = G.P_CENTERS['m_giga_titanium']
                     break
                 end
-            end
-            if has_enhancement then
-                info_queue[#info_queue+1] = G.P_CENTERS['m_giga_titanium']
             end
         end
         return{vars = {center.ability.extra.card}}
@@ -763,18 +731,9 @@ SMODS.Consumable{ --PB&JSandwich
     cost = 2,
     config = { extra = {
         mult = 2,
-        card = 2
-    }},
+    }, max_highlighted = 2},
     loc_vars = function (self,info_queue,center)
-        return{vars = {center.ability.extra.mult, center.ability.extra.card}}
-    end,
-    can_use = function (self,card)
-		if G and G.hand then
-			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
-				return true
-			end
-		end
-		return false
+        return{vars = {center.ability.extra.mult, center.ability.max_highlighted}}
     end,
     use = function (self,card,area,copier)
         for i, selected_card in pairs(G.hand.highlighted) do
@@ -792,18 +751,9 @@ SMODS.Consumable{ --Burger
     cost = 2,
     config = { extra = {
         chips = 10,
-        card = 2
-    }},
+    }, max_highlighted = 2},
     loc_vars = function (self,info_queue,center)
-        return{vars = {center.ability.extra.chips, center.ability.extra.card}}
-    end,
-    can_use = function (self,card)
-		if G and G.hand then
-			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
-				return true
-			end
-		end
-		return false
+        return{vars = {center.ability.extra.chips, center.ability.max_highlighted}}
     end,
     use = function (self,card,area,copier)
         for i, selected_card in pairs(G.hand.highlighted) do
@@ -822,7 +772,7 @@ SMODS.Consumable{ --FruitSalad
     config = { extra = {
         card = 1
     }},
-    loc_vars = function (self,info_queue,center, card)
+    loc_vars = function (self,info_queue,center)
         if G.hand then
             for i, _card in ipairs(G.hand.highlighted) do
                 if _card.config.center_key ~= 'c_base' then
@@ -847,16 +797,7 @@ SMODS.Consumable{ --FruitSalad
 			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
                 local has_enhancement = false
 				for i, selected_card in pairs(G.hand.highlighted) do
-                    if SMODS.has_enhancement(selected_card, 'm_giga_richSoil') or
-                       SMODS.has_enhancement(selected_card, 'm_giga_soil') or
-                       SMODS.has_enhancement(selected_card, 'm_bonus') or
-                       SMODS.has_enhancement(selected_card, 'm_stone') or
-                       SMODS.has_enhancement(selected_card, 'm_mult') or
-                       SMODS.has_enhancement(selected_card, 'm_lucky') or
-                       SMODS.has_enhancement(selected_card, 'm_gold') or
-                       SMODS.has_enhancement(selected_card, 'm_glass') or
-                       SMODS.has_enhancement(selected_card, 'm_steel') or
-                       SMODS.has_enhancement(selected_card, 'm_wild') then
+                    if check_upgrade(selected_card.config.center.key) then
                         has_enhancement = true
                     else
                         has_enhancement = false
