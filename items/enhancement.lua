@@ -57,24 +57,31 @@ SMODS.Enhancement{ --EvolvedWild
 	unlocked = true,
 	any_suit = true,
 	weight = 0,
+	config = { extra = { 
+		chipsAdd = 20,
+		multAdd = 2,
+		chips = 0,
+		mult = 0
+	}},
 	in_pool = function(self) 
 		return false
 	end,
 	calculate = function(self, card, context, effect)
-		if context.hand_drawn then
-			G.E_MANAGER:add_event(Event({
-			    func = function()
-					for i, c in ipairs(G.hand.cards) do
-            			SMODS.recalc_debuff(c)
-					end
-    				return true
-        		end
-    		}))
+		if context.before then
+			card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chipsAdd
+			card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.multAdd
 		end
-		if context.cardarea == card.area then
-			return {
-				prevent_debuff = true
-			}
+		if context.main_scoring and context.cardarea == G.play then
+			if card.ability.extra.chips > 0 then
+				return {
+					chips = card.ability.extra.chips
+				}
+			end
+			if card.ability.extra.mult > 0 then
+				return {
+					mult = card.ability.extra.mult
+				}
+			end
 		end
 	end
 }

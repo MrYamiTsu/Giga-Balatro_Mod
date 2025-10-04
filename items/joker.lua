@@ -912,19 +912,11 @@ SMODS.Joker{ --BonoboJoker
     rarity = 1,
     blueprint_compat = true,
     eternal_compat = true,
-    config = { extra = {
-        i = 1
-    }},
     calculate = function(self,card,context)
-        if context.before then
-            card.ability.extra.i = 1
-        end
         if #G.play.cards >= 5 then
             if context.individual and context.cardarea == G.hand and not context.end_of_round then
-                local mult_to_give = math.floor(G.hand.cards[card.ability.extra.i]:get_id() / 2)
-                card.ability.extra.i = card.ability.extra.i + 1
                 return {
-                    mult = mult_to_give
+                    mult = math.floor(context.other_card.base.nominal / 2)
                 }
             end
         end
