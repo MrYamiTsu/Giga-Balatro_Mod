@@ -489,7 +489,7 @@ SMODS.Joker{ --SagittariusA
     eternal_compat = true,
     config = { extra = {
         chips = 90,
-        txt = 'Innactive',
+        txt = 'k_inactive',
         active = false
     }},
     loc_vars = function(self, info_queue, card)
@@ -499,11 +499,11 @@ SMODS.Joker{ --SagittariusA
         if G.GAME.blind.in_blind then
             if context.using_consumeable and context.consumeable.ability.set == 'Planet' and not context.blueprint then
                 if not card.ability.extra.active then
-                    card.ability.extra.txt = 'Active'
+                    card.ability.extra.txt = "v_loyalty_active"
                     card.ability.extra.active = true
                     return {
                         card = card,
-                        message = 'Active',
+                        message = localize("v_loyalty_active"),
                         colour = G.C.GREEN
                     }
                 end
@@ -518,11 +518,11 @@ SMODS.Joker{ --SagittariusA
         end
         if context.end_of_round and not context.blueprint then
             if card.ability.extra.active then
-                card.ability.extra.txt = 'Innactive'
+                card.ability.extra.txt = 'k_inactive'
                 card.ability.extra.active = false
                 return {
                     card = card,
-                    message = 'Innactive',
+                    message = localize("k_inactive"),
                     colour = G.C.RED
                 }
             end
