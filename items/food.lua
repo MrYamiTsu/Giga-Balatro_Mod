@@ -825,34 +825,10 @@ SMODS.Consumable{ --Ramen
     soul_pos = {x = 0, y = 1},
     rarity = 1,
     cost = 2,
-    config = { extra = {
-        card = 2
-    }},
+    config = { max_highlighted = 2, suit_conv = "Hearts" },
     loc_vars = function (self,info_queue,center)
-        return{vars = {center.ability.extra.card}}
+        return{vars = {center.ability.max_highlighted}}
     end,
-    can_use = function (self,card)
-        if G and G.hand then
-			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
-				return true
-			end
-		end
-		return false
-    end,
-    use = function (self,card,area,copier)
-        for i, selected_card in pairs(G.hand.highlighted) do
-            SMODS.change_base(selected_card, 'Hearts')
-            G.E_MANAGER:add_event(Event({
-				trigger = "after",
-				delay = 0.2,
-				func = function()
-					G.hand:unhighlight_all()
-					return true
-				end,
-			}))
-			delay(0.5)
-		end
-    end
 }
 SMODS.Consumable{ --ChocolateBar
     key = 'chocolateBar',
@@ -862,34 +838,10 @@ SMODS.Consumable{ --ChocolateBar
     soul_pos = {x = 6, y = 2},
     rarity = 1,
     cost = 2,
-    config = { extra = {
-        card = 2
-    }},
+    config = { max_highlighted = 2, suit_conv = "Spades" },
     loc_vars = function (self,info_queue,center)
-        return{vars = {center.ability.extra.card}}
+        return{vars = {center.ability.max_highlighted}}
     end,
-    can_use = function (self,card)
-        if G and G.hand then
-			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
-				return true
-			end
-		end
-		return false
-    end,
-    use = function (self,card,area,copier)
-        for i, selected_card in pairs(G.hand.highlighted) do
-            SMODS.change_base(selected_card, 'Spades')
-            G.E_MANAGER:add_event(Event({
-				trigger = "after",
-				delay = 0.2,
-				func = function()
-					G.hand:unhighlight_all()
-					return true
-				end,
-			}))
-			delay(0.5)
-		end
-    end
 }
 SMODS.Consumable{ --MacN'Cheese
     key = 'macNCheese',
@@ -899,11 +851,9 @@ SMODS.Consumable{ --MacN'Cheese
     soul_pos = {x = 4, y = 2},
     rarity = 1,
     cost = 2,
-    config = { extra = {
-        card = 2
-    }},
+    config = { max_highlighted = 2, suit_conv = "Diamonds"},
     loc_vars = function (self,info_queue,center)
-        return{vars = {center.ability.extra.card}}
+        return{vars = {center.ability.max_highlighted}}
     end,
     can_use = function (self,card)
         if G and G.hand then
@@ -913,20 +863,6 @@ SMODS.Consumable{ --MacN'Cheese
 		end
 		return false
     end,
-    use = function (self,card,area,copier)
-        for i, selected_card in pairs(G.hand.highlighted) do
-            SMODS.change_base(selected_card, 'Diamonds')
-            G.E_MANAGER:add_event(Event({
-				trigger = "after",
-				delay = 0.2,
-				func = function()
-					G.hand:unhighlight_all()
-					return true
-				end,
-			}))
-			delay(0.5)
-		end
-    end
 }
 SMODS.Consumable{ --BlueberryMuffin
     key = 'blueberryMuffin',
@@ -936,33 +872,9 @@ SMODS.Consumable{ --BlueberryMuffin
     soul_pos = {x = 0, y = 4},
     rarity = 1,
     cost = 2,
-    config = { extra = {
-        card = 2
-    }},
+    config = { max_highlighted = 2, suit_conv = "Clubs"},
     loc_vars = function (self,info_queue,center)
-        return{vars = {center.ability.extra.card}}
-    end,
-    can_use = function (self,card)
-        if G and G.hand then
-			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
-				return true
-			end
-		end
-		return false
-    end,
-    use = function (self,card,area,copier)
-        for i, selected_card in pairs(G.hand.highlighted) do
-            SMODS.change_base(selected_card, 'Clubs')
-            G.E_MANAGER:add_event(Event({
-				trigger = "after",
-				delay = 0.2,
-				func = function()
-					G.hand:unhighlight_all()
-					return true
-				end,
-			}))
-			delay(0.5)
-		end
+        return{vars = {center.ability.max_highlighted}}
     end
 }
 SMODS.Consumable{ --Donut
