@@ -1180,60 +1180,17 @@ SMODS.Joker{ --TRex
         chips_add = 25,
         round = 1,
         interac = {
-            velo = false,
-            ptera = false,
-            trice = false
+            ptera_mult = 6,
+            ptera_chips = 35,
         },
-        txt = 'Tarot',
-        colour = G.C.SECONDARY_SET.Tarot
     }},
     loc_vars = function(self, info_queue, center)
-        return {vars = {colours={center.ability.extra.colour}, center.ability.extra.txt, center.ability.extra.mult_add, center.ability.extra.chips_add, center.ability.extra.mult, center.ability.extra.chips}}
+        local set = next(SMODS.find_card("j_giga_velocyraptor")) and 'spectral' or 'tarot'
+        local _mult = next(SMODS.find_card("j_giga_pteranodon")) and center.ability.extra.interac.ptera_mult or center.ability.extra.mult_add
+        local _chips = next(SMODS.find_card("j_giga_pteranodon")) and center.ability.extra.interac.ptera_chips or center.ability.extra.chips_add
+        return {vars = {colours={G.C.SECONDARY_SET[set]}, localize(set, "labels"), _mult, _chips, center.ability.extra.mult, center.ability.extra.chips}}
     end,
     calculate = function(self, card, context)
-        --Interaction
-        for i, j in ipairs(G.jokers.cards) do
-            if j.ability and j.ability.name == 'j_giga_pteranodon' then
-                card.ability.extra.interac.ptera = true
-                break
-            else
-                card.ability.extra.interac.ptera = false
-            end
-        end
-        if card.ability.extra.interac.ptera then
-            card.ability.extra.chips_add = 35
-        else
-            card.ability.extra.chips_add = 25
-        end
-        for i, j in ipairs(G.jokers.cards) do
-            if j.ability and j.ability.name == 'j_giga_velocyraptor' then
-                card.ability.extra.interac.velo = true
-                break
-            else
-                card.ability.extra.interac.velo = false
-            end
-        end
-        if card.ability.extra.interac.velo then
-            card.ability.extra.txt = 'Spectral'
-            card.ability.extra.colour = G.C.SECONDARY_SET.Spectral
-        else
-            card.ability.extra.txt = 'Tarot'
-            card.ability.extra.colour = G.C.SECONDARY_SET.Tarot
-        end
-        for i, j in ipairs(G.jokers.cards) do
-            if j.ability and j.ability.name == 'j_giga_triceratops' then
-                card.ability.extra.interac.trice = true
-                break
-            else
-                card.ability.extra.interac.trice = false
-            end
-        end
-        if card.ability.extra.interac.ptera then
-            card.ability.extra.mult_add = 6
-        else
-            card.ability.extra.mult_add = 5
-        end
-        --Calculate
         if context.end_of_round and context.cardarea == G.jokers then
             card.ability.extra.round = (card.ability.extra.round) - 1
             if card.ability.extra.round <= -1 then
