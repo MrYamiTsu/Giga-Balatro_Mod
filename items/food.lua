@@ -3,10 +3,6 @@ SMODS.ConsumableType{
     key = 'Giga_Food',
     primary_colour = HEX("F7070BFF"),
     secondary_colour = HEX("F2A5A6FF"),
-    loc_txt = {
-        collection = 'Food Cards',
-        name = 'Food'
-    },
     collection_rows = {5,6},
     default = 'c_giga_fruitSalad', 
     shop_rate = 0

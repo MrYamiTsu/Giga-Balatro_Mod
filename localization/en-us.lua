@@ -851,7 +851,7 @@ return {
         },
         Other={
             --Undiscovered
-            undiscovered_food = {
+            undiscovered_giga_food = {
                 name = 'Not Discovered',
                 text = {
                     'Purchase or use',
@@ -1111,7 +1111,8 @@ return {
         dictionary={
             k_restaurant_pack = "Restaurant Pack",
             b_giga_custom_menu_card = "Disable Custom Menu Joker",
-            k_inactive = "Inactive"
+            k_inactive = "Inactive",
+            b_giga_food = "Food Cards"
         },
         high_scores={},
         labels={
@@ -1125,7 +1126,8 @@ return {
             giga_redplusplus_seal = 'Red++ Seal',
             giga_blueplusplus_seal = 'Blue++ Seal',
             giga_goldplusplus_seal = 'Gold++ Seal',
-            giga_purpleplusplus_seal = 'Purple++ Seal'
+            giga_purpleplusplus_seal = 'Purple++ Seal',
+            giga_food = "Food"
         },
         poker_hand_descriptions={},
         poker_hands={},
