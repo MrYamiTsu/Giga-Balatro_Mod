@@ -1,4 +1,4 @@
--- UPGRADED SEALS --
+--#region VANILLA + SEALS --
 SMODS.Seal{ --Red+
     key = 'redplus',
     atlas = "Seals",
@@ -170,6 +170,8 @@ SMODS.Seal{ --Purple+
     end,
     badge_colour = G.C.PURPLE
 }
+--#endregion
+--#region VANILLA ++ SEALS --
 SMODS.Seal{ --Red++
     key = 'redplusplus',
     atlas = "Seals",
@@ -359,8 +361,8 @@ SMODS.Seal{ --Purple++
     end,
     badge_colour = G.C.PURPLE
 }
-
--- NEW SEALS
+--#endregion
+--#region NEW SEALS
 SMODS.Seal { --Pink
     key = 'pinkseal',
     atlas = "Seals",
@@ -432,3 +434,4 @@ SMODS.Seal { --Aqua
     end,
     badge_colour = HEX("00FFF0")
 }
+--#endregion

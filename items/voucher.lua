@@ -1,4 +1,4 @@
--- BOOSTER UPGRADE --
+--#region BOOSTER UPGRADE --
 SMODS.Voucher{ --NewMenu
 	key = "newMenu",
 	atlas = "Vouchers",
@@ -30,8 +30,8 @@ SMODS.Voucher{ --5-CourseMeal
         G.GAME.giga.vouchers._courseMeal = (G.GAME.giga.vouchers._courseMeal or 0) + vouchers.ability.extra.choice --this isnt used anywhere else, is this needed?
     end
 }
-
--- SHOP APPEARANCE --
+--#endregion
+--#region SHOP APPEARANCE --
 SMODS.Voucher{ --FoodStand
     key = 'foodStand',
     atlas = 'Vouchers',
@@ -63,3 +63,4 @@ SMODS.Voucher{ --HomeDelivery
         }))
     end
 }
+--#endregion

@@ -1,4 +1,4 @@
--- UPGRADED --
+--#region UPGRADED VANILLA --
 SMODS.Enhancement{ --BigBonus
 	key = "bigBonus",
 	atlas = "Enhancements",
@@ -214,8 +214,8 @@ SMODS.Enhancement{ --Luckiest
 		end
 	end
 }
-
--- NEW --
+--#endregion
+--#region NEW --
 SMODS.Enhancement{ --Soil
 	key = "soil",
 	atlas = "Enhancements",
@@ -260,3 +260,4 @@ SMODS.Enhancement{ --FossilSoil
 		return false 
 	end,
 }
+--#endregion

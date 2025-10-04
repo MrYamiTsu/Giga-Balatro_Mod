@@ -1,4 +1,4 @@
--- NO CATEGORY JOKERS --
+--#region NO CATEGORY JOKERS --
 SMODS.Joker{ --CashPass
     key = 'cashPass',
     atlas = 'Jokers',
@@ -927,8 +927,8 @@ SMODS.Joker{ --Tabaosl
         end
     end
 }
-
--- JACKS JOKERS --
+--#endregion
+--#region JACKS JOKERS --
 SMODS.Joker{ --KingOfJacks
     key = 'kingOfJacks',
     atlas = 'Jokers',
@@ -1062,8 +1062,8 @@ SMODS.Joker{ --JackMutator
         end
     end
 }
-
--- GEMS JOKERS --
+--#endregion
+--#region GEMS JOKERS --
 SMODS.Joker{ --Moonstone
     key = 'moonstone',
     atlas = 'Jokers',
@@ -1163,8 +1163,8 @@ SMODS.Joker{ --RainbowQuartz
         return false
     end
 }
-
--- PREHISTORICS JOKERS --
+--#endregion
+--#region PREHISTORICS JOKERS --
 SMODS.Joker{ --TRex
     key = 'tRex',
     atlas = 'Jokers',
@@ -1358,8 +1358,8 @@ SMODS.Joker{ --Triceratops
         end
     end
 }
-
--- YU-GI-OH JOKERS --
+--#endregion
+--#region YU-GI-OH JOKERS --
 SMODS.Joker{ --BlueEyesWhiteDragon
     key = 'blueEyesWhiteDragon',
     atlas = 'Jokers',
@@ -1932,3 +1932,4 @@ SMODS.Joker{ --TLEI
         end
     end
 }
+--#endregion

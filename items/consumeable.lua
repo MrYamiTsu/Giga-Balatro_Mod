@@ -1,4 +1,4 @@
--- TAROTS --
+--#region TAROTS --
 SMODS.Consumable{ --Cook
     key = 'cook',
     set = 'Tarot',
@@ -22,8 +22,8 @@ SMODS.Consumable{ --Cook
 		end
     end
 }
-
--- SPECTRALS --
+--#endregion
+--#region SPECTRALS --
 SMODS.Consumable{ --Salt
     key = 'salt',
     set = 'Spectral',
@@ -174,3 +174,4 @@ SMODS.Consumable{ --Wand
 		end
     end
 }
+--#endregion

@@ -8,7 +8,7 @@ SMODS.ConsumableType{
     shop_rate = 0
 }
 
--- NORMAL --
+--#region NORMAL --
 SMODS.Consumable{ --Tacos
     key = 'tacos',
     set = 'Giga_Food',
@@ -1098,8 +1098,8 @@ SMODS.Consumable{ --BagOfCandy
 		end
     end
 }
-
--- RARE --
+--#endregion
+--#region RARE --
 SMODS.Consumable{ --BirthdayCake
     key = 'birthdayCake',
     set = 'Giga_Food',
@@ -1192,3 +1192,4 @@ SMODS.Consumable{ --Turkey
         end
     end
 }
+--#endregion
