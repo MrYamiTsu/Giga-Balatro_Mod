@@ -1128,7 +1128,7 @@ SMODS.Consumable{ --BirthdayCake
     use = function (self,card,area,copier)
         G.E_MANAGER:add_event(Event({
             func = function()
-                G.consumeables.config.card_limit = G.consumeables.config.card_limit + 1
+                G.consumeables:change_size(card.ability.consumSlot)
                 return true
             end
         }))
@@ -1137,7 +1137,7 @@ SMODS.Consumable{ --BirthdayCake
         if context.end_of_round and context.main_eval then
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
-        if card.ability.extra.round <= 0 and card.ability.extra.txt == 'Not ready yet' and #G.consumeables.cards then
+        if card.ability.extra.round_left <= 0 and card.ability.extra.txt == 'Not ready yet' and #G.consumeables.cards then
             local check_remove = function(card) 
                 return not card.REMOVED
             end
@@ -1174,7 +1174,7 @@ SMODS.Consumable{ --Turkey
     use = function (self,card,area,copier)
         G.E_MANAGER:add_event(Event({
             func = function()
-                G.jokers.config.card_limit = G.jokers.config.card_limit + card.ability.extra.jokerSlot
+                G.jokers:change_size(card.ability.extra.jokerSlot)
                 return true
             end
         }))
@@ -1183,7 +1183,7 @@ SMODS.Consumable{ --Turkey
         if context.end_of_round and context.main_eval then
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
-        if card.ability.extra.round <= 0 and card.ability.extra.txt == 'Not ready yet' and #G.consumeables.cards then
+        if card.ability.extra.round_left <= 0 and card.ability.extra.txt == 'Not ready yet' and #G.consumeables.cards then
             local check_remove = function(card) 
                 return not card.REMOVED
             end
