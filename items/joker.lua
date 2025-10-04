@@ -571,16 +571,15 @@ SMODS.Joker{ --MarvinTheFourth
     config = { extra = {
         chips = 35,
         mult = 1.5,
-        suit = 'Spade',
-        colour = G.C.SUITS.Spades
+        suit = 'Spades'
     }},
     loc_vars = function(self, info_queue, center)
-        return {vars = {colours={center.ability.extra.colour}, center.ability.extra.chips, center.ability.extra.mult, center.ability.extra.suit}}
+        return {vars = {colours={G.C.SUITS[center.ability.extra.suit]}, center.ability.extra.chips, center.ability.extra.mult, center.ability.extra.suit}}
     end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
             local effects = {}
-            if context.other_card:is_suit(card.ability.extra.suit..'s', true) and
+            if context.other_card:is_suit(card.ability.extra.suit, true) and
                context.other_card:get_id() >= 4 and
                context.other_card:get_id() <= 6 then
                 table.insert(effects, {
@@ -593,18 +592,14 @@ SMODS.Joker{ --MarvinTheFourth
                 })
             end
             if not context.blueprint then
-                if card.ability.extra.suit == 'Spade' then
-                    card.ability.extra.suit = 'Heart'
-                    card.ability.extra.colour = G.C.SUITS.Hearts
-                elseif card.ability.extra.suit == 'Heart' then
-                    card.ability.extra.suit = 'Diamond'
-                    card.ability.extra.colour = G.C.SUITS.Diamonds
+                if card.ability.extra.suit == 'Spades' then
+                    card.ability.extra.suit = 'Hearts'
+                elseif card.ability.extra.suit == 'Hearts' then
+                    card.ability.extra.suit = 'Diamonds'
                 elseif card.ability.extra.suit == 'Diamond' then
-                    card.ability.extra.suit = 'Club'
-                    card.ability.extra.colour = G.C.SUITS.Clubs
-                elseif card.ability.extra.suit == 'Club' then
-                    card.ability.extra.suit = 'Spade'
-                    card.ability.extra.colour = G.C.SUITS.Spades
+                    card.ability.extra.suit = 'Clubs'
+                elseif card.ability.extra.suit == 'Clubs' then
+                    card.ability.extra.suit = 'Spades'
                 end
             end
             if #effects > 0 then
