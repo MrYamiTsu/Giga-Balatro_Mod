@@ -376,12 +376,7 @@ SMODS.Seal{ --Pink
     calculate = function(self, card, context)
         if context.cardarea == G.play and context.main_scoring then
             for i = 1, self.config.extra.card, 1 do
-                G.E_MANAGER:add_event(Event({
-                    func = function ()
-                        _create(card, 'Giga_Food', G.consumeables,true,true)
-                    end
-                }))
-                
+                _create(card, 'Giga_Food', G.consumeables,true,true)
 		    end
             return {
                 message = '+'..self.config.extra.card..' Food',
@@ -453,12 +448,7 @@ SMODS.Seal{ --Pink+
     calculate = function(self, card, context)
         if context.cardarea == G.play and context.main_scoring then
             for i = 1, self.config.extra.card, 1 do
-                G.E_MANAGER:add_event(Event({
-                    func = function ()
-                        _create(card, 'Giga_Food', G.consumeables,true,false)
-                        return true
-                    end
-                }))
+                _create(card, 'Giga_Food', G.consumeables,true,false)
             end
             -- From TogaStuff (so thx TogaStuff)
             G.E_MANAGER:add_event(Event({
@@ -489,9 +479,9 @@ SMODS.Seal{ --Pink++
     pos = {x = 0, y = 3},
     config = { extra = {
         card = 2,
-        reduce = 20,
+        reduce = 15,
         odds = 1,
-        chances = 8
+        chances = 12
     }},
     loc_vars = function(self, info_queue, card)
         local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'giga_pinkPlusPlus')
@@ -503,20 +493,15 @@ SMODS.Seal{ --Pink++
     calculate = function(self, card, context)
         if context.cardarea == G.play and context.main_scoring then
             for i = 1, self.config.extra.card, 1 do
-                G.E_MANAGER:add_event(Event({
-                    func = function ()
-                        if SMODS.pseudorandom_probability(card, 'giga_pinkPlusPlus', self.config.extra.odds, self.config.extra.chances) then
-                            if SMODS.pseudorandom_probability(card, 'giga_pinkPlusPlus', 1, 2) then
-                                SMODS.add_card({key = 'c_giga_birthdayCake', edition = 'e_negative'})
-                            else
-                                SMODS.add_card({key = 'c_giga_turkey', edition = 'e_negative'})
-                            end
-                        else
-                            _create(card, 'Giga_Food', G.consumeables,true,false)
-                        end
-                        return true
+                if SMODS.pseudorandom_probability(card, 'giga_pinkPlusPlus', self.config.extra.odds, self.config.extra.chances) then
+                    if SMODS.pseudorandom_probability(card, 'giga_pinkPlusPlus', 1, 2) then
+                        SMODS.add_card({key = 'c_giga_birthdayCake', edition = 'e_negative'})
+                    else
+                        SMODS.add_card({key = 'c_giga_turkey', edition = 'e_negative'})
                     end
-                }))
+                else
+                    _create(card, 'Giga_Food', G.consumeables,true,false)
+                end
             end
             G.E_MANAGER:add_event(Event({
                 func = function()
