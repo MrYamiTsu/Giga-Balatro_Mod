@@ -22,7 +22,9 @@ Giga.seal_upgrades = {
     giga_redplus = "giga_redplusplus",
     giga_blueplus = "giga_blueplusplus",
     giga_goldplus = "giga_goldplusplus",
-    giga_purpleplus = "giga_purpleplusplus"
+    giga_purpleplus = "giga_purpleplusplus",
+    giga_pinkseal = "giga_pinkplus",
+    giga_pinkplus = "giga_pinkplusplus"
 }
 
 -- UPGRADE FUNCTIONS --

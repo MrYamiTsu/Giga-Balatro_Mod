@@ -993,7 +993,27 @@ return {
                     '{C:green}#2# in #3#{} to create an',
                     '{C:attention}Ethereal Tag{} instead'
                 }
-            }
+            },
+            giga_pinkplus_seal = {
+                name = 'Pink+ Seal',
+                text = {
+                    'When this card is {C:attention}scored{},',
+                    'create {C:attention}#1#{} {C:dark_edition}Negative{} {C:giga_Food}Food{}',
+                    'card and {C:attention}reduce{} blind size',
+                    'by {C:attention}#2#%{}'
+                }
+            },
+            giga_pinkplusplus_seal = {
+                name = 'Pink++ Seal',
+                text = {
+                    'When this card is {C:attention}scored{},',
+                    'create {C:attention}#1#{} {C:dark_edition}Negative{} {C:giga_Food}Food{}',
+                    'card, {C:attention}reduce{} blind size',
+                    'by {C:attention}#2#%{}',
+                    '{C:green}#3# in #4#{} to create',
+                    'a {C:rare}Rare{} {C:giga_Food}Food{} instead'
+                }
+            },
             --#endregion
         },
         Partner = {
@@ -1133,6 +1153,7 @@ return {
             giga_goldplusplus_seal = 'Gold++ Seal',
             giga_purpleplusplus_seal = 'Purple++ Seal',
             giga_pinkplus_seal = 'Pink+ Seal',
+            giga_pinkplusplus_seal = 'Pink++ Seal',
             Giga_Food = "Food"
         },
         poker_hand_descriptions={},

@@ -197,7 +197,7 @@ SMODS.Seal{ --Red++
                 if c:get_seal() == 'giga_redPlusPlus' then
                     additionalRep = additionalRep + 0.5
                 end
-            end --flooring this is unneeded, decimal retriggers are ignored
+            end
             return {
                 repetitions = self.config.extra.rep + additionalRep
             }
@@ -363,7 +363,7 @@ SMODS.Seal{ --Purple++
 }
 --#endregion
 --#region NEW SEALS
-SMODS.Seal { --Pink
+SMODS.Seal{ --Pink
     key = 'pinkseal',
     atlas = "Seals",
     pos = {x = 0, y = 0},
@@ -384,15 +384,15 @@ SMODS.Seal { --Pink
                 
 		    end
             return {
-                message = 'Create !',
-                colour = G.C.MONEY,
+                message = '+'..self.config.extra.card..' Food',
+                colour = HEX('F2A5A6FF'),
 				delay = 0.6
             }
         end
     end,
     badge_colour = HEX("FF00E6")
 }
-SMODS.Seal { --Crimson
+SMODS.Seal{ --Crimson
     key = "crimsonseal",
     atlas = "Seals",
     pos = {x = 1, y = 0},
@@ -413,7 +413,7 @@ SMODS.Seal { --Crimson
     end,
     badge_colour = HEX("DC143C")
 }
-SMODS.Seal { --Aqua
+SMODS.Seal{ --Aqua
     key = "aquaseal",
     atlas = "Seals",
     pos = {x = 2, y = 0},
@@ -433,5 +433,109 @@ SMODS.Seal { --Aqua
         end
     end,
     badge_colour = HEX("00FFF0")
+}
+--#endregion
+--#region NEW + SEALS
+SMODS.Seal{ --Pink+
+    key = 'pinkplus',
+    atlas = "Seals",
+    pos = {x = 3, y = 2},
+    config = { extra = {
+        card = 1,
+        reduce = 5
+    }},
+    loc_vars = function(self, info_queue, card)
+        return {vars = {self.config.extra.card, self.config.extra.reduce}}
+    end,
+    in_pool = function(self)
+        return false
+    end,
+    calculate = function(self, card, context)
+        if context.cardarea == G.play and context.main_scoring then
+            for i = 1, self.config.extra.card, 1 do
+                G.E_MANAGER:add_event(Event({
+                    func = function ()
+                        _create(card, 'Giga_Food', G.consumeables,true,false)
+                        return true
+                    end
+                }))
+            end
+            -- From TogaStuff (so thx TogaStuff)
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    G.GAME.blind.chips = math.floor(G.GAME.blind.chips * (1 - card.ability.seal.extra.reduce / 100))
+					G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+					G.FUNCS.blind_chip_UI_scale(G.hand_text_area.blind_chips)
+					G.HUD_blind:recalculate()
+					G.hand_text_area.blind_chips:juice_up()
+					card:juice_up()
+                    return true
+                end
+            }))
+            return {
+                message = '+'..self.config.extra.card..' Food',
+                colour = HEX('F2A5A6FF'),
+				delay = 0.6
+            }
+        end
+    end,
+    badge_colour = HEX("FF00E6")
+}
+--#endregion
+--#region NEW ++ SEALS
+SMODS.Seal{ --Pink++
+    key = 'pinkplusplus',
+    atlas = "Seals",
+    pos = {x = 0, y = 3},
+    config = { extra = {
+        card = 2,
+        reduce = 20,
+        odds = 1,
+        chances = 8
+    }},
+    loc_vars = function(self, info_queue, card)
+        local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'giga_pinkPlusPlus')
+        return {vars = {self.config.extra.card, self.config.extra.reduce, odds, chances}}
+    end,
+    in_pool = function(self)
+        return false
+    end,
+    calculate = function(self, card, context)
+        if context.cardarea == G.play and context.main_scoring then
+            for i = 1, self.config.extra.card, 1 do
+                G.E_MANAGER:add_event(Event({
+                    func = function ()
+                        if SMODS.pseudorandom_probability(card, 'giga_pinkPlusPlus', self.config.extra.odds, self.config.extra.chances) then
+                            if SMODS.pseudorandom_probability(card, 'giga_pinkPlusPlus', 1, 2) then
+                                SMODS.add_card({key = 'c_giga_birthdayCake', edition = 'e_negative'})
+                            else
+                                SMODS.add_card({key = 'c_giga_turkey', edition = 'e_negative'})
+                            end
+                        else
+                            _create(card, 'Giga_Food', G.consumeables,true,false)
+                        end
+                        return true
+                    end
+                }))
+            end
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    G.GAME.blind.chips = math.floor(G.GAME.blind.chips * (1 - card.ability.seal.extra.reduce / 100))
+                    G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+                    G.FUNCS.blind_chip_UI_scale(G.hand_text_area.blind_chips)
+                    G.HUD_blind:recalculate()
+                    G.hand_text_area.blind_chips:juice_up()
+                    card:juice_up()
+                    return true
+                end
+            }))
+            return {
+                message = '+'..self.config.extra.card..' Food',
+                colour = HEX('F2A5A6FF'),
+                delay = 0.6
+            }
+        end
+    end,
+    badge_colour = HEX("FF00E6")
 }
 --#endregion

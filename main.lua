@@ -133,7 +133,7 @@ SMODS.Rarity{
 --#endregion
 --#region CUSTOM COLOUR --
 loc_colour()
-G.ARGS.LOC_COLOURS.giga_Food = HEX('F7070BFF')
+G.ARGS.LOC_COLOURS.giga_Food = HEX('F2A5A6FF')
 --#endregion
 --#region CONFIG --
 -- From Maximus (so thx Maximus)
