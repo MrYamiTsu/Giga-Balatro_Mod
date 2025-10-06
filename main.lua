@@ -42,7 +42,7 @@ if next(SMODS.find_mod("paperback")) then
 	SMODS.load_file("items/CrossMod/paperback.lua")()
 end
 --#endregion
---#rgion ATLAS --
+--#region ATLAS --
 SMODS.Atlas{
     key = "modicon", 
     path = "modicon.png", 

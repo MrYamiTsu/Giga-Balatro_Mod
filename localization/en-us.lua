@@ -852,8 +852,8 @@ return {
             }
         },
         Other={
-            --Undiscovered
-            undiscovered_giga_food = {
+            --#region Undiscovered
+            undiscovered_Giga_Food = {
                 name = 'Not Discovered',
                 text = {
                     'Purchase or use',
@@ -862,7 +862,8 @@ return {
                     'learn what it does'
                 }
             },
-            -- Credit
+            --#endregion
+            --#region Credit
             ledugs_credit = {
                 name = 'Credit',
                 text = {
@@ -891,12 +892,13 @@ return {
                     'from {C:attention,E:2}All-In-Jest{}'
                 }
             },
-            -- Seal
+            --#endregion
+            --#region Seal
             giga_pinkseal_seal = {
                 name = 'Pink Seal',
                 text = {
                     'When this card is {C:attention}scored{},',
-                    'create {C:attention}1{} {C:giga_Food}Food{} card',
+                    'create {C:attention}#1#{} {C:giga_Food}Food{} card',
                 }
             },
             giga_crimsonseal_seal = {
@@ -992,6 +994,7 @@ return {
                     '{C:attention}Ethereal Tag{} instead'
                 }
             }
+            --#endregion
         },
         Partner = {
             pnr_giga_pabloJr = {
@@ -1101,7 +1104,7 @@ return {
         ["Content Set"] = {
             set_giga_megaLegendary = {
                 name = 'Mega Legendary'
-            }   
+            }
         }
     },
     misc = {
@@ -1114,7 +1117,7 @@ return {
             k_restaurant_pack = "Restaurant Pack",
             b_giga_custom_menu_card = "Disable Custom Menu Joker",
             k_inactive = "Inactive",
-            b_giga_food = "Food Cards"
+            b_Giga_Food = "Food Cards"
         },
         high_scores={},
         labels={
@@ -1129,7 +1132,8 @@ return {
             giga_blueplusplus_seal = 'Blue++ Seal',
             giga_goldplusplus_seal = 'Gold++ Seal',
             giga_purpleplusplus_seal = 'Purple++ Seal',
-            giga_food = "Food"
+            giga_pinkplus_seal = 'Pink+ Seal',
+            Giga_Food = "Food"
         },
         poker_hand_descriptions={},
         poker_hands={},
