@@ -25,7 +25,7 @@
 </ul>
 
 <hr>
-<h2>Elements</h2>
+<h2>Contents</h2>
 <ul>
     <li>42+ Jokers</li>
     <li>31 Food cards (+8 Cross-Mod)</li>

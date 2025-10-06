@@ -897,13 +897,34 @@ SMODS.Consumable{ --Donut
     }},
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = G.P_SEALS.giga_pinkseal
+        if G.hand then
+            local duplicate = {}
+            for _, _card in ipairs(G.hand.highlighted) do
+                if _card:get_seal() == 'giga_pinkseal' and not duplicate['giga_pinkplus'] then
+                    info_queue[#info_queue+1] = G.P_SEALS.giga_pinkplus
+                    duplicate['giga_pinkplus'] = true
+                end
+                if _card:get_seal() == 'giga_pinkplus' and not duplicate['giga_pinkplusplus'] then
+                    info_queue[#info_queue+1] = G.P_SEALS.giga_pinkplusplus
+                    duplicate['giga_pinkplusplus'] = true
+                end
+            end
+        end
         return{vars = {colours={HEX('FF00E6')}, center.ability.extra.card, center.ability.extra.round, center.ability.extra.txt}}
     end,
     can_use = function (self,card)
         if card.ability.extra.round_left <= 0 then
             if G and G.hand then
 			    if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
-				    return true
+				    for i, selected_card in pairs(G.hand.highlighted) do
+                        if selected_card:get_seal() == 'giga_pinkplusplus' then
+                            check = true
+                            break
+                        end
+                    end
+                    if not check then
+                        return true
+                    end
 			    end
 		    end
         end
@@ -911,21 +932,11 @@ SMODS.Consumable{ --Donut
     end,
     use = function (self,card,area,copier)
         for i, selected_card in pairs(G.hand.highlighted) do
-            G.E_MANAGER:add_event(Event({
-				func = function()
-					selected_card:juice_up(0.3, 0.5)
-					return true
-				end,
-			}))
-			selected_card:set_seal("giga_pinkseal")
-			G.E_MANAGER:add_event(Event({
-				trigger = "after",
-				delay = 0.2,
-				func = function()
-					G.hand:unhighlight_all()
-					return true
-				end,
-			}))
+            if selected_card:get_seal() == 'giga_pinkplus' then
+                upgrade_seal_specific(selected_card, 'giga_pinkplus')
+            else
+                upgrade_seal_specific(selected_card, 'giga_pinkseal')
+            end
 		end
     end,
     calculate = function (self,card,context)

@@ -13,7 +13,6 @@ Giga.enhancement_upgrades = {
     m_glass = "m_giga_reinforcedGlass",
     m_wild = "m_giga_evolvedWild"
 }
-
 Giga.seal_upgrades = {
     Red = "giga_redplus",
     Blue = "giga_blueplus",
@@ -133,6 +132,49 @@ function upgrade_seal(selected_card)
     }))
     delay(0.2)
     selected_card:set_seal(Giga.seal_upgrades[selected_card:get_seal()])
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.15,
+        func = function()
+            selected_card:flip()
+            selected_card:juice_up(0.3, 0.3)
+            return true
+        end
+    }))
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.2,
+        func = function()
+            G.hand:unhighlight_all()
+            return true
+        end
+    }))
+    delay(0.5)
+end
+function upgrade_seal_specific(selected_card, base_seal)
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.4,
+        func = function()
+            selected_card:juice_up(0.3, 0.5)
+            return true
+        end
+    }))
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.15,
+        func = function()
+            selected_card:flip()
+            selected_card:juice_up(0.3, 0.3)
+            return true
+        end
+    }))
+    delay(0.2)
+    if selected_card:get_seal() == base_seal then
+        selected_card:set_seal(Giga.seal_upgrades[base_seal])
+    else
+        selected_card:set_seal(base_seal)
+    end
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
         delay = 0.15,

@@ -1010,8 +1010,8 @@ return {
                     'create {C:attention}#1#{} {C:dark_edition}Negative{} {C:giga_Food}Food{}',
                     'card, {C:attention}reduce{} blind size',
                     'by {C:attention}#2#%{}',
-                    '{C:green}#3# in #4#{} to create',
-                    'a {C:rare}Rare{} {C:giga_Food}Food{} instead'
+                    '{C:green}#3# in #4#{} to create a',
+                    '{C:rare}Rare{} {C:giga_Food}Food{} instead'
                 }
             },
             --#endregion
