@@ -1089,7 +1089,7 @@ SMODS.Consumable{ --BagOfCandy
         if G.hand then
             for i, _card in ipairs(G.hand.highlighted) do
                 if _card:get_seal() ~= nil then
-                    local sl = check_upgrade(_card:get_seal())
+                    local sl = Giga.seal_upgrades[_card:get_seal()]
                     local duplicate = false
                     for _, v in ipairs(info_queue) do
                         if v == G.P_SEALS[sl] then

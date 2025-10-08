@@ -27,7 +27,7 @@ Giga.seal_upgrades = {
 }
 
 -- UPGRADE FUNCTIONS --
-function check_upgrade(base_enh) --only keeping the function because i cba to replace it everywhere
+function check_upgrade(base_enh)
     return Giga.enhancement_upgrades[base_enh]
 end
 function upgrade_enhencement_specific(selected_card, base_enh)
