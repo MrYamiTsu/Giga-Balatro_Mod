@@ -1088,7 +1088,7 @@ SMODS.Consumable{ --BagOfCandy
     loc_vars = function (self,info_queue,center)
         if G.hand then
             for i, _card in ipairs(G.hand.highlighted) do
-                if _card.seal ~= nil then
+                if _card:get_seal() ~= nil then
                     local sl = check_upgrade(_card:get_seal())
                     local duplicate = false
                     for _, v in ipairs(info_queue) do
