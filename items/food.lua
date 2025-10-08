@@ -1086,6 +1086,23 @@ SMODS.Consumable{ --BagOfCandy
         card = 1
     }},
     loc_vars = function (self,info_queue,center)
+        if G.hand then
+            for i, _card in ipairs(G.hand.highlighted) do
+                if _card.seal ~= nil then
+                    local sl = check_upgrade(_card:get_seal())
+                    local duplicate = false
+                    for _, v in ipairs(info_queue) do
+                        if v == G.P_SEALS[sl] then
+                            duplicate = true
+                            break
+                        end
+                    end
+                    if G.P_SEALS[sl] and not duplicate then
+                        info_queue[#info_queue+1] = G.P_SEALS[sl]
+                    end
+                end
+            end
+        end
         return{vars = {center.ability.extra.card}}
     end,
     can_use = function (self,card)

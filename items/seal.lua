@@ -481,7 +481,7 @@ SMODS.Seal{ --Pink++
         card = 2,
         reduce = 15,
         odds = 1,
-        chances = 12
+        chances = 15
     }},
     loc_vars = function(self, info_queue, card)
         local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'giga_pinkPlusPlus')

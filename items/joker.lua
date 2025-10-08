@@ -1088,6 +1088,14 @@ SMODS.Joker{ --Moonstone
         info_queue[#info_queue+1] = G.P_CENTERS.e_foil
         return {vars = {center.ability.extra.chips}}
     end,
+    in_pool = function (self, args)
+        for _, c in pairs(G.playing_cards or {}) do
+            if c.edition and c.edition.key == "e_foil" then
+                return true
+            end
+        end
+        return false
+    end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.hand and not context.end_of_round then
             if context.other_card.edition and context.other_card.edition.type == 'foil' then
@@ -1096,14 +1104,6 @@ SMODS.Joker{ --Moonstone
                 }
             end
         end
-    end,
-    in_pool = function (self, args)
-        for _, c in pairs(G.playing_cards or {}) do
-            if c.edition and c.edition.key == "e_foil" then
-                return true
-            end
-        end
-        return false
     end
 }
 SMODS.Joker{ --PinkTourmaline
@@ -1121,6 +1121,14 @@ SMODS.Joker{ --PinkTourmaline
         info_queue[#info_queue+1] = G.P_CENTERS.e_holo
         return {vars = {center.ability.extra.mult}}
     end,
+    in_pool = function (self, args)
+        for _, c in pairs(G.playing_cards or {}) do
+            if c.edition and c.edition.key == "e_holo" then
+                return true
+            end
+        end
+        return false
+    end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.hand and not context.end_of_round then
             if context.other_card.edition and context.other_card.edition.type == 'holo' then
@@ -1129,14 +1137,6 @@ SMODS.Joker{ --PinkTourmaline
                 }
             end
         end
-    end,
-    in_pool = function (self, args)
-        for _, c in pairs(G.playing_cards or {}) do
-            if c.edition and c.edition.key == "e_holo" then
-                return true
-            end
-        end
-        return false
     end
 }
 SMODS.Joker{ --RainbowQuartz
@@ -1154,6 +1154,14 @@ SMODS.Joker{ --RainbowQuartz
         info_queue[#info_queue+1] = G.P_CENTERS.e_poly
         return {vars = {center.ability.extra.xmult}}
     end,
+    in_pool = function (self, args)
+        for _, c in pairs(G.playing_cards or {}) do
+            if c.edition and c.edition.key == "e_polychrome" then
+                return true
+            end
+        end
+        return false
+    end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.hand and not context.end_of_round then
             if context.other_card.edition and context.other_card.edition.type == 'polychrome' then
@@ -1162,14 +1170,6 @@ SMODS.Joker{ --RainbowQuartz
                 }
             end
         end
-    end,
-    in_pool = function (self, args)
-        for _, c in pairs(G.playing_cards or {}) do
-            if c.edition and c.edition.key == "e_polychrome" then
-                return true
-            end
-        end
-        return false
     end
 }
 --#endregion

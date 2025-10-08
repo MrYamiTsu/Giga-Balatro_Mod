@@ -47,30 +47,12 @@ SMODS.Consumable{ --Salt
         return false
     end,
     use = function (self,card,area,copier)
-        for i, _card in pairs(G.hand.highlighted) do
-            G.E_MANAGER:add_event(Event({
-            	func = function()
-                	card:juice_up(0.3, 0.5)
-                	return true
-            	end
-        	}))
-        	G.E_MANAGER:add_event(Event({
-            	trigger = 'after',
-            	delay = 0.1,
-            	func = function()
-                	_card:set_seal('giga_pinkseal', nil, true)
-                	return true
-            	end
-        	}))
-        	delay(0.5)
-        	G.E_MANAGER:add_event(Event({
-            	trigger = 'after',
-            	delay = 0.2,
-            	func = function()
-                	G.hand:unhighlight_all()
-                	return true
-            	end
-        	}))
+        for i, selected_card in pairs(G.hand.highlighted) do
+            if selected_card:get_seal() == 'giga_pinkplus' then
+                upgrade_seal_specific(selected_card, 'giga_pinkplus')
+            else
+                upgrade_seal_specific(selected_card, 'giga_pinkseal')
+            end
 		end
     end
 }
