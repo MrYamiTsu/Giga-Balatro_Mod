@@ -849,6 +849,14 @@ return {
                     'cards as {C:mult}Mult{}, if {C:attention}5{} cards',
                     'are {C:attention}played{}'
                 }
+            },
+            j_giga_onTheClock = {
+                name = 'On The Clock',
+                text = {
+                    'Get {C:mult}Mult{} and {C:chips}Chips{} based',
+                    'on the {C:attention}current time{}',
+                    '{C:inactive}(Mult > Hour / Chips > Minutes)'
+                }
             }
         },
         Other={
