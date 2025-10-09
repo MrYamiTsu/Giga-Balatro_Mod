@@ -917,6 +917,38 @@ SMODS.Joker{ --OnTheClock
         end
     end
 }
+SMODS.Joker{ --AliveBook
+    key = 'aliveBook',
+    atlas = 'Jokers',
+    pos = {x = 7, y = 3},
+    cost = 6,
+    rarity = 2,
+    unlocked = true,
+    blueprint_compat = true,
+    eternal_compat = true,
+    loc_vars = function(self,info_queue,center)
+        local name = ''
+        if G.jokers and #G.jokers.cards > 0 then
+            if G.jokers.cards[1] ~= center then
+                name = localize{type = "name_text", key = G.jokers.cards[1].config.center.key, set = G.jokers.cards[1].ability.set}
+            end
+        end
+        return{vars = {#name}}
+    end,
+    calculate = function(self,card,context)
+        local name = ''
+        if G.jokers and #G.jokers.cards > 0 then
+            if G.jokers.cards[1] ~= card then
+                name = localize{type = "name_text", key = G.jokers.cards[1].config.center.key, set = G.jokers.cards[1].ability.set}
+            end
+        end
+        if context.joker_main and #name > 0 then
+            return {
+                mult = #name
+            }
+        end
+    end
+}
 SMODS.Joker{ --Tabaosl
     key = 'tabaosl',
     atlas = 'Jokers',

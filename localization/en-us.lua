@@ -855,7 +855,16 @@ return {
                 text = {
                     'Get {C:mult}Mult{} and {C:chips}Chips{} based',
                     'on the {C:attention}current time{}',
-                    '{C:inactive}(Mult > Hour / Chips > Minutes)'
+                    '{C:inactive}(Hours > Mult / Minutes > Chips)'
+                }
+            },
+            j_giga_aliveBook = {
+                name = 'Alive Book',
+                text = {
+                    'Get {C:mult}Mult{} equal to the',
+                    '{C:attention}lenght{} of the {C:attention}name{} of',
+                    'the leftmost {C:attention}Joker{}',
+                    '{C:inactive}(Currently :{} {C:mult}+#1#{} {C:inactive}Mult)'
                 }
             }
         },
