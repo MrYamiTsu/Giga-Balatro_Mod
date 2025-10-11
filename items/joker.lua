@@ -902,7 +902,7 @@ SMODS.Joker{ --BonoboJoker
 SMODS.Joker{ --OnTheClock
     key = 'onTheClock',
     atlas = 'Jokers',
-    pos = {x = 7, y = 3},
+    pos = {x = 0, y = 6},
     cost = 6,
     rarity = 1,
     blueprint_compat = true,
