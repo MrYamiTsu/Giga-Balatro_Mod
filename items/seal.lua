@@ -399,7 +399,7 @@ SMODS.Seal{ --Crimson
     end,
     calculate = function(self, card, context)
         if context.main_scoring and context.cardarea == G.hand then
-            card.ability.perma_mult = card.ability.perma_mult + self.config.extra.mult
+            card.ability.perma_mult = (card.ability.perma_mult or 0) + self.config.extra.mult
             return {
                 message = 'Upgraded',
                 colour = G.C.MULT
@@ -420,7 +420,7 @@ SMODS.Seal{ --Aqua
     end,
     calculate = function(self, card, context)
         if context.main_scoring and context.cardarea == G.hand then
-            card.ability.perma_bonus = card.ability.perma_bonus + self.config.extra.chips
+            card.ability.perma_bonus = (card.ability.perma_bonus or 0) + self.config.extra.chips
             return {
                 message = 'Upgraded',
                 colour = G.C.CHIPS

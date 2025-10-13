@@ -2,14 +2,11 @@ Giga = SMODS.current_mod
 Giga_path = SMODS.current_mod.path
 Giga_config = SMODS.current_mod.config
 
-Giga.calculate = function (self, context) --mod calculate
-    if context.end_of_round and context.main_eval then --gold++ reset
+Giga.calculate = function (self, context)
+    if context.end_of_round and context.main_eval then
         for _, card in pairs(G.playing_cards) do
             card.ability.giga_goldplusplus_increase = nil
         end
-        return {
-            message = localize("k_reset")
-        }
     end
 end
 
