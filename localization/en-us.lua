@@ -1154,6 +1154,7 @@ return {
             k_restaurant_pack = "Restaurant Pack",
             b_giga_custom_menu_card = "Disable Custom Menu Joker",
             k_inactive = "Inactive",
+            k_active = "Active",
             b_Giga_Food = "Food Cards"
         },
         high_scores={},

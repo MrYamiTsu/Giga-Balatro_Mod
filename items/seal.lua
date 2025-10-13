@@ -423,7 +423,7 @@ SMODS.Seal{ --Aqua
             card.ability.perma_bonus = card.ability.perma_bonus + self.config.extra.chips
             return {
                 message = 'Upgraded',
-                colour = G.C.CHIPS --i dont think this was supposed to be mult?
+                colour = G.C.CHIPS
             }
         end
     end,

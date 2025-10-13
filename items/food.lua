@@ -832,7 +832,7 @@ SMODS.Consumable{ --Ramen
     config = { max_highlighted = 2, suit_conv = "Hearts" },
     loc_vars = function (self,info_queue,center)
         return{vars = {center.ability.max_highlighted}}
-    end,
+    end
 }
 SMODS.Consumable{ --ChocolateBar
     key = 'chocolateBar',
@@ -845,7 +845,7 @@ SMODS.Consumable{ --ChocolateBar
     config = { max_highlighted = 2, suit_conv = "Spades" },
     loc_vars = function (self,info_queue,center)
         return{vars = {center.ability.max_highlighted}}
-    end,
+    end
 }
 SMODS.Consumable{ --MacN'Cheese
     key = 'macNCheese',
@@ -858,15 +858,7 @@ SMODS.Consumable{ --MacN'Cheese
     config = { max_highlighted = 2, suit_conv = "Diamonds"},
     loc_vars = function (self,info_queue,center)
         return{vars = {center.ability.max_highlighted}}
-    end,
-    can_use = function (self,card)
-        if G and G.hand then
-			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
-				return true
-			end
-		end
-		return false
-    end,
+    end
 }
 SMODS.Consumable{ --BlueberryMuffin
     key = 'blueberryMuffin',
@@ -1050,7 +1042,7 @@ SMODS.Consumable{ --BubbleTea
 					return true
 				end,
 			}))
-			selected_card:set_seal("giga_aquaSeal")
+			selected_card:set_seal("giga_aquaseal")
 			G.E_MANAGER:add_event(Event({
 				trigger = "after",
 				delay = 0.2,
@@ -1160,7 +1152,7 @@ SMODS.Consumable{ --BirthdayCake
     use = function (self,card,area,copier)
         G.E_MANAGER:add_event(Event({
             func = function()
-                G.consumeables:change_size(card.ability.consumSlot)
+                G.consumeables:change_size(card.ability.extra.consumSlot)
                 return true
             end
         }))

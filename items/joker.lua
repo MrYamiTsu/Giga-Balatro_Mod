@@ -400,10 +400,10 @@ SMODS.Joker{ --DoubleFork
         if G.GAME.blind.in_blind then
             if context.using_consumeable and context.consumeable.ability.set == 'Giga_Food' and not context.blueprint then
                 if not card.ability.extra.active then
-                    card.ability.extra.txt = 'v_loyalty_active'
+                    card.ability.extra.txt = 'k_active'
                     card.ability.extra.active = true
                     return {
-                        message = localize('v_loyalty_active'),
+                        message = localize('k_active'),
                         colour = G.C.GREEN
                     }
                 end
@@ -450,10 +450,10 @@ SMODS.Joker{ --CrackedSkull
         if G.GAME.blind.in_blind then
             if context.using_consumeable and context.consumeable.ability.set == 'Spectral' and not context.blueprint then
                 if not card.ability.extra.active then
-                    card.ability.extra.txt = 'v_loyalty_active'
+                    card.ability.extra.txt = 'k_active'
                     card.ability.extra.active = true
                     return {
-                        message = localize("v_loyalty_active"),
+                        message = localize("k_active"),
                         colour = G.C.GREEN
                     }
                 end
@@ -499,11 +499,11 @@ SMODS.Joker{ --SagittariusA
         if G.GAME.blind.in_blind then
             if context.using_consumeable and context.consumeable.ability.set == 'Planet' and not context.blueprint then
                 if not card.ability.extra.active then
-                    card.ability.extra.txt = "v_loyalty_active"
+                    card.ability.extra.txt = "k_active"
                     card.ability.extra.active = true
                     return {
                         card = card,
-                        message = localize("v_loyalty_active"),
+                        message = localize("k_active"),
                         colour = G.C.GREEN
                     }
                 end
@@ -677,14 +677,13 @@ SMODS.Joker{ --HealthyRoots
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        mult = 5,
-        rank = nil
+        mult = 5
     }},
     loc_vars = function(self, info_queue, center)
         return {vars = {center.ability.extra.mult}}
     end,
     calculate = function(self, card, context)
-        if context.before and not context.blueprint then
+        if context.before then
             if #G.hand.cards > 0 then
                 return {
                     card = G.hand.cards[1],
@@ -949,6 +948,26 @@ SMODS.Joker{ --AliveBook
         end
     end
 }
+--[[SMODS.Joker{ --NumberAddict
+    key = 'numberAddict',
+    atlas = 'Jokers',
+    pos = {x = 7, y = 3},
+    cost = 6,
+    rarity = 1,
+    unlocked = true,
+    blueprint_compat = true,
+    eternal_compat = true,
+    loc_vars = function(self,info_queue,center)
+        return{vars = {#name}}
+    end,
+    calculate = function(self,card,context)
+        if context.joker_main and #name > 0 then
+            return {
+                mult = #name
+            }
+        end
+    end
+}]]--
 SMODS.Joker{ --Tabaosl
     key = 'tabaosl',
     atlas = 'Jokers',
