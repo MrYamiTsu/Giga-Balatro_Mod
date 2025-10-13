@@ -163,7 +163,7 @@ SMODS.Consumable{ --CaesarSalad
         return false
     end,
     use = function (self,card,area,copier)
-        _create(card, 'Giga_Food', G.consumeables,true,true)
+        _create(card, 'Tarot', G.consumeables,true,true)
         delay(0.4)
     end,
     calculate = function (self,card,context)
@@ -202,7 +202,7 @@ SMODS.Consumable{ --ClubSandwich
         return false
     end,
     use = function (self,card,area,copier)
-        _create(card, 'Giga_Food', G.consumeables,true,true)
+        _create(card, 'Planet', G.consumeables,true,true)
         delay(0.4)
     end,
     calculate = function (self,card,context)
@@ -241,7 +241,7 @@ SMODS.Consumable{ --Pho
         return false
     end,
     use = function (self,card,area,copier)
-        _create(card, 'Giga_Food', G.consumeables,true,true)
+        _create(card, 'Spectral', G.consumeables,true,true)
         delay(0.4)
     end,
     calculate = function (self,card,context)
