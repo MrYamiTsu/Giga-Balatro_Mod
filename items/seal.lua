@@ -275,7 +275,7 @@ SMODS.Seal{ --Gold++
                 message = 'Upgraded',
                 colour = G.C.MONEY,
                 func = function()
-                    card.ability.giga_goldplusplus_increase = (card.ability.giga_goldplusplus_increase or 0) + self.ability.cashAdd
+                    self.config.extra.cash = self.config.extra.cash + self.config.extra.cashAdd
                     return true
                 end
             }
@@ -294,17 +294,27 @@ SMODS.Seal{ --Gold++
             end
             if has_pGold then
                 return {
-                    dollars = self.config.extra.cash + (self.config.extra.cashPlus * 2) + (card.ability.giga_goldplusplus_increase or 0),
-                    delay = 0.6
+                    dollars = self.config.extra.cash + (self.config.extra.cashPlus * 2)
                 }
             elseif has_gold then
                 return{
-                    dollars = self.config.extra.cash + self.config.extra.cashPlus + (card.ability.giga_goldplusplus_increase or 0),
-                    delay = 0.6
+                    dollars = self.config.extra.cash + self.config.extra.cashPlus,
                 }
             else
                 return {
-                    dollars = self.config.extra.cash + (card.ability.giga_goldplusplus_increase or 0)
+                    dollars = self.config.extra.cash
+                }
+            end
+        end
+        if context.end_of_round and context.main_eval then
+            if self.config.extra.cash > 8 then
+                return {
+                    message = 'Reset',
+                    colour = G.C.MULT,
+                    func = function()
+                        self.config.extra.cash = 8
+                        return true
+                    end
                 }
             end
         end
