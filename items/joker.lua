@@ -948,26 +948,38 @@ SMODS.Joker{ --AliveBook
         end
     end
 }
---[[SMODS.Joker{ --NumberAddict
-    key = 'numberAddict',
+SMODS.Joker{ --Roposiel
+    key = 'roposiel',
     atlas = 'Jokers',
     pos = {x = 7, y = 3},
     cost = 6,
     rarity = 1,
     unlocked = true,
     blueprint_compat = true,
-    eternal_compat = true,
+    config = { extra = {
+        mult_add = 8,
+        mult = 0
+    }},
     loc_vars = function(self,info_queue,center)
-        return{vars = {#name}}
+        if G.jokers and #G.jokers.cards > 0 then
+            center.ability.extra.mult = 0
+            for i = 1, #G.jokers.cards do
+                local name = localize{type = "name_text", key = G.jokers.cards[i].config.center.key, set = G.jokers.cards[i].ability.set}
+                if string.match(name, "%d") or string.match(name, "[^%w%s]") then
+                    center.ability.extra.mult = (center.ability.extra.mult or 0) + center.ability.extra.mult_add
+                end
+            end
+        end
+        return{vars = {center.ability.extra.mult_add, center.ability.extra.mult}}
     end,
     calculate = function(self,card,context)
-        if context.joker_main and #name > 0 then
+        if context.joker_main and card.ability.extra.mult > 0 then
             return {
-                mult = #name
+                mult = card.ability.extra.mult
             }
         end
     end
-}]]--
+}
 SMODS.Joker{ --Tabaosl
     key = 'tabaosl',
     atlas = 'Jokers',

@@ -866,6 +866,15 @@ return {
                     'the leftmost {C:attention}Joker{}',
                     '{C:inactive}(Currently :{} {C:mult}+#1#{} {C:inactive}Mult)'
                 }
+            },
+            j_giga_roposiel = {
+                name = 'Roposiel',
+                text = {
+                    'Gains {C:mult}+#1#{} Mult for each Joker',
+                    'name that contains a {C:attention}number{}',
+                    'or a {C:attention}special character{}.',
+                    '{C:inactive}(Currently :{} {C:mult}+#2#{} {C:inactive}Mult)'
+                }
             }
         },
         Other={
