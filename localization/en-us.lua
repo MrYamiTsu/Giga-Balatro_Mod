@@ -26,6 +26,14 @@ return {
                     '{C:money}+#1#{} hand size'
                 }
             },
+            b_giga_gamblingAddict = {
+                name = 'Gambling Addict Deck',
+                text = {
+                    "This game isn't",
+                    'about winning, its',
+                    'about {C:attention,E:1,T:j_giga_stockMarket}GAMBLING{}',
+                }
+            },
             b_giga_drrunnkiDaecpk = {
                 name = 'Drrunnki Daecpk',
                 text = {
@@ -116,6 +124,15 @@ return {
                     'destroy card and ',
                     'create {C:spectral}Spectral{} card'
                 }
+            },
+            m_giga_evolvedWild = {
+                name = 'Evolved Wild Card',
+                text = {
+                    '{C:mult}+#1#{} Mult, {C:chips}+#2#{} Chips',
+                    'increase by {C:mult}+#3#{} Mult,',
+                    '{C:chips}+#4#{} Chips when {C:attention}played{}',
+                    '{C:inactive,s:0.7}This effect is temporary{}'
+                }
             }
         },
         Giga_Food = {
@@ -138,8 +155,7 @@ return {
                 text = {
                     'A delicious Hot-Dog that',
                     'enhance {C:attention}#1#{} card',
-                    'into {C:attention}Soil card{}',
-                    '{s:0.5}"I wonder what could happen if its already soil"{}'
+                    'into {C:attention}Soil card{}'
                 }
             },
             c_giga_caesarSalad = {
@@ -198,10 +214,10 @@ return {
                     'into a {C:attention}Lucky card{}'
                 }
             },
-            c_giga_Untitled2 = {            
-                name = '[Untitled]',
+            c_giga_durian = {            
+                name = 'Durian',
                 text = {
-                    'Some delicious [Untitled] that',
+                    'A delicious Durian that',
                     'enhance {C:attention}#1#{} card',
                     'into a {C:attention}Glass card{}'
                 }
@@ -230,12 +246,12 @@ return {
                     'into a {C:attention}Steel card{}'
                 }
             },
-            c_giga_Untitled5 = {
-                name = '[Untitled]',
+            c_giga_quicheLorraine = {
+                name = 'Quiche Lorraine',
                 text = {
-                    'Some delicious [Untitled] that',
-                    'create {C:attention}#1#{} random',
-                    '{C:hearts}Heart{} suit card'
+                    'Some delicious Quiche Lorraine',
+                    'that create {C:attention}#1#{}',
+                    'random {C:hearts}Heart{} suit card'
                 }
             },
             c_giga_paella = {
@@ -254,10 +270,10 @@ return {
                     '{C:diamonds}Diamond{} suit card'
                 }
             },
-            c_giga_Untitled8 = {
-                name = '[Untitled]',
+            c_giga_empanadas = {
+                name = 'Empanadas',
                 text = {
-                    'Some delicious [Untitled] that',
+                    'Some delicious Empanadas that',
                     'create {C:attention}#1#{} random',
                     '{C:clubs}Club{} suit card'
                 }
@@ -310,18 +326,18 @@ return {
                     'into {C:diamonds}Diamond{} suit'
                 }
             },
-            c_giga_Untitled12 = {
-                name = '[Untitled]',
+            c_giga_blueberryMuffin = {
+                name = 'Blueberry Muffin',
                 text = {
-                    'A delicious [Untitled]',
-                    'that convert {C:attention}#1#{} card',
-                    'into {C:clubs}Club{} suit'
+                    'Some delicious Blueberry',
+                    'Muffin that convert {C:attention}#1#{}',
+                    'card into {C:clubs}Club{} suit'
                 }
             },
-            c_giga_Untitled13 = {
-                name = '[Untitled]',
+            c_giga_donut = {
+                name = 'Donut',
                 text = {
-                    'A delicious [Untitled] that',
+                    'A delicious Donut that',
                     'add a {V:1}Pink Seal{} on {C:attention}#1#{}',
                     'card in {C:attention}#2#{} rounds',
                     '{C:inactive}#3#{}'
@@ -336,10 +352,10 @@ return {
                     '{C:inactive}#3#{}'
                 }
             },
-            c_giga_Untitled15 = {
-                name = '[Untitled]',
+            c_giga_bubbleTea = {
+                name = 'Bubble Tea',
                 text = {
-                    'A delicious [Untitled] that',
+                    'A delicious Bubble Tea that',
                     'add a {V:1}Aqua Seal{} on {C:attention}#1#{}',
                     'card in {C:attention}#2#{} rounds',
                     '{C:inactive}#3#{}'
@@ -379,10 +395,10 @@ return {
                     '{C:inactive}#2#{}'
                 }
             },
-            c_giga_UntitledCM1 = {
-                name = '[UntitleCM]',
+            c_giga_appleJuice = {
+                name = 'Apple Juice',
                 text = {
-                    'A delicious [UntitledCM] that',
+                    'A delicious Apple Juice that',
                     'create {C:attention}#1#{} random',
                     '{C:paperback_crowns}Crown{} suit card'
                 }
@@ -420,6 +436,25 @@ return {
                     'into {C:paperback_stars}Star{} suit'
                 }
             },
+            c_giga_migas = {
+                name = 'Migas',
+                text = {
+                    'A delicious Migas that',
+                    'will give an {C:purple}Aberration{}',
+                    'card in {C:attention}#1#{} rounds',
+                    '{C:inactive}#2#{}'
+                }
+            },
+            c_giga_bananaSplit = {
+                name = 'Banana Split',
+                text = {
+                    'A delicious Banana Split that',
+                    'will give a {C:attention}Power{} card',
+                    'in {C:attention}#1#{} rounds',
+                    '{C:inactive}#2#{}'
+                }
+            },
+
         },
         Joker={
             j_giga_cashPass = {
@@ -734,8 +769,8 @@ return {
                     'otherwise {C:mult}#2#{} Mult'
                 }
             },
-            j_giga_4thEffect = {
-                name = '4th Effect',
+            j_giga_marvinTheFourth = {
+                name = 'Marvin, The Fourth',
                 text = {
                     'Give {C:chips}+#1#{} Chips and {X:mult,C:white}X#2#{} Mult',
                     'for each {C:attention}4{}, {C:attention}5{} or {C:attention}6{} of {V:1}#3#{}',
@@ -765,7 +800,8 @@ return {
                 text = {
                     'Give {C:mult}+#1#{} Mult for each',
                     '{V:1}#2#{} card in the deck',
-                    '{C:inactive}Suit change every round{}'
+                    '{C:inactive}Suit change every round{}',
+                    '{C:inactive}(Currently {C:mult}+#3#{C:inactive} Mult)'
                 }
             },
             j_giga_hergosu = {
@@ -808,16 +844,33 @@ return {
             j_giga_bonoboJoker = {
                 name = 'Bonobo Joker',
                 text = {
-                    'Give {C:attention}half{} the {C:attention}rank{} of',
-                    'each {C:attention}held{} in hand cards',
-                    'as {C:mult}Mult{}, if {C:attention}5{} cards are',
-                    'played'
+                    'Give {C:attention}half{} the {C:attention}chip{} value',
+                    'of each {C:attention}held{} in hand',
+                    'cards as {C:mult}Mult{}, if {C:attention}5{} cards',
+                    'are {C:attention}played{}'
+                }
+            },
+            j_giga_onTheClock = {
+                name = 'On The Clock',
+                text = {
+                    'Get {C:mult}Mult{} and {C:chips}Chips{} based',
+                    'on the {C:attention}current time{}',
+                    '{C:inactive}(Hours > Mult / Minutes > Chips)'
+                }
+            },
+            j_giga_aliveBook = {
+                name = 'Alive Book',
+                text = {
+                    'Get {C:mult}Mult{} equal to the',
+                    '{C:attention}lenght{} of the {C:attention}name{} of',
+                    'the leftmost {C:attention}Joker{}',
+                    '{C:inactive}(Currently :{} {C:mult}+#1#{} {C:inactive}Mult)'
                 }
             }
         },
         Other={
-            --Undiscovered
-            undiscovered_food = {
+            --#region Undiscovered
+            undiscovered_Giga_Food = {
                 name = 'Not Discovered',
                 text = {
                     'Purchase or use',
@@ -826,12 +879,20 @@ return {
                     'learn what it does'
                 }
             },
-            -- Credit
+            --#endregion
+            --#region Credit
             ledugs_credit = {
                 name = 'Credit',
                 text = {
                     'Original idea',
                     'by {C:green,E:2}le_dugs{}'
+                }
+            },
+            jogla_credit = {
+                name = 'Credit',
+                text = {
+                    'Original idea',
+                    'by {C:green,E:2}Jogla{}'
                 }
             },
             yugioh_credit = {
@@ -848,33 +909,13 @@ return {
                     'from {C:attention,E:2}All-In-Jest{}'
                 }
             },
-            -- Enhancement
-            soil_def = {
-                name = 'Soil',
-                text = {
-                    '{X:chips,C:white}X1.1{} Chips'
-                }
-            },
-            richSoil_def = {
-                name = 'Rich Soil',
-                text = {
-                    '{X:chips,C:white}X1.4{} Chips',
-                    '{C:mult}+7{} Mult'
-                }
-            },
-            fossilSoil_def = {
-                name = 'Fossil Soil',
-                text = {
-                    '{X:chips,C:white}X2{} Chips',
-                    '{X:mult,C:white}X1.5{} Mult'
-                }
-            },
-            -- Seal
+            --#endregion
+            --#region Seal
             giga_pinkseal_seal = {
                 name = 'Pink Seal',
                 text = {
                     'When this card is {C:attention}scored{},',
-                    'create {C:attention}1{} {C:giga_Food}Food{} card',
+                    'create {C:attention}#1#{} {C:giga_Food}Food{} card',
                 }
             },
             giga_crimsonseal_seal = {
@@ -969,7 +1010,28 @@ return {
                     '{C:green}#2# in #3#{} to create an',
                     '{C:attention}Ethereal Tag{} instead'
                 }
-            }
+            },
+            giga_pinkplus_seal = {
+                name = 'Pink+ Seal',
+                text = {
+                    'When this card is {C:attention}scored{},',
+                    'create {C:attention}#1#{} {C:dark_edition}Negative{} {C:giga_Food}Food{}',
+                    'card and {C:attention}reduce{} blind size',
+                    'by {C:attention}#2#%{}'
+                }
+            },
+            giga_pinkplusplus_seal = {
+                name = 'Pink++ Seal',
+                text = {
+                    'When this card is {C:attention}scored{},',
+                    'create {C:attention}#1#{} {C:dark_edition}Negative{} {C:giga_Food}Food{}',
+                    'card, {C:attention}reduce{} blind size',
+                    'by {C:attention}#2#%{}',
+                    '{C:green}#3# in #4#{} to create a',
+                    '{C:rare}Rare{} {C:giga_Food}Food{} instead'
+                }
+            },
+            --#endregion
         },
         Partner = {
             pnr_giga_pabloJr = {
@@ -1079,7 +1141,7 @@ return {
         ["Content Set"] = {
             set_giga_megaLegendary = {
                 name = 'Mega Legendary'
-            }   
+            }
         }
     },
     misc = {
@@ -1090,21 +1152,27 @@ return {
         collabs={},
         dictionary={
             k_restaurant_pack = "Restaurant Pack",
-            b_giga_custom_menu_card = "Disable Custom Menu Joker"
+            b_giga_custom_menu_card = "Disable Custom Menu Joker",
+            k_inactive = "Inactive",
+            k_active = "Active",
+            b_Giga_Food = "Food Cards"
         },
         high_scores={},
         labels={
             giga_pinkseal_seal = 'Pink Seal',
             giga_crimsonseal_seal = 'Crimson Seal',
             giga_aquaseal_seal = 'Aqua Seal',
-            giga_redplus_seal = 'Red+',
-            giga_blueplus_seal = 'Blue+',
-            giga_goldplus_seal = 'Gold+',
-            giga_purpleplus_seal = 'Purple+',
-            giga_redplusplus_seal = 'Red++',
-            giga_blueplusplus_seal = 'Blue++',
-            giga_goldplusplus_seal = 'Gold++',
-            giga_purpleplusplus_seal = 'Purple++'
+            giga_redplus_seal = 'Red+ Seal',
+            giga_blueplus_seal = 'Blue+ Seal',
+            giga_goldplus_seal = 'Gold+ Seal',
+            giga_purpleplus_seal = 'Purple+ Seal',
+            giga_redplusplus_seal = 'Red++ Seal',
+            giga_blueplusplus_seal = 'Blue++ Seal',
+            giga_goldplusplus_seal = 'Gold++ Seal',
+            giga_purpleplusplus_seal = 'Purple++ Seal',
+            giga_pinkplus_seal = 'Pink+ Seal',
+            giga_pinkplusplus_seal = 'Pink++ Seal',
+            Giga_Food = "Food"
         },
         poker_hand_descriptions={},
         poker_hands={},

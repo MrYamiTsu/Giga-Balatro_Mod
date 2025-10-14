@@ -2,7 +2,15 @@ Giga = SMODS.current_mod
 Giga_path = SMODS.current_mod.path
 Giga_config = SMODS.current_mod.config
 
--- LOADING FILES --
+Giga.calculate = function (self, context)
+    if context.end_of_round and context.main_eval then
+        for _, card in pairs(G.playing_cards) do
+            card.ability.giga_goldplusplus_increase = nil
+        end
+    end
+end
+
+--#region LOADING FILES --
 SMODS.load_file("util.lua")()
 SMODS.load_file("items/booster.lua")()
 SMODS.load_file("items/consumeable.lua")()
@@ -12,11 +20,17 @@ SMODS.load_file("items/food.lua")()
 SMODS.load_file("items/joker.lua")()
 SMODS.load_file("items/seal.lua")()
 SMODS.load_file("items/voucher.lua")()
+if next(SMODS.find_mod("bloonlatro")) then
+    assert(SMODS.load_file("items/CrossMod/bloonlatro.lua"))()
+end
 if CardSleeves then
 	SMODS.load_file("items/CrossMod/cardsleeves.lua")()
 end
 if next(SMODS.find_mod("Cryptid")) then
 	SMODS.load_file("items/CrossMod/cryptid.lua")()
+end
+if next(SMODS.find_mod("foolsGambit")) then
+    SMODS.load_file("items/CrossMod/foolsgambit.lua")()
 end
 if next(SMODS.find_mod("partner")) then
 	SMODS.load_file("items/CrossMod/partner.lua")()
@@ -24,8 +38,8 @@ end
 if next(SMODS.find_mod("paperback")) then
 	SMODS.load_file("items/CrossMod/paperback.lua")()
 end
-
--- ATLAS --
+--#endregion
+--#region ATLAS --
 SMODS.Atlas{
     key = "modicon", 
     path = "modicon.png", 
@@ -104,8 +118,8 @@ SMODS.Atlas{
     px = 191,
     py = 170
 }
-
--- RARITY --
+--#endregion
+--#region RARITY --
 SMODS.Rarity{
 	key = "megaLegendary",
 	loc_txt = {
@@ -113,12 +127,12 @@ SMODS.Rarity{
     },
 	badge_colour = HEX("dbd809"),
 }
-
--- CUSTOM COLOUR --
+--#endregion
+--#region CUSTOM COLOUR --
 loc_colour()
-G.ARGS.LOC_COLOURS.giga_Food = HEX('F7070BFF')
-
--- CONFIG --
+G.ARGS.LOC_COLOURS.giga_Food = HEX('F2A5A6FF')
+--#endregion
+--#region CONFIG --
 -- From Maximus (so thx Maximus)
 Giga.config_tab = function()
     return{
@@ -149,8 +163,8 @@ Giga.config_tab = function()
         }
     }
 end
-
--- MAIN MENU --
+--#endregion
+--#region MAIN MENU --
 if not Giga_config.menu_card then
     SMODS.Joker{
 	    key = "mainMenuJoker",
@@ -187,8 +201,8 @@ if not Giga_config.menu_card then
     	newcard.states.visible = true
     end
 end
-
--- INITIALISATION --
+--#endregion
+--#region INITIALISATION --
 -- Thx TheOneGoofAli for this block of code
 SMODS.current_mod.reset_game_globals = function(run_start)
     if run_start then
@@ -196,8 +210,8 @@ SMODS.current_mod.reset_game_globals = function(run_start)
         G.GAME.giga.vouchers = {}
     end
 end
-
--- RANDOM SCORING ORDER --
+--#endregion
+--#region RANDOM SCORING ORDER --
 -- From TogaStuff (so thx TogaStuff)
 Giga.preprocess = function(context, input)
 	local output = input or context.cardarea and context.cardarea.cards or nil
@@ -219,3 +233,4 @@ end
 Giga.areaorderprocess = function(t)
 	return Giga.areaprocess(t)
 end
+--#endregion

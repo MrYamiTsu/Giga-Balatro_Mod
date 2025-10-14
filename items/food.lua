@@ -8,11 +8,11 @@ SMODS.ConsumableType{
         name = 'Food'
     },
     collection_rows = {5,6},
-    default = 'c_giga_fruitSalad', 
+    default = 'c_giga_fruitSalad',
     shop_rate = 0
 }
 
--- NORMAL --
+--#region NORMAL --
 SMODS.Consumable{ --Tacos
     key = 'tacos',
     set = 'Giga_Food',
@@ -80,25 +80,27 @@ SMODS.Consumable{ --HotDog
     }},
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = G.P_CENTERS['m_giga_soil']
-        local has_enhancement1 = false
-        local has_enhancement2 = false
-        for i, _card in ipairs(G.hand.highlighted) do
-            if SMODS.has_enhancement(_card, 'm_giga_soil') then
-                has_enhancement1 = true
-                break
+        if G.hand then
+            local has_enhancement1 = false
+            local has_enhancement2 = false
+            for i, _card in ipairs(G.hand.highlighted) do
+                if SMODS.has_enhancement(_card, 'm_giga_soil') then
+                    has_enhancement1 = true
+                    break
+                end
             end
-        end
-        for i, _card in ipairs(G.hand.highlighted) do
-            if SMODS.has_enhancement(_card, 'm_giga_richSoil') then
-                has_enhancement2 = true
-                break
+            for i, _card in ipairs(G.hand.highlighted) do
+                if SMODS.has_enhancement(_card, 'm_giga_richSoil') then
+                    has_enhancement2 = true
+                    break
+                end
             end
-        end
-        if has_enhancement1 then
-            info_queue[#info_queue+1] = G.P_CENTERS['m_giga_richSoil']
-        end
-        if has_enhancement2 then
-            info_queue[#info_queue+1] = G.P_CENTERS['m_giga_fossilSoil']
+            if has_enhancement1 then
+                info_queue[#info_queue+1] = G.P_CENTERS['m_giga_richSoil']
+            end
+            if has_enhancement2 then
+                info_queue[#info_queue+1] = G.P_CENTERS['m_giga_fossilSoil']
+            end
         end
         return{vars = {center.ability.extra.card}}
     end,
@@ -161,14 +163,18 @@ SMODS.Consumable{ --CaesarSalad
         return false
     end,
     use = function (self,card,area,copier)
-        _create(card, 'Giga_Food', G.consumeables,true,true)
+        _create(card, 'Tarot', G.consumeables,true,true)
         delay(0.4)
     end,
     calculate = function (self,card,context)
         if context.end_of_round and context.main_eval then
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
-        if card.ability.extra.round_left <= 0 and #G.consumeables.cards then
+        if card.ability.extra.round_left <= 0 and card.ability.extra.txt == 'Not ready yet' and #G.consumeables.cards then
+            local check_remove = function(card) 
+                return not card.REMOVED
+            end
+            juice_card_until(card, check_remove, true)
             card.ability.extra.txt = 'Ready'
         end
     end
@@ -196,14 +202,18 @@ SMODS.Consumable{ --ClubSandwich
         return false
     end,
     use = function (self,card,area,copier)
-        _create(card, 'Giga_Food', G.consumeables,true,true)
+        _create(card, 'Planet', G.consumeables,true,true)
         delay(0.4)
     end,
     calculate = function (self,card,context)
         if context.end_of_round and context.main_eval then
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
-        if card.ability.extra.round_left <= 0 and #G.consumeables.cards then
+        if card.ability.extra.round_left <= 0 and card.ability.extra.txt == 'Not ready yet' and #G.consumeables.cards then
+            local check_remove = function(card) 
+                return not card.REMOVED
+            end
+            juice_card_until(card, check_remove, true)
             card.ability.extra.txt = 'Ready'
         end
     end
@@ -231,14 +241,18 @@ SMODS.Consumable{ --Pho
         return false
     end,
     use = function (self,card,area,copier)
-        _create(card, 'Giga_Food', G.consumeables,true,true)
+        _create(card, 'Spectral', G.consumeables,true,true)
         delay(0.4)
     end,
     calculate = function (self,card,context)
         if context.end_of_round and context.main_eval then
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
-        if card.ability.extra.round_left <= 0 and #G.consumeables.cards then
+        if card.ability.extra.round_left <= 0 and card.ability.extra.txt == 'Not ready yet' and #G.consumeables.cards then
+            local check_remove = function(card) 
+                return not card.REMOVED
+            end
+            juice_card_until(card, check_remove, true)
             card.ability.extra.txt = 'Ready'
         end
     end
@@ -256,15 +270,13 @@ SMODS.Consumable{ --Spaghetti
     }},
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = G.P_CENTERS.m_bonus
-        local has_enhancement = false
-        for i, _card in ipairs(G.hand.highlighted) do
-            if SMODS.has_enhancement(_card, 'm_bonus') then
-                has_enhancement = true
-                break
+        if G.hand then
+            for i, _card in ipairs(G.hand.highlighted) do
+                if SMODS.has_enhancement(_card, 'm_bonus') then
+                    info_queue[#info_queue+1] = G.P_CENTERS['m_giga_bigBonus']
+                    break
+                end
             end
-        end
-        if has_enhancement then
-            info_queue[#info_queue+1] = G.P_CENTERS['m_giga_bigBonus']
         end
         return{vars = {center.ability.extra.card}}
     end,
@@ -304,15 +316,13 @@ SMODS.Consumable{ --Steak
     }},
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = G.P_CENTERS.m_stone
-        local has_enhancement = false
-        for i, _card in ipairs(G.hand.highlighted) do
-            if SMODS.has_enhancement(_card, 'm_giga_polishStone') then
-                has_enhancement = true
-                break
+        if G.hand then
+            for i, _card in ipairs(G.hand.highlighted) do
+                if SMODS.has_enhancement(_card, 'm_stone') then
+                    info_queue[#info_queue+1] = G.P_CENTERS['m_giga_polishStone']
+                    break
+                end
             end
-        end
-        if has_enhancement then
-            info_queue[#info_queue+1] = G.P_CENTERS['m_giga_polishStone']
         end
         return{vars = {center.ability.extra.card}}
     end,
@@ -344,7 +354,7 @@ SMODS.Consumable{ --Sushis
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 0, y = 1},
+    soul_pos = {x = 1, y = 3},
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -352,15 +362,13 @@ SMODS.Consumable{ --Sushis
     }},
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = G.P_CENTERS.m_mult
-        local has_enhancement = false
-        for i, _card in ipairs(G.hand.highlighted) do
-            if SMODS.has_enhancement(_card, 'm_giga_multPlus') then
-                has_enhancement = true
-                break
+        if G.hand then
+            for i, _card in ipairs(G.hand.highlighted) do
+                if SMODS.has_enhancement(_card, 'm_mult') then
+                    info_queue[#info_queue+1] = G.P_CENTERS['m_giga_multPlus']
+                    break
+                end
             end
-        end
-        if has_enhancement then
-            info_queue[#info_queue+1] = G.P_CENTERS['m_giga_multPlus']
         end
         return{vars = {center.ability.extra.card}}
     end,
@@ -392,7 +400,7 @@ SMODS.Consumable{ --SugarPie
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 0, y = 1},
+    soul_pos = {x = 3, y = 3},
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -400,15 +408,13 @@ SMODS.Consumable{ --SugarPie
     }},
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = G.P_CENTERS.m_lucky
-        local has_enhancement = false
-        for i, _card in ipairs(G.hand.highlighted) do
-            if SMODS.has_enhancement(_card, 'm_giga_luckiest') then
-                has_enhancement = true
-                break
+        if G.hand then
+            for i, _card in ipairs(G.hand.highlighted) do
+                if SMODS.has_enhancement(_card, 'm_lucky') then
+                    info_queue[#info_queue+1] = G.P_CENTERS['m_giga_luckiest']
+                    break
+                end
             end
-        end
-        if has_enhancement then
-            info_queue[#info_queue+1] = G.P_CENTERS['m_giga_luckiest']
         end
         return{vars = {center.ability.extra.card}}
     end,
@@ -434,12 +440,12 @@ SMODS.Consumable{ --SugarPie
 		end
     end
 }
-SMODS.Consumable{ --[Untitled2]
-    key = 'Untitled2',
+SMODS.Consumable{ --Durian
+    key = 'durian',
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 0, y = 1},
+    soul_pos = {x = 6, y = 3},
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -447,15 +453,13 @@ SMODS.Consumable{ --[Untitled2]
     }},
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = G.P_CENTERS.m_glass
-        local has_enhancement = false
-        for i, _card in ipairs(G.hand.highlighted) do
-            if SMODS.has_enhancement(_card, 'm_giga_reinforcedGlass') then
-                has_enhancement = true
-                break
+        if G.hand then
+            for i, _card in ipairs(G.hand.highlighted) do
+                if SMODS.has_enhancement(_card, 'm_glass') then
+                    info_queue[#info_queue+1] = G.P_CENTERS['m_giga_reinforcedGlass']
+                    break
+                end
             end
-        end
-        if has_enhancement then
-            info_queue[#info_queue+1] = G.P_CENTERS['m_giga_reinforcedGlass']
         end
         return{vars = {center.ability.extra.card}}
     end,
@@ -494,15 +498,13 @@ SMODS.Consumable{ --Salmon
     }},
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = G.P_CENTERS.m_gold
-        local has_enhancement = false
-        for i, _card in ipairs(G.hand.highlighted) do
-            if SMODS.has_enhancement(_card, 'm_giga_perfectGold') then
-                has_enhancement = true
-                break
+        if G.hand then
+            for i, _card in ipairs(G.hand.highlighted) do
+                if SMODS.has_enhancement(_card, 'm_gold') then
+                    info_queue[#info_queue+1] = G.P_CENTERS['m_giga_perfectGold']
+                    break
+                end
             end
-        end
-        if has_enhancement then
-            info_queue[#info_queue+1] = G.P_CENTERS['m_giga_perfectGold']
         end
         return{vars = {center.ability.extra.card}}
     end,
@@ -533,7 +535,7 @@ SMODS.Consumable{ --Waffle
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 0, y = 1},
+    soul_pos = {x = 2, y = 3},
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -541,6 +543,14 @@ SMODS.Consumable{ --Waffle
     }},
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = G.P_CENTERS.m_wild
+        if G.hand then
+            for i, _card in ipairs(G.hand.highlighted) do
+                if SMODS.has_enhancement(_card, 'm_wild') then
+                    info_queue[#info_queue+1] = G.P_CENTERS['m_giga_evolvedWild']
+                    break
+                end
+            end
+        end
         return{vars = {center.ability.extra.card}}
     end,
     can_use = function (self,card)
@@ -579,15 +589,13 @@ SMODS.Consumable{ --Lollipop
     }},
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = G.P_CENTERS.m_steel
-        local has_enhancement = false
-        for i, _card in ipairs(G.hand.highlighted) do
-            if SMODS.has_enhancement(_card, 'm_giga_titanium') then
-                has_enhancement = true
-                break
+        if G.hand then
+            for i, _card in ipairs(G.hand.highlighted) do
+                if SMODS.has_enhancement(_card, 'm_steel') then
+                    info_queue[#info_queue+1] = G.P_CENTERS['m_giga_titanium']
+                    break
+                end
             end
-        end
-        if has_enhancement then
-            info_queue[#info_queue+1] = G.P_CENTERS['m_giga_titanium']
         end
         return{vars = {center.ability.extra.card}}
     end,
@@ -613,12 +621,12 @@ SMODS.Consumable{ --Lollipop
 		end
     end
 }
-SMODS.Consumable{ --[Untitled5]
-    key = 'Untitled5',
+SMODS.Consumable{ --QuicheLorraine
+    key = 'quicheLorraine',
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 0, y = 1},
+    soul_pos = {x = 6, y = 4},
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -644,7 +652,7 @@ SMODS.Consumable{ --Paella
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 0, y = 1},
+    soul_pos = {x = 2, y = 4},
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -691,12 +699,12 @@ SMODS.Consumable{ --GummyBear
         end
     end
 }
-SMODS.Consumable{ --[Untitled8]
-    key = 'Untitled8',
+SMODS.Consumable{ --Empanadas
+    key = 'empanadas',
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 0, y = 1},
+    soul_pos = {x = 4, y = 3},
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -727,18 +735,9 @@ SMODS.Consumable{ --PB&JSandwich
     cost = 2,
     config = { extra = {
         mult = 2,
-        card = 2
-    }},
+    }, max_highlighted = 2},
     loc_vars = function (self,info_queue,center)
-        return{vars = {center.ability.extra.mult, center.ability.extra.card}}
-    end,
-    can_use = function (self,card)
-		if G and G.hand then
-			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
-				return true
-			end
-		end
-		return false
+        return{vars = {center.ability.extra.mult, center.ability.max_highlighted}}
     end,
     use = function (self,card,area,copier)
         for i, selected_card in pairs(G.hand.highlighted) do
@@ -751,23 +750,14 @@ SMODS.Consumable{ --Burger
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 0, y = 1},
+    soul_pos = {x = 5, y = 3},
     rarity = 1,
     cost = 2,
     config = { extra = {
         chips = 10,
-        card = 2
-    }},
+    }, max_highlighted = 2},
     loc_vars = function (self,info_queue,center)
-        return{vars = {center.ability.extra.chips, center.ability.extra.card}}
-    end,
-    can_use = function (self,card)
-		if G and G.hand then
-			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
-				return true
-			end
-		end
-		return false
+        return{vars = {center.ability.extra.chips, center.ability.max_highlighted}}
     end,
     use = function (self,card,area,copier)
         for i, selected_card in pairs(G.hand.highlighted) do
@@ -786,19 +776,21 @@ SMODS.Consumable{ --FruitSalad
     config = { extra = {
         card = 1
     }},
-    loc_vars = function (self,info_queue,center, card)
-        for i, _card in ipairs(G.hand.highlighted) do
-            if _card.config.center_key ~= 'c_base' then
-                local enh = check_upgrade(_card.config.center_key)
-                local duplicate = false
-                for _, v in ipairs(info_queue) do
-                    if v == G.P_CENTERS[enh] then
-                        duplicate = true
-                        break
+    loc_vars = function (self,info_queue,center)
+        if G.hand then
+            for i, _card in ipairs(G.hand.highlighted) do
+                if _card.config.center_key ~= 'c_base' then
+                    local enh = check_upgrade(_card.config.center_key)
+                    local duplicate = false
+                    for _, v in ipairs(info_queue) do
+                        if v == G.P_CENTERS[enh] then
+                            duplicate = true
+                            break
+                        end
                     end
-                end
-                if G.P_CENTERS[enh] and not duplicate then
-                    info_queue[#info_queue+1] = G.P_CENTERS[enh]
+                    if G.P_CENTERS[enh] and not duplicate then
+                        info_queue[#info_queue+1] = G.P_CENTERS[enh]
+                    end
                 end
             end
         end
@@ -809,15 +801,7 @@ SMODS.Consumable{ --FruitSalad
 			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
                 local has_enhancement = false
 				for i, selected_card in pairs(G.hand.highlighted) do
-                    if SMODS.has_enhancement(selected_card, 'm_giga_richSoil') or
-                       SMODS.has_enhancement(selected_card, 'm_giga_soil') or
-                       SMODS.has_enhancement(selected_card, 'm_bonus') or
-                       SMODS.has_enhancement(selected_card, 'm_stone') or
-                       SMODS.has_enhancement(selected_card, 'm_mult') or
-                       SMODS.has_enhancement(selected_card, 'm_lucky') or
-                       SMODS.has_enhancement(selected_card, 'm_gold') or
-                       SMODS.has_enhancement(selected_card, 'm_glass') or
-                       SMODS.has_enhancement(selected_card, 'm_steel') then
+                    if check_upgrade(selected_card.config.center.key) then
                         has_enhancement = true
                     else
                         has_enhancement = false
@@ -842,36 +826,12 @@ SMODS.Consumable{ --Ramen
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 0, y = 1},
+    soul_pos = {x = 5, y = 4},
     rarity = 1,
     cost = 2,
-    config = { extra = {
-        card = 2
-    }},
+    config = { max_highlighted = 2, suit_conv = "Hearts" },
     loc_vars = function (self,info_queue,center)
-        return{vars = {center.ability.extra.card}}
-    end,
-    can_use = function (self,card)
-        if G and G.hand then
-			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
-				return true
-			end
-		end
-		return false
-    end,
-    use = function (self,card,area,copier)
-        for i, selected_card in pairs(G.hand.highlighted) do
-            SMODS.change_base(selected_card, 'Hearts')
-            G.E_MANAGER:add_event(Event({
-				trigger = "after",
-				delay = 0.2,
-				func = function()
-					G.hand:unhighlight_all()
-					return true
-				end,
-			}))
-			delay(0.5)
-		end
+        return{vars = {center.ability.max_highlighted}}
     end
 }
 SMODS.Consumable{ --ChocolateBar
@@ -882,33 +842,9 @@ SMODS.Consumable{ --ChocolateBar
     soul_pos = {x = 6, y = 2},
     rarity = 1,
     cost = 2,
-    config = { extra = {
-        card = 2
-    }},
+    config = { max_highlighted = 2, suit_conv = "Spades" },
     loc_vars = function (self,info_queue,center)
-        return{vars = {center.ability.extra.card}}
-    end,
-    can_use = function (self,card)
-        if G and G.hand then
-			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
-				return true
-			end
-		end
-		return false
-    end,
-    use = function (self,card,area,copier)
-        for i, selected_card in pairs(G.hand.highlighted) do
-            SMODS.change_base(selected_card, 'Spades')
-            G.E_MANAGER:add_event(Event({
-				trigger = "after",
-				delay = 0.2,
-				func = function()
-					G.hand:unhighlight_all()
-					return true
-				end,
-			}))
-			delay(0.5)
-		end
+        return{vars = {center.ability.max_highlighted}}
     end
 }
 SMODS.Consumable{ --MacN'Cheese
@@ -919,78 +855,30 @@ SMODS.Consumable{ --MacN'Cheese
     soul_pos = {x = 4, y = 2},
     rarity = 1,
     cost = 2,
-    config = { extra = {
-        card = 2
-    }},
+    config = { max_highlighted = 2, suit_conv = "Diamonds"},
     loc_vars = function (self,info_queue,center)
-        return{vars = {center.ability.extra.card}}
-    end,
-    can_use = function (self,card)
-        if G and G.hand then
-			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
-				return true
-			end
-		end
-		return false
-    end,
-    use = function (self,card,area,copier)
-        for i, selected_card in pairs(G.hand.highlighted) do
-            SMODS.change_base(selected_card, 'Diamonds')
-            G.E_MANAGER:add_event(Event({
-				trigger = "after",
-				delay = 0.2,
-				func = function()
-					G.hand:unhighlight_all()
-					return true
-				end,
-			}))
-			delay(0.5)
-		end
+        return{vars = {center.ability.max_highlighted}}
     end
 }
-SMODS.Consumable{ --[Untitled12]
-    key = 'Untitled12',
+SMODS.Consumable{ --BlueberryMuffin
+    key = 'blueberryMuffin',
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 0, y = 1},
+    soul_pos = {x = 0, y = 4},
     rarity = 1,
     cost = 2,
-    config = { extra = {
-        card = 2
-    }},
+    config = { max_highlighted = 2, suit_conv = "Clubs"},
     loc_vars = function (self,info_queue,center)
-        return{vars = {center.ability.extra.card}}
-    end,
-    can_use = function (self,card)
-        if G and G.hand then
-			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
-				return true
-			end
-		end
-		return false
-    end,
-    use = function (self,card,area,copier)
-        for i, selected_card in pairs(G.hand.highlighted) do
-            SMODS.change_base(selected_card, 'Clubs')
-            G.E_MANAGER:add_event(Event({
-				trigger = "after",
-				delay = 0.2,
-				func = function()
-					G.hand:unhighlight_all()
-					return true
-				end,
-			}))
-			delay(0.5)
-		end
+        return{vars = {center.ability.max_highlighted}}
     end
 }
-SMODS.Consumable{ --[Untitled13]
-    key = 'Untitled13',
+SMODS.Consumable{ --Donut
+    key = 'donut',
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 0, y = 1},
+    soul_pos = {x = 4, y = 4},
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -1000,14 +888,35 @@ SMODS.Consumable{ --[Untitled13]
         txt = 'Not ready yet'
     }},
     loc_vars = function (self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'giga_pinkseal_seal'}
+        info_queue[#info_queue+1] = G.P_SEALS.giga_pinkseal
+        if G.hand then
+            local duplicate = {}
+            for _, _card in ipairs(G.hand.highlighted) do
+                if _card:get_seal() == 'giga_pinkseal' and not duplicate['giga_pinkplus'] then
+                    info_queue[#info_queue+1] = G.P_SEALS.giga_pinkplus
+                    duplicate['giga_pinkplus'] = true
+                end
+                if _card:get_seal() == 'giga_pinkplus' and not duplicate['giga_pinkplusplus'] then
+                    info_queue[#info_queue+1] = G.P_SEALS.giga_pinkplusplus
+                    duplicate['giga_pinkplusplus'] = true
+                end
+            end
+        end
         return{vars = {colours={HEX('FF00E6')}, center.ability.extra.card, center.ability.extra.round, center.ability.extra.txt}}
     end,
     can_use = function (self,card)
         if card.ability.extra.round_left <= 0 then
             if G and G.hand then
 			    if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
-				    return true
+				    for i, selected_card in pairs(G.hand.highlighted) do
+                        if selected_card:get_seal() == 'giga_pinkplusplus' then
+                            check = true
+                            break
+                        end
+                    end
+                    if not check then
+                        return true
+                    end
 			    end
 		    end
         end
@@ -1015,28 +924,22 @@ SMODS.Consumable{ --[Untitled13]
     end,
     use = function (self,card,area,copier)
         for i, selected_card in pairs(G.hand.highlighted) do
-            G.E_MANAGER:add_event(Event({
-				func = function()
-					selected_card:juice_up(0.3, 0.5)
-					return true
-				end,
-			}))
-			selected_card:set_seal("giga_pinkseal")
-			G.E_MANAGER:add_event(Event({
-				trigger = "after",
-				delay = 0.2,
-				func = function()
-					G.hand:unhighlight_all()
-					return true
-				end,
-			}))
+            if selected_card:get_seal() == 'giga_pinkplus' then
+                upgrade_seal_specific(selected_card, 'giga_pinkplus')
+            else
+                upgrade_seal_specific(selected_card, 'giga_pinkseal')
+            end
 		end
     end,
     calculate = function (self,card,context)
         if context.end_of_round and context.main_eval then
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
-        if card.ability.extra.round_left <= 0 and #G.consumeables.cards then
+        if card.ability.extra.round_left <= 0 and card.ability.extra.txt == 'Not ready yet' and #G.consumeables.cards then
+            local check_remove = function(card) 
+                return not card.REMOVED
+            end
+            juice_card_until(card, check_remove, true)
             card.ability.extra.txt = 'Ready'
         end
     end
@@ -1046,7 +949,7 @@ SMODS.Consumable{ --CranberryJuice
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 0, y = 1},
+    soul_pos = {x = 0, y = 3},
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -1056,7 +959,7 @@ SMODS.Consumable{ --CranberryJuice
         txt = 'Not ready yet'
     }},
     loc_vars = function (self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'giga_crimsonseal_seal'}
+        info_queue[#info_queue+1] = G.P_SEALS.giga_crimsonseal
         return{vars = {colours={HEX('DC143C')}, center.ability.extra.card, center.ability.extra.round, center.ability.extra.txt}}
     end,
     can_use = function (self,card)
@@ -1092,17 +995,21 @@ SMODS.Consumable{ --CranberryJuice
         if context.end_of_round and context.main_eval then
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
-        if card.ability.extra.round_left <= 0 and #G.consumeables.cards then
+        if card.ability.extra.round_left <= 0 and card.ability.extra.txt == 'Not ready yet' and #G.consumeables.cards then
+            local check_remove = function(card) 
+                return not card.REMOVED
+            end
+            juice_card_until(card, check_remove, true)
             card.ability.extra.txt = 'Ready'
         end
     end
 }
-SMODS.Consumable{ --[Untitled15]
-    key = 'Untitled15',
+SMODS.Consumable{ --BubbleTea
+    key = 'bubbleTea',
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 0, y = 1},
+    soul_pos = {x = 1, y = 4},
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -1112,7 +1019,7 @@ SMODS.Consumable{ --[Untitled15]
         txt = 'Not ready yet'
     }},
     loc_vars = function (self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'giga_aquaseal_seal'}
+        info_queue[#info_queue+1] = G.P_SEALS.giga_aquaseal
         return{vars = {colours={HEX('00FFF0')}, center.ability.extra.card, center.ability.extra.round, center.ability.extra.txt}}
     end,
     can_use = function (self,card)
@@ -1135,7 +1042,7 @@ SMODS.Consumable{ --[Untitled15]
 					return true
 				end,
 			}))
-			selected_card:set_seal("giga_aquaSeal")
+			selected_card:set_seal("giga_aquaseal")
 			G.E_MANAGER:add_event(Event({
 				trigger = "after",
 				delay = 0.2,
@@ -1150,7 +1057,11 @@ SMODS.Consumable{ --[Untitled15]
         if context.end_of_round and context.main_eval then
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
-        if card.ability.extra.round_left <= 0 and #G.consumeables.cards then
+        if card.ability.extra.round_left <= 0 and card.ability.extra.txt == 'Not ready yet' and #G.consumeables.cards then
+            local check_remove = function(card) 
+                return not card.REMOVED
+            end
+            juice_card_until(card, check_remove, true)
             card.ability.extra.txt = 'Ready'
         end
     end
@@ -1167,6 +1078,23 @@ SMODS.Consumable{ --BagOfCandy
         card = 1
     }},
     loc_vars = function (self,info_queue,center)
+        if G.hand then
+            for i, _card in ipairs(G.hand.highlighted) do
+                if _card:get_seal() ~= nil then
+                    local sl = Giga.seal_upgrades[_card:get_seal()]
+                    local duplicate = false
+                    for _, v in ipairs(info_queue) do
+                        if v == G.P_SEALS[sl] then
+                            duplicate = true
+                            break
+                        end
+                    end
+                    if G.P_SEALS[sl] and not duplicate then
+                        info_queue[#info_queue+1] = G.P_SEALS[sl]
+                    end
+                end
+            end
+        end
         return{vars = {center.ability.extra.card}}
     end,
     can_use = function (self,card)
@@ -1174,14 +1102,7 @@ SMODS.Consumable{ --BagOfCandy
 			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
                 local has_seal = false
 				for i, selected_card in pairs(G.hand.highlighted) do
-                    if selected_card:get_seal() == "Red" or
-                       selected_card:get_seal() == "Blue" or
-                       selected_card:get_seal() == "Gold" or
-                       selected_card:get_seal() == "Purple" or
-                       selected_card:get_seal() == "giga_redPlus" or
-                       selected_card:get_seal() == "giga_bluePlus" or
-                       selected_card:get_seal() == "giga_goldPlus" or
-                       selected_card:get_seal() == "giga_purplePlus" then
+                    if Giga.seal_upgrades[selected_card:get_seal()] then
                         has_seal = true
                     else
                         has_seal = false
@@ -1201,8 +1122,8 @@ SMODS.Consumable{ --BagOfCandy
 		end
     end
 }
-
--- RARE --
+--#endregion
+--#region RARE --
 SMODS.Consumable{ --BirthdayCake
     key = 'birthdayCake',
     set = 'Giga_Food',
@@ -1231,7 +1152,7 @@ SMODS.Consumable{ --BirthdayCake
     use = function (self,card,area,copier)
         G.E_MANAGER:add_event(Event({
             func = function()
-                G.consumeables.config.card_limit = G.consumeables.config.card_limit + 1
+                G.consumeables:change_size(card.ability.extra.consumSlot)
                 return true
             end
         }))
@@ -1240,7 +1161,11 @@ SMODS.Consumable{ --BirthdayCake
         if context.end_of_round and context.main_eval then
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
-        if card.ability.extra.round_left <= 0 and #G.consumeables.cards then
+        if card.ability.extra.round_left <= 0 and card.ability.extra.txt == 'Not ready yet' and #G.consumeables.cards then
+            local check_remove = function(card) 
+                return not card.REMOVED
+            end
+            juice_card_until(card, check_remove, true)
             card.ability.extra.txt = 'Ready'
         end
     end
@@ -1250,7 +1175,7 @@ SMODS.Consumable{ --Turkey
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 2, y = 1},
-    soul_pos = {x = 0, y = 1},
+    soul_pos = {x = 3, y = 4},
     rarity = 4,
     cost = 4,
     hidden = true,
@@ -1273,7 +1198,7 @@ SMODS.Consumable{ --Turkey
     use = function (self,card,area,copier)
         G.E_MANAGER:add_event(Event({
             func = function()
-                G.jokers.config.card_limit = G.jokers.config.card_limit + card.ability.extra.jokerSlot
+                G.jokers:change_size(card.ability.extra.jokerSlot)
                 return true
             end
         }))
@@ -1282,8 +1207,13 @@ SMODS.Consumable{ --Turkey
         if context.end_of_round and context.main_eval then
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
-        if card.ability.extra.round_left <= 0 and #G.consumeables.cards then
+        if card.ability.extra.round_left <= 0 and card.ability.extra.txt == 'Not ready yet' and #G.consumeables.cards then
+            local check_remove = function(card) 
+                return not card.REMOVED
+            end
+            juice_card_until(card, check_remove, true)
             card.ability.extra.txt = 'Ready'
         end
     end
 }
+--#endregion

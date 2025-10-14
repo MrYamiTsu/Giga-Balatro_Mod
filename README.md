@@ -16,21 +16,23 @@
 <h2>Cross-Mod</h2>
 <p>There are some extra assets if you have other mods. Here is a list:</p>
 <ul>
+    <li><a href="https://github.com/Amphiapple/Bloonlatro">Bloonlatro</a></li>
     <li><a href="https://github.com/larswijn/CardSleeves">CardSleeves</a></li>
     <li><a href="https://github.com/SpectralPack/Cryptid">Cryptid</a></li>
+    <li><a href="https://github.com/Joglacraft/Fools-Gambit">Fool's Gambit</a></li>
     <li><a href="https://github.com/Icecanno/Partner-API/">Partner-API</a></li>
     <li><a href="https://github.com/Balatro-Paperback/paperback">Paperback</a></li>
 </ul>
 
 <hr>
-<h2>Elements</h2>
+<h2>Contents</h2>
 <ul>
-    <li>42+ Jokers</li>
-    <li>31 Foods (+6 Cross-Mod)</li>
-    <li>11 Seals</li>
-    <li>8+ Enhancements</li>
+    <li>44+ Jokers</li>
+    <li>31 Food cards (+8 Cross-Mod)</li>
+    <li>13 Seals</li>
+    <li>9+ Enhancements</li>
+    <li>5 Decks</li>
     <li>4 Booster Packs</li>
-    <li>4 Decks</li>
     <li>4 Vouchers</li>
     <li>3 Spectral</li>
     <li>2 Sleeves (Cross-Mod)</li>
@@ -46,7 +48,7 @@
 <p>
     Some content work weirdly sometimes.<br>
     If a whole asset is in comment, don't remove it from the comment. It's an idea and this may cause the game to crash.<br>
-    If you have any ideas for how the mod's elements might interact, feel free to DM me on Discord (<strong>@MrYamiTsu</strong>).
+    If you have any ideas for how the mod's elements might interact, feel free to ping me in the <strong>Giga</strong> post on the Balatro Discord.
     You can also send me artwork of some elements if you want (I'll mention you in the credits).
 </p>
 
@@ -54,7 +56,7 @@
 <h2>Credits</h2>
 <ul>
     <li><strong>le_dugs</strong> for a lot of ideas and playtest</li>
-    <li><strong>Eris</strong> for playtest</li>
-    <li><strong>Jogla</strong> for spanish translation</li>
+    <li><strong>Eris</strong> for playtest and code correction</li>
+    <li><strong>Jogla</strong> for spanish translation and fixes</li>
     <li>*All the dev in the Balatro modding community*</li>
 </ul>

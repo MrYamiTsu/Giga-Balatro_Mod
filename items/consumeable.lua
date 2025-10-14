@@ -1,4 +1,4 @@
--- TAROTS --
+--#region TAROTS --
 SMODS.Consumable{ --Cook
     key = 'cook',
     set = 'Tarot',
@@ -22,8 +22,8 @@ SMODS.Consumable{ --Cook
 		end
     end
 }
-
--- SPECTRALS --
+--#endregion
+--#region SPECTRALS --
 SMODS.Consumable{ --Salt
     key = 'salt',
     set = 'Spectral',
@@ -48,29 +48,11 @@ SMODS.Consumable{ --Salt
     end,
     use = function (self,card,area,copier)
         for i, selected_card in pairs(G.hand.highlighted) do
-            G.E_MANAGER:add_event(Event({
-				func = function()
-					selected_card:juice_up(0.3, 0.5)
-					return true
-				end,
-			}))
-			G.E_MANAGER:add_event(Event({
-				trigger = "after",
-				delay = 0.1,
-				func = function()
-					selected_card:set_seal("giga_pinkseal")
-					return true
-				end,
-			}))
-			delay(0.5)
-			G.E_MANAGER:add_event(Event({
-				trigger = "after",
-				delay = 0.2,
-				func = function()
-					G.hand:unhighlight_all()
-					return true
-				end,
-			}))
+            if selected_card:get_seal() == 'giga_pinkplus' then
+                upgrade_seal_specific(selected_card, 'giga_pinkplus')
+            else
+                upgrade_seal_specific(selected_card, 'giga_pinkseal')
+            end
 		end
     end
 }
@@ -97,30 +79,30 @@ SMODS.Consumable{ --Compass
         return false
     end,
     use = function (self,card,area,copier)
-        for i, selected_card in pairs(G.hand.highlighted) do
+        for i, _card in pairs(G.hand.highlighted) do
             G.E_MANAGER:add_event(Event({
-				func = function()
-					selected_card:juice_up(0.3, 0.5)
-					return true
-				end,
-			}))
-			G.E_MANAGER:add_event(Event({
-				trigger = "after",
-				delay = 0.1,
-				func = function()
-					selected_card:set_seal("giga_crimsonseal")
-					return true
-				end,
-			}))
-			delay(0.5)
-			G.E_MANAGER:add_event(Event({
-				trigger = "after",
-				delay = 0.2,
-				func = function()
-					G.hand:unhighlight_all()
-					return true
-				end,
-			}))
+            	func = function()
+                	card:juice_up(0.3, 0.5)
+                	return true
+            	end
+        	}))
+        	G.E_MANAGER:add_event(Event({
+            	trigger = 'after',
+            	delay = 0.1,
+            	func = function()
+                	_card:set_seal('giga_crimsonseal')
+                	return true
+            	end
+        	}))
+        	delay(0.5)
+        	G.E_MANAGER:add_event(Event({
+            	trigger = 'after',
+            	delay = 0.2,
+            	func = function()
+                	G.hand:unhighlight_all()
+                	return true
+            	end
+        	}))
 		end
     end
 }
@@ -147,30 +129,31 @@ SMODS.Consumable{ --Wand
         return false
     end,
     use = function (self,card,area,copier)
-        for i, selected_card in pairs(G.hand.highlighted) do
+        for i, _card in pairs(G.hand.highlighted) do
             G.E_MANAGER:add_event(Event({
-				func = function()
-					selected_card:juice_up(0.3, 0.5)
-					return true
-				end,
-			}))
-			G.E_MANAGER:add_event(Event({
-				trigger = "after",
-				delay = 0.1,
-				func = function()
-					selected_card:set_seal("giga_aquaseal")
-					return true
-				end,
-			}))
-			delay(0.5)
-			G.E_MANAGER:add_event(Event({
-				trigger = "after",
-				delay = 0.2,
-				func = function()
-					G.hand:unhighlight_all()
-					return true
-				end,
-			}))
+            	func = function()
+                	card:juice_up(0.3, 0.5)
+                	return true
+            	end
+        	}))
+        	G.E_MANAGER:add_event(Event({
+            	trigger = 'after',
+            	delay = 0.1,
+            	func = function()
+                	_card:set_seal('giga_aquaseal')
+                	return true
+            	end
+        	}))
+        	delay(0.5)
+        	G.E_MANAGER:add_event(Event({
+            	trigger = 'after',
+            	delay = 0.2,
+            	func = function()
+                	G.hand:unhighlight_all()
+                	return true
+            	end
+        	}))
 		end
     end
 }
+--#endregion

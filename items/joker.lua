@@ -1,4 +1,4 @@
--- NO CATEGORY JOKERS --
+--#region NO CATEGORY JOKERS --
 SMODS.Joker{ --CashPass
     key = 'cashPass',
     atlas = 'Jokers',
@@ -60,7 +60,7 @@ SMODS.Joker{ --BlueChicken
             end
         end
 
-        if context.cardarea == G.jokers and context.joker_main and card.ability.extra.chips > 0 then
+        if context.joker_main then --other two checks shouldnt be needed since they are for values that dont change here
             return{
                 chips = card.ability.extra.chips
             }
@@ -84,10 +84,13 @@ SMODS.Joker{ --BlueEgg
                 }
             end
             if context.selling_card and context.card == card then
-                local egg = create_card('Joker', G.jokers, nil, nil, nil, nil, 'j_egg')
-                egg:add_to_deck()
-                G.jokers:emplace(egg)
-                delay(0.4)
+                G.E_MANAGER:add_event(Event({
+                    func = function ()
+                        SMODS.add_card({
+                            key = "j_egg"
+                        })
+                    end
+                }))
             end
         end
     end
@@ -140,7 +143,7 @@ SMODS.Joker{ --HighRiskHighReward
         chances = 3
     }},
     loc_vars = function(self, info_queue, center)
-        local odds, chances = SMODS.get_probability_vars(center, center.ability.extra.odds, center.ability.extra.chances, 'prob')
+        local odds, chances = SMODS.get_probability_vars(center, center.ability.extra.odds, center.ability.extra.chances, 'giga_highRiskHighReward')
         info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
         return {vars = {center.ability.extra.mult, odds, chances}}
     end,
@@ -151,24 +154,10 @@ SMODS.Joker{ --HighRiskHighReward
                     x_mult = card.ability.extra.mult
                 }
             end
-            if context.final_scoring_step then
-                if SMODS.pseudorandom_probability(card, 'giga_highRiskHighReward', card.ability.extra.odds, card.ability.extra.chances, 'hrhr_prob') then
-                    local to_destroy = context.full_hand[1]
-                    G.E_MANAGER:add_event(Event({
-                        blocking = true,
-                        func = function()
-                            to_destroy:start_dissolve()
-                            G.E_MANAGER:add_event(Event({
-                                delay = 0.4,
-                                func = function()
-                                    to_destroy:remove()
-                                    return true
-                                end
-                            }))
-                            return true
-                        end
-                    }))
-                end
+            if context.destroy_card and context.destroy_card == context.full_hand[1] and SMODS.pseudorandom_probability(card, 'giga_highRiskHighReward', card.ability.extra.odds, card.ability.extra.chances) then
+                return {
+                    remove = true
+                }
             end
         end
     end
@@ -263,7 +252,7 @@ SMODS.Joker{ --Paleontologist
         s2chips = 150,
     }},
     loc_vars = function(self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'soil_def'}
+        info_queue[#info_queue+1] = G.P_CENTERS.m_giga_soil
         return{vars = {center.ability.extra.chips}}
     end,
     calculate = function(self,card,context)
@@ -298,7 +287,7 @@ SMODS.Joker{ --PaleoExpert
         s2mult = 25,
     }},
     loc_vars = function(self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'soil_def'}
+        info_queue[#info_queue+1] = G.P_CENTERS.m_giga_soil --what was here before doesnt exist, so i assume its meant to be this?
         return{vars = {center.ability.extra.mult}}
     end,
     calculate = function(self,card,context)
@@ -350,13 +339,13 @@ SMODS.Joker{ --Refinery
                     card.ability.extra.cashNow = 0
                     return {
                         message_card = card,
-                        message = 'Reset',
+                        message = localize("k_reset"),
                         colour = G.C.MULT
                     }
                 end
             end
         end
-        if context.end_of_round and context.main_eval then
+        if context.end_of_round and context.main_eval then --was this supposed to be like gold joker?
             return {
                 dollars = card.ability.extra.cashNow,
             }
@@ -385,10 +374,7 @@ SMODS.Joker{ --CrystalOfHungriness
         end
         if context.joker_main and card.ability.extra.base ~= 1 then
             return {
-                card = card,
-                Xmult_mod = card.ability.extra.base,
-                message = 'X' .. card.ability.extra.base,
-                colour = G.C.MULT
+                xmult = card.ability.extra.base,
             }
         end
     end
@@ -404,21 +390,20 @@ SMODS.Joker{ --DoubleFork
     eternal_compat = true,
     config = { extra = {
         chips = 2,
-        txt = 'Innactive',
+        txt = 'k_inactive',
         active = false
     }},
     loc_vars = function(self, info_queue, card)
-        return {vars = {card.ability.extra.chips, card.ability.extra.txt}}
+        return {vars = {card.ability.extra.chips, localize(card.ability.extra.txt)}}
     end,
     calculate = function(self, card, context)
         if G.GAME.blind.in_blind then
             if context.using_consumeable and context.consumeable.ability.set == 'Giga_Food' and not context.blueprint then
                 if not card.ability.extra.active then
-                    card.ability.extra.txt = 'Active'
+                    card.ability.extra.txt = 'k_active'
                     card.ability.extra.active = true
                     return {
-                        card = card,
-                        message = 'Active',
+                        message = localize('k_active'),
                         colour = G.C.GREEN
                     }
                 end
@@ -433,11 +418,11 @@ SMODS.Joker{ --DoubleFork
         end
         if context.end_of_round and not context.blueprint then
             if card.ability.extra.active then
-                card.ability.extra.txt = 'Innactive'
+                card.ability.extra.txt = 'k_inactive'
                 card.ability.extra.active = false
                 return {
                     card = card,
-                    message = 'Innactive',
+                    message = localize("k_inactive"),
                     colour = G.C.RED
                 }
             end
@@ -455,7 +440,7 @@ SMODS.Joker{ --CrackedSkull
     eternal_compat = true,
     config = { extra = {
         mult = 2.5,
-        txt = 'Innactive',
+        txt = 'k_inactive',
         active = false
     }},
     loc_vars = function(self, info_queue, card)
@@ -465,11 +450,10 @@ SMODS.Joker{ --CrackedSkull
         if G.GAME.blind.in_blind then
             if context.using_consumeable and context.consumeable.ability.set == 'Spectral' and not context.blueprint then
                 if not card.ability.extra.active then
-                    card.ability.extra.txt = 'Active'
+                    card.ability.extra.txt = 'k_active'
                     card.ability.extra.active = true
                     return {
-                        card = card,
-                        message = 'Active',
+                        message = localize("k_active"),
                         colour = G.C.GREEN
                     }
                 end
@@ -484,11 +468,10 @@ SMODS.Joker{ --CrackedSkull
         end
         if context.end_of_round and not context.blueprint then
             if card.ability.extra.active then
-                card.ability.extra.txt = 'Innactive'
+                card.ability.extra.txt = 'k_inactive'
                 card.ability.extra.active = false
                 return {
-                    card = card,
-                    message = 'Innactive',
+                    message = localize('k_inactive'),
                     colour = G.C.RED
                 }
             end
@@ -506,7 +489,7 @@ SMODS.Joker{ --SagittariusA
     eternal_compat = true,
     config = { extra = {
         chips = 90,
-        txt = 'Innactive',
+        txt = 'k_inactive',
         active = false
     }},
     loc_vars = function(self, info_queue, card)
@@ -516,11 +499,11 @@ SMODS.Joker{ --SagittariusA
         if G.GAME.blind.in_blind then
             if context.using_consumeable and context.consumeable.ability.set == 'Planet' and not context.blueprint then
                 if not card.ability.extra.active then
-                    card.ability.extra.txt = 'Active'
+                    card.ability.extra.txt = "k_active"
                     card.ability.extra.active = true
                     return {
                         card = card,
-                        message = 'Active',
+                        message = localize("k_active"),
                         colour = G.C.GREEN
                     }
                 end
@@ -535,11 +518,11 @@ SMODS.Joker{ --SagittariusA
         end
         if context.end_of_round and not context.blueprint then
             if card.ability.extra.active then
-                card.ability.extra.txt = 'Innactive'
+                card.ability.extra.txt = 'k_inactive'
                 card.ability.extra.active = false
                 return {
                     card = card,
-                    message = 'Innactive',
+                    message = localize("k_inactive"),
                     colour = G.C.RED
                 }
             end
@@ -549,7 +532,7 @@ SMODS.Joker{ --SagittariusA
 SMODS.Joker{ --ColourfulCrystal
     key = 'colourfulCrystal',
     atlas = "Jokers",
-    pos = {x = 7, y = 3},
+    pos = {x = 6, y = 5},
     cost = 6,
     rarity = 1,
     unlocked = true,
@@ -576,10 +559,10 @@ SMODS.Joker{ --ColourfulCrystal
         end
     end
 }
-SMODS.Joker{ --4thEffect
-    key = '4thEffect',
+SMODS.Joker{ --MarvinTheFourth
+    key = 'marvinTheFourth',
     atlas = "Jokers",
-    pos = {x = 7, y = 3},
+    pos = {x = 7, y = 5},
     cost = 7,
     rarity = 2,
     unlocked = true,
@@ -588,16 +571,15 @@ SMODS.Joker{ --4thEffect
     config = { extra = {
         chips = 35,
         mult = 1.5,
-        suit = 'Spade',
-        colour = G.C.SUITS.Spades
+        suit = 'Spades'
     }},
     loc_vars = function(self, info_queue, center)
-        return {vars = {colours={center.ability.extra.colour}, center.ability.extra.chips, center.ability.extra.mult, center.ability.extra.suit}}
+        return {vars = {colours={G.C.SUITS[center.ability.extra.suit]}, center.ability.extra.chips, center.ability.extra.mult, center.ability.extra.suit}}
     end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
             local effects = {}
-            if context.other_card:is_suit(card.ability.extra.suit..'s', true) and
+            if context.other_card:is_suit(card.ability.extra.suit, true) and
                context.other_card:get_id() >= 4 and
                context.other_card:get_id() <= 6 then
                 table.insert(effects, {
@@ -610,18 +592,14 @@ SMODS.Joker{ --4thEffect
                 })
             end
             if not context.blueprint then
-                if card.ability.extra.suit == 'Spade' then
-                    card.ability.extra.suit = 'Heart'
-                    card.ability.extra.colour = G.C.SUITS.Hearts
-                elseif card.ability.extra.suit == 'Heart' then
-                    card.ability.extra.suit = 'Diamond'
-                    card.ability.extra.colour = G.C.SUITS.Diamonds
+                if card.ability.extra.suit == 'Spades' then
+                    card.ability.extra.suit = 'Hearts'
+                elseif card.ability.extra.suit == 'Hearts' then
+                    card.ability.extra.suit = 'Diamonds'
                 elseif card.ability.extra.suit == 'Diamond' then
-                    card.ability.extra.suit = 'Club'
-                    card.ability.extra.colour = G.C.SUITS.Clubs
-                elseif card.ability.extra.suit == 'Club' then
-                    card.ability.extra.suit = 'Spade'
-                    card.ability.extra.colour = G.C.SUITS.Spades
+                    card.ability.extra.suit = 'Clubs'
+                elseif card.ability.extra.suit == 'Clubs' then
+                    card.ability.extra.suit = 'Spades'
                 end
             end
             if #effects > 0 then
@@ -629,7 +607,6 @@ SMODS.Joker{ --4thEffect
             end
         end
     end
-    
 }
 SMODS.Joker{ --UpgradedTicket
     key = 'upgradedTicket',
@@ -700,17 +677,14 @@ SMODS.Joker{ --HealthyRoots
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        mult = 5,
-        rank = nil
+        mult = 5
     }},
     loc_vars = function(self, info_queue, center)
         return {vars = {center.ability.extra.mult}}
     end,
     calculate = function(self, card, context)
-        if context.before and not context.blueprint then
-            card.ability.extra.rank = nil
+        if context.before then
             if #G.hand.cards > 0 then
-                card.ability.extra.rank = G.hand.cards[1]:get_id()
                 return {
                     card = G.hand.cards[1],
                     message = 'Set',
@@ -719,7 +693,7 @@ SMODS.Joker{ --HealthyRoots
             end
         end
         if context.individual and context.cardarea == G.play then
-            if context.other_card:get_id() == card.ability.extra.rank then
+            if G.hand.cards[1] and context.other_card:get_id() == G.hand.cards[1]:get_id() then
                 return {
                     mult = card.ability.extra.mult
                 }
@@ -738,16 +712,21 @@ SMODS.Joker{ --Nahnahu
     eternal_compat = true,
     config = { extra = {
         mult = 2,
-        suit = 'Clubs',
-        colour = G.C.SUITS.Clubs
+        suit = 'Clubs'
     }},
     loc_vars = function(self, info_queue, center)
-        return {vars = {colours={center.ability.extra.colour}, center.ability.extra.mult, center.ability.extra.suit}}
+        local cards = 0
+        for _, c in pairs(G.playing_cards or {}) do
+            if c:is_suit(center.ability.extra.suit) then
+                cards = cards+1
+            end
+        end
+        return {vars = {colours={G.C.SUITS[center.ability.extra.suit]}, center.ability.extra.mult, center.ability.extra.suit, center.ability.extra.mult * cards}}
     end,
     calculate = function(self, card, context)
         if context.joker_main then
             local mult = 0
-            for i, c in pairs(G.playing_cards) do
+            for _, c in pairs(G.playing_cards) do
                 if c.base.suit == card.ability.extra.suit then
                     mult = mult + card.ability.extra.mult
                 end
@@ -759,16 +738,12 @@ SMODS.Joker{ --Nahnahu
         if context.end_of_round and not context.blueprint then
             if card.ability.extra.suit == 'Spades' then
                 card.ability.extra.suit = 'Hearts'
-                card.ability.extra.colour = G.C.SUITS.Hearts
             elseif card.ability.extra.suit == 'Hearts' then
                 card.ability.extra.suit = 'Diamonds'
-                card.ability.extra.colour = G.C.SUITS.Diamonds
             elseif card.ability.extra.suit == 'Diamonds' then
                 card.ability.extra.suit = 'Clubs'
-                card.ability.extra.colour = G.C.SUITS.Clubs
             elseif card.ability.extra.suit == 'Clubs' then
                 card.ability.extra.suit = 'Spades'
-                card.ability.extra.colour = G.C.SUITS.Spades
             end
         end
     end
@@ -789,7 +764,7 @@ SMODS.Joker{ --Hergosu
         jokerSlot = 1
     }},
     loc_vars = function(self,info_queue,center)
-        local numerator, denominator = SMODS.get_probability_vars(center, center.ability.extra.odd, center.ability.extra.chance, 'prob')
+        local numerator, denominator = SMODS.get_probability_vars(center, center.ability.extra.odd, center.ability.extra.chance, 'giga_hergosu')
         return{vars = {numerator, denominator, center.ability.extra.jokerSlot},
             info = {
                 {set = 'Other', key = 'j_giga_hergosu'}
@@ -798,7 +773,7 @@ SMODS.Joker{ --Hergosu
     end,
     calculate = function(self,card,context)
         if context.using_consumeable and context.consumeable.config.center.key == 'c_soul' then
-            if SMODS.pseudorandom_probability(card, 'giga_hergosu', card.ability.extra.odd, card.ability.extra.chance, 'hgs_prob') then
+            if SMODS.pseudorandom_probability(card, 'giga_hergosu', card.ability.extra.odd, card.ability.extra.chance) then
                 G.E_MANAGER:add_event(Event({
                     func = function()
                         G.jokers.config.card_limit = G.jokers.config.card_limit + card.ability.extra.jokerSlot
@@ -811,54 +786,9 @@ SMODS.Joker{ --Hergosu
                 }
             else
                 return {
-                    message = 'Nope',
+                    message = localize('k_nope_ex'),
                     colour = G.C.SECONDARY_SET.Tarot
                 }
-            end
-        end
-    end
-}
-SMODS.Joker{ --Tabaosl
-    key = 'tabaosl',
-    atlas = 'Jokers',
-    pos = {x = 0, y = 5},
-    soul_pos = {x = 1, y = 5},
-    cost = 10,
-    rarity = 4,
-    blueprint_compat = false,
-    eternal_compat = true,
-    loc_vars = function(self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'aij_back_credit'}
-    end,
-    calculate = function(self,card,context)
-        if context.before and context.main_eval and not context.blueprint then
-            if #G.play.cards > 0 then
-                for i = 1, 2 do
-                    if #G.play.cards >= i then
-                        local c = G.play.cards[i]
-                        if SMODS.has_enhancement(c, 'm_giga_richSoil') or
-                           SMODS.has_enhancement(c, 'm_giga_soil') or
-                           SMODS.has_enhancement(c, 'm_bonus') or
-                           SMODS.has_enhancement(c, 'm_stone') or
-                           SMODS.has_enhancement(c, 'm_mult') or
-                           SMODS.has_enhancement(c, 'm_lucky') or
-                           SMODS.has_enhancement(c, 'm_gold') or
-                           SMODS.has_enhancement(c, 'm_glass') or
-                           SMODS.has_enhancement(c, 'm_steel') then
-                            G.E_MANAGER:add_event(Event({
-                                trigger = 'before',
-                                delay = 0.15,
-                                func = function()
-                                    card:juice_up()
-                                    return true
-                                end
-                            }))
-                            upgrade_enhencement(c)
-                        end
-                    else
-                        break
-                    end
-                end
             end
         end
     end
@@ -895,7 +825,7 @@ SMODS.Joker{ --StockMarket
         if context.final_scoring_step and context.cardarea == G.jokers and not context.blueprint then
             if card.ability.extra.cash > 0 then
                 if SMODS.pseudorandom_probability(card, 'giga_stockMarket1', 3, 8, 'st_prob1') then
-                    if SMODS.pseudorandom_probability(card, 'giga_stockMarket2', 1, 10, 'st_prob2') then
+                    if SMODS.pseudorandom_probability(card, 'giga_stockMarket2', 1, 12, 'st_prob2') then
                         return {
                             func = function()
                                 card.ability.extra.cash = 0
@@ -915,7 +845,7 @@ SMODS.Joker{ --StockMarket
                         }
                     end
                 else
-                    if SMODS.pseudorandom_probability(card, 'giga_stockMarket3', 1, 9, 'st_prob3') then
+                    if SMODS.pseudorandom_probability(card, 'giga_stockMarket3', 1, 10, 'st_prob3') then
                         return {
                             func = function()
                                 card.ability.extra.cash = round_number(card.ability.extra.cash * 2.5)
@@ -953,31 +883,130 @@ SMODS.Joker{ --StockMarket
 SMODS.Joker{ --BonoboJoker
     key = 'bonoboJoker',
     atlas = 'Jokers',
-    pos = {x = 7, y = 3},
+    pos = {x = 5, y = 5},
     cost = 6,
     rarity = 1,
     blueprint_compat = true,
     eternal_compat = true,
-    config = { extra = {
-        i = 1
-    }},
     calculate = function(self,card,context)
-        if context.before then
-            card.ability.extra.i = 1
-        end
         if #G.play.cards >= 5 then
             if context.individual and context.cardarea == G.hand and not context.end_of_round then
-                local mult_to_give = math.floor(G.hand.cards[card.ability.extra.i]:get_id() / 2)
-                card.ability.extra.i = card.ability.extra.i + 1
                 return {
-                    mult = mult_to_give
+                    mult = math.floor(context.other_card.base.nominal / 2)
                 }
             end
         end
     end
 }
-
--- JACKS JOKERS --
+SMODS.Joker{ --OnTheClock
+    key = 'onTheClock',
+    atlas = 'Jokers',
+    pos = {x = 0, y = 6},
+    cost = 6,
+    rarity = 1,
+    blueprint_compat = true,
+    eternal_compat = true,
+    calculate = function(self,card,context)
+        if context.joker_main then
+            local time = os.date("*t")
+            return {
+                mult = time.hour,
+                chips = time.min
+            }
+        end
+    end
+}
+SMODS.Joker{ --AliveBook
+    key = 'aliveBook',
+    atlas = 'Jokers',
+    pos = {x = 7, y = 3},
+    cost = 6,
+    rarity = 2,
+    unlocked = true,
+    blueprint_compat = true,
+    eternal_compat = true,
+    loc_vars = function(self,info_queue,center)
+        local name = ''
+        if G.jokers and #G.jokers.cards > 0 then
+            if G.jokers.cards[1] ~= center then
+                name = localize{type = "name_text", key = G.jokers.cards[1].config.center.key, set = G.jokers.cards[1].ability.set}
+            end
+        end
+        return{vars = {#name}}
+    end,
+    calculate = function(self,card,context)
+        local name = ''
+        if G.jokers and #G.jokers.cards > 0 then
+            if G.jokers.cards[1] ~= card then
+                name = localize{type = "name_text", key = G.jokers.cards[1].config.center.key, set = G.jokers.cards[1].ability.set}
+            end
+        end
+        if context.joker_main and #name > 0 then
+            return {
+                mult = #name
+            }
+        end
+    end
+}
+--[[SMODS.Joker{ --NumberAddict
+    key = 'numberAddict',
+    atlas = 'Jokers',
+    pos = {x = 7, y = 3},
+    cost = 6,
+    rarity = 1,
+    unlocked = true,
+    blueprint_compat = true,
+    eternal_compat = true,
+    loc_vars = function(self,info_queue,center)
+        return{vars = {#name}}
+    end,
+    calculate = function(self,card,context)
+        if context.joker_main and #name > 0 then
+            return {
+                mult = #name
+            }
+        end
+    end
+}]]--
+SMODS.Joker{ --Tabaosl
+    key = 'tabaosl',
+    atlas = 'Jokers',
+    pos = {x = 0, y = 5},
+    soul_pos = {x = 1, y = 5},
+    cost = 10,
+    rarity = 4,
+    blueprint_compat = false,
+    eternal_compat = true,
+    loc_vars = function(self,info_queue,center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'aij_back_credit'}
+    end,
+    calculate = function(self,card,context)
+        if context.before and context.main_eval and not context.blueprint then
+            if #G.play.cards > 0 then
+                for i = 1, 2 do
+                    if #G.play.cards >= i then
+                        local c = G.play.cards[i]
+                        if check_upgrade(c.config.center.key) then
+                            G.E_MANAGER:add_event(Event({
+                                trigger = 'before',
+                                delay = 0.15,
+                                func = function()
+                                    card:juice_up()
+                                    upgrade_enhencement(c)
+                                    return true
+                                end
+                            }))
+                        end
+                    else
+                        break
+                    end
+                end
+            end
+        end
+    end
+}
+--#endregion
+--#region JACKS JOKERS --
 SMODS.Joker{ --KingOfJacks
     key = 'kingOfJacks',
     atlas = 'Jokers',
@@ -1004,10 +1033,7 @@ SMODS.Joker{ --KingOfJacks
         if context.joker_main then
             if card.ability.extra.base ~= 1 then
                 return {
-                    card = card,
-                    Xmult_mod = card.ability.extra.base,
-                    message = 'X' .. card.ability.extra.base,
-                    colour = G.C.MULT
+                    xmult = card.ability.extra.base
                 }
             end
         end
@@ -1022,33 +1048,48 @@ SMODS.Joker{ --FunnyCrown
     blueprint_compat = false,
     eternal_compat = true,
     config = { extra = {
-        round = 2
+        round = 2,
+        shaking = false
     }
     },
     loc_vars = function(self,info_queue,center)
         info_queue[#info_queue+1] = G.P_CENTERS.m_bonus
+        info_queue[#info_queue+1] = G.P_CENTERS['j_giga_kingOfJacks']
         return{vars = {center.ability.extra.round}}
     end,
     calculate = function(self,card,context)
-        if context.end_of_round and context.cardarea == G.jokers then
+        if context.end_of_round and context.main_eval then
             if card.ability.extra.round > 0 then
                 card.ability.extra.round = card.ability.extra.round - 1
             end
+            if card.ability.extra.round <= 0 and not card.ability.extra.shaking then
+                local check_remove = function(card) 
+                    return not card.REMOVED
+                end
+                juice_card_until(card, check_remove, true)
+                card.ability.extra.shaking = true
+            end
         end
-
         if context.selling_card and context.card == card then
             if card.ability.extra.round <= 0 then
                 if #G.jokers.cards < G.jokers.config.card_limit then
-                    SMODS.add_card{key = "j_giga_kingOfJacks"}
+                    G.E_MANAGER:add_event(Event({
+                        func = function ()
+                            SMODS.add_card{key = "j_giga_kingOfJacks"}
+                        end
+                    })) 
                 else
                     SMODS.calculate_effect({ message = localize('k_no_room_ex') }, card)
                 end
-                local suit = pseudorandom_element({'S','H','D','C'}, pseudoseed('giga_funnyCrown'))
-			    local card = create_playing_card({
-				    front = G.P_CARDS[suit..'_J'],
-				    center = G.P_CENTERS.m_bonus
-			    }, G.hand, false,false,nil)
-			    card:add_to_deck()
+                G.E_MANAGER:add_event(Event({
+                    func = function ()
+                        SMODS.add_card({
+                            rank = 'Jack',
+                            enhancement = 'm_bonus',
+                            area = G.deck
+                        })
+                    end
+                }))
             end
         end
     end
@@ -1062,8 +1103,8 @@ SMODS.Joker{ --JackMutator
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        round = 3,
-        round_left = 3,
+        round = 2,
+        round_left = 2,
     }},
     loc_vars = function(self,info_queue,center)
         return{vars = {center.ability.extra.round + 1, center.ability.extra.round_left}}
@@ -1083,7 +1124,7 @@ SMODS.Joker{ --JackMutator
                     end
                     local selected_card = pseudorandom_element(tpool, pseudoseed("jackMutator"))
                     if selected_card:get_id() == 11 then
-                        if SMODS.has_enhancement(selected_card, 'm_giga_richSoil') then
+                        if selected_card.config.center.key == "m_giga_soil" then
                             upgrade_enhencement_specific(selected_card,'m_giga_richSoil')
                         else
                             upgrade_enhencement_specific(selected_card,'m_giga_soil')
@@ -1099,33 +1140,8 @@ SMODS.Joker{ --JackMutator
         end
     end
 }
-
--- GEMS JOKERS --
-SMODS.Joker{ --PinkTourmaline
-    key = 'pinkTourmaline',
-    atlas = 'Jokers',
-    pos = {x = 7, y = 1},
-    cost = 5,
-    rarity = 1,
-    blueprint_compat = true,
-    eternal_compat = true,
-    config = { extra = {
-        mult = 12
-    }},
-    loc_vars = function(self, info_queue, center)
-        info_queue[#info_queue+1] = G.P_CENTERS.e_holo
-        return {vars = {center.ability.extra.mult}}
-    end,
-    calculate = function(self, card, context)
-        if context.individual and context.cardarea == G.hand and not context.end_of_round then
-            if context.other_card.edition and context.other_card.edition.type == 'holo' then
-                return {
-                    mult = card.ability.extra.mult
-                }
-            end
-        end
-    end
-}
+--#endregion
+--#region GEMS JOKERS --
 SMODS.Joker{ --Moonstone
     key = 'moonstone',
     atlas = 'Jokers',
@@ -1141,11 +1157,52 @@ SMODS.Joker{ --Moonstone
         info_queue[#info_queue+1] = G.P_CENTERS.e_foil
         return {vars = {center.ability.extra.chips}}
     end,
+    in_pool = function (self, args)
+        for _, c in pairs(G.playing_cards or {}) do
+            if c.edition and c.edition.key == "e_foil" then
+                return true
+            end
+        end
+        return false
+    end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.hand and not context.end_of_round then
             if context.other_card.edition and context.other_card.edition.type == 'foil' then
                 return {
                     chips = card.ability.extra.chips
+                }
+            end
+        end
+    end
+}
+SMODS.Joker{ --PinkTourmaline
+    key = 'pinkTourmaline',
+    atlas = 'Jokers',
+    pos = {x = 7, y = 1},
+    cost = 5,
+    rarity = 1,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        mult = 12
+    }},
+    loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue+1] = G.P_CENTERS.e_holo
+        return {vars = {center.ability.extra.mult}}
+    end,
+    in_pool = function (self, args)
+        for _, c in pairs(G.playing_cards or {}) do
+            if c.edition and c.edition.key == "e_holo" then
+                return true
+            end
+        end
+        return false
+    end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.hand and not context.end_of_round then
+            if context.other_card.edition and context.other_card.edition.type == 'holo' then
+                return {
+                    mult = card.ability.extra.mult
                 }
             end
         end
@@ -1166,6 +1223,14 @@ SMODS.Joker{ --RainbowQuartz
         info_queue[#info_queue+1] = G.P_CENTERS.e_poly
         return {vars = {center.ability.extra.xmult}}
     end,
+    in_pool = function (self, args)
+        for _, c in pairs(G.playing_cards or {}) do
+            if c.edition and c.edition.key == "e_polychrome" then
+                return true
+            end
+        end
+        return false
+    end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.hand and not context.end_of_round then
             if context.other_card.edition and context.other_card.edition.type == 'polychrome' then
@@ -1176,8 +1241,8 @@ SMODS.Joker{ --RainbowQuartz
         end
     end
 }
-
--- PREHISTORICS JOKERS --
+--#endregion
+--#region PREHISTORICS JOKERS --
 SMODS.Joker{ --TRex
     key = 'tRex',
     atlas = 'Jokers',
@@ -1193,60 +1258,17 @@ SMODS.Joker{ --TRex
         chips_add = 25,
         round = 1,
         interac = {
-            velo = false,
-            ptera = false,
-            trice = false
-        },
-        txt = 'Tarot',
-        colour = G.C.SECONDARY_SET.Tarot
+            trice_mult = 6,
+            ptera_chips = 35
+        }
     }},
     loc_vars = function(self, info_queue, center)
-        return {vars = {colours={center.ability.extra.colour}, center.ability.extra.txt, center.ability.extra.mult_add, center.ability.extra.chips_add, center.ability.extra.mult, center.ability.extra.chips}}
+        local set = next(SMODS.find_card("j_giga_velocyraptor")) and 'Spectral' or 'Tarot'
+        local _mult = next(SMODS.find_card("j_giga_triceratops")) and center.ability.extra.interac.trice_mult or center.ability.extra.mult_add
+        local _chips = next(SMODS.find_card("j_giga_pteranodon")) and center.ability.extra.interac.ptera_chips or center.ability.extra.chips_add
+        return {vars = {colours={G.C.SECONDARY_SET[set]}, localize(set:lower(), "labels"), _mult, _chips, center.ability.extra.mult, center.ability.extra.chips}}
     end,
     calculate = function(self, card, context)
-        --Interaction
-        for i, j in ipairs(G.jokers.cards) do
-            if j.ability and j.ability.name == 'j_giga_pteranodon' then
-                card.ability.extra.interac.ptera = true
-                break
-            else
-                card.ability.extra.interac.ptera = false
-            end
-        end
-        if card.ability.extra.interac.ptera then
-            card.ability.extra.chips_add = 35
-        else
-            card.ability.extra.chips_add = 25
-        end
-        for i, j in ipairs(G.jokers.cards) do
-            if j.ability and j.ability.name == 'j_giga_velocyraptor' then
-                card.ability.extra.interac.velo = true
-                break
-            else
-                card.ability.extra.interac.velo = false
-            end
-        end
-        if card.ability.extra.interac.velo then
-            card.ability.extra.txt = 'Spectral'
-            card.ability.extra.colour = G.C.SECONDARY_SET.Spectral
-        else
-            card.ability.extra.txt = 'Tarot'
-            card.ability.extra.colour = G.C.SECONDARY_SET.Tarot
-        end
-        for i, j in ipairs(G.jokers.cards) do
-            if j.ability and j.ability.name == 'j_giga_triceratops' then
-                card.ability.extra.interac.trice = true
-                break
-            else
-                card.ability.extra.interac.trice = false
-            end
-        end
-        if card.ability.extra.interac.ptera then
-            card.ability.extra.mult_add = 6
-        else
-            card.ability.extra.mult_add = 5
-        end
-        --Calculate
         if context.end_of_round and context.cardarea == G.jokers then
             card.ability.extra.round = (card.ability.extra.round) - 1
             if card.ability.extra.round <= -1 then
@@ -1256,14 +1278,7 @@ SMODS.Joker{ --TRex
                     G.E_MANAGER:add_event(Event({
                         blocking = true,
                         func = function()
-                            to_destroy:start_dissolve()
-                            G.E_MANAGER:add_event(Event({
-                                delay = 0.4,
-                                func = function()
-                                    to_destroy:remove()
-                                    return true
-                                end
-                            }))
+                            SMODS.destroy_cards(to_destroy)
                             return true
                         end
                     }))
@@ -1309,29 +1324,15 @@ SMODS.Joker{ --Velocyraptor
     config = { extra = {
         mult = 6,
         interac = {
-            rex = false
+            rex_mult = 10
         }
     }},
     loc_vars = function(self, info_queue, center)
-        return {vars = {center.ability.extra.mult}}
+        local _mult = next(SMODS.find_card("j_giga_tRex")) and center.ability.extra.interac.rex_mult or center.ability.extra.mult
+        return {vars = {_mult}}
     end,
     calculate = function(self, card, context)
-        --Interaction
-        for i, j in ipairs(G.jokers.cards) do
-            if j.ability and j.ability.name == 'j_giga_tRex' then
-                card.ability.extra.interac.rex = true
-                break
-            else
-                card.ability.extra.interac.rex = false
-            end
-        end
-        if card.ability.extra.interac.rex then
-            card.ability.extra.mult = 10
-        else
-            card.ability.extra.mult = 6
-        end
-        --Calculate
-        if context.joker_main and card.ability.extra.mult > 0 then
+        if context.joker_main then
             local has_ace = false
             for i, c in ipairs(context.full_hand or {}) do
                 if c:get_id() == 14 then
@@ -1358,60 +1359,25 @@ SMODS.Joker{ --Pteranodon
     config = { extra = {
         cash = 3,
         interac = {
-            rex = false,
+            rex_cash = 8,
             velo = false
         },
         txt = 'Planet',
         colour = G.C.SECONDARY_SET.Planet
     }},
     loc_vars = function(self, info_queue, center)
-        return {vars = {colours={center.ability.extra.colour}, center.ability.extra.txt, center.ability.extra.cash}}
+        local cash = next(SMODS.find_card("j_giga_tRex")) and center.ability.extra.interac.rex_cash or center.ability.extra.cash
+        local set = next(SMODS.find_card("j_giga_velocyraptor")) and 'Spectral' or 'Planet'
+        return {vars = {colours={G.C.SECONDARY_SET[set]}, localize(set:lower(), "labels"), cash}}
     end,
     calculate = function(self, card, context)
-        --Interaction
-        for i, j in ipairs(G.jokers.cards) do
-            if j.ability and j.ability.name == 'j_giga_tRex' then
-                card.ability.extra.interac.rex = true
-                break
-            else
-                card.ability.extra.interac.rex = false
-            end
-        end
-        if card.ability.extra.interac.rex then
-            card.ability.extra.cash = 8
-        else
-            card.ability.extra.cash = 3
-        end
-        for i, j in ipairs(G.jokers.cards) do
-            if j.ability and j.ability.name == 'j_giga_velocyraptor' then
-                card.ability.extra.interac.velo = true
-                break
-            else
-                card.ability.extra.interac.velo = false
-            end
-        end
-        if card.ability.extra.interac.velo then
-            card.ability.extra.txt = 'Spectral'
-            card.ability.extra.colour = G.C.SECONDARY_SET.Spectral
-        else
-            card.ability.extra.txt = 'Planet'
-            card.ability.extra.colour = G.C.SECONDARY_SET.Planet
-        end
-        --Calculate
         if context.scoring_name == 'High Card' then
             if context.individual and context.cardarea == G.play and context.other_card:get_id() == 5 then
                 local to_destroy = context.full_hand[1]
                 G.E_MANAGER:add_event(Event({
                     blocking = true,
                     func = function()
-                        to_destroy:start_dissolve()
-                        G.E_MANAGER:add_event(Event({
-                            delay = 0.4,
-                            func = function()
-                                to_destroy:remove()
-                                return true
-                            end
-                        }))
+                        SMODS.destroy_cards(to_destroy)
                         return true
                     end
                 }))
@@ -1431,7 +1397,7 @@ SMODS.Joker{ --Pteranodon
 SMODS.Joker{ --Triceratops
     key = 'triceratops',
     atlas = 'Jokers',
-    pos = {x = 7, y = 3},
+    pos = {x = 4, y = 5},
     cost = 5,
     rarity = 2,
     blueprint_compat = true,
@@ -1440,30 +1406,16 @@ SMODS.Joker{ --Triceratops
         odds = 1,
         chances = 9,
         interac = {
-            ptera = false
+            ptera_chance = 8
         }
     }},
     loc_vars = function(self, info_queue, card)
-        local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.odds, card.ability.extra.chances, 'prob')
+        local chances = next(SMODS.find_card("j_giga_pteranodon")) and card.ability.extra.interac.ptera_chance or card.ability.extra.chances
+        local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.odds, chances, 'prob')
         info_queue[#info_queue+1] = G.P_CENTERS.m_mult
         return { vars = { numerator, denominator } }
     end,
     calculate = function(self, card, context)
-        -- Interaction
-        for i, j in ipairs(G.jokers.cards) do
-            if j.ability and j.ability.name == 'j_giga_pteranodon' then
-                card.ability.extra.interac.ptera = true
-                break
-            else
-                card.ability.extra.interac.ptera = false
-            end
-        end
-        if card.ability.extra.interac.ptera then
-            card.ability.extra.chances = 8
-        else
-            card.ability.extra.chips_add = 9
-        end
-        -- Calculate
         if context.individual and context.cardarea == G.play then 
             if SMODS.has_enhancement(context.other_card, 'm_mult') then
                 if SMODS.pseudorandom_probability(card, 'giga_triceratops', card.ability.extra.odds, card.ability.extra.chances, 'tcrtp_prob1') then
@@ -1484,8 +1436,8 @@ SMODS.Joker{ --Triceratops
         end
     end
 }
-
--- YU-GI-OH JOKERS --
+--#endregion
+--#region YU-GI-OH JOKERS --
 SMODS.Joker{ --BlueEyesWhiteDragon
     key = 'blueEyesWhiteDragon',
     atlas = 'Jokers',
@@ -1507,7 +1459,7 @@ SMODS.Joker{ --BlueEyesWhiteDragon
     calculate = function(self,card,context)
         local byud_ready = 0
         for i, j in ipairs(G.jokers.cards) do
-            if j.ability and j.ability.name == 'j_giga_blueEyesWhiteDragon' then
+            if j.config.center.key == 'j_giga_blueEyesWhiteDragon' then
                 byud_ready = byud_ready + 1
                 if byud_ready >= 3 then
                     break
@@ -1516,7 +1468,7 @@ SMODS.Joker{ --BlueEyesWhiteDragon
         end
         local has_byud = false
         for i, j in ipairs(G.jokers.cards) do
-            if j.ability and j.ability.name == 'j_giga_byud' then
+            if j.config.center.key == 'j_giga_byud' then
                 has_byud = true
                 break
             end
@@ -1528,14 +1480,7 @@ SMODS.Joker{ --BlueEyesWhiteDragon
             G.E_MANAGER:add_event(Event({
                 blocking = true,
                 func = function()
-                    card:start_dissolve()
-                    G.E_MANAGER:add_event(Event({
-                        delay = 0.8,
-                        func = function()
-                            card:remove()
-                            return true
-                        end
-                    }))
+                    SMODS.destroy_cards(card)
                     return true
                 end
             }))
@@ -1582,19 +1527,13 @@ SMODS.Joker{ --RedEyesBlackDragon
             local effects = {}
             if context.other_card:is_suit("Spades", true) then
                 table.insert(effects, {
-                    card = card,
-                    mult_mod = card.ability.extra.mult,
-                    message = '+' .. card.ability.extra.mult,
-                    colour = G.C.MULT,
+                    mult = card.ability.extra.mult,
                     delay = 0.4
                 })
             end
             if context.other_card:get_id() == 11 then
                 table.insert(effects, {
-                    card = card,
-                    Xmult_mod = card.ability.extra.xmult,
-                    message = 'X' .. card.ability.extra.xmult,
-                    colour = G.C.MULT,
+                    xmult = card.ability.extra.xmult,
                     delay = 0.4
                 })
             end
@@ -1626,25 +1565,15 @@ SMODS.Joker{ --BYUD
     end,
     calculate = function(self,card,context)
         local dmk_ready = false
-        for i, j in ipairs(G.jokers.cards) do
-            if j.ability and j.ability.name == 'j_giga_blackLusterSoldier' then
-                dmk_ready = true
-                break
-            end
+        if next(SMODS.find_card('j_giga_blackLusterSoldier')) then
+            dmk_ready = true
         end
         if context.setting_blind and dmk_ready then
             SMODS.add_card{key = "j_giga_dmk", edition = "e_negative"}
             G.E_MANAGER:add_event(Event({
                 blocking = true,
                 func = function()
-                    card:start_dissolve()
-                    G.E_MANAGER:add_event(Event({
-                        delay = 0.8,
-                        func = function()
-                            card:remove()
-                            return true
-                        end
-                    }))
+                    SMODS.destroy_cards(card)
                     return true
                 end
             }))
@@ -1652,27 +1581,18 @@ SMODS.Joker{ --BYUD
         if context.individual and context.cardarea == G.play then
             local effects = {}
             table.insert(effects, {
-                card = card,
-                mult_mod = card.ability.extra.mult,
-                message = '+' .. card.ability.extra.mult,
-                colour = G.C.MULT,
+                mult = card.ability.extra.mult,
                 delay = 0.6
             })
             if context.other_card:is_suit("Clubs", true) then
                 table.insert(effects, {
-                    card = card,
-                    Xmult_mod = card.ability.extra.xmult1,
-                    message = 'X' .. card.ability.extra.xmult1,
-                    colour = G.C.MULT,
+                    xmult = card.ability.extra.xmult1,
                     delay = 0.6
                 })
             end
             if context.other_card:get_id() >= 8 then
                 table.insert(effects, {
-                    card = card,
-                    Xmult_mod = card.ability.extra.xmult2,
-                    message = 'X' .. card.ability.extra.xmult2,
-                    colour = G.C.MULT,
+                    xmult = card.ability.extra.xmult2,
                     delay = 0.6
                 })
             end
@@ -1705,27 +1625,18 @@ SMODS.Joker{ --DMK
         if context.individual and context.cardarea == G.play then
             local effects = {}
             table.insert(effects, {
-                card = card,
-                mult_mod = card.ability.extra.mult,
-                message = '+' .. card.ability.extra.mult,
-                colour = G.C.MULT,
+                mult = card.ability.extra.mult,
                 delay = 0.6
             })
             if context.other_card:is_suit("Clubs", true) then
                 table.insert(effects, {
-                    card = card,
-                    Xmult_mod = card.ability.extra.xmult1,
-                    message = 'X' .. card.ability.extra.xmult1,
-                    colour = G.C.MULT,
+                    xmult = card.ability.extra.xmult1,
                     delay = 0.6
                 })
             end
             if context.other_card:get_id() >= 7 then
                 table.insert(effects, {
-                    card = card,
-                    Xmult_mod = card.ability.extra.xmult2,
-                    message = 'X' .. card.ability.extra.xmult2,
-                    colour = G.C.MULT,
+                    xmult = card.ability.extra.xmult2, --duplicate entry xmult, old one gets overridden if this succeeds
                     delay = 0.6
                 })
             end
@@ -1754,31 +1665,18 @@ SMODS.Joker{ --BlackLusterSoldier
     end,
     calculate = function(self,card,context)
         local dmk_ready = false
-        for i, j in ipairs(G.jokers.cards) do
-            if j.ability and j.ability.name == 'j_giga_byud' then
-                dmk_ready = true
-                break
-            end
+        if next(SMODS.find_card('j_giga_byud')) then
+            dmk_ready = true
         end
         local moc_ready = false
-        for i, j in ipairs(G.jokers.cards) do
-            if j.ability and j.ability.name == 'j_giga_darkMagician' then
-                moc_ready = true
-                break
-            end
+        if next(SMODS.find_card('j_giga_darkMagician')) then
+            moc_ready = true
         end
         if context.setting_blind and (dmk_ready or moc_ready) then
             G.E_MANAGER:add_event(Event({
                 blocking = true,
                 func = function()
-                    card:start_dissolve()
-                    G.E_MANAGER:add_event(Event({
-                        delay = 0.8,
-                        func = function()
-                            card:remove()
-                            return true
-                        end
-                    }))
+                    SMODS.destroy_cards(card)
                     return true
                 end
             }))
@@ -1786,16 +1684,13 @@ SMODS.Joker{ --BlackLusterSoldier
         if context.individual and context.cardarea == G.play then
             local effects = {}
             table.insert(effects, {
-                card = card,
-                mult_mod = card.ability.extra.mult,
-                message = '+' .. card.ability.extra.mult,
-                colour = G.C.MULT,
+                mult = card.ability.extra.mult,
                 delay = 0.4
             })
             if context.other_card:get_id() == 9 then
                 table.insert(effects, {
                     card = card,
-                    Xmult_mod = card.ability.extra.xmult,
+                    xmult = card.ability.extra.xmult,
                     message = 'X' .. card.ability.extra.xmult,
                     colour = G.C.MULT,
                     delay = 0.4
@@ -1826,25 +1721,15 @@ SMODS.Joker{ --DarkMagician
     end,
     calculate = function(self,card,context)
         local moc_ready = false
-        for i, j in ipairs(G.jokers.cards) do
-            if j.ability and j.ability.name == 'j_giga_blackLusterSoldier' then
-                moc_ready = true
-                break
-            end
+        if next(SMODS.find_card("j_giga_blackLusterSoldier")) then
+            moc_ready = true
         end
         if context.setting_blind and moc_ready then
-            SMODS.add_card{key = "j_giga_moc", edition = "e_negative"}
             G.E_MANAGER:add_event(Event({
                 blocking = true,
                 func = function()
-                    card:start_dissolve()
-                    G.E_MANAGER:add_event(Event({
-                        delay = 0.8,
-                        func = function()
-                            card:remove()
-                            return true
-                        end
-                    }))
+                    SMODS.add_card{key = "j_giga_moc", edition = "e_negative"}
+                    SMODS.destroy_cards(card)
                     return true
                 end
             }))
@@ -1853,19 +1738,13 @@ SMODS.Joker{ --DarkMagician
             local effects = {}
             if context.other_card:is_suit("Diamonds", true) then
                 table.insert(effects, {
-                    card = card,
-                    mult_mod = card.ability.extra.mult,
-                    message = '+' .. card.ability.extra.mult,
-                    colour = G.C.MULT,
+                    mult = card.ability.extra.mult,
                     delay = 0.4
                 })
             end
             if context.other_card:get_id() == 7 then
                 table.insert(effects, {
-                    card = card,
-                    Xmult_mod = card.ability.extra.xmult,
-                    message = 'X' .. card.ability.extra.xmult,
-                    colour = G.C.MULT,
+                    xmult = card.ability.extra.xmult,
                     delay = 0.4
                 })
             end
@@ -1898,27 +1777,18 @@ SMODS.Joker{ --MOC
         if context.individual and context.cardarea == G.play then
             local effects = {}
             table.insert(effects, {
-                card = card,
-                mult_mod = card.ability.extra.mult1,
-                message = '+' .. card.ability.extra.mult1,
-                colour = G.C.MULT,
+                mult = card.ability.extra.mult1,
                 delay = 0.6
             })
             if context.other_card:is_suit("Diamonds", true) then
                 table.insert(effects, {
-                    card = card,
-                    mult_mod = card.ability.extra.mult2,
-                    message = '+' .. card.ability.extra.mult2,
-                    colour = G.C.MULT,
+                    mult = card.ability.extra.mult2,
                     delay = 0.6
                 })
             end
             if context.other_card:get_id() <= 9 then
                 table.insert(effects, {
-                    card = card,
-                    Xmult_mod = card.ability.extra.xmult,
-                    message = 'X' .. card.ability.extra.xmult,
-                    colour = G.C.MULT,
+                    xmult = card.ability.extra.xmult,
                     delay = 0.6
                 })
             end
@@ -1948,10 +1818,7 @@ SMODS.Joker{ --LLOTFO
         if context.individual and context.cardarea == G.play then
             if context.other_card:is_suit("Spades", true) then
                 return {
-                    card = card,
-                    chip_mod = card.ability.extra.chips,
-                    message = localize{type='variable',key='a_chips',vars={card.ability.extra.chips}},
-                    colour = G.C.CHIP
+                    chips = card.ability.extra.chips,
                 }
             end
         end
@@ -1977,10 +1844,7 @@ SMODS.Joker{ --RLOTFO
         if context.individual and context.cardarea == G.play then
             if context.other_card:is_suit("Clubs", true) then
                 return {
-                    card = card,
-                    chip_mod = card.ability.extra.chips,
-                    message = localize{type='variable',key='a_chips',vars={card.ability.extra.chips}},
-                    colour = G.C.CHIP
+                    chips = card.ability.extra.chips,
                 }
             end
         end
@@ -2006,10 +1870,7 @@ SMODS.Joker{ --LAOTFO
         if context.individual and context.cardarea == G.play then
             if context.other_card:is_suit("Hearts", true) then
                 return {
-                    card = card,
-                    chip_mod = card.ability.extra.chips,
-                    message = localize{type='variable',key='a_chips',vars={card.ability.extra.chips}},
-                    colour = G.C.CHIP
+                    chips = card.ability.extra.chips,
                 }
             end
         end
@@ -2035,10 +1896,7 @@ SMODS.Joker{ --RAOTFO
         if context.individual and context.cardarea == G.play then
             if context.other_card:is_suit("Diamonds", true) then
                 return {
-                    card = card,
-                    chip_mod = card.ability.extra.chips,
-                    message = localize{type='variable',key='a_chips',vars={card.ability.extra.chips}},
-                    colour = G.C.CHIP
+                    chips = card.ability.extra.chips,
                 }
             end
         end
@@ -2066,40 +1924,31 @@ SMODS.Joker{ --ETFO
         local bool2 = false
         local bool3 = false
         local bool4 = false
-        for i, j in ipairs(G.jokers.cards) do
-            if j.ability and j.ability.name == 'j_giga_llotfo' then
-                bool1 = true
-            end
-            if j.ability and j.ability.name == 'j_giga_rlotfo' then
-                bool2 = true
-            end
-            if j.ability and j.ability.name == 'j_giga_laotfo' then
-                bool3 = true
-            end
-            if j.ability and j.ability.name == 'j_giga_raotfo' then
-                bool4 = true
-            end
-            if bool1 and bool2 and bool3 and bool4 then
-                tlei_ready = true
-                break
-            end
+        if next(SMODS.find_card('j_giga_llotfo')) then
+            bool1 = true
+        end
+        if next(SMODS.find_card('j_giga_rlotfo')) then
+            bool2 = true
+        end
+        if next(SMODS.find_card('j_giga_laotfo')) then
+            bool3 = true
+        end
+        if next(SMODS.find_card('j_giga_raotfo')) then
+            bool4 = true
+        end
+        if bool1 and bool2 and bool3 and bool4 then
+            tlei_ready = true
         end
         if context.setting_blind and tlei_ready then
             SMODS.add_card{key = "j_giga_tlei", edition = "e_negative"}
             G.E_MANAGER:add_event(Event({
                 blocking = true,
                 func = function()
-                    card:start_dissolve()
-                    G.E_MANAGER:add_event(Event({
-                        delay = 0.8,
-                        func = function()
-                            card:remove()
-                            return true
-                        end
-                    }))
+                    SMODS.destroy_cards(card)
                     return true
                 end
             }))
+            local _first_dissolve = false
             for i, j in ipairs(G.jokers.cards) do
                 if j.ability and (j.ability.name == 'j_giga_llotfo' or
                                   j.ability.name == 'j_giga_rlotfo' or
@@ -2108,7 +1957,7 @@ SMODS.Joker{ --ETFO
                     G.E_MANAGER:add_event(Event({
                         blocking = true,
                         func = function()
-                            j:start_dissolve()
+                            j:start_dissolve(nil, _first_dissolve)
                             G.E_MANAGER:add_event(Event({
                                 delay = 0.8,
                                 func = function()
@@ -2156,11 +2005,9 @@ SMODS.Joker{ --TLEI
         end
         if context.joker_main then
             return {
-                card = card,
-                Xmult_mod = card.ability.extra.mult,
-                message = 'X' .. card.ability.extra.mult,
-                colour = G.C.MULT
+                xmult = card.ability.extra.mult,
             }
         end
     end
 }
+--#endregion

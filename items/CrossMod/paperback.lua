@@ -1,6 +1,6 @@
 -- FOODS CARDS --
-SMODS.Consumable{ --[UntitledCM1]
-    key = 'UntitledCM1',
+SMODS.Consumable{ --AppleJuice
+    key = 'appleJuice',
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
@@ -95,6 +95,7 @@ SMODS.Consumable{ --[UntitledCM4]
     atlas = 'Foods',
     pos = {x = 0, y = 0},
     soul_pos = {x = 0, y = 1},
+    dependencies = 'paperback',
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -113,7 +114,7 @@ SMODS.Consumable{ --[UntitledCM4]
     end,
     use = function (self,card,area,copier)
         for i, selected_card in pairs(G.hand.highlighted) do
-            SMODS.change_base(selected_card, 'paperback_Crowns')
+            assert(SMODS.change_base(selected_card, 'paperback_Crowns'))() --assert sopts vscode from complaining
             G.E_MANAGER:add_event(Event({
 				trigger = "after",
 				delay = 0.2,
@@ -132,6 +133,7 @@ SMODS.Consumable{ --[UntitledCM5]
     atlas = 'Foods',
     pos = {x = 0, y = 0},
     soul_pos = {x = 0, y = 1},
+    dependencies = 'paperback',
     rarity = 1,
     cost = 2,
     config = { extra = {
@@ -150,7 +152,7 @@ SMODS.Consumable{ --[UntitledCM5]
     end,
     use = function (self,card,area,copier)
         for i, selected_card in pairs(G.hand.highlighted) do
-            SMODS.change_base(selected_card, 'paperback_Stars')
+            assert(SMODS.change_base(selected_card, 'paperback_Stars'))()
             G.E_MANAGER:add_event(Event({
 				trigger = "after",
 				delay = 0.2,
