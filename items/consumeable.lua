@@ -90,7 +90,7 @@ SMODS.Consumable{ --Compass
             	trigger = 'after',
             	delay = 0.1,
             	func = function()
-                	_card:set_seal('giga_crimsonseal', nil, true)
+                	_card:set_seal('giga_crimsonseal')
                 	return true
             	end
         	}))
@@ -140,7 +140,7 @@ SMODS.Consumable{ --Wand
             	trigger = 'after',
             	delay = 0.1,
             	func = function()
-                	_card:set_seal('giga_aquaseal', nil, true)
+                	_card:set_seal('giga_aquaseal')
                 	return true
             	end
         	}))
