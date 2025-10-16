@@ -539,8 +539,8 @@ SMODS.Joker{ --ColourfulCrystal
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        mult = 16,
-        nerf_mult = -30
+        mult = 15,
+        nerf_mult = -25
     }},
     loc_vars = function(self, info_queue, card)
         return {vars = {card.ability.extra.mult, card.ability.extra.nerf_mult}}
