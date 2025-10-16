@@ -73,7 +73,7 @@ SMODS.Consumable{ --UpgradeTarot
     end,
     in_pool = function (self, args)
         for _, c in pairs(G.playing_cards or {}) do
-            if c.config.center_key ~= 'c_base' then
+            if check_upgrade(c.config.center.key) then
                 return true
             end
         end
@@ -270,7 +270,7 @@ SMODS.Consumable{ --UpgradeSpectral
     end,
     in_pool = function (self, args)
         for _, c in pairs(G.playing_cards or {}) do
-            if c:get_seal() ~= nil then
+            if Giga.seal_upgrades[c:get_seal()] then
                 return true
             end
         end
