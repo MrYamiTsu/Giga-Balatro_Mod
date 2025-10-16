@@ -1104,6 +1104,13 @@ return {
                     'to {C:attention}#1#{} selected',
                     'card in your hand'
                 }
+            },
+            c_giga_upgradeSpectral = {
+                name = 'Upgrade',
+                text = {
+                    '{C:attention}Upgrade{} up to',
+                    '{C:attention}#1#{} seals'
+                }
             }
         },
         Stake={},
@@ -1116,6 +1123,13 @@ return {
                     '{C:giga_Food}Food{} cards'
                 }
             },
+            c_giga_upgradeTarot = {
+                name = 'Upgrade',
+                text = {
+                    '{C:attention}Upgrade{} up to',
+                    '{C:attention}#1#{} enhancements'
+                }
+            }
         },
         Voucher={
             v_giga_newMenu = {
