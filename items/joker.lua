@@ -951,7 +951,7 @@ SMODS.Joker{ --AliveBook
 SMODS.Joker{ --Roposiel
     key = 'roposiel',
     atlas = 'Jokers',
-    pos = {x = 7, y = 3},
+    pos = {x = 1, y = 6},
     cost = 6,
     rarity = 1,
     unlocked = true,
