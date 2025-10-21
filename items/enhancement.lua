@@ -43,6 +43,9 @@ SMODS.Enhancement{ --EvolvedWild
 		chipsAdd = 20,
 		multAdd = 2,
 	}, bonus = 0, mult = 0},
+	loc_vars = function(self, info_queue, card)
+		return {vars = {card.ability.bonus, card.ability.mult, card.ability.extra.chipsAdd, card.ability.extra.multAdd}}
+	end,
 	in_pool = function(self) 
 		return false
 	end,
