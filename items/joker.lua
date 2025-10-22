@@ -919,7 +919,7 @@ SMODS.Joker{ --OnTheClock
 SMODS.Joker{ --AliveBook
     key = 'aliveBook',
     atlas = 'Jokers',
-    pos = {x = 7, y = 3},
+    pos = {x = 2, y = 7},
     cost = 6,
     rarity = 2,
     unlocked = true,
