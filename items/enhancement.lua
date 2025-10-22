@@ -60,6 +60,8 @@ SMODS.Enhancement { --ReinforcedGlass
     key = 'reinforcedGlass',
 	atlas = "Enhancements",
     pos = { x = 2, y = 1 },
+	discovered = true,
+	unlocked = true,
     config = { extra = {
 		odds = 1,
 		chances = 7
@@ -223,9 +225,8 @@ SMODS.Enhancement{ --Soil
 	key = "soil",
 	atlas = "Enhancements",
 	pos = { x = 0, y = 0 },
-	discovered = true,
 	unlocked = true,
-	weight = 0,
+	discovered = true,
 	config = { x_chips = 1.1 },
 	loc_vars = function(self, info_queue, card)
 		return {vars = { card.ability.x_chips}}
@@ -235,8 +236,8 @@ SMODS.Enhancement{ --RichSoil
 	key = "richSoil",
 	atlas = "Enhancements",
 	pos = { x = 1, y = 0 },
-	discovered = true,
 	unlocked = true,
+	discovered = true,
 	weight = 0,
     no_collection = true,
 	config = { x_chips = 1.5, mult = 7 },
@@ -251,8 +252,8 @@ SMODS.Enhancement{ --FossilSoil
 	key = "fossilSoil",
 	atlas = "Enhancements",
 	pos = { x = 2, y = 0 },
-	discovered = true,
 	unlocked = true,
+	discovered = true,
 	weight = 0,
     no_collection = true,
 	config = { x_chips = 2, x_mult = 1.5 },

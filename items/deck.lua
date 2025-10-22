@@ -3,6 +3,8 @@ SMODS.Back{ --ReverseCheckered
     key = 'reverseCheckered',
     atlas = "Decks",
     pos = {x = 1, y = 0},
+    discovered = true,
+	unlocked = true,
     apply = function(self, back)
         G.E_MANAGER:add_event(Event({
             func = function()
@@ -23,6 +25,8 @@ SMODS.Back{ --Foodie
     key = 'foodie',
     atlas = "Decks",
     pos = {x = 0, y = 0},
+    discovered = true,
+	unlocked = true,
     config = { voucher = 'v_giga_foodStand' },
     calculate = function(self, card, context)
         if context.setting_blind then
@@ -36,6 +40,8 @@ SMODS.Back{ --Momentum
     key = 'momentum',
     atlas = "Decks",
     pos = {x = 2, y = 0},
+    discovered = true,
+	unlocked = true,
     config = { hand_size = 3 },
     loc_vars = function(self, info_queue, deck)
         return {vars = {self.config.hand_size}}
@@ -52,6 +58,8 @@ SMODS.Back{ --GamblingAddict
     key = 'gamblingAddict',
     atlas = "Decks",
     pos = {x = 4, y = 0},
+    discovered = true,
+	unlocked = true,
     config = {},
     apply = function(self, back)
         G.E_MANAGER:add_event(Event({
@@ -66,6 +74,8 @@ SMODS.Back{ --DrrunnkiDaecpk
     key = 'drrunnkiDaecpk',
     atlas = "Decks",
     pos = {x = 3, y = 0},
+    discovered = true,
+	unlocked = true,
     config = { randomize_rank_suit = true, giga_value_min = 0.1, giga_value_max = 10 },
     apply = function(self, back)
 		G.GAME.modifiers.giga_randomscore = true

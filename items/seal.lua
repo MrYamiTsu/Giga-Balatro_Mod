@@ -3,6 +3,8 @@ SMODS.Seal{ --Red+
     key = 'redplus',
     atlas = "Seals",
     pos = {x = 0, y = 1},
+    discovered = true,
+	unlocked = true,
     config = { extra = {
         rep = 2,
         repPlus = 1,
@@ -35,6 +37,8 @@ SMODS.Seal{ --Blue+
     key = 'blueplus',
     atlas = "Seals",
     pos = {x = 1, y = 1},
+    discovered = true,
+	unlocked = true,
     config = { extra = {
         odds = 1,
         chances = 7
@@ -82,6 +86,8 @@ SMODS.Seal{ --Gold+
     key = 'goldplus',
     atlas = "Seals",
     pos = {x = 2, y = 1},
+    discovered = true,
+	unlocked = true,
     config = { extra = {
         cash = 6,
         cashPlus = 6,
@@ -135,6 +141,8 @@ SMODS.Seal{ --Purple+
     key = 'purpleplus',
     atlas = "Seals",
     pos = {x = 3, y = 0},
+    discovered = true,
+	unlocked = true,
     config = { extra = {
         card = 2,
         odds = 1,
@@ -176,6 +184,8 @@ SMODS.Seal{ --Red++
     key = 'redplusplus',
     atlas = "Seals",
     pos = {x = 3, y = 1},
+    discovered = true,
+	unlocked = true,
     config = { extra = {
         rep = 3
     }},
@@ -209,6 +219,8 @@ SMODS.Seal{ --Blue++
     key = 'blueplusplus',
     atlas = "Seals",
     pos = {x = 0, y = 2},
+    discovered = true,
+	unlocked = true,
     config = { extra = {
         odds = 1,
         chances = 3
@@ -257,6 +269,8 @@ SMODS.Seal{ --Gold++
     key = 'goldplusplus',
     atlas = "Seals",
     pos = {x = 2, y = 2},
+    discovered = true,
+	unlocked = true,
     config = { extra = {
         cash = 8,
         cashAdd = 2,
@@ -333,6 +347,8 @@ SMODS.Seal{ --Purple++
     key = 'purpleplusplus',
     atlas = "Seals",
     pos = {x = 1, y = 2},
+    discovered = true,
+	unlocked = true,
     config = { extra = {
         card = 2,
         odds = 1,
@@ -377,6 +393,8 @@ SMODS.Seal{ --Pink
     key = 'pinkseal',
     atlas = "Seals",
     pos = {x = 0, y = 0},
+    discovered = true,
+	unlocked = true,
     config = { extra = {
         card = 1
     }},
@@ -401,6 +419,8 @@ SMODS.Seal{ --Crimson
     key = "crimsonseal",
     atlas = "Seals",
     pos = {x = 1, y = 0},
+    discovered = true,
+	unlocked = true,
     config = { extra = {
         mult = 1
     }},
@@ -422,6 +442,8 @@ SMODS.Seal{ --Aqua
     key = "aquaseal",
     atlas = "Seals",
     pos = {x = 2, y = 0},
+    discovered = true,
+	unlocked = true,
     config = { extra = {
         chips = 15
     }},
@@ -445,6 +467,8 @@ SMODS.Seal{ --Pink+
     key = 'pinkplus',
     atlas = "Seals",
     pos = {x = 3, y = 2},
+    discovered = true,
+	unlocked = true,
     config = { extra = {
         card = 1,
         reduce = 5
@@ -487,6 +511,8 @@ SMODS.Seal{ --Pink++
     key = 'pinkplusplus',
     atlas = "Seals",
     pos = {x = 0, y = 3},
+    discovered = true,
+	unlocked = true,
     config = { extra = {
         card = 2,
         reduce = 15,
