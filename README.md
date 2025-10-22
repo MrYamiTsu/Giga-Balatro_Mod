@@ -38,6 +38,7 @@
     <li>2 Sleeves (Cross-Mod)</li>
     <li>2 Tarot</li>
     <li>1 Partner (Cross-Mod)</li>
+    <li>1 Boss Blind</li>
 </ul>
 
 <p><em>*Some Jokers have secret interactions with other Jokers.</em><br>
