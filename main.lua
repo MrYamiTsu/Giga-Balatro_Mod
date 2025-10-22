@@ -12,6 +12,7 @@ end
 
 --#region LOADING FILES --
 SMODS.load_file("util.lua")()
+SMODS.load_file("items/blind.lua")()
 SMODS.load_file("items/booster.lua")()
 SMODS.load_file("items/consumeable.lua")()
 SMODS.load_file("items/deck.lua")()
@@ -93,6 +94,14 @@ SMODS.Atlas{
     path = 'Seal.png',
     px = 71,
     py = 95
+}
+SMODS.Atlas{
+    key = 'Blinds',
+    path = 'Blind.png',
+    px = 34,
+    py = 34,
+    frames = 21,
+    atlas_table = 'ANIMATION_ATLAS'
 }
 SMODS.Atlas{
     key = 'secret1',

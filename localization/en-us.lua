@@ -43,7 +43,15 @@ return {
                 }
             }
         },
-        Blind={},
+        Blind={
+            bl_giga_selfish = {
+                name = "The Body",
+                text = {
+                    'If 5 cards are',
+                    'discard, loose $5'
+                }
+            },
+        },
         Edition={},
         Enhanced={
             m_giga_soil = {
