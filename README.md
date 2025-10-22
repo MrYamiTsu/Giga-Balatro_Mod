@@ -10,7 +10,7 @@
     <a href="https://github.com/Steamodded/smods">Steamodded </a>1.0.0~BETA-0711a or higher is required.<br>
     Can be useful to have <a href="https://github.com/SpectralPack/Talisman">Talisman</a> too.
 </p>
-<p>Just download the zip file, extract it and place it in your Mod folder.</p>
+<p>For the most stable version, download the zip file from latest release.And for the latest version, download the zip file from the Code button. After downloading, extract the file and place it in your Mod folder.</p>
 
 <hr>
 <h2>Cross-Mod</h2>
