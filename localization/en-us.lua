@@ -45,7 +45,7 @@ return {
         },
         Blind={
             bl_giga_selfish = {
-                name = "The Body",
+                name = "The Selfish",
                 text = {
                     'If 5 cards are',
                     'discard, loose $5'

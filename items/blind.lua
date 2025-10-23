@@ -7,7 +7,7 @@ SMODS.Blind {
     boss = {min = 2},
     calculate = function(self, blind, context)
         if not blind.disabled then
-            if context.discard and not context.blueprint and G.GAME.current_round.discards_used >= 0 and #context.full_hand == 5 then
+            if context.discard and not context.blueprint and G.GAME.current_round.discards_used >= 0 and #context.full_hand >= 5 then
                 return {
                     func = function ()
                         ease_dollars(-1)
