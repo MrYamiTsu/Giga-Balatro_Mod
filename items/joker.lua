@@ -371,6 +371,10 @@ SMODS.Joker{ --CrystalOfHungriness
     calculate = function(self, card, context)
         if context.using_consumeable and context.consumeable.ability.set == 'Giga_Food' and not context.blueprint then
             card.ability.extra.base = card.ability.extra.base + card.ability.extra.add
+            return {
+                message = 'Upgraded !',
+                colour = G.C.MONEY,
+            }
         end
         if context.joker_main and card.ability.extra.base ~= 1 then
             return {
@@ -596,7 +600,7 @@ SMODS.Joker{ --MarvinTheFourth
                     card.ability.extra.suit = 'Hearts'
                 elseif card.ability.extra.suit == 'Hearts' then
                     card.ability.extra.suit = 'Diamonds'
-                elseif card.ability.extra.suit == 'Diamond' then
+                elseif card.ability.extra.suit == 'Diamonds' then
                     card.ability.extra.suit = 'Clubs'
                 elseif card.ability.extra.suit == 'Clubs' then
                     card.ability.extra.suit = 'Spades'
