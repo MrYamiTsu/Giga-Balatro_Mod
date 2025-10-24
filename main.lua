@@ -189,11 +189,11 @@ if not Giga_config.menu_card then
 	    end
     }
     --From Revo'sVault, that was from Cryptid. (So thx Cryptid)
-    local oldfunc = Game.main_menu 
+    local oldfunc = Game.main_menu
     Game.main_menu = function(change_context)
 	    local idk = oldfunc(change_context)
 	    local newcard = Card(
-    		    G.title_top.T.x,
+    		G.title_top.T.x,
 	    	G.title_top.T.y,
 		    G.CARD_W,
     		G.CARD_H,

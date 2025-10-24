@@ -1134,17 +1134,17 @@ SMODS.Joker{ --JackMutator
                     for i, k in pairs(G.hand.cards) do
                         table.insert(tpool, k)
                     end
-                    local selected_card = pseudorandom_element(tpool, pseudoseed("jackMutator"))
-                    if selected_card:get_id() == 11 then
-                        if selected_card.config.center.key == "m_giga_soil" then
-                            upgrade_enhencement_specific(selected_card,'m_giga_richSoil')
+                    local _card = pseudorandom_element(tpool, pseudoseed("jackMutator"))
+                    if _card:get_id() == 11 then
+                        if _card.config.center.key == "m_giga_soil" then
+                            upgrade_enhencement_specific(_card,'m_giga_richSoil')
                         else
-                            upgrade_enhencement_specific(selected_card,'m_giga_soil')
+                            upgrade_enhencement_specific(_card,'m_giga_soil')
                         end
                     else
-                        SMODS.change_base(selected_card, nil, 'Jack')
+                        SMODS.change_base(_card, nil, 'Jack')
                     end
-                    selected_card:juice_up(0.3, 0.5)
+                    _card:juice_up(0.3, 0.5)
                     return true 
                 end 
             }))
