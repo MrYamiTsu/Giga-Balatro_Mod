@@ -468,10 +468,10 @@ SMODS.Joker{ --CrackedSkull
         end
         if context.end_of_round and not context.blueprint then
             if card.ability.extra.active then
-                card.ability.extra.txt = 'k_inactive'
+                card.ability.extra.txt = "k_inactive"
                 card.ability.extra.active = false
                 return {
-                    message = localize('k_inactive'),
+                    message = localize("k_inactive"),
                     colour = G.C.RED
                 }
             end
@@ -518,7 +518,7 @@ SMODS.Joker{ --SagittariusA
         end
         if context.end_of_round and not context.blueprint then
             if card.ability.extra.active then
-                card.ability.extra.txt = 'k_inactive'
+                card.ability.extra.txt = "k_inactive"
                 card.ability.extra.active = false
                 return {
                     card = card,
