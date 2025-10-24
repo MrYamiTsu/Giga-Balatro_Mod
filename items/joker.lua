@@ -444,7 +444,7 @@ SMODS.Joker{ --CrackedSkull
         active = false
     }},
     loc_vars = function(self, info_queue, card)
-        return {vars = {card.ability.extra.mult, card.ability.extra.txt}}
+        return {vars = {card.ability.extra.mult, localize(card.ability.extra.txt)}}
     end,
     calculate = function(self, card, context)
         if G.GAME.blind.in_blind then
@@ -493,7 +493,7 @@ SMODS.Joker{ --SagittariusA
         active = false
     }},
     loc_vars = function(self, info_queue, card)
-        return {vars = {card.ability.extra.chips, card.ability.extra.txt}}
+        return {vars = {card.ability.extra.chips, localize(card.ability.extra.txt)}}
     end,
     calculate = function(self, card, context)
         if G.GAME.blind.in_blind then

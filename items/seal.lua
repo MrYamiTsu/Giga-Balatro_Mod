@@ -59,7 +59,12 @@ SMODS.Seal{ --Blue+
                 delay = 0.0,
                 func = function()
                     if SMODS.pseudorandom_probability(card, 'giga_bluePlus', self.config.extra.odds, self.config.extra.chances) then
-                        SMODS.add_card({key = 'c_black_hole'})
+                        G.E_MANAGER:add_event(Event({
+                            func = function()
+                                SMODS.add_card({key = 'c_black_hole'})
+                                return true
+                            end
+                        }))
                     else
                         if G.GAME.last_hand_played then
                             local planet = nil
@@ -69,7 +74,12 @@ SMODS.Seal{ --Blue+
                                 end
                             end
                             if planet then
-                                SMODS.add_card({key = planet})
+                                G.E_MANAGER:add_event(Event({
+                                    func = function()
+                                        SMODS.add_card({key = planet})
+                                        return true
+                                    end
+                                }))
                             end
                         end
                     end
@@ -368,7 +378,7 @@ SMODS.Seal{ --Purple++
             for i = 1, self.config.extra.card, 1 do
                 G.E_MANAGER:add_event(Event({
                     func = function ()
-                        _create(self,'Tarot', G.consumeables,true,false)
+                        SMODS.add_card({set = 'Tarot', edition = 'e_negative'})
                         return true
                     end
                 }))
@@ -482,7 +492,12 @@ SMODS.Seal{ --Pink+
     calculate = function(self, card, context)
         if context.cardarea == G.play and context.main_scoring then
             for i = 1, self.config.extra.card, 1 do
-                _create(card, 'Giga_Food', G.consumeables,true,false)
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        SMODS.add_card({set = 'Giga_Food', edition = 'e_negative'})
+                        return true
+                    end
+                }))
             end
             -- From TogaStuff (so thx TogaStuff)
             G.E_MANAGER:add_event(Event({
@@ -531,12 +546,27 @@ SMODS.Seal{ --Pink++
             for i = 1, self.config.extra.card, 1 do
                 if SMODS.pseudorandom_probability(card, 'giga_pinkPlusPlus', self.config.extra.odds, self.config.extra.chances) then
                     if SMODS.pseudorandom_probability(card, 'giga_pinkPlusPlus', 1, 2) then
-                        SMODS.add_card({key = 'c_giga_birthdayCake', edition = 'e_negative'})
+                        G.E_MANAGER:add_event(Event({
+                            func = function()
+                                SMODS.add_card({key = 'c_giga_birthdayCake', edition = 'e_negative'})
+                                return true
+                            end
+                        }))
                     else
-                        SMODS.add_card({key = 'c_giga_turkey', edition = 'e_negative'})
+                        G.E_MANAGER:add_event(Event({
+                            func = function()
+                                SMODS.add_card({key = 'c_giga_turkey', edition = 'e_negative'})
+                                return true
+                            end
+                        }))
                     end
                 else
-                    _create(card, 'Giga_Food', G.consumeables,true,false)
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            SMODS.add_card({set = 'Giga_Food', edition = 'e_negative'})
+                            return true
+                        end
+                    }))
                 end
             end
             G.E_MANAGER:add_event(Event({
