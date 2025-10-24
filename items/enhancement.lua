@@ -104,7 +104,7 @@ SMODS.Enhancement{ --Titanium
 	end,
 	calculate = function(self, card, context)
 		if context.final_scoring_step and context.cardarea == G.play then
-			card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_mod
+			card.ability.h_x_mult = card.ability.h_x_mult + card.ability.extra.mult_mod
 			return {
 				card = card,
 				message = 'Upgraded !',
