@@ -1,4 +1,3 @@
--- FOODS CARDS --
 SMODS.Consumable{ --Migas
     key = 'migas',
     set = 'Giga_Food',

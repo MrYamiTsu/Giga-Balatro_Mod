@@ -241,7 +241,7 @@ return {
             c_giga_waffle = {
                 name = 'Waffle',
                 text = {
-                    'Some delicious Waffle that',
+                    'A delicious Waffle that',
                     'enhance {C:attention}#1#{} card',
                     'into a {C:attention}Wild card{}'
                 }
@@ -465,6 +465,7 @@ return {
 
         },
         Joker={
+            --#Region Normal
             j_giga_cashPass = {
                 name = 'Cash Pass',
                 text = {
@@ -521,7 +522,7 @@ return {
                 text = {
                     'Every other rounds, create a {V:1}#1#{}',
                     'and destroy a random comsumable',
-                    'for gaining {C:mult}+#2#{} Mult and {C:chips}+#3# Chips{}',
+                    'for gaining {C:mult}+#2#{} Mult and {C:chips}+#3#{} Chips',
                     '(Currently {C:mult}+#4#{} Mult / {C:chips}+#5#{} Chips)',
                 }
             },
@@ -883,7 +884,27 @@ return {
                     'or a {C:attention}special character{}.',
                     '{C:inactive}(Currently :{} {C:mult}+#2#{} {C:inactive}Mult)'
                 }
-            }
+            },
+            --#endregion
+            --#region CrossMod
+            j_giga_triceratops_alt = {
+                name = 'Triceratops?',
+                text = {
+                    'Every other rounds, create a {V:1}#1#{}',
+                    'and destroy a random comsumable',
+                    'for gaining {X:mult,C:white}X#2#{} Mult and {X:chips,C:white}X#3#{} Chips',
+                    '(Currently {X:mult,C:white}X#4#{} Mult / {X:chips,C:white}X#5#{} Chips)',
+                }
+            },
+            j_giga_tRex_alt = {
+                name = 'T-Rex?',
+                text = {
+                    'If scored hand is a single {C:attention}6{},',
+                    'destroy it to create a {V:1}#1#{}',
+                    'and gain {C:money}$#2#{}'
+                }
+            },
+            --#endregion
         },
         Other={
             --#region Undiscovered

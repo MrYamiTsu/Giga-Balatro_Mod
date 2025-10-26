@@ -989,7 +989,7 @@ SMODS.Joker{ --Tabaosl
     atlas = 'Jokers',
     pos = {x = 0, y = 5},
     soul_pos = {x = 1, y = 5},
-    cost = 10,
+    cost = 20,
     rarity = 4,
     blueprint_compat = false,
     eternal_compat = true,
@@ -1382,11 +1382,16 @@ SMODS.Joker{ --Pteranodon
         colour = G.C.SECONDARY_SET.Planet
     }},
     loc_vars = function(self, info_queue, center)
-        local cash = next(SMODS.find_card("j_giga_tRex")) and center.ability.extra.interac.rex_cash or center.ability.extra.cash
-        local set = next(SMODS.find_card("j_giga_velocyraptor")) and 'Spectral' or 'Planet'
+        local cash = next(SMODS.find_card("j_giga_tRex" or "j_giga_tRex_alt")) and center.ability.extra.interac.rex_cash or center.ability.extra.cash
+        local set = center.ability.extra.txt
         return {vars = {colours={G.C.SECONDARY_SET[set]}, localize(set:lower(), "labels"), cash}}
     end,
     calculate = function(self, card, context)
+        if next(SMODS.find_card("j_giga_velocyraptor" or "j_giga_velocyraptor_alt")) then
+            card.ability.extra.txt = 'Spectral'
+        else
+            card.ability.extra.txt = 'Planet'
+        end
         if context.scoring_name == 'High Card' then
             if context.individual and context.cardarea == G.play and context.other_card:get_id() == 5 then
                 local to_destroy = context.full_hand[1]
@@ -1459,7 +1464,7 @@ SMODS.Joker{ --BlueEyesWhiteDragon
     atlas = 'Jokers',
     pos = {x = 6, y = 1},
     soul_pos = {x = 5, y = 1},
-    cost = 10,
+    cost = 20,
     rarity = 4,
     blueprint_compat = true,
     eternal_compat = true,
@@ -1526,7 +1531,7 @@ SMODS.Joker{ --RedEyesBlackDragon
     atlas = 'Jokers',
     pos = {x = 1, y = 2},
     soul_pos = {x = 0, y = 2},
-    cost = 10,
+    cost = 20,
     rarity = 4,
     blueprint_compat = true,
     eternal_compat = true,
@@ -1564,7 +1569,7 @@ SMODS.Joker{ --BYUD
     atlas = 'secret1',
     pos = {x = 1, y = 0},
     soul_pos = {x = 0, y = 0},
-    cost = 20,
+    cost = 50,
     rarity = 'giga_megaLegendary',
     blueprint_compat = true,
     eternal_compat = true,
@@ -1623,7 +1628,7 @@ SMODS.Joker{ --DMK
     atlas = 'secret2',
     pos = {x = 1, y = 0},
     soul_pos = {x = 0, y = 0},
-    cost = 25,
+    cost = 60,
     rarity = 'giga_megaLegendary',
     blueprint_compat = true,
     eternal_compat = true,
@@ -1667,7 +1672,7 @@ SMODS.Joker{ --BlackLusterSoldier
     atlas = 'Jokers',
     pos = {x = 3, y = 2},
     soul_pos = {x = 2, y = 2},
-    cost = 10,
+    cost = 20,
     rarity = 4,
     blueprint_compat = true,
     eternal_compat = true,
@@ -1723,7 +1728,7 @@ SMODS.Joker{ --DarkMagician
     atlas = 'Jokers',
     pos = {x = 5, y = 2},
     soul_pos = {x = 4, y = 2},
-    cost = 15,
+    cost = 20,
     rarity = 4,
     blueprint_compat = true,
     eternal_compat = true,
@@ -1775,7 +1780,7 @@ SMODS.Joker{ --MOC
     atlas = 'secret3',
     pos = {x = 1, y = 0},
     soul_pos = {x = 0, y = 0},
-    cost = 15,
+    cost = 35,
     rarity = 'giga_megaLegendary',
     blueprint_compat = true,
     eternal_compat = true,
@@ -1818,7 +1823,7 @@ SMODS.Joker{ --LLOTFO
     key = 'llotfo',
     atlas = 'Jokers',
     pos = {x = 0, y = 3},
-    cost = 10,
+    cost = 8,
     rarity = 2,
     blueprint_compat = true,
     eternal_compat = true,
@@ -1844,7 +1849,7 @@ SMODS.Joker{ --RLOTFO
     key = 'rlotfo',
     atlas = 'Jokers',
     pos = {x = 1, y = 3},
-    cost = 10,
+    cost = 8,
     rarity = 2,
     blueprint_compat = true,
     eternal_compat = true,
@@ -1870,7 +1875,7 @@ SMODS.Joker{ --LAOTFO
     key = 'laotfo',
     atlas = 'Jokers',
     pos = {x = 2, y = 3},
-    cost = 10,
+    cost = 8,
     rarity = 2,
     blueprint_compat = true,
     eternal_compat = true,
@@ -1896,7 +1901,7 @@ SMODS.Joker{ --RAOTFO
     key = 'raotfo',
     atlas = 'Jokers',
     pos = {x = 3, y = 3},
-    cost = 10,
+    cost = 8,
     rarity = 2,
     blueprint_compat = true,
     eternal_compat = true,
@@ -1922,7 +1927,7 @@ SMODS.Joker{ --ETFO
     key = 'etfo',
     atlas = 'Jokers',
     pos = {x = 4, y = 3},
-    cost = 10,
+    cost = 8,
     rarity = 3,
     blueprint_compat = true,
     eternal_compat = true,
