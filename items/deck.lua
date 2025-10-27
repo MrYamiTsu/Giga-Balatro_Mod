@@ -89,9 +89,7 @@ SMODS.Back{ --DrrunnkiDaecpk
             if #G.jokers.cards > 0 then
                 G.jokers:unhighlight_all()
                 if #G.jokers.cards > 1 then
-                    G.jokers:shuffle('ok1')
-                    G.jokers:shuffle('ok2')
-                    G.jokers:shuffle('ok3')
+                    G.jokers:shuffle('ok')
                     delay(0.5)
                 end
             end

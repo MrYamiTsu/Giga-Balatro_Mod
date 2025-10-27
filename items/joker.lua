@@ -89,6 +89,7 @@ SMODS.Joker{ --BlueEgg
                         SMODS.add_card({
                             key = "j_egg"
                         })
+                        return true
                     end
                 }))
             end
@@ -1276,8 +1277,13 @@ SMODS.Joker{ --TRex
         interac = {
             trice_mult = 6,
             ptera_chips = 35
+        }},
+        fg_data = {
+            is_alternate = false,
+            alternate_card = 'j_giga_tRex_alt',
+            crossover_label = 'foolsGambit'
         }
-    }},
+    },
     loc_vars = function(self, info_queue, center)
         local set = next(SMODS.find_card("j_giga_velocyraptor")) and 'Spectral' or 'Tarot'
         local _mult = next(SMODS.find_card("j_giga_triceratops")) and center.ability.extra.interac.trice_mult or center.ability.extra.mult_add
@@ -1428,10 +1434,15 @@ SMODS.Joker{ --Triceratops
         chances = 9,
         interac = {
             ptera_chance = 8
+        }},
+        fg_data = {
+            is_alternate = false,
+            alternate_card = 'j_giga_triceratops_alt',
+            crossover_label = 'foolsGambit'
         }
-    }},
+    },
     loc_vars = function(self, info_queue, card)
-        local chances = next(SMODS.find_card("j_giga_pteranodon")) and card.ability.extra.interac.ptera_chance or card.ability.extra.chances
+        local chances = next(SMODS.find_card("j_giga_pteranodon" or "j_giga_pteranodon_alt")) and card.ability.extra.interac.ptera_chance or card.ability.extra.chances
         local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.odds, chances, 'prob')
         info_queue[#info_queue+1] = G.P_CENTERS.m_mult
         return { vars = { numerator, denominator } }

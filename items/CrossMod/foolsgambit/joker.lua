@@ -18,7 +18,7 @@ SMODS.Joker{ --TRexALT
         fg_data = {
             is_alternate = true,
             alternate_card = 'j_giga_tRex',
-            crossover_label = 'GIGA'
+            crossover_label = 'foolsGambit'
         }
     },
     loc_vars = function(self, info_queue, center)
@@ -124,7 +124,7 @@ SMODS.Joker{ --TriceratopsALT
         fg_data = {
             is_alternate = true,
             alternate_card = 'j_giga_triceratops',
-            crossover_label = 'GIGA',
+            crossover_label = 'foolsGambit'
         }
     },
     loc_vars = function(self, info_queue, center)
