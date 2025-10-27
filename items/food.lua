@@ -796,6 +796,14 @@ SMODS.Consumable{ --FruitSalad
         end
         return{vars = {center.ability.extra.card}}
     end,
+    in_pool = function (self)
+        for _, c in pairs(G.playing_cards or {}) do
+            if check_upgrade(c) then
+                return true
+            end
+        end
+        return false
+    end,
     can_use = function (self,card)
 		if G and G.hand then
 			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
@@ -1096,6 +1104,14 @@ SMODS.Consumable{ --BagOfCandy
             end
         end
         return{vars = {center.ability.extra.card}}
+    end,
+    in_pool = function (self)
+        for _, c in pairs(G.playing_cards or {}) do
+            if Giga.seal_upgrades[c:get_seal()] then
+                return true
+            end
+        end
+        return false
     end,
     can_use = function (self,card)
 		if G and G.hand then

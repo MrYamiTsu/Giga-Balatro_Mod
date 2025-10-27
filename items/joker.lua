@@ -118,14 +118,14 @@ SMODS.Joker{ --SnapchatGirl
         if not context.blueprint then
             if context.selling_card and context.card == card then
                 if #G.jokers.cards - 1 < G.jokers.config.card_limit then
-                    if SMODS.pseudorandom_probability(card, 'giga_snapchatGirl', card.ability.extra.odds, card.ability.extra.chances, 'scg_prob') then
+                    if SMODS.pseudorandom_probability(card, pseudoseed('giga_snapchatGirl'), card.ability.extra.odds, card.ability.extra.chances, 'scg_prob') then
                         SMODS.add_card({set = 'Joker', rarity = 'Legendary'})
                     else
                         return {
                             dollars = card.ability.extra.cash,
                         }
                     end
-                end  
+                end
             end
         end
     end
@@ -155,7 +155,7 @@ SMODS.Joker{ --HighRiskHighReward
                     x_mult = card.ability.extra.mult
                 }
             end
-            if context.destroy_card and context.destroy_card == context.full_hand[1] and SMODS.pseudorandom_probability(card, 'giga_highRiskHighReward', card.ability.extra.odds, card.ability.extra.chances) then
+            if context.destroy_card and context.destroy_card == context.full_hand[1] and SMODS.pseudorandom_probability(card, pseudoseed('giga_highRiskHighReward'), card.ability.extra.odds, card.ability.extra.chances) then
                 return {
                     remove = true
                 }
@@ -256,6 +256,16 @@ SMODS.Joker{ --Paleontologist
         info_queue[#info_queue+1] = G.P_CENTERS.m_giga_soil
         return{vars = {center.ability.extra.chips}}
     end,
+    in_pool = function(self)
+        for _, c in pairs(G.playing_cards or {}) do
+            if SMODS.has_enhancement(c, 'm_giga_soil') or
+               SMODS.has_enhancement(c, 'm_giga_richSoil') or
+               SMODS.has_enhancement(c, 'm_giga_fossilSoil') then
+                return true
+            end
+        end
+        return false
+    end,
     calculate = function(self,card,context)
         if context.individual and context.cardarea == G.play then
             if SMODS.has_enhancement(context.other_card, 'm_giga_soil') then
@@ -288,8 +298,18 @@ SMODS.Joker{ --PaleoExpert
         s2mult = 25,
     }},
     loc_vars = function(self,info_queue,center)
-        info_queue[#info_queue+1] = G.P_CENTERS.m_giga_soil --what was here before doesnt exist, so i assume its meant to be this?
+        info_queue[#info_queue+1] = G.P_CENTERS.m_giga_soil
         return{vars = {center.ability.extra.mult}}
+    end,
+    in_pool = function(self)
+        for _, c in pairs(G.playing_cards or {}) do
+            if SMODS.has_enhancement(c, 'm_giga_soil') or
+               SMODS.has_enhancement(c, 'm_giga_richSoil') or
+               SMODS.has_enhancement(c, 'm_giga_fossilSoil') then
+                return true
+            end
+        end
+        return false
     end,
     calculate = function(self,card,context)
         if context.individual and context.cardarea == G.play then
@@ -324,6 +344,19 @@ SMODS.Joker{ --Refinery
     loc_vars = function(self,info_queue,center)
         info_queue[#info_queue+1] = G.P_CENTERS.m_stone
         return{vars = {center.ability.extra.cash, center.ability.extra.cashNow}}
+    end,
+    in_pool = function(self)
+        local counter = 0
+        for _, c in pairs(G.playing_cards or {}) do
+            if SMODS.has_enhancement(c, 'm_stone') or
+               SMODS.has_enhancement(c, 'm_giga_polishStone') then
+                counter = counter + 1
+            end
+        end
+        if counter > 4 then
+            return true
+        end
+        return false
     end,
     calculate = function(self,card,context)
         if context.individual and context.cardarea == G.play and not context.blueprint then
@@ -623,8 +656,8 @@ SMODS.Joker{ --UpgradedTicket
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        cash1 = 2,
-        cash2 = 4
+        cash1 = 4,
+        cash2 = 6
     }},
     loc_vars = function(self, info_queue, center)
         return {vars = {center.ability.extra.cash1, center.ability.extra.cash2}}
@@ -778,7 +811,7 @@ SMODS.Joker{ --Hergosu
     end,
     calculate = function(self,card,context)
         if context.using_consumeable and context.consumeable.config.center.key == 'c_soul' then
-            if SMODS.pseudorandom_probability(card, 'giga_hergosu', card.ability.extra.odd, card.ability.extra.chance) then
+            if SMODS.pseudorandom_probability(card, pseudoseed('giga_hergosu'), card.ability.extra.odd, card.ability.extra.chance) then
                 G.E_MANAGER:add_event(Event({
                     func = function()
                         G.jokers.config.card_limit = G.jokers.config.card_limit + card.ability.extra.jokerSlot
@@ -829,8 +862,8 @@ SMODS.Joker{ --StockMarket
         end
         if context.final_scoring_step and context.cardarea == G.jokers and not context.blueprint then
             if card.ability.extra.cash > 0 then
-                if SMODS.pseudorandom_probability(card, 'giga_stockMarket1', 3, 8, 'st_prob1') then
-                    if SMODS.pseudorandom_probability(card, 'giga_stockMarket2', 1, 12, 'st_prob2') then
+                if SMODS.pseudorandom_probability(card, pseudoseed('giga_stockMarket1'), 3, 8, 'st_prob1') then
+                    if SMODS.pseudorandom_probability(card, pseudoseed('giga_stockMarket2'), 1, 12, 'st_prob2') then
                         return {
                             func = function()
                                 card.ability.extra.cash = 0
@@ -850,7 +883,7 @@ SMODS.Joker{ --StockMarket
                         }
                     end
                 else
-                    if SMODS.pseudorandom_probability(card, 'giga_stockMarket3', 1, 10, 'st_prob3') then
+                    if SMODS.pseudorandom_probability(card, pseudoseed('giga_stockMarket3'), 1, 10, 'st_prob3') then
                         return {
                             func = function()
                                 card.ability.extra.cash = round_number(card.ability.extra.cash * 2.5)
@@ -976,6 +1009,9 @@ SMODS.Joker{ --Roposiel
             end
         end
         return{vars = {center.ability.extra.mult_add, center.ability.extra.mult}}
+    end,
+    in_pool = function(self)
+        return #G.jokers.cards > 0
     end,
     calculate = function(self,card,context)
         if context.joker_main and card.ability.extra.mult > 0 then
@@ -1450,7 +1486,7 @@ SMODS.Joker{ --Triceratops
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then 
             if SMODS.has_enhancement(context.other_card, 'm_mult') then
-                if SMODS.pseudorandom_probability(card, 'giga_triceratops', card.ability.extra.odds, card.ability.extra.chances, 'tcrtp_prob1') then
+                if SMODS.pseudorandom_probability(card, pseudoseed('giga_triceratops'), card.ability.extra.odds, card.ability.extra.chances, 'tcrtp_prob1') then
                     return {
                         level_up = true,
                         message = localize('k_level_up_ex')
@@ -1458,7 +1494,7 @@ SMODS.Joker{ --Triceratops
                 end
             end
             if SMODS.has_enhancement(context.other_card, 'm_giga_multPlus') then
-                if SMODS.pseudorandom_probability(card, 'giga_triceratops', card.ability.extra.odds * 2, card.ability.extra.chances, 'tcrtp_prob2') then
+                if SMODS.pseudorandom_probability(card, pseudoseed('giga_triceratops'), card.ability.extra.odds * 2, card.ability.extra.chances, 'tcrtp_prob2') then
                     return {
                         level_up = true,
                         message = localize('k_level_up_ex')
