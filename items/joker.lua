@@ -1061,6 +1061,7 @@ SMODS.Joker{ --Rog-Ano
     key = 'rogAno',
     atlas = 'Jokers',
     pos = {x = 3, y = 6},
+    soul_pos = {x = 4, y = 6},
     cost = 20,
     rarity = 4,
     blueprint_compat = true,
@@ -1070,11 +1071,12 @@ SMODS.Joker{ --Rog-Ano
     }},
     loc_vars = function(self,info_queue,center)
         local x_mult = 1
-            for _, c in ipairs(G.playing_cards or {}) do
-                if c:get_seal() ~= nil then
-                    x_mult = x_mult + center.ability.extra.mult_add
-                end
+        for _, c in ipairs(G.playing_cards or {}) do
+            if c:get_seal() ~= nil then
+                x_mult = x_mult + center.ability.extra.mult_add
             end
+        end
+        info_queue[#info_queue+1] = {set = 'Other', key = 'aij_back_credit'}
         return{vars = {center.ability.extra.mult_add, x_mult}}
     end,
     calculate = function(self,card,context)
