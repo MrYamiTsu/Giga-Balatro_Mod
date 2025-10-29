@@ -419,14 +419,18 @@ SMODS.Seal{ --Pink
             return {
                 func = function()
                     for i = 1, self.config.extra.card, 1 do
-                        G.E_MANAGER:add_event(Event({
-                            func = function()
-                                SMODS.add_card({set = 'Giga_Food'})
-                                return true
-                            end
-                        }))
-		            end
-                    return true
+                        if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+                            G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                            G.E_MANAGER:add_event(Event({
+                                func = function()
+                                    SMODS.add_card({set = 'Giga_Food'})
+                                    G.GAME.consumeable_buffer = 0
+                                    return true
+                                end
+                            }))
+                            return true
+                        end
+                    end
                 end,
                 message = '+'..self.config.extra.card..' Food',
                 colour = HEX('F2A5A6FF')
