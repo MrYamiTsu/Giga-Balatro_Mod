@@ -567,8 +567,8 @@ SMODS.Joker{ --SagittariusA
         end
     end
 }
-SMODS.Joker{ --ColourfulCrystal
-    key = 'colourfulCrystal',
+SMODS.Joker{ --MonochromeCrystal
+    key = 'monochromeCrystal',
     atlas = "Jokers",
     pos = {x = 6, y = 5},
     cost = 6,

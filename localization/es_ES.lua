@@ -731,8 +731,8 @@ return {
                     '{C:inactive}#2#'
                 }
             },
-            j_giga_colourfulCrystal = {
-                name = 'Cristales coloridos',
+            j_giga_monochromeCrystal = {
+                name = 'Cristales monochromes',
                 text = {
                     '{C:mult}+#1#{} multi si la mano jugada',
                     'contiene un {C:attention}color{}',

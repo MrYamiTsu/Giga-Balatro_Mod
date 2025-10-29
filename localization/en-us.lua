@@ -770,8 +770,8 @@ return {
                     '{C:inactive}#2#'
                 }
             },
-            j_giga_colourfulCrystal = {
-                name = 'Colourful Crystal',
+            j_giga_monochromeCrystal = {
+                name = 'Monochrome Crystal',
                 text = {
                     '{C:mult}+#1#{} Mult if played',
                     'hand contains a {C:attention}Flush{}',
