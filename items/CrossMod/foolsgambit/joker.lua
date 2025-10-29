@@ -5,7 +5,7 @@ SMODS.Joker{ --TRexALT
     pos = {x = 6, y = 0},
     dependencies = 'foolsGambit',
     cost = 6,
-    rarity = "fg_rare_alt",
+    rarity = "fg_common_alt",
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
@@ -59,30 +59,84 @@ SMODS.Joker{ --TRexALT
         end
     end
 }
---[[SMODS.Joker{ --VelocyraptorALT
+SMODS.Joker{ --VelocyraptorALT
     key = 'velocyraptor_alt',
     atlas = 'Jokers',
     pos = {x = 7, y = 0},
     dependencies = 'foolsGambit',
-    cost = 4,
-    rarity = 1,
+    cost = 5,
+    rarity = "fg_uncommon_alt",
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        mult = 6,
+        odds = 1,
+        chances = 9,
         interac = {
-            rex_mult = 10
+            ptera_chance = 8
+        }},
+        fg_data = {
+            is_alternate = true,
+            alternate_card = 'j_giga_velocyraptor',
+            crossover_label = 'foolsGambit'
         }
-    }},
+    },
+    loc_vars = function(self, info_queue, card)
+        local chances = next(SMODS.find_card("j_giga_pteranodon" or "j_giga_pteranodon_alt")) and card.ability.extra.interac.ptera_chance or card.ability.extra.chances
+        local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.odds, chances, 'prob')
+        info_queue[#info_queue+1] = G.P_CENTERS.m_mult
+        return { vars = { numerator, denominator } }
+    end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play then
+            local theChances = next(SMODS.find_card("j_giga_pteranodon" or "j_giga_pteranodon_alt")) and card.ability.extra.interac.ptera_chance or card.ability.extra.chances
+            if SMODS.has_enhancement(context.other_card, 'm_bonus') then
+                if SMODS.pseudorandom_probability(card, pseudoseed('giga_velo_alt'), card.ability.extra.odds, theChances, 'tcrtp_prob1') then
+                    return {
+                        level_up = true,
+                        message = localize('k_level_up_ex')
+                    }
+                end
+            end
+            if SMODS.has_enhancement(context.other_card, 'm_giga_bigbonus') then
+                if SMODS.pseudorandom_probability(card, pseudoseed('giga_velo_alt'), card.ability.extra.odds * 2, theChances, 'tcrtp_prob2') then
+                    return {
+                        level_up = true,
+                        message = localize('k_level_up_ex')
+                    }
+                end
+            end
+        end
+    end
+}
+SMODS.Joker{ --PteranodonALT
+    key = 'pteranodon_alt',
+    atlas = 'Jokers',
+    pos = {x = 2, y = 1},
+    dependencies = 'foolsGambit',
+    cost = 4,
+    rarity = "fg_common_alt",
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        mult = 5,
+        interac = {
+            rex_mult = 8
+        }},
+        fg_data = {
+            is_alternate = true,
+            alternate_card = 'j_giga_pteranodon',
+            crossover_label = 'foolsGambit'
+        }
+    },
     loc_vars = function(self, info_queue, center)
-        local _mult = next(SMODS.find_card("j_giga_tRex")) and center.ability.extra.interac.rex_mult or center.ability.extra.mult
+        local _mult = next(SMODS.find_card("j_giga_tRex" or "j_giga_tRex_alt")) and center.ability.extra.interac.rex_mult or center.ability.extra.mult
         return {vars = {_mult}}
     end,
     calculate = function(self, card, context)
         if context.joker_main then
             local has_ace = false
             for i, c in ipairs(context.full_hand or {}) do
-                if c:get_id() == 14 then
+                if c:get_id() == 2 then
                     has_ace = true
                     break
                 end
@@ -94,21 +148,14 @@ SMODS.Joker{ --TRexALT
             end
         end
     end
-}]]
---[[SMODS.Joker{ --PteranodonALT
-    key = 'pteranodon_alt',
-    atlas = 'Jokers',
-    pos = {x = 2, y = 1},
-    dependencies = 'foolsGambit',
-    
-}]]
+}
 SMODS.Joker{ --TriceratopsALT
     key = 'triceratops_alt',
     atlas = 'Jokers',
     pos = {x = 4, y = 5},
     dependencies = 'foolsGambit',
     cost = 8,
-    rarity = "fg_uncommon_alt",
+    rarity = "fg_rare_alt",
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {

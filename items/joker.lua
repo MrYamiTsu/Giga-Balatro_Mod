@@ -703,7 +703,6 @@ SMODS.Joker{ --UpgradedTicket
             end
         end
     end
-    
 }
 SMODS.Joker{ --HealthyRoots
     key = 'healthyRoots',
@@ -1058,6 +1057,40 @@ SMODS.Joker{ --Tabaosl
         end
     end
 }
+SMODS.Joker{ --Rog-Ano
+    key = 'rogAno',
+    atlas = 'Jokers',
+    pos = {x = 3, y = 6},
+    cost = 20,
+    rarity = 4,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        mult_add = 0.5
+    }},
+    loc_vars = function(self,info_queue,center)
+        local x_mult = 1
+            for _, c in ipairs(G.playing_cards or {}) do
+                if c:get_seal() ~= nil then
+                    x_mult = x_mult + center.ability.extra.mult_add
+                end
+            end
+        return{vars = {center.ability.extra.mult_add, x_mult}}
+    end,
+    calculate = function(self,card,context)
+        if context.joker_main then
+            local x_mult = 1
+            for _, c in ipairs(G.playing_cards or {}) do
+                if c:get_seal() ~= nil then
+                    x_mult = x_mult + card.ability.extra.mult_add
+                end
+            end
+            return {
+                xmult = x_mult
+            }
+        end
+    end
+}
 --#endregion
 --#region JACKS JOKERS --
 SMODS.Joker{ --KingOfJacks
@@ -1383,10 +1416,15 @@ SMODS.Joker{ --Velocyraptor
         mult = 6,
         interac = {
             rex_mult = 10
+        }},
+        fg_data = {
+            is_alternate = false,
+            alternate_card = 'j_giga_velocyraptor_alt',
+            crossover_label = 'foolsGambit'
         }
-    }},
+    },
     loc_vars = function(self, info_queue, center)
-        local _mult = next(SMODS.find_card("j_giga_tRex")) and center.ability.extra.interac.rex_mult or center.ability.extra.mult
+        local _mult = next(SMODS.find_card("j_giga_tRex" or "j_giga_trex_alt")) and center.ability.extra.interac.rex_mult or center.ability.extra.mult
         return {vars = {_mult}}
     end,
     calculate = function(self, card, context)
@@ -1416,13 +1454,18 @@ SMODS.Joker{ --Pteranodon
     eternal_compat = true,
     config = { extra = {
         cash = 3,
+        txt = 'Planet',
+        colour = G.C.SECONDARY_SET.Planet,
         interac = {
             rex_cash = 8,
             velo = false
-        },
-        txt = 'Planet',
-        colour = G.C.SECONDARY_SET.Planet
-    }},
+        }},
+        fg_data = {
+            is_alternate = false,
+            alternate_card = 'j_giga_pteranodon_alt',
+            crossover_label = 'foolsGambit'
+        }
+    },
     loc_vars = function(self, info_queue, center)
         local cash = next(SMODS.find_card("j_giga_tRex" or "j_giga_tRex_alt")) and center.ability.extra.interac.rex_cash or center.ability.extra.cash
         local set = center.ability.extra.txt
@@ -1484,9 +1527,10 @@ SMODS.Joker{ --Triceratops
         return { vars = { numerator, denominator } }
     end,
     calculate = function(self, card, context)
-        if context.individual and context.cardarea == G.play then 
+        if context.individual and context.cardarea == G.play then
+            local theChances = next(SMODS.find_card("j_giga_pteranodon" or "j_giga_pteranodon_alt")) and card.ability.extra.interac.ptera_chance or card.ability.extra.chances
             if SMODS.has_enhancement(context.other_card, 'm_mult') then
-                if SMODS.pseudorandom_probability(card, pseudoseed('giga_triceratops'), card.ability.extra.odds, card.ability.extra.chances, 'tcrtp_prob1') then
+                if SMODS.pseudorandom_probability(card, pseudoseed('giga_triceratops'), card.ability.extra.odds, theChances, 'tcrtp_prob1') then
                     return {
                         level_up = true,
                         message = localize('k_level_up_ex')
@@ -1494,7 +1538,7 @@ SMODS.Joker{ --Triceratops
                 end
             end
             if SMODS.has_enhancement(context.other_card, 'm_giga_multPlus') then
-                if SMODS.pseudorandom_probability(card, pseudoseed('giga_triceratops'), card.ability.extra.odds * 2, card.ability.extra.chances, 'tcrtp_prob2') then
+                if SMODS.pseudorandom_probability(card, pseudoseed('giga_triceratops'), card.ability.extra.odds * 2, theChances, 'tcrtp_prob2') then
                     return {
                         level_up = true,
                         message = localize('k_level_up_ex')

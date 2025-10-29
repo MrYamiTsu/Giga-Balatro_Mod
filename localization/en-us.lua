@@ -885,6 +885,14 @@ return {
                     '{C:inactive}(Currently :{} {C:mult}+#2#{} {C:inactive}Mult)'
                 }
             },
+            j_giga_rogAno = {
+                name = 'Rog-Ano',
+                text = {
+                    'Gain {X:mult,C:white}X0.5{} Mult for',
+                    'each {C:attention}seals{} in {C:attention}deck{}',
+                    '{C:inactive}(Currently : {X:mult,C:white}X#2#{} Mult)'
+                }
+            },
             --#endregion
             --#region CrossMod
             j_giga_triceratops_alt = {
@@ -902,6 +910,22 @@ return {
                     'If scored hand is a single {C:attention}6{},',
                     'destroy it to create a {V:1}#1#{}',
                     'and gain {C:money}$#2#{}'
+                }
+            },
+            j_giga_pteranodon_alt = {
+                name = 'Pteranodon?',
+                text = {
+                    '{C:mult}+#1#{} Mult if played hand does',
+                    'not contains a {C:attention}2{}'
+                }
+            },
+            j_giga_velocyraptor_alt = {
+                name = 'Velocyraptor?',
+                text = {
+                    '{C:green}#1# in #2#{} chance to',
+                    'level up played hand',
+                    'for each {C:attention}Bonus{}',
+                    'card played'
                 }
             },
             --#endregion
