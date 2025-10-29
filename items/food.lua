@@ -1200,8 +1200,13 @@ SMODS.Consumable{ --Turkey
         round = 3,
         round_left = 3,
         jokerSlot = 1,
-        txt = 'Not ready yet'
-    }},
+        txt = 'Not ready yet'},
+        fg_data = {
+            is_alternate = false,
+            alternate_card = 'c_fg_turkey',
+            crossover_label = 'Fools Gambit'
+        }
+    },
     loc_vars = function (self,info_queue,center)
         return{vars = {center.ability.extra.jokerSlot, center.ability.extra.round, center.ability.extra.txt}}
     end,
