@@ -1352,7 +1352,7 @@ SMODS.Joker{ --TRex
         fg_data = {
             is_alternate = false,
             alternate_card = 'j_giga_tRex_alt',
-            crossover_label = 'foolsGambit'
+            crossover_label = 'Fools Gambit'
         }
     },
     loc_vars = function(self, info_queue, center)
@@ -1422,7 +1422,7 @@ SMODS.Joker{ --Velocyraptor
         fg_data = {
             is_alternate = false,
             alternate_card = 'j_giga_velocyraptor_alt',
-            crossover_label = 'foolsGambit'
+            crossover_label = 'Fools Gambit'
         }
     },
     loc_vars = function(self, info_queue, center)
@@ -1465,7 +1465,7 @@ SMODS.Joker{ --Pteranodon
         fg_data = {
             is_alternate = false,
             alternate_card = 'j_giga_pteranodon_alt',
-            crossover_label = 'foolsGambit'
+            crossover_label = 'Fools Gambit'
         }
     },
     loc_vars = function(self, info_queue, center)
@@ -1519,7 +1519,7 @@ SMODS.Joker{ --Triceratops
         fg_data = {
             is_alternate = false,
             alternate_card = 'j_giga_triceratops_alt',
-            crossover_label = 'foolsGambit'
+            crossover_label = 'Fools Gambit'
         }
     },
     loc_vars = function(self, info_queue, card)

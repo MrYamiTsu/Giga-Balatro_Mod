@@ -10,8 +10,11 @@ SMODS.Consumable{ --Migas
     config = { extra = {
         round = 1,
         round_left = 1,
-        txt = 'Not ready yet'
-    }},
+        txt = 'Not ready yet'},
+        fg_data = {
+            crossover_label = 'Fools Gambit'
+        }
+    },
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'jogla_credit'}
         return{vars = {center.ability.extra.round, center.ability.extra.txt}}
