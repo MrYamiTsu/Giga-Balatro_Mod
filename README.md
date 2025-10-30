@@ -10,16 +10,16 @@
     <a href="https://github.com/Steamodded/smods">Steamodded </a>1.0.0~BETA-0711a or higher is required.<br>
     Can be useful to have <a href="https://github.com/SpectralPack/Talisman">Talisman</a> too.
 </p>
-<p>For the most stable version, download the zip file from latest release.And for the latest version, download the zip file from the Code button. After downloading, extract the file and place it in your Mod folder.</p>
+<p>For the most stable version, download the zip file from latest release. And for the latest version (can be unstable), download the zip file from the Code button. After downloading, extract the file and place it in your Mod folder.</p>
 
 <hr>
 <h2>Cross-Mod</h2>
-<p>There are some extra assets if you have other mods. Here is a list:</p>
+<p>There's a lot of cross-content with <a href="https://github.com/Joglacraft/Fools-Gambit">Fool's Gambit</a>, so you might check that out.</p>
+<p>Additionally, there are some extra assets if you have other mods.</p>
 <ul>
     <li><a href="https://github.com/Amphiapple/Bloonlatro">Bloonlatro</a></li>
     <li><a href="https://github.com/larswijn/CardSleeves">CardSleeves</a></li>
     <li><a href="https://github.com/SpectralPack/Cryptid">Cryptid</a></li>
-    <li><a href="https://github.com/Joglacraft/Fools-Gambit">Fool's Gambit</a></li>
     <li><a href="https://github.com/Icecanno/Partner-API/">Partner-API</a></li>
     <li><a href="https://github.com/Balatro-Paperback/paperback">Paperback</a></li>
 </ul>
@@ -56,8 +56,9 @@
 <hr>
 <h2>Credits</h2>
 <ul>
-    <li><strong>le_dugs</strong> for a lot of ideas and playtest</li>
-    <li><strong>Eris</strong> for playtest and code correction</li>
-    <li><strong>Jogla</strong> for spanish translation and fixes</li>
-    <li>*All the dev in the Balatro modding community*</li>
+    <li><strong>le_dugs</strong> for a lot of ideas and playtest.</li>
+    <li><strong>Frogggy18</strong> for a lot of playtest.</li>
+    <li><strong>Eris</strong> for playtest and code correction.</li>
+    <li><strong>Jogla</strong> for spanish translation,  fixes and the big collab.</li>
+    <li>*All the dev in the Balatro modding community*.</li>
 </ul>
