@@ -242,7 +242,7 @@ return {
                 name = 'Waffle',
                 text = {
                     'A delicious Waffle that',
-                    'enhance {C:attention}#1#{} card',
+                    'enhances {C:attention}#1#{} card',
                     'into a {C:attention}Wild card{}'
                 }
             },
@@ -250,7 +250,7 @@ return {
                 name = 'Lollipop',
                 text = {
                     'A delicious Lollipop that',
-                    'enhance {C:attention}#1#{} card',
+                    'enhances {C:attention}#1#{} card',
                     'into a {C:attention}Steel card{}'
                 }
             },
@@ -258,7 +258,7 @@ return {
                 name = 'Quiche Lorraine',
                 text = {
                     'Some delicious Quiche Lorraine',
-                    'that create {C:attention}#1#{}',
+                    'that creates {C:attention}#1#{}',
                     'random {C:hearts}Heart{} suit card'
                 }
             },
@@ -266,7 +266,7 @@ return {
                 name = 'Paella',
                 text = {
                     'A delicious Paella that',
-                    'create {C:attention}#1#{} random',
+                    'creates {C:attention}#1#{} random',
                     '{C:spades}Spade{} suit card'
                 }
             },
@@ -274,7 +274,7 @@ return {
                 name = 'Gummy Bear',
                 text = {
                     'A delicious Gummy Bear that',
-                    'create {C:attention}#1#{} random',
+                    'creates {C:attention}#1#{} random',
                     '{C:diamonds}Diamond{} suit card'
                 }
             },
@@ -282,7 +282,7 @@ return {
                 name = 'Empanadas',
                 text = {
                     'Some delicious Empanadas that',
-                    'create {C:attention}#1#{} random',
+                    'creates {C:attention}#1#{} random',
                     '{C:clubs}Club{} suit card'
                 }
             },
@@ -290,7 +290,7 @@ return {
                 name = 'PB&J Sandwich',
                 text = {
                     'A delicious PB&J Sandwich that',
-                    'permenantly add {C:mult}+#1#{} Mult',
+                    'permenantly adds {C:mult}+#1#{} Mult',
                     'to {C:attention}#2#{} selected card'
                 }
             },
@@ -298,7 +298,7 @@ return {
                 name = 'Burger',
                 text = {
                     'A delicious Burger that',
-                    'permenantly add {C:chips}+#1#{} Chips',
+                    'permanently add {C:chips}+#1#{} Chips',
                     'to {C:attention}#2#{} selected card'
                 }
             },
@@ -306,7 +306,7 @@ return {
                 name = 'Fruit Salad',
                 text = {
                     'A delicious Fruit Salad that',
-                    '{C:attention}upgrade{} the enhancement of',
+                    '{C:attention}upgrades{} the enhancement of',
                     '{C:attention}#1#{} card'
                 }
             },
@@ -314,7 +314,7 @@ return {
                 name = 'Ramen',
                 text = {
                     'A delicious Ramen that',
-                    'that convert {C:attention}#1#{} card',
+                    'that converts {C:attention}#1#{} card',
                     'into {C:hearts}Heart{} suit'
                 }
             },
@@ -322,7 +322,7 @@ return {
                 name = 'Chocolate Bar',
                 text = {
                     'A delicious Chocolate Bar',
-                    'that convert {C:attention}#1#{} card',
+                    'that converts {C:attention}#1#{} card',
                     'into {C:spades}Spade{} suit'
                 }
             },
@@ -330,7 +330,7 @@ return {
                 name = "Mac n' Cheese",
                 text = {
                     "A delicious Mac n' Cheese",
-                    'that convert {C:attention}#1#{} card',
+                    'that converts {C:attention}#1#{} card',
                     'into {C:diamonds}Diamond{} suit'
                 }
             },
@@ -338,7 +338,7 @@ return {
                 name = 'Blueberry Muffin',
                 text = {
                     'Some delicious Blueberry',
-                    'Muffin that convert {C:attention}#1#{}',
+                    'Muffin that converts {C:attention}#1#{}',
                     'card into {C:clubs}Club{} suit'
                 }
             },
@@ -346,7 +346,7 @@ return {
                 name = 'Donut',
                 text = {
                     'A delicious Donut that',
-                    'add a {V:1}Pink Seal{} on {C:attention}#1#{}',
+                    'adds a {V:1}Pink Seal{} on {C:attention}#1#{}',
                     'card in {C:attention}#2#{} rounds',
                     '{C:inactive}#3#{}'
                 }
@@ -355,7 +355,7 @@ return {
                 name = 'Cranberry Juice',
                 text = {
                     'A delicious Cranberry Juice',
-                    'that add a {V:1}Crimson Seal{}',
+                    'that adds a {V:1}Crimson Seal{}',
                     'on {C:attention}#1#{} card in {C:attention}#2#{} rounds',
                     '{C:inactive}#3#{}'
                 }
@@ -364,7 +364,7 @@ return {
                 name = 'Bubble Tea',
                 text = {
                     'A delicious Bubble Tea that',
-                    'add a {V:1}Aqua Seal{} on {C:attention}#1#{}',
+                    'adds an {V:1}Aqua Seal{} on {C:attention}#1#{}',
                     'card in {C:attention}#2#{} rounds',
                     '{C:inactive}#3#{}'
                 }

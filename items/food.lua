@@ -1108,7 +1108,7 @@ SMODS.Consumable{ --BagOfCandy
     end,
     in_pool = function (self)
         for _, c in pairs(G.playing_cards or {}) do
-            if G.P_SEALS[c:get_seal()].giga_data.seal_upgrade then
+            if c:get_seal() ~= nil and G.P_SEALS[c:get_seal()].giga_data and G.P_SEALS[c:get_seal()].giga_data.seal_upgrade then
                 return true
             end
         end
