@@ -1,6 +1,7 @@
 -- TALISMAN --
 to_big = to_big or function(b) return b end
 
+-- DICTIONARY --
 Giga.enhancement_upgrades = {
     m_giga_soil = "m_giga_richSoil",
     m_giga_richSoil = "m_giga_fossilSoil",
@@ -131,7 +132,7 @@ function upgrade_seal(selected_card)
         end
     }))
     delay(0.2)
-    selected_card:set_seal(Giga.seal_upgrades[selected_card:get_seal()])
+    selected_card:set_seal(G.P_SEALS[selected_card:get_seal()].giga_data.seal_upgrade)
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
         delay = 0.15,
@@ -171,7 +172,7 @@ function upgrade_seal_specific(selected_card, base_seal)
     }))
     delay(0.2)
     if selected_card:get_seal() == base_seal then
-        selected_card:set_seal(Giga.seal_upgrades[base_seal])
+        selected_card:set_seal(G.P_SEALS[base_seal].giga_data.seal_upgrade)
     else
         selected_card:set_seal(base_seal)
     end
@@ -204,13 +205,11 @@ function upgraded_enh_condition(card)
     return is_upgraded
 end
 function upgraded_seal_condition(card)
-    local is_upgraded = false
-    for _, seal in pairs(Giga.seal_upgrades) do
-        if card:get_seal() == seal then
-            is_upgraded = true
-        end
+    if card:get_seal() and G.P_SEALS[card:get_seal()].giga_data and
+       G.P_SEALS[card:get_seal()].giga_data.is_upgraded then
+        return true
     end
-    return is_upgraded
+    return false
 end
 
 -- CREATE FUNCTIONS --

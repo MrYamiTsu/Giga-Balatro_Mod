@@ -2,6 +2,10 @@
 SMODS.Seal{ --Red+
     key = 'redplus',
     atlas = "Seals",
+    giga_data = {
+        is_upgraded = true,
+        seal_upgrade = 'giga_redplusplus'
+    },
     pos = {x = 0, y = 1},
     discovered = true,
 	unlocked = true,
@@ -36,6 +40,10 @@ SMODS.Seal{ --Red+
 SMODS.Seal{ --Blue+
     key = 'blueplus',
     atlas = "Seals",
+    giga_data = {
+        is_upgraded = true,
+        seal_upgrade = 'giga_blueplusplus'
+    },
     pos = {x = 1, y = 1},
     discovered = true,
 	unlocked = true,
@@ -98,6 +106,10 @@ SMODS.Seal{ --Blue+
 SMODS.Seal{ --Gold+
     key = 'goldplus',
     atlas = "Seals",
+    giga_data = {
+        is_upgraded = true,
+        seal_upgrade = 'giga_goldplusplus'
+    },
     pos = {x = 2, y = 1},
     discovered = true,
 	unlocked = true,
@@ -153,6 +165,10 @@ SMODS.Seal{ --Gold+
 SMODS.Seal{ --Purple+
     key = 'purpleplus',
     atlas = "Seals",
+    giga_data = {
+        is_upgraded = true,
+        seal_upgrade = 'giga_purpleplusplus'
+    },
     pos = {x = 3, y = 0},
     discovered = true,
 	unlocked = true,
@@ -196,6 +212,9 @@ SMODS.Seal{ --Purple+
 SMODS.Seal{ --Red++
     key = 'redplusplus',
     atlas = "Seals",
+    giga_data = {
+        is_upgraded = true
+    },
     pos = {x = 3, y = 1},
     discovered = true,
 	unlocked = true,
@@ -231,6 +250,9 @@ SMODS.Seal{ --Red++
 SMODS.Seal{ --Blue++
     key = 'blueplusplus',
     atlas = "Seals",
+    giga_data = {
+        is_upgraded = true
+    },
     pos = {x = 0, y = 2},
     discovered = true,
 	unlocked = true,
@@ -281,6 +303,9 @@ SMODS.Seal{ --Blue++
 SMODS.Seal{ --Gold++
     key = 'goldplusplus',
     atlas = "Seals",
+    giga_data = {
+        is_upgraded = true
+    },
     pos = {x = 2, y = 2},
     discovered = true,
 	unlocked = true,
@@ -359,6 +384,9 @@ SMODS.Seal{ --Gold++
 SMODS.Seal{ --Purple++
     key = 'purpleplusplus',
     atlas = "Seals",
+    giga_data = {
+        is_upgraded = true
+    },
     pos = {x = 1, y = 2},
     discovered = true,
 	unlocked = true,
@@ -405,6 +433,11 @@ SMODS.Seal{ --Purple++
 SMODS.Seal{ --Pink
     key = 'pinkseal',
     atlas = "Seals",
+    giga_seal_upgrade = 'giga_pinkplus',
+    giga_data = {
+        is_upgraded = true,
+        seal_upgrade = 'giga_pinkplus'
+    },
     pos = {x = 0, y = 0},
     discovered = true,
 	unlocked = true,
@@ -490,6 +523,10 @@ SMODS.Seal{ --Aqua
 SMODS.Seal{ --Pink+
     key = 'pinkplus',
     atlas = "Seals",
+    giga_data = {
+        is_upgraded = true,
+        seal_upgrade = 'giga_pinkplusplus'
+    },
     pos = {x = 3, y = 2},
     discovered = true,
 	unlocked = true,
@@ -541,6 +578,9 @@ SMODS.Seal{ --Pink+
 SMODS.Seal{ --Pink++
     key = 'pinkplusplus',
     atlas = "Seals",
+    giga_data = {
+        is_upgraded = true
+    },
     pos = {x = 0, y = 3},
     discovered = true,
 	unlocked = true,

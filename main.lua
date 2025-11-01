@@ -12,6 +12,7 @@ end
 
 --#region LOADING FILES --
 SMODS.load_file("util.lua")()
+SMODS.load_file("ownership.lua")()
 
 local load_c = {
     "blind",

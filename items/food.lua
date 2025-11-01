@@ -916,6 +916,7 @@ SMODS.Consumable{ --Donut
         if card.ability.extra.round_left <= 0 then
             if G and G.hand then
 			    if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
+                    local check = false
 				    for i, selected_card in pairs(G.hand.highlighted) do
                         if selected_card:get_seal() == 'giga_pinkplusplus' then
                             check = true
@@ -1088,8 +1089,8 @@ SMODS.Consumable{ --BagOfCandy
     loc_vars = function (self,info_queue,center)
         if G.hand then
             for i, _card in ipairs(G.hand.highlighted) do
-                if _card:get_seal() ~= nil then
-                    local sl = Giga.seal_upgrades[_card:get_seal()]
+                if _card:get_seal() ~= nil and G.P_SEALS[_card:get_seal()].giga_data then
+                    local sl = G.P_SEALS[_card:get_seal()].giga_data.seal_upgrade
                     local duplicate = false
                     for _, v in ipairs(info_queue) do
                         if v == G.P_SEALS[sl] then
@@ -1107,7 +1108,7 @@ SMODS.Consumable{ --BagOfCandy
     end,
     in_pool = function (self)
         for _, c in pairs(G.playing_cards or {}) do
-            if Giga.seal_upgrades[c:get_seal()] then
+            if G.P_SEALS[c:get_seal()].giga_data.seal_upgrade then
                 return true
             end
         end
@@ -1118,7 +1119,8 @@ SMODS.Consumable{ --BagOfCandy
 			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
                 local has_seal = false
 				for i, selected_card in pairs(G.hand.highlighted) do
-                    if Giga.seal_upgrades[selected_card:get_seal()] then
+                    if selected_card:get_seal() and G.P_SEALS[selected_card:get_seal()].giga_data and
+                    G.P_SEALS[selected_card:get_seal()].giga_data.seal_upgrade then
                         has_seal = true
                     else
                         has_seal = false
