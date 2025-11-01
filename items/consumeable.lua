@@ -232,8 +232,8 @@ SMODS.Consumable{ --UpgradeSpectral
     loc_vars = function (self,info_queue,center)
         if G.hand then
             for i, _card in ipairs(G.hand.highlighted) do
-                if _card:get_seal() ~= nil then
-                    local sl = Giga.seal_upgrades[_card:get_seal()]
+                if _card:get_seal() ~= nil and G.P_SEALS[_card:get_seal()].giga_data then
+                    local sl = G.P_SEALS[_card:get_seal()].giga_data.seal_upgrade
                     local duplicate = false
                     for _, v in ipairs(info_queue) do
                         if v == G.P_SEALS[sl] then
@@ -254,7 +254,8 @@ SMODS.Consumable{ --UpgradeSpectral
 			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
                 local has_seal = false
 				for i, selected_card in pairs(G.hand.highlighted) do
-                    if Giga.seal_upgrades[selected_card:get_seal()] then
+                    if selected_card:get_seal() and G.P_SEALS[selected_card:get_seal()].giga_data and
+                    G.P_SEALS[selected_card:get_seal()].giga_data.seal_upgrade then
                         has_seal = true
                     else
                         has_seal = false
@@ -268,9 +269,9 @@ SMODS.Consumable{ --UpgradeSpectral
 		end
 		return false
     end,
-    in_pool = function (self, args)
+    in_pool = function (self)
         for _, c in pairs(G.playing_cards or {}) do
-            if Giga.seal_upgrades[c:get_seal()] then
+            if c:get_seal() ~= nil and G.P_SEALS[c:get_seal()].giga_data and G.P_SEALS[c:get_seal()].giga_data.seal_upgrade then
                 return true
             end
         end
