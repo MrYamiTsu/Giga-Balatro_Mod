@@ -1153,7 +1153,7 @@ SMODS.Consumable{ --BirthdayCake
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_card = 'c_fg_birthdayCake',
+        alternate_card = 'c_fg_birthday_cake',
         crossover_label = 'Fools Gambit'
     },
     pos = {x = 2, y = 1},
