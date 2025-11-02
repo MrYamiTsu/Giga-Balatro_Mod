@@ -990,7 +990,7 @@ return {
             giga_crimsonseal_seal = {
                 name = 'Crimson Seal',
                 text = {
-                    'Gain {C:mult}+1{} Mult',
+                    'Gain {C:mult}+#1#{} Mult',
                     'permanently while',
                     'held in hand'
                 }
@@ -998,7 +998,7 @@ return {
             giga_aquaseal_seal = {
                 name = 'Aqua Seal',
                 text = {
-                'Gain {C:chips}+15{} Chips',
+                'Gain {C:chips}+#1#{} Chips',
                 'permanently while',
                 'held in hand'
                 }

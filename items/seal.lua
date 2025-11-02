@@ -60,7 +60,7 @@ SMODS.Seal{ --Blue+
 	end,
     calculate = function(self, card, context)
         -- From VanillaRemade (so thx VanillaRemade)
-        if context.main_scoring and context.cardarea == G.hand and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+        if context.after and context.cardarea == G.hand and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
             G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
             G.E_MANAGER:add_event(Event({
                 trigger = 'before',
@@ -269,7 +269,7 @@ SMODS.Seal{ --Blue++
 	end,
     calculate = function(self, card, context)
         -- From VanillaRemade (so thx VanillaRemade)
-        if context.main_scoring and (context.cardarea == G.hand or context.cardarea == G.play)and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+        if context.after and (context.cardarea == G.hand or context.cardarea == G.play)and #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
             G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
             G.E_MANAGER:add_event(Event({
                 trigger = 'before',
