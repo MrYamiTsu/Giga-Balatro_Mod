@@ -3,7 +3,7 @@ SMODS.Consumable{ --Migas
     set = 'Giga_Food',
     atlas = 'Foods',
     pos = {x = 0, y = 0},
-    soul_pos = {x = 0, y = 1},
+    soul_pos = {x = 0, y = 5},
     dependencies = 'foolsGambit',
     rarity = 1,
     cost = 2,
@@ -17,6 +17,7 @@ SMODS.Consumable{ --Migas
     },
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'jogla_credit'}
+        info_queue[#info_queue+1] = {set = 'Other', key = 'jogla_art_credit'}
         return{vars = {center.ability.extra.round, center.ability.extra.txt}}
     end,
     can_use = function (self,card)
