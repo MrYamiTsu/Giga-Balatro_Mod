@@ -56,7 +56,7 @@
 <hr>
 <h2>Credits</h2>
 <ul>
-    <li><strong>le_dugs</strong> for a lot of ideas and playtest.</li>
+    <li><strong>le_dugs</strong> for a lot of ideas, playtest and some artworks.</li>
     <li><strong>Frogggy18</strong> for a lot of playtest.</li>
     <li><strong>Eris</strong> for playtest and code correction.</li>
     <li><strong>Jogla</strong> for spanish translation,  fixes and the big collab.</li>
