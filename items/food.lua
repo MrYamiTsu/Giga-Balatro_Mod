@@ -1151,6 +1151,11 @@ SMODS.Consumable{ --BirthdayCake
     key = 'birthdayCake',
     set = 'Giga_Food',
     atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_card = 'c_fg_birthdayCake',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 2, y = 1},
     soul_pos = {x = 3, y = 1},
     rarity = 4,
@@ -1197,6 +1202,11 @@ SMODS.Consumable{ --Turkey
     key = 'turkey',
     set = 'Giga_Food',
     atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_card = 'c_fg_turkey',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 2, y = 1},
     soul_pos = {x = 3, y = 4},
     rarity = 4,
@@ -1207,13 +1217,8 @@ SMODS.Consumable{ --Turkey
         round = 3,
         round_left = 3,
         jokerSlot = 1,
-        txt = 'Not ready yet'},
-        fg_data = {
-            is_alternate = false,
-            alternate_card = 'c_fg_turkey',
-            crossover_label = 'Fools Gambit'
-        }
-    },
+        txt = 'Not ready yet'
+    }},
     loc_vars = function (self,info_queue,center)
         return{vars = {center.ability.extra.jokerSlot, center.ability.extra.round, center.ability.extra.txt}}
     end,
