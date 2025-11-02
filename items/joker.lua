@@ -1334,6 +1334,11 @@ SMODS.Joker{ --RainbowQuartz
 SMODS.Joker{ --TRex
     key = 'tRex',
     atlas = 'Jokers',
+    fg_data = {
+        is_alternate = false,
+        alternate_card = 'j_giga_tRex_alt',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 6, y = 0},
     cost = 8,
     rarity = 3,
@@ -1348,13 +1353,8 @@ SMODS.Joker{ --TRex
         interac = {
             trice_mult = 6,
             ptera_chips = 35
-        }},
-        fg_data = {
-            is_alternate = false,
-            alternate_card = 'j_giga_tRex_alt',
-            crossover_label = 'Fools Gambit'
         }
-    },
+    }},
     loc_vars = function(self, info_queue, center)
         local set = next(SMODS.find_card("j_giga_velocyraptor")) and 'Spectral' or 'Tarot'
         local _mult = next(SMODS.find_card("j_giga_triceratops")) and center.ability.extra.interac.trice_mult or center.ability.extra.mult_add
@@ -1409,6 +1409,11 @@ SMODS.Joker{ --TRex
 SMODS.Joker{ --Velocyraptor
     key = 'velocyraptor',
     atlas = 'Jokers',
+    fg_data = {
+        is_alternate = false,
+        alternate_card = 'j_giga_velocyraptor_alt',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 7, y = 0},
     cost = 4,
     rarity = 1,
@@ -1418,13 +1423,8 @@ SMODS.Joker{ --Velocyraptor
         mult = 6,
         interac = {
             rex_mult = 10
-        }},
-        fg_data = {
-            is_alternate = false,
-            alternate_card = 'j_giga_velocyraptor_alt',
-            crossover_label = 'Fools Gambit'
         }
-    },
+    }},
     loc_vars = function(self, info_queue, center)
         local _mult = next(SMODS.find_card("j_giga_tRex" or "j_giga_trex_alt")) and center.ability.extra.interac.rex_mult or center.ability.extra.mult
         return {vars = {_mult}}
@@ -1449,6 +1449,11 @@ SMODS.Joker{ --Velocyraptor
 SMODS.Joker{ --Pteranodon
     key = 'pteranodon',
     atlas = 'Jokers',
+    fg_data = {
+        is_alternate = false,
+        alternate_card = 'j_giga_pteranodon_alt',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 2, y = 1},
     cost = 6,
     rarity = 2,
@@ -1461,13 +1466,8 @@ SMODS.Joker{ --Pteranodon
         interac = {
             rex_cash = 8,
             velo = false
-        }},
-        fg_data = {
-            is_alternate = false,
-            alternate_card = 'j_giga_pteranodon_alt',
-            crossover_label = 'Fools Gambit'
         }
-    },
+    }},
     loc_vars = function(self, info_queue, center)
         local cash = next(SMODS.find_card("j_giga_tRex" or "j_giga_tRex_alt")) and center.ability.extra.interac.rex_cash or center.ability.extra.cash
         local set = center.ability.extra.txt
@@ -1505,6 +1505,11 @@ SMODS.Joker{ --Pteranodon
 SMODS.Joker{ --Triceratops
     key = 'triceratops',
     atlas = 'Jokers',
+    fg_data = {
+        is_alternate = false,
+        alternate_card = 'j_giga_triceratops_alt',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 4, y = 5},
     cost = 5,
     rarity = 2,
@@ -1515,13 +1520,8 @@ SMODS.Joker{ --Triceratops
         chances = 9,
         interac = {
             ptera_chance = 8
-        }},
-        fg_data = {
-            is_alternate = false,
-            alternate_card = 'j_giga_triceratops_alt',
-            crossover_label = 'Fools Gambit'
         }
-    },
+    }},
     loc_vars = function(self, info_queue, card)
         local chances = next(SMODS.find_card("j_giga_pteranodon" or "j_giga_pteranodon_alt")) and card.ability.extra.interac.ptera_chance or card.ability.extra.chances
         local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.odds, chances, 'prob')
