@@ -1348,7 +1348,7 @@ SMODS.Joker{ --TRex
     atlas = 'Jokers',
     fg_data = {
         is_alternate = false,
-        alternate_card = 'j_giga_tRex_alt',
+        alternate_key = 'j_giga_tRex_alt',
         crossover_label = 'Fools Gambit'
     },
     pos = {x = 6, y = 0},
@@ -1423,7 +1423,7 @@ SMODS.Joker{ --Velocyraptor
     atlas = 'Jokers',
     fg_data = {
         is_alternate = false,
-        alternate_card = 'j_giga_velocyraptor_alt',
+        alternate_key = 'j_giga_velocyraptor_alt',
         crossover_label = 'Fools Gambit'
     },
     pos = {x = 7, y = 0},
@@ -1463,7 +1463,7 @@ SMODS.Joker{ --Pteranodon
     atlas = 'Jokers',
     fg_data = {
         is_alternate = false,
-        alternate_card = 'j_giga_pteranodon_alt',
+        alternate_key = 'j_giga_pteranodon_alt',
         crossover_label = 'Fools Gambit'
     },
     pos = {x = 2, y = 1},
@@ -1519,7 +1519,7 @@ SMODS.Joker{ --Triceratops
     atlas = 'Jokers',
     fg_data = {
         is_alternate = false,
-        alternate_card = 'j_giga_triceratops_alt',
+        alternate_key = 'j_giga_triceratops_alt',
         crossover_label = 'Fools Gambit'
     },
     pos = {x = 4, y = 5},
