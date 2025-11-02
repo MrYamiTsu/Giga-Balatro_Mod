@@ -662,6 +662,18 @@ SMODS.Joker{ --UpgradedTicket
     loc_vars = function(self, info_queue, center)
         return {vars = {center.ability.extra.cash1, center.ability.extra.cash2}}
     end,
+    in_pool = function(self)
+        for _, c in pairs(G.playing_cards or {}) do
+            local counter  = 0
+            if upgraded_enh_condition(c) or upgraded_seal_condition(c) then
+                counter = counter + 1
+            end
+            if counter >= 2 then
+                return true
+            end
+        end
+        return false
+    end,
     calculate = function(self, card, context)
         if context.discard then
             if upgraded_enh_condition(context.other_card) and upgraded_seal_condition(context.other_card) then

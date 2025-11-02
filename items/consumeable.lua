@@ -10,6 +10,7 @@ SMODS.Consumable{ --Cook
         card = 3
     }},
     loc_vars = function (self,info_queue,center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'jogla_art_credit'}
         return{vars = {center.ability.extra.card}}
     end,
     can_use = function (self,card)
@@ -33,6 +34,7 @@ SMODS.Consumable{ --UpgradeTarot
         card = 2
     }},
     loc_vars = function (self,info_queue,center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'jogla_art_credit'}
         if G.hand then
             for i, _card in ipairs(G.hand.highlighted) do
                 if _card.config.center_key ~= 'c_base' then
@@ -230,6 +232,7 @@ SMODS.Consumable{ --UpgradeSpectral
         card = 2
     }},
     loc_vars = function (self,info_queue,center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'jogla_art_credit'}
         if G.hand then
             for i, _card in ipairs(G.hand.highlighted) do
                 if _card:get_seal() ~= nil and G.P_SEALS[_card:get_seal()].giga_data then
@@ -279,7 +282,12 @@ SMODS.Consumable{ --UpgradeSpectral
     end,
     use = function (self,card,area,copier)
         for i, selected_card in pairs(G.hand.highlighted) do
-            upgrade_seal(selected_card)
+            G.E_MANAGER:add_event(Event({
+            	func = function()
+                	upgrade_seal(selected_card)
+                	return true
+            	end
+            }))
 		end
     end
 }

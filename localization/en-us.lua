@@ -957,6 +957,13 @@ return {
                     'by {C:green,E:2}Jogla{}'
                 }
             },
+            jogla_art_credit = {
+                name = 'Credit',
+                text = {
+                    'Original artworks',
+                    'by {C:green,E:2}Jogla{}'
+                }
+            },
             yugioh_credit = {
                 name = 'Credit',
                 text = {

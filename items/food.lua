@@ -1136,7 +1136,12 @@ SMODS.Consumable{ --BagOfCandy
     end,
     use = function (self,card,area,copier)
         for i, selected_card in pairs(G.hand.highlighted) do
-            upgrade_seal(selected_card)
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    upgrade_seal(selected_card)
+                    return true
+                end
+            }))
 		end
     end
 }

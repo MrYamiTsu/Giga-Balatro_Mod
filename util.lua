@@ -14,18 +14,6 @@ Giga.enhancement_upgrades = {
     m_glass = "m_giga_reinforcedGlass",
     m_wild = "m_giga_evolvedWild"
 }
-Giga.seal_upgrades = {
-    Red = "giga_redplus",
-    Blue = "giga_blueplus",
-    Gold = "giga_goldplus",
-    Purple = "giga_purpleplus",
-    giga_redplus = "giga_redplusplus",
-    giga_blueplus = "giga_blueplusplus",
-    giga_goldplus = "giga_goldplusplus",
-    giga_purpleplus = "giga_purpleplusplus",
-    giga_pinkseal = "giga_pinkplus",
-    giga_pinkplus = "giga_pinkplusplus"
-}
 
 -- UPGRADE FUNCTIONS --
 function check_upgrade(base_enh)

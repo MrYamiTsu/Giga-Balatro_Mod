@@ -49,7 +49,7 @@ SMODS.Seal{ --Blue+
 	unlocked = true,
     config = { extra = {
         odds = 1,
-        chances = 7
+        chances = 8
     }},
     loc_vars = function(self, info_queue, card)
         local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'giga_bluePlus')
@@ -187,16 +187,16 @@ SMODS.Seal{ --Purple+
     calculate = function(self, card, context)
         if context.discard and context.other_card == card then
             for _ = 1, self.config.extra.card, 1 do
-                local spectral
-                if SMODS.pseudorandom_probability(card, pseudoseed('giga_purplePlus'), self.config.extra.odds, self.config.extra.chances) then 
+                local spectral = false
+                if SMODS.pseudorandom_probability(card, pseudoseed('giga_purplePlus'), self.config.extra.odds, self.config.extra.chances) then
                     spectral = true
                 end
                 G.E_MANAGER:add_event(Event({
                     func = function ()
                         if spectral then
-                            _create(self,'Spectral', G.consumeables,false,false)
+                            SMODS.add_card({set = 'Spectral'})
                         else
-                            _create(self,'Tarot', G.consumeables,false,false)
+                            SMODS.add_card({set = 'Tarot'})
                         end
                         return true
                     end
