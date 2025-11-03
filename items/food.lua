@@ -754,7 +754,7 @@ SMODS.Consumable{ --Burger
     rarity = 1,
     cost = 2,
     config = { extra = {
-        chips = 10,
+        chips = 15,
     }, max_highlighted = 2},
     loc_vars = function (self,info_queue,center)
         return{vars = {center.ability.extra.chips, center.ability.max_highlighted}}

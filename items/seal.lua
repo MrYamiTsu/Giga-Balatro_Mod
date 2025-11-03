@@ -49,7 +49,7 @@ SMODS.Seal{ --Blue+
 	unlocked = true,
     config = { extra = {
         odds = 1,
-        chances = 8
+        chances = 10
     }},
     loc_vars = function(self, info_queue, card)
         local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'giga_bluePlus')
@@ -175,7 +175,7 @@ SMODS.Seal{ --Purple+
     config = { extra = {
         card = 2,
         odds = 1,
-        chances = 8
+        chances = 10
     }},
     loc_vars = function(self, info_queue, card)
         local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'giga_purplePlus')
@@ -258,7 +258,7 @@ SMODS.Seal{ --Blue++
 	unlocked = true,
     config = { extra = {
         odds = 1,
-        chances = 4
+        chances = 5
     }},
     loc_vars = function(self, info_queue, card)
         local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'giga_bluePlusPlus')
@@ -393,7 +393,7 @@ SMODS.Seal{ --Purple++
     config = { extra = {
         card = 2,
         odds = 1,
-        chances = 6,
+        chances = 7,
     }},
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = { set = 'Tag', key = 'tag_charm' }
@@ -502,7 +502,7 @@ SMODS.Seal{ --Aqua
     discovered = true,
 	unlocked = true,
     config = { extra = {
-        chips = 15
+        chips = 10
     }},
     loc_vars = function(self, info_queue, center)
         return {vars = {self.config.extra.chips}}
