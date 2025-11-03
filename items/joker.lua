@@ -1069,42 +1069,7 @@ SMODS.Joker{ --Tabaosl
         end
     end
 }
-SMODS.Joker{ --Rog-Ano
-    key = 'rogAno',
-    atlas = 'Jokers',
-    pos = {x = 3, y = 6},
-    soul_pos = {x = 4, y = 6},
-    cost = 20,
-    rarity = 4,
-    blueprint_compat = true,
-    eternal_compat = true,
-    config = { extra = {
-        mult_add = 0.5
-    }},
-    loc_vars = function(self,info_queue,center)
-        local x_mult = 1
-        for _, c in ipairs(G.playing_cards or {}) do
-            if c:get_seal() ~= nil then
-                x_mult = x_mult + center.ability.extra.mult_add
-            end
-        end
-        info_queue[#info_queue+1] = {set = 'Other', key = 'aij_back_credit'}
-        return{vars = {center.ability.extra.mult_add, x_mult}}
-    end,
-    calculate = function(self,card,context)
-        if context.joker_main then
-            local x_mult = 1
-            for _, c in ipairs(G.playing_cards or {}) do
-                if c:get_seal() ~= nil then
-                    x_mult = x_mult + card.ability.extra.mult_add
-                end
-            end
-            return {
-                xmult = x_mult
-            }
-        end
-    end
-}
+
 --#endregion
 --#region JACKS JOKERS --
 SMODS.Joker{ --KingOfJacks
