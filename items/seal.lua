@@ -258,7 +258,7 @@ SMODS.Seal{ --Blue++
 	unlocked = true,
     config = { extra = {
         odds = 1,
-        chances = 3
+        chances = 4
     }},
     loc_vars = function(self, info_queue, card)
         local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'giga_bluePlusPlus')
@@ -588,7 +588,7 @@ SMODS.Seal{ --Pink++
         card = 2,
         reduce = 15,
         odds = 1,
-        chances = 15
+        chances = 16
     }},
     loc_vars = function(self, info_queue, card)
         local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'giga_pinkPlusPlus')

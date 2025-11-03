@@ -825,7 +825,12 @@ SMODS.Consumable{ --FruitSalad
     end,
     use = function (self,card,area,copier)
         for i, selected_card in pairs(G.hand.highlighted) do
-            upgrade_enhencement(selected_card)
+            G.E_MANAGER:add_event(Event({
+                func = function ()
+                    upgrade_enhencement(selected_card)
+                    return true
+                end
+            }))
 		end
     end
 }

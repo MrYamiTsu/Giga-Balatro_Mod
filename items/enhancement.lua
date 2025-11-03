@@ -230,7 +230,7 @@ SMODS.Enhancement{ --Soil
 	config = { x_chips = 1.1 },
 	loc_vars = function(self, info_queue, card)
 		return {vars = { card.ability.x_chips}}
-	end,
+	end
 }
 SMODS.Enhancement{ --RichSoil
 	key = "richSoil",
@@ -239,7 +239,6 @@ SMODS.Enhancement{ --RichSoil
 	unlocked = true,
 	discovered = true,
 	weight = 0,
-    no_collection = true,
 	config = { x_chips = 1.5, mult = 7 },
 	loc_vars = function(self, info_queue, card)
 		return {vars = { card.ability.x_chips, card.ability.mult}}
