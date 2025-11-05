@@ -191,31 +191,36 @@ SMODS.Enhancement{ --Luckiest
 		if context.main_scoring and context.cardarea == G.play then
             local effects = {}
             if SMODS.pseudorandom_probability(card, 'giga_luckiest1', card.ability.extra.odds, card.ability.extra.chances1, 'luckiest_prob1') then
-                table.insert(effects, {
-                    mult = card.ability.extra.mult,
-                    delay = 0.6
-                })
+				card.lucky_trigger = true
+                effects.mult = card.ability.extra.mult
             end
 			if SMODS.pseudorandom_probability(card, 'giga_luckiest2', card.ability.extra.odds, card.ability.extra.chances2, 'luckiest_prob2') then
-                table.insert(effects, {
-                    dollars = card.ability.extra.cash,
-                    delay = 0.6
-                })
+                card.lucky_trigger = true
+                effects.dollars = card.ability.extra.cash
             end
-			if SMODS.pseudorandom_probability(card, 'giga_luckiest2', card.ability.extra.odds, card.ability.extra.chances3, 'luckiest_prob3') then
-				table.insert(effects, { 
-					func = function() 
-						_create(card, 'Giga_Food', G.consumeables,true,true)
-            			delay(0.4)
-					end,
-					message = 'Create !',
-                	colour = G.C.MONEY,
-					delay = 0.6
-				})
+			if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit and 
+			   SMODS.pseudorandom_probability(card, 'giga_luckiest2', card.ability.extra.odds, card.ability.extra.chances3, 'luckiest_prob3') then
+				card.lucky_trigger = true
+				effects.func = function()
+					G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            SMODS.add_card({set = 'Giga_Food'})
+                            G.GAME.consumeable_buffer = 0
+                            return true
+                        end
+                    }))
+				end
+				effects.message = '+1 Food'
+				effects.colour = HEX('F2A5A6FF')
 			end
-            if #effects > 0 then
-                return SMODS.merge_effects(effects)
-            end
+            G.E_MANAGER:add_event(Event({
+               func = function()
+                   card.lucky_trigger = nil
+                   return true
+               end
+			}))
+            return effects
 		end
 	end
 }
@@ -243,8 +248,8 @@ SMODS.Enhancement{ --RichSoil
 	loc_vars = function(self, info_queue, card)
 		return {vars = { card.ability.x_chips, card.ability.mult}}
 	end,
-	in_pool = function(self) 
-		return false 
+	in_pool = function(self)
+		return false
 	end,
 }
 SMODS.Enhancement{ --FossilSoil
@@ -259,8 +264,8 @@ SMODS.Enhancement{ --FossilSoil
 	loc_vars = function(self, info_queue, card)
 		return {vars = { card.ability.x_chips, card.ability.x_mult}}
 	end,
-	in_pool = function(self) 
-		return false 
+	in_pool = function(self)
+		return false
 	end,
 }
 --#endregion
