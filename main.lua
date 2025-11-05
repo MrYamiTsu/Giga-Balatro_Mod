@@ -257,3 +257,25 @@ Giga.areaorderprocess = function(t)
 	return Giga.areaprocess(t)
 end
 --#endregion
+--#region HOOKS
+local enhancement_yapping = SMODS.has_enhancement
+function SMODS.has_enhancement(card, key)
+    if key == 'm_gold' then
+        return enhancement_yapping(card, 'm_gold') or enhancement_yapping(card, 'm_giga_perfectGold')
+    end
+    if key == 'm_steel' then
+        return enhancement_yapping(card, 'm_steel') or enhancement_yapping(card, 'm_giga_titanium')
+    end
+    if key == 'm_glass' then
+        return enhancement_yapping(card, 'm_glass') or enhancement_yapping(card, 'm_giga_reinforcedGlass')
+    end
+    if key == 'm_stone' then
+        return enhancement_yapping(card, 'm_stone') or enhancement_yapping(card, 'm_giga_polishStone')
+    end
+    if key == 'm_lucky' then
+        return enhancement_yapping(card, 'm_lucky') or enhancement_yapping(card, 'm_giga_luckiest')
+    end
+    local ret = enhancement_yapping(card, key)
+    return ret
+end
+--#endregion

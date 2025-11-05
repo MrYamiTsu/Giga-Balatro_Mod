@@ -1245,6 +1245,11 @@ SMODS.Joker{ --JackMutator
 SMODS.Joker{ --Moonstone
     key = 'moonstone',
     atlas = 'Jokers',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = 'j_giga_moonstone_alt',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 6, y = 2},
     cost = 5,
     rarity = 1,
@@ -1278,6 +1283,11 @@ SMODS.Joker{ --Moonstone
 SMODS.Joker{ --PinkTourmaline
     key = 'pinkTourmaline',
     atlas = 'Jokers',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = 'j_giga_pinkTourmaline_alt',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 7, y = 1},
     cost = 5,
     rarity = 1,
@@ -1311,6 +1321,11 @@ SMODS.Joker{ --PinkTourmaline
 SMODS.Joker{ --RainbowQuartz
     key = 'rainbowQuartz',
     atlas = 'Jokers',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = 'j_giga_rainbowQuartz_alt',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 7, y = 2},
     cost = 5,
     rarity = 1,

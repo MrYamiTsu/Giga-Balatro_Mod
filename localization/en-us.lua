@@ -928,6 +928,27 @@ return {
                     'card played'
                 }
             },
+            j_giga_pinkTourmaline_alt = {
+                name = 'Pink Tourmaline',
+                text = {
+                    '{X:mult,C:white}X#1#{} Mult for each',
+                    '{C:dark_edition}Holographic{} card held in hand'
+                }
+            },
+            j_giga_moonstone_alt = {
+                name = 'Moonstone',
+                text = {
+                    '{C:mult}+#1#{} Mult for each',
+                    '{C:dark_edition}Foil{} card held in hand'
+                }
+            },
+            j_giga_rainbowQuartz_alt = {
+                name = 'Rainbow Quartz',
+                text = {
+                    '{C:chips}+#1#{} Chips for each',
+                    '{C:dark_edition}Polychrome{} card held in hand'
+                }
+            },
             --#endregion
         },
         Other={

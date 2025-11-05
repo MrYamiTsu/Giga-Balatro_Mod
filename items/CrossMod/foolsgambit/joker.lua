@@ -226,3 +226,119 @@ SMODS.Joker{ --TriceratopsALT
     end
 }
 --#endregion
+--#region ALT GEM JOKERS --
+SMODS.Joker{ --MoonstoneALT
+    key = 'moonstone_alt',
+    atlas = 'Jokers',
+    fg_data = {
+        is_alternate = true,
+        alternate_key = 'j_giga_moonstone',
+        crossover_label = 'Fools Gambit'
+    },
+    pos = {x = 6, y = 2},
+    cost = 5,
+    rarity = 1,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        mult = 8
+    }},
+    loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue+1] = G.P_CENTERS.e_foil
+        return {vars = {center.ability.extra.mult}}
+    end,
+    in_pool = function (self, args)
+        for _, c in pairs(G.playing_cards or {}) do
+            if c.edition and c.edition.key == "e_foil" then
+                return true
+            end
+        end
+        return false
+    end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.hand and not context.end_of_round then
+            if context.other_card.edition and context.other_card.edition.type == 'foil' then
+                return {
+                    mult = card.ability.extra.mult
+                }
+            end
+        end
+    end
+}
+SMODS.Joker{ --PinkTourmalineALT
+    key = 'pinkTourmaline_alt',
+    atlas = 'Jokers',
+    fg_data = {
+        is_alternate = true,
+        alternate_key = 'j_giga_pinkTourmaline',
+        crossover_label = 'Fools Gambit'
+    },
+    pos = {x = 7, y = 1},
+    cost = 5,
+    rarity = 1,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        xmult = 1.4
+    }},
+    loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue+1] = G.P_CENTERS.e_holo
+        return {vars = {center.ability.extra.xmult}}
+    end,
+    in_pool = function (self, args)
+        for _, c in pairs(G.playing_cards or {}) do
+            if c.edition and c.edition.key == "e_holo" then
+                return true
+            end
+        end
+        return false
+    end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.hand and not context.end_of_round then
+            if context.other_card.edition and context.other_card.edition.type == 'holo' then
+                return {
+                    x_mult = card.ability.extra.xmult
+                }
+            end
+        end
+    end
+}
+SMODS.Joker{ --RainbowQuartzALT
+    key = 'rainbowQuartz_alt',
+    atlas = 'Jokers',
+    fg_data = {
+        is_alternate = true,
+        alternate_key = 'j_giga_rainbowQuartz',
+        crossover_label = 'Fools Gambit'
+    },
+    pos = {x = 7, y = 2},
+    cost = 5,
+    rarity = 1,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        chips = 100
+    }},
+    loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue+1] = G.P_CENTERS.e_poly
+        return {vars = {center.ability.extra.chips}}
+    end,
+    in_pool = function (self, args)
+        for _, c in pairs(G.playing_cards or {}) do
+            if c.edition and c.edition.key == "e_polychrome" then
+                return true
+            end
+        end
+        return false
+    end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.hand and not context.end_of_round then
+            if context.other_card.edition and context.other_card.edition.type == 'polychrome' then
+                return {
+                    chips = card.ability.extra.chips
+                }
+            end
+        end
+    end
+}
+--#endregion
