@@ -679,7 +679,7 @@ SMODS.Joker{ --UpgradedTicket
             if upgraded_enh_condition(context.other_card) and upgraded_seal_condition(context.other_card) then
                 return {
                     dollars = card.ability.extra.cash1 + card.ability.extra.cash2,
-                    func = function() 
+                    func = function()
                         G.E_MANAGER:add_event(Event({
                             func = function()
                                 G.GAME.dollar_buffer = 0
@@ -691,7 +691,7 @@ SMODS.Joker{ --UpgradedTicket
             elseif upgraded_enh_condition(context.other_card) then
                 return {
                     dollars = card.ability.extra.cash1,
-                    func = function() 
+                    func = function()
                         G.E_MANAGER:add_event(Event({
                             func = function()
                                 G.GAME.dollar_buffer = 0
@@ -703,7 +703,7 @@ SMODS.Joker{ --UpgradedTicket
             elseif upgraded_seal_condition(context.other_card) then
                 return {
                     dollars = card.ability.extra.cash2,
-                    func = function() 
+                    func = function()
                         G.E_MANAGER:add_event(Event({
                             func = function()
                                 G.GAME.dollar_buffer = 0
@@ -1050,7 +1050,8 @@ SMODS.Joker{ --Tabaosl
                 for i = 1, 2 do
                     if #G.play.cards >= i then
                         local c = G.play.cards[i]
-                        if check_upgrade(c.config.center.key) then
+                        if c.config.center_key and G.P_CENTERS[c.config.center_key].giga_data and
+                           G.P_CENTERS[c.config.center_key].giga_data.enh_upgrade then
                             G.E_MANAGER:add_event(Event({
                                 trigger = 'before',
                                 delay = 0.15,

@@ -83,8 +83,8 @@ SMODS.Enhancement { --ReinforcedGlass
         local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.odds, card.ability.extra.chances, 'prob')
         return { vars = { card.ability.x_mult, numerator, denominator } }
     end,
-	in_pool = function(self) 
-		return false 
+	in_pool = function(self)
+		return false
 	end,
     calculate = function(self, card, context)
         if context.destroy_card and context.cardarea == G.play and context.destroy_card == card and

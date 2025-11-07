@@ -168,7 +168,7 @@ function upgrade_seal_specific(selected_card, base_seal)
 end
 function upgraded_enh_condition(card)
     if card.config.center_key and G.P_CENTERS[card.config.center_key].giga_data and
-       G.P_SEALS[card.config.center_key].giga_data.is_upgraded then
+       G.P_CENTERS[card.config.center_key].giga_data.is_upgraded then
         return true
     end
     return false
