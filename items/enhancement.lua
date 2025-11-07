@@ -51,17 +51,19 @@ SMODS.Enhancement{ --EvolvedWild
 	config = { extra = { 
 		chipsAdd = 20,
 		multAdd = 2,
-	}, bonus = 0, mult = 0},
+		bonus = 0,
+		mult = 0
+	}},
 	loc_vars = function(self, info_queue, card)
-		return {vars = {card.ability.bonus, card.ability.mult, card.ability.extra.chipsAdd, card.ability.extra.multAdd}}
+		return {vars = {card.ability.extra.mult, card.ability.extra.chips, card.ability.extra.multAdd, card.ability.extra.chipsAdd}}
 	end,
-	in_pool = function(self) 
+	in_pool = function(self)
 		return false
 	end,
 	calculate = function(self, card, context)
 		if context.before then
-			card.ability.bonus = card.ability.bonus + card.ability.extra.chipsAdd
-			card.ability.mult = card.ability.mult + card.ability.extra.multAdd
+			 card.ability.extra.chips =  card.ability.extra.chips + card.ability.extra.chipsAdd
+			card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.multAdd
 		end
 	end
 }
