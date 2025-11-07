@@ -888,9 +888,17 @@ return {
             j_giga_rogAno = {
                 name = 'Rog-Ano',
                 text = {
-                    'Gain {X:mult,C:white}X0.5{} Mult for',
+                    'Gain {X:mult,C:white}X#1#{} Mult for',
                     'each {C:attention}seals{} in {C:attention}deck{}',
                     '{C:inactive}(Currently : {X:mult,C:white}X#2#{} Mult)'
+                }
+            },
+            j_giga_myt_own = {
+                name = 'MrYamiTsu',
+                text = {
+                    'Gain {C:mult}+#1#{} Mult for',
+                    'each {C:attention}upgraded{} card {C:attention}played{}',
+                    '{C:inactive}(Currently : {C:mult}+#2#{} Mult)'
                 }
             },
             --#endregion

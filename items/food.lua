@@ -898,8 +898,8 @@ SMODS.Consumable{ --Donut
     cost = 2,
     config = { extra = {
         card = 1,
-        round = 1,
-        round_left = 1,
+        round = 2,
+        round_left = 2,
         txt = 'Not ready yet'
     }},
     loc_vars = function (self,info_queue,center)
@@ -970,8 +970,8 @@ SMODS.Consumable{ --CranberryJuice
     cost = 2,
     config = { extra = {
         card = 1,
-        round = 1,
-        round_left = 1,
+        round = 2,
+        round_left = 2,
         txt = 'Not ready yet'
     }},
     loc_vars = function (self,info_queue,center)
@@ -1030,8 +1030,8 @@ SMODS.Consumable{ --BubbleTea
     cost = 2,
     config = { extra = {
         card = 1,
-        round = 1,
-        round_left = 1,
+        round = 2,
+        round_left = 2,
         txt = 'Not ready yet'
     }},
     loc_vars = function (self,info_queue,center)
