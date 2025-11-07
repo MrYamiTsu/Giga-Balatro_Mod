@@ -257,7 +257,7 @@ Giga.areaorderprocess = function(t)
 	return Giga.areaprocess(t)
 end
 --#endregion
---#region HOOKS
+--#region HOOKS --
 local enhancement_yapping = SMODS.has_enhancement
 function SMODS.has_enhancement(card, key)
     if key == 'm_bonus' then

@@ -779,8 +779,8 @@ SMODS.Consumable{ --FruitSalad
     loc_vars = function (self,info_queue,center)
         if G.hand then
             for i, _card in ipairs(G.hand.highlighted) do
-                if _card.config.center_key ~= 'c_base' then
-                    local enh = check_upgrade(_card.config.center_key)
+                if _card.config.center_key ~= 'c_base' and G.P_CENTERS[_card.config.center_key].giga_data then
+                    local enh = G.P_CENTERS[_card.config.center_key].giga_data.enh_upgrade
                     local duplicate = false
                     for _, v in ipairs(info_queue) do
                         if v == G.P_CENTERS[enh] then
@@ -798,7 +798,8 @@ SMODS.Consumable{ --FruitSalad
     end,
     in_pool = function (self)
         for _, c in pairs(G.playing_cards or {}) do
-            if check_upgrade(c) then
+            if c.config.center_key ~= nil and G.P_CENTERS[c.config.center_key].giga_data and
+               G.P_CENTERS[c.config.center_key].giga_data.enh_upgrade then
                 return true
             end
         end
@@ -809,7 +810,8 @@ SMODS.Consumable{ --FruitSalad
 			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
                 local has_enhancement = false
 				for i, selected_card in pairs(G.hand.highlighted) do
-                    if check_upgrade(selected_card.config.center.key) then
+                    if selected_card.config.center_key and G.P_CENTERS[selected_card.config.center_key].giga_data and
+                       G.P_CENTERS[selected_card.config.center_key].giga_data.enh_upgrade then
                         has_enhancement = true
                     else
                         has_enhancement = false
@@ -1125,7 +1127,7 @@ SMODS.Consumable{ --BagOfCandy
                 local has_seal = false
 				for i, selected_card in pairs(G.hand.highlighted) do
                     if selected_card:get_seal() and G.P_SEALS[selected_card:get_seal()].giga_data and
-                    G.P_SEALS[selected_card:get_seal()].giga_data.seal_upgrade then
+                       G.P_SEALS[selected_card:get_seal()].giga_data.seal_upgrade then
                         has_seal = true
                     else
                         has_seal = false

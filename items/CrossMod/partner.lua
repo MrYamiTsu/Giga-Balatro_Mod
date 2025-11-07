@@ -30,5 +30,5 @@ Partner_API.Partner{
                 upgrade_enhencement(context.other_card)
             end
         end
-    end,
+    end
 }

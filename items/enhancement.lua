@@ -2,6 +2,9 @@
 SMODS.Enhancement{ --BigBonus
 	key = "bigBonus",
 	atlas = "Enhancements",
+	giga_data = {
+		is_upgraded = true
+	},
 	pos = { x = 3, y = 0 },
 	discovered = true,
 	unlocked = true,
@@ -18,6 +21,9 @@ SMODS.Enhancement{ --BigBonus
 SMODS.Enhancement{ --MultPlus
 	key = 'multPlus',
 	atlas = "Enhancements",
+	giga_data = {
+		is_upgraded = true
+	},
 	pos = { x = 5, y = 0 },
 	discovered = true,
 	unlocked = true,
@@ -34,6 +40,9 @@ SMODS.Enhancement{ --MultPlus
 SMODS.Enhancement{ --EvolvedWild
 	key = 'evolvedWild',
 	atlas = "Enhancements",
+	giga_data = {
+		is_upgraded = true
+	},
 	pos = { x = 4, y = 1 },
 	discovered = true,
 	unlocked = true,
@@ -59,6 +68,9 @@ SMODS.Enhancement{ --EvolvedWild
 SMODS.Enhancement { --ReinforcedGlass
     key = 'reinforcedGlass',
 	atlas = "Enhancements",
+	giga_data = {
+		is_upgraded = true
+	},
     pos = { x = 2, y = 1 },
 	discovered = true,
 	unlocked = true,
@@ -88,6 +100,9 @@ SMODS.Enhancement { --ReinforcedGlass
 SMODS.Enhancement{ --Titanium
 	key = 'titanium',
 	atlas = "Enhancements",
+	giga_data = {
+		is_upgraded = true
+	},
 	pos = { x = 3, y = 1 },
 	discovered = true,
 	unlocked = true,
@@ -116,6 +131,9 @@ SMODS.Enhancement{ --Titanium
 SMODS.Enhancement{ --PolishStone
 	key = "polishStone",
 	atlas = "Enhancements",
+	giga_data = {
+		is_upgraded = true
+	},
 	pos = { x = 4, y = 0 },
 	discovered = true,
 	unlocked = true,
@@ -135,6 +153,9 @@ SMODS.Enhancement{ --PolishStone
 SMODS.Enhancement{ --PerfectGold
 	key = 'perfectGold',
 	atlas = "Enhancements",
+	giga_data = {
+		is_upgraded = true
+	},
 	pos = { x = 1, y = 1 },
 	discovered = true,
 	unlocked = true,
@@ -163,6 +184,9 @@ SMODS.Enhancement{ --PerfectGold
 SMODS.Enhancement{ --Luckiest
 	key = 'luckiest',
 	atlas = "Enhancements",
+	giga_data = {
+		is_upgraded = true
+	},
 	pos = { x = 0, y = 1 },
 	discovered = true,
 	unlocked = true,
@@ -229,6 +253,9 @@ SMODS.Enhancement{ --Luckiest
 SMODS.Enhancement{ --Soil
 	key = "soil",
 	atlas = "Enhancements",
+	giga_data = {
+		enh_upgrade = "m_giga_richSoil"
+	},
 	pos = { x = 0, y = 0 },
 	unlocked = true,
 	discovered = true,
@@ -240,6 +267,10 @@ SMODS.Enhancement{ --Soil
 SMODS.Enhancement{ --RichSoil
 	key = "richSoil",
 	atlas = "Enhancements",
+	giga_data = {
+		is_upgraded = true,
+		enh_upgrade = "m_giga_fossilSoil"
+	},
 	pos = { x = 1, y = 0 },
 	unlocked = true,
 	discovered = true,
@@ -255,6 +286,9 @@ SMODS.Enhancement{ --RichSoil
 SMODS.Enhancement{ --FossilSoil
 	key = "fossilSoil",
 	atlas = "Enhancements",
+	giga_data = {
+		is_upgraded = true
+	},
 	pos = { x = 2, y = 0 },
 	unlocked = true,
 	discovered = true,

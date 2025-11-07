@@ -1,24 +1,7 @@
 -- TALISMAN --
 to_big = to_big or function(b) return b end
 
--- DICTIONARY --
-Giga.enhancement_upgrades = {
-    m_giga_soil = "m_giga_richSoil",
-    m_giga_richSoil = "m_giga_fossilSoil",
-    m_bonus = "m_giga_bigBonus",
-    m_steel = "m_giga_titanium",
-    m_stone = "m_giga_polishStone",
-    m_mult = "m_giga_multPlus",
-    m_lucky = "m_giga_luckiest",
-    m_gold = "m_giga_perfectGold",
-    m_glass = "m_giga_reinforcedGlass",
-    m_wild = "m_giga_evolvedWild"
-}
-
 -- UPGRADE FUNCTIONS --
-function check_upgrade(base_enh)
-    return Giga.enhancement_upgrades[base_enh]
-end
 function upgrade_enhencement_specific(selected_card, base_enh)
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
@@ -39,7 +22,7 @@ function upgrade_enhencement_specific(selected_card, base_enh)
     }))
     delay(0.2)
     if SMODS.has_enhancement(selected_card, base_enh) then
-        selected_card:set_ability(G.P_CENTERS[check_upgrade(base_enh)])
+        selected_card:set_ability(G.P_CENTERS[selected_card.config.center_key].giga_data.enh_upgrade)
     else
         selected_card:set_ability(G.P_CENTERS[base_enh])
     end
@@ -81,7 +64,7 @@ function upgrade_enhencement(selected_card)
         end
     }))
     delay(0.2)
-    selected_card:set_ability(check_upgrade(selected_card.config.center.key))
+    selected_card:set_ability(G.P_CENTERS[selected_card.config.center_key].giga_data.enh_upgrade)
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
         delay = 0.15,
@@ -184,13 +167,11 @@ function upgrade_seal_specific(selected_card, base_seal)
     delay(0.5)
 end
 function upgraded_enh_condition(card)
-    local is_upgraded = false
-    for _, enh in pairs(Giga.enhancement_upgrades) do
-        if enh == card.config.center.key then
-            is_upgraded = true
-        end
+    if card.config.center_key and G.P_CENTERS[card.config.center_key].giga_data and
+       G.P_SEALS[card.config.center_key].giga_data.is_upgraded then
+        return true
     end
-    return is_upgraded
+    return false
 end
 function upgraded_seal_condition(card)
     if card:get_seal() and G.P_SEALS[card:get_seal()].giga_data and

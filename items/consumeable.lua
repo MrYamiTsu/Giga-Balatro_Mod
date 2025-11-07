@@ -34,11 +34,10 @@ SMODS.Consumable{ --UpgradeTarot
         card = 2
     }},
     loc_vars = function (self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'jogla_art_credit'}
         if G.hand then
             for i, _card in ipairs(G.hand.highlighted) do
-                if _card.config.center_key ~= 'c_base' then
-                    local enh = check_upgrade(_card.config.center_key)
+                if _card.config.center_key ~= 'c_base' and G.P_CENTERS[_card.config.center_key].giga_data then
+                    local enh = G.P_CENTERS[_card.config.center_key].giga_data.enh_upgrade
                     local duplicate = false
                     for _, v in ipairs(info_queue) do
                         if v == G.P_CENTERS[enh] then
@@ -59,7 +58,8 @@ SMODS.Consumable{ --UpgradeTarot
 			if #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.extra.card then
                 local has_enhancement = false
 				for i, selected_card in pairs(G.hand.highlighted) do
-                    if check_upgrade(selected_card.config.center.key) then
+                    if selected_card.config.center_key and G.P_CENTERS[selected_card.config.center_key].giga_data and
+                       G.P_CENTERS[selected_card.config.center_key].giga_data.enh_upgrade then
                         has_enhancement = true
                     else
                         has_enhancement = false
@@ -73,9 +73,10 @@ SMODS.Consumable{ --UpgradeTarot
 		end
 		return false
     end,
-    in_pool = function (self, args)
+    in_pool = function (self)
         for _, c in pairs(G.playing_cards or {}) do
-            if check_upgrade(c.config.center.key) then
+            if c.config.center_key ~= nil and G.P_CENTERS[c.config.center_key].giga_data and
+               G.P_CENTERS[c.config.center_key].giga_data.enh_upgrade then
                 return true
             end
         end
@@ -84,10 +85,10 @@ SMODS.Consumable{ --UpgradeTarot
     use = function (self,card,area,copier)
         for i, selected_card in pairs(G.hand.highlighted) do
             G.E_MANAGER:add_event(Event({
-            	func = function()
-                	upgrade_enhencement(selected_card)
-                	return true
-            	end
+                func = function ()
+                    upgrade_enhencement(selected_card)
+                    return true
+                end
             }))
 		end
     end
