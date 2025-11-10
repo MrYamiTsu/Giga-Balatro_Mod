@@ -1113,9 +1113,10 @@ return {
                 name = 'Pink+ Seal',
                 text = {
                     'When this card is {C:attention}scored{},',
-                    'create {C:attention}#1#{} {C:dark_edition}Negative{} {C:giga_Food}Food{}',
-                    'card and {C:attention}reduce{} blind size',
-                    'by {C:attention}#2#%{}'
+                    'create {C:attention}#1#{} {C:giga_Food}Food{} card',
+                    '{C:green}#2# in #3#{} to be {C:dark_edition}Negative{}',
+                    '{C:attention}Reduce{} blind size',
+                    'by {C:attention}#4#%{}'
                 }
             },
             giga_pinkplusplus_seal = {

@@ -224,8 +224,8 @@ SMODS.Seal{ --Red++
     loc_vars = function(self, info_queue, card)
         return {vars = {self.config.extra.rep}}
     end,
-    in_pool = function(self) 
-		return false 
+    in_pool = function(self)
+		return false
 	end,
     calculate = function(self, card, context)
         if context.repetition then
@@ -259,7 +259,7 @@ SMODS.Seal{ --Blue++
 	unlocked = true,
     config = { extra = {
         odds = 1,
-        chances = 5
+        chances = 6
     }},
     loc_vars = function(self, info_queue, card)
         local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'giga_bluePlusPlus')
@@ -394,7 +394,7 @@ SMODS.Seal{ --Purple++
     config = { extra = {
         card = 2,
         odds = 1,
-        chances = 7,
+        chances = 8,
     }},
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = { set = 'Tag', key = 'tag_charm' }
@@ -533,10 +533,13 @@ SMODS.Seal{ --Pink+
 	unlocked = true,
     config = { extra = {
         card = 1,
-        reduce = 5
+        reduce = 5,
+        odds = 1,
+        chances = 2
     }},
     loc_vars = function(self, info_queue, card)
-        return {vars = {self.config.extra.card, self.config.extra.reduce}}
+        local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'giga_pinkPlus')
+        return {vars = {self.config.extra.card, odds, chances, self.config.extra.reduce,}}
     end,
     in_pool = function(self)
         return false
@@ -558,12 +561,26 @@ SMODS.Seal{ --Pink+
             return {
                 func = function()
                     for i = 1, self.config.extra.card, 1 do
-                        G.E_MANAGER:add_event(Event({
-                            func = function()
-                                SMODS.add_card({set = 'Giga_Food', edition = 'e_negative'})
+                        if SMODS.pseudorandom_probability(card, pseudoseed('giga_pinkPlus'), card.ability.extra.odds, card.ability.extra.chances) then
+                            if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+                                G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                                G.E_MANAGER:add_event(Event({
+                                    func = function()
+                                        SMODS.add_card({set = 'Giga_Food', edition = 'e_negative'})
+                                        G.GAME.consumeable_buffer = 0
+                                        return true
+                                    end
+                                }))
                                 return true
                             end
-                        }))
+                        else
+                            G.E_MANAGER:add_event(Event({
+                                func = function()
+                                    SMODS.add_card({set = 'Giga_Food'})
+                                    return true
+                                end
+                            }))
+                        end
                     end
                     return true
                 end,
@@ -587,10 +604,13 @@ SMODS.Seal{ --Pink++
 	unlocked = true,
     config = { extra = {
         card = 2,
-        reduce = 15
+        reduce = 15,
+        odds = 1,
+        chances = 25
     }},
     loc_vars = function(self, info_queue, card)
-        return {vars = {self.config.extra.card, self.config.extra.reduce, 1, 20}}
+        local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'giga_pinkPlusPlus')
+        return {vars = {self.config.extra.card, self.config.extra.reduce, odds, chances}}
     end,
     in_pool = function(self)
         return false
@@ -611,7 +631,7 @@ SMODS.Seal{ --Pink++
             return {
                 func = function()
                     for i = 1, self.config.extra.card, 1 do
-                        if SMODS.pseudorandom_probability(card, pseudoseed('giga_pinkPlusPlus'), 1, 20) then
+                        if SMODS.pseudorandom_probability(card, pseudoseed('giga_pinkPlusPlus'), card.ability.extra.odds, card.ability.extra.chances) then
                             if SMODS.pseudorandom_probability(card, pseudoseed('giga_pinkPlusPlus'), 1, 2) then
                                 G.E_MANAGER:add_event(Event({
                                     func = function()
