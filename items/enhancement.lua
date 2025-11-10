@@ -255,6 +255,9 @@ SMODS.Enhancement{ --Luckiest
 SMODS.Enhancement{ --Soil
 	key = "soil",
 	atlas = "Enhancements",
+	fg_data = {
+  		base_enhancement = true
+	},
 	giga_data = {
 		enh_upgrade = "m_giga_richSoil"
 	},
