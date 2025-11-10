@@ -104,7 +104,7 @@ return {
                     '{C:green}#4# in #5#{} chance',
                     'to win {C:money}$#6#{}',
                     '{C:green}#7# in #8#{} chance',
-                    'to create {C:attention}#9#{} {C:dark_edition}Negative{} {C:giga_Food}Food{}'
+                    'to create {C:attention}#9#{} {C:giga_Food}Food{}'
                 }
             },
             m_giga_perfectGold = {
