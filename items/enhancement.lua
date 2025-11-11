@@ -51,7 +51,7 @@ SMODS.Enhancement{ --EvolvedWild
 	config = { extra = { 
 		chipsAdd = 20,
 		multAdd = 2,
-		bonus = 0,
+		chips = 0,
 		mult = 0
 	}},
 	loc_vars = function(self, info_queue, card)
