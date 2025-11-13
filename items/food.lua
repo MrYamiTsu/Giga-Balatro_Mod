@@ -17,6 +17,11 @@ SMODS.Consumable{ --Tacos
     key = 'tacos',
     set = 'Giga_Food',
     atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = '_c_giga_tacos',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 0, y = 0},
     soul_pos = {x = 1, y = 0},
     rarity = 1,
@@ -38,6 +43,11 @@ SMODS.Consumable{ --Guacamole
     key = 'guacamole',
     set = 'Giga_Food',
     atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = '_c_giga_guacamole',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 0, y = 0},
     soul_pos = {x = 2, y = 0},
     rarity = 1,
@@ -71,6 +81,11 @@ SMODS.Consumable{ --HotDog
     key = 'hotDog',
     set = 'Giga_Food',
     atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = '_c_giga_hot_dog',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 0, y = 0},
     soul_pos = {x = 3, y = 0},
     rarity = 1,
@@ -85,6 +100,11 @@ SMODS.Consumable{ --CaesarSalad
     key = 'caesarSalad',
     set = 'Giga_Food',
     atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = '_c_giga_caesar_salad',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 0, y = 0},
     soul_pos = {x = 4, y = 0},
     rarity = 1,
@@ -124,6 +144,11 @@ SMODS.Consumable{ --ClubSandwich
     key = 'clubSandwich',
     set = 'Giga_Food',
     atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = '_c_giga_club_sandwich',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 0, y = 0},
     soul_pos = {x = 5, y = 0},
     rarity = 1,
@@ -163,6 +188,11 @@ SMODS.Consumable{ --Pho
     key = 'pho',
     set = 'Giga_Food',
     atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = '_c_giga_pho',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 0, y = 0},
     soul_pos = {x = 6, y = 0},
     rarity = 2,
@@ -202,6 +232,11 @@ SMODS.Consumable{ --Spaghetti
     key = 'spaghetti',
     set = 'Giga_Food',
     atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = '_c_giga_spaghetti',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 0, y = 0},
     soul_pos = {x = 3, y = 2},
     rarity = 1,
@@ -216,6 +251,11 @@ SMODS.Consumable{ --Sushis
     key = 'sushis',
     set = 'Giga_Food',
     atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = '_c_giga_sushis',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 0, y = 0},
     soul_pos = {x = 1, y = 3},
     rarity = 1,
@@ -230,6 +270,11 @@ SMODS.Consumable{ --Steak
     key = 'steak',
     set = 'Giga_Food',
     atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = '_c_giga_steak',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 0, y = 0},
     soul_pos = {x = 2, y = 2},
     rarity = 1,
@@ -244,6 +289,11 @@ SMODS.Consumable{ --Durian
     key = 'durian',
     set = 'Giga_Food',
     atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = '_c_giga_durian',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 0, y = 0},
     soul_pos = {x = 6, y = 3},
     rarity = 1,
@@ -258,6 +308,11 @@ SMODS.Consumable{ --Salmon
     key = 'salmon',
     set = 'Giga_Food',
     atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = '_c_giga_salmon',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 0, y = 0},
     soul_pos = {x = 0, y = 2},
     rarity = 1,
@@ -272,6 +327,11 @@ SMODS.Consumable{ --Waffle
     key = 'waffle',
     set = 'Giga_Food',
     atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = '_c_giga_waffle',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 0, y = 0},
     soul_pos = {x = 2, y = 3},
     rarity = 1,
@@ -286,6 +346,11 @@ SMODS.Consumable{ --Lollipop
     key = 'lollipop',
     set = 'Giga_Food',
     atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = '_c_giga_lollipop',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 0, y = 0},
     soul_pos = {x = 1, y = 1},
     rarity = 1,
@@ -300,6 +365,11 @@ SMODS.Consumable{ --SugarPie
     key = 'sugarPie',
     set = 'Giga_Food',
     atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = '_c_giga_sugar_pie',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 0, y = 0},
     soul_pos = {x = 3, y = 3},
     rarity = 1,
@@ -314,6 +384,11 @@ SMODS.Consumable{ --QuicheLorraine
     key = 'quicheLorraine',
     set = 'Giga_Food',
     atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = '_c_giga_quiche_lorraine',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 0, y = 0},
     soul_pos = {x = 6, y = 4},
     rarity = 1,
@@ -340,6 +415,11 @@ SMODS.Consumable{ --Paella
     key = 'paella',
     set = 'Giga_Food',
     atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = '_c_giga_paella',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 0, y = 0},
     soul_pos = {x = 2, y = 4},
     rarity = 1,
@@ -366,6 +446,11 @@ SMODS.Consumable{ --GummyBear
     key = 'gummyBear',
     set = 'Giga_Food',
     atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = '_c_giga_gummy_bear',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 0, y = 0},
     soul_pos = {x = 1, y = 2},
     rarity = 1,
@@ -392,6 +477,11 @@ SMODS.Consumable{ --Empanadas
     key = 'empanadas',
     set = 'Giga_Food',
     atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = '_c_giga_empanadas',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 0, y = 0},
     soul_pos = {x = 4, y = 3},
     rarity = 1,
@@ -418,6 +508,11 @@ SMODS.Consumable{ --PB&JSandwich
     key = 'pBJSandwich',
     set = 'Giga_Food',
     atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = '_c_giga_pbj_sandwich',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 0, y = 0},
     soul_pos = {x = 6, y = 1},
     rarity = 1,
@@ -438,6 +533,11 @@ SMODS.Consumable{ --Burger
     key = 'burger',
     set = 'Giga_Food',
     atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = '_c_giga_burger',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 0, y = 0},
     soul_pos = {x = 5, y = 3},
     rarity = 1,
@@ -458,6 +558,11 @@ SMODS.Consumable{ --FruitSalad
     key = 'fruitSalad',
     set = 'Giga_Food',
     atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = '_c_giga_fruit_salad',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 0, y = 0},
     soul_pos = {x = 5, y = 1},
     rarity = 1,
@@ -529,6 +634,11 @@ SMODS.Consumable{ --Ramen
     key = 'ramen',
     set = 'Giga_Food',
     atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = '_c_giga_ramen',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 0, y = 0},
     soul_pos = {x = 5, y = 4},
     rarity = 1,
@@ -542,6 +652,11 @@ SMODS.Consumable{ --ChocolateBar
     key = 'chocolateBar',
     set = 'Giga_Food',
     atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = '_c_giga_chocolate_bar',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 0, y = 0},
     soul_pos = {x = 6, y = 2},
     rarity = 1,
@@ -555,6 +670,11 @@ SMODS.Consumable{ --MacN'Cheese
     key = 'macNCheese',
     set = 'Giga_Food',
     atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = '_c_giga_mac_n_cheese',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 0, y = 0},
     soul_pos = {x = 4, y = 2},
     rarity = 1,
@@ -568,6 +688,11 @@ SMODS.Consumable{ --BlueberryMuffin
     key = 'blueberryMuffin',
     set = 'Giga_Food',
     atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = '_c_giga_blueberry_muffin',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 0, y = 0},
     soul_pos = {x = 0, y = 4},
     rarity = 1,
@@ -581,6 +706,11 @@ SMODS.Consumable{ --Donut
     key = 'donut',
     set = 'Giga_Food',
     atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = '_c_giga_donut',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 0, y = 0},
     soul_pos = {x = 4, y = 4},
     rarity = 1,
@@ -646,6 +776,11 @@ SMODS.Consumable{ --CranberryJuice
     key = 'cranberryJuice',
     set = 'Giga_Food',
     atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = '_c_giga_cranberry_juice',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 0, y = 0},
     soul_pos = {x = 0, y = 3},
     rarity = 1,
@@ -711,6 +846,11 @@ SMODS.Consumable{ --BubbleTea
     key = 'bubbleTea',
     set = 'Giga_Food',
     atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = '_c_giga_bubble_tea',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 0, y = 0},
     soul_pos = {x = 1, y = 4},
     rarity = 1,
@@ -776,6 +916,11 @@ SMODS.Consumable{ --BagOfCandy
     key = 'bagOfCandy',
     set = 'Giga_Food',
     atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = '_c_giga_bag_of_candy',
+        crossover_label = 'Fools Gambit'
+    },
     pos = {x = 0, y = 0},
     soul_pos = {x = 5, y = 2},
     rarity = 1,
