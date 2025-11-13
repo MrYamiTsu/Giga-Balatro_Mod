@@ -102,8 +102,14 @@ function upgrade_seal(selected_card)
             return true
         end
     }))
-    delay(0.2)
-    selected_card:set_seal(G.P_SEALS[selected_card:get_seal()].giga_data.seal_upgrade)
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.2,
+        func = function()
+            selected_card:set_seal(G.P_SEALS[selected_card:get_seal()].giga_data.seal_upgrade, true)
+            return true
+        end
+    }))
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
         delay = 0.15,
