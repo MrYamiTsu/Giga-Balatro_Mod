@@ -1130,6 +1130,24 @@ return {
                     '{C:rare}Rare{} {C:giga_Food}Food{} instead'
                 }
             },
+            giga_crimsonplus_seal = {
+                name = 'Crimson+ Seal',
+                text = {
+                    'Gain {C:mult}+#1#{} Mult',
+                    'permanently while',
+                    'held in hand',
+                    '{X:chips,C:white}X#2#{} Chips',
+                }
+            },
+            giga_aquaplus_seal = {
+                name = 'Aqua+ Seal',
+                text = {
+                'Gain {C:chips}+#1#{} Chips',
+                'permanently while',
+                'held in hand',
+                '{X:mult,C:white}X#2#{} Mult',
+                }
+            },
             --#endregion
         },
         Partner = {
@@ -1207,7 +1225,7 @@ return {
         Tag={},
         Tarot={
             c_giga_cook = {
-                name = 'Cook',
+                name = 'The Cook',
                 text = {
                     'Create up to {C:attention}#1#{}',
                     '{C:giga_Food}Food{} cards'
@@ -1218,6 +1236,14 @@ return {
                 text = {
                     '{C:attention}Upgrade{} up to',
                     '{C:attention}#1#{} enhancements'
+                }
+            },
+            c_giga_gardener = {
+                name = 'The Gardener',
+                text = {
+                    'Enhances {C:attention}#1#{}',
+                    'selected cards to',
+                    '{C:attention}Soil Cards{}'
                 }
             }
         },
@@ -1285,6 +1311,8 @@ return {
             giga_purpleplusplus_seal = 'Purple++ Seal',
             giga_pinkplus_seal = 'Pink+ Seal',
             giga_pinkplusplus_seal = 'Pink++ Seal',
+            giga_crimsonplus_seal = 'Crimson+ Seal',
+            giga_aquaplus_seal = 'Aqua+ Seal',
             Giga_Food = "Food"
         },
         poker_hand_descriptions={},

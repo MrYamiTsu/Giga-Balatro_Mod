@@ -148,8 +148,8 @@ SMODS.Enhancement{ --PolishStone
 	loc_vars = function(self, info_queue, card)
 		return {vars = {card.ability.bonus, card.ability.x_chips}}
 	end,
-	in_pool = function(self) 
-		return false 
+	in_pool = function(self)
+		return false
 	end,
 }
 SMODS.Enhancement{ --PerfectGold
