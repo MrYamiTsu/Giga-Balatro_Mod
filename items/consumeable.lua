@@ -27,7 +27,7 @@ SMODS.Consumable{ --Gardener
     key = 'gardener',
     set = 'Tarot',
     atlas = 'Consumeables',
-    pos = {x = 0, y = 0},
+    pos = {x = 2, y = 1},
     rarity = 1,
     cost = 2,
     config = { max_highlighted = 2, mod_conv = 'm_giga_soil' },
