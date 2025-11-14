@@ -27,16 +27,16 @@
 <hr>
 <h2>Contents</h2>
 <ul>
-    <li>47+ Jokers (+7 Cross-Mod)</li>
+    <li>48+ Jokers (+7 Cross-Mod)</li>
     <li>31 Food cards (+8 Cross-Mod)</li>
-    <li>13 Seals</li>
+    <li>15 Seals</li>
     <li>10+ Enhancements</li>
     <li>5 Decks</li>
     <li>4 Booster Packs</li>
     <li>4 Vouchers</li>
     <li>4 Spectral</li>
+    <li>3 Tarot</li>
     <li>2 Sleeves (Cross-Mod)</li>
-    <li>2 Tarot</li>
     <li>1 Partner (Cross-Mod)</li>
     <li>1 Boss Blind</li>
 </ul>
