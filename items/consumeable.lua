@@ -32,6 +32,7 @@ SMODS.Consumable{ --Gardener
     cost = 2,
     config = { max_highlighted = 2, mod_conv = 'm_giga_soil' },
     loc_vars = function (self,info_queue,center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'jogla_art_credit'}
         info_queue[#info_queue+1] = G.P_CENTERS['m_giga_soil']
         return{vars = {center.ability.max_highlighted}}
     end

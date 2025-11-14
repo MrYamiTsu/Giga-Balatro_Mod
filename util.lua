@@ -129,49 +129,6 @@ function upgrade_seal(selected_card)
     }))
     delay(0.5)
 end
-function upgrade_seal_specific(selected_card, base_seal)
-    G.E_MANAGER:add_event(Event({
-        trigger = 'after',
-        delay = 0.4,
-        func = function()
-            selected_card:juice_up(0.3, 0.5)
-            return true
-        end
-    }))
-    G.E_MANAGER:add_event(Event({
-        trigger = 'after',
-        delay = 0.15,
-        func = function()
-            selected_card:flip()
-            selected_card:juice_up(0.3, 0.3)
-            return true
-        end
-    }))
-    delay(0.2)
-    if selected_card:get_seal() == base_seal then
-        selected_card:set_seal(G.P_SEALS[base_seal].giga_data.seal_upgrade)
-    else
-        selected_card:set_seal(base_seal)
-    end
-    G.E_MANAGER:add_event(Event({
-        trigger = 'after',
-        delay = 0.15,
-        func = function()
-            selected_card:flip()
-            selected_card:juice_up(0.3, 0.3)
-            return true
-        end
-    }))
-    G.E_MANAGER:add_event(Event({
-        trigger = 'after',
-        delay = 0.2,
-        func = function()
-            G.hand:unhighlight_all()
-            return true
-        end
-    }))
-    delay(0.5)
-end
 function upgraded_enh_condition(card)
     if card.config.center_key and G.P_CENTERS[card.config.center_key].giga_data and
        G.P_CENTERS[card.config.center_key].giga_data.is_upgraded then
@@ -187,7 +144,7 @@ function upgraded_seal_condition(card)
     return false
 end
 
--- CREATE FUNCTIONS --
+-- CREATE FUNCTION --
 function _create(card,type,place,negative,negative_condition)
     if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
         G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
@@ -224,4 +181,13 @@ function ShuffleMyTable(t, seed)
 	end
 	pseudoshuffle(rt, pseudoseed(seed))
 	return rt
+end
+
+-- MATH FUNCTION --
+function Factorial(n)
+  local result = 1
+  for i = 1, n do
+    result = result * i
+  end
+  return result
 end

@@ -901,6 +901,15 @@ return {
                     '{C:inactive}(Currently : {C:mult}+#2#{} Mult)'
                 }
             },
+            j_giga_factolord = {
+                name = 'Factolord',
+                text = {
+                    'Gain Chips equal to',
+                    '{C:attention}2{} times the {C:attention}Factorial{}',
+                    'of empty {C:attention}Joker{} slots',
+                    '{C:inactive}(Currently {C:chips}+#1#{} {C:inactive}Chips)'
+                }
+            },
             --#endregion
             --#region CrossMod
             j_giga_triceratops_alt = {

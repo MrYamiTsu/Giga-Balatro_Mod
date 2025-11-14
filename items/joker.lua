@@ -1032,6 +1032,32 @@ SMODS.Joker{ --Roposiel
         end
     end
 }
+SMODS.Joker{
+    key = 'factolord',
+    atlas = 'Jokers',
+    pos = {x = 7, y = 3},
+    cost = 7,
+    rarity = 2,
+    blueprint_compat = true,
+    eternal_compat = true,
+    loc_vars = function(self,info_queue,center)
+        local facto = 0
+        if G.jokers and #G.jokers.cards > 0 then
+            facto = 2 * Factorial((G.jokers.config.card_limit - #G.jokers.cards) + #SMODS.find_card("j_giga_factolord", true))
+        end
+        return{vars = {facto}}
+    end,
+    calculate = function(self,card,context)
+        if context.joker_main then
+            local facto = 2 * Factorial((G.jokers.config.card_limit - #G.jokers.cards) + #SMODS.find_card("j_giga_factolord", true))
+            if facto > 0 then
+                return {
+                    chips = facto
+                }
+            end
+        end
+    end
+}
 SMODS.Joker{ --MrYamiTru
     key = 'myt_own',
     atlas = 'Jokers',
@@ -1248,8 +1274,8 @@ SMODS.Joker{ --JackMutator
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        round = 2,
-        round_left = 2,
+        round = 1,
+        round_left = 1,
     }},
     loc_vars = function(self,info_queue,center)
         return{vars = {center.ability.extra.round + 1, center.ability.extra.round_left}}
@@ -1260,7 +1286,7 @@ SMODS.Joker{ --JackMutator
         end
         if card.ability.extra.round_left <= 0 and context.first_hand_drawn then
             G.E_MANAGER:add_event(Event({
-                trigger = 'after', 
+                trigger = 'after',
                 delay = 0.4, 
                 func = function()
                     local tpool = {}
@@ -1268,7 +1294,7 @@ SMODS.Joker{ --JackMutator
                         table.insert(tpool, k)
                     end
                     local _card = pseudorandom_element(tpool, pseudoseed("jackMutator"))
-                    if _card:get_id() == 11 then
+                    if _card ~= nil and _card:get_id() == 11 then
                         if _card.config.center.key == "m_giga_soil" then
                             upgrade_enhencement_specific(_card,'m_giga_richSoil')
                         else
@@ -1278,8 +1304,8 @@ SMODS.Joker{ --JackMutator
                         SMODS.change_base(_card, nil, 'Jack')
                     end
                     _card:juice_up(0.3, 0.5)
-                    return true 
-                end 
+                    return true
+                end
             }))
             card.ability.extra.round_left = card.ability.extra.round
         end
