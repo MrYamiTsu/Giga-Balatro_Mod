@@ -1032,7 +1032,7 @@ SMODS.Joker{ --Roposiel
         end
     end
 }
-SMODS.Joker{
+SMODS.Joker{ --Factolord
     key = 'factolord',
     atlas = 'Jokers',
     pos = {x = 7, y = 3},

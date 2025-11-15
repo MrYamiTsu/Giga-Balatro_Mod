@@ -175,7 +175,7 @@ SMODS.Seal{ --Purple+
     config = { extra = {
         card = 2,
         odds = 1,
-        chances = 10
+        chances = 12
     }},
     loc_vars = function(self, info_queue, card)
         local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'giga_purplePlus')
@@ -394,7 +394,7 @@ SMODS.Seal{ --Purple++
     config = { extra = {
         card = 2,
         odds = 1,
-        chances = 8,
+        chances = 9,
     }},
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = { set = 'Tag', key = 'tag_charm' }
