@@ -27,7 +27,7 @@
 <hr>
 <h2>Contents</h2>
 <ul>
-    <li>49+ Jokers (+7 Cross-Mod)</li>
+    <li>48+ Jokers (+7 Cross-Mod)</li>
     <li>31 Food cards (+8 Cross-Mod)</li>
     <li>15 Seals</li>
     <li>10+ Enhancements</li>
@@ -37,8 +37,8 @@
     <li>4 Spectral</li>
     <li>3 Tarot</li>
     <li>2 Sleeves (Cross-Mod)</li>
+    <li>2 Boss Blind</li>
     <li>1 Partner (Cross-Mod)</li>
-    <li>1 Boss Blind</li>
 </ul>
 
 <p><em>*Some Jokers have secret interactions with other Jokers.</em><br>
