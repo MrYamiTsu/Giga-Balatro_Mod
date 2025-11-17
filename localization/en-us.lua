@@ -45,12 +45,20 @@ return {
         },
         Blind={
             bl_giga_selfish = {
-                name = "The Selfish",
+                name = 'The Selfish',
                 text = {
                     'If 5 cards are',
                     'discard, loose $5'
                 }
             },
+            bl_giga_base = {
+                name = 'The Base',
+                text = {
+                    '+0.25X blind size',
+                    'for each upgraded',
+                    'card in deck'
+                }
+            }
         },
         Edition={},
         Enhanced={
@@ -722,7 +730,7 @@ return {
             j_giga_paleoExpert = {
                 name = 'Paleo Expert',
                 text = {
-                    '{C:mult}+#1#{} Chips for each',
+                    '{C:mult}+#1#{} Mult for each',
                     '{C:attention}Soil{} card played'
                 }
             },
@@ -890,7 +898,7 @@ return {
                 text = {
                     'Gain {X:mult,C:white}X#1#{} Mult for',
                     'each {C:attention}seals{} in {C:attention}deck{}',
-                    '{C:inactive}(Currently : {X:mult,C:white}X#2#{} Mult)'
+                    '{C:inactive}(Currently : {X:mult,C:white}X#2#{} {C:inactive}Mult)'
                 }
             },
             j_giga_myt_own = {
@@ -898,7 +906,7 @@ return {
                 text = {
                     'Gain {C:mult}+#1#{} Mult for',
                     'each {C:attention}upgraded{} card {C:attention}played{}',
-                    '{C:inactive}(Currently : {C:mult}+#2#{} Mult)'
+                    '{C:inactive}(Currently : {C:mult}+#2#{} {C:inactive}Mult)'
                 }
             },
             j_giga_factolord = {

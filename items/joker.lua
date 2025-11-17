@@ -1061,14 +1061,15 @@ SMODS.Joker{ --Factolord
 SMODS.Joker{ --MrYamiTru
     key = 'myt_own',
     atlas = 'Jokers',
-    pos = {x = 7, y = 3},
+    pos = {x = 5, y = 6},
+    soul_pos = {x = 6, y = 6},
     cost = 20,
     rarity = 4,
     blueprint_compat = false,
     eternal_compat = true,
     config = { extra = {
         mult = 0,
-        mult_add = 4
+        mult_add = 3
     }},
     loc_vars = function(self,info_queue,center)
         return{vars = {center.ability.extra.mult_add, center.ability.extra.mult}}
@@ -1151,7 +1152,6 @@ SMODS.Joker{ --Rog-Ano
                 x_mult = x_mult + center.ability.extra.mult_add
             end
         end
-        info_queue[#info_queue+1] = {set = 'Other', key = 'aij_back_credit'}
         return{vars = {center.ability.extra.mult_add, x_mult}}
     end,
     calculate = function(self,card,context)
@@ -1868,7 +1868,7 @@ SMODS.Joker{ --BlackLusterSoldier
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        mult = 8,
+        mult = 7,
         xmult = 1.75
     }},
     loc_vars = function(self,info_queue,center)
