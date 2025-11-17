@@ -612,6 +612,9 @@ SMODS.Seal{ --Crimson+
     loc_vars = function(self, info_queue, center)
         return {vars = {self.config.extra.mult, self.config.extra.chips}}
     end,
+    in_pool = function(self)
+        return false
+    end,
     calculate = function(self, card, context)
         if context.main_scoring and context.cardarea == G.hand then
             card.ability.perma_mult = (card.ability.perma_mult or 0) + self.config.extra.mult
@@ -643,6 +646,9 @@ SMODS.Seal{ --Aqua+
     }},
     loc_vars = function(self, info_queue, center)
         return {vars = {self.config.extra.chips, self.config.extra.mult}}
+    end,
+    in_pool = function(self)
+        return false
     end,
     calculate = function(self, card, context)
         if context.main_scoring and context.cardarea == G.hand then
