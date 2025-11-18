@@ -975,6 +975,14 @@ return {
                     '{C:dark_edition}Polychrome{} card held in hand'
                 }
             },
+            j_giga_myt_own_alt = {
+                name = 'MrYamiTsu?',
+                text = {
+                    'Gain {X:mult,C:white}X#1#{} Mult for',
+                    'each {C:attention}upgraded{} card {C:attention}scored{}',
+                    '{C:inactive}(Currently : {X:mult,C:white}X#2#{}{C:inactive})'
+                }
+            }
             --#endregion
         },
         Other={

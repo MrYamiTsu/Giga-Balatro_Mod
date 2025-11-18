@@ -1058,9 +1058,13 @@ SMODS.Joker{ --Factolord
         end
     end
 }
-SMODS.Joker{ --MrYamiTru
+SMODS.Joker{ --MrYamiTsu
     key = 'myt_own',
     atlas = 'Jokers',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = 'j_giga_myt_own_alt'
+    },
     pos = {x = 5, y = 6},
     soul_pos = {x = 6, y = 6},
     cost = 20,

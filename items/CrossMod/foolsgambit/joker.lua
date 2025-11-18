@@ -1,3 +1,48 @@
+--#region ALT NORMAL JOKERS --
+SMODS.Joker{ --MrYamiTsuAlt
+    key = 'myt_own_alt',
+    atlas = 'Jokers',
+    fg_data = {
+        is_alternate = true,
+        alternate_key = 'j_giga_myt_own',
+        crossover_label = 'Fools Gambit'
+    },
+    pos = {x = 5, y = 6},
+    soul_pos = {x = 6, y = 6},
+    dependencies = 'foolsGambit',
+    cost = 20,
+    rarity = 4,
+    blueprint_compat = false,
+    eternal_compat = true,
+    config = { extra = {
+        mult = 1,
+        mult_add = 0.05
+    }},
+    loc_vars = function(self,info_queue,center)
+        return{vars = {center.ability.extra.mult_add, center.ability.extra.mult}}
+    end,
+    calculate = function(self,card,context)
+        if context.individual and context.cardarea == G.play and not context.blueprint then
+            if upgraded_enh_condition(context.other_card) or upgraded_seal_condition(context.other_card) then
+                return {
+                    func = function()
+                        card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_add
+                        return true
+                    end,
+                    message_card = card,
+                    message = 'X'..card.ability.extra.mult_add..' Mult',
+                    color = G.C.MULT
+                }
+            end
+        end
+        if context.joker_main then
+            return {
+                x_mult = card.ability.extra.mult
+            }
+        end
+    end
+}
+--#endregion
 --#region ALT PREHISTORICS JOKERS --
 SMODS.Joker{ --TRexALT
     key = 'tRex_alt',
