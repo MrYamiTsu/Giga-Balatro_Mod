@@ -49,7 +49,7 @@
 <p>
     Some content work weirdly sometimes.<br>
     If a whole asset is in comment, don't remove it from the comment. It's an idea and this may cause the game to crash.<br>
-    If you have any ideas for how the mod's elements might interact, feel free to ping me in the <strong>Giga</strong> post on the Balatro Discord.
+    If you have any ideas for how the mod's elements might interact, feel free to ping me in the <strong><a href="https://discord.com/channels/1116389027176787968/1398876204622286958" target="_blank">Giga</a></strong> post on the Balatro Discord.
     You can also send me artwork of some elements if you want (I'll mention you in the credits).
 </p>
 

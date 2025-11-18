@@ -905,7 +905,7 @@ return {
                 name = 'MrYamiTsu',
                 text = {
                     'Gain {C:mult}+#1#{} Mult for',
-                    'each {C:attention}upgraded{} card {C:attention}played{}',
+                    'each {C:attention}upgraded{} card {C:attention}scored{}',
                     '{C:inactive}(Currently : {C:mult}+#2#{} {C:inactive}Mult)'
                 }
             },
