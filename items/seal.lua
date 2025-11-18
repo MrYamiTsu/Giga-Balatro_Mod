@@ -707,7 +707,7 @@ SMODS.Seal{ --Pink++
                 func = function()
                     for i = 1, self.config.extra.card, 1 do
                         if SMODS.pseudorandom_probability(card, pseudoseed('giga_pinkPlusPlus'), self.config.extra.odds, self.config.extra.chances) then
-                            if SMODS.pseudorandom_probability(card, pseudoseed('giga_pinkPlusPlus2'), 1, 2) then
+                            if pseudorandom(pseudoseed('giga_pinkPlusPlus'), 1, 2) == 1 then
                                 G.E_MANAGER:add_event(Event({
                                     func = function()
                                         SMODS.add_card({key = 'c_giga_birthdayCake', edition = 'e_negative'})
