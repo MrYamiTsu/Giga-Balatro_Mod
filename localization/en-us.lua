@@ -155,7 +155,7 @@ return {
             c_giga_tacos = {
                 name = 'Tacos',
                 text = {
-                    'A delicious Tacos that',
+                    'Some delicious Tacos that',
                     'gives you {C:money}$#1#{}'
                 }
             },
