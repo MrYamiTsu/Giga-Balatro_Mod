@@ -1035,7 +1035,7 @@ SMODS.Joker{ --Roposiel
 SMODS.Joker{ --Factolord
     key = 'factolord',
     atlas = 'Jokers',
-    pos = {x = 7, y = 3},
+    pos = {x = 7, y = 6},
     cost = 7,
     rarity = 2,
     blueprint_compat = true,
@@ -1306,8 +1306,7 @@ SMODS.Joker{ --Moonstone
     atlas = 'Jokers',
     fg_data = {
         is_alternate = false,
-        alternate_key = 'j_giga_moonstone_alt',
-        crossover_label = 'Fools Gambit'
+        alternate_key = 'j_giga_moonstone_alt'
     },
     pos = {x = 6, y = 2},
     cost = 5,
@@ -1344,8 +1343,7 @@ SMODS.Joker{ --PinkTourmaline
     atlas = 'Jokers',
     fg_data = {
         is_alternate = false,
-        alternate_key = 'j_giga_pinkTourmaline_alt',
-        crossover_label = 'Fools Gambit'
+        alternate_key = 'j_giga_pinkTourmaline_alt'
     },
     pos = {x = 7, y = 1},
     cost = 5,
@@ -1382,8 +1380,7 @@ SMODS.Joker{ --RainbowQuartz
     atlas = 'Jokers',
     fg_data = {
         is_alternate = false,
-        alternate_key = 'j_giga_rainbowQuartz_alt',
-        crossover_label = 'Fools Gambit'
+        alternate_key = 'j_giga_rainbowQuartz_alt'
     },
     pos = {x = 7, y = 2},
     cost = 5,
@@ -1422,8 +1419,7 @@ SMODS.Joker{ --TRex
     atlas = 'Jokers',
     fg_data = {
         is_alternate = false,
-        alternate_key = 'j_giga_tRex_alt',
-        crossover_label = 'Fools Gambit'
+        alternate_key = 'j_giga_tRex_alt'
     },
     pos = {x = 6, y = 0},
     cost = 8,
@@ -1497,8 +1493,7 @@ SMODS.Joker{ --Velocyraptor
     atlas = 'Jokers',
     fg_data = {
         is_alternate = false,
-        alternate_key = 'j_giga_velocyraptor_alt',
-        crossover_label = 'Fools Gambit'
+        alternate_key = 'j_giga_velocyraptor_alt'
     },
     pos = {x = 7, y = 0},
     cost = 4,
@@ -1537,8 +1532,7 @@ SMODS.Joker{ --Pteranodon
     atlas = 'Jokers',
     fg_data = {
         is_alternate = false,
-        alternate_key = 'j_giga_pteranodon_alt',
-        crossover_label = 'Fools Gambit'
+        alternate_key = 'j_giga_pteranodon_alt'
     },
     pos = {x = 2, y = 1},
     cost = 6,
@@ -1593,8 +1587,7 @@ SMODS.Joker{ --Triceratops
     atlas = 'Jokers',
     fg_data = {
         is_alternate = false,
-        alternate_key = 'j_giga_triceratops_alt',
-        crossover_label = 'Fools Gambit'
+        alternate_key = 'j_giga_triceratops_alt'
     },
     pos = {x = 4, y = 5},
     cost = 5,

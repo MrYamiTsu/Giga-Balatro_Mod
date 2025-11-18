@@ -1,6 +1,12 @@
 -- TALISMAN --
 to_big = to_big or function(b) return b end
 
+-- POOLS --
+local rare_food_pool = {
+    'c_giga_birthdayCake',
+    'c_giga_turkey'
+}
+
 -- UPGRADE FUNCTIONS --
 function upgrade_enhencement_specific(selected_card, base_enh)
     G.E_MANAGER:add_event(Event({

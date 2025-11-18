@@ -455,7 +455,7 @@ return {
             c_giga_migas = {
                 name = 'Migas',
                 text = {
-                    'A delicious Migas that',
+                    'Some delicious Migas that',
                     'will give an {C:purple}Aberration{}',
                     'card in {C:attention}#1#{} rounds',
                     '{C:inactive}#2#{}'
@@ -955,21 +955,21 @@ return {
                 }
             },
             j_giga_pinkTourmaline_alt = {
-                name = 'Pink Tourmaline',
+                name = 'Pink Tourmaline?',
                 text = {
                     '{X:mult,C:white}X#1#{} Mult for each',
                     '{C:dark_edition}Holographic{} card held in hand'
                 }
             },
             j_giga_moonstone_alt = {
-                name = 'Moonstone',
+                name = 'Moonstone?',
                 text = {
                     '{C:mult}+#1#{} Mult for each',
                     '{C:dark_edition}Foil{} card held in hand'
                 }
             },
             j_giga_rainbowQuartz_alt = {
-                name = 'Rainbow Quartz',
+                name = 'Rainbow Quartz?',
                 text = {
                     '{C:chips}+#1#{} Chips for each',
                     '{C:dark_edition}Polychrome{} card held in hand'
