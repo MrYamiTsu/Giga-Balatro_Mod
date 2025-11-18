@@ -11,10 +11,10 @@ SMODS.Consumable{ --BananaSplit
     config = { extra = {
         round = 1,
         round_left = 1,
-        txt = 'Not ready yet'
+        txt = 'k_giga_notrd'
     }},
     loc_vars = function (self,info_queue,center)
-        return{vars = {center.ability.extra.round, center.ability.extra.txt}}
+        return{vars = {center.ability.extra.round, localize(center.ability.extra.txt)}}
     end,
     can_use = function (self,card)
         if card.ability.extra.round_left <= 0 then
@@ -30,8 +30,12 @@ SMODS.Consumable{ --BananaSplit
         if context.end_of_round and context.main_eval then
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
-        if card.ability.extra.round_left <= 0 and #G.consumeables.cards then
-            card.ability.extra.txt = 'Ready'
+        if card.ability.extra.round_left <= 0 and card.ability.extra.txt == 'k_giga_notrd' and #G.consumeables.cards then
+            local check_remove = function(card)
+                return not card.REMOVED
+            end
+            juice_card_until(card, check_remove, true)
+            card.ability.extra.txt = 'k_giga_rd'
         end
     end
 }

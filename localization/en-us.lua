@@ -1312,7 +1312,9 @@ return {
             b_giga_custom_menu_card = "Disable Custom Menu Joker",
             k_inactive = "Inactive",
             k_active = "Active",
-            b_Giga_Food = "Food Cards"
+            b_Giga_Food = "Food Cards",
+            k_giga_rd = "Ready",
+            k_giga_notrd = "Not Ready Yet"
         },
         high_scores={},
         labels={
