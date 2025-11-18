@@ -78,9 +78,19 @@ SMODS.Back{ --DrrunnkiDaecpk
 	unlocked = true,
     config = { randomize_rank_suit = true, giga_value_min = 0.1, giga_value_max = 10 },
     apply = function(self, back)
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                for i, card in pairs(G.playing_cards) do
+                    if pseudorandom("ok1", 1, 26) == 1 then
+                        SMODS.destroy_cards(card)
+                    end
+                end
+                return true
+            end
+        }))
         G.GAME.starting_params.hands = pseudorandom("ok1", 2, 6)
         G.GAME.starting_params.discards = pseudorandom("ok2", 1, 8)
-        G.GAME.starting_params.dollars = pseudorandom("ok3", 0, 10)
+        G.GAME.starting_params.dollars = pseudorandom("ok3", 0, 12)
         G.GAME.starting_params.joker_slots = pseudorandom("ok4", 2, 6)
         G.GAME.starting_params.consumable_slots = pseudorandom("ok5", 1, 4)
         G.GAME.starting_params.hand_size = pseudorandom("ok6", 6, 10)
