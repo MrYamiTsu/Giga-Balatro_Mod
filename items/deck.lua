@@ -78,7 +78,13 @@ SMODS.Back{ --DrrunnkiDaecpk
 	unlocked = true,
     config = { randomize_rank_suit = true, giga_value_min = 0.1, giga_value_max = 10 },
     apply = function(self, back)
-		G.GAME.modifiers.giga_randomscore = true
+        G.GAME.starting_params.hands = pseudorandom("ok1", 2, 6)
+        G.GAME.starting_params.discards = pseudorandom("ok2", 1, 8)
+        G.GAME.starting_params.dollars = pseudorandom("ok3", 0, 10)
+        G.GAME.starting_params.joker_slots = pseudorandom("ok4", 2, 6)
+        G.GAME.starting_params.consumable_slots = pseudorandom("ok5", 1, 4)
+        G.GAME.starting_params.hand_size = pseudorandom("ok6", 6, 10)
+        G.GAME.modifiers.giga_randomscore = true
         if next(SMODS.find_mod("Cryptid")) then
 	        G.GAME.modifiers.cry_misprint_min = (G.GAME.modifiers.cry_misprint_min or 1) * self.config.giga_value_min
 		    G.GAME.modifiers.cry_misprint_max = (G.GAME.modifiers.cry_misprint_max or 1) * self.config.giga_value_max
@@ -89,7 +95,7 @@ SMODS.Back{ --DrrunnkiDaecpk
             if #G.jokers.cards > 0 then
                 G.jokers:unhighlight_all()
                 if #G.jokers.cards > 1 then
-                    G.jokers:shuffle(pseudoseed('ok'))
+                    G.jokers:shuffle(pseudoseed('ok7'))
                     delay(0.5)
                 end
             end
