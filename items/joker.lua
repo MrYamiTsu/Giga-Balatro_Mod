@@ -1068,30 +1068,18 @@ SMODS.Joker{ --MrYamiTru
     blueprint_compat = false,
     eternal_compat = true,
     config = { extra = {
-        mult = 0,
-        mult_add = 3
+        mult = 2
     }},
     loc_vars = function(self,info_queue,center)
-        return{vars = {center.ability.extra.mult_add, center.ability.extra.mult}}
+        return{vars = {center.ability.extra.mult}}
     end,
     calculate = function(self,card,context)
-        if context.individual and context.cardarea == G.play and not context.blueprint then
+        if context.individual and context.cardarea == G.play then
             if upgraded_enh_condition(context.other_card) or upgraded_seal_condition(context.other_card) then
                 return {
-                    func = function()
-                        card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_add
-                        return true
-                    end,
-                    message_card = card,
-                    message = '+'..card.ability.extra.mult_add..' Mult',
-                    color = G.C.MULT
+                    x_mult = card.ability.extra.mult
                 }
             end
-        end
-        if context.joker_main then
-            return {
-                mult = card.ability.extra.mult
-            }
         end
     end
 }

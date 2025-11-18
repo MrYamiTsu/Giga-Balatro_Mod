@@ -904,9 +904,10 @@ return {
             j_giga_myt_own = {
                 name = 'MrYamiTsu',
                 text = {
-                    'Gain {C:mult}+#1#{} Mult for',
-                    'each {C:attention}upgraded{} card {C:attention}scored{}',
-                    '{C:inactive}(Currently : {C:mult}+#2#{} {C:inactive}Mult)'
+                    'Played {C:attention}card{} with',
+                    '{C:attention}upgraded enhancements{}',
+                    'or {C:attention}seals{} give {X:mult,C:white}X#1#{} Mult',
+                    'when scored'
                 }
             },
             j_giga_factolord = {
