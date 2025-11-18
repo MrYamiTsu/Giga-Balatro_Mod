@@ -19,8 +19,7 @@ SMODS.Consumable{ --Tacos
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_tacos',
-        crossover_label = 'Fools Gambit'
+        alternate_key = '_c_giga_tacos'
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 1, y = 0},
@@ -45,8 +44,7 @@ SMODS.Consumable{ --Guacamole
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_guacamole',
-        crossover_label = 'Fools Gambit'
+        alternate_key = '_c_giga_guacamole'
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 2, y = 0},
@@ -83,8 +81,7 @@ SMODS.Consumable{ --HotDog
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_hot_dog',
-        crossover_label = 'Fools Gambit'
+        alternate_key = '_c_giga_hot_dog'
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 3, y = 0},
@@ -103,7 +100,7 @@ SMODS.Consumable{ --CaesarSalad
     fg_data = {
         is_alternate = false,
         alternate_key = '_c_giga_caesar_salad',
-        crossover_label = 'Fools Gambit'
+        
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 4, y = 0},
@@ -147,7 +144,7 @@ SMODS.Consumable{ --ClubSandwich
     fg_data = {
         is_alternate = false,
         alternate_key = '_c_giga_club_sandwich',
-        crossover_label = 'Fools Gambit'
+        
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 5, y = 0},
@@ -191,7 +188,7 @@ SMODS.Consumable{ --Pho
     fg_data = {
         is_alternate = false,
         alternate_key = '_c_giga_pho',
-        crossover_label = 'Fools Gambit'
+        
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 6, y = 0},
@@ -235,7 +232,7 @@ SMODS.Consumable{ --Spaghetti
     fg_data = {
         is_alternate = false,
         alternate_key = '_c_giga_spaghetti',
-        crossover_label = 'Fools Gambit'
+        
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 3, y = 2},
@@ -254,7 +251,7 @@ SMODS.Consumable{ --Sushis
     fg_data = {
         is_alternate = false,
         alternate_key = '_c_giga_sushis',
-        crossover_label = 'Fools Gambit'
+        
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 1, y = 3},
@@ -273,7 +270,7 @@ SMODS.Consumable{ --Steak
     fg_data = {
         is_alternate = false,
         alternate_key = '_c_giga_steak',
-        crossover_label = 'Fools Gambit'
+        
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 2, y = 2},
@@ -292,7 +289,7 @@ SMODS.Consumable{ --Durian
     fg_data = {
         is_alternate = false,
         alternate_key = '_c_giga_durian',
-        crossover_label = 'Fools Gambit'
+        
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 6, y = 3},
@@ -311,7 +308,7 @@ SMODS.Consumable{ --Salmon
     fg_data = {
         is_alternate = false,
         alternate_key = '_c_giga_salmon',
-        crossover_label = 'Fools Gambit'
+        
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 0, y = 2},
@@ -330,7 +327,7 @@ SMODS.Consumable{ --Waffle
     fg_data = {
         is_alternate = false,
         alternate_key = '_c_giga_waffle',
-        crossover_label = 'Fools Gambit'
+        
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 2, y = 3},
@@ -349,7 +346,7 @@ SMODS.Consumable{ --Lollipop
     fg_data = {
         is_alternate = false,
         alternate_key = '_c_giga_lollipop',
-        crossover_label = 'Fools Gambit'
+        
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 1, y = 1},
@@ -368,7 +365,7 @@ SMODS.Consumable{ --SugarPie
     fg_data = {
         is_alternate = false,
         alternate_key = '_c_giga_sugar_pie',
-        crossover_label = 'Fools Gambit'
+        
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 3, y = 3},
@@ -387,7 +384,7 @@ SMODS.Consumable{ --QuicheLorraine
     fg_data = {
         is_alternate = false,
         alternate_key = '_c_giga_quiche_lorraine',
-        crossover_label = 'Fools Gambit'
+        
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 6, y = 4},
@@ -418,7 +415,7 @@ SMODS.Consumable{ --Paella
     fg_data = {
         is_alternate = false,
         alternate_key = '_c_giga_paella',
-        crossover_label = 'Fools Gambit'
+        
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 2, y = 4},
@@ -449,7 +446,7 @@ SMODS.Consumable{ --GummyBear
     fg_data = {
         is_alternate = false,
         alternate_key = '_c_giga_gummy_bear',
-        crossover_label = 'Fools Gambit'
+        
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 1, y = 2},
@@ -480,7 +477,7 @@ SMODS.Consumable{ --Empanadas
     fg_data = {
         is_alternate = false,
         alternate_key = '_c_giga_empanadas',
-        crossover_label = 'Fools Gambit'
+        
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 4, y = 3},
@@ -511,7 +508,7 @@ SMODS.Consumable{ --PB&JSandwich
     fg_data = {
         is_alternate = false,
         alternate_key = '_c_giga_pbj_sandwich',
-        crossover_label = 'Fools Gambit'
+        
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 6, y = 1},
@@ -536,7 +533,7 @@ SMODS.Consumable{ --Burger
     fg_data = {
         is_alternate = false,
         alternate_key = '_c_giga_burger',
-        crossover_label = 'Fools Gambit'
+        
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 5, y = 3},
@@ -561,7 +558,7 @@ SMODS.Consumable{ --FruitSalad
     fg_data = {
         is_alternate = false,
         alternate_key = '_c_giga_fruit_salad',
-        crossover_label = 'Fools Gambit'
+        
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 5, y = 1},
@@ -637,7 +634,7 @@ SMODS.Consumable{ --Ramen
     fg_data = {
         is_alternate = false,
         alternate_key = '_c_giga_ramen',
-        crossover_label = 'Fools Gambit'
+        
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 5, y = 4},
@@ -655,7 +652,7 @@ SMODS.Consumable{ --ChocolateBar
     fg_data = {
         is_alternate = false,
         alternate_key = '_c_giga_chocolate_bar',
-        crossover_label = 'Fools Gambit'
+        
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 6, y = 2},
@@ -673,7 +670,7 @@ SMODS.Consumable{ --MacN'Cheese
     fg_data = {
         is_alternate = false,
         alternate_key = '_c_giga_mac_n_cheese',
-        crossover_label = 'Fools Gambit'
+        
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 4, y = 2},
@@ -691,7 +688,7 @@ SMODS.Consumable{ --BlueberryMuffin
     fg_data = {
         is_alternate = false,
         alternate_key = '_c_giga_blueberry_muffin',
-        crossover_label = 'Fools Gambit'
+        
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 0, y = 4},
@@ -709,7 +706,7 @@ SMODS.Consumable{ --Donut
     fg_data = {
         is_alternate = false,
         alternate_key = '_c_giga_donut',
-        crossover_label = 'Fools Gambit'
+        
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 4, y = 4},
@@ -779,7 +776,7 @@ SMODS.Consumable{ --CranberryJuice
     fg_data = {
         is_alternate = false,
         alternate_key = '_c_giga_cranberry_juice',
-        crossover_label = 'Fools Gambit'
+        
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 0, y = 3},
@@ -849,7 +846,7 @@ SMODS.Consumable{ --BubbleTea
     fg_data = {
         is_alternate = false,
         alternate_key = '_c_giga_bubble_tea',
-        crossover_label = 'Fools Gambit'
+        
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 1, y = 4},
@@ -919,7 +916,7 @@ SMODS.Consumable{ --BagOfCandy
     fg_data = {
         is_alternate = false,
         alternate_key = '_c_giga_bag_of_candy',
-        crossover_label = 'Fools Gambit'
+        
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 5, y = 2},
@@ -996,7 +993,7 @@ SMODS.Consumable{ --BirthdayCake
     fg_data = {
         is_alternate = false,
         alternate_key = '_c_giga_birthday_cake',
-        crossover_label = 'Fools Gambit'
+        
     },
     pos = {x = 2, y = 1},
     soul_pos = {x = 3, y = 1},
@@ -1047,7 +1044,7 @@ SMODS.Consumable{ --Turkey
     fg_data = {
         is_alternate = false,
         alternate_key = '_c_giga_turkey',
-        crossover_label = 'Fools Gambit'
+        
     },
     pos = {x = 2, y = 1},
     soul_pos = {x = 3, y = 4},
