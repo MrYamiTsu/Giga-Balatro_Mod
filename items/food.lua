@@ -19,7 +19,7 @@ SMODS.Consumable{ --Tacos
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_tacos'
+        alternate_key = 'c_fg__c_giga_tacos'
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 1, y = 0},
@@ -44,7 +44,7 @@ SMODS.Consumable{ --Guacamole
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_guacamole'
+        alternate_key = 'c_fg__c_giga_guacamole'
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 2, y = 0},
@@ -81,7 +81,7 @@ SMODS.Consumable{ --HotDog
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_hot_dog'
+        alternate_key = 'c_fg__c_giga_hot_dog'
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 3, y = 0},
@@ -99,8 +99,7 @@ SMODS.Consumable{ --CaesarSalad
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_caesar_salad',
-        
+        alternate_key = 'c_fg__c_giga_caesar_salad'
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 4, y = 0},
@@ -143,8 +142,7 @@ SMODS.Consumable{ --ClubSandwich
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_club_sandwich',
-        
+        alternate_key = 'c_fg__c_giga_club_sandwich'
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 5, y = 0},
@@ -187,8 +185,7 @@ SMODS.Consumable{ --Pho
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_pho',
-        
+        alternate_key = 'c_fg__c_giga_pho',
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 6, y = 0},
@@ -231,8 +228,7 @@ SMODS.Consumable{ --Spaghetti
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_spaghetti',
-        
+        alternate_key = 'c_fg__c_giga_spaghetti'
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 3, y = 2},
@@ -250,8 +246,7 @@ SMODS.Consumable{ --Sushis
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_sushis',
-        
+        alternate_key = 'c_fg__c_giga_sushis'
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 1, y = 3},
@@ -269,8 +264,7 @@ SMODS.Consumable{ --Steak
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_steak',
-        
+        alternate_key = 'c_fg__c_giga_steak'
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 2, y = 2},
@@ -288,8 +282,7 @@ SMODS.Consumable{ --Durian
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_durian',
-        
+        alternate_key = 'c_fg__c_giga_durian'
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 6, y = 3},
@@ -307,8 +300,7 @@ SMODS.Consumable{ --Salmon
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_salmon',
-        
+        alternate_key = 'c_fg__c_giga_salmon'
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 0, y = 2},
@@ -326,8 +318,7 @@ SMODS.Consumable{ --Waffle
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_waffle',
-        
+        alternate_key = 'c_fg__c_giga_waffle'
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 2, y = 3},
@@ -345,8 +336,7 @@ SMODS.Consumable{ --Lollipop
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_lollipop',
-        
+        alternate_key = 'c_fg__c_giga_lollipop'
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 1, y = 1},
@@ -364,8 +354,7 @@ SMODS.Consumable{ --SugarPie
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_sugar_pie',
-        
+        alternate_key = 'c_fg__c_giga_sugar_pie'
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 3, y = 3},
@@ -383,8 +372,7 @@ SMODS.Consumable{ --QuicheLorraine
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_quiche_lorraine',
-        
+        alternate_key = 'c_fg__c_giga_quiche_lorraine'
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 6, y = 4},
@@ -414,8 +402,7 @@ SMODS.Consumable{ --Paella
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_paella',
-        
+        alternate_key = 'c_fg__c_giga_paella'
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 2, y = 4},
@@ -445,8 +432,7 @@ SMODS.Consumable{ --GummyBear
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_gummy_bear',
-        
+        alternate_key = 'c_fg__c_giga_gummy_bear'
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 1, y = 2},
@@ -476,8 +462,7 @@ SMODS.Consumable{ --Empanadas
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_empanadas',
-        
+        alternate_key = 'c_fg__c_giga_empanadas'
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 4, y = 3},
@@ -507,8 +492,7 @@ SMODS.Consumable{ --PB&JSandwich
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_pbj_sandwich',
-        
+        alternate_key = 'c_fg__c_giga_pbj_sandwich'
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 6, y = 1},
@@ -532,8 +516,7 @@ SMODS.Consumable{ --Burger
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_burger',
-        
+        alternate_key = 'c_fg__c_giga_burger'
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 5, y = 3},
@@ -557,8 +540,7 @@ SMODS.Consumable{ --FruitSalad
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_fruit_salad',
-        
+        alternate_key = 'c_fg__c_giga_fruit_salad'
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 5, y = 1},
@@ -633,8 +615,7 @@ SMODS.Consumable{ --Ramen
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_ramen',
-        
+        alternate_key = 'c_fg__c_giga_ramen'
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 5, y = 4},
@@ -651,8 +632,7 @@ SMODS.Consumable{ --ChocolateBar
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_chocolate_bar',
-        
+        alternate_key = 'c_fg__c_giga_chocolate_bar'
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 6, y = 2},
@@ -669,8 +649,7 @@ SMODS.Consumable{ --MacN'Cheese
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_mac_n_cheese',
-        
+        alternate_key = 'c_fg__c_giga_mac_n_cheese'
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 4, y = 2},
@@ -687,8 +666,7 @@ SMODS.Consumable{ --BlueberryMuffin
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_blueberry_muffin',
-        
+        alternate_key = 'c_fg__c_giga_blueberry_muffin'
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 0, y = 4},
@@ -705,8 +683,7 @@ SMODS.Consumable{ --Donut
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_donut',
-        
+        alternate_key = 'c_fg__c_giga_donut'
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 4, y = 4},
@@ -775,8 +752,7 @@ SMODS.Consumable{ --CranberryJuice
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_cranberry_juice',
-        
+        alternate_key = 'c_fg__c_giga_cranberry_juice'
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 0, y = 3},
@@ -845,8 +821,7 @@ SMODS.Consumable{ --BubbleTea
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_bubble_tea',
-        
+        alternate_key = 'c_fg__c_giga_bubble_tea'
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 1, y = 4},
@@ -915,8 +890,7 @@ SMODS.Consumable{ --BagOfCandy
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_bag_of_candy',
-        
+        alternate_key = 'c_fg__c_giga_bag_of_candy'
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 5, y = 2},
@@ -992,8 +966,7 @@ SMODS.Consumable{ --BirthdayCake
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_birthday_cake',
-        
+        alternate_key = 'c_fg__c_giga_birthday_cake'
     },
     pos = {x = 2, y = 1},
     soul_pos = {x = 3, y = 1},
@@ -1043,8 +1016,7 @@ SMODS.Consumable{ --Turkey
     atlas = 'Foods',
     fg_data = {
         is_alternate = false,
-        alternate_key = '_c_giga_turkey',
-        
+        alternate_key = 'c_fg__c_giga_turkey'
     },
     pos = {x = 2, y = 1},
     soul_pos = {x = 3, y = 4},

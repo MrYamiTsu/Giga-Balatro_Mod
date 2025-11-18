@@ -684,7 +684,7 @@ SMODS.Seal{ --Pink++
         chances = 25
     }},
     loc_vars = function(self, info_queue, card)
-        local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'giga_pinkPlusPlus')
+        local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'giga_pinkPlusPlus1')
         return {vars = {self.config.extra.card, self.config.extra.reduce, odds, chances}}
     end,
     in_pool = function(self)
@@ -706,8 +706,8 @@ SMODS.Seal{ --Pink++
             return {
                 func = function()
                     for i = 1, self.config.extra.card, 1 do
-                        if SMODS.pseudorandom_probability(card, pseudoseed('giga_pinkPlusPlus'), self.config.extra.odds, self.config.extra.chances) then
-                            if SMODS.pseudorandom_probability(card, pseudoseed('giga_pinkPlusPlus'), 1, 2) then
+                        if SMODS.pseudorandom_probability(card, pseudoseed('giga_pinkPlusPlus1'), self.config.extra.odds, self.config.extra.chances) then
+                            if SMODS.pseudorandom_probability(card, pseudoseed('giga_pinkPlusPlus2'), 1, 2) then
                                 G.E_MANAGER:add_event(Event({
                                     func = function()
                                         SMODS.add_card({key = 'c_giga_birthdayCake', edition = 'e_negative'})
