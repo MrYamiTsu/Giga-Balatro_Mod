@@ -27,7 +27,7 @@ Partner_API.Partner{
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
             if SMODS.pseudorandom_probability(context.other_card, 'giga_pabloJr', card.ability.extra.odds, card.ability.extra.chances, 'pjr_prob') then
-                upgrade_enhencement(context.other_card)
+                upgrade_enhancement(context.other_card)
             end
         end
     end

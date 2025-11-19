@@ -1112,7 +1112,7 @@ SMODS.Joker{ --Tabaosl
                                 delay = 0.15,
                                 func = function()
                                     card:juice_up()
-                                    upgrade_enhencement(c)
+                                    upgrade_enhancement(c)
                                     return true
                                 end
                             }))
@@ -1288,9 +1288,9 @@ SMODS.Joker{ --JackMutator
                     local _card = pseudorandom_element(tpool, pseudoseed("jackMutator"))
                     if _card ~= nil and _card:get_id() == 11 then
                         if _card.config.center.key == "m_giga_soil" then
-                            upgrade_enhencement_specific(_card,'m_giga_richSoil')
+                            upgrade_enhancement_specific(_card,'m_giga_richSoil')
                         else
-                            upgrade_enhencement_specific(_card,'m_giga_soil')
+                            upgrade_enhancement_specific(_card,'m_giga_soil')
                         end
                     else
                         SMODS.change_base(_card, nil, 'Jack')

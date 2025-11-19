@@ -64,7 +64,7 @@ function upgrade_enhencement_specific(selected_card, base_enh)
     }))
     delay(0.5)
 end
-function upgrade_enhencement(selected_card)
+function upgrade_enhancement(selected_card)
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
         delay = 0.4,

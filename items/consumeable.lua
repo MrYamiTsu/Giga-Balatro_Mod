@@ -100,7 +100,7 @@ SMODS.Consumable{ --UpgradeTarot
         for i, selected_card in pairs(G.hand.highlighted) do
             G.E_MANAGER:add_event(Event({
                 func = function ()
-                    upgrade_enhencement(selected_card)
+                    upgrade_enhancement(selected_card)
                     return true
                 end
             }))
