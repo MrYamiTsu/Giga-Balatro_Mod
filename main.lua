@@ -258,8 +258,15 @@ Giga.areaorderprocess = function(t)
 end
 --#endregion
 --#region HOOKS --
+local talking_init = Game.init_game_object
+function Game:init_game_object()
+	local ret = talking_init(self)
+	init_pools()
+	return ret
+end
 local enhancement_yapping = SMODS.has_enhancement
 function SMODS.has_enhancement(card, key)
+    local ret = enhancement_yapping(card, key)
     if key == 'm_bonus' then
         return enhancement_yapping(card, 'm_lucky') or enhancement_yapping(card, 'm_giga_bigBonus')
     end
@@ -284,7 +291,6 @@ function SMODS.has_enhancement(card, key)
     if key == 'm_lucky' then
         return enhancement_yapping(card, 'm_lucky') or enhancement_yapping(card, 'm_giga_luckiest')
     end
-    local ret = enhancement_yapping(card, key)
     return ret
 end
 --#endregion

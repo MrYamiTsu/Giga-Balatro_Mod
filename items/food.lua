@@ -964,6 +964,9 @@ SMODS.Consumable{ --BirthdayCake
     key = 'birthdayCake',
     set = 'Giga_Food',
     atlas = 'Foods',
+    giga_data = {
+        r_food = true
+    },
     fg_data = {
         is_alternate = false,
         alternate_key = 'c_fg__c_giga_birthday_cake'
@@ -1014,6 +1017,9 @@ SMODS.Consumable{ --Turkey
     key = 'turkey',
     set = 'Giga_Food',
     atlas = 'Foods',
+    giga_data = {
+        r_food = true
+    },
     fg_data = {
         is_alternate = false,
         alternate_key = 'c_fg__c_giga_turkey'

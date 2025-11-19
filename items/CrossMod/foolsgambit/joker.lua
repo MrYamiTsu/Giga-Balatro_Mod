@@ -11,7 +11,7 @@ SMODS.Joker{ --MrYamiTsuAlt
     soul_pos = {x = 6, y = 6},
     dependencies = 'foolsGambit',
     cost = 20,
-    rarity = 4,
+    rarity = "fg_legendary_alt",
     blueprint_compat = false,
     eternal_compat = true,
     config = { extra = {
