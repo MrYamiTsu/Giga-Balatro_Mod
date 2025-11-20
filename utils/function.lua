@@ -1,25 +1,6 @@
 -- TALISMAN --
 to_big = to_big or function(b) return b end
 
--- POOLS --
-Giga.POOLS = {
-    r_food = {
-        _calculate = function()
-            Giga.POOLS.r_food = {_calculate = Giga.POOLS.r_food._calculate}
-            for _, c in pairs(G.P_CENTERS) do
-                if string.sub(c.key, 1, 2) == 'c_' and c.giga_data and c.giga_data.r_food then
-                    table.insert(Giga.POOLS.r_food, c.key)
-                end
-            end
-        end
-    }
-}
-function init_pools()
-    for _, pool in pairs(Giga.POOLS) do
-        pool._calculate()
-    end
-end
-
 -- UPGRADE FUNCTIONS --
 function upgrade_enhencement_specific(selected_card, base_enh)
     G.E_MANAGER:add_event(Event({
