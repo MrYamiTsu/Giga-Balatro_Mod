@@ -913,10 +913,11 @@ return {
             j_giga_factolord = {
                 name = 'Factolord',
                 text = {
-                    'Gain Chips equal to',
-                    '{C:attention}2{} times the {C:attention}Factorial{}',
-                    'of empty {C:attention}Joker{} slots',
-                    '{C:inactive}(Currently {C:chips}+#1#{} {C:inactive}Chips)'
+                    'Gain {C:attention}X3{} the',
+                    'factorial {B:1,C:white}(!){} for',
+                    'the number of empty',
+                    'Joker slots as {C:chips}Chips{}',
+                    '{C:inactive}(Currently: {C:chips}+#1#{} {C:inactive}Chips)',
                 }
             },
             --#endregion

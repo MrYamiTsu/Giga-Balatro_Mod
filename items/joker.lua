@@ -1043,13 +1043,13 @@ SMODS.Joker{ --Factolord
     loc_vars = function(self,info_queue,center)
         local facto = 0
         if G.jokers and #G.jokers.cards > 0 then
-            facto = 2 * Factorial((G.jokers.config.card_limit - #G.jokers.cards) + #SMODS.find_card("j_giga_factolord", true))
+            facto = 3 * Factorial((G.jokers.config.card_limit - #G.jokers.cards) + #SMODS.find_card("j_giga_factolord", true))
         end
-        return{vars = {facto}}
+        return{vars = {colours={HEX('FFA500')}, facto}}
     end,
     calculate = function(self,card,context)
         if context.joker_main then
-            local facto = 2 * Factorial((G.jokers.config.card_limit - #G.jokers.cards) + #SMODS.find_card("j_giga_factolord", true))
+            local facto = 3 * Factorial((G.jokers.config.card_limit - #G.jokers.cards) + #SMODS.find_card("j_giga_factolord", true))
             if facto > 0 then
                 return {
                     chips = facto
