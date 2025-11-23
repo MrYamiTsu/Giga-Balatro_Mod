@@ -1,3 +1,90 @@
+--#region NEW SEALS
+SMODS.Seal{ --Pink
+    key = 'pinkseal',
+    atlas = "Seals",
+    giga_seal_upgrade = 'giga_pinkplus',
+    giga_data = {
+        seal_upgrade = 'giga_pinkplus'
+    },
+    pos = {x = 0, y = 0},
+    discovered = true,
+	unlocked = true,
+    calculate = function(self, card, context)
+        if context.cardarea == G.play and context.main_scoring then
+            if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+                G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                return {
+                    func = function()
+                        G.E_MANAGER:add_event(Event({
+                            func = function()
+                                SMODS.add_card({set = 'Giga_Food'})
+                                G.GAME.consumeable_buffer = 0
+                                return true
+                            end
+                        }))
+                    return true
+                end,
+                message = '+1 Food',
+                colour = HEX('F2A5A6FF')
+            }
+            end
+        end
+    end,
+    badge_colour = HEX("FF00E6")
+}
+SMODS.Seal{ --Crimson
+    key = "crimsonseal",
+    atlas = "Seals",
+    giga_data = {
+        seal_upgrade = 'giga_crimsonplus'
+    },
+    pos = {x = 1, y = 0},
+    discovered = true,
+	unlocked = true,
+    config = { extra = {
+        mult = 1
+    }},
+    loc_vars = function(self, info_queue, center)
+        return {vars = {self.config.extra.mult}}
+    end,
+    calculate = function(self, card, context)
+        if context.main_scoring and context.cardarea == G.hand then
+            card.ability.perma_mult = (card.ability.perma_mult or 0) + self.config.extra.mult
+            return {
+                message = 'Upgraded',
+                colour = G.C.MULT
+            }
+        end
+    end,
+    badge_colour = HEX("DC143C")
+}
+SMODS.Seal{ --Aqua
+    key = "aquaseal",
+    atlas = "Seals",
+    giga_data = {
+        seal_upgrade = 'giga_aquaplus'
+    },
+    pos = {x = 2, y = 0},
+    discovered = true,
+	unlocked = true,
+    config = { extra = {
+        chips = 10
+    }},
+    loc_vars = function(self, info_queue, center)
+        return {vars = {self.config.extra.chips}}
+    end,
+    calculate = function(self, card, context)
+        if context.main_scoring and context.cardarea == G.hand then
+            card.ability.perma_bonus = (card.ability.perma_bonus or 0) + self.config.extra.chips
+            return {
+                message = 'Upgraded',
+                colour = G.C.CHIPS
+            }
+        end
+    end,
+    badge_colour = HEX("00FFF0")
+}
+--#endregion
 --#region VANILLA + SEALS --
 SMODS.Seal{ --Red+
     key = 'redplus',
@@ -206,6 +293,150 @@ SMODS.Seal{ --Purple+
         end
     end,
     badge_colour = G.C.PURPLE
+}
+--#endregion
+--#region NEW + SEALS
+SMODS.Seal{ --Pink+
+    key = 'pinkplus',
+    atlas = "Seals",
+    giga_data = {
+        is_upgraded = true,
+        seal_upgrade = 'giga_pinkplusplus'
+    },
+    pos = {x = 3, y = 2},
+    discovered = true,
+	unlocked = true,
+    config = { extra = {
+        reduce = 5,
+        odds = 1,
+        chances = 3
+    }},
+    loc_vars = function(self, info_queue, card)
+        local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'giga_pinkPlus')
+        return {vars = {odds, chances, self.config.extra.reduce,}}
+    end,
+    in_pool = function(self)
+        return false
+    end,
+    calculate = function(self, card, context)
+        if context.cardarea == G.play and context.main_scoring then
+            -- From TogaStuff (so thx TogaStuff)
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    G.GAME.blind.chips = math.floor(G.GAME.blind.chips * (1 - card.ability.seal.extra.reduce / 100))
+					G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
+					G.FUNCS.blind_chip_UI_scale(G.hand_text_area.blind_chips)
+					G.HUD_blind:recalculate()
+					G.hand_text_area.blind_chips:juice_up()
+					card:juice_up()
+                    return true
+                end
+            }))
+            local mes = '+1 Food'
+            return {
+                func = function()
+                    if SMODS.pseudorandom_probability(card, pseudoseed('giga_pinkPlus'), self.config.extra.odds, self.config.extra.chances) then
+                        if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+                            G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                            G.E_MANAGER:add_event(Event({
+                                func = function()
+                                    SMODS.add_card({set = 'Giga_Food'})
+                                    G.GAME.consumeable_buffer = 0
+                                    return true
+                                end
+                            }))
+                            return true
+                        else
+                            mes = nil
+                        end
+                    else
+                        G.E_MANAGER:add_event(Event({
+                            func = function()
+                                SMODS.add_card({set = 'Giga_Food', edition = 'e_negative'})
+                                return true
+                            end
+                        }))
+                    end
+                    return true
+                end,
+                message = mes,
+                colour = HEX('F2A5A6FF')
+            }
+        end
+    end,
+    badge_colour = HEX("FF00E6")
+}
+SMODS.Seal{ --Crimson+
+    key = "crimsonplus",
+    atlas = "Seals",
+    giga_data = {
+        is_upgraded = true,
+        seal_upgrade = 'giga_crimsonplusplus'
+    },
+    pos = {x = 1, y = 3},
+    discovered = true,
+	unlocked = true,
+    config = { extra = {
+        mult = 2,
+        chips = 1.2
+    }},
+    loc_vars = function(self, info_queue, center)
+        return {vars = {self.config.extra.mult, self.config.extra.chips}}
+    end,
+    in_pool = function(self)
+        return false
+    end,
+    calculate = function(self, card, context)
+        if context.main_scoring and context.cardarea == G.hand then
+            card.ability.perma_mult = (card.ability.perma_mult or 0) + self.config.extra.mult
+            return {
+                message = 'Upgraded',
+                colour = G.C.MULT
+            }
+        end
+        if context.main_scoring and context.cardarea == G.play then
+            return {
+                x_chips = self.config.extra.chips
+            }
+        end
+    end,
+    badge_colour = HEX("DC143C")
+}
+SMODS.Seal{ --Aqua+
+    key = "aquaplus",
+    atlas = "Seals",
+    giga_data = {
+        is_upgraded = true,
+        seal_upgrade = 'giga_aquaplusplus'
+    },
+    pos = {x = 2, y = 3},
+    discovered = true,
+	unlocked = true,
+    config = { extra = {
+        chips = 20,
+        mult = 1.2
+    }},
+    loc_vars = function(self, info_queue, center)
+        return {vars = {self.config.extra.chips, self.config.extra.mult}}
+    end,
+    in_pool = function(self)
+        return false
+    end,
+    calculate = function(self, card, context)
+        if context.main_scoring and context.cardarea == G.hand then
+            card.ability.perma_bonus = (card.ability.perma_bonus or 0) + self.config.extra.chips
+            return {
+                message = 'Upgraded',
+                colour = G.C.CHIPS
+            }
+        end
+        if context.main_scoring and context.cardarea == G.play then
+            return {
+                x_mult = self.config.extra.mult
+            }
+        end
+    end,
+    badge_colour = HEX("00FFF0")
 }
 --#endregion
 --#region VANILLA ++ SEALS --
@@ -428,237 +659,6 @@ SMODS.Seal{ --Purple++
         end
     end,
     badge_colour = G.C.PURPLE
-}
---#endregion
---#region NEW SEALS
-SMODS.Seal{ --Pink
-    key = 'pinkseal',
-    atlas = "Seals",
-    giga_seal_upgrade = 'giga_pinkplus',
-    giga_data = {
-        seal_upgrade = 'giga_pinkplus'
-    },
-    pos = {x = 0, y = 0},
-    discovered = true,
-	unlocked = true,
-    calculate = function(self, card, context)
-        if context.cardarea == G.play and context.main_scoring then
-            if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
-                G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
-                return {
-                    func = function()
-                        G.E_MANAGER:add_event(Event({
-                            func = function()
-                                SMODS.add_card({set = 'Giga_Food'})
-                                G.GAME.consumeable_buffer = 0
-                                return true
-                            end
-                        }))
-                    return true
-                end,
-                message = '+1 Food',
-                colour = HEX('F2A5A6FF')
-            }
-            end
-        end
-    end,
-    badge_colour = HEX("FF00E6")
-}
-SMODS.Seal{ --Crimson
-    key = "crimsonseal",
-    atlas = "Seals",
-    giga_data = {
-        seal_upgrade = 'giga_crimsonplus'
-    },
-    pos = {x = 1, y = 0},
-    discovered = true,
-	unlocked = true,
-    config = { extra = {
-        mult = 1
-    }},
-    loc_vars = function(self, info_queue, center)
-        return {vars = {self.config.extra.mult}}
-    end,
-    calculate = function(self, card, context)
-        if context.main_scoring and context.cardarea == G.hand then
-            card.ability.perma_mult = (card.ability.perma_mult or 0) + self.config.extra.mult
-            return {
-                message = 'Upgraded',
-                colour = G.C.MULT
-            }
-        end
-    end,
-    badge_colour = HEX("DC143C")
-}
-SMODS.Seal{ --Aqua
-    key = "aquaseal",
-    atlas = "Seals",
-    giga_data = {
-        seal_upgrade = 'giga_aquaplus'
-    },
-    pos = {x = 2, y = 0},
-    discovered = true,
-	unlocked = true,
-    config = { extra = {
-        chips = 10
-    }},
-    loc_vars = function(self, info_queue, center)
-        return {vars = {self.config.extra.chips}}
-    end,
-    calculate = function(self, card, context)
-        if context.main_scoring and context.cardarea == G.hand then
-            card.ability.perma_bonus = (card.ability.perma_bonus or 0) + self.config.extra.chips
-            return {
-                message = 'Upgraded',
-                colour = G.C.CHIPS
-            }
-        end
-    end,
-    badge_colour = HEX("00FFF0")
-}
---#endregion
---#region NEW + SEALS
-SMODS.Seal{ --Pink+
-    key = 'pinkplus',
-    atlas = "Seals",
-    giga_data = {
-        is_upgraded = true,
-        seal_upgrade = 'giga_pinkplusplus'
-    },
-    pos = {x = 3, y = 2},
-    discovered = true,
-	unlocked = true,
-    config = { extra = {
-        reduce = 5,
-        odds = 1,
-        chances = 3
-    }},
-    loc_vars = function(self, info_queue, card)
-        local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'giga_pinkPlus')
-        return {vars = {odds, chances, self.config.extra.reduce,}}
-    end,
-    in_pool = function(self)
-        return false
-    end,
-    calculate = function(self, card, context)
-        if context.cardarea == G.play and context.main_scoring then
-            -- From TogaStuff (so thx TogaStuff)
-            G.E_MANAGER:add_event(Event({
-                func = function()
-                    G.GAME.blind.chips = math.floor(G.GAME.blind.chips * (1 - card.ability.seal.extra.reduce / 100))
-					G.GAME.blind.chip_text = number_format(G.GAME.blind.chips)
-					G.FUNCS.blind_chip_UI_scale(G.hand_text_area.blind_chips)
-					G.HUD_blind:recalculate()
-					G.hand_text_area.blind_chips:juice_up()
-					card:juice_up()
-                    return true
-                end
-            }))
-            local mes = '+1 Food'
-            return {
-                func = function()
-                    if SMODS.pseudorandom_probability(card, pseudoseed('giga_pinkPlus'), self.config.extra.odds, self.config.extra.chances) then
-                        if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
-                            G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
-                            G.E_MANAGER:add_event(Event({
-                                func = function()
-                                    SMODS.add_card({set = 'Giga_Food'})
-                                    G.GAME.consumeable_buffer = 0
-                                    return true
-                                end
-                            }))
-                            return true
-                        else
-                            mes = nil
-                        end
-                    else
-                        G.E_MANAGER:add_event(Event({
-                            func = function()
-                                SMODS.add_card({set = 'Giga_Food', edition = 'e_negative'})
-                                return true
-                            end
-                        }))
-                    end
-                    return true
-                end,
-                message = mes,
-                colour = HEX('F2A5A6FF')
-            }
-        end
-    end,
-    badge_colour = HEX("FF00E6")
-}
-SMODS.Seal{ --Crimson+
-    key = "crimsonplus",
-    atlas = "Seals",
-    giga_data = {
-        is_upgraded = true,
-        seal_upgrade = 'giga_crimsonplusplus'
-    },
-    pos = {x = 1, y = 3},
-    discovered = true,
-	unlocked = true,
-    config = { extra = {
-        mult = 2,
-        chips = 1.2
-    }},
-    loc_vars = function(self, info_queue, center)
-        return {vars = {self.config.extra.mult, self.config.extra.chips}}
-    end,
-    in_pool = function(self)
-        return false
-    end,
-    calculate = function(self, card, context)
-        if context.main_scoring and context.cardarea == G.hand then
-            card.ability.perma_mult = (card.ability.perma_mult or 0) + self.config.extra.mult
-            return {
-                message = 'Upgraded',
-                colour = G.C.MULT
-            }
-        end
-        if context.main_scoring and context.cardarea == G.play then
-            return {
-                x_chips = self.config.extra.chips
-            }
-        end
-    end,
-    badge_colour = HEX("DC143C")
-}
-SMODS.Seal{ --Aqua+
-    key = "aquaplus",
-    atlas = "Seals",
-    giga_data = {
-        is_upgraded = true,
-        seal_upgrade = 'giga_aquaplusplus'
-    },
-    pos = {x = 2, y = 3},
-    discovered = true,
-	unlocked = true,
-    config = { extra = {
-        chips = 20,
-        mult = 1.2
-    }},
-    loc_vars = function(self, info_queue, center)
-        return {vars = {self.config.extra.chips, self.config.extra.mult}}
-    end,
-    in_pool = function(self)
-        return false
-    end,
-    calculate = function(self, card, context)
-        if context.main_scoring and context.cardarea == G.hand then
-            card.ability.perma_bonus = (card.ability.perma_bonus or 0) + self.config.extra.chips
-            return {
-                message = 'Upgraded',
-                colour = G.C.CHIPS
-            }
-        end
-        if context.main_scoring and context.cardarea == G.play then
-            return {
-                x_mult = self.config.extra.mult
-            }
-        end
-    end,
-    badge_colour = HEX("00FFF0")
 }
 --#endregion
 --#region NEW ++ SEALS
