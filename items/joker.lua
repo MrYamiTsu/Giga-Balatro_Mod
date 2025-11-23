@@ -1238,8 +1238,9 @@ SMODS.Joker{ --FunnyCrown
                     G.E_MANAGER:add_event(Event({
                         func = function ()
                             SMODS.add_card{key = "j_giga_kingOfJacks"}
+                            return true
                         end
-                    })) 
+                    }))
                 else
                     SMODS.calculate_effect({ message = localize('k_no_room_ex') }, card)
                 end
