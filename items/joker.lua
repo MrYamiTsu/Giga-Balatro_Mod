@@ -39,7 +39,7 @@ SMODS.Joker{ --BlueChicken
     config = { extra = {
         round = 0,
         config_round = 2,
-        chips = 25
+        chips = 30
     }
     },
     loc_vars = function(self,info_queue,center)
@@ -59,8 +59,7 @@ SMODS.Joker{ --BlueChicken
                 card.ability.extra.round = card.ability.extra.config_round or 2
             end
         end
-
-        if context.joker_main then --other two checks shouldnt be needed since they are for values that dont change here
+        if context.joker_main then
             return{
                 chips = card.ability.extra.chips
             }

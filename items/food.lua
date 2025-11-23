@@ -965,7 +965,8 @@ SMODS.Consumable{ --BirthdayCake
     set = 'Giga_Food',
     atlas = 'Foods',
     giga_data = {
-        r_food = true
+        r_food = true,
+        uncopiable = true
     },
     fg_data = {
         is_alternate = false,
@@ -1018,7 +1019,8 @@ SMODS.Consumable{ --Turkey
     set = 'Giga_Food',
     atlas = 'Foods',
     giga_data = {
-        r_food = true
+        r_food = true,
+        uncopiable = true
     },
     fg_data = {
         is_alternate = false,

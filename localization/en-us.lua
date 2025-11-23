@@ -1040,7 +1040,7 @@ return {
                 name = 'Pink Seal',
                 text = {
                     'When this card is {C:attention}scored{},',
-                    'create {C:attention}#1#{} {C:giga_Food}Food{} card',
+                    'create {C:attention}1{} {C:giga_Food}Food{} card',
                 }
             },
             giga_crimsonseal_seal = {
@@ -1140,10 +1140,10 @@ return {
                 name = 'Pink+ Seal',
                 text = {
                     'When this card is {C:attention}scored{},',
-                    'create {C:attention}#1#{} {C:giga_Food}Food{} card',
-                    '{C:green}#2# in #3#{} to be {C:dark_edition}Negative{}',
+                    'create {C:attention}1{} {C:giga_Food}Food{} card',
+                    '{C:green}#1# in #2#{} to be {C:dark_edition}Negative{}',
                     '{C:attention}Reduce{} blind size',
-                    'by {C:attention}#4#%{}'
+                    'by {C:attention}#3#%{}'
                 }
             },
             giga_pinkplusplus_seal = {
@@ -1169,12 +1169,38 @@ return {
             giga_aquaplus_seal = {
                 name = 'Aqua+ Seal',
                 text = {
-                'Gain {C:chips}+#1#{} Chips',
-                'permanently while',
-                'held in hand',
-                '{X:mult,C:white}X#2#{} Mult',
+                    'Gain {C:chips}+#1#{} Chips',
+                    'permanently while',
+                    'held in hand',
+                    '{X:mult,C:white}X#2#{} Mult',
                 }
             },
+            giga_crimsonplusplus_seal = {
+                name = 'Crimson++ Seal',
+                text = {
+                    'Gain {C:mult}+#1#{} Mult',
+                    'permanently while',
+                    '{C:attention}held{} in hand',
+                    'plus {C:mult}+#2#{} for each',
+                    '{C:attention}card played{}',
+                    '{X:chips,C:white}X#3#{} Chips plus',
+                    '{X:chips,C:white}X#4#{} for each',
+                    '{C:attention}card held{} in hand'
+                }
+            },
+            giga_aquaplusplus_seal = {
+                name = 'Aqua++ Seal',
+                text = {
+                    'Gain {C:chips}+#1#{} Chips',
+                    'permanently while',
+                    '{C:attention}held{} in hand',
+                    'plus {C:chips}+#2#{} for each',
+                    '{C:attention}Joker{} owned',
+                    '{X:mult,C:white}X#3#{} Mult plus',
+                    '{X:mult,C:white}X#4#{} for each',
+                    '{C:attention}Consumable{} card'
+                }
+            }
             --#endregion
         },
         Partner = {
@@ -1342,6 +1368,8 @@ return {
             giga_pinkplusplus_seal = 'Pink++ Seal',
             giga_crimsonplus_seal = 'Crimson+ Seal',
             giga_aquaplus_seal = 'Aqua+ Seal',
+            giga_crimsonplusplus_seal = 'Crimson++ Seal',
+            giga_aquaplusplus_seal = 'Aqua++ Seal',
             Giga_Food = "Food"
         },
         poker_hand_descriptions={},
