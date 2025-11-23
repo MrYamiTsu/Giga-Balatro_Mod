@@ -32,32 +32,6 @@ SMODS.Seal{ --Pink
     end,
     badge_colour = HEX("FF00E6")
 }
-SMODS.Seal{ --Crimson
-    key = "crimsonseal",
-    atlas = "Seals",
-    giga_data = {
-        seal_upgrade = 'giga_crimsonplus'
-    },
-    pos = {x = 1, y = 0},
-    discovered = true,
-	unlocked = true,
-    config = { extra = {
-        mult = 1
-    }},
-    loc_vars = function(self, info_queue, center)
-        return {vars = {self.config.extra.mult}}
-    end,
-    calculate = function(self, card, context)
-        if context.main_scoring and context.cardarea == G.hand then
-            card.ability.perma_mult = (card.ability.perma_mult or 0) + self.config.extra.mult
-            return {
-                message = 'Upgraded',
-                colour = G.C.MULT
-            }
-        end
-    end,
-    badge_colour = HEX("DC143C")
-}
 SMODS.Seal{ --Aqua
     key = "aquaseal",
     atlas = "Seals",
@@ -83,6 +57,32 @@ SMODS.Seal{ --Aqua
         end
     end,
     badge_colour = HEX("00FFF0")
+}
+SMODS.Seal{ --Crimson
+    key = "crimsonseal",
+    atlas = "Seals",
+    giga_data = {
+        seal_upgrade = 'giga_crimsonplus'
+    },
+    pos = {x = 1, y = 0},
+    discovered = true,
+	unlocked = true,
+    config = { extra = {
+        mult = 1
+    }},
+    loc_vars = function(self, info_queue, center)
+        return {vars = {self.config.extra.mult}}
+    end,
+    calculate = function(self, card, context)
+        if context.main_scoring and context.cardarea == G.hand then
+            card.ability.perma_mult = (card.ability.perma_mult or 0) + self.config.extra.mult
+            return {
+                message = 'Upgraded',
+                colour = G.C.MULT
+            }
+        end
+    end,
+    badge_colour = HEX("DC143C")
 }
 --#endregion
 --#region VANILLA + SEALS --
@@ -366,42 +366,6 @@ SMODS.Seal{ --Pink+
     end,
     badge_colour = HEX("FF00E6")
 }
-SMODS.Seal{ --Crimson+
-    key = "crimsonplus",
-    atlas = "Seals",
-    giga_data = {
-        is_upgraded = true,
-        seal_upgrade = 'giga_crimsonplusplus'
-    },
-    pos = {x = 1, y = 3},
-    discovered = true,
-	unlocked = true,
-    config = { extra = {
-        mult = 2,
-        chips = 1.2
-    }},
-    loc_vars = function(self, info_queue, center)
-        return {vars = {self.config.extra.mult, self.config.extra.chips}}
-    end,
-    in_pool = function(self)
-        return false
-    end,
-    calculate = function(self, card, context)
-        if context.main_scoring and context.cardarea == G.hand then
-            card.ability.perma_mult = (card.ability.perma_mult or 0) + self.config.extra.mult
-            return {
-                message = 'Upgraded',
-                colour = G.C.MULT
-            }
-        end
-        if context.main_scoring and context.cardarea == G.play then
-            return {
-                x_chips = self.config.extra.chips
-            }
-        end
-    end,
-    badge_colour = HEX("DC143C")
-}
 SMODS.Seal{ --Aqua+
     key = "aquaplus",
     atlas = "Seals",
@@ -437,6 +401,42 @@ SMODS.Seal{ --Aqua+
         end
     end,
     badge_colour = HEX("00FFF0")
+}
+SMODS.Seal{ --Crimson+
+    key = "crimsonplus",
+    atlas = "Seals",
+    giga_data = {
+        is_upgraded = true,
+        seal_upgrade = 'giga_crimsonplusplus'
+    },
+    pos = {x = 1, y = 3},
+    discovered = true,
+	unlocked = true,
+    config = { extra = {
+        mult = 2,
+        chips = 1.2
+    }},
+    loc_vars = function(self, info_queue, center)
+        return {vars = {self.config.extra.mult, self.config.extra.chips}}
+    end,
+    in_pool = function(self)
+        return false
+    end,
+    calculate = function(self, card, context)
+        if context.main_scoring and context.cardarea == G.hand then
+            card.ability.perma_mult = (card.ability.perma_mult or 0) + self.config.extra.mult
+            return {
+                message = 'Upgraded',
+                colour = G.C.MULT
+            }
+        end
+        if context.main_scoring and context.cardarea == G.play then
+            return {
+                x_chips = self.config.extra.chips
+            }
+        end
+    end,
+    badge_colour = HEX("DC143C")
 }
 --#endregion
 --#region VANILLA ++ SEALS --
@@ -727,43 +727,6 @@ SMODS.Seal{ --Pink++
     end,
     badge_colour = HEX("FF00E6")
 }
-SMODS.Seal{ --Crimson++
-    key = "crimsonplusplus",
-    atlas = "Seals",
-    giga_data = {
-        is_upgraded = true
-    },
-    pos = {x = 3, y = 3},
-    discovered = true,
-	unlocked = true,
-    config = { extra = {
-        mult = 3,
-        mult_plus = 1,
-        chips = 1.4,
-        chips_plus = 0.1
-    }},
-    loc_vars = function(self, info_queue, center)
-        return {vars = {self.config.extra.mult, self.config.extra.mult_plus, self.config.extra.chips, self.config.extra.chips_plus}}
-    end,
-    in_pool = function(self)
-        return false
-    end,
-    calculate = function(self, card, context)
-        if context.main_scoring and context.cardarea == G.hand then
-            card.ability.perma_mult = (card.ability.perma_mult or 0) + self.config.extra.mult + self.config.extra.mult_plus * #G.play.cards
-            return {
-                message = 'Upgraded',
-                colour = G.C.MULT
-            }
-        end
-        if context.main_scoring and context.cardarea == G.play then
-            return {
-                x_chips = self.config.extra.chips + self.config.extra.chips_plus * #G.hand.cards
-            }
-        end
-    end,
-    badge_colour = HEX("DC143C")
-}
 SMODS.Seal{ --Aqua++
     key = "aquaplusplus",
     atlas = "Seals",
@@ -800,5 +763,42 @@ SMODS.Seal{ --Aqua++
         end
     end,
     badge_colour = HEX("00FFF0")
+}
+SMODS.Seal{ --Crimson++
+    key = "crimsonplusplus",
+    atlas = "Seals",
+    giga_data = {
+        is_upgraded = true
+    },
+    pos = {x = 3, y = 3},
+    discovered = true,
+	unlocked = true,
+    config = { extra = {
+        mult = 3,
+        mult_plus = 1,
+        chips = 1.4,
+        chips_plus = 0.1
+    }},
+    loc_vars = function(self, info_queue, center)
+        return {vars = {self.config.extra.mult, self.config.extra.mult_plus, self.config.extra.chips, self.config.extra.chips_plus}}
+    end,
+    in_pool = function(self)
+        return false
+    end,
+    calculate = function(self, card, context)
+        if context.main_scoring and context.cardarea == G.hand then
+            card.ability.perma_mult = (card.ability.perma_mult or 0) + self.config.extra.mult + self.config.extra.mult_plus * #G.play.cards
+            return {
+                message = 'Upgraded',
+                colour = G.C.MULT
+            }
+        end
+        if context.main_scoring and context.cardarea == G.play then
+            return {
+                x_chips = self.config.extra.chips + self.config.extra.chips_plus * #G.hand.cards
+            }
+        end
+    end,
+    badge_colour = HEX("DC143C")
 }
 --#endregion
