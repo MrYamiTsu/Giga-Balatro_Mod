@@ -90,10 +90,10 @@ SMODS.Enhancement { --ReinforcedGlass
 	end,
     calculate = function(self, card, context)
         if context.destroy_card and context.cardarea == G.play and context.destroy_card == card and
-            SMODS.pseudorandom_probability(card, 'giga_reinforcedGlass', card.ability.extra.odds, card.ability.extra.chances, 'rg_prob') then
-            card.glass_trigger = true 
+            SMODS.pseudorandom_probability(card, 'giga_reinforcedGlass', card.ability.extra.odds, card.ability.extra.chances) then
+            card.glass_trigger = true
 			_create(card,'Spectral',G.consumeables,true,true)
-            return { 
+            return {
 				remove = true,
 			}
         end

@@ -1200,6 +1200,15 @@ return {
                     '{X:mult,C:white}X#4#{} for each',
                     '{C:attention}Consumable{} card'
                 }
+            },
+            --#endregion
+            --#region REAL OTHERS
+            giga_uncopiable_info = {
+                name = 'Uncopiable',
+                text = {
+                    'This card is',
+                    '{C:attention}uncopiable{}'
+                }
             }
             --#endregion
         },

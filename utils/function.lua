@@ -45,12 +45,12 @@ function upgrade_enhencement_specific(selected_card, base_enh)
     }))
     delay(0.5)
 end
-function upgrade_enhancement(selected_card)
+function upgrade_enhancement(_card)
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
         delay = 0.4,
         func = function()
-            selected_card:juice_up(0.3, 0.5)
+            _card:juice_up(0.3, 0.5)
             return true
         end
     }))
@@ -58,19 +58,19 @@ function upgrade_enhancement(selected_card)
         trigger = 'after',
         delay = 0.15,
         func = function()
-            selected_card:flip()
-            selected_card:juice_up(0.3, 0.3)
+            _card:flip()
+            _card:juice_up(0.3, 0.3)
             return true
         end
     }))
     delay(0.2)
-    selected_card:set_ability(G.P_CENTERS[selected_card.config.center_key].giga_data.enh_upgrade)
+    _card:set_ability(G.P_CENTERS[_card.config.center_key].giga_data.enh_upgrade)
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
         delay = 0.15,
         func = function()
-            selected_card:flip()
-            selected_card:juice_up(0.3, 0.3)
+            _card:flip()
+            _card:juice_up(0.3, 0.3)
             return true
         end
     }))

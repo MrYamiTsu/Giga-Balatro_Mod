@@ -82,3 +82,22 @@ end
 '''
 overwrite = true
 match_indent = true
+
+# UNCOPIABLE #
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+pattern = '''
+    if full_UI_table.name then
+        full_UI_table.info[#full_UI_table.info+1] = {}
+        desc_nodes = full_UI_table.info[#full_UI_table.info]
+    end
+'''
+position = "after"
+payload = '''
+    if first_pass and _c.giga_data and _c.giga_data.uncopiable then
+        info_queue[#info_queue+1] = {set = 'Other', key = 'giga_uncopiable_info'}
+    end
+'''
+match_indent = false
+times = 1
