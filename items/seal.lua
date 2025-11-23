@@ -727,4 +727,78 @@ SMODS.Seal{ --Pink++
     end,
     badge_colour = HEX("FF00E6")
 }
+SMODS.Seal{ --Crimson++
+    key = "crimsonplusplus",
+    atlas = "Seals",
+    giga_data = {
+        is_upgraded = true
+    },
+    pos = {x = 3, y = 3},
+    discovered = true,
+	unlocked = true,
+    config = { extra = {
+        mult = 3,
+        mult_plus = 1,
+        chips = 1.4,
+        chips_plus = 0.1
+    }},
+    loc_vars = function(self, info_queue, center)
+        return {vars = {self.config.extra.mult, self.config.extra.mult_plus, self.config.extra.chips, self.config.extra.chips_plus}}
+    end,
+    in_pool = function(self)
+        return false
+    end,
+    calculate = function(self, card, context)
+        if context.main_scoring and context.cardarea == G.hand then
+            card.ability.perma_mult = (card.ability.perma_mult or 0) + self.config.extra.mult + self.config.extra.mult_plus * #G.play.cards
+            return {
+                message = 'Upgraded',
+                colour = G.C.MULT
+            }
+        end
+        if context.main_scoring and context.cardarea == G.play then
+            return {
+                x_chips = self.config.extra.chips + self.config.extra.chips_plus * #G.hand.cards
+            }
+        end
+    end,
+    badge_colour = HEX("DC143C")
+}
+SMODS.Seal{ --Aqua++
+    key = "aquaplusplus",
+    atlas = "Seals",
+    giga_data = {
+        is_upgraded = true
+    },
+    pos = {x = 0, y = 4},
+    discovered = true,
+	unlocked = true,
+    config = { extra = {
+        chips = 30,
+        chips_plus = 10,
+        mult = 1.4,
+        mult_plus = 0.1
+    }},
+    loc_vars = function(self, info_queue, center)
+        return {vars = {self.config.extra.chips,self.config.extra.chips_plus, self.config.extra.mult, self.config.extra.mult_plus}}
+    end,
+    in_pool = function(self)
+        return false
+    end,
+    calculate = function(self, card, context)
+        if context.main_scoring and context.cardarea == G.hand then
+            card.ability.perma_bonus = (card.ability.perma_bonus or 0) + self.config.extra.chips + self.config.extra.chips_plus * #G.jokers.cards
+            return {
+                message = 'Upgraded',
+                colour = G.C.CHIPS
+            }
+        end
+        if context.main_scoring and context.cardarea == G.play then
+            return {
+                x_mult = self.config.extra.mult + self.config.extra.mult_plus * #G.consumeables.cards
+            }
+        end
+    end,
+    badge_colour = HEX("00FFF0")
+}
 --#endregion
