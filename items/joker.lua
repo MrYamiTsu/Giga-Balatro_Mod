@@ -1771,18 +1771,18 @@ SMODS.Joker{ --BYUD
             local effects = {}
             table.insert(effects, {
                 mult = card.ability.extra.mult,
-                delay = 0.6
+                delay = 0.4
             })
             if context.other_card:is_suit("Clubs", true) then
                 table.insert(effects, {
                     xmult = card.ability.extra.xmult1,
-                    delay = 0.6
+                    delay = 0.4
                 })
             end
             if context.other_card:get_id() >= 8 then
                 table.insert(effects, {
                     xmult = card.ability.extra.xmult2,
-                    delay = 0.6
+                    delay = 0.4
                 })
             end
             if #effects > 0 then
@@ -1815,18 +1815,18 @@ SMODS.Joker{ --DMK
             local effects = {}
             table.insert(effects, {
                 mult = card.ability.extra.mult,
-                delay = 0.6
+                delay = 0.4
             })
             if context.other_card:is_suit("Clubs", true) then
                 table.insert(effects, {
                     xmult = card.ability.extra.xmult1,
-                    delay = 0.6
+                    delay = 0.4
                 })
             end
             if context.other_card:get_id() >= 7 then
                 table.insert(effects, {
-                    xmult = card.ability.extra.xmult2, --duplicate entry xmult, old one gets overridden if this succeeds
-                    delay = 0.6
+                    xmult = card.ability.extra.xmult2,
+                    delay = 0.4
                 })
             end
             if #effects > 0 then
@@ -1967,18 +1967,18 @@ SMODS.Joker{ --MOC
             local effects = {}
             table.insert(effects, {
                 mult = card.ability.extra.mult1,
-                delay = 0.6
+                delay = 0.4
             })
             if context.other_card:is_suit("Diamonds", true) then
                 table.insert(effects, {
                     mult = card.ability.extra.mult2,
-                    delay = 0.6
+                    delay = 0.4
                 })
             end
             if context.other_card:get_id() <= 9 then
                 table.insert(effects, {
                     xmult = card.ability.extra.xmult,
-                    delay = 0.6
+                    delay = 0.4
                 })
             end
             if #effects > 0 then
