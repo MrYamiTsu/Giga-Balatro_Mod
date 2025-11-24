@@ -1358,7 +1358,8 @@ return {
             k_active = "Active",
             b_Giga_Food = "Food Cards",
             k_giga_rd = "Ready",
-            k_giga_notrd = "Not Ready Yet"
+            k_giga_notrd = "Not Ready Yet",
+            k_not_allowed_ex = 'No!'
         },
         high_scores={},
         labels={

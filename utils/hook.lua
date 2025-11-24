@@ -41,6 +41,7 @@ function copy_card(other, new_card, card_scale, playing_card, strip_edition)
     if other.config.center.giga_data and other.config.center.giga_data.uncopiable then
         SMODS.destroy_cards(g)
         g.states.visible = false
+        SMODS.calculate_effect({message = localize('k_not_allowed_ex')}, g)
     end
     return g
 end
