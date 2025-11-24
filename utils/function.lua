@@ -45,7 +45,7 @@ function upgrade_enhencement_specific(selected_card, base_enh)
     }))
     delay(0.5)
 end
-function upgrade_enhancement(_card)
+function Giga.upgrade_enhancement(_card)
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
         delay = 0.4,
@@ -83,7 +83,7 @@ function upgrade_enhancement(_card)
     }))
     delay(0.5)
 end
-function upgrade_seal(selected_card)
+function Giga.upgrade_seal(selected_card)
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
         delay = 0.4,
@@ -143,6 +143,55 @@ function upgraded_seal_condition(card)
     return false
 end
 
+-- MERGE FUNCTION --
+function Giga.check_fusion()
+    for _, fusion in pairs(Giga.POOLS.fusion_jokers) do
+        if type(fusion) == "string" and G.P_CENTERS[fusion] then
+            local mats = G.P_CENTERS[fusion].giga_data.merge_materials
+            local required = {}
+            for _, mat in ipairs(mats) do
+                required[mat] = (required[mat] or 0) + 1
+            end
+            local has_all = true
+            for mat, count_needed in pairs(required) do
+                local count_have = count_jokers_in_inventory(mat)
+                if count_have < count_needed then
+                    has_all = false
+                    break
+                end
+            end
+            if has_all then
+                G.E_MANAGER:add_event(Event({
+                    blocking = true,
+                    func = function()
+                        for mat, need in pairs(required) do
+                            local to_destroy = need
+                            for _, c in ipairs(G.jokers.cards) do
+                                if to_destroy <= 0 then
+                                    break
+                                end
+                                if c.config.center_key == mat then
+                                    G.E_MANAGER:add_event(Event({
+                                        blocking = true,
+                                        func = function()
+                                            SMODS.destroy_cards(c)
+                                            return true
+                                        end
+                                    }))
+                                    to_destroy = to_destroy - 1
+                                end
+                            end
+                        end
+                        SMODS.add_card({ key = G.P_CENTERS[fusion].key, edition = 'e_negative' })
+                        return true
+                    end
+                }))
+            end
+        end
+    end
+    return ret
+end
+
 -- CREATE FUNCTION --
 function _create(card,type,place,negative,negative_condition)
     if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
@@ -189,4 +238,15 @@ function Factorial(n)
     result = result * i
   end
   return result
+end
+
+-- OTHER FUNCTION --
+function count_jokers_in_inventory(key)
+    local count = 0
+    for _, j in ipairs(G.jokers.cards) do
+        if j.config.center.key == key then
+            count = count + 1
+        end
+    end
+    return count
 end

@@ -100,7 +100,7 @@ SMODS.Consumable{ --UpgradeTarot
         for i, selected_card in pairs(G.hand.highlighted) do
             G.E_MANAGER:add_event(Event({
                 func = function ()
-                    upgrade_enhancement(selected_card)
+                    Giga.upgrade_enhancement(selected_card)
                     return true
                 end
             }))
@@ -292,7 +292,7 @@ SMODS.Consumable{ --UpgradeSpectral
         for i, selected_card in pairs(G.hand.highlighted) do
             G.E_MANAGER:add_event(Event({
             	func = function()
-                	upgrade_seal(selected_card)
+                	Giga.upgrade_seal(selected_card)
                 	return true
             	end
             }))

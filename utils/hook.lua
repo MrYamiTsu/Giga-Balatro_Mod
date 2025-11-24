@@ -40,11 +40,11 @@ end
 -- Thx Somethingcom515 for help with this one
 local copy_me = copy_card
 function copy_card(other, new_card, card_scale, playing_card, strip_edition)
-    local g = copy_me(other, new_card, card_scale, playing_card, strip_edition)
+    local ret = copy_me(other, new_card, card_scale, playing_card, strip_edition)
     if other.config.center.giga_data and other.config.center.giga_data.uncopiable then
-        SMODS.destroy_cards(g)
-        g.states.visible = false
-        SMODS.calculate_effect({message = localize('k_not_allowed_ex')}, g)
+        SMODS.destroy_cards(ret)
+        ret.states.visible = false
+        SMODS.calculate_effect({message = localize('k_not_allowed_ex')}, ret)
     end
-    return g
+    return ret
 end

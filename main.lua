@@ -8,6 +8,9 @@ Giga.calculate = function (self, context)
             card.ability.giga_goldplusplus_increase = nil
         end
     end
+    if context.ending_shop then
+        Giga.check_fusion()
+    end
 end
 
 --#region LOADING FILES --

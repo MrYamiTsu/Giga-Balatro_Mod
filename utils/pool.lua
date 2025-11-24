@@ -9,6 +9,16 @@ Giga.POOLS = {
                 end
             end
         end
+    },
+    fusion_jokers = {
+        _calculate = function()
+            Giga.POOLS.fusion_jokers = {_calculate = Giga.POOLS.fusion_jokers._calculate}
+            for _, c in pairs(G.P_CENTERS) do
+                if string.sub(c.key, 1, 2) == 'j_' and c.giga_data and c.giga_data.merge_materials and #c.giga_data.merge_materials >= 2 then
+                    table.insert(Giga.POOLS.fusion_jokers, c.key)
+                end
+            end
+        end
     }
 }
 
