@@ -237,6 +237,40 @@ SMODS.Consumable{ --Tacos
         SMODS.calculate_effect({dollars = card.ability.extra.money}, card)
     end
 }
+SMODS.Consumable{ --Marshmallow
+    key = 'marshmallow',
+    set = 'Giga_Food',
+    atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = 'c_fg__c_giga_marshmallow'
+    },
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 1, y = 5},
+    config = { max_highlighted = 1 },
+    loc_vars = function(self, info_queue, card)
+        return { vars = { card.ability.max_highlighted } }
+    end,
+    use = function(self, card, area, copier)
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.4,
+            func = function()
+                card:juice_up(0.3, 0.5)
+                return true
+            end
+        }))
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.2,
+            func = function()
+                SMODS.destroy_cards(G.hand.highlighted)
+                return true
+            end
+        }))
+        delay(0.3)
+    end
+}
 SMODS.Consumable{ --MacN'Cheese
     key = 'macNCheese',
     set = 'Giga_Food',

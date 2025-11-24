@@ -470,7 +470,13 @@ return {
                     '{C:inactive}#2#{}'
                 }
             },
-
+            c_giga_marshmallow = {
+                name = 'Marshmallow',
+                text = {
+                    'Some delicious Marshmallow that',
+                    'will destroy {C:attention}#1#{} card'
+                }
+            }
         },
         Joker={
             --#Region Normal
