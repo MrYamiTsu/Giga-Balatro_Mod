@@ -13,18 +13,6 @@
 <p>For the most stable version, download the zip file from latest release. And for the latest version (can be unstable), download the zip file from the Code button. After downloading, extract the file and place it in your Mod folder.</p>
 
 <hr>
-<h2>Cross-Mod</h2>
-<p>There's a lot of cross-content with <a href="https://github.com/Joglacraft/Fools-Gambit">Fool's Gambit</a>, so you might check that out.</p>
-<p>Additionally, there are some extra assets if you have other mods.</p>
-<ul>
-    <li><a href="https://github.com/Amphiapple/Bloonlatro">Bloonlatro</a></li>
-    <li><a href="https://github.com/larswijn/CardSleeves">CardSleeves</a></li>
-    <li><a href="https://github.com/SpectralPack/Cryptid">Cryptid</a></li>
-    <li><a href="https://github.com/Icecanno/Partner-API/">Partner-API</a></li>
-    <li><a href="https://github.com/Balatro-Paperback/paperback">Paperback</a></li>
-</ul>
-
-<hr>
 <h2>Contents</h2>
 <ul>
     <li>48+ Jokers (+7 Cross-Mod)</li>
@@ -43,6 +31,18 @@
 
 <p><em>*Some Jokers have secret interactions with other Jokers.</em><br>
 <em>*Many artworks are either unfinished or missing.</em></p>
+
+<hr>
+<h2>Cross-Mod</h2>
+<p>There’s a lot of crossover with <a href="https://github.com/Joglacraft/Fools-Gambit">Fool's Gambit</a>, so I really recommend checking it out. And the mod itself is absolutely worth playing, it’s genuinely great on its own.</p>
+<p>Additionally, there are some extra assets if you have other mods.</p>
+<ul>
+    <li><a href="https://github.com/Amphiapple/Bloonlatro">Bloonlatro</a></li>
+    <li><a href="https://github.com/larswijn/CardSleeves">CardSleeves</a></li>
+    <li><a href="https://github.com/SpectralPack/Cryptid">Cryptid</a></li>
+    <li><a href="https://github.com/Icecanno/Partner-API/">Partner-API</a></li>
+    <li><a href="https://github.com/Balatro-Paperback/paperback">Paperback</a></li>
+</ul>
 
 <hr>
 <h2>Additional Infos</h2>
