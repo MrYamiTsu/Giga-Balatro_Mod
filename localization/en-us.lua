@@ -1081,8 +1081,9 @@ return {
                 text = {
                     'Retrigger this',
                     'card {C:attention}#1#{} times',
-                    '{C:green}#2# in #3#{} to retrigger',
-                    '{C:attention}#4#{} more time'
+                    '{C:green}#2# in #3#{} chance to',
+                    'retrigger {C:attention}#4#{}',
+                    'additionnal time'
                 }
             },
             giga_blueplus_seal = {
@@ -1091,8 +1092,8 @@ return {
                     'Create a {C:planet}Planet{} card',
                     'if this card is',
                     '{C:attention}held{} in hand',
-                    '{C:green}#1# in #2#{} to create',
-                    'a {T:c_black_hole}Black Hole{} instead'
+                    '{C:green}#1# in #2#{} chance to',
+                    'be {T:c_black_hole}Black Hole{}'
                 }
             },
             giga_goldplus_seal = {
@@ -1109,7 +1110,7 @@ return {
                 text = {
                     'Create {C:attention}#1#{} {C:tarot}Tarot{} card',
                     'when {C:attention}discarded{}',
-                    '{C:green}#2# in #3#{} to create a',
+                    '{C:green}#2# in #3#{} chance to be',
                     '{C:spectral}Spectral{} card instead'
                 }
             },
@@ -1128,8 +1129,8 @@ return {
                     'Create a {C:dark_edition}Negative{} {C:planet}Planet{}',
                     'card if this card is {C:attention}played{}',
                     'or {C:attention}held{} in hand',
-                    '{C:green}#1# in #2#{} to create',
-                    'a {T:c_black_hole}Black Hole{} instead'
+                    '{C:green}#1# in #2#{} chance to',
+                    'be {T:c_black_hole}Black Hole{}'
                 }
             },
             giga_goldplusplus_seal = {
@@ -1149,7 +1150,7 @@ return {
                     'Create {C:attention}#1#{} {C:dark_edition}Negative{} {C:tarot}Tarot{}',
                     'and a {C:attention}Charm Tag{}',
                     'when {C:attention}discarded{}',
-                    '{C:green}#2# in #3#{} to create an',
+                    '{C:green}#2# in #3#{} chance to be',
                     '{C:attention}Ethereal Tag{} instead'
                 }
             },
@@ -1158,20 +1159,20 @@ return {
                 text = {
                     'When this card is {C:attention}scored{},',
                     'create {C:attention}1{} {C:giga_Food}Food{} card',
-                    '{C:green}#1# in #2#{} to be {C:dark_edition}Negative{}',
-                    '{C:attention}Reduce{} blind size',
-                    'by {C:attention}#3#%{}'
+                    '{C:green}#1# in #2#{} chance to',
+                    'be {C:dark_edition}Negative{}',
+                    '{C:attention}Reduce{} blind size by {C:attention}#3#%{}'
                 }
             },
             giga_pinkplusplus_seal = {
                 name = 'Pink++ Seal',
                 text = {
                     'When this card is {C:attention}scored{},',
-                    'create {C:attention}#1#{} {C:dark_edition}Negative{} {C:giga_Food}Food{}',
-                    'card, {C:attention}reduce{} blind size',
-                    'by {C:attention}#2#%{}',
-                    '{C:green}#3# in #4#{} to create a',
-                    '{C:rare}Rare{} {C:giga_Food}Food{} instead'
+                    'create {C:attention}#1#{} {C:dark_edition}Negative{}',
+                    '{C:giga_Food}Food{} card',
+                    '{C:green}#3# in #4#{} chance to be a',
+                    '{C:rare}Rare{} {C:giga_Food}Food{} card',
+                    '{C:attention}Reduce{} blind size by {C:attention}#2#%{}'
                 }
             },
             giga_crimsonplus_seal = {

@@ -60,9 +60,11 @@ function Giga.upgrade_enhancement(_card)
         func = function()
             _card:flip()
             _card:juice_up(0.3, 0.3)
+            _card:start_materialize(nil, false, 1)
             return true
         end
     }))
+    delay(0.2)
     _card:set_ability(G.P_CENTERS[_card.config.center_key].giga_data.enh_upgrade, nil , true)
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
