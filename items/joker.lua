@@ -1057,100 +1057,6 @@ SMODS.Joker{ --Factolord
         end
     end
 }
-SMODS.Joker{ --MrYamiTsu
-    key = 'myt_own',
-    atlas = 'Jokers',
-    fg_data = {
-        is_alternate = false,
-        alternate_key = 'j_giga_myt_own_alt'
-    },
-    pos = {x = 5, y = 6},
-    soul_pos = {x = 6, y = 6},
-    cost = 20,
-    rarity = 4,
-    blueprint_compat = false,
-    eternal_compat = true,
-    config = { extra = {
-        mult = 2
-    }},
-    loc_vars = function(self,info_queue,center)
-        return{vars = {center.ability.extra.mult}}
-    end,
-    calculate = function(self,card,context)
-        if context.individual and context.cardarea == G.play then
-            if upgraded_enh_condition(context.other_card) or upgraded_seal_condition(context.other_card) then
-                return {
-                    x_mult = card.ability.extra.mult
-                }
-            end
-        end
-    end
-}
-SMODS.Joker{ --Tabaosl
-    key = 'tabaosl',
-    atlas = 'Jokers',
-    pos = {x = 0, y = 5},
-    soul_pos = {x = 1, y = 5},
-    cost = 20,
-    rarity = 4,
-    blueprint_compat = false,
-    eternal_compat = true,
-    loc_vars = function(self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'aij_back_credit'}
-    end,
-    calculate = function(self,card,context)
-        if context.initial_scoring_step and not context.blueprint then
-            if #G.play.cards > 0 then
-                for i = 1, 2 do
-                    if #G.play.cards >= i then
-                        local c = G.play.cards[i]
-                        if c.config.center_key and G.P_CENTERS[c.config.center_key].giga_data and
-                           G.P_CENTERS[c.config.center_key].giga_data.enh_upgrade then
-                            Giga.upgrade_enhancement(c)
-                        end
-                    else
-                        break
-                    end
-                end
-            end
-        end
-    end
-}
-SMODS.Joker{ --Rog-Ano
-    key = 'rogAno',
-    atlas = 'Jokers',
-    pos = {x = 3, y = 6},
-    soul_pos = {x = 4, y = 6},
-    cost = 20,
-    rarity = 4,
-    blueprint_compat = true,
-    eternal_compat = true,
-    config = { extra = {
-        mult_add = 0.5
-    }},
-    loc_vars = function(self,info_queue,center)
-        local x_mult = 1
-        for _, c in ipairs(G.playing_cards or {}) do
-            if c:get_seal() ~= nil then
-                x_mult = x_mult + center.ability.extra.mult_add
-            end
-        end
-        return{vars = {center.ability.extra.mult_add, x_mult}}
-    end,
-    calculate = function(self,card,context)
-        if context.joker_main then
-            local x_mult = 1
-            for _, c in ipairs(G.playing_cards or {}) do
-                if c:get_seal() ~= nil then
-                    x_mult = x_mult + card.ability.extra.mult_add
-                end
-            end
-            return {
-                xmult = x_mult
-            }
-        end
-    end
-}
 --#endregion
 --#region JACKS JOKERS --
 SMODS.Joker{ --KingOfJacks
@@ -1622,6 +1528,102 @@ SMODS.Joker{ --Triceratops
                     }
                 end
             end
+        end
+    end
+}
+--#endregion
+--#region LEGENDARY JOKERS --
+SMODS.Joker{ --MrYamiTsu
+    key = 'myt_own',
+    atlas = 'Jokers',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = 'j_giga_myt_own_alt'
+    },
+    pos = {x = 5, y = 6},
+    soul_pos = {x = 6, y = 6},
+    cost = 20,
+    rarity = 4,
+    blueprint_compat = false,
+    eternal_compat = true,
+    config = { extra = {
+        mult = 2
+    }},
+    loc_vars = function(self,info_queue,center)
+        return{vars = {center.ability.extra.mult}}
+    end,
+    calculate = function(self,card,context)
+        if context.individual and context.cardarea == G.play then
+            if upgraded_enh_condition(context.other_card) or upgraded_seal_condition(context.other_card) then
+                return {
+                    x_mult = card.ability.extra.mult
+                }
+            end
+        end
+    end
+}
+SMODS.Joker{ --Tabaosl
+    key = 'tabaosl',
+    atlas = 'Jokers',
+    pos = {x = 0, y = 5},
+    soul_pos = {x = 1, y = 5},
+    cost = 20,
+    rarity = 4,
+    blueprint_compat = false,
+    eternal_compat = true,
+    loc_vars = function(self,info_queue,center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'aij_back_credit'}
+    end,
+    calculate = function(self,card,context)
+        if context.initial_scoring_step and not context.blueprint then
+            if #G.play.cards > 0 then
+                for i = 1, 2 do
+                    if #G.play.cards >= i then
+                        local c = G.play.cards[i]
+                        if c.config.center_key and G.P_CENTERS[c.config.center_key].giga_data and
+                           G.P_CENTERS[c.config.center_key].giga_data.enh_upgrade then
+                            Giga.upgrade_enhancement(c)
+                        end
+                    else
+                        break
+                    end
+                end
+            end
+        end
+    end
+}
+SMODS.Joker{ --Rog-Ano
+    key = 'rogAno',
+    atlas = 'Jokers',
+    pos = {x = 3, y = 6},
+    soul_pos = {x = 4, y = 6},
+    cost = 20,
+    rarity = 4,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        mult_add = 0.5
+    }},
+    loc_vars = function(self,info_queue,center)
+        local x_mult = 1
+        for _, c in ipairs(G.playing_cards or {}) do
+            if c:get_seal() ~= nil then
+                x_mult = x_mult + center.ability.extra.mult_add
+            end
+        end
+        return{vars = {center.ability.extra.mult_add, x_mult}}
+    end,
+    calculate = function(self,card,context)
+        if context.joker_main then
+            local x_mult = 1
+            for _, c in ipairs(G.playing_cards or {}) do
+                if c:get_seal() ~= nil then
+                    x_mult = x_mult + card.ability.extra.mult_add
+                end
+            end
+            return {
+                xmult = x_mult
+            }
         end
     end
 }

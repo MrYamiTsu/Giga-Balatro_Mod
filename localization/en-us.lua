@@ -353,9 +353,9 @@ return {
             c_giga_donut = {
                 name = 'Donut',
                 text = {
-                    'A delicious Donut that',
-                    'adds a {V:1}Pink Seal{} on {C:attention}#1#{}',
-                    'card in {C:attention}#2#{} rounds',
+                    'Some delicious Donuts',
+                    'that adds a {V:1}Pink Seal{}',
+                    'on {C:attention}#1#{} card in {C:attention}#2#{} rounds',
                     '{C:inactive}#3#{}'
                 }
             },
@@ -400,6 +400,15 @@ return {
                     'A delicious Turkey that will',
                     'permanently give you {C:dark_edition}+#1#{}',
                     'Joker slot in {C:attention}#2#{} rounds',
+                    '{C:inactive}#3#{}'
+                }
+            },
+            c_giga_poutine = {
+                name = 'Poutine',
+                text = {
+                    'A delicious Poutine that will',
+                    'permanently give you {C:attention}+#1#{}',
+                    'hand size in {C:attention}#2#{} rounds',
                     '{C:inactive}#3#{}'
                 }
             },
@@ -526,9 +535,10 @@ return {
             j_giga_snapchatGirl = {
                 name = 'Snapchat Girl',
                 text = {
-                    '{C:green}#1# in #2#{} to create',
-                    'a {C:legendary}Legendary{} Joker on',
-                    'selling, otherwise {C:money}$#3#{}'
+                    '{C:green}#1# in #2#{} chance to',
+                    'create a {C:legendary}Legendary{}',
+                    'Joker on selling',
+                    'Otherwise {C:money}$#3#{}'
                 }
             },
             j_giga_tRex = {
@@ -552,7 +562,8 @@ return {
                 text = {
                     '{X:mult,C:white}X#1#{} Mult if played poker hand',
                     'is {C:money}High Card{}',
-                    '{C:green}#2# in #3#{} to destroy the card'
+                    '{C:green}#2# in #3#{} chance to destroy',
+                    'the card'
                 }
             },
             j_giga_shreddedAce = {

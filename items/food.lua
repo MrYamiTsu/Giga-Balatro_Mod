@@ -1009,7 +1009,7 @@ SMODS.Consumable{ --BirthdayCake
     pos = {x = 2, y = 1},
     soul_pos = {x = 3, y = 1},
     rarity = 4,
-    cost = 4,
+    cost = 8,
     hidden = true,
     soul_set = 'Giga_Food',
     config = { extra = {
@@ -1040,7 +1040,7 @@ SMODS.Consumable{ --BirthdayCake
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
         if card.ability.extra.round_left <= 0 and card.ability.extra.txt == 'k_giga_notrd' and #G.consumeables.cards then
-            local check_remove = function(card) 
+            local check_remove = function(card)
                 return not card.REMOVED
             end
             juice_card_until(card, check_remove, true)
@@ -1063,7 +1063,7 @@ SMODS.Consumable{ --Turkey
     pos = {x = 2, y = 1},
     soul_pos = {x = 3, y = 4},
     rarity = 4,
-    cost = 4,
+    cost = 8,
     hidden = true,
     soul_set = 'Giga_Food',
     config = { extra = {
@@ -1094,7 +1094,61 @@ SMODS.Consumable{ --Turkey
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
         if card.ability.extra.round_left <= 0 and card.ability.extra.txt == 'k_giga_notrd' and #G.consumeables.cards then
-            local check_remove = function(card) 
+            local check_remove = function(card)
+                return not card.REMOVED
+            end
+            juice_card_until(card, check_remove, true)
+            card.ability.extra.txt = 'k_giga_rd'
+        end
+    end
+}
+SMODS.Consumable{ --Poutine
+    key = 'poutine',
+    set = 'Giga_Food',
+    atlas = 'Foods',
+    giga_data = {
+        r_food = true,
+        uncopiable = true
+    },
+    fg_data = {
+        is_alternate = false,
+        alternate_key = 'c_fg__c_giga_poutine'
+    },
+    pos = {x = 2, y = 1},
+    soul_pos = {x = 2, y = 5},
+    rarity = 4,
+    cost = 10,
+    hidden = true,
+    soul_set = 'Giga_Food',
+    config = { extra = {
+        round = 1,
+        round_left = 1,
+        handSize = 1,
+        txt = 'k_giga_notrd'
+    }},
+    loc_vars = function (self,info_queue,center)
+        return{vars = {center.ability.extra.handSize, center.ability.extra.round, localize(center.ability.extra.txt)}}
+    end,
+    can_use = function (self,card)
+		if card.ability.extra.round_left <= 0 then
+            return true
+        end
+        return false
+    end,
+    use = function (self,card,area,copier)
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                G.hand:change_size(card.ability.extra.handSize)
+                return true
+            end
+        }))
+    end,
+    calculate = function (self,card,context)
+        if context.end_of_round and context.main_eval then
+            card.ability.extra.round_left = card.ability.extra.round_left - 1
+        end
+        if card.ability.extra.round_left <= 0 and card.ability.extra.txt == 'k_giga_notrd' and #G.consumeables.cards then
+            local check_remove = function(card)
                 return not card.REMOVED
             end
             juice_card_until(card, check_remove, true)
