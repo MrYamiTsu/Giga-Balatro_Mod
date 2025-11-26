@@ -915,17 +915,14 @@ SMODS.Joker{ --StockMarket
                 end
             end
         end
-        if context.end_of_round and context.main_eval and G.GAME.blind.boss then
-            if card.ability.extra.cash > 0 then
-                return {
-                    dollars = card.ability.extra.cash,
-                    func = function()
-                        card.ability.extra.cash = 0
-                        return true
-                    end
-                }
-            end
+    end,
+    calc_dollar_bonus = function(self, card)
+        local cash = nil
+        if G.GAME.blind.boss then
+            cash = card.ability.extra.cash
+            card.ability.extra.cash = 0
         end
+        return cash
     end
 }
 SMODS.Joker{ --BonoboJoker
