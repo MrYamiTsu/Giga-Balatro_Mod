@@ -1,50 +1,7 @@
--- TALISMAN --
-to_big = to_big or function(b) return b end
+to_big = to_big or function(x) return x end
 
--- UPGRADE FUNCTIONS --
-function upgrade_enhencement_specific(selected_card, base_enh)
-    G.E_MANAGER:add_event(Event({
-        trigger = 'after',
-        delay = 0.4,
-        func = function()
-            selected_card:juice_up(0.3, 0.5)
-            return true
-        end
-    }))
-    G.E_MANAGER:add_event(Event({
-        trigger = 'after',
-        delay = 0.15,
-        func = function()
-            selected_card:flip()
-            selected_card:juice_up(0.3, 0.3)
-            return true
-        end
-    }))
-    delay(0.2)
-    if SMODS.has_enhancement(selected_card, base_enh) then
-        selected_card:set_ability(G.P_CENTERS[selected_card.config.center_key].giga_data.enh_upgrade)
-    else
-        selected_card:set_ability(G.P_CENTERS[base_enh])
-    end
-    G.E_MANAGER:add_event(Event({
-        trigger = 'after',
-        delay = 0.15,
-        func = function()
-            selected_card:flip()
-            selected_card:juice_up(0.3, 0.3)
-            return true
-        end
-    }))
-    G.E_MANAGER:add_event(Event({
-        trigger = 'after',
-        delay = 0.2,
-        func = function()
-            G.hand:unhighlight_all()
-            return true
-        end
-    }))
-    delay(0.5)
-end
+--- Upgrade the enhancement of a card
+--- @param _card Card the card with the enhancement to upgrade
 function Giga.upgrade_enhancement(_card)
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
@@ -85,12 +42,15 @@ function Giga.upgrade_enhancement(_card)
     }))
     delay(0.5)
 end
-function Giga.upgrade_seal(selected_card)
+
+--- Upgrade the seal of a card
+--- @param _card Card the card with the seal to upgrade
+function Giga.upgrade_seal(_card)
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
         delay = 0.4,
         func = function()
-            selected_card:juice_up(0.3, 0.5)
+            _card:juice_up(0.3, 0.5)
             return true
         end
     }))
@@ -98,8 +58,8 @@ function Giga.upgrade_seal(selected_card)
         trigger = 'after',
         delay = 0.15,
         func = function()
-            selected_card:flip()
-            selected_card:juice_up(0.3, 0.3)
+            _card:flip()
+            _card:juice_up(0.3, 0.3)
             return true
         end
     }))
@@ -107,7 +67,7 @@ function Giga.upgrade_seal(selected_card)
         trigger = 'after',
         delay = 0.2,
         func = function()
-            selected_card:set_seal(G.P_SEALS[selected_card:get_seal()].giga_data.seal_upgrade, true)
+            _card:set_seal(G.P_SEALS[_card:get_seal()].giga_data.seal_upgrade, true)
             return true
         end
     }))
@@ -115,8 +75,8 @@ function Giga.upgrade_seal(selected_card)
         trigger = 'after',
         delay = 0.15,
         func = function()
-            selected_card:flip()
-            selected_card:juice_up(0.3, 0.3)
+            _card:flip()
+            _card:juice_up(0.3, 0.3)
             return true
         end
     }))
@@ -130,22 +90,8 @@ function Giga.upgrade_seal(selected_card)
     }))
     delay(0.5)
 end
-function upgraded_enh_condition(card)
-    if card.config.center_key and G.P_CENTERS[card.config.center_key].giga_data and
-       G.P_CENTERS[card.config.center_key].giga_data.is_upgraded then
-        return true
-    end
-    return false
-end
-function upgraded_seal_condition(card)
-    if card:get_seal() and G.P_SEALS[card:get_seal()].giga_data and
-       G.P_SEALS[card:get_seal()].giga_data.is_upgraded then
-        return true
-    end
-    return false
-end
 
--- MERGE FUNCTION --
+--- Checks if the player has the required fusion materials in their joker slots
 function Giga.check_fusion()
     for _, fusion in pairs(Giga.POOLS.fusion_jokers) do
         if type(fusion) == "string" and G.P_CENTERS[fusion] then
@@ -191,10 +137,83 @@ function Giga.check_fusion()
             end
         end
     end
-    return ret
 end
 
--- CREATE FUNCTION --
+--- Little bit outdated, mustn't be used
+--- @param selected_card Card
+--- @param base_enh string
+function upgrade_enhencement_specific(selected_card, base_enh)
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.4,
+        func = function()
+            selected_card:juice_up(0.3, 0.5)
+            return true
+        end
+    }))
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.15,
+        func = function()
+            selected_card:flip()
+            selected_card:juice_up(0.3, 0.3)
+            return true
+        end
+    }))
+    delay(0.2)
+    if SMODS.has_enhancement(selected_card, base_enh) then
+        selected_card:set_ability(G.P_CENTERS[selected_card.config.center_key].giga_data.enh_upgrade)
+    else
+        selected_card:set_ability(G.P_CENTERS[base_enh])
+    end
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.15,
+        func = function()
+            selected_card:flip()
+            selected_card:juice_up(0.3, 0.3)
+            return true
+        end
+    }))
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = 0.2,
+        func = function()
+            G.hand:unhighlight_all()
+            return true
+        end
+    }))
+    delay(0.5)
+end
+
+--- Condition to check if a card's enhancement is upgraded
+--- @param card Card -- the card to check
+--- @return boolean --- true if the card's enhancement is upgraded
+function upgraded_enh_condition(card)
+    if card.config.center_key and G.P_CENTERS[card.config.center_key].giga_data and
+       G.P_CENTERS[card.config.center_key].giga_data.is_upgraded then
+        return true
+    end
+    return false
+end
+
+--- Condition to check if a card's seal is upgraded
+--- @param card Card -- the card to check
+--- @return boolean --- true if the card's seal is upgraded
+function upgraded_seal_condition(card)
+    if card:get_seal() and G.P_SEALS[card:get_seal()].giga_data and
+       G.P_SEALS[card:get_seal()].giga_data.is_upgraded then
+        return true
+    end
+    return false
+end
+
+--- Little bit outdated, use SMODS.add_card instead
+---@param card Card
+---@param type string 
+---@param place string
+---@param negative boolean
+---@param negative_condition boolean
 function _create(card,type,place,negative,negative_condition)
     if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
         G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
@@ -222,27 +241,34 @@ function _create(card,type,place,negative,negative_condition)
     end
 end
 
--- SHUFFLE FUNCTION --
-function ShuffleMyTable(t, seed)
+--- Shuffle a Table
+---@param table table The table you want to shuffle
+---@param seed string A seed name
+---@return table
+function ShuffleMyTable(table, seed)
 	seed = seed or 'shuffley'
-	local rt = {}
-	for i = 1, #t do
-		rt[#rt+1] = t[i]
+	local ret = {}
+	for i = 1, #table do
+		ret[#ret+1] = table[i]
 	end
-	pseudoshuffle(rt, pseudoseed(seed))
-	return rt
+	pseudoshuffle(ret, pseudoseed(seed))
+	return ret
 end
 
--- MATH FUNCTION --
+--- Solve the factorial of a number
+---@param n number The number
+---@return number result The answer of the factorial
 function Factorial(n)
-  local result = 1
-  for i = 1, n do
-    result = result * i
-  end
-  return result
+    local result = 1
+    for i = 1, n do
+        result = result * i
+    end
+    return result
 end
 
--- OTHER FUNCTION --
+--- Count the number of jokers in inventory with a specific key
+---@param key string The key of the joker to count
+---@return integer count The number of jokers in inventory with the given key
 function count_jokers_in_inventory(key)
     local count = 0
     for _, j in ipairs(G.jokers.cards) do
