@@ -1398,7 +1398,8 @@ return {
             giga_aquaplus_seal = 'Aqua+ Seal',
             giga_crimsonplusplus_seal = 'Crimson++ Seal',
             giga_aquaplusplus_seal = 'Aqua++ Seal',
-            Giga_Food = "Food"
+            Giga_Food = 'Food',
+            giga_s_foil = 'Shiny Foil'
         },
         poker_hand_descriptions={},
         poker_hands={},

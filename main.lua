@@ -29,6 +29,7 @@ local load_c = {
     "booster",
     "consumeable",
     "deck",
+    "edition",
     "enhancement",
     "food",
     "joker",
