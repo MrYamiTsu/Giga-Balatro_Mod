@@ -22,8 +22,9 @@
     <li>5 Decks</li>
     <li>4 Booster Packs</li>
     <li>4 Vouchers</li>
-    <li>4 Spectral</li>
-    <li>3 Tarot</li>
+    <li>4 Spectrals</li>
+    <li>3 Editions (1 is out for now)</li>
+    <li>3 Tarots</li>
     <li>2 Sleeves (Cross-Mod)</li>
     <li>2 Boss Blind</li>
     <li>1 Partner (Cross-Mod)</li>
