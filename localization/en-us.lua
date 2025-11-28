@@ -1400,7 +1400,8 @@ return {
             giga_aquaplusplus_seal = 'Aqua++ Seal',
             Giga_Food = 'Food',
             giga_s_foil = 'Shiny Foil',
-            giga_s_holo = 'Shiny Holographic'
+            giga_s_holo = 'Shiny Holographic',
+            giga_s_poly = 'Shiny Polychrome'
         },
         poker_hand_descriptions={},
         poker_hands={},

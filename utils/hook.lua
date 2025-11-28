@@ -50,12 +50,15 @@ function copy_card(other, new_card, card_scale, playing_card, strip_edition)
 end
 local eddy_the_edition = Card.set_edition
 function Card:set_edition(edition, immediate, silent, delay)
-    if math.random(20) == 1 then
+    if math.random(25) == 1 then
         if edition == 'e_foil' then
             edition = 'e_giga_s_foil'
         end
         if edition == 'e_holo' then
             edition = 'e_giga_s_holo'
+        end
+        if edition == 'e_polychrome' then
+            edition = 'e_giga_s_poly'
         end
     end
     return eddy_the_edition(self, edition, immediate, silent, delay)
