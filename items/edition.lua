@@ -31,3 +31,37 @@ SMODS.Edition{
     end,
     badge_colour = G.C.DARK_EDITION
 }
+
+SMODS.Shader{
+    key = 's_holo',
+    path = 's_holo.fs'
+}
+SMODS.Edition{
+    key = 's_holo',
+    shader = 's_holo',
+    loc_txt = {
+        name = "Shiny Holographic",
+        text = {
+            "{C:mult}+#1#{} Mult"
+        }
+    },
+    in_shop = false,
+    weight = 0,
+    extra_cost = 2,
+    sound = {sound = "holo1", per = 1.2 * 1.58, vol = 0.6},
+    config = { mult = 20 },
+    loc_vars = function(self, info_queue, card)
+        return {vars = { card.edition.mult }}
+    end,
+    calculate = function(self, card, context)
+        if context.pre_joker or (context.main_scoring and context.cardarea == G.play) then
+            return {
+                mult = card.edition.mult
+            }
+        end
+    end,
+    in_pool = function(self)
+        return false
+    end,
+    badge_colour = G.C.DARK_EDITION
+}

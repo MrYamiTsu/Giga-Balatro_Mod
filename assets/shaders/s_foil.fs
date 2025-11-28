@@ -120,9 +120,9 @@ vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords
 
     number maxfac = max(max(fac, max(fac2, max(fac3, max(fac4, 0.0)))) + 2.2*(fac+fac2+fac3+fac4), 0.);
 
-    tex.r = tex.r-delta + delta*maxfac*0.3;
-    tex.g = tex.g-delta + delta*maxfac*0.3;
-    tex.b = tex.b + delta*maxfac*1.9;
+    tex.r = tex.r-delta + delta*maxfac*0.4;
+    tex.g = tex.g-delta + delta*maxfac*0.2;
+    tex.b = tex.b + delta*maxfac*1.6;
     tex.a = min(tex.a, 0.3*tex.a + 0.9*min(0.5, maxfac*0.1));
 
     float star_density = 0.03;
