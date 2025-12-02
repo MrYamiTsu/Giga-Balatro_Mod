@@ -510,7 +510,10 @@ return {
             j_giga_blueEgg = {
                 name = 'Blue Egg',
                 text = {
-                    'This egg feels... Blue ?!?!'
+                    'Give {C:money}$#1#{} at end',
+                    'of round',
+                    'Create an {C:attention}Egg{}',
+                    'when sold'
                 }
             },
             j_giga_kingOfJacks = {

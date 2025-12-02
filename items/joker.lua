@@ -71,15 +71,21 @@ SMODS.Joker{ --BlueEgg
     atlas = 'Jokers',
     pos = {x = 2, y = 0},
     rarity = 1,
-    cost = 5,
+    cost = 4,
     blueprint_compat = false,
     eternal_compat = true,
-    config = {},
+    config = { extra = {
+        cash = 2
+    }},
+    loc_vars = function(self,info_queue,center)
+        info_queue[#info_queue+1] = G.P_CENTERS['j_egg']
+        return{vars = {center.ability.extra.cash}}
+    end,
     calculate = function(self,card,context)
         if not context.blueprint then
             if context.end_of_round and context.cardarea == G.jokers then
                 return{
-                    dollars = 1
+                    dollars = card.ability.extra.cash
                 }
             end
             if context.selling_card and context.card == card then
@@ -104,11 +110,10 @@ SMODS.Joker{ --SnapchatGirl
     blueprint_compat = false,
     eternal_compat = true,
     config = { extra = {
-            odds = 1,
-            chances = 7,
-            cash = -20
-        }
-    },
+        odds = 1,
+        chances = 7,
+        cash = -20
+    }},
     loc_vars = function(self,info_queue,center)
         local odds, chances = SMODS.get_probability_vars(center, center.ability.extra.odds, center.ability.extra.chances, 'prob')
         return{vars = {odds, chances, center.ability.extra.cash}}
