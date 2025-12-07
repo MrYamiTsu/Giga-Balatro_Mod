@@ -1,4 +1,4 @@
---#region ALT NORMAL JOKERS --
+--#region ALT LEGENDARY JOKERS --
 SMODS.Joker{ --MrYamiTsuAlt
     key = 'myt_own_alt',
     atlas = 'Jokers',
