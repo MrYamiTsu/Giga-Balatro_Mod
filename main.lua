@@ -41,12 +41,16 @@ for _, v in pairs(load_c) do
 end
 
 if next(SMODS.find_mod("foolsGambit")) then
-    local load_fg = {
+    if FG.config.version >= '0.3.0' then
+        local load_fg = {
         "food",
         "joker"
-    }
-    for _,v in pairs(load_fg) do
-        assert(SMODS.load_file('items/CrossMod/foolsgambit/'..v..'.lua'))()
+        }
+        for _,v in pairs(load_fg) do
+            assert(SMODS.load_file('items/CrossMod/foolsgambit/'..v..'.lua'))()
+        end
+    else
+        error("Your version of Fool's Gambit is not supported. Please update to version 0.3.0.")
     end
 end
 if next(SMODS.find_mod("bloonlatro")) then
