@@ -115,7 +115,6 @@ SMODS.Consumable{ --Salt
     atlas = 'Consumeables',
     pos = {x = 1, y = 0},
     rarity = 1,
-    cost = 2,
     config = { extra = { seal = 'giga_pinkseal' }, max_highlighted = 1 },
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = G.P_SEALS.giga_pinkseal
@@ -155,7 +154,6 @@ SMODS.Consumable{ --Compass
     atlas = 'Consumeables',
     pos = {x = 2, y = 0},
     rarity = 1,
-    cost = 2,
     config = { extra = { seal = 'giga_crimsonseal' }, max_highlighted = 2 },
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = G.P_SEALS.giga_crimsonseal
@@ -195,7 +193,6 @@ SMODS.Consumable{ --Wand
     atlas = 'Consumeables',
     pos = {x = 3, y = 0},
     rarity = 1,
-    cost = 2,
     config = { extra = { seal = 'giga_aquaseal' }, max_highlighted = 1 },
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = G.P_SEALS.giga_aquaseal
@@ -235,7 +232,6 @@ SMODS.Consumable{ --UpgradeSpectral
     atlas = 'Consumeables',
     pos = {x = 1, y = 1},
     rarity = 1,
-    cost = 2,
     config = { extra = {
         card = 2
     }},

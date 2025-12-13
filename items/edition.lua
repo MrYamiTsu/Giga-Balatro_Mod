@@ -40,7 +40,7 @@ SMODS.Edition{
     key = 's_holo',
     shader = 's_holo',
     loc_txt = {
-        name = "Shiny Holographic",
+        name = {"Shiny", "Holographic"},
         text = {
             "{C:mult}+#1#{} Mult"
         }
@@ -74,7 +74,7 @@ SMODS.Edition{
     key = 's_poly',
     shader = 's_poly',
     loc_txt = {
-        name = "Shiny Polychrome",
+        name = {"Shiny", "Polychrome"},
         text = {
             "{X:mult,C:white}X#1#{} Mult"
         }

@@ -24,7 +24,7 @@ for _, v in pairs(load_u) do
     assert(SMODS.load_file('utils/'..v..'.lua'))()
 end
 
-local load_c = {
+local load_i = {
     "blind",
     "booster",
     "consumeable",
@@ -33,10 +33,11 @@ local load_c = {
     "enhancement",
     "food",
     "joker",
+    "planet",
     "seal",
     "voucher"
 }
-for _, v in pairs(load_c) do
+for _, v in pairs(load_i) do
     assert(SMODS.load_file('items/'..v..'.lua'))()
 end
 
