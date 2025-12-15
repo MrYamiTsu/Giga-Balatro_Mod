@@ -18,8 +18,8 @@
     <li>48+ Jokers (+7 Cross-Mod)</li>
     <li>32 Food cards (+8 Cross-Mod)</li>
     <li>17 Seals</li>
+    <li>12 Planets</li>
     <li>10+ Enhancements</li>
-    <li>5 Planets</li>
     <li>5 Decks</li>
     <li>4 Booster Packs</li>
     <li>4 Vouchers</li>
