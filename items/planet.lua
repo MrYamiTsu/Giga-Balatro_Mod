@@ -453,7 +453,7 @@ SMODS.Consumable{ --AstralUranus
     key = 'astralUranus',
     set = 'Planet',
     atlas = 'Consumeables',
-    pos = {x = 5, y = 2},
+    pos = {x = 4, y = 2},
     cost = 3,
     config = {
         hand_type = 'Two Pair',
