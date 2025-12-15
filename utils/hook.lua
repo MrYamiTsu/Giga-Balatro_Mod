@@ -90,6 +90,27 @@ function Card:set_ability(center, initial, delay_sprites)
         if center == G.P_CENTERS['c_planet_x'] then
             center = G.P_CENTERS['c_giga_astralPlanetX']
         end
+        if center == G.P_CENTERS['c_saturn'] then
+            center = G.P_CENTERS['c_giga_astralSaturn']
+        end
+        if center == G.P_CENTERS['c_earth'] then
+            center = G.P_CENTERS['c_giga_astralEarth']
+        end
+        if center == G.P_CENTERS['c_mars'] then
+            center = G.P_CENTERS['c_giga_astralMars']
+        end
+        if center == G.P_CENTERS['c_ceres'] then
+            center = G.P_CENTERS['c_giga_astralCeres']
+        end
+        if center == G.P_CENTERS['c_venus'] then
+            center = G.P_CENTERS['c_giga_astralVenus']
+        end
+        if center == G.P_CENTERS['c_uranus'] then
+            center = G.P_CENTERS['c_giga_astralUranus']
+        end
+        if center == G.P_CENTERS['c_neptune'] then
+            center = G.P_CENTERS['c_giga_astralNeptune']
+        end
     end
     return darling_creates(self, center, initial, delay_sprites)
 end
