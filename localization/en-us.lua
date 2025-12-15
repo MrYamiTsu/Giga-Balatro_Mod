@@ -1295,7 +1295,76 @@ return {
                     '{C:chips}+#5#{} chips'
                 }
             },
-
+            c_giga_astralSaturn = {
+                name = 'Astral Saturn',
+                text = {
+                    '({V:1}lvl.#1#{}) Level up',
+                    '{C:attention}#2#{} times',
+                    '{C:attention}#3#',
+                    '{C:mult}+#4#{} Mult and',
+                    '{C:chips}+#5#{} chips'
+                }
+            },
+            c_giga_astralEarth = {
+                name = 'Astral Earth',
+                text = {
+                    '({V:1}lvl.#1#{}) Level up',
+                    '{C:attention}#2#{} times',
+                    '{C:attention}#3#',
+                    '{C:mult}+#4#{} Mult and',
+                    '{C:chips}+#5#{} chips'
+                }
+            },
+            c_giga_astralMars = {
+                name = 'Astral Mars',
+                text = {
+                    '({V:1}lvl.#1#{}) Level up',
+                    '{C:attention}#2#{} times',
+                    '{C:attention}#3#',
+                    '{C:mult}+#4#{} Mult and',
+                    '{C:chips}+#5#{} chips'
+                }
+            },
+            c_giga_astralCeres = {
+                name = 'Astral Mars',
+                text = {
+                    '({V:1}lvl.#1#{}) Level up',
+                    '{C:attention}#2#{} times',
+                    '{C:attention}#3#',
+                    '{C:mult}+#4#{} Mult and',
+                    '{C:chips}+#5#{} chips'
+                }
+            },
+            c_giga_astralVenus = {
+                name = 'Astral Mars',
+                text = {
+                    '({V:1}lvl.#1#{}) Level up',
+                    '{C:attention}#2#{} times',
+                    '{C:attention}#3#',
+                    '{C:mult}+#4#{} Mult and',
+                    '{C:chips}+#5#{} chips'
+                }
+            },
+            c_giga_astralNeptune = {
+                name = 'Astral Neptune',
+                text = {
+                    '({V:1}lvl.#1#{}) Level up',
+                    '{C:attention}#2#{} times',
+                    '{C:attention}#3#',
+                    '{C:mult}+#4#{} Mult and',
+                    '{C:chips}+#5#{} chips'
+                }
+            },
+            c_giga_astralUranus = {
+                name = 'Astral Uranus',
+                text = {
+                    '({V:1}lvl.#1#{}) Level up',
+                    '{C:attention}#2#{} times',
+                    '{C:attention}#3#',
+                    '{C:mult}+#4#{} Mult and',
+                    '{C:chips}+#5#{} chips'
+                }
+            }
         },
         Sleeve = {
             sleeve_giga_reverseCheckeredSleeve = {
