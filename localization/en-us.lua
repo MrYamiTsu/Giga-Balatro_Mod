@@ -1336,7 +1336,7 @@ return {
                 }
             },
             c_giga_astralVenus = {
-                name = 'Astral Mars',
+                name = 'Astral Venus',
                 text = {
                     '({V:1}lvl.#1#{}) Level up',
                     '{C:attention}#2#{} times',

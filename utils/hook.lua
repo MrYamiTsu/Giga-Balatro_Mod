@@ -75,41 +75,22 @@ function Card:set_ability(center, initial, delay_sprites)
         center = G.P_CENTERS[center]
     end
     if not G.SETTINGS.paused and center.set == 'Planet' and math.random(20) == 1 then
-        if center == G.P_CENTERS['c_mercury'] then
-            center = G.P_CENTERS['c_giga_astralMercury']
-        end
-        if center == G.P_CENTERS['c_jupiter'] then
-            center = G.P_CENTERS['c_giga_astralJupiter']
-        end
-        if center == G.P_CENTERS['c_pluto'] then
-            center = G.P_CENTERS['c_giga_astralPluto']
-        end
-        if center == G.P_CENTERS['c_eris'] then
-            center = G.P_CENTERS['c_giga_astralEris']
-        end
-        if center == G.P_CENTERS['c_planet_x'] then
-            center = G.P_CENTERS['c_giga_astralPlanetX']
-        end
-        if center == G.P_CENTERS['c_saturn'] then
-            center = G.P_CENTERS['c_giga_astralSaturn']
-        end
-        if center == G.P_CENTERS['c_earth'] then
-            center = G.P_CENTERS['c_giga_astralEarth']
-        end
-        if center == G.P_CENTERS['c_mars'] then
-            center = G.P_CENTERS['c_giga_astralMars']
-        end
-        if center == G.P_CENTERS['c_ceres'] then
-            center = G.P_CENTERS['c_giga_astralCeres']
-        end
-        if center == G.P_CENTERS['c_venus'] then
-            center = G.P_CENTERS['c_giga_astralVenus']
-        end
-        if center == G.P_CENTERS['c_uranus'] then
-            center = G.P_CENTERS['c_giga_astralUranus']
-        end
-        if center == G.P_CENTERS['c_neptune'] then
-            center = G.P_CENTERS['c_giga_astralNeptune']
+        local astrals = {
+            c_mercury   = 'c_giga_astralMercury',
+            c_jupiter   = 'c_giga_astralJupiter',
+            c_pluto     = 'c_giga_astralPluto',
+            c_eris      = 'c_giga_astralEris',
+            c_planet_x  = 'c_giga_astralPlanetX',
+            c_saturn    = 'c_giga_astralSaturn',
+            c_earth     = 'c_giga_astralEarth',
+            c_mars      = 'c_giga_astralMars',
+            c_ceres     = 'c_giga_astralCeres',
+            c_venus     = 'c_giga_astralVenus',
+            c_uranus    = 'c_giga_astralUranus',
+            c_neptune   = 'c_giga_astralNeptune'
+        }
+        if astrals[center] then
+            center = G.P_CENTERS[astrals[center]]
         end
     end
     return darling_creates(self, center, initial, delay_sprites)
