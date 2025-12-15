@@ -581,8 +581,8 @@ SMODS.Joker{ --MonochromeCrystal
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        mult = 15,
-        nerf_mult = -25
+        mult = 24,
+        nerf_mult = -30
     }},
     loc_vars = function(self, info_queue, card)
         return {vars = {card.ability.extra.mult, card.ability.extra.nerf_mult}}
@@ -611,7 +611,7 @@ SMODS.Joker{ --MarvinTheFourth
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        chips = 35,
+        chips = 45,
         mult = 1.5,
         suit = 'Spades'
     }},

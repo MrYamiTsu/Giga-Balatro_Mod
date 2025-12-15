@@ -51,7 +51,7 @@ end
 local eddy_the_edition = Card.set_edition
 function Card:set_edition(edition, immediate, silent, delay)
     if not G.SETTINGS.paused then
-        if math.random(25) == 1 then
+        if math.random(20) == 1 then
             if edition == 'e_foil' then
                 edition = 'e_giga_s_foil'
             end
@@ -64,4 +64,32 @@ function Card:set_edition(edition, immediate, silent, delay)
         end
     end
     return eddy_the_edition(self, edition, immediate, silent, delay)
+end
+local darling_creates = Card.set_ability
+function Card:set_ability(center, initial, delay_sprites)
+    if not center then
+        return nil
+    end
+    if type(center) == "string" then
+        assert(G.P_CENTERS[center])
+        center = G.P_CENTERS[center]
+    end
+    if not G.SETTINGS.paused and center.set == 'Planet' and math.random(20) == 1 then
+        if center == G.P_CENTERS['c_mercury'] then
+            center = G.P_CENTERS['c_giga_astralMercury']
+        end
+        if center == G.P_CENTERS['c_jupiter'] then
+            center = G.P_CENTERS['c_giga_astralJupiter']
+        end
+        if center == G.P_CENTERS['c_pluto'] then
+            center = G.P_CENTERS['c_giga_astralPluto']
+        end
+        if center == G.P_CENTERS['c_eris'] then
+            center = G.P_CENTERS['c_giga_astralEris']
+        end
+        if center == G.P_CENTERS['c_planet_x'] then
+            center = G.P_CENTERS['c_giga_astralPlanetX']
+        end
+    end
+    return darling_creates(self, center, initial, delay_sprites)
 end

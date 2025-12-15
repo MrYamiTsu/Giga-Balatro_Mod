@@ -4,10 +4,10 @@ return {
             b_giga_foodie = {
                 name = "Foodie's Deck",
                 text = {
-                    'Create a {C:giga_Food}Food{}',
+                    'Creates a {C:giga_Food}Food{}',
                     'card at the start',
                     'of every round and',
-                    'start with {C:attention,T:v_giga_foodTruck}Food Stand{}'
+                    'starts with {C:attention,T:v_giga_foodTruck}Food Stand{}'
                 }
             },
             b_giga_reverseCheckered = {
@@ -480,9 +480,9 @@ return {
                 }
             },
             c_giga_marshmallow = {
-                name = 'Marshmallow',
+                name = 'Marshmallows',
                 text = {
-                    'Some delicious Marshmallow that',
+                    'Some delicious Marshmallows that',
                     'will destroy {C:attention}#1#{} card'
                 }
             }
@@ -1223,7 +1223,7 @@ return {
                 }
             },
             --#endregion
-            --#region REAL OTHERS
+            --#region Real others
             giga_uncopiable_info = {
                 name = 'Uncopiable',
                 text = {
@@ -1244,7 +1244,59 @@ return {
                 }
             }
         },
-        Planet={},
+        Planet={
+            c_giga_astralMercury = {
+                name = 'Astral Mercury',
+                text = {
+                    '({V:1}lvl.#1#{}) Level up',
+                    '{C:attention}#2#{} times',
+                    '{C:attention}#3#',
+                    '{C:mult}+#4#{} Mult and',
+                    '{C:chips}+#5#{} chips'
+                }
+            },
+            c_giga_astralJupiter = {
+                name = 'Astral Jupiter',
+                text = {
+                    '({V:1}lvl.#1#{}) Level up',
+                    '{C:attention}#2#{} times',
+                    '{C:attention}#3#',
+                    '{C:mult}+#4#{} Mult and',
+                    '{C:chips}+#5#{} chips'
+                }
+            },
+            c_giga_astralPluto = {
+                name = 'Astral Pluto',
+                text = {
+                    '({V:1}lvl.#1#{}) Level up',
+                    '{C:attention}#2#{} times',
+                    '{C:attention}#3#',
+                    '{C:mult}+#4#{} Mult and',
+                    '{C:chips}+#5#{} chips'
+                }
+            },
+            c_giga_astralEris = {
+                name = 'Astral Eris',
+                text = {
+                    '({V:1}lvl.#1#{}) Level up',
+                    '{C:attention}#2#{} times',
+                    '{C:attention}#3#',
+                    '{C:mult}+#4#{} Mult and',
+                    '{C:chips}+#5#{} chips'
+                }
+            },
+            c_giga_astralPlanetX = {
+                name = 'Astral Planet X',
+                text = {
+                    '({V:1}lvl.#1#{}) Level up',
+                    '{C:attention}#2#{} times',
+                    '{C:attention}#3#',
+                    '{C:mult}+#4#{} Mult and',
+                    '{C:chips}+#5#{} chips'
+                }
+            },
+
+        },
         Sleeve = {
             sleeve_giga_reverseCheckeredSleeve = {
                 name = 'Reversed Checkered Sleeve',
