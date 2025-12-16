@@ -89,8 +89,8 @@ function Card:set_ability(center, initial, delay_sprites)
             c_uranus    = 'c_giga_astralUranus',
             c_neptune   = 'c_giga_astralNeptune'
         }
-        if astrals[center] then
-            center = G.P_CENTERS[astrals[center]]
+        if astrals[center.key] then
+            center = G.P_CENTERS[astrals[center.key]]
         end
     end
     return darling_creates(self, center, initial, delay_sprites)
