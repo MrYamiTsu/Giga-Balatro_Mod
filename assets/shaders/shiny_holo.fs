@@ -4,7 +4,7 @@
 	#define MY_HIGHP_OR_MEDIUMP mediump
 #endif
 
-extern MY_HIGHP_OR_MEDIUMP vec2 s_holo;
+extern MY_HIGHP_OR_MEDIUMP vec2 shiny_holo;
 extern MY_HIGHP_OR_MEDIUMP number dissolve;
 extern MY_HIGHP_OR_MEDIUMP number time;
 extern MY_HIGHP_OR_MEDIUMP vec4 texture_details;
@@ -100,7 +100,7 @@ vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords
 	vec2 uv = (((texture_coords)*(image_details)) - texture_details.xy*texture_details.ba)/texture_details.ba;
     vec4 hsl = HSL(0.5*tex + 0.5*vec4(0.,0.,1.,tex.a));
 
-	float t = s_holo.y*7.221 + time;
+	float t = shiny_holo.y*7.221 + time;
 	vec2 floored_uv = (floor((uv*texture_details.ba)))/texture_details.ba;
     vec2 uv_scaled_centered = (floored_uv - 0.5) * 250.;
 	
@@ -112,7 +112,7 @@ vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords
         cos(length(field_part1) / 19.483) + sin(length(field_part2) / 33.155) * cos(field_part2.y / 15.73) +
         cos(length(field_part3) / 27.193) * sin(field_part3.x / 21.92) ))/2.;
 	
-	float res = (.5 + .5* cos( (s_holo.x) * 2.612 + ( field + -.5 ) *3.14));
+	float res = (.5 + .5* cos( (shiny_holo.x) * 2.612 + ( field + -.5 ) *3.14));
 
 	number low = min(tex.r, min(tex.g, tex.b));
     number high = max(tex.r, max(tex.g, tex.b));
@@ -129,16 +129,6 @@ vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords
 	
 	if (tex[3] < 0.7)
 		tex[3] = tex[3]/3.;
-
-    float star_density = 0.02;
-    float star_seed = fract(sin(dot(floor(uv * 800.0), vec2(12.9898,78.233))) * 43758.5453);
-
-    if (star_seed < star_density) {
-        float twinkle = 0.5 + 0.5 * sin(time * 12.0 + star_seed * 90.0);
-        vec3 star_color = vec3(1.0, 0.8, 0.9);
-        float intensity = twinkle * 2.0;
-        tex.rgb += star_color * intensity * (1.0 - dissolve);
-    }
     
     vec3 dark_red_tint = vec3(1.05, 0.6, 1.2);
     float tint_strength = 0.22;

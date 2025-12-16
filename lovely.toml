@@ -95,8 +95,10 @@ pattern = '''
 '''
 position = "after"
 payload = '''
-    if first_pass and _c.giga_data and _c.giga_data.uncopiable then
-        info_queue[#info_queue+1] = {set = 'Other', key = 'giga_uncopiable_info'}
+    if first_pass then
+        if _c.giga_data and _c.giga_data.uncopiable then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_uncopiable_info'}
+        end
     end
 '''
 match_indent = false

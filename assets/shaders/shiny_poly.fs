@@ -4,7 +4,7 @@
 	#define MY_HIGHP_OR_MEDIUMP mediump
 #endif
 
-extern MY_HIGHP_OR_MEDIUMP vec2 s_poly;
+extern MY_HIGHP_OR_MEDIUMP vec2 shiny_poly;
 extern MY_HIGHP_OR_MEDIUMP number dissolve;
 extern MY_HIGHP_OR_MEDIUMP number time;
 extern MY_HIGHP_OR_MEDIUMP vec4 texture_details;
@@ -113,7 +113,7 @@ vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords
 
 	vec4 hsl = HSL(vec4(tex.r*saturation_fac, tex.g*saturation_fac, tex.b, tex.a));
 
-	float t = s_poly.y*2.221 + time;
+	float t = shiny_poly.y*2.221 + time;
 	vec2 floored_uv = (floor((uv*texture_details.ba)))/texture_details.ba;
     vec2 uv_scaled_centered = (floored_uv - 0.5) * 50.;
 	
@@ -125,8 +125,8 @@ vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords
         cos(length(field_part1) / 19.483) + sin(length(field_part2) / 33.155) * cos(field_part2.y / 15.73) +
         cos(length(field_part3) / 27.193) * sin(field_part3.x / 21.92) ))/2.;
 
-    float res = (.5 + .5* cos( (s_poly.x) * 2.612 + ( field + -.5 ) *3.14));
-	hsl.x = hsl.x + res + s_poly.y*0.04 + 0.62;
+    float res = (.5 + .5* cos( (shiny_poly.x) * 2.612 + ( field + -.5 ) *3.14));
+	hsl.x = hsl.x + res + shiny_poly.y*0.04 + 0.62;
 	hsl.y = min(0.6,hsl.y+0.5);
 
     tex.rgb = RGB(hsl).rgb;
@@ -134,22 +134,7 @@ vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords
 	tex.rgb = mix(tex.rgb, tex.rgb * vec3(0.85, 1.10, 0.85), 0.25);
 
 	if (tex.a < 0.7)
-    tex.a = tex.a/3.;
-
-    float sparkle_density = 0.02;
-    vec2 cell = floor(texture_coords * 250.0);
-    float seed = hash(cell);
-
-    float sparkle_mask = step(1.0 - sparkle_density, seed);
-    float sparkle_twinkle = 0.3 + 0.7 * sin(time * 20.0 + seed * 40.0);
-
-    vec2 local = fract(texture_coords * 250.0) - 0.5;
-    float dist2 = dot(local, local);
-    float sparkle_falloff = smoothstep(0.12, 0.0, sqrt(dist2));
-
-    vec3 sparkle_col = vec3(0.75, 1.0, 0.9);
-
-    tex.rgb += sparkle_col * sparkle_twinkle * sparkle_falloff * sparkle_mask * 0.35;
+        tex.a = tex.a/3.;
 
     return dissolve_mask(tex*colour, texture_coords, uv);
 }

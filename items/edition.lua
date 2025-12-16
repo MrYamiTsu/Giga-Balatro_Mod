@@ -1,10 +1,10 @@
 SMODS.Shader{
-    key = 's_foil',
-    path = 's_foil.fs'
+    key = 'shiny_foil',
+    path = 'shiny_foil.fs'
 }
 SMODS.Edition{
-    key = 's_foil',
-    shader = 's_foil',
+    key = 'shiny_foil',
+    shader = 'shiny_foil',
     loc_txt = {
         name = "Shiny Foil",
         text = {
@@ -17,7 +17,10 @@ SMODS.Edition{
     sound = {sound = "foil1", per = 1.2, vol = 0.6},
     config = { chips = 100 },
     loc_vars = function(self, info_queue, card)
-        return {vars = { card.edition.chips }}
+        if G.SETTINGS.paused then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_shiny_chance', vars = {'Foil'}}
+        end
+        return {vars = { self.config.chips }}
     end,
     calculate = function(self, card, context)
         if context.pre_joker or (context.main_scoring and context.cardarea == G.play) then
@@ -33,12 +36,12 @@ SMODS.Edition{
 }
 
 SMODS.Shader{
-    key = 's_holo',
-    path = 's_holo.fs'
+    key = 'shiny_holo',
+    path = 'shiny_holo.fs'
 }
 SMODS.Edition{
-    key = 's_holo',
-    shader = 's_holo',
+    key = 'shiny_holo',
+    shader = 'shiny_holo',
     loc_txt = {
         name = {"Shiny", "Holographic"},
         text = {
@@ -51,7 +54,10 @@ SMODS.Edition{
     sound = {sound = "holo1", per = 1.2 * 1.58, vol = 0.6},
     config = { mult = 20 },
     loc_vars = function(self, info_queue, card)
-        return {vars = { card.edition.mult }}
+        if G.SETTINGS.paused then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_shiny_chance', vars = {'Holographic'}}
+        end
+        return {vars = { self.config.mult }}
     end,
     calculate = function(self, card, context)
         if context.pre_joker or (context.main_scoring and context.cardarea == G.play) then
@@ -67,12 +73,12 @@ SMODS.Edition{
 }
 
 SMODS.Shader{
-    key = 's_poly',
-    path = 's_poly.fs'
+    key = 'shiny_poly',
+    path = 'shiny_poly.fs'
 }
 SMODS.Edition{
-    key = 's_poly',
-    shader = 's_poly',
+    key = 'shiny_poly',
+    shader = 'shiny_poly',
     loc_txt = {
         name = {"Shiny", "Polychrome"},
         text = {
@@ -85,7 +91,10 @@ SMODS.Edition{
     sound = {sound = "polychrome1", per = 1.2, vol = 0.9},
     config = { x_mult = 3 },
     loc_vars = function(self, info_queue, card)
-        return {vars = { card.edition.x_mult }}
+        if G.SETTINGS.paused then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_shiny_chance', vars = {'Polychrome'}}
+        end
+        return {vars = { self.config.x_mult }}
     end,
     calculate = function(self, card, context)
         if context.pre_joker or (context.main_scoring and context.cardarea == G.play) then

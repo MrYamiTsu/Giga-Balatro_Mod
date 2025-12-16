@@ -294,7 +294,7 @@ SMODS.Joker{ --MoonstoneALT
     end,
     in_pool = function (self, args)
         for _, c in pairs(G.playing_cards or {}) do
-            if c.edition and (c.edition.foil or c.edition.key == 'e_giga_s_foil') then
+            if c.edition and (c.edition.foil or c.edition.key == 'e_giga_shiny_foil') then
                 return true
             end
         end
@@ -302,7 +302,7 @@ SMODS.Joker{ --MoonstoneALT
     end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.hand and not context.end_of_round then
-            if context.other_card.edition and (context.other_card.edition.foil or context.other_card.edition.key == 'e_giga_s_foil') then
+            if context.other_card.edition and (context.other_card.edition.foil or context.other_card.edition.key == 'e_giga_shiny_foil') then
                 return {
                     mult = card.ability.extra.mult
                 }
@@ -332,7 +332,7 @@ SMODS.Joker{ --PinkTourmalineALT
     end,
     in_pool = function (self, args)
         for _, c in pairs(G.playing_cards or {}) do
-            if c.edition and (c.edition.holo or c.edition.key == 'e_giga_s_holo') then
+            if c.edition and (c.edition.holo or c.edition.key == 'e_giga_shiny_holo') then
                 return true
             end
         end
@@ -340,7 +340,7 @@ SMODS.Joker{ --PinkTourmalineALT
     end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.hand and not context.end_of_round then
-            if context.other_card.edition and (context.other_card.edition.holo or context.other_card.edition.key == 'e_giga_s_holo') then
+            if context.other_card.edition and (context.other_card.edition.holo or context.other_card.edition.key == 'e_giga_shiny_holo') then
                 return {
                     x_mult = card.ability.extra.xmult
                 }
@@ -370,7 +370,7 @@ SMODS.Joker{ --RainbowQuartzALT
     end,
     in_pool = function (self, args)
         for _, c in pairs(G.playing_cards or {}) do
-            if c.edition and (c.edition.polychrome or c.edition.key == 'e_giga_s_poly') then
+            if c.edition and (c.edition.polychrome or c.edition.key == 'e_giga_shiny_poly') then
                 return true
             end
         end
@@ -378,7 +378,7 @@ SMODS.Joker{ --RainbowQuartzALT
     end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.hand and not context.end_of_round then
-            if context.other_card.edition and (context.other_card.edition.polychrome or context.other_card.edition.key == 'e_giga_s_poly') then
+            if context.other_card.edition and (context.other_card.edition.polychrome or context.other_card.edition.key == 'e_giga_shiny_poly') then
                 return {
                     chips = card.ability.extra.chips
                 }

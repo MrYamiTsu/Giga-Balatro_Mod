@@ -4,7 +4,7 @@
     #define MY_HIGHP_OR_MEDIUMP mediump
 #endif
 
-extern MY_HIGHP_OR_MEDIUMP vec2 s_foil;
+extern MY_HIGHP_OR_MEDIUMP vec2 shiny_foil;
 extern MY_HIGHP_OR_MEDIUMP number dissolve;
 extern MY_HIGHP_OR_MEDIUMP number time;
 extern MY_HIGHP_OR_MEDIUMP vec4 texture_details;
@@ -111,12 +111,12 @@ vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords
     number high = max(tex.r, max(tex.g, tex.b));
     number delta = min(high, max(0.5, 1. - low));
 
-    number fac = max(min(2.*sin((length(90.*adjusted_uv) + s_foil.r*2.) + 3.*(1.+0.8*cos(length(113.1121*adjusted_uv) - s_foil.r*3.121))) - 1. - max(5.-length(90.*adjusted_uv), 0.), 1.), 0.);
-    vec2 rotater = vec2(cos(s_foil.r*0.1221), sin(s_foil.r*0.3512));
+    number fac = max(min(2.*sin((length(90.*adjusted_uv) + shiny_foil.r*2.) + 3.*(1.+0.8*cos(length(113.1121*adjusted_uv) - shiny_foil.r*3.121))) - 1. - max(5.-length(90.*adjusted_uv), 0.), 1.), 0.);
+    vec2 rotater = vec2(cos(shiny_foil.r*0.1221), sin(shiny_foil.r*0.3512));
     number angle = dot(rotater, adjusted_uv)/(length(rotater)*length(adjusted_uv));
-    number fac2 = max(min(5.*cos(s_foil.g*0.3 + angle*3.14*(2.2+0.9*sin(s_foil.r*1.65 + 0.2*s_foil.g))) - 4. - max(2.-length(20.*adjusted_uv), 0.), 1.), 0.);
-    number fac3 = 0.3*max(min(2.*sin(s_foil.r*5. + uv.x*3. + 3.*(1.+0.5*cos(s_foil.r*7.))) - 1., 1.), -1.);
-    number fac4 = 0.3*max(min(2.*sin(s_foil.r*6.66 + uv.y*3.8 + 3.*(1.+0.5*cos(s_foil.r*3.414))) - 1., 1.), -1.);
+    number fac2 = max(min(5.*cos(shiny_foil.g*0.3 + angle*3.14*(2.2+0.9*sin(shiny_foil.r*1.65 + 0.2*shiny_foil.g))) - 4. - max(2.-length(20.*adjusted_uv), 0.), 1.), 0.);
+    number fac3 = 0.3*max(min(2.*sin(shiny_foil.r*5. + uv.x*3. + 3.*(1.+0.5*cos(shiny_foil.r*7.))) - 1., 1.), -1.);
+    number fac4 = 0.3*max(min(2.*sin(shiny_foil.r*6.66 + uv.y*3.8 + 3.*(1.+0.5*cos(shiny_foil.r*3.414))) - 1., 1.), -1.);
 
     number maxfac = max(max(fac, max(fac2, max(fac3, max(fac4, 0.0)))) + 2.2*(fac+fac2+fac3+fac4), 0.);
 
@@ -124,22 +124,6 @@ vec4 effect( vec4 colour, Image texture, vec2 texture_coords, vec2 screen_coords
     tex.g = tex.g-delta + delta*maxfac*0.2;
     tex.b = tex.b + delta*maxfac*1.6;
     tex.a = min(tex.a, 0.3*tex.a + 0.9*min(0.5, maxfac*0.1));
-
-    float star_density = 0.03;
-    float star_seed = hash(floor(uv * 800.0));
-
-    if (star_seed < star_density) {
-        float twinkle = 0.5 + 0.5 * sin(time * 12.0 + star_seed * 50.0);
-
-        vec3 star_color = vec3(
-            0.7 + 0.3 * sin(star_seed * 100.0),
-            0.7 + 0.3 * sin(star_seed * 170.0),
-            1.0
-        );
-
-        float intensity = twinkle * 3.0;
-        tex.rgb += star_color * intensity * (1.0 - dissolve);
-    }
 
     return dissolve_mask(tex, texture_coords, uv);
 }

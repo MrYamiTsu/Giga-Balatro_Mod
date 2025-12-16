@@ -12,6 +12,9 @@ SMODS.Consumable{ --AstralMercury
         }
     },
     loc_vars = function(self, info_queue, card)
+        if G.SETTINGS.paused then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {'Mercury'}}
+        end
         return {
             vars = {
                 G.GAME.hands[card.ability.hand_type].level,
@@ -57,6 +60,9 @@ SMODS.Consumable{ --AstralVenus
         }
     },
     loc_vars = function(self, info_queue, card)
+        if G.SETTINGS.paused then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {'Venus'}}
+        end
         return {
             vars = {
                 G.GAME.hands[card.ability.hand_type].level,
@@ -102,6 +108,9 @@ SMODS.Consumable{ --AstralEarth
         }
     },
     loc_vars = function(self, info_queue, card)
+        if G.SETTINGS.paused then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {'Earth'}}
+        end
         return {
             vars = {
                 G.GAME.hands[card.ability.hand_type].level,
@@ -147,6 +156,9 @@ SMODS.Consumable{ --AstralMars
         }
     },
     loc_vars = function(self, info_queue, card)
+        if G.SETTINGS.paused then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {'Mars'}}
+        end
         return {
             vars = {
                 G.GAME.hands[card.ability.hand_type].level,
@@ -192,6 +204,9 @@ SMODS.Consumable{ --AstralJupiter
         }
     },
     loc_vars = function(self, info_queue, card)
+        if G.SETTINGS.paused then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {'Jupiter'}}
+        end
         return {
             vars = {
                 G.GAME.hands[card.ability.hand_type].level,
@@ -237,6 +252,9 @@ SMODS.Consumable{ --AstralSaturn
         }
     },
     loc_vars = function(self, info_queue, card)
+        if G.SETTINGS.paused then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {'Saturn'}}
+        end
         return {
             vars = {
                 G.GAME.hands[card.ability.hand_type].level,
@@ -282,6 +300,9 @@ SMODS.Consumable{ --AstralUranus
         }
     },
     loc_vars = function(self, info_queue, card)
+        if G.SETTINGS.paused then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {'Uranus'}}
+        end
         return {
             vars = {
                 G.GAME.hands[card.ability.hand_type].level,
@@ -327,6 +348,9 @@ SMODS.Consumable{ --AstralNeptune
         }
     },
     loc_vars = function(self, info_queue, card)
+        if G.SETTINGS.paused then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {'Neptune'}}
+        end
         return {
             vars = {
                 G.GAME.hands[card.ability.hand_type].level,
@@ -372,6 +396,9 @@ SMODS.Consumable{ --AstralPluto
         }
     },
     loc_vars = function(self, info_queue, card)
+        if G.SETTINGS.paused then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {'Pluto'}}
+        end
         return {
             vars = {
                 G.GAME.hands[card.ability.hand_type].level,
@@ -420,6 +447,9 @@ SMODS.Consumable{ --AstralPlanetX
         }
     },
     loc_vars = function(self, info_queue, card)
+        if G.SETTINGS.paused then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {'Planet X'}}
+        end
         return {
             vars = {
                 G.GAME.hands[card.ability.hand_type].level,
@@ -468,6 +498,9 @@ SMODS.Consumable{ --AstralCeres
         }
     },
     loc_vars = function(self, info_queue, card)
+        if G.SETTINGS.paused then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {'Ceres'}}
+        end
         return {
             vars = {
                 G.GAME.hands[card.ability.hand_type].level,
@@ -516,6 +549,9 @@ SMODS.Consumable{ --AstralEris
         }
     },
     loc_vars = function(self, info_queue, card)
+        if G.SETTINGS.paused then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {'Eris'}}
+        end
         return {
             vars = {
                 G.GAME.hands[card.ability.hand_type].level,
