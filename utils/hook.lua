@@ -51,7 +51,7 @@ end
 local eddy_the_edition = Card.set_edition
 function Card:set_edition(edition, immediate, silent, delay)
     if not G.SETTINGS.paused then
-        if math.random(20) == 1 then
+        if math.random(25) <= 2 then
             if edition == 'e_foil' then
                 edition = 'e_giga_s_foil'
             end
@@ -74,7 +74,7 @@ function Card:set_ability(center, initial, delay_sprites)
         assert(G.P_CENTERS[center])
         center = G.P_CENTERS[center]
     end
-    if not G.SETTINGS.paused and center.set == 'Planet' and math.random(20) == 1 then
+    if not G.SETTINGS.paused and center.set == 'Planet' and math.random(25) <= 2 then
         local astrals = {
             c_mercury   = 'c_giga_astralMercury',
             c_jupiter   = 'c_giga_astralJupiter',
