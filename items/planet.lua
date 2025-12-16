@@ -402,6 +402,9 @@ SMODS.Consumable{ --AstralPluto
 	end,
     in_pool = function(self)
         return false
+    end,
+    set_card_type_badge = function(self, card, badges)
+        badges[#badges + 1] = create_badge(localize('k_dwarf_planet'), get_type_colour(card.config.center or card.config, card), SMODS.ConsumableTypes.Planet.text_colour, 1.2)
     end
 }
 SMODS.Consumable{ --AstralPlanetX
@@ -447,6 +450,9 @@ SMODS.Consumable{ --AstralPlanetX
 	end,
     in_pool = function(self)
         return false
+    end,
+    set_card_type_badge = function(self, card, badges)
+        badges[#badges + 1] = create_badge(localize('k_planet_q'), get_type_colour(card.config.center or card.config, card), SMODS.ConsumableTypes.Planet.text_colour, 1.2)
     end
 }
 SMODS.Consumable{ --AstralCeres
@@ -492,6 +498,9 @@ SMODS.Consumable{ --AstralCeres
 	end,
     in_pool = function(self)
         return false
+    end,
+    set_card_type_badge = function(self, card, badges)
+        badges[#badges + 1] = create_badge(localize('k_dwarf_planet'), get_type_colour(card.config.center or card.config, card), SMODS.ConsumableTypes.Planet.text_colour, 1.2)
     end
 }
 SMODS.Consumable{ --AstralEris
@@ -537,6 +546,9 @@ SMODS.Consumable{ --AstralEris
 	end,
     in_pool = function(self)
         return false
+    end,
+    set_card_type_badge = function(self, card, badges)
+        badges[#badges + 1] = create_badge(localize('k_dwarf_planet'), get_type_colour(card.config.center or card.config, card), SMODS.ConsumableTypes.Planet.text_colour, 1.2)
     end
 }
 --#endregion
