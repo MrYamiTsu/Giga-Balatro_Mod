@@ -2,7 +2,7 @@
 SMODS.Consumable{ --AstralMercury
     key = 'astralMercury',
     set = 'Planet',
-    atlas = 'Planets1',
+    atlas = 'Planets',
     pos = {x = 3, y = 1},
     cost = 3,
     config = {
@@ -55,7 +55,7 @@ SMODS.Consumable{ --AstralMercury
 SMODS.Consumable{ --AstralVenus
     key = 'astralVenus',
     set = 'Planet',
-    atlas = 'Planets1',
+    atlas = 'Planets',
     pos = {x = 0, y = 1},
     cost = 3,
     config = {
@@ -108,7 +108,7 @@ SMODS.Consumable{ --AstralVenus
 SMODS.Consumable{ --AstralEarth
     key = 'astralEarth',
     set = 'Planet',
-    atlas = 'Planets1',
+    atlas = 'Planets',
     pos = {x = 1, y = 1},
     cost = 3,
     config = {
@@ -161,7 +161,7 @@ SMODS.Consumable{ --AstralEarth
 SMODS.Consumable{ --AstralMars
     key = 'astralMars',
     set = 'Planet',
-    atlas = 'Planets1',
+    atlas = 'Planets',
     pos = {x = 5, y = 1},
     cost = 3,
     config = {
@@ -214,7 +214,7 @@ SMODS.Consumable{ --AstralMars
 SMODS.Consumable{ --AstralJupiter
     key = 'astralJupiter',
     set = 'Planet',
-    atlas = 'Planets1',
+    atlas = 'Planets',
     pos = {x = 4, y = 1},
     cost = 3,
     config = {
@@ -267,7 +267,7 @@ SMODS.Consumable{ --AstralJupiter
 SMODS.Consumable{ --AstralSaturn
     key = 'astralSaturn',
     set = 'Planet',
-    atlas = 'Planets1',
+    atlas = 'Planets',
     pos = {x = 0, y = 0},
     cost = 3,
     config = {
@@ -314,14 +314,13 @@ SMODS.Consumable{ --AstralSaturn
     draw = function(self, card, layer)
         if card.config.center.discovered or card.bypass_discovery_center then
             card.children.center:draw_shader('voucher', nil, card.ARGS.send_to_shader)
-            G.giga_sprite:draw_shader('dissolve', nil, nil, nil, card.children.center)
         end
     end
 }
 SMODS.Consumable{ --AstralUranus
     key = 'astralUranus',
     set = 'Planet',
-    atlas = 'Planets1',
+    atlas = 'Planets',
     pos = {x = 1, y = 0},
     cost = 3,
     config = {
@@ -374,7 +373,7 @@ SMODS.Consumable{ --AstralUranus
 SMODS.Consumable{ --AstralNeptune
     key = 'astralNeptune',
     set = 'Planet',
-    atlas = 'Planets1',
+    atlas = 'Planets',
     pos = {x = 2, y = 0},
     cost = 3,
     config = {
@@ -427,7 +426,7 @@ SMODS.Consumable{ --AstralNeptune
 SMODS.Consumable{ --AstralPluto
     key = 'astralPluto',
     set = 'Planet',
-    atlas = 'Planets1',
+    atlas = 'Planets',
     pos = {x = 3, y = 0},
     cost = 3,
     config = {
@@ -483,7 +482,7 @@ SMODS.Consumable{ --AstralPluto
 SMODS.Consumable{ --AstralPlanetX
     key = 'astralPlanetX',
     set = 'Planet',
-    atlas = 'Planets1',
+    atlas = 'Planets',
     pos = {x = 4, y = 0},
     cost = 3,
     config = {
@@ -539,7 +538,7 @@ SMODS.Consumable{ --AstralPlanetX
 SMODS.Consumable{ --AstralCeres
     key = 'astralCeres',
     set = 'Planet',
-    atlas = 'Planets1',
+    atlas = 'Planets',
     pos = {x = 2, y = 1},
     cost = 3,
     config = {
@@ -595,7 +594,7 @@ SMODS.Consumable{ --AstralCeres
 SMODS.Consumable{ --AstralEris
     key = 'astralEris',
     set = 'Planet',
-    atlas = 'Planets1',
+    atlas = 'Planets',
     pos = {x = 5, y = 0},
     cost = 3,
     config = {

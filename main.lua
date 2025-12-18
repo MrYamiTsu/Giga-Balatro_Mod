@@ -136,6 +136,12 @@ SMODS.Atlas{
     atlas_table = 'ANIMATION_ATLAS'
 }
 SMODS.Atlas{
+    key = 'Planets',
+    path = 'Planet.png',
+    px = 71,
+    py = 95
+}
+SMODS.Atlas{
     key = 'Planets1',
     path = 'Planet1.png',
     px = 71,
