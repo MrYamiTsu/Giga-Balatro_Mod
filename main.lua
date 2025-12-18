@@ -142,18 +142,6 @@ SMODS.Atlas{
     py = 95
 }
 SMODS.Atlas{
-    key = 'Planets1',
-    path = 'Planet1.png',
-    px = 71,
-    py = 95
-}
-SMODS.Atlas{
-    key = 'Planets2',
-    path = 'Planet2.png',
-    px = 71,
-    py = 95
-}
-SMODS.Atlas{
     key = 'secret1',
     path = 'secret1.png',
     px = 166,
