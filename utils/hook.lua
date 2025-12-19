@@ -76,18 +76,18 @@ function Card:set_ability(center, initial, delay_sprites)
     end
     if not G.SETTINGS.paused and center.set == 'Planet' and math.random(25) <= 2 then
         local astrals = {
-            c_mercury   = 'c_giga_astralMercury',
-            c_jupiter   = 'c_giga_astralJupiter',
-            c_pluto     = 'c_giga_astralPluto',
-            c_eris      = 'c_giga_astralEris',
-            c_planet_x  = 'c_giga_astralPlanetX',
-            c_saturn    = 'c_giga_astralSaturn',
-            c_earth     = 'c_giga_astralEarth',
-            c_mars      = 'c_giga_astralMars',
-            c_ceres     = 'c_giga_astralCeres',
-            c_venus     = 'c_giga_astralVenus',
-            c_uranus    = 'c_giga_astralUranus',
-            c_neptune   = 'c_giga_astralNeptune'
+            c_mercury   = 'c_giga_astral_mercury',
+            c_jupiter   = 'c_giga_astral_jupiter',
+            c_pluto     = 'c_giga_astral_pluto',
+            c_eris      = 'c_giga_astral_eris',
+            c_planet_x  = 'c_giga_astral_planetX',
+            c_saturn    = 'c_giga_astral_saturn',
+            c_earth     = 'c_giga_astral_earth',
+            c_mars      = 'c_giga_astral_mars',
+            c_ceres     = 'c_giga_astral_ceres',
+            c_venus     = 'c_giga_astral_venus',
+            c_uranus    = 'c_giga_astral_uranus',
+            c_neptune   = 'c_giga_astral_neptune'
         }
         if astrals[center.key] then
             center = G.P_CENTERS[astrals[center.key]]

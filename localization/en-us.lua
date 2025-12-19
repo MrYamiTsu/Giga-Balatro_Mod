@@ -1262,7 +1262,7 @@ return {
             }
         },
         Planet={
-            c_giga_astralMercury = {
+            c_giga_astral_mercury = {
                 name = 'Astral Mercury',
                 text = {
                     '({V:1}lvl.#1#{}) Level up',
@@ -1272,7 +1272,7 @@ return {
                     '{C:chips}+#5#{} chips'
                 }
             },
-            c_giga_astralJupiter = {
+            c_giga_astralJ_jupiter = {
                 name = 'Astral Jupiter',
                 text = {
                     '({V:1}lvl.#1#{}) Level up',
@@ -1282,7 +1282,7 @@ return {
                     '{C:chips}+#5#{} chips'
                 }
             },
-            c_giga_astralPluto = {
+            c_giga_astral_pluto = {
                 name = 'Astral Pluto',
                 text = {
                     '({V:1}lvl.#1#{}) Level up',
@@ -1292,7 +1292,7 @@ return {
                     '{C:chips}+#5#{} chips'
                 }
             },
-            c_giga_astralEris = {
+            c_giga_astral_eris = {
                 name = 'Astral Eris',
                 text = {
                     '({V:1}lvl.#1#{}) Level up',
@@ -1302,7 +1302,7 @@ return {
                     '{C:chips}+#5#{} chips'
                 }
             },
-            c_giga_astralPlanetX = {
+            c_giga_astral_planetX = {
                 name = 'Astral Planet X',
                 text = {
                     '({V:1}lvl.#1#{}) Level up',
@@ -1312,7 +1312,7 @@ return {
                     '{C:chips}+#5#{} chips'
                 }
             },
-            c_giga_astralSaturn = {
+            c_giga_astral_saturn = {
                 name = 'Astral Saturn',
                 text = {
                     '({V:1}lvl.#1#{}) Level up',
@@ -1322,7 +1322,7 @@ return {
                     '{C:chips}+#5#{} chips'
                 }
             },
-            c_giga_astralEarth = {
+            c_giga_astral_earth = {
                 name = 'Astral Earth',
                 text = {
                     '({V:1}lvl.#1#{}) Level up',
@@ -1332,7 +1332,7 @@ return {
                     '{C:chips}+#5#{} chips'
                 }
             },
-            c_giga_astralMars = {
+            c_giga_astral_mars = {
                 name = 'Astral Mars',
                 text = {
                     '({V:1}lvl.#1#{}) Level up',
@@ -1342,8 +1342,8 @@ return {
                     '{C:chips}+#5#{} chips'
                 }
             },
-            c_giga_astralCeres = {
-                name = 'Astral Mars',
+            c_giga_astral_ceres = {
+                name = 'Astral Ceres',
                 text = {
                     '({V:1}lvl.#1#{}) Level up',
                     '{C:attention}#2#{} times',
@@ -1352,7 +1352,7 @@ return {
                     '{C:chips}+#5#{} chips'
                 }
             },
-            c_giga_astralVenus = {
+            c_giga_astral_venus = {
                 name = 'Astral Venus',
                 text = {
                     '({V:1}lvl.#1#{}) Level up',
@@ -1362,7 +1362,7 @@ return {
                     '{C:chips}+#5#{} chips'
                 }
             },
-            c_giga_astralNeptune = {
+            c_giga_astral_neptune = {
                 name = 'Astral Neptune',
                 text = {
                     '({V:1}lvl.#1#{}) Level up',
@@ -1372,7 +1372,7 @@ return {
                     '{C:chips}+#5#{} chips'
                 }
             },
-            c_giga_astralUranus = {
+            c_giga_astral_uranus = {
                 name = 'Astral Uranus',
                 text = {
                     '({V:1}lvl.#1#{}) Level up',
