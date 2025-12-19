@@ -1272,7 +1272,7 @@ return {
                     '{C:chips}+#5#{} chips'
                 }
             },
-            c_giga_astralJ_jupiter = {
+            c_giga_astral_jupiter = {
                 name = 'Astral Jupiter',
                 text = {
                     '({V:1}lvl.#1#{}) Level up',
