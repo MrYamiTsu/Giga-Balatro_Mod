@@ -1240,9 +1240,9 @@ return {
                 }
             },
             giga_astral_chance = {
-                name = 'Shiny Chance',
+                name = 'Astral Chance',
                 text = {
-                    '{C:attention}8%{} chance',
+                    '{C:attention}6%{} chance',
                     'to replace',
                     '{C:attention}#1#{}',
 

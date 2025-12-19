@@ -74,7 +74,7 @@ function Card:set_ability(center, initial, delay_sprites)
         assert(G.P_CENTERS[center])
         center = G.P_CENTERS[center]
     end
-    if not G.SETTINGS.paused and center.set == 'Planet' and math.random(25) <= 2 then
+    if not G.SETTINGS.paused and center.set == 'Planet' and math.random(50) <= 3 then
         local astrals = {
             c_mercury   = 'c_giga_astral_mercury',
             c_jupiter   = 'c_giga_astral_jupiter',
