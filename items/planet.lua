@@ -3,9 +3,6 @@ SMODS.Consumable{ --AstralMercury
     key = 'astral_mercury',
     set = 'Planet',
     atlas = 'Planets',
-    giga_data = {
-        astral_base = 'c_mercury'
-    },
     pos = {x = 3, y = 1},
     cost = 3,
     config = {
@@ -59,9 +56,6 @@ SMODS.Consumable{ --AstralVenus
     key = 'astral_venus',
     set = 'Planet',
     atlas = 'Planets',
-    giga_data = {
-        astral_base = 'c_venus'
-    },
     pos = {x = 0, y = 1},
     cost = 3,
     config = {
@@ -115,9 +109,6 @@ SMODS.Consumable{ --AstralEarth
     key = 'astral_earth',
     set = 'Planet',
     atlas = 'Planets',
-    giga_data = {
-        astral_base = 'c_earth'
-    },
     pos = {x = 1, y = 1},
     cost = 3,
     config = {
@@ -171,9 +162,6 @@ SMODS.Consumable{ --AstralMars
     key = 'astral_mars',
     set = 'Planet',
     atlas = 'Planets',
-    giga_data = {
-        astral_base = 'c_mars'
-    },
     pos = {x = 5, y = 1},
     cost = 3,
     config = {
@@ -227,9 +215,6 @@ SMODS.Consumable{ --AstralJupiter
     key = 'astral_jupiter',
     set = 'Planet',
     atlas = 'Planets',
-    giga_data = {
-        astral_base = 'c_jupiter'
-    },
     pos = {x = 4, y = 1},
     cost = 3,
     config = {
@@ -283,9 +268,6 @@ SMODS.Consumable{ --AstralSaturn
     key = 'astral_saturn',
     set = 'Planet',
     atlas = 'Planets',
-    giga_data = {
-        astral_base = 'c_saturn'
-    },
     pos = {x = 0, y = 0},
     cost = 3,
     config = {
@@ -339,9 +321,6 @@ SMODS.Consumable{ --AstralUranus
     key = 'astral_uranus',
     set = 'Planet',
     atlas = 'Planets',
-    giga_data = {
-        astral_base = 'c_uranus'
-    },
     pos = {x = 1, y = 0},
     cost = 3,
     config = {
@@ -395,9 +374,6 @@ SMODS.Consumable{ --AstralNeptune
     key = 'astral_neptune',
     set = 'Planet',
     atlas = 'Planets',
-    giga_data = {
-        astral_base = 'c_neptune'
-    },
     pos = {x = 2, y = 0},
     cost = 3,
     config = {
@@ -451,9 +427,6 @@ SMODS.Consumable{ --AstralPluto
     key = 'astral_pluto',
     set = 'Planet',
     atlas = 'Planets',
-    giga_data = {
-        astral_base = 'c_pluto'
-        },
     pos = {x = 3, y = 0},
     cost = 3,
     config = {
@@ -510,9 +483,6 @@ SMODS.Consumable{ --AstralPlanetX
     key = 'astral_planetX',
     set = 'Planet',
     atlas = 'Planets',
-    giga_data = {
-        astral_base = 'c_planet_x'
-    },
     pos = {x = 4, y = 0},
     cost = 3,
     config = {
@@ -569,9 +539,6 @@ SMODS.Consumable{ --AstralCeres
     key = 'astral_ceres',
     set = 'Planet',
     atlas = 'Planets',
-    giga_data = {
-        astral_base = 'c_ceres'
-    },
     pos = {x = 2, y = 1},
     cost = 3,
     config = {
@@ -628,9 +595,6 @@ SMODS.Consumable{ --AstralEris
     key = 'astral_eris',
     set = 'Planet',
     atlas = 'Planets',
-    giga_data = {
-        astral_base = 'c_eris'
-    },
     pos = {x = 5, y = 0},
     cost = 3,
     config = {

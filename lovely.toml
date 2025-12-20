@@ -87,13 +87,13 @@ match_indent = true
 [[patches]]
 [patches.pattern]
 target = "functions/common_events.lua"
+position = "after"
 pattern = '''
     if full_UI_table.name then
         full_UI_table.info[#full_UI_table.info+1] = {}
         desc_nodes = full_UI_table.info[#full_UI_table.info]
     end
 '''
-position = "after"
 payload = '''
     if first_pass then
         if _c.giga_data and _c.giga_data.uncopiable then
@@ -102,4 +102,18 @@ payload = '''
     end
 '''
 match_indent = false
+times = 1
+
+# ASTRALS PLANETS #
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+position = 'at'
+pattern = '''
+elseif not (G.GAME.used_jokers[v.key] and not pool_opts.allow_duplicates and not SMODS.showman(v.key)) and
+'''
+payload = '''
+elseif not ((G.GAME.used_jokers[v.key] or v.giga_data and v.giga_data.astral_variant and G.GAME.used_jokers[v.giga_data.astral_variant]) and not pool_opts.allow_duplicates and not SMODS.showman(v.key)) and
+'''
+match_indent = true
 times = 1
