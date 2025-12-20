@@ -582,7 +582,7 @@ SMODS.Joker{ --MonochromeCrystal
     eternal_compat = true,
     config = { extra = {
         mult = 24,
-        nerf_mult = -30
+        nerf_mult = -16
     }},
     loc_vars = function(self, info_queue, card)
         return {vars = {card.ability.extra.mult, card.ability.extra.nerf_mult}}
@@ -1174,7 +1174,11 @@ SMODS.Joker{ --JackMutator
     end,
     calculate = function(self, card, context)
         if context.end_of_round and context.cardarea == G.jokers then
-            card.ability.extra.round_left = card.ability.extra.round_left - 1
+            if card.ability.extra.round_left > 0 then
+                card.ability.extra.round_left = card.ability.extra.round_left - 1
+            else
+                card.ability.extra.round_left = card.ability.extra.round
+            end
         end
         if card.ability.extra.round_left <= 0 and context.first_hand_drawn then
             G.E_MANAGER:add_event(Event({
@@ -1199,7 +1203,6 @@ SMODS.Joker{ --JackMutator
                     return true
                 end
             }))
-            card.ability.extra.round_left = card.ability.extra.round
         end
     end
 }
@@ -1342,9 +1345,9 @@ SMODS.Joker{ --TRex
         }
     }},
     loc_vars = function(self, info_queue, center)
-        local set = next(SMODS.find_card("j_giga_velocyraptor")) and 'Spectral' or 'Tarot'
-        local _mult = next(SMODS.find_card("j_giga_triceratops")) and center.ability.extra.interac.trice_mult or center.ability.extra.mult_add
-        local _chips = next(SMODS.find_card("j_giga_pteranodon")) and center.ability.extra.interac.ptera_chips or center.ability.extra.chips_add
+        local set = next(SMODS.find_card("j_giga_velocyraptor" or "j_giga_velocyraptor_alt")) and 'Spectral' or 'Tarot'
+        local _mult = next(SMODS.find_card("j_giga_triceratops" or "j_giga_triceratops_alt")) and center.ability.extra.interac.trice_mult or center.ability.extra.mult_add
+        local _chips = next(SMODS.find_card("j_giga_pteranodon" or "j_giga_pteranodon_alt")) and center.ability.extra.interac.ptera_chips or center.ability.extra.chips_add
         return {vars = {colours={G.C.SECONDARY_SET[set]}, localize(set:lower(), "labels"), _mult, _chips, center.ability.extra.mult, center.ability.extra.chips}}
     end,
     calculate = function(self, card, context)
@@ -1367,7 +1370,8 @@ SMODS.Joker{ --TRex
                     end
                 end
                 if #G.consumeables.cards < G.consumeables.config.card_limit then
-                    _create(card,card.ability.extra.txt,G.consumeables,false,false)
+                    local set = next(SMODS.find_card("j_giga_velocyraptor" or "j_giga_velocyraptor_alt")) and 'Spectral' or 'Tarot'
+                    SMODS.add_card({set = set})
                     delay(0.4)
                 else
                     SMODS.calculate_effect({ message = localize('k_no_room_ex') }, card)
@@ -1500,9 +1504,9 @@ SMODS.Joker{ --Triceratops
     eternal_compat = true,
     config = { extra = {
         odds = 1,
-        chances = 9,
+        chances = 8,
         interac = {
-            ptera_chance = 8
+            ptera_chance = 6
         }
     }},
     loc_vars = function(self, info_queue, card)
@@ -1514,16 +1518,11 @@ SMODS.Joker{ --Triceratops
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
             local theChances = next(SMODS.find_card("j_giga_pteranodon" or "j_giga_pteranodon_alt")) and card.ability.extra.interac.ptera_chance or card.ability.extra.chances
+            print(theChances)
             if SMODS.has_enhancement(context.other_card, 'm_mult') then
+                print("here")
                 if SMODS.pseudorandom_probability(card, pseudoseed('giga_triceratops'), card.ability.extra.odds, theChances, 'tcrtp_prob1') then
-                    return {
-                        level_up = true,
-                        message = localize('k_level_up_ex')
-                    }
-                end
-            end
-            if SMODS.has_enhancement(context.other_card, 'm_giga_multPlus') then
-                if SMODS.pseudorandom_probability(card, pseudoseed('giga_triceratops'), card.ability.extra.odds * 2, theChances, 'tcrtp_prob2') then
+                    print("ok")
                     return {
                         level_up = true,
                         message = localize('k_level_up_ex')

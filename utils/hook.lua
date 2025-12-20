@@ -53,13 +53,13 @@ function Card:set_edition(edition, immediate, silent, delay)
     if not G.SETTINGS.paused then
         if math.random(25) <= 2 then
             if edition == 'e_foil' then
-                edition = 'e_giga_s_foil'
+                edition = 'e_giga_shiny_foil'
             end
             if edition == 'e_holo' then
-                edition = 'e_giga_s_holo'
+                edition = 'e_giga_shiny_holo'
             end
             if edition == 'e_polychrome' then
-                edition = 'e_giga_s_poly'
+                edition = 'e_giga_shiny_poly'
             end
         end
     end
