@@ -1191,10 +1191,12 @@ SMODS.Joker{ --JackMutator
                     end
                     local _card = pseudorandom_element(tpool, pseudoseed("jackMutator"))
                     if _card ~= nil and _card:get_id() == 11 then
-                        if _card.config.center.key == "m_giga_soil" then
-                            upgrade_enhancement_specific(_card,'m_giga_richSoil')
-                        else
-                            upgrade_enhancement_specific(_card,'m_giga_soil')
+                        if _card.config.center.key == "m_giga_fossilSoil" then
+                            if _card.config.center.key == "m_giga_soil" or _card.config.center.key == "m_giga_richSoil"then
+                                Giga.upgrade_enhancement(_card)
+                            else
+                                _card:set_enhancement("m_giga_soil")
+                            end
                         end
                     else
                         SMODS.change_base(_card, nil, 'Jack')
@@ -1504,9 +1506,9 @@ SMODS.Joker{ --Triceratops
     eternal_compat = true,
     config = { extra = {
         odds = 1,
-        chances = 8,
+        chances = 9,
         interac = {
-            ptera_chance = 6
+            ptera_chance = 7
         }
     }},
     loc_vars = function(self, info_queue, card)
@@ -1518,11 +1520,8 @@ SMODS.Joker{ --Triceratops
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
             local theChances = next(SMODS.find_card("j_giga_pteranodon" or "j_giga_pteranodon_alt")) and card.ability.extra.interac.ptera_chance or card.ability.extra.chances
-            print(theChances)
             if SMODS.has_enhancement(context.other_card, 'm_mult') then
-                print("here")
                 if SMODS.pseudorandom_probability(card, pseudoseed('giga_triceratops'), card.ability.extra.odds, theChances, 'tcrtp_prob1') then
-                    print("ok")
                     return {
                         level_up = true,
                         message = localize('k_level_up_ex')

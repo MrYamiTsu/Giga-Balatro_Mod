@@ -122,7 +122,7 @@ SMODS.Joker{ --VelocyraptorALT
         odds = 1,
         chances = 9,
         interac = {
-            ptera_chance = 8
+            ptera_chance = 7
         }
     }},
     loc_vars = function(self, info_queue, card)
@@ -134,16 +134,8 @@ SMODS.Joker{ --VelocyraptorALT
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
             local theChances = next(SMODS.find_card("j_giga_pteranodon" or "j_giga_pteranodon_alt")) and card.ability.extra.interac.ptera_chance or card.ability.extra.chances
-            if SMODS.has_enhancement(context.other_card, 'm_bonus') then
-                if SMODS.pseudorandom_probability(card, pseudoseed('giga_velo_alt'), card.ability.extra.odds, theChances, 'tcrtp_prob1') then
-                    return {
-                        level_up = true,
-                        message = localize('k_level_up_ex')
-                    }
-                end
-            end
-            if SMODS.has_enhancement(context.other_card, 'm_giga_bigbonus') then
-                if SMODS.pseudorandom_probability(card, pseudoseed('giga_velo_alt'), card.ability.extra.odds * 2, theChances, 'tcrtp_prob2') then
+            if SMODS.has_enhancement(context.other_card, 'm_mult') then
+                if SMODS.pseudorandom_probability(card, pseudoseed('giga_triceratops'), card.ability.extra.odds, theChances, 'tcrtp_prob1') then
                     return {
                         level_up = true,
                         message = localize('k_level_up_ex')

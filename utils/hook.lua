@@ -12,7 +12,7 @@ function SMODS.has_enhancement(card, key)
         return enhancement_yapping(card, 'm_lucky') or enhancement_yapping(card, 'm_giga_bigBonus')
     end
     if key == 'm_mult' then
-        return enhancement_yapping(card, 'm_lucky') or enhancement_yapping(card, 'm_giga_multPlus')
+        return enhancement_yapping(card, 'm_mult') or enhancement_yapping(card, 'm_giga_multPlus')
     end
     if key == 'm_wild' then
         return enhancement_yapping(card, 'm_wild') or enhancement_yapping(card, 'm_giga_evolvedWild')
@@ -34,6 +34,9 @@ function SMODS.has_enhancement(card, key)
     end
     if key == 'm_giga_soil' then
         return enhancement_yapping(card, 'm_giga_soil') or enhancement_yapping(card, 'm_giga_richSoil') or enhancement_yapping(card, 'm_giga_fossilSoil')
+    end
+    if key == 'm_giga_richSoil' then
+        return enhancement_yapping(card, 'm_giga_richSoil') or enhancement_yapping(card, 'm_giga_fossilSoil')
     end
     return ret
 end
