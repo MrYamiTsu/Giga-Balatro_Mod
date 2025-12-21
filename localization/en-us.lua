@@ -940,6 +940,14 @@ return {
                     '{C:inactive}(Currently: {C:chips}+#1#{} {C:inactive}Chips)',
                 }
             },
+            j_giga_rescuePacket = {
+                name = 'Rescue Packet',
+                text = {
+                    'After beating the {C:attention}Boss Blind{},',
+                    'gain temporary {C:attention}+#1#{}',
+                    'card slot available in shop'
+                }
+            },
             --#endregion
             --#region CrossMod
             j_giga_triceratops_alt = {

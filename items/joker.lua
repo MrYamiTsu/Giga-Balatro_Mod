@@ -1059,6 +1059,42 @@ SMODS.Joker{ --Factolord
         end
     end
 }
+SMODS.Joker{ --RescuePacket
+    key = 'rescuePacket',
+    atlas = 'Jokers',
+    pos = {x = 0, y = 7},
+    cost = 8,
+    rarity = 3,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        shop_size = 1,
+        switcher = false
+    }},
+    loc_vars = function(self,info_queue,center)
+        return{vars = {center.ability.extra.shop_size}}
+    end,
+    calculate = function(self,card,context)
+        if context.end_of_round and context.main_eval and G.GAME.blind and G.GAME.blind.boss then
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    change_shop_size(1)
+                    card.ability.extra.switcher = true
+                    return true
+                end
+            }))
+        end
+        if card.ability.extra.switcher and context.ending_shop then
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    change_shop_size(-1)
+                    card.ability.extra.switcher = false
+                    return true
+                end
+            }))
+        end
+    end
+}
 --#endregion
 --#region JACKS JOKERS --
 SMODS.Joker{ --KingOfJacks
