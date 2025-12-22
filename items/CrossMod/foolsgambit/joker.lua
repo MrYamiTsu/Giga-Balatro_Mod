@@ -1,3 +1,49 @@
+--#region ALT NORMAL JOKERS --
+SMODS.Joker{ --RescuePacket
+    key = 'rescuePacket_alt',
+    atlas = 'Jokers',
+    fg_data = {
+        is_alternate = true,
+        alternate_key = 'j_giga_rescuePacket',
+        crossover_label = 'Fools Gambit'
+    },
+    pos = {x = 0, y = 7},
+    cost = 8,
+    rarity = 3,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        odds = 1,
+        chances = 4,
+        shop_size = 1,
+        switcher = false
+    }},
+    loc_vars = function(self,info_queue,center)
+        local numerator, denominator = SMODS.get_probability_vars(center, center.ability.extra.odds, center.ability.extra.chances, 'prob')
+        return{vars = {numerator, denominator, center.ability.extra.shop_size}}
+    end,
+    calculate = function(self,card,context)
+        if context.end_of_round and context.main_eval and SMODS.pseudorandom_probability(card, pseudoseed('giga_rescuep'), card.ability.extra.odds, card.ability.extra.chances, 'rescuep_prob') then
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    change_shop_size(1)
+                    card.ability.extra.switcher = true
+                    return true
+                end
+            }))
+        end
+        if card.ability.extra.switcher and context.ending_shop then
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    change_shop_size(-1)
+                    card.ability.extra.switcher = false
+                    return true
+                end
+            }))
+        end
+    end
+}
+--#endregion
 --#region ALT LEGENDARY JOKERS --
 SMODS.Joker{ --MrYamiTsuAlt
     key = 'myt_own_alt',
@@ -125,9 +171,9 @@ SMODS.Joker{ --VelocyraptorALT
             ptera_chance = 7
         }
     }},
-    loc_vars = function(self, info_queue, card)
-        local chances = next(SMODS.find_card("j_giga_pteranodon" or "j_giga_pteranodon_alt")) and card.ability.extra.interac.ptera_chance or card.ability.extra.chances
-        local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.odds, chances, 'prob')
+    loc_vars = function(self, info_queue, center)
+        local chances = next(SMODS.find_card("j_giga_pteranodon" or "j_giga_pteranodon_alt")) and center.ability.extra.interac.ptera_chance or center.ability.extra.chances
+        local numerator, denominator = SMODS.get_probability_vars(center, center.ability.extra.odds, chances, 'prob')
         info_queue[#info_queue+1] = G.P_CENTERS.m_bonus
         return { vars = { numerator, denominator } }
     end,

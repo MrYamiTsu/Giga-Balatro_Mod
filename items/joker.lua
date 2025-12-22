@@ -1062,6 +1062,10 @@ SMODS.Joker{ --Factolord
 SMODS.Joker{ --RescuePacket
     key = 'rescuePacket',
     atlas = 'Jokers',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = 'j_giga_rescuePacket_alt'
+    },
     pos = {x = 0, y = 7},
     cost = 8,
     rarity = 3,
