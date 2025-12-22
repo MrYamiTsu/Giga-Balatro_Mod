@@ -6,8 +6,8 @@ SMODS.Consumable{ --AstralMercury
     pos = {x = 3, y = 1},
     cost = 3,
     config = {
-        hand_type = 'Pair',
         extra = {
+            hand_type = 'Pair',
             amount = 2
         }
     },
@@ -17,18 +17,18 @@ SMODS.Consumable{ --AstralMercury
         end
         return {
             vars = {
-                G.GAME.hands[card.ability.hand_type].level,
+                G.GAME.hands[card.ability.extra.hand_type].level,
                 card.ability.extra.amount,
-                localize(card.ability.hand_type, 'poker_hands'),
-                G.GAME.hands[card.ability.hand_type].l_mult,
-                G.GAME.hands[card.ability.hand_type].l_chips,
-                colours = { (G.GAME.hands[card.ability.hand_type].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.hand_type].level)]) }
+                localize(card.ability.extra.hand_type, 'poker_hands'),
+                G.GAME.hands[card.ability.extra.hand_type].l_mult,
+                G.GAME.hands[card.ability.extra.hand_type].l_chips,
+                colours = { (G.GAME.hands[card.ability.extra.hand_type].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.extra.hand_type].level)]) }
             }
         }
     end,
     use = function(self, card, area, copier)
 		local consum = copier or card
-		local ht = card.ability.hand_type
+		local ht = card.ability.extra.hand_type
         for i = 1, card.ability.extra.amount do
             update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
 			    handname = localize(ht, "poker_hands"),
@@ -50,6 +50,10 @@ SMODS.Consumable{ --AstralMercury
         if card.config.center.discovered or card.bypass_discovery_center then
             card.children.center:draw_shader('voucher', nil, card.ARGS.send_to_shader)
         end
+    end,
+    set_card_type_badge = function(self, card, badges)
+        badges[#badges+1] = create_badge(localize('k_planet'), get_type_colour(card.config.center or card.config, card), SMODS.ConsumableTypes.Planet.text_colour, 1.2)
+        badges[#badges+1] = create_badge(localize('k_giga_astrals_badge'), {0.2078, 0.2588, 0.2706, 1}, {1, 0.7882, 0.0549, 1}, 1.1)
     end
 }
 SMODS.Consumable{ --AstralVenus
@@ -59,8 +63,8 @@ SMODS.Consumable{ --AstralVenus
     pos = {x = 0, y = 1},
     cost = 3,
     config = {
-        hand_type = 'Three of a Kind',
         extra = {
+            hand_type = 'Three of a Kind',
             amount = 2
         }
     },
@@ -70,18 +74,18 @@ SMODS.Consumable{ --AstralVenus
         end
         return {
             vars = {
-                G.GAME.hands[card.ability.hand_type].level,
+                G.GAME.hands[card.ability.extra.hand_type].level,
                 card.ability.extra.amount,
-                localize(card.ability.hand_type, 'poker_hands'),
-                G.GAME.hands[card.ability.hand_type].l_mult,
-                G.GAME.hands[card.ability.hand_type].l_chips,
-                colours = { (G.GAME.hands[card.ability.hand_type].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.hand_type].level)]) }
+                localize(card.ability.extra.hand_type, 'poker_hands'),
+                G.GAME.hands[card.ability.extra.hand_type].l_mult,
+                G.GAME.hands[card.ability.extra.hand_type].l_chips,
+                colours = { (G.GAME.hands[card.ability.extra.hand_type].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.extra.hand_type].level)]) }
             }
         }
     end,
     use = function(self, card, area, copier)
 		local consum = copier or card
-		local ht = card.ability.hand_type
+		local ht = card.ability.extra.hand_type
         for i = 1, card.ability.extra.amount do
             update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
 			    handname = localize(ht, "poker_hands"),
@@ -103,6 +107,10 @@ SMODS.Consumable{ --AstralVenus
         if card.config.center.discovered or card.bypass_discovery_center then
             card.children.center:draw_shader('voucher', nil, card.ARGS.send_to_shader)
         end
+    end,
+    set_card_type_badge = function(self, card, badges)
+        badges[#badges+1] = create_badge(localize('k_planet'), get_type_colour(card.config.center or card.config, card), SMODS.ConsumableTypes.Planet.text_colour, 1.2)
+        badges[#badges+1] = create_badge(localize('k_giga_astrals_badge'), {0.2078, 0.2588, 0.2706, 1}, {1, 0.7882, 0.0549, 1}, 1.1)
     end
 }
 SMODS.Consumable{ --AstralEarth
@@ -112,8 +120,8 @@ SMODS.Consumable{ --AstralEarth
     pos = {x = 1, y = 1},
     cost = 3,
     config = {
-        hand_type = 'Full House',
         extra = {
+            hand_type = 'Full House',
             amount = 2
         }
     },
@@ -123,18 +131,18 @@ SMODS.Consumable{ --AstralEarth
         end
         return {
             vars = {
-                G.GAME.hands[card.ability.hand_type].level,
+                G.GAME.hands[card.ability.extra.hand_type].level,
                 card.ability.extra.amount,
-                localize(card.ability.hand_type, 'poker_hands'),
-                G.GAME.hands[card.ability.hand_type].l_mult,
-                G.GAME.hands[card.ability.hand_type].l_chips,
-                colours = { (G.GAME.hands[card.ability.hand_type].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.hand_type].level)]) }
+                localize(card.ability.extra.hand_type, 'poker_hands'),
+                G.GAME.hands[card.ability.extra.hand_type].l_mult,
+                G.GAME.hands[card.ability.extra.hand_type].l_chips,
+                colours = { (G.GAME.hands[card.ability.extra.hand_type].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.extra.hand_type].level)]) }
             }
         }
     end,
     use = function(self, card, area, copier)
 		local consum = copier or card
-		local ht = card.ability.hand_type
+		local ht = card.ability.extra.hand_type
         for i = 1, card.ability.extra.amount do
             update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
 			    handname = localize(ht, "poker_hands"),
@@ -156,6 +164,10 @@ SMODS.Consumable{ --AstralEarth
         if card.config.center.discovered or card.bypass_discovery_center then
             card.children.center:draw_shader('voucher', nil, card.ARGS.send_to_shader)
         end
+    end,
+    set_card_type_badge = function(self, card, badges)
+        badges[#badges+1] = create_badge(localize('k_planet'), get_type_colour(card.config.center or card.config, card), SMODS.ConsumableTypes.Planet.text_colour, 1.2)
+        badges[#badges+1] = create_badge(localize('k_giga_astrals_badge'), {0.2078, 0.2588, 0.2706, 1}, {1, 0.7882, 0.0549, 1}, 1.1)
     end
 }
 SMODS.Consumable{ --AstralMars
@@ -165,8 +177,8 @@ SMODS.Consumable{ --AstralMars
     pos = {x = 5, y = 1},
     cost = 3,
     config = {
-        hand_type = 'Four of a Kind',
         extra = {
+            hand_type = 'Four of a Kind',
             amount = 2
         }
     },
@@ -176,18 +188,18 @@ SMODS.Consumable{ --AstralMars
         end
         return {
             vars = {
-                G.GAME.hands[card.ability.hand_type].level,
+                G.GAME.hands[card.ability.extra.hand_type].level,
                 card.ability.extra.amount,
-                localize(card.ability.hand_type, 'poker_hands'),
-                G.GAME.hands[card.ability.hand_type].l_mult,
-                G.GAME.hands[card.ability.hand_type].l_chips,
-                colours = { (G.GAME.hands[card.ability.hand_type].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.hand_type].level)]) }
+                localize(card.ability.extra.hand_type, 'poker_hands'),
+                G.GAME.hands[card.ability.extra.hand_type].l_mult,
+                G.GAME.hands[card.ability.extra.hand_type].l_chips,
+                colours = { (G.GAME.hands[card.ability.extra.hand_type].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.extra.hand_type].level)]) }
             }
         }
     end,
     use = function(self, card, area, copier)
 		local consum = copier or card
-		local ht = card.ability.hand_type
+		local ht = card.ability.extra.hand_type
         for i = 1, card.ability.extra.amount do
             update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
 			    handname = localize(ht, "poker_hands"),
@@ -209,6 +221,10 @@ SMODS.Consumable{ --AstralMars
         if card.config.center.discovered or card.bypass_discovery_center then
             card.children.center:draw_shader('voucher', nil, card.ARGS.send_to_shader)
         end
+    end,
+    set_card_type_badge = function(self, card, badges)
+        badges[#badges+1] = create_badge(localize('k_planet'), get_type_colour(card.config.center or card.config, card), SMODS.ConsumableTypes.Planet.text_colour, 1.2)
+        badges[#badges+1] = create_badge(localize('k_giga_astrals_badge'), {0.2078, 0.2588, 0.2706, 1}, {1, 0.7882, 0.0549, 1}, 1.1)
     end
 }
 SMODS.Consumable{ --AstralJupiter
@@ -218,8 +234,8 @@ SMODS.Consumable{ --AstralJupiter
     pos = {x = 4, y = 1},
     cost = 3,
     config = {
-        hand_type = 'Flush',
         extra = {
+            hand_type = 'Flush',
             amount = 2
         }
     },
@@ -229,18 +245,18 @@ SMODS.Consumable{ --AstralJupiter
         end
         return {
             vars = {
-                G.GAME.hands[card.ability.hand_type].level,
+                G.GAME.hands[card.ability.extra.hand_type].level,
                 card.ability.extra.amount,
-                localize(card.ability.hand_type, 'poker_hands'),
-                G.GAME.hands[card.ability.hand_type].l_mult,
-                G.GAME.hands[card.ability.hand_type].l_chips,
-                colours = { (G.GAME.hands[card.ability.hand_type].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.hand_type].level)]) }
+                localize(card.ability.extra.hand_type, 'poker_hands'),
+                G.GAME.hands[card.ability.extra.hand_type].l_mult,
+                G.GAME.hands[card.ability.extra.hand_type].l_chips,
+                colours = { (G.GAME.hands[card.ability.extra.hand_type].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.extra.hand_type].level)]) }
             }
         }
     end,
     use = function(self, card, area, copier)
 		local consum = copier or card
-		local ht = card.ability.hand_type
+		local ht = card.ability.extra.hand_type
         for i = 1, card.ability.extra.amount do
             update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
 			    handname = localize(ht, "poker_hands"),
@@ -262,6 +278,10 @@ SMODS.Consumable{ --AstralJupiter
         if card.config.center.discovered or card.bypass_discovery_center then
             card.children.center:draw_shader('voucher', nil, card.ARGS.send_to_shader)
         end
+    end,
+    set_card_type_badge = function(self, card, badges)
+        badges[#badges+1] = create_badge(localize('k_planet'), get_type_colour(card.config.center or card.config, card), SMODS.ConsumableTypes.Planet.text_colour, 1.2)
+        badges[#badges+1] = create_badge(localize('k_giga_astrals_badge'), {0.2078, 0.2588, 0.2706, 1}, {1, 0.7882, 0.0549, 1}, 1.1)
     end
 }
 SMODS.Consumable{ --AstralSaturn
@@ -271,8 +291,8 @@ SMODS.Consumable{ --AstralSaturn
     pos = {x = 0, y = 0},
     cost = 3,
     config = {
-        hand_type = 'Straight',
         extra = {
+            hand_type = 'Straight',
             amount = 2
         }
     },
@@ -282,18 +302,18 @@ SMODS.Consumable{ --AstralSaturn
         end
         return {
             vars = {
-                G.GAME.hands[card.ability.hand_type].level,
+                G.GAME.hands[card.ability.extra.hand_type].level,
                 card.ability.extra.amount,
-                localize(card.ability.hand_type, 'poker_hands'),
-                G.GAME.hands[card.ability.hand_type].l_mult,
-                G.GAME.hands[card.ability.hand_type].l_chips,
-                colours = { (G.GAME.hands[card.ability.hand_type].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.hand_type].level)]) }
+                localize(card.ability.extra.hand_type, 'poker_hands'),
+                G.GAME.hands[card.ability.extra.hand_type].l_mult,
+                G.GAME.hands[card.ability.extra.hand_type].l_chips,
+                colours = { (G.GAME.hands[card.ability.extra.hand_type].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.extra.hand_type].level)]) }
             }
         }
     end,
     use = function(self, card, area, copier)
 		local consum = copier or card
-		local ht = card.ability.hand_type
+		local ht = card.ability.extra.hand_type
         for i = 1, card.ability.extra.amount do
             update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
 			    handname = localize(ht, "poker_hands"),
@@ -315,6 +335,10 @@ SMODS.Consumable{ --AstralSaturn
         if card.config.center.discovered or card.bypass_discovery_center then
             card.children.center:draw_shader('voucher', nil, card.ARGS.send_to_shader)
         end
+    end,
+    set_card_type_badge = function(self, card, badges)
+        badges[#badges+1] = create_badge(localize('k_planet'), get_type_colour(card.config.center or card.config, card), SMODS.ConsumableTypes.Planet.text_colour, 1.2)
+        badges[#badges+1] = create_badge(localize('k_giga_astrals_badge'), {0.2078, 0.2588, 0.2706, 1}, {1, 0.7882, 0.0549, 1}, 1.1)
     end
 }
 SMODS.Consumable{ --AstralUranus
@@ -324,8 +348,8 @@ SMODS.Consumable{ --AstralUranus
     pos = {x = 1, y = 0},
     cost = 3,
     config = {
-        hand_type = 'Two Pair',
         extra = {
+            hand_type = 'Two Pair',
             amount = 2
         }
     },
@@ -335,18 +359,18 @@ SMODS.Consumable{ --AstralUranus
         end
         return {
             vars = {
-                G.GAME.hands[card.ability.hand_type].level,
+                G.GAME.hands[card.ability.extra.hand_type].level,
                 card.ability.extra.amount,
-                localize(card.ability.hand_type, 'poker_hands'),
-                G.GAME.hands[card.ability.hand_type].l_mult,
-                G.GAME.hands[card.ability.hand_type].l_chips,
-                colours = { (G.GAME.hands[card.ability.hand_type].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.hand_type].level)]) }
+                localize(card.ability.extra.hand_type, 'poker_hands'),
+                G.GAME.hands[card.ability.extra.hand_type].l_mult,
+                G.GAME.hands[card.ability.extra.hand_type].l_chips,
+                colours = { (G.GAME.hands[card.ability.extra.hand_type].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.extra.hand_type].level)]) }
             }
         }
     end,
     use = function(self, card, area, copier)
 		local consum = copier or card
-		local ht = card.ability.hand_type
+		local ht = card.ability.extra.hand_type
         for i = 1, card.ability.extra.amount do
             update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
 			    handname = localize(ht, "poker_hands"),
@@ -368,6 +392,10 @@ SMODS.Consumable{ --AstralUranus
         if card.config.center.discovered or card.bypass_discovery_center then
             card.children.center:draw_shader('voucher', nil, card.ARGS.send_to_shader)
         end
+    end,
+    set_card_type_badge = function(self, card, badges)
+        badges[#badges+1] = create_badge(localize('k_planet'), get_type_colour(card.config.center or card.config, card), SMODS.ConsumableTypes.Planet.text_colour, 1.2)
+        badges[#badges+1] = create_badge(localize('k_giga_astrals_badge'), {0.2078, 0.2588, 0.2706, 1}, {1, 0.7882, 0.0549, 1}, 1.1)
     end
 }
 SMODS.Consumable{ --AstralNeptune
@@ -377,8 +405,8 @@ SMODS.Consumable{ --AstralNeptune
     pos = {x = 2, y = 0},
     cost = 3,
     config = {
-        hand_type = 'Straight Flush',
         extra = {
+            hand_type = 'Straight Flush',
             amount = 2
         }
     },
@@ -388,18 +416,18 @@ SMODS.Consumable{ --AstralNeptune
         end
         return {
             vars = {
-                G.GAME.hands[card.ability.hand_type].level,
+                G.GAME.hands[card.ability.extra.hand_type].level,
                 card.ability.extra.amount,
-                localize(card.ability.hand_type, 'poker_hands'),
-                G.GAME.hands[card.ability.hand_type].l_mult,
-                G.GAME.hands[card.ability.hand_type].l_chips,
-                colours = { (G.GAME.hands[card.ability.hand_type].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.hand_type].level)]) }
+                localize(card.ability.extra.hand_type, 'poker_hands'),
+                G.GAME.hands[card.ability.extra.hand_type].l_mult,
+                G.GAME.hands[card.ability.extra.hand_type].l_chips,
+                colours = { (G.GAME.hands[card.ability.extra.hand_type].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.extra.hand_type].level)]) }
             }
         }
     end,
     use = function(self, card, area, copier)
 		local consum = copier or card
-		local ht = card.ability.hand_type
+		local ht = card.ability.extra.hand_type
         for i = 1, card.ability.extra.amount do
             update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
 			    handname = localize(ht, "poker_hands"),
@@ -421,6 +449,10 @@ SMODS.Consumable{ --AstralNeptune
         if card.config.center.discovered or card.bypass_discovery_center then
             card.children.center:draw_shader('voucher', nil, card.ARGS.send_to_shader)
         end
+    end,
+    set_card_type_badge = function(self, card, badges)
+        badges[#badges+1] = create_badge(localize('k_planet'), get_type_colour(card.config.center or card.config, card), SMODS.ConsumableTypes.Planet.text_colour, 1.2)
+        badges[#badges+1] = create_badge(localize('k_giga_astrals_badge'), {0.2078, 0.2588, 0.2706, 1}, {1, 0.7882, 0.0549, 1}, 1.1)
     end
 }
 SMODS.Consumable{ --AstralPluto
@@ -430,8 +462,8 @@ SMODS.Consumable{ --AstralPluto
     pos = {x = 3, y = 0},
     cost = 3,
     config = {
-        hand_type = 'High Card',
         extra = {
+            hand_type = 'High Card',
             amount = 2
         }
     },
@@ -441,18 +473,18 @@ SMODS.Consumable{ --AstralPluto
         end
         return {
             vars = {
-                G.GAME.hands[card.ability.hand_type].level,
+                G.GAME.hands[card.ability.extra.hand_type].level,
                 card.ability.extra.amount,
-                localize(card.ability.hand_type, 'poker_hands'),
-                G.GAME.hands[card.ability.hand_type].l_mult,
-                G.GAME.hands[card.ability.hand_type].l_chips,
-                colours = { (G.GAME.hands[card.ability.hand_type].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.hand_type].level)]) }
+                localize(card.ability.extra.hand_type, 'poker_hands'),
+                G.GAME.hands[card.ability.extra.hand_type].l_mult,
+                G.GAME.hands[card.ability.extra.hand_type].l_chips,
+                colours = { (G.GAME.hands[card.ability.extra.hand_type].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.extra.hand_type].level)]) }
             }
         }
     end,
     use = function(self, card, area, copier)
 		local consum = copier or card
-		local ht = card.ability.hand_type
+		local ht = card.ability.extra.hand_type
         for i = 1, card.ability.extra.amount do
             update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
 			    handname = localize(ht, "poker_hands"),
@@ -476,7 +508,8 @@ SMODS.Consumable{ --AstralPluto
         end
     end,
     set_card_type_badge = function(self, card, badges)
-        badges[#badges + 1] = create_badge(localize('k_dwarf_planet'), get_type_colour(card.config.center or card.config, card), SMODS.ConsumableTypes.Planet.text_colour, 1.2)
+        badges[#badges+1] = create_badge(localize('k_dwarf_planet'), get_type_colour(card.config.center or card.config, card), SMODS.ConsumableTypes.Planet.text_colour, 1.2)
+        badges[#badges+1] = create_badge(localize('k_giga_astrals_badge'), {0.2078, 0.2588, 0.2706, 1}, {1, 0.7882, 0.0549, 1}, 1.1)
     end
 }
 SMODS.Consumable{ --AstralPlanetX
@@ -486,8 +519,8 @@ SMODS.Consumable{ --AstralPlanetX
     pos = {x = 4, y = 0},
     cost = 3,
     config = {
-        hand_type = 'Five of a Kind',
         extra = {
+            hand_type = 'Five of a Kind',
             amount = 2
         }
     },
@@ -497,18 +530,18 @@ SMODS.Consumable{ --AstralPlanetX
         end
         return {
             vars = {
-                G.GAME.hands[card.ability.hand_type].level,
+                G.GAME.hands[card.ability.extra.hand_type].level,
                 card.ability.extra.amount,
-                localize(card.ability.hand_type, 'poker_hands'),
-                G.GAME.hands[card.ability.hand_type].l_mult,
-                G.GAME.hands[card.ability.hand_type].l_chips,
-                colours = { (G.GAME.hands[card.ability.hand_type].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.hand_type].level)]) }
+                localize(card.ability.extra.hand_type, 'poker_hands'),
+                G.GAME.hands[card.ability.extra.hand_type].l_mult,
+                G.GAME.hands[card.ability.extra.hand_type].l_chips,
+                colours = { (G.GAME.hands[card.ability.extra.hand_type].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.extra.hand_type].level)]) }
             }
         }
     end,
     use = function(self, card, area, copier)
 		local consum = copier or card
-		local ht = card.ability.hand_type
+		local ht = card.ability.extra.hand_type
         for i = 1, card.ability.extra.amount do
             update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
 			    handname = localize(ht, "poker_hands"),
@@ -532,7 +565,8 @@ SMODS.Consumable{ --AstralPlanetX
         end
     end,
     set_card_type_badge = function(self, card, badges)
-        badges[#badges + 1] = create_badge(localize('k_planet_q'), get_type_colour(card.config.center or card.config, card), SMODS.ConsumableTypes.Planet.text_colour, 1.2)
+        badges[#badges+1] = create_badge(localize('k_planet_q'), get_type_colour(card.config.center or card.config, card), SMODS.ConsumableTypes.Planet.text_colour, 1.2)
+        badges[#badges+1] = create_badge(localize('k_giga_astrals_badge'), {0.2078, 0.2588, 0.2706, 1}, {1, 0.7882, 0.0549, 1}, 1.1)
     end
 }
 SMODS.Consumable{ --AstralCeres
@@ -542,8 +576,8 @@ SMODS.Consumable{ --AstralCeres
     pos = {x = 2, y = 1},
     cost = 3,
     config = {
-        hand_type = 'Flush House',
         extra = {
+            hand_type = 'Flush House',
             amount = 2
         }
     },
@@ -553,18 +587,18 @@ SMODS.Consumable{ --AstralCeres
         end
         return {
             vars = {
-                G.GAME.hands[card.ability.hand_type].level,
+                G.GAME.hands[card.ability.extra.hand_type].level,
                 card.ability.extra.amount,
-                localize(card.ability.hand_type, 'poker_hands'),
-                G.GAME.hands[card.ability.hand_type].l_mult,
-                G.GAME.hands[card.ability.hand_type].l_chips,
-                colours = { (G.GAME.hands[card.ability.hand_type].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.hand_type].level)]) }
+                localize(card.ability.extra.hand_type, 'poker_hands'),
+                G.GAME.hands[card.ability.extra.hand_type].l_mult,
+                G.GAME.hands[card.ability.extra.hand_type].l_chips,
+                colours = { (G.GAME.hands[card.ability.extra.hand_type].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.extra.hand_type].level)]) }
             }
         }
     end,
     use = function(self, card, area, copier)
 		local consum = copier or card
-		local ht = card.ability.hand_type
+		local ht = card.ability.extra.hand_type
         for i = 1, card.ability.extra.amount do
             update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
 			    handname = localize(ht, "poker_hands"),
@@ -588,7 +622,8 @@ SMODS.Consumable{ --AstralCeres
         end
     end,
     set_card_type_badge = function(self, card, badges)
-        badges[#badges + 1] = create_badge(localize('k_dwarf_planet'), get_type_colour(card.config.center or card.config, card), SMODS.ConsumableTypes.Planet.text_colour, 1.2)
+        badges[#badges+1] = create_badge(localize('k_dwarf_planet'), get_type_colour(card.config.center or card.config, card), SMODS.ConsumableTypes.Planet.text_colour, 1.2)
+        badges[#badges+1] = create_badge(localize('k_giga_astrals_badge'), {0.2078, 0.2588, 0.2706, 1}, {1, 0.7882, 0.0549, 1}, 1.1)
     end
 }
 SMODS.Consumable{ --AstralEris
@@ -598,8 +633,8 @@ SMODS.Consumable{ --AstralEris
     pos = {x = 5, y = 0},
     cost = 3,
     config = {
-        hand_type = 'Flush Five',
         extra = {
+            hand_type = 'Flush Five',
             amount = 2
         }
     },
@@ -609,18 +644,18 @@ SMODS.Consumable{ --AstralEris
         end
         return {
             vars = {
-                G.GAME.hands[card.ability.hand_type].level,
+                G.GAME.hands[card.ability.extra.hand_type].level,
                 card.ability.extra.amount,
-                localize(card.ability.hand_type, 'poker_hands'),
-                G.GAME.hands[card.ability.hand_type].l_mult,
-                G.GAME.hands[card.ability.hand_type].l_chips,
-                colours = { (G.GAME.hands[card.ability.hand_type].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.hand_type].level)]) }
+                localize(card.ability.extra.hand_type, 'poker_hands'),
+                G.GAME.hands[card.ability.extra.hand_type].l_mult,
+                G.GAME.hands[card.ability.extra.hand_type].l_chips,
+                colours = { (G.GAME.hands[card.ability.extra.hand_type].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.extra.hand_type].level)]) }
             }
         }
     end,
     use = function(self, card, area, copier)
 		local consum = copier or card
-		local ht = card.ability.hand_type
+		local ht = card.ability.extra.hand_type
         for i = 1, card.ability.extra.amount do
             update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
 			    handname = localize(ht, "poker_hands"),
@@ -644,7 +679,8 @@ SMODS.Consumable{ --AstralEris
         end
     end,
     set_card_type_badge = function(self, card, badges)
-        badges[#badges + 1] = create_badge(localize('k_dwarf_planet'), get_type_colour(card.config.center or card.config, card), SMODS.ConsumableTypes.Planet.text_colour, 1.2)
+        badges[#badges+1] = create_badge(localize('k_dwarf_planet'), get_type_colour(card.config.center or card.config, card), SMODS.ConsumableTypes.Planet.text_colour, 1.2)
+        badges[#badges+1] = create_badge(localize('k_giga_astrals_badge'), {0.2078, 0.2588, 0.2706, 1}, {1, 0.7882, 0.0549, 1}, 1.1)
     end
 }
 --#endregion

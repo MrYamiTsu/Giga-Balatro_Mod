@@ -529,8 +529,7 @@ SMODS.Consumable{ --ClubSandwich
         return false
     end,
     use = function (self,card,area,copier)
-        _create(card, 'Planet', G.consumeables,true,true)
-        delay(0.4)
+        SMODS.add_card({set = 'Planet'})
     end,
     calculate = function (self,card,context)
         if context.end_of_round and context.main_eval then

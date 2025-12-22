@@ -1011,6 +1011,15 @@ return {
                     'each {C:attention}upgraded{} card {C:attention}scored{}',
                     '{C:inactive}(Currently : {X:mult,C:white}X#2#{}{C:inactive})'
                 }
+            },
+            j_giga_rescuePacket_alt = {
+                name = 'Rescue Packet?',
+                text = {
+                    'After beating a {C:attention}Blind{},',
+                    '{C:green}#1# in #2#{} chance to',
+                    'gain temporary {C:attention}+#3#{}',
+                    'card slot available in shop'
+                }
             }
             --#endregion
         },
@@ -1526,7 +1535,8 @@ return {
             b_Giga_Food = "Food Cards",
             k_giga_rd = "Ready",
             k_giga_notrd = "Not Ready Yet",
-            k_not_allowed_ex = 'No!'
+            k_not_allowed_ex = 'No!',
+            k_giga_astrals_badge = 'Astral'
         },
         high_scores={},
         labels={

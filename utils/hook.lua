@@ -70,31 +70,25 @@ function Card:set_edition(edition, immediate, silent, delay)
 end
 local darling_creates = Card.set_ability
 function Card:set_ability(center, initial, delay_sprites)
-    if not center then
-        return nil
+    if initial ~= true and G.SETTINGS.paused and not center or center.set ~= 'Planet' then
+        return darling_creates(self, center, initial, delay_sprites)
     end
-    if type(center) == "string" then
-        assert(G.P_CENTERS[center])
-        center = G.P_CENTERS[center]
-    end
-    if not G.SETTINGS.paused and center.set == 'Planet' and math.random(20) == 1 then
-        local astrals = {
-            c_mercury   = 'c_giga_astral_mercury',
-            c_jupiter   = 'c_giga_astral_jupiter',
-            c_pluto     = 'c_giga_astral_pluto',
-            c_eris      = 'c_giga_astral_eris',
-            c_planet_x  = 'c_giga_astral_planetX',
-            c_saturn    = 'c_giga_astral_saturn',
-            c_earth     = 'c_giga_astral_earth',
-            c_mars      = 'c_giga_astral_mars',
-            c_ceres     = 'c_giga_astral_ceres',
-            c_venus     = 'c_giga_astral_venus',
-            c_uranus    = 'c_giga_astral_uranus',
-            c_neptune   = 'c_giga_astral_neptune'
-        }
-        if astrals[center.key] then
-            center = G.P_CENTERS[astrals[center.key]]
-        end
+    local astrals = {
+        c_mercury   = 'c_giga_astral_mercury',
+        c_jupiter   = 'c_giga_astral_jupiter',
+        c_pluto     = 'c_giga_astral_pluto',
+        c_eris      = 'c_giga_astral_eris',
+        c_planet_x  = 'c_giga_astral_planetX',
+        c_saturn    = 'c_giga_astral_saturn',
+        c_earth     = 'c_giga_astral_earth',
+        c_mars      = 'c_giga_astral_mars',
+        c_ceres     = 'c_giga_astral_ceres',
+        c_venus     = 'c_giga_astral_venus',
+        c_uranus    = 'c_giga_astral_uranus',
+        c_neptune   = 'c_giga_astral_neptune'
+    }
+    if astrals[center.key] and math.random(20) == 1 then
+        center = G.P_CENTERS[astrals[center.key]]
     end
     return darling_creates(self, center, initial, delay_sprites)
 end
