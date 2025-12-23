@@ -1,4 +1,27 @@
 --#region ALT NORMAL JOKERS --
+SMODS.Joker{ --OnTheClockALT
+    key = 'onTheClock_alt',
+    atlas = 'Jokers',
+    fg_data = {
+        is_alternate = true,
+        alternate_key = 'j_giga_onTheClock',
+        crossover_label = 'Fools Gambit'
+    },
+    pos = {x = 0, y = 6},
+    cost = 6,
+    rarity = 1,
+    blueprint_compat = true,
+    eternal_compat = true,
+    calculate = function(self,card,context)
+        if context.joker_main then
+            local time = os.date("*t")
+            return {
+                mult = time.month,
+                chips = time.day
+            }
+        end
+    end
+}
 SMODS.Joker{ --RescuePacket
     key = 'rescuePacket_alt',
     atlas = 'Jokers',

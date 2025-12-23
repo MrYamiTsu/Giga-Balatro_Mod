@@ -951,6 +951,10 @@ SMODS.Joker{ --BonoboJoker
 SMODS.Joker{ --OnTheClock
     key = 'onTheClock',
     atlas = 'Jokers',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = 'j_giga_onTheClock_alt'
+    },
     pos = {x = 0, y = 6},
     cost = 6,
     rarity = 1,
@@ -1082,7 +1086,7 @@ SMODS.Joker{ --RescuePacket
         if context.end_of_round and context.main_eval and G.GAME.blind and G.GAME.blind.boss then
             G.E_MANAGER:add_event(Event({
                 func = function()
-                    change_shop_size(1)
+                    change_shop_size(card.ability.extra.shop_size)
                     card.ability.extra.switcher = true
                     return true
                 end
@@ -1091,7 +1095,7 @@ SMODS.Joker{ --RescuePacket
         if card.ability.extra.switcher and context.ending_shop then
             G.E_MANAGER:add_event(Event({
                 func = function()
-                    change_shop_size(-1)
+                    change_shop_size(-card.ability.extra.shop_size)
                     card.ability.extra.switcher = false
                     return true
                 end
