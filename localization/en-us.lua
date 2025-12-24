@@ -1402,10 +1402,19 @@ return {
             c_giga_interamnia = {
                 name = 'Interamnia',
                 text = {
-                    "({V:1}lvl.#1#{})({V:2}lvl.#2#{})",
-					"Level up",
-					"{C:attention}#3#{},",
-					"{C:attention}#4#{}"
+                    '({V:1}lvl.#1#{})({V:2}lvl.#2#{})',
+					'Level up',
+					'{C:attention}#3#{},',
+					'{C:attention}#4#{}'
+                }
+            },
+            c_giga_astral_interamnia = {
+                name = 'Astral Interamnia',
+                text = {
+                    '({V:1}lvl.#1#{})({V:2}lvl.#2#{})',
+                    'Level up {C:attention}#3#{} times',
+                    '{C:attention}#4#{},',
+					'{C:attention}#5#{}'
                 }
             }
         },

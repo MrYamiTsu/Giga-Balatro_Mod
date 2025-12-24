@@ -1,3 +1,80 @@
+--#region NEW PLANETS --
+SMODS.Consumable{ --Interamnia
+    key = 'interamnia',
+    set = 'Planet',
+    atlas = 'Planets',
+    giga_data = {
+        astral_variant = "c_giga_astral_interamnia"
+    },
+    pos = {x = 3, y = 1},
+    cost = 3,
+    config = {
+        extra = {
+            hand_type1 = 'High Card',
+            hand_type2 = 'Pair'
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.GAME.hands[card.ability.extra.hand_type1].level,
+                G.GAME.hands[card.ability.extra.hand_type2].level,
+                localize(card.ability.extra.hand_type1, "poker_hands"),
+                localize(card.ability.extra.hand_type2, "poker_hands"),
+                colours = { (G.GAME.hands[card.ability.extra.hand_type1].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.extra.hand_type1].level)]) }
+            }
+        }
+    end,
+    can_use = function(self, card)
+        return true
+    end,
+    use = function(self, card, area, copier)
+		local consum = copier or card
+		local ht1 = card.ability.extra.hand_type1
+        update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
+		    handname = localize(ht1, "poker_hands"),
+		    chips = G.GAME.hands[ht1].chips,
+		    mult = G.GAME.hands[ht1].mult,
+		    level = G.GAME.hands[ht1].level,
+	    })
+        level_up_hand(consum, ht1, nil, 1)
+        local ht2 = card.ability.extra.hand_type2
+        update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
+		    handname = localize(ht2, "poker_hands"),
+		    chips = G.GAME.hands[ht2].chips,
+		    mult = G.GAME.hands[ht2].mult,
+		    level = G.GAME.hands[ht2].level,
+	    })
+        level_up_hand(consum, ht2, nil, 1)
+		update_hand_text(
+			{ sound = "button", volume = 0.7, pitch = 1.1, delay = 0 },
+			{ mult = 0, chips = 0, handname = "", level = "" }
+		)
+	end,
+    set_ability = function(self, card, initial, delay_sprites)
+        if G.SETTINGS.paused then
+            card.ability.extra.hand_type1 = 'High Card'
+            card.ability.extra.hand_type2 = 'Pair'
+            
+        else
+            local hands = {}
+            for k, v in ipairs(G.handlist) do
+                if G.GAME.hands[v] and G.GAME.hands[v].visible then
+                    hands[#hands+1] = v
+                end
+            end
+            card.ability.extra.hand_type1 = pseudorandom_element(hands, pseudoseed('111111111111'))
+            card.ability.extra.hand_type2 = pseudorandom_element(hands, pseudoseed('000000000000'))
+            while card.ability.extra.hand_type2 == card.ability.extra.hand_type1 do
+                card.ability.extra.hand_type2 = pseudorandom_element(hands, pseudoseed(pseudoseed('010101010101')))
+            end
+        end
+    end,
+    set_card_type_badge = function(self, card, badges)
+        badges[#badges+1] = create_badge(localize('k_dwarf_planet'), get_type_colour(card.config.center or card.config, card), SMODS.ConsumableTypes.Planet.text_colour, 1.2)
+    end
+}
+--#endregion
 --#region ASTRALS --
 SMODS.Consumable{ --AstralMercury
     key = 'astral_mercury',
@@ -706,6 +783,93 @@ SMODS.Consumable{ --AstralEris
 			{ mult = 0, chips = 0, handname = "", level = "" }
 		)
 	end,
+    in_pool = function(self)
+        return false
+    end,
+    draw = function(self, card, layer)
+        if card.config.center.discovered or card.bypass_discovery_center then
+            card.children.center:draw_shader('voucher', nil, card.ARGS.send_to_shader)
+        end
+    end,
+    set_card_type_badge = function(self, card, badges)
+        badges[#badges+1] = create_badge(localize('k_dwarf_planet'), get_type_colour(card.config.center or card.config, card), SMODS.ConsumableTypes.Planet.text_colour, 1.2)
+        badges[#badges+1] = create_badge(localize('k_giga_astrals_badge'), {0.2078, 0.2588, 0.2706, 1}, {1, 0.7882, 0.0549, 1}, 1.1)
+    end
+}
+SMODS.Consumable{ --Interamnia
+    key = 'astral_interamnia',
+    set = 'Planet',
+    atlas = 'Planets',
+    pos = {x = 5, y = 1},
+    cost = 3,
+    config = {
+        extra = {
+            hand_type1 = 'High Card',
+            hand_type2 = 'Pair',
+            amount = 2
+        }
+    },
+    loc_vars = function(self, info_queue, card)
+        return {
+            vars = {
+                G.GAME.hands[card.ability.extra.hand_type1].level,
+                G.GAME.hands[card.ability.extra.hand_type2].level,
+                card.ability.extra.amount,
+                localize(card.ability.extra.hand_type1, "poker_hands"),
+                localize(card.ability.extra.hand_type2, "poker_hands"),
+                colours = { (G.GAME.hands[card.ability.extra.hand_type1].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.extra.hand_type1].level)]) }
+            }
+        }
+    end,
+    can_use = function(self, card)
+        return true
+    end,
+    use = function(self, card, area, copier)
+		local consum = copier or card
+		local ht1 = card.ability.extra.hand_type1
+        for i = 1, card.ability.extra.amount do
+            update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
+			    handname = localize(ht1, "poker_hands"),
+			    chips = G.GAME.hands[ht1].chips,
+			    mult = G.GAME.hands[ht1].mult,
+			    level = G.GAME.hands[ht1].level,
+		    })
+            level_up_hand(consum, ht1, nil, 1)
+        end
+        local ht2 = card.ability.extra.hand_type2
+        for i = 1, card.ability.extra.amount do
+            update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
+			    handname = localize(ht2, "poker_hands"),
+			    chips = G.GAME.hands[ht2].chips,
+			    mult = G.GAME.hands[ht2].mult,
+			    level = G.GAME.hands[ht2].level,
+		    })
+            level_up_hand(consum, ht2, nil, 1)
+        end
+		update_hand_text(
+			{ sound = "button", volume = 0.7, pitch = 1.1, delay = 0 },
+			{ mult = 0, chips = 0, handname = "", level = "" }
+		)
+	end,
+    set_ability = function(self, card, initial, delay_sprites)
+        if G.SETTINGS.paused then
+            card.ability.extra.hand_type1 = 'High Card'
+            card.ability.extra.hand_type2 = 'Pair'
+            
+        else
+            local hands = {}
+            for k, v in ipairs(G.handlist) do
+                if G.GAME.hands[v] and G.GAME.hands[v].visible then
+                    hands[#hands+1] = v
+                end
+            end
+            card.ability.extra.hand_type1 = pseudorandom_element(hands, pseudoseed('111111111111'))
+            card.ability.extra.hand_type2 = pseudorandom_element(hands, pseudoseed('000000000000'))
+            while card.ability.extra.hand_type2 == card.ability.extra.hand_type1 do
+                card.ability.extra.hand_type2 = pseudorandom_element(hands, pseudoseed(pseudoseed('010101010101')))
+            end
+        end
+    end,
     in_pool = function(self)
         return false
     end,
