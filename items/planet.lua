@@ -1,4 +1,4 @@
---#region Astrals --
+--#region ASTRALS --
 SMODS.Consumable{ --AstralMercury
     key = 'astral_mercury',
     set = 'Planet',
@@ -25,6 +25,9 @@ SMODS.Consumable{ --AstralMercury
                 colours = { (G.GAME.hands[card.ability.extra.hand_type].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.extra.hand_type].level)]) }
             }
         }
+    end,
+    can_use = function(self, card)
+        return true
     end,
     use = function(self, card, area, copier)
 		local consum = copier or card
@@ -83,6 +86,9 @@ SMODS.Consumable{ --AstralVenus
             }
         }
     end,
+    can_use = function(self, card)
+        return true
+    end,
     use = function(self, card, area, copier)
 		local consum = copier or card
 		local ht = card.ability.extra.hand_type
@@ -139,6 +145,9 @@ SMODS.Consumable{ --AstralEarth
                 colours = { (G.GAME.hands[card.ability.extra.hand_type].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.extra.hand_type].level)]) }
             }
         }
+    end,
+    can_use = function(self, card)
+        return true
     end,
     use = function(self, card, area, copier)
 		local consum = copier or card
@@ -197,6 +206,9 @@ SMODS.Consumable{ --AstralMars
             }
         }
     end,
+    can_use = function(self, card)
+        return true
+    end,
     use = function(self, card, area, copier)
 		local consum = copier or card
 		local ht = card.ability.extra.hand_type
@@ -253,6 +265,9 @@ SMODS.Consumable{ --AstralJupiter
                 colours = { (G.GAME.hands[card.ability.extra.hand_type].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.extra.hand_type].level)]) }
             }
         }
+    end,
+    can_use = function(self, card)
+        return true
     end,
     use = function(self, card, area, copier)
 		local consum = copier or card
@@ -311,6 +326,9 @@ SMODS.Consumable{ --AstralSaturn
             }
         }
     end,
+    can_use = function(self, card)
+        return true
+    end,
     use = function(self, card, area, copier)
 		local consum = copier or card
 		local ht = card.ability.extra.hand_type
@@ -367,6 +385,9 @@ SMODS.Consumable{ --AstralUranus
                 colours = { (G.GAME.hands[card.ability.extra.hand_type].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.extra.hand_type].level)]) }
             }
         }
+    end,
+    can_use = function(self, card)
+        return true
     end,
     use = function(self, card, area, copier)
 		local consum = copier or card
@@ -425,6 +446,9 @@ SMODS.Consumable{ --AstralNeptune
             }
         }
     end,
+    can_use = function(self, card)
+        return true
+    end,
     use = function(self, card, area, copier)
 		local consum = copier or card
 		local ht = card.ability.extra.hand_type
@@ -481,6 +505,9 @@ SMODS.Consumable{ --AstralPluto
                 colours = { (G.GAME.hands[card.ability.extra.hand_type].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.extra.hand_type].level)]) }
             }
         }
+    end,
+    can_use = function(self, card)
+        return true
     end,
     use = function(self, card, area, copier)
 		local consum = copier or card
@@ -539,6 +566,9 @@ SMODS.Consumable{ --AstralPlanetX
             }
         }
     end,
+    can_use = function(self, card)
+        return true
+    end,
     use = function(self, card, area, copier)
 		local consum = copier or card
 		local ht = card.ability.extra.hand_type
@@ -596,6 +626,9 @@ SMODS.Consumable{ --AstralCeres
             }
         }
     end,
+    can_use = function(self, card)
+        return true
+    end,
     use = function(self, card, area, copier)
 		local consum = copier or card
 		local ht = card.ability.extra.hand_type
@@ -652,6 +685,9 @@ SMODS.Consumable{ --AstralEris
                 colours = { (G.GAME.hands[card.ability.extra.hand_type].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.extra.hand_type].level)]) }
             }
         }
+    end,
+    can_use = function(self, card)
+        return true
     end,
     use = function(self, card, area, copier)
 		local consum = copier or card

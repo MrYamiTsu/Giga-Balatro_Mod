@@ -1259,7 +1259,7 @@ return {
             giga_astral_chance = {
                 name = 'Astral Chance',
                 text = {
-                    '{C:attention}6%{} chance',
+                    '{C:attention}5%{} chance',
                     'to replace',
                     '{C:attention}#1#{}',
 
@@ -1397,6 +1397,15 @@ return {
                     '{C:attention}#3#',
                     '{C:mult}+#4#{} Mult and',
                     '{C:chips}+#5#{} chips'
+                }
+            },
+            c_giga_interamnia = {
+                name = 'Interamnia',
+                text = {
+                    "({V:1}lvl.#1#{})({V:2}lvl.#2#{})",
+					"Level up",
+					"{C:attention}#3#{},",
+					"{C:attention}#4#{}"
                 }
             }
         },
