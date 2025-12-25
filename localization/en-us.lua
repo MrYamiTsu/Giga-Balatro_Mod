@@ -1407,8 +1407,8 @@ return {
                     '{C:chips}+#5#{} chips'
                 }
             },
-            c_giga_interamnia = {
-                name = 'Interamnia',
+            c_giga_sylvia = {
+                name = 'Sylvia',
                 text = {
                     '({V:1}lvl.#1#{})({V:2}lvl.#2#{})',
 					'Level up',
@@ -1416,8 +1416,8 @@ return {
 					'{C:attention}#4#{}'
                 }
             },
-            c_giga_astral_interamnia = {
-                name = 'Astral Interamnia',
+            c_giga_astral_sylvia = {
+                name = 'Astral Sylvia',
                 text = {
                     '({V:1}lvl.#1#{})({V:2}lvl.#2#{})',
                     'Level up {C:attention}#3#{} times',

@@ -1,12 +1,12 @@
 --#region NEW PLANETS --
-SMODS.Consumable{ --Interamnia
-    key = 'interamnia',
+SMODS.Consumable{ --Sylvia
+    key = 'sylvia',
     set = 'Planet',
     atlas = 'Planets',
     giga_data = {
-        astral_variant = "c_giga_astral_interamnia"
+        astral_variant = "c_giga_astral_sylvia"
     },
-    pos = {x = 3, y = 1},
+    pos = {x = 1, y = 2},
     cost = 3,
     config = {
         extra = {
@@ -796,11 +796,11 @@ SMODS.Consumable{ --AstralEris
         badges[#badges+1] = create_badge(localize('k_giga_astrals_badge'), {0.2078, 0.2588, 0.2706, 1}, {1, 0.7882, 0.0549, 1}, 1.1)
     end
 }
-SMODS.Consumable{ --Interamnia
-    key = 'astral_interamnia',
+SMODS.Consumable{ --AstralSylvia
+    key = 'astral_sylvia',
     set = 'Planet',
     atlas = 'Planets',
-    pos = {x = 5, y = 1},
+    pos = {x = 2, y = 2},
     cost = 3,
     config = {
         extra = {
