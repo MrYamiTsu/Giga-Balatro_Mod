@@ -1020,7 +1020,15 @@ return {
                     'gain temporary {C:attention}+#3#{}',
                     'card slot available in shop'
                 }
-            }
+            },
+            j_giga_onTheClock_alt = {
+                name = 'On The Clock?',
+                text = {
+                    'Get {C:chips}Chips{} and {C:mult}Mult{} based',
+                    'on the {C:attention}current date{}',
+                    '{C:inactive}(Day > Chips / Month > Mult)'
+                }
+            },
             --#endregion
         },
         Other={
