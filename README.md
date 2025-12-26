@@ -60,7 +60,7 @@
 <ul>
     <li><strong>le_dugs</strong> for a lot of ideas and playtest.</li>
     <li><strong>Frogggy18</strong> for a lot of playtest.</li>
-    <li><strong>Eris</strong> for playtest and code correction.</li>
-    <li><strong>Jogla</strong> for spanish translation,  fixes, some artworks and the big collab.</li>
+    <li><strong>Eris</strong> for code fixing.</li>
+    <li><strong>Jogla</strong> for spanish translation,  fixes, some artworks and the Big Vollab.</li>
     <li>*All the dev in the Balatro modding community*.</li>
 </ul>
