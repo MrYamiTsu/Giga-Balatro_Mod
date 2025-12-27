@@ -188,7 +188,7 @@ end
 
 --- Condition to check if a card's enhancement is upgraded
 --- @param card Card -- the card to check
---- @return boolean --- true if the card's enhancement is upgraded
+--- @return boolean -- true if the card's enhancement is upgraded
 function upgraded_enh_condition(card)
     if card.config.center_key and G.P_CENTERS[card.config.center_key].giga_data and
        G.P_CENTERS[card.config.center_key].giga_data.is_upgraded then
@@ -199,13 +199,25 @@ end
 
 --- Condition to check if a card's seal is upgraded
 --- @param card Card -- the card to check
---- @return boolean --- true if the card's seal is upgraded
+--- @return boolean -- true if the card's seal is upgraded
 function upgraded_seal_condition(card)
     if card:get_seal() and G.P_SEALS[card:get_seal()].giga_data and
        G.P_SEALS[card:get_seal()].giga_data.is_upgraded then
         return true
     end
     return false
+end
+
+--- Roll for a shiny edition
+--- @return boolean
+function Giga.shiny_roll()
+    return pseudorandom('giga_shiny_roll', 25) <= 2
+end
+
+--- Roll for an astral planet
+--- @return boolean
+function Giga.astral_roll()
+    return pseudorandom('giga_astral_roll', 20) == 1
 end
 
 --- Little bit outdated, use SMODS.add_card instead

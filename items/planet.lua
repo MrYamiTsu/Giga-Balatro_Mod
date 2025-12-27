@@ -9,18 +9,16 @@ SMODS.Consumable{ --Titania
     pos = {x = 3, y = 2},
     cost = 3,
     config = {
-        extra = {
-            hand_type = 'giga_Linked Pairs'
-        }
+        hand_type = 'giga_Linked Pairs'
     },
     loc_vars = function(self, info_queue, card)
         return {
             vars = {
-                G.GAME.hands[card.ability.extra.hand_type].level,
-                localize(card.ability.extra.hand_type, 'poker_hands'),
-                G.GAME.hands[card.ability.extra.hand_type].l_mult,
-                G.GAME.hands[card.ability.extra.hand_type].l_chips,
-                colours = { (G.GAME.hands[card.ability.extra.hand_type].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.extra.hand_type].level)]) }
+                G.GAME.hands[card.ability.hand_type].level,
+                localize(card.ability.hand_type, 'poker_hands'),
+                G.GAME.hands[card.ability.hand_type].l_mult,
+                G.GAME.hands[card.ability.hand_type].l_chips,
+                colours = { (G.GAME.hands[card.ability.hand_type].level == 1 and G.C.UI.TEXT_DARK or G.C.HAND_LEVELS[math.min(7, G.GAME.hands[card.ability.hand_type].level)]) }
             }
         }
     end,
@@ -29,7 +27,7 @@ SMODS.Consumable{ --Titania
     end,
     use = function(self, card, area, copier)
 		local consum = copier or card
-		local ht = card.ability.extra.hand_type
+		local ht = card.ability.hand_type
         update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
 		    handname = localize(ht, "poker_hands"),
 		    chips = G.GAME.hands[ht].chips,
