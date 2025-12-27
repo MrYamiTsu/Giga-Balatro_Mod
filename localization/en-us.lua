@@ -1424,6 +1424,25 @@ return {
                     '{C:attention}#4#{},',
 					'{C:attention}#5#{}'
                 }
+            },
+            c_giga_titania = {
+                name = 'Titania',
+                text = {
+                    '({V:1}lvl.#1#{}) Level up',
+                    '{C:attention}#2#',
+                    '{C:mult}+#3#{} Mult and',
+                    '{C:chips}+#4#{} chips'
+                }
+            },
+            c_giga_astral_titania = {
+                name = 'Astral Titania',
+                text = {
+                    '({V:1}lvl.#1#{}) Level up',
+                    '{C:attention}#2#{} times',
+                    '{C:attention}#3#',
+                    '{C:mult}+#4#{} Mult and',
+                    '{C:chips}+#5#{} chips'
+                }
             }
         },
         Sleeve = {
@@ -1562,7 +1581,8 @@ return {
             k_giga_rd = "Ready",
             k_giga_notrd = "Not Ready Yet",
             k_not_allowed_ex = 'No!',
-            k_giga_astrals_badge = 'Astral'
+            k_giga_astrals_badge = 'Astral',
+            k_giga_moon = 'Moon'
         },
         high_scores={},
         labels={
@@ -1588,8 +1608,15 @@ return {
             giga_shiny_holo = 'Shiny Holographic',
             giga_shiny_poly = 'Shiny Polychrome'
         },
-        poker_hand_descriptions={},
-        poker_hands={},
+        poker_hand_descriptions={
+            ["giga_Linked Pairs"] = {
+                '2 pairs of cards with consecutive ranks,',
+                'may be played with 1 other unscored card'
+            }
+        },
+        poker_hands={
+            ["giga_Linked Pairs"] = 'Linked Pairs'
+        },
         quips={
 			pnr_giga_pabloJr_1 = {
 				'Hola, mi amigo'

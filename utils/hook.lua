@@ -91,7 +91,8 @@ function Card:set_ability(center, initial, delay_sprites)
             c_venus     = 'c_giga_astral_venus',
             c_uranus    = 'c_giga_astral_uranus',
             c_neptune   = 'c_giga_astral_neptune',
-            c_giga_interamnia = 'c_giga_astral_interamnia'
+            c_giga_sylvia = 'c_giga_astral_sylvia',
+            c_giga_titania = 'c_giga_astral_titania'
         }
         if astrals[center.key] then
             center = G.P_CENTERS[astrals[center.key]]

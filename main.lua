@@ -23,7 +23,6 @@ local load_u = {
 for _, v in pairs(load_u) do
     assert(SMODS.load_file('utils/'..v..'.lua'))()
 end
-
 local load_i = {
     "blind",
     "booster",
@@ -34,13 +33,13 @@ local load_i = {
     "food",
     "joker",
     "planet",
+    "pokerhand",
     "seal",
     "voucher"
 }
 for _, v in pairs(load_i) do
     assert(SMODS.load_file('items/'..v..'.lua'))()
 end
-
 if next(SMODS.find_mod("foolsGambit")) then
     local full = FG.config.version
     local major, minor = tonumber(string.sub(full,1,1)), tonumber(string.sub(full,3,3))

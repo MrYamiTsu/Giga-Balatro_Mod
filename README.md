@@ -18,7 +18,7 @@
     <li>49+ Jokers (+9 Cross-Mod)</li>
     <li>32 Food cards (+8 Cross-Mod)</li>
     <li>17 Seals</li>
-    <li>12 Planets</li>
+    <li>16 Planets</li>
     <li>10+ Enhancements</li>
     <li>5 Decks</li>
     <li>4 Booster Packs</li>
@@ -26,8 +26,9 @@
     <li>4 Spectrals</li>
     <li>3 Editions</li>
     <li>3 Tarots</li>
-    <li>2 Sleeves (Cross-Mod)</li>
     <li>2 Boss Blind</li>
+    <li>2 Sleeves (Cross-Mod)</li>
+    <li>1 Hand Type</li>
     <li>1 Partner (Cross-Mod)</li>
 </ul>
 
