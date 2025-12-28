@@ -211,13 +211,13 @@ end
 --- Roll for a shiny edition
 --- @return boolean
 function Giga.shiny_roll()
-    return pseudorandom('giga_shiny_roll', 25) <= 2
+    return math.random(25) <= 2
 end
 
 --- Roll for an astral planet
 --- @return boolean
 function Giga.astral_roll()
-    return pseudorandom('giga_astral_roll', 20) == 1
+    return math.random(20) == 1
 end
 
 --- Little bit outdated, use SMODS.add_card instead
