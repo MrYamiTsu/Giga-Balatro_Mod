@@ -135,7 +135,7 @@ SMODS.Consumable{ --AstralMercury
     },
     loc_vars = function(self, info_queue, card)
         if G.SETTINGS.paused then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {'Mercury'}}
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {Giga.config.astral_chance[1] / Giga.config.astral_chance[2] * 100, 'Mercury'}}
         end
         return {
             vars = {
@@ -195,7 +195,7 @@ SMODS.Consumable{ --AstralVenus
     },
     loc_vars = function(self, info_queue, card)
         if G.SETTINGS.paused then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {'Venus'}}
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {Giga.config.astral_chance[1] / Giga.config.astral_chance[2] * 100, 'Venus'}}
         end
         return {
             vars = {
@@ -255,7 +255,7 @@ SMODS.Consumable{ --AstralEarth
     },
     loc_vars = function(self, info_queue, card)
         if G.SETTINGS.paused then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {'Earth'}}
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {Giga.config.astral_chance[1] / Giga.config.astral_chance[2] * 100, 'Earth'}}
         end
         return {
             vars = {
@@ -315,7 +315,7 @@ SMODS.Consumable{ --AstralMars
     },
     loc_vars = function(self, info_queue, card)
         if G.SETTINGS.paused then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {'Mars'}}
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {Giga.config.astral_chance[1] / Giga.config.astral_chance[2] * 100, 'Mars'}}
         end
         return {
             vars = {
@@ -375,7 +375,7 @@ SMODS.Consumable{ --AstralJupiter
     },
     loc_vars = function(self, info_queue, card)
         if G.SETTINGS.paused then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {'Jupiter'}}
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {Giga.config.astral_chance[1] / Giga.config.astral_chance[2] * 100, 'Jupiter'}}
         end
         return {
             vars = {
@@ -435,7 +435,7 @@ SMODS.Consumable{ --AstralSaturn
     },
     loc_vars = function(self, info_queue, card)
         if G.SETTINGS.paused then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {'Saturn'}}
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {Giga.config.astral_chance[1] / Giga.config.astral_chance[2] * 100, 'Saturn'}}
         end
         return {
             vars = {
@@ -495,7 +495,7 @@ SMODS.Consumable{ --AstralUranus
     },
     loc_vars = function(self, info_queue, card)
         if G.SETTINGS.paused then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {'Uranus'}}
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {Giga.config.astral_chance[1] / Giga.config.astral_chance[2] * 100, 'Uranus'}}
         end
         return {
             vars = {
@@ -555,7 +555,7 @@ SMODS.Consumable{ --AstralNeptune
     },
     loc_vars = function(self, info_queue, card)
         if G.SETTINGS.paused then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {'Neptune'}}
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {Giga.config.astral_chance[1] / Giga.config.astral_chance[2] * 100, 'Neptune'}}
         end
         return {
             vars = {
@@ -615,7 +615,7 @@ SMODS.Consumable{ --AstralPluto
     },
     loc_vars = function(self, info_queue, card)
         if G.SETTINGS.paused then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {'Pluto'}}
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {Giga.config.astral_chance[1] / Giga.config.astral_chance[2] * 100, 'Pluto'}}
         end
         return {
             vars = {
@@ -675,7 +675,7 @@ SMODS.Consumable{ --AstralPlanetX
     },
     loc_vars = function(self, info_queue, card)
         if G.SETTINGS.paused then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {'Planet X'}}
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {Giga.config.astral_chance[1] / Giga.config.astral_chance[2] * 100, 'Planet X'}}
         end
         return {
             vars = {
@@ -735,7 +735,7 @@ SMODS.Consumable{ --AstralCeres
     },
     loc_vars = function(self, info_queue, card)
         if G.SETTINGS.paused then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {'Ceres'}}
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {Giga.config.astral_chance[1] / Giga.config.astral_chance[2] * 100, 'Ceres'}}
         end
         return {
             vars = {
@@ -795,7 +795,7 @@ SMODS.Consumable{ --AstralEris
     },
     loc_vars = function(self, info_queue, card)
         if G.SETTINGS.paused then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {'Eris'}}
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {Giga.config.astral_chance[1] / Giga.config.astral_chance[2] * 100, 'Eris'}}
         end
         return {
             vars = {
@@ -854,6 +854,9 @@ SMODS.Consumable{ --AstralTitania
         }
     },
     loc_vars = function(self, info_queue, card)
+        if G.SETTINGS.paused then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {Giga.config.astral_chance[1] / Giga.config.astral_chance[2] * 100, 'Titania'}}
+        end
         return {
             vars = {
                 G.GAME.hands[card.ability.extra.hand_type].level,
@@ -912,6 +915,9 @@ SMODS.Consumable{ --AstralSylvia
         }
     },
     loc_vars = function(self, info_queue, card)
+        if G.SETTINGS.paused then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {Giga.config.astral_chance[1] / Giga.config.astral_chance[2] * 100, 'Sylvia'}}
+        end
         return {
             vars = {
                 G.GAME.hands[card.ability.extra.hand_type1].level,

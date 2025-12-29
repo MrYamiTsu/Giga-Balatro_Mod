@@ -3,6 +3,8 @@ local talking_init = Game.init_game_object
 function Game:init_game_object()
 	local ret = talking_init(self)
 	init_pools()
+    Giga.config.astral_chance = {1, 25}
+    Giga.config.shiny_chance = {2, 25}
 	return ret
 end
 local enhancement_yapping = SMODS.has_enhancement

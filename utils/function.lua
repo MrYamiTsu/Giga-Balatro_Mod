@@ -211,13 +211,21 @@ end
 --- Roll for a shiny edition
 --- @return boolean
 function Giga.shiny_roll()
-    return math.random(25) <= 2
+    local chances, odds = Giga.config.shiny_chance[1], Giga.config.shiny_chance[2]
+    if chances > 1 then
+        return math.random(odds) <= chances
+    end
+    return math.random(odds) == chances
 end
 
 --- Roll for an astral planet
 --- @return boolean
 function Giga.astral_roll()
-    return math.random(20) == 1
+    local chances, odds = Giga.config.astral_chance[1], Giga.config.astral_chance[2]
+    if chances > 1 then
+        return math.random(odds) <= chances
+    end
+    return math.random(odds) == chances
 end
 
 --- Little bit outdated, use SMODS.add_card instead
