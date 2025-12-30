@@ -701,10 +701,9 @@ SMODS.Seal{ --Pink++
                 func = function()
                     for i = 1, self.config.extra.card, 1 do
                         if SMODS.pseudorandom_probability(card, pseudoseed('giga_pinkPlusPlus'), self.config.extra.odds, self.config.extra.chances) then
-                            print("food")
                             G.E_MANAGER:add_event(Event({
                                 func = function()
-                                    local cons = Giga.POOLS.r_food[math.random(1, #Giga.POOLS.r_food)]
+                                    local cons = Giga.POOLS.r_food[math.random(#Giga.POOLS.r_food)]
                                     SMODS.add_card({key = cons, edition = 'e_negative'})
                                     return true
                                 end

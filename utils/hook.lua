@@ -80,24 +80,8 @@ function Card:set_ability(center, initial, delay_sprites)
         center = G.P_CENTERS[center]
     end
     if not G.SETTINGS.paused and center.set == 'Planet' and Giga.astral_roll() then
-        local astrals = {
-            c_mercury   = 'c_giga_astral_mercury',
-            c_jupiter   = 'c_giga_astral_jupiter',
-            c_pluto     = 'c_giga_astral_pluto',
-            c_eris      = 'c_giga_astral_eris',
-            c_planet_x  = 'c_giga_astral_planetX',
-            c_saturn    = 'c_giga_astral_saturn',
-            c_earth     = 'c_giga_astral_earth',
-            c_mars      = 'c_giga_astral_mars',
-            c_ceres     = 'c_giga_astral_ceres',
-            c_venus     = 'c_giga_astral_venus',
-            c_uranus    = 'c_giga_astral_uranus',
-            c_neptune   = 'c_giga_astral_neptune',
-            c_giga_sylvia = 'c_giga_astral_sylvia',
-            c_giga_titania = 'c_giga_astral_titania'
-        }
-        if astrals[center.key] then
-            center = G.P_CENTERS[astrals[center.key]]
+        if Giga.POOLS.astrals[center.key] then
+            center = G.P_CENTERS[Giga.POOLS.astrals[center.key]]
         end
     end
     return darling_creates(self, center, initial, delay_sprites)
