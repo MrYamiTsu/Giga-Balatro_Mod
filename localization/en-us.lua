@@ -844,8 +844,7 @@ return {
             j_giga_hergosu = {
                 name = 'Hergosu',
                 text = {
-                    '{C:green}#1# in #2#{} chance to',
-                    'give {C:dark_edition}+#3#{} Joker slot',
+                    'Gain {C:dark_edition}+#1#{} Joker slot',
                     'when using a {C:dark_edition}Soul{}'
                 }
             },

@@ -8,7 +8,7 @@ SMODS.Joker{ --CashPass
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        cash = 12,
+        cash = 14,
         mult = 0.75
     }
     },
@@ -342,7 +342,7 @@ SMODS.Joker{ --Refinery
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        cash = 3,
+        cash = 2,
         cashNow = 0
     }},
     loc_vars = function(self,info_queue,center)
@@ -431,7 +431,7 @@ SMODS.Joker{ --DoubleFork
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        chips = 2,
+        chips = 2.5,
         txt = 'k_inactive',
         active = false
     }},
@@ -481,7 +481,7 @@ SMODS.Joker{ --CrackedSkull
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        mult = 2.5,
+        mult = 4,
         txt = 'k_inactive',
         active = false
     }},
@@ -530,7 +530,7 @@ SMODS.Joker{ --SagittariusA
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        chips = 140,
+        chips = 160,
         txt = 'k_inactive',
         active = false
     }},
@@ -812,37 +812,23 @@ SMODS.Joker{ --Hergosu
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        odd= 1,
-        chance = 2,
         jokerSlot = 1
     }},
     loc_vars = function(self,info_queue,center)
-        local numerator, denominator = SMODS.get_probability_vars(center, center.ability.extra.odd, center.ability.extra.chance, 'giga_hergosu')
-        return{vars = {numerator, denominator, center.ability.extra.jokerSlot},
-            info = {
-                {set = 'Other', key = 'j_giga_hergosu'}
-            }
-        }
+        return{vars = {center.ability.extra.jokerSlot}}
     end,
     calculate = function(self,card,context)
         if context.using_consumeable and context.consumeable.config.center.key == 'c_soul' then
-            if SMODS.pseudorandom_probability(card, pseudoseed('giga_hergosu'), card.ability.extra.odd, card.ability.extra.chance) then
-                G.E_MANAGER:add_event(Event({
-                    func = function()
-                        G.jokers.config.card_limit = G.jokers.config.card_limit + card.ability.extra.jokerSlot
-                        return true
-                    end
-                }))
-                return {
-                    message = '+' .. card.ability.extra.jokerSlot .. ' Joker slot',
-                    colour = G.C.MULT
-                }
-            else
-                return {
-                    message = localize('k_nope_ex'),
-                    colour = G.C.SECONDARY_SET.Tarot
-                }
-            end
+            G.E_MANAGER:add_event(Event({
+                func = function()
+                    G.jokers.config.card_limit = G.jokers.config.card_limit + card.ability.extra.jokerSlot
+                    return true
+                end
+            }))
+            return {
+                message = '+' .. card.ability.extra.jokerSlot .. ' Joker slot',
+                colour = G.C.MULT
+            }
         end
     end
 }
