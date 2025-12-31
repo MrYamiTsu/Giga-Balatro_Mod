@@ -530,7 +530,7 @@ SMODS.Joker{ --SagittariusA
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        chips = 90,
+        chips = 140,
         txt = 'k_inactive',
         active = false
     }},

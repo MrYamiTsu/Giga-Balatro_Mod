@@ -1257,7 +1257,7 @@ return {
                 }
             },
             giga_shiny_chance = {
-                name = 'Shiny Chance',
+                name = 'Generation',
                 text = {
                     '{C:attention}#1#%{} chance to',
                     'replace a {C:dark_edition}#2#{}'
@@ -1265,7 +1265,7 @@ return {
                 }
             },
             giga_astral_chance = {
-                name = 'Astral Chance',
+                name = 'Generation',
                 text = {
                     '{C:attention}#1#%{} chance',
                     'to replace',
