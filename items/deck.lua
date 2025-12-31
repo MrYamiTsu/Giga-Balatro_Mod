@@ -19,6 +19,9 @@ SMODS.Back{ --ReverseCheckered
                 return true
             end
         }))
+    end,
+    check_for_unlock = function(self, args)
+        return args.type == 'win_deck' and get_deck_win_stake('b_black') > 1
     end
 }
 SMODS.Back{ --Foodie

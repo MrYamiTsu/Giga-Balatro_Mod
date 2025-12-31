@@ -274,21 +274,25 @@ SMODS.Seal{ --Purple+
     calculate = function(self, card, context)
         if context.discard and context.other_card == card then
             for _ = 1, self.config.extra.card, 1 do
-                local spectral = false
-                if SMODS.pseudorandom_probability(card, pseudoseed('giga_purplePlus'), self.config.extra.odds, self.config.extra.chances) then
-                    spectral = true
-                end
-                G.E_MANAGER:add_event(Event({
-                    func = function ()
-                        if spectral then
-                            SMODS.add_card({set = 'Spectral'})
-                        else
-                            SMODS.add_card({set = 'Tarot'})
-                        end
-                        return true
+                if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+                    G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                    local spectral = false
+                    if SMODS.pseudorandom_probability(card, pseudoseed('giga_purplePlus'), self.config.extra.odds, self.config.extra.chances) then
+                        spectral = true
                     end
-                }))
-                SMODS.calculate_effect({ message = localize(spectral and "k_plus_spectral" or "k_plus_tarot"), colour = G.C.PURPLE }, card)
+                    G.E_MANAGER:add_event(Event({
+                        func = function ()
+                            if spectral then
+                                SMODS.add_card({set = 'Spectral'})
+                            else
+                                SMODS.add_card({set = 'Tarot'})
+                            end
+                            G.GAME.consumeable_buffer = 0
+                            return true
+                        end
+                    }))
+                    SMODS.calculate_effect({ message = localize(spectral and "k_plus_spectral" or "k_plus_tarot"), colour = G.C.PURPLE }, card)
+                end
 		    end
         end
     end,
