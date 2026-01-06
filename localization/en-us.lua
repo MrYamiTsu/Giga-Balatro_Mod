@@ -1588,7 +1588,8 @@ return {
             k_giga_notrd = "Not Ready Yet",
             k_not_allowed_ex = 'No!',
             k_giga_astrals_badge = 'Astral',
-            k_giga_moon = 'Moon'
+            k_giga_moon = 'Moon',
+            k_giga_asteroid = 'Asteroid'
         },
         high_scores={},
         labels={

@@ -116,7 +116,7 @@ SMODS.Consumable{ --Sylvia
         end
     end,
     set_card_type_badge = function(self, card, badges)
-        badges[#badges+1] = create_badge(localize('k_dwarf_planet'), get_type_colour(card.config.center or card.config, card), SMODS.ConsumableTypes.Planet.text_colour, 1.2)
+        badges[#badges+1] = create_badge(localize('k_giga_asteroid'), get_type_colour(card.config.center or card.config, card), SMODS.ConsumableTypes.Planet.text_colour, 1.2)
     end
 }
 --#endregion
@@ -987,7 +987,7 @@ SMODS.Consumable{ --AstralSylvia
         end
     end,
     set_card_type_badge = function(self, card, badges)
-        badges[#badges+1] = create_badge(localize('k_dwarf_planet'), get_type_colour(card.config.center or card.config, card), SMODS.ConsumableTypes.Planet.text_colour, 1.2)
+        badges[#badges+1] = create_badge(localize('k_giga_asteroid'), get_type_colour(card.config.center or card.config, card), SMODS.ConsumableTypes.Planet.text_colour, 1.2)
         badges[#badges+1] = create_badge(localize('k_giga_astrals_badge'), {0.2078, 0.2588, 0.2706, 1}, {1, 0.7882, 0.0549, 1}, 1.1)
     end
 }
