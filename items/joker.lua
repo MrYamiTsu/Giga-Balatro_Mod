@@ -1089,6 +1089,28 @@ SMODS.Joker{ --RescuePacket
         end
     end
 }
+SMODS.Joker{ --LinearLink
+    key = 'linearLink',
+    atlas = 'Jokers',
+    pos = {x = 1, y = 7},
+    cost = 6,
+    rarity = 2,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        retrigger = 1
+    }},
+    loc_vars = function(self,info_queue,center)
+        return{vars = {center.ability.extra.retrigger}}
+    end,
+    calculate = function(self,card,context)
+        if context.repetition and context.cardarea == G.play and next(context.poker_hands['giga_Linked Pairs']) then
+            return {
+                repetitions = card.ability.extra.retrigger
+            }
+        end
+    end
+}
 --#endregion
 --#region JACKS JOKERS --
 SMODS.Joker{ --KingOfJacks

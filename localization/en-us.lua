@@ -947,6 +947,13 @@ return {
                     'card slot available in shop'
                 }
             },
+            j_giga_linearLink = {
+                name = 'Linear Link',
+                text = {
+                    'If hand is a {C:attention}Linked Pairs{}',
+                    '{C:attention}retrigger{} every card played'
+                }
+            },
             --#endregion
             --#region CrossMod
             j_giga_triceratops_alt = {

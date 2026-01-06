@@ -117,7 +117,7 @@ SMODS.Seal{ --Red+
                 }
             else
                 return {
-                    repetitions = self.config.extra.rep,
+                    repetitions = self.config.extra.rep
                 }
             end
         end
