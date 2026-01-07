@@ -27,3 +27,6 @@ SMODS.Consumable:take_ownership("c_pluto", { giga_data = {astral_variant = "c_gi
 SMODS.Consumable:take_ownership("c_planet_x", { giga_data = {astral_variant = "c_giga_astral_planetX"}}, true)
 SMODS.Consumable:take_ownership("c_ceres", { giga_data = {astral_variant = "c_giga_astral_ceres"}}, true)
 SMODS.Consumable:take_ownership("c_eris", { giga_data = {astral_variant = "c_giga_astral_eris"}}, true)
+
+-- SPECTRALS --
+SMODS.Consumable:take_ownership("c_black_hole", { giga_data = {astral_variant = "c_giga_astral_blackHole"}}, true)

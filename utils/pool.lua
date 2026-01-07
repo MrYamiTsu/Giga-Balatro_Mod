@@ -24,7 +24,7 @@ Giga.POOLS = {
         _calculate = function()
             Giga.POOLS.astrals = {_calculate = Giga.POOLS.astrals._calculate}
             for _, c in pairs(G.P_CENTERS) do
-                if c.set == 'Planet' and c.giga_data and c.giga_data.astral_variant then
+                if (c.set == 'Planet' or c.set == 'Spectral') and c.giga_data and c.giga_data.astral_variant then
                     Giga.POOLS.astrals[c.key] = c.giga_data.astral_variant
                 end
             end

@@ -21,9 +21,9 @@
     <li>16 Planets</li>
     <li>10+ Enhancements</li>
     <li>5 Decks</li>
+    <li>5 Spectrals</li>
     <li>4 Booster Packs</li>
     <li>4 Vouchers</li>
-    <li>4 Spectrals</li>
     <li>3 Editions</li>
     <li>3 Tarots</li>
     <li>2 Boss Blind</li>

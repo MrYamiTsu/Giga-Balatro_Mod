@@ -3,7 +3,7 @@ local talking_init = Game.init_game_object
 function Game:init_game_object()
 	local ret = talking_init(self)
 	init_pools()
-    Giga.config.astral_chance = {1, 25}
+    Giga.config.astral_chance = {1, 2}
     Giga.config.shiny_chance = {2, 25}
 	return ret
 end
@@ -79,7 +79,7 @@ function Card:set_ability(center, initial, delay_sprites)
         assert(G.P_CENTERS[center])
         center = G.P_CENTERS[center]
     end
-    if not G.SETTINGS.paused and center.set == 'Planet' and Giga.astral_roll() then
+    if not G.SETTINGS.paused and (center.set == 'Planet' or center.set == 'Spectral') and Giga.astral_roll() then
         if Giga.POOLS.astrals[center.key] then
             center = G.P_CENTERS[Giga.POOLS.astrals[center.key]]
         end

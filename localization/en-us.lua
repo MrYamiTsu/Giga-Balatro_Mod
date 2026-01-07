@@ -950,7 +950,7 @@ return {
             j_giga_linearLink = {
                 name = 'Linear Link',
                 text = {
-                    'If hand is a {C:attention}Linked Pairs{}',
+                    'If hand contains {C:attention}Linked Pairs{},',
                     '{C:attention}retrigger{} every card played'
                 }
             },
@@ -1507,6 +1507,14 @@ return {
                 text = {
                     '{C:attention}Upgrade{} up to',
                     '{C:attention}#1#{} seals'
+                }
+            },
+            c_giga_astral_blackHole = {
+                name = "Astral Black Hole",
+                text = {
+                    "Upgrade every",
+                    "{C:legendary,E:1}poker hand{}",
+                    "by {C:attention}#1#{} levels",
                 }
             }
         },

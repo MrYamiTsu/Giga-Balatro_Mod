@@ -26,7 +26,6 @@ end
 local load_i = {
     "blind",
     "booster",
-    "consumeable",
     "deck",
     "edition",
     "enhancement",
@@ -35,6 +34,8 @@ local load_i = {
     "planet",
     "pokerhand",
     "seal",
+    "spectral",
+    "tarot",
     "voucher"
 }
 for _, v in pairs(load_i) do
