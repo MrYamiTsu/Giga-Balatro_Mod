@@ -3,7 +3,7 @@ local talking_init = Game.init_game_object
 function Game:init_game_object()
 	local ret = talking_init(self)
 	init_pools()
-    Giga.config.astral_chance = {1, 2}
+    Giga.config.astral_chance = {1, 20}
     Giga.config.shiny_chance = {2, 25}
 	return ret
 end
