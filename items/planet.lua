@@ -155,13 +155,13 @@ SMODS.Consumable{ --AstralMercury
     use = function(self, card, area, copier)
 		local consum = copier or card
 		local ht = card.ability.extra.hand_type
+        update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
+		    handname = localize(ht, "poker_hands"),
+			chips = G.GAME.hands[ht].chips,
+		    mult = G.GAME.hands[ht].mult,
+		    level = G.GAME.hands[ht].level,
+		})
         for i = 1, card.ability.extra.amount do
-            update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
-			    handname = localize(ht, "poker_hands"),
-			    chips = G.GAME.hands[ht].chips,
-			    mult = G.GAME.hands[ht].mult,
-			    level = G.GAME.hands[ht].level,
-		    })
             level_up_hand(consum, ht, nil, 1)
         end
 		update_hand_text(
@@ -215,13 +215,13 @@ SMODS.Consumable{ --AstralVenus
     use = function(self, card, area, copier)
 		local consum = copier or card
 		local ht = card.ability.extra.hand_type
+        update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
+		    handname = localize(ht, "poker_hands"),
+			chips = G.GAME.hands[ht].chips,
+		    mult = G.GAME.hands[ht].mult,
+		    level = G.GAME.hands[ht].level,
+		})
         for i = 1, card.ability.extra.amount do
-            update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
-			    handname = localize(ht, "poker_hands"),
-			    chips = G.GAME.hands[ht].chips,
-			    mult = G.GAME.hands[ht].mult,
-			    level = G.GAME.hands[ht].level,
-		    })
             level_up_hand(consum, ht, nil, 1)
         end
 		update_hand_text(
@@ -275,13 +275,13 @@ SMODS.Consumable{ --AstralEarth
     use = function(self, card, area, copier)
 		local consum = copier or card
 		local ht = card.ability.extra.hand_type
+        update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
+		    handname = localize(ht, "poker_hands"),
+			chips = G.GAME.hands[ht].chips,
+		    mult = G.GAME.hands[ht].mult,
+		    level = G.GAME.hands[ht].level,
+		})
         for i = 1, card.ability.extra.amount do
-            update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
-			    handname = localize(ht, "poker_hands"),
-			    chips = G.GAME.hands[ht].chips,
-			    mult = G.GAME.hands[ht].mult,
-			    level = G.GAME.hands[ht].level,
-		    })
             level_up_hand(consum, ht, nil, 1)
         end
 		update_hand_text(
@@ -335,13 +335,13 @@ SMODS.Consumable{ --AstralMars
     use = function(self, card, area, copier)
 		local consum = copier or card
 		local ht = card.ability.extra.hand_type
+        update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
+		    handname = localize(ht, "poker_hands"),
+			chips = G.GAME.hands[ht].chips,
+		    mult = G.GAME.hands[ht].mult,
+		    level = G.GAME.hands[ht].level,
+		})
         for i = 1, card.ability.extra.amount do
-            update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
-			    handname = localize(ht, "poker_hands"),
-			    chips = G.GAME.hands[ht].chips,
-			    mult = G.GAME.hands[ht].mult,
-			    level = G.GAME.hands[ht].level,
-		    })
             level_up_hand(consum, ht, nil, 1)
         end
 		update_hand_text(
@@ -395,13 +395,13 @@ SMODS.Consumable{ --AstralJupiter
     use = function(self, card, area, copier)
 		local consum = copier or card
 		local ht = card.ability.extra.hand_type
+        update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
+		    handname = localize(ht, "poker_hands"),
+			chips = G.GAME.hands[ht].chips,
+		    mult = G.GAME.hands[ht].mult,
+		    level = G.GAME.hands[ht].level,
+		})
         for i = 1, card.ability.extra.amount do
-            update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
-			    handname = localize(ht, "poker_hands"),
-			    chips = G.GAME.hands[ht].chips,
-			    mult = G.GAME.hands[ht].mult,
-			    level = G.GAME.hands[ht].level,
-		    })
             level_up_hand(consum, ht, nil, 1)
         end
 		update_hand_text(
@@ -455,13 +455,13 @@ SMODS.Consumable{ --AstralSaturn
     use = function(self, card, area, copier)
 		local consum = copier or card
 		local ht = card.ability.extra.hand_type
+        update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
+		    handname = localize(ht, "poker_hands"),
+			chips = G.GAME.hands[ht].chips,
+		    mult = G.GAME.hands[ht].mult,
+		    level = G.GAME.hands[ht].level,
+		})
         for i = 1, card.ability.extra.amount do
-            update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
-			    handname = localize(ht, "poker_hands"),
-			    chips = G.GAME.hands[ht].chips,
-			    mult = G.GAME.hands[ht].mult,
-			    level = G.GAME.hands[ht].level,
-		    })
             level_up_hand(consum, ht, nil, 1)
         end
 		update_hand_text(
@@ -515,13 +515,13 @@ SMODS.Consumable{ --AstralUranus
     use = function(self, card, area, copier)
 		local consum = copier or card
 		local ht = card.ability.extra.hand_type
+        update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
+		    handname = localize(ht, "poker_hands"),
+			chips = G.GAME.hands[ht].chips,
+		    mult = G.GAME.hands[ht].mult,
+		    level = G.GAME.hands[ht].level,
+		})
         for i = 1, card.ability.extra.amount do
-            update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
-			    handname = localize(ht, "poker_hands"),
-			    chips = G.GAME.hands[ht].chips,
-			    mult = G.GAME.hands[ht].mult,
-			    level = G.GAME.hands[ht].level,
-		    })
             level_up_hand(consum, ht, nil, 1)
         end
 		update_hand_text(
@@ -575,13 +575,13 @@ SMODS.Consumable{ --AstralNeptune
     use = function(self, card, area, copier)
 		local consum = copier or card
 		local ht = card.ability.extra.hand_type
+        update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
+		    handname = localize(ht, "poker_hands"),
+			chips = G.GAME.hands[ht].chips,
+		    mult = G.GAME.hands[ht].mult,
+		    level = G.GAME.hands[ht].level,
+		})
         for i = 1, card.ability.extra.amount do
-            update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
-			    handname = localize(ht, "poker_hands"),
-			    chips = G.GAME.hands[ht].chips,
-			    mult = G.GAME.hands[ht].mult,
-			    level = G.GAME.hands[ht].level,
-		    })
             level_up_hand(consum, ht, nil, 1)
         end
 		update_hand_text(
@@ -635,13 +635,13 @@ SMODS.Consumable{ --AstralPluto
     use = function(self, card, area, copier)
 		local consum = copier or card
 		local ht = card.ability.extra.hand_type
+        update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
+		    handname = localize(ht, "poker_hands"),
+			chips = G.GAME.hands[ht].chips,
+		    mult = G.GAME.hands[ht].mult,
+		    level = G.GAME.hands[ht].level,
+		})
         for i = 1, card.ability.extra.amount do
-            update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
-			    handname = localize(ht, "poker_hands"),
-			    chips = G.GAME.hands[ht].chips,
-			    mult = G.GAME.hands[ht].mult,
-			    level = G.GAME.hands[ht].level,
-		    })
             level_up_hand(consum, ht, nil, 1)
         end
 		update_hand_text(
@@ -696,13 +696,13 @@ SMODS.Consumable{ --AstralPlanetX
     use = function(self, card, area, copier)
 		local consum = copier or card
 		local ht = card.ability.extra.hand_type
+        update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
+		    handname = localize(ht, "poker_hands"),
+			chips = G.GAME.hands[ht].chips,
+		    mult = G.GAME.hands[ht].mult,
+		    level = G.GAME.hands[ht].level,
+		})
         for i = 1, card.ability.extra.amount do
-            update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
-			    handname = localize(ht, "poker_hands"),
-			    chips = G.GAME.hands[ht].chips,
-			    mult = G.GAME.hands[ht].mult,
-			    level = G.GAME.hands[ht].level,
-		    })
             level_up_hand(consum, ht, nil, 1)
         end
 		update_hand_text(
@@ -757,13 +757,13 @@ SMODS.Consumable{ --AstralCeres
     use = function(self, card, area, copier)
 		local consum = copier or card
 		local ht = card.ability.extra.hand_type
+        update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
+		    handname = localize(ht, "poker_hands"),
+			chips = G.GAME.hands[ht].chips,
+		    mult = G.GAME.hands[ht].mult,
+		    level = G.GAME.hands[ht].level,
+		})
         for i = 1, card.ability.extra.amount do
-            update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
-			    handname = localize(ht, "poker_hands"),
-			    chips = G.GAME.hands[ht].chips,
-			    mult = G.GAME.hands[ht].mult,
-			    level = G.GAME.hands[ht].level,
-		    })
             level_up_hand(consum, ht, nil, 1)
         end
 		update_hand_text(
@@ -818,13 +818,13 @@ SMODS.Consumable{ --AstralEris
     use = function(self, card, area, copier)
 		local consum = copier or card
 		local ht = card.ability.extra.hand_type
+        update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
+		    handname = localize(ht, "poker_hands"),
+			chips = G.GAME.hands[ht].chips,
+		    mult = G.GAME.hands[ht].mult,
+		    level = G.GAME.hands[ht].level,
+		})
         for i = 1, card.ability.extra.amount do
-            update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
-			    handname = localize(ht, "poker_hands"),
-			    chips = G.GAME.hands[ht].chips,
-			    mult = G.GAME.hands[ht].mult,
-			    level = G.GAME.hands[ht].level,
-		    })
             level_up_hand(consum, ht, nil, 1)
         end
 		update_hand_text(
@@ -878,13 +878,13 @@ SMODS.Consumable{ --AstralTitania
     use = function(self, card, area, copier)
 		local consum = copier or card
 		local ht = card.ability.extra.hand_type
+        update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
+		    handname = localize(ht, "poker_hands"),
+			chips = G.GAME.hands[ht].chips,
+		    mult = G.GAME.hands[ht].mult,
+		    level = G.GAME.hands[ht].level,
+		})
         for i = 1, card.ability.extra.amount do
-            update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
-			    handname = localize(ht, "poker_hands"),
-			    chips = G.GAME.hands[ht].chips,
-			    mult = G.GAME.hands[ht].mult,
-			    level = G.GAME.hands[ht].level,
-		    })
             level_up_hand(consum, ht, nil, 1)
         end
 		update_hand_text(
@@ -939,24 +939,24 @@ SMODS.Consumable{ --AstralSylvia
     use = function(self, card, area, copier)
 		local consum = copier or card
 		local ht = card.ability.extra.hand_type1
+        update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
+			handname = localize(ht, "poker_hands"),
+		    chips = G.GAME.hands[ht].chips,
+		    mult = G.GAME.hands[ht].mult,
+		    level = G.GAME.hands[ht].level,
+	    })
         for i = 1, card.ability.extra.amount do
-            update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
-			    handname = localize(ht, "poker_hands"),
-			    chips = G.GAME.hands[ht].chips,
-			    mult = G.GAME.hands[ht].mult,
-			    level = G.GAME.hands[ht].level,
-		    })
             level_up_hand(consum, ht, nil, 1)
         end
         delay(0.5)
         ht = card.ability.extra.hand_type2
+        update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
+			handname = localize(ht, "poker_hands"),
+			chips = G.GAME.hands[ht].chips,
+			mult = G.GAME.hands[ht].mult,
+			level = G.GAME.hands[ht].level,
+		})
         for i = 1, card.ability.extra.amount do
-            update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
-			    handname = localize(ht, "poker_hands"),
-			    chips = G.GAME.hands[ht].chips,
-			    mult = G.GAME.hands[ht].mult,
-			    level = G.GAME.hands[ht].level,
-		    })
             level_up_hand(consum, ht, nil, 1)
         end
 		update_hand_text(
