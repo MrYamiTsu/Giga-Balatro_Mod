@@ -2,7 +2,6 @@
 SMODS.Seal{ --Pink
     key = 'pinkseal',
     atlas = "Seals",
-    giga_seal_upgrade = 'giga_pinkplus',
     giga_data = {
         seal_upgrade = 'giga_pinkplus'
     },

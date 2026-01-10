@@ -954,6 +954,13 @@ return {
                     '{C:attention}retrigger{} every card played'
                 }
             },
+            j_giga_liarVadko = {
+                name = 'Liar Vadko',
+                text = {
+                    'Unscored cards',
+                    'give {C:mult}+#1#{} Mult'
+                }
+            },
             --#endregion
             --#region CrossMod
             j_giga_triceratops_alt = {
@@ -1254,7 +1261,15 @@ return {
                 }
             },
             --#endregion
-            --#region Real others
+            --#region Overcharge
+            giga_redOvercharge = {
+                name = 'Red Overcharge',
+                text = {
+                    '879reu8erfhoihfrew #1#'
+                }
+            },
+            --#endregion
+            --#region Real other
             giga_uncopiable_info = {
                 name = 'Uncopiable',
                 text = {
@@ -1426,7 +1441,8 @@ return {
                 name = 'Astral Sylvia',
                 text = {
                     '({V:1}lvl.#1#{})({V:2}lvl.#2#{})',
-                    'Level up {C:attention}#3#{} times',
+                    'Level up',
+                    '{C:attention}#3#{} times',
                     '{C:attention}#4#{},',
 					'{C:attention}#5#{}'
                 }
@@ -1597,7 +1613,8 @@ return {
             k_not_allowed_ex = 'No!',
             k_giga_astrals_badge = 'Astral',
             k_giga_moon = 'Moon',
-            k_giga_asteroid = 'Asteroid'
+            k_giga_asteroid = 'Asteroid',
+            giga_overcharge_collection_label = 'Overcharges'
         },
         high_scores={},
         labels={
@@ -1621,7 +1638,8 @@ return {
             Giga_Food = 'Food',
             giga_shiny_foil = 'Shiny Foil',
             giga_shiny_holo = 'Shiny Holographic',
-            giga_shiny_poly = 'Shiny Polychrome'
+            giga_shiny_poly = 'Shiny Polychrome',
+            giga_redOvercharge = 'Red Overcharge'
         },
         poker_hand_descriptions={
             ["giga_Linked Pairs"] = {

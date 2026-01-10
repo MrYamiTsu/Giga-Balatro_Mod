@@ -1111,6 +1111,28 @@ SMODS.Joker{ --LinearLink
         end
     end
 }
+SMODS.Joker{ --
+    key = 'liarVadko',
+    atlas = 'Jokers',
+    pos = {x = 2, y = 7},
+    cost = 4,
+    rarity = 1,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        mult = 6
+    }},
+    loc_vars = function(self,info_queue,center)
+        return{vars = {center.ability.extra.mult}}
+    end,
+    calculate = function(self,card,context)
+        if not card.debuff and context.individual and context.cardarea == 'unscored' then
+            return {
+                mult = card.ability.extra.mult
+            }
+        end
+    end
+}
 --#endregion
 --#region JACKS JOKERS --
 SMODS.Joker{ --KingOfJacks
