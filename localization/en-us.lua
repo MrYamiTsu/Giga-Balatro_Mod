@@ -1265,7 +1265,28 @@ return {
             giga_redOvercharge = {
                 name = 'Red Overcharge',
                 text = {
-                    '879reu8erfhoihfrew #1#'
+                    '{X:mult,C:white}X#1#{} Mult when {C:attention}played{}',
+                    'Increase by {X:mult,C:white}X#2#{} for each',
+                    '{C:attention}discarded{} Overcharge',
+                    'this round'
+                }
+            },
+            giga_yellowOvercharge = {
+                name = 'Yellow Overcharge',
+                text = {
+                    'Earn {C:money}$#1#{} when {C:attention}played{}',
+                    'Increase by {C:money}$#2#{} for each',
+                    '{C:attention}discarded{} Overcharge',
+                    'this round'
+                }
+            },
+            giga_orangeOvercharge = {
+                name = 'Orange Overcharge',
+                text = {
+                    'Creates {C:attention}#1#{} {C:tarot}Tarot{} when {C:attention}played{}',
+                    'Increase by {C:attention}#2#{} for each',
+                    '{C:attention}3{} {C:attention}discarded{} Overcharge',
+                    'this round'
                 }
             },
             --#endregion
@@ -1532,6 +1553,15 @@ return {
                     "{C:legendary,E:1}poker hand{}",
                     "by {C:attention}#1#{} levels",
                 }
+            },
+            c_giga_firefly = {
+                name = 'Firefly',
+                text = {
+                    'Add a random',
+                    '{C:attention}Overcharge{} to {C:attention}#1#{}',
+                    'selected card in',
+                    'your hand'
+                }
             }
         },
         Stake={},
@@ -1639,7 +1669,9 @@ return {
             giga_shiny_foil = 'Shiny Foil',
             giga_shiny_holo = 'Shiny Holographic',
             giga_shiny_poly = 'Shiny Polychrome',
-            giga_redOvercharge = 'Red Overcharge'
+            giga_redOvercharge = 'Red Overcharge',
+            giga_yellowOvercharge = 'Yellow Overcharge',
+            giga_orangeOvercharge = 'Orange Overcharge'
         },
         poker_hand_descriptions={
             ["giga_Linked Pairs"] = {

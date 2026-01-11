@@ -383,7 +383,7 @@ SMODS.Joker{ --Refinery
                 end
             end
         end
-        if context.end_of_round and context.main_eval then --was this supposed to be like gold joker?
+        if context.end_of_round and context.main_eval then
             return {
                 dollars = card.ability.extra.cashNow,
             }
@@ -1111,10 +1111,10 @@ SMODS.Joker{ --LinearLink
         end
     end
 }
-SMODS.Joker{ --
+SMODS.Joker{ --LiarVadko
     key = 'liarVadko',
     atlas = 'Jokers',
-    pos = {x = 2, y = 7},
+    pos = {x = 7, y = 3},
     cost = 4,
     rarity = 1,
     blueprint_compat = true,

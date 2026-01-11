@@ -18,7 +18,8 @@ local load_u = {
     "function",
     "hook",
     "ownership",
-    "pool"
+    "pool",
+    "ui"
 }
 for _, v in pairs(load_u) do
     assert(SMODS.load_file('utils/'..v..'.lua'))()
@@ -31,6 +32,7 @@ local load_i = {
     "enhancement",
     "food",
     "joker",
+    "overcharge",
     "planet",
     "pokerhand",
     "seal",
@@ -142,6 +144,12 @@ SMODS.Atlas{
     py = 95
 }
 SMODS.Atlas{
+    key = 'Overcharges',
+    path = 'Overcharge.png',
+    px = 71,
+    py = 95
+}
+SMODS.Atlas{
     key = 'secret1',
     path = 'secret1.png',
     px = 166,
@@ -209,44 +217,6 @@ Giga.config_tab = function()
             }
         }
     }
-end
---#endregion
---#region MAIN MENU --
-if not Giga_config.menu_card then
-    SMODS.Joker{
-	    key = "mainMenuJoker",
-    	atlas = "Jokers",
-    	rarity = "giga_megaLegendary",
-	    cost = 0,
-    	unlocked = true,
-	    discovered = true,
-    	no_collection = true,
-	    pos = {x = 4, y = 1},
-    	in_pool = function(self)
-	    	return false
-	    end
-    }
-    --From Revo'sVault, that was from Cryptid. (So thx Cryptid)
-    local oldfunc = Game.main_menu
-    Game.main_menu = function(change_context)
-	    local idk = oldfunc(change_context)
-	    local newcard = Card(
-    		G.title_top.T.x,
-	    	G.title_top.T.y,
-		    G.CARD_W,
-    		G.CARD_H,
-	    	G.P_CARDS.empty,
-		    G.P_CENTERS.j_giga_mainMenuJoker,
-    		{ bypass_discovery_center = true }
-	    )
-        G.title_top.T.w = G.title_top.T.w * 1.3
-	    G.title_top.T.x = G.title_top.T.x - 0.8
-    	G.title_top:emplace(newcard)
-        newcard.T.w = newcard.T.w * 1.1 * 1.25
-    	newcard.T.h = newcard.T.h * 1.1 * 1.25
-	    newcard.no_ui = true
-    	newcard.states.visible = true
-    end
 end
 --#endregion
 --#region INITIALISATION --

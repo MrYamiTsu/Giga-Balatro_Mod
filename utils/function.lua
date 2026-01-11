@@ -1,7 +1,7 @@
 to_big = to_big or function(x) return x end
 
 --- Upgrade the enhancement of a card
---- @param _card Card the card with the enhancement to upgrade
+--- @param _card table the card with the enhancement to upgrade
 function Giga.upgrade_enhancement(_card)
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
@@ -44,7 +44,7 @@ function Giga.upgrade_enhancement(_card)
 end
 
 --- Upgrade the seal of a card
---- @param _card Card the card with the seal to upgrade
+--- @param _card table the card with the seal to upgrade
 function Giga.upgrade_seal(_card)
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
@@ -140,7 +140,7 @@ function Giga.check_fusion()
 end
 
 --- Little bit outdated, mustn't be used
---- @param selected_card Card
+--- @param selected_card table
 --- @param base_enh string
 function upgrade_enhencement_specific(selected_card, base_enh)
     G.E_MANAGER:add_event(Event({
@@ -187,7 +187,7 @@ function upgrade_enhencement_specific(selected_card, base_enh)
 end
 
 --- Condition to check if a card's enhancement is upgraded
---- @param card Card -- the card to check
+--- @param card table -- the card to check
 --- @return boolean -- true if the card's enhancement is upgraded
 function upgraded_enh_condition(card)
     if card.config.center_key and G.P_CENTERS[card.config.center_key].giga_data and
@@ -198,7 +198,7 @@ function upgraded_enh_condition(card)
 end
 
 --- Condition to check if a card's seal is upgraded
---- @param card Card -- the card to check
+--- @param card table -- the card to check
 --- @return boolean -- true if the card's seal is upgraded
 function upgraded_seal_condition(card)
     if card:get_seal() and G.P_SEALS[card:get_seal()].giga_data and
@@ -229,7 +229,7 @@ function Giga.astral_roll()
 end
 
 --- Little bit outdated, use SMODS.add_card instead
----@param card Card
+---@param card table
 ---@param type string 
 ---@param place string
 ---@param negative boolean
@@ -297,4 +297,48 @@ function count_jokers_in_inventory(key)
         end
     end
     return count
+end
+
+--- Check if a key is an overcharge
+---@param key string
+---@return boolean
+function Giga.is_overcharge(key)
+    for _, i in ipairs(Giga.POOLS.Overcharges) do
+        if i == key then
+            return true
+        end
+    end
+    return false
+end
+
+--- Check if a card has an overcharge.
+---@param card table
+---@return string | nil
+function Giga.has_overcharge(card)
+    for i, k in pairs(card and card.ability or {}) do
+        if Giga.is_overcharge(i) then
+            return i
+        end
+    end
+    return nil
+end
+
+--- Delete overcherge on a card
+---@param card table
+function Giga.delete_overcharge(card)
+  for i, _ in pairs(card and card.ability or {}) do
+        if Giga.is_overcharge(i) then
+            card.ability[i] = nil
+        end
+    end
+end
+
+--- Add an Overcharge to a card
+---@param card table
+---@param key string
+function Giga.set_overcharge(card, key)
+    if card and Giga.is_overcharge(key) then
+        Giga.delete_overcharge(card)
+        SMODS.Stickers[key]:apply(card, true)
+    end
 end

@@ -1,0 +1,143 @@
+Giga.Overcharge = SMODS.Sticker:extend {
+    prefix_config = { key = true },
+    should_apply = false,
+    config = {},
+    rate = 0,
+    sets = {
+        Default = true
+    },
+    draw = function(self, card)
+        G.shared_stickers[self.key].role.draw_major = card
+        G.shared_stickers[self.key]:draw_shader('dissolve', nil, nil, nil, card.children.center, nil, nil, 0)
+    end,
+    apply = function(self, card, val)
+        card.ability[self.key] = val and copy_table(self.config) or nil
+    end
+}
+
+Giga.Overcharge{ --RedOvercharge
+    key = 'redOvercharge',
+    set = 'Overcharge',
+    atlas = 'Overcharges',
+    pos = {x = 0, y = 0},
+    discovered = true,
+	unlocked = true,
+    config = { extra = {
+        mult = 1.5,
+        ovch_add = 0.25
+    }},
+    loc_vars = function (self,info_queue,card)
+        local ovch_mult = 0
+        if G.GAME.blind then
+            for i, v in ipairs(G.discard.cards) do
+                if not v.debuff and Giga.has_overcharge(v) then
+                    ovch_mult = ovch_mult + self.config.extra.ovch_add
+                end
+            end
+        end
+        return{vars = {self.config.extra.mult + ovch_mult, self.config.extra.ovch_add}}
+    end,
+    calculate = function (self,card,context)
+        if context.main_scoring and context.cardarea == G.play then
+            local ovch_mult = 0
+            for i, v in ipairs(G.discard.cards) do
+                if not v.debuff and Giga.has_overcharge(v) then
+                    ovch_mult = ovch_mult + self.config.extra.ovch_add
+                end
+            end
+            return {
+                xmult = self.config.extra.mult + ovch_mult
+            }
+        end
+    end,
+    badge_colour = G.C.RED
+}
+Giga.Overcharge{ --YellowOvercharge
+    key = 'yellowOvercharge',
+    set = 'Overcharge',
+    atlas = 'Overcharges',
+    pos = {x = 1, y = 0},
+    discovered = true,
+	unlocked = true,
+    config = { extra = {
+        cash = 5,
+        ovch_add = 1
+    }},
+    loc_vars = function (self,info_queue,card)
+        local ovch_cash = 0
+        if G.GAME.blind then
+            for i, v in ipairs(G.discard.cards) do
+                if not v.debuff and Giga.has_overcharge(v) then
+                    ovch_cash = ovch_cash + self.config.extra.ovch_add
+                end
+            end
+        end
+        return{vars = {self.config.extra.cash + ovch_cash, self.config.extra.ovch_add}}
+    end,
+    calculate = function (self,card,context)
+        if context.main_scoring and context.cardarea == G.play then
+            local ovch_cash = 0
+            for i, v in ipairs(G.discard.cards) do
+                if not v.debuff and Giga.has_overcharge(v) then
+                    ovch_cash = ovch_cash + self.config.extra.ovch_add
+                end
+            end
+            return {
+                dollars = self.config.extra.cash + ovch_cash
+            }
+        end
+    end,
+    badge_colour = G.C.YELLOW
+}
+Giga.Overcharge{ --OrangeOvercharge
+    key = 'orangeOvercharge',
+    set = 'Overcharge',
+    atlas = 'Overcharges',
+    pos = {x = 2, y = 0},
+    discovered = true,
+	unlocked = true,
+    config = { extra = {
+        tarot = 1,
+        ovch_add = 1
+    }},
+    loc_vars = function (self,info_queue,card)
+        local ovch_tarot = 0
+        if G.GAME.blind then
+            for i, v in ipairs(G.discard.cards) do
+                if not v.debuff and Giga.has_overcharge(v) then
+                    ovch_tarot = ovch_tarot + self.config.extra.ovch_add
+                end
+            end
+        end
+        return{vars = {self.config.extra.tarot + math.floor(ovch_tarot / 3), self.config.extra.ovch_add}}
+    end,
+    calculate = function (self,card,context)
+        if context.main_scoring and context.cardarea == G.play then
+            local ovch_tarot = 0
+            for i, v in ipairs(G.discard.cards) do
+                if not v.debuff and Giga.has_overcharge(v) then
+                    ovch_tarot = ovch_tarot + self.config.extra.ovch_add
+                end
+            end
+            return {
+                func = function()
+                    for _ = 1, self.config.extra.tarot + math.floor(ovch_tarot / 3), 1 do
+                        if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+                            G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                            G.E_MANAGER:add_event(Event({
+                                func = function ()
+                                    SMODS.add_card({set = 'Tarot'})
+                                    G.GAME.consumeable_buffer = 0
+                                    return true
+                                end
+                            }))
+                            SMODS.calculate_effect({ message = localize("k_plus_tarot"), colour = G.C.PURPLE }, card)
+                        end
+		            end
+                    return true
+                end
+            }
+        end
+    end,
+    badge_colour = G.C.ORANGE
+}

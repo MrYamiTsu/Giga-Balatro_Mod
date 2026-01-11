@@ -116,6 +116,44 @@ SMODS.Consumable{ --Wand
         }))
     end
 }
+SMODS.Consumable{ --Firefly
+    key = 'firefly',
+    set = 'Spectral',
+    atlas = 'Consumeables',
+    pos = {x = 3, y = 1},
+    rarity = 1,
+    config = { max_highlighted = 1 },
+    loc_vars = function (self,info_queue,center)
+        return{vars = {center.ability.max_highlighted}}
+    end,
+    use = function (self,card,area,copier)
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                card:juice_up(0.3, 0.5)
+                return true
+            end
+        }))
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.1,
+            func = function()
+                for i, _c in pairs(G.hand.highlighted) do
+                    Giga.set_overcharge(_c, Giga.POOLS.Overcharges[math.random(#Giga.POOLS.Overcharges)])
+                end
+                return true
+            end
+        }))
+        delay(0.5)
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.2,
+            func = function()
+                G.hand:unhighlight_all()
+                return true
+            end
+        }))
+    end
+}
 SMODS.Consumable{ --UpgradeSpectral
     key = 'upgradeSpectral',
     set = 'Spectral',

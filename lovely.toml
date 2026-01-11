@@ -117,3 +117,12 @@ elseif not ((G.GAME.used_jokers[v.key] or v.giga_data and v.giga_data.astral_var
 '''
 match_indent = true
 times = 1
+
+# Overcharge #
+[[patches]]
+[patches.pattern]
+target = "functions/common_events.lua"
+position = "after"
+pattern = 'new_card:set_base(other.config.card)'
+payload = "Giga.delete_overcharge(new_card)"
+match_indent = true

@@ -29,12 +29,24 @@ Giga.POOLS = {
                 end
             end
         end
+    },
+    Overcharges = {
+        _calculate = function()
+            Giga.POOLS.Overcharges = {_calculate = Giga.POOLS.Overcharges._calculate}
+            for _, s in pairs(SMODS.Stickers) do
+                if s.set == 'Overcharge' then
+                    table.insert(Giga.POOLS.Overcharges, s.key)
+                end
+            end
+        end
     }
 }
 
 -- INITIALISATION --
 function init_pools()
     for _, pool in pairs(Giga.POOLS) do
-        pool._calculate()
+        if pool._calculate then
+            pool._calculate()
+        end
     end
 end

@@ -207,8 +207,8 @@ SMODS.Seal{ --Gold+
         info_queue[#info_queue+1] = G.P_CENTERS.m_gold
         return {vars = {self.config.extra.cash, self.config.extra.cashPlus}}
     end,
-    in_pool = function(self) 
-		return false 
+    in_pool = function(self)
+		return false
 	end,
     calculate = function(self, card, context)
         if context.main_scoring and context.cardarea == G.play then
