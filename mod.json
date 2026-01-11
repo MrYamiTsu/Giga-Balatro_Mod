@@ -3,12 +3,12 @@
   "name": "Giga",
   "display_name": "Giga",
   "author": ["MrYamiTsu"],
-  "description": "What about adding some random things to Balatro !",
+  "description": "Looks like things can be upgraded now !",
   "prefix": "giga",
   "main_file": "main.lua",
   "priority": 1,
   "badge_color": "#0D1717",
-  "version": "2.68.0~dev",
+  "version": "2.68.1~dev",
   "badge_text_color": "#F0F0F0",
   "dependencies": ["Steamodded (>=1.0.0~BETA-0711a)"]
 }
