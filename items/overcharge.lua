@@ -130,7 +130,7 @@ Giga.Overcharge{ --OrangeOvercharge
                                 return true
                             end
                         }))
-                        SMODS.calculate_effect({ message = localize("k_plus_tarot"), colour = G.C.PURPLE }, self)
+                        SMODS.calculate_effect({ message = localize("k_plus_tarot"), colour = G.C.PURPLE }, card)
 		            end
                     return true
                 end
