@@ -109,7 +109,7 @@ Giga.Overcharge{ --OrangeOvercharge
                 end
             end
         end
-        return{vars = {self.config.extra.tarot + math.floor(ovch_tarot / 3), self.config.extra.ovch_add}}
+        return{vars = {self.config.extra.tarot + math.floor(ovch_tarot / 4), 4, self.config.extra.ovch_add}}
     end,
     calculate = function (self,card,context)
         if context.main_scoring and context.cardarea == G.play then
@@ -121,18 +121,16 @@ Giga.Overcharge{ --OrangeOvercharge
             end
             return {
                 func = function()
-                    for _ = 1, self.config.extra.tarot + math.floor(ovch_tarot / 3), 1 do
-                        if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
-                            G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
-                            G.E_MANAGER:add_event(Event({
-                                func = function ()
-                                    SMODS.add_card({set = 'Tarot'})
-                                    G.GAME.consumeable_buffer = 0
-                                    return true
-                                end
-                            }))
-                            SMODS.calculate_effect({ message = localize("k_plus_tarot"), colour = G.C.PURPLE }, card)
-                        end
+                    for _ = 1, self.config.extra.tarot + math.floor(ovch_tarot / 4), 1 do
+                        G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                        G.E_MANAGER:add_event(Event({
+                            func = function ()
+                                SMODS.add_card({set = 'Tarot', edition = 'e_negative'})
+                                G.GAME.consumeable_buffer = 0
+                                return true
+                            end
+                        }))
+                        SMODS.calculate_effect({ message = localize("k_plus_tarot"), colour = G.C.PURPLE }, self)
 		            end
                     return true
                 end

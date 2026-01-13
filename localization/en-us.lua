@@ -1283,9 +1283,10 @@ return {
             giga_orangeOvercharge = {
                 name = 'Orange Overcharge',
                 text = {
-                    'Creates {C:attention}#1#{} {C:tarot}Tarot{} when {C:attention}played{}',
-                    'Increase by {C:attention}#2#{} for each',
-                    '{C:attention}3{} {C:attention}discarded{} Overcharge',
+                    'Creates {C:attention}#1#{} {C:dark_edition}Negative{} {C:tarot}Tarot{}',
+                    'when {C:attention}played{}',
+                    'Increase by {C:attention}1{} for each',
+                    '{C:attention}4 discarded{} Overcharge',
                     'this round'
                 }
             },
