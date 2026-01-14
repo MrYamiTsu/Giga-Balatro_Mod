@@ -4,8 +4,14 @@ Giga_config = SMODS.current_mod.config
 
 Giga.calculate = function (self, context)
     if context.end_of_round and context.main_eval then
+        Giga.config.discarded_overcharge = 0
         for _, card in pairs(G.playing_cards) do
             card.ability.giga_goldplusplus_increase = nil
+        end
+    end
+    if context.discard then
+        if not context.other_card.debuff and Giga.has_overcharge(context.other_card) then
+            Giga.config.discarded_overcharge = Giga.config.discarded_overcharge + 1
         end
     end
     if context.ending_shop then

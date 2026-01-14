@@ -27,26 +27,12 @@ Giga.Overcharge{ --RedOvercharge
         ovch_add = 0.25
     }},
     loc_vars = function (self,info_queue,card)
-        local ovch_mult = 0
-        if G.GAME.blind then
-            for i, v in ipairs(G.discard.cards) do
-                if not v.debuff and Giga.has_overcharge(v) then
-                    ovch_mult = ovch_mult + self.config.extra.ovch_add
-                end
-            end
-        end
-        return{vars = {self.config.extra.mult + ovch_mult, self.config.extra.ovch_add}}
+        return{vars = {self.config.extra.mult + Giga.config.discarded_overcharge * self.config.extra.ovch_add, self.config.extra.ovch_add}}
     end,
     calculate = function (self,card,context)
         if context.main_scoring and context.cardarea == G.play then
-            local ovch_mult = 0
-            for i, v in ipairs(G.discard.cards) do
-                if not v.debuff and Giga.has_overcharge(v) then
-                    ovch_mult = ovch_mult + self.config.extra.ovch_add
-                end
-            end
             return {
-                xmult = self.config.extra.mult + ovch_mult
+                xmult = self.config.extra.mult + Giga.config.discarded_overcharge * self.config.extra.ovch_add
             }
         end
     end,
@@ -64,26 +50,12 @@ Giga.Overcharge{ --YellowOvercharge
         ovch_add = 1
     }},
     loc_vars = function (self,info_queue,card)
-        local ovch_cash = 0
-        if G.GAME.blind then
-            for i, v in ipairs(G.discard.cards) do
-                if not v.debuff and Giga.has_overcharge(v) then
-                    ovch_cash = ovch_cash + self.config.extra.ovch_add
-                end
-            end
-        end
-        return{vars = {self.config.extra.cash + ovch_cash, self.config.extra.ovch_add}}
+        return{vars = {self.config.extra.cash + Giga.config.discarded_overcharge, self.config.extra.ovch_add}}
     end,
     calculate = function (self,card,context)
         if context.main_scoring and context.cardarea == G.play then
-            local ovch_cash = 0
-            for i, v in ipairs(G.discard.cards) do
-                if not v.debuff and Giga.has_overcharge(v) then
-                    ovch_cash = ovch_cash + self.config.extra.ovch_add
-                end
-            end
             return {
-                dollars = self.config.extra.cash + ovch_cash
+                dollars = self.config.extra.cash + Giga.config.discarded_overcharge
             }
         end
     end,
@@ -101,27 +73,13 @@ Giga.Overcharge{ --OrangeOvercharge
         ovch_add = 1
     }},
     loc_vars = function (self,info_queue,card)
-        local ovch_tarot = 0
-        if G.GAME.blind then
-            for i, v in ipairs(G.discard.cards) do
-                if not v.debuff and Giga.has_overcharge(v) then
-                    ovch_tarot = ovch_tarot + self.config.extra.ovch_add
-                end
-            end
-        end
-        return{vars = {self.config.extra.tarot + math.floor(ovch_tarot / 4), 4, self.config.extra.ovch_add}}
+        return{vars = {self.config.extra.tarot + math.floor(Giga.config.discarded_overcharge / 4), 4, self.config.extra.ovch_add}}
     end,
     calculate = function (self,card,context)
         if context.main_scoring and context.cardarea == G.play then
-            local ovch_tarot = 0
-            for i, v in ipairs(G.discard.cards) do
-                if not v.debuff and Giga.has_overcharge(v) then
-                    ovch_tarot = ovch_tarot + self.config.extra.ovch_add
-                end
-            end
             return {
                 func = function()
-                    for _ = 1, self.config.extra.tarot + math.floor(ovch_tarot / 4), 1 do
+                    for _ = 1, self.config.extra.tarot + math.floor(Giga.config.discarded_overcharge / 4), 1 do
                         G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
                         G.E_MANAGER:add_event(Event({
                             func = function ()

@@ -339,6 +339,7 @@ end
 function Giga.set_overcharge(card, key)
     if card and Giga.is_overcharge(key) then
         Giga.delete_overcharge(card)
+        card:juice_up(0.3, 0.5)
         SMODS.Stickers[key]:apply(card, true)
     end
 end
