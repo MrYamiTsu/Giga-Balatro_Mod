@@ -30,7 +30,7 @@ Giga.Overcharge{ --RedOvercharge
         return{vars = {self.config.extra.mult + Giga.discarded_overcharge() * self.config.extra.ovch_add, self.config.extra.ovch_add}}
     end,
     calculate = function (self,card,context)
-        if context.final_scoring_step and context.cardarea == G.play then
+        if context.giga_pre_joker and context.cardarea == G.play then
             return {
                 xmult = self.config.extra.mult + Giga.discarded_overcharge() * self.config.extra.ovch_add
             }
@@ -53,7 +53,7 @@ Giga.Overcharge{ --YellowOvercharge
         return{vars = {self.config.extra.cash + math.floor(Giga.discarded_overcharge() / 2), self.config.extra.ovch_add, 2}}
     end,
     calculate = function (self,card,context)
-        if context.final_scoring_step and context.cardarea == G.play then
+        if context.giga_pre_joker and context.cardarea == G.play then
             return {
                 dollars = self.config.extra.cash + math.floor(Giga.discarded_overcharge() / 2)
             }
@@ -76,7 +76,7 @@ Giga.Overcharge{ --OrangeOvercharge
         return{vars = {self.config.extra.tarot + math.floor(Giga.discarded_overcharge() / 5), self.config.extra.ovch_add, 5}}
     end,
     calculate = function (self,card,context)
-        if context.final_scoring_step and context.cardarea == G.play then
+        if context.giga_pre_joker and context.cardarea == G.play then
             return {
                 func = function()
                     for _ = 1, self.config.extra.tarot + math.floor(Giga.discarded_overcharge() / 5), 1 do
@@ -112,7 +112,7 @@ Giga.Overcharge{ --GreenOvercharge
         return{vars = {self.config.extra.level + math.floor(Giga.discarded_overcharge() / 3), self.config.extra.ovch_add, 3}}
     end,
     calculate = function (self,card,context)
-        if context.final_scoring_step and context.cardarea == G.play then
+        if context.giga_pre_joker and context.cardarea == G.play then
             local hands = {}
             for k, v in ipairs(G.handlist) do
                 if G.GAME.hands[v] and G.GAME.hands[v].visible then

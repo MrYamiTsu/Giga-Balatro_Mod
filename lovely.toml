@@ -126,3 +126,13 @@ position = "after"
 pattern = 'new_card:set_base(other.config.card)'
 payload = "Giga.delete_overcharge(new_card)"
 match_indent = true
+
+[[patches]]
+[patches.pattern]
+target = "functions/state_events.lua"
+position = "before"
+pattern = 'percent = percent + percent_delta'
+payload = '''
+SMODS.calculate_context({giga_pre_joker = true, full_hand = G.play.cards, scoring_hand = scoring_hand, scoring_name = text, poker_hands = poker_hands})
+'''
+match_indent = true
