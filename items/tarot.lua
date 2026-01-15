@@ -13,13 +13,26 @@ SMODS.Consumable{ --Cook
         return{vars = {center.ability.extra.card}}
     end,
     can_use = function (self,card)
+        if G.consumeables and G.consumeables.config.card_limit - #G.consumeables.cards <= 0 then
+            return false
+        end
 		return true
     end,
     use = function (self,card,area,copier)
-        for i = 1, card.ability.extra.card, 1 do
-            _create(card, 'Giga_Food', G.consumeables,true,true)
-            delay(0.4)
-		end
+        for i = 1, math.min(card.ability.extra.card, G.consumeables.config.card_limit - #G.consumeables.cards) do
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.4,
+                func = function()
+                    if G.consumeables.config.card_limit > #G.consumeables.cards then
+                        SMODS.add_card({ set = 'Giga_Food' })
+                        card:juice_up(0.3, 0.5)
+                    end
+                    return true
+                end
+            }))
+        end
+        delay(0.6)
     end
 }
 SMODS.Consumable{ --Gardener

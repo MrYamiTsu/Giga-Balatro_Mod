@@ -234,7 +234,16 @@ SMODS.Consumable{ --Tacos
         return true
     end,
     use = function (self,card,area,copier)
-        SMODS.calculate_effect({dollars = card.ability.extra.money}, card)
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.4,
+            func = function()
+                card:juice_up(0.3, 0.5)
+                ease_dollars(5, true)
+                return true
+            end
+        }))
+        delay(0.6)
     end
 }
 SMODS.Consumable{ --Marshmallow
