@@ -30,7 +30,7 @@ Giga.Overcharge{ --RedOvercharge
         return{vars = {self.config.extra.mult + Giga.config.discarded_overcharge * self.config.extra.ovch_add, self.config.extra.ovch_add}}
     end,
     calculate = function (self,card,context)
-        if context.main_scoring and context.cardarea == G.play then
+        if context.final_scoring_step and context.cardarea == G.play then
             return {
                 xmult = self.config.extra.mult + Giga.config.discarded_overcharge * self.config.extra.ovch_add
             }
@@ -46,20 +46,20 @@ Giga.Overcharge{ --YellowOvercharge
     discovered = true,
 	unlocked = true,
     config = { extra = {
-        cash = 5,
+        cash = 4,
         ovch_add = 1
     }},
     loc_vars = function (self,info_queue,card)
-        return{vars = {self.config.extra.cash + Giga.config.discarded_overcharge, self.config.extra.ovch_add}}
+        return{vars = {self.config.extra.cash + math.floor(Giga.config.discarded_overcharge / 2), self.config.extra.ovch_add, 2}}
     end,
     calculate = function (self,card,context)
-        if context.main_scoring and context.cardarea == G.play then
+        if context.final_scoring_step and context.cardarea == G.play then
             return {
-                dollars = self.config.extra.cash + Giga.config.discarded_overcharge
+                dollars = self.config.extra.cash + math.floor(Giga.config.discarded_overcharge / 2)
             }
         end
     end,
-    badge_colour = G.C.YELLOW
+    badge_colour = G.C.GOLD
 }
 Giga.Overcharge{ --OrangeOvercharge
     key = 'orangeOvercharge',
@@ -73,13 +73,13 @@ Giga.Overcharge{ --OrangeOvercharge
         ovch_add = 1
     }},
     loc_vars = function (self,info_queue,card)
-        return{vars = {self.config.extra.tarot + math.floor(Giga.config.discarded_overcharge / 4), 4, self.config.extra.ovch_add}}
+        return{vars = {self.config.extra.tarot + math.floor(Giga.config.discarded_overcharge / 5), self.config.extra.ovch_add, 5}}
     end,
     calculate = function (self,card,context)
-        if context.main_scoring and context.cardarea == G.play then
+        if context.final_scoring_step and context.cardarea == G.play then
             return {
                 func = function()
-                    for _ = 1, self.config.extra.tarot + math.floor(Giga.config.discarded_overcharge / 4), 1 do
+                    for _ = 1, self.config.extra.tarot + math.floor(Giga.config.discarded_overcharge / 5), 1 do
                         G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
                         G.E_MANAGER:add_event(Event({
                             func = function ()

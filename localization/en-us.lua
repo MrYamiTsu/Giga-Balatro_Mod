@@ -1276,7 +1276,7 @@ return {
                 text = {
                     'Earn {C:money}$#1#{} when {C:attention}played{}',
                     'Increase by {C:money}$#2#{} for each',
-                    '{C:attention}discarded{} Overcharge',
+                    '{C:attention}#3# discarded{} Overcharge',
                     'this round'
                 }
             },
@@ -1285,8 +1285,8 @@ return {
                 text = {
                     'Creates {C:attention}#1#{} {C:dark_edition}Negative{} {C:tarot}Tarot{}',
                     'when {C:attention}played{}',
-                    'Increase by {C:attention}1{} for each',
-                    '{C:attention}4 discarded{} Overcharge',
+                    'Increase by {C:attention}#2#{} for each',
+                    '{C:attention}#3# discarded{} Overcharge',
                     'this round'
                 }
             },
