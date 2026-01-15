@@ -97,3 +97,39 @@ Giga.Overcharge{ --OrangeOvercharge
     end,
     badge_colour = G.C.ORANGE
 }
+Giga.Overcharge{ --GreenOvercharge
+    key = 'greenOvercharge',
+    set = 'Overcharge',
+    atlas = 'Overcharges',
+    pos = {x = 3, y = 0},
+    discovered = true,
+	unlocked = true,
+    config = { extra = {
+        level = 1,
+        ovch_add = 1
+    }},
+    loc_vars = function (self,info_queue,card)
+        return{vars = {self.config.extra.level + math.floor(Giga.config.discarded_overcharge / 3), self.config.extra.ovch_add, 3}}
+    end,
+    calculate = function (self,card,context)
+        if context.final_scoring_step and context.cardarea == G.play then
+            local hands = {}
+            for k, v in ipairs(G.handlist) do
+                if G.GAME.hands[v] and G.GAME.hands[v].visible then
+                    hands[#hands+1] = v
+                end
+            end
+            for _ = 1, self.config.extra.level + math.floor(Giga.config.discarded_overcharge / 3), 1 do
+                local ht = pseudorandom_element(hands, pseudoseed('okokokok123'))
+                update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
+		            handname = localize(ht, "poker_hands"),
+		            chips = G.GAME.hands[ht].chips,
+		            mult = G.GAME.hands[ht].mult,
+		            level = G.GAME.hands[ht].level,
+	            })
+                level_up_hand(card, ht, nil, 1)
+            end
+        end
+    end,
+    badge_colour = G.C.GREEN
+}

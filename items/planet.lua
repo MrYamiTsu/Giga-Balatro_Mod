@@ -101,7 +101,6 @@ SMODS.Consumable{ --Sylvia
         if G.SETTINGS.paused then
             card.ability.extra.hand_type1 = 'High Card'
             card.ability.extra.hand_type2 = 'Pair'
-            
         else
             local hands = {}
             for k, v in ipairs(G.handlist) do

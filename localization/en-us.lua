@@ -1267,8 +1267,8 @@ return {
                 text = {
                     '{X:mult,C:white}X#1#{} Mult when {C:attention}played{}',
                     'Increase by {X:mult,C:white}X#2#{} for each',
-                    '{C:attention}discarded{} Overcharge',
-                    'this round'
+                    '{C:attention}discarded{} Overcharge this',
+                    'round'
                 }
             },
             giga_yellowOvercharge = {
@@ -1285,6 +1285,16 @@ return {
                 text = {
                     'Creates {C:attention}#1#{} {C:dark_edition}Negative{} {C:tarot}Tarot{}',
                     'when {C:attention}played{}',
+                    'Increase by {C:attention}#2#{} for each',
+                    '{C:attention}#3# discarded{} Overcharge',
+                    'this round'
+                }
+            },
+            giga_greenOvercharge = {
+                name = 'Green Overcharge',
+                text = {
+                    'Level up {C:attention}#1#{} random {C:attention}poker{}',
+                    '{C:attention}hand{} when {C:attention}played{}',
                     'Increase by {C:attention}#2#{} for each',
                     '{C:attention}#3# discarded{} Overcharge',
                     'this round'
@@ -1672,7 +1682,8 @@ return {
             giga_shiny_poly = 'Shiny Polychrome',
             giga_redOvercharge = 'Red Overcharge',
             giga_yellowOvercharge = 'Yellow Overcharge',
-            giga_orangeOvercharge = 'Orange Overcharge'
+            giga_orangeOvercharge = 'Orange Overcharge',
+            giga_greenOvercharge = 'Green Overcharge'
         },
         poker_hand_descriptions={
             ["giga_Linked Pairs"] = {
