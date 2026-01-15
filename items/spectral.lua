@@ -122,7 +122,7 @@ SMODS.Consumable{ --Firefly
     atlas = 'Consumeables',
     pos = {x = 3, y = 1},
     rarity = 1,
-    config = { max_highlighted = 1 },
+    config = { max_highlighted = 2 },
     loc_vars = function (self,info_queue,center)
         return{vars = {center.ability.max_highlighted}}
     end,
