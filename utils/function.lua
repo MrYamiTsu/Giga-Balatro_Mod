@@ -211,7 +211,7 @@ end
 --- Roll for a shiny edition
 --- @return boolean
 function Giga.shiny_roll()
-    local chances, odds = Giga.config.shiny_chance[1], Giga.config.shiny_chance[2]
+    local chances, odds = G.GAME.giga.shiny_chance[1], G.GAME.giga.shiny_chance[2]
     if chances > 1 then
         return math.random(odds) <= chances
     end
@@ -221,7 +221,7 @@ end
 --- Roll for an astral planet
 --- @return boolean
 function Giga.astral_roll()
-    local chances, odds = Giga.config.astral_chance[1], Giga.config.astral_chance[2]
+    local chances, odds = G.GAME.giga.astral_chance[1], G.GAME.giga.astral_chance[2]
     if chances > 1 then
         return math.random(odds) <= chances
     end
@@ -342,4 +342,13 @@ function Giga.set_overcharge(card, key)
         card:juice_up(0.3, 0.5)
         SMODS.Stickers[key]:apply(card, true)
     end
+end
+
+--- Get the number of overcharge discarded this round
+--- @return integer
+function Giga.discarded_overcharge()
+    if G.GAME.giga and G.GAME.giga.discarded_overcharge then
+        return G.GAME.giga.discarded_overcharge
+    end
+    return 0
 end

@@ -27,12 +27,12 @@ Giga.Overcharge{ --RedOvercharge
         ovch_add = 0.25
     }},
     loc_vars = function (self,info_queue,card)
-        return{vars = {self.config.extra.mult + Giga.config.discarded_overcharge * self.config.extra.ovch_add, self.config.extra.ovch_add}}
+        return{vars = {self.config.extra.mult + Giga.discarded_overcharge() * self.config.extra.ovch_add, self.config.extra.ovch_add}}
     end,
     calculate = function (self,card,context)
         if context.final_scoring_step and context.cardarea == G.play then
             return {
-                xmult = self.config.extra.mult + Giga.config.discarded_overcharge * self.config.extra.ovch_add
+                xmult = self.config.extra.mult + Giga.discarded_overcharge() * self.config.extra.ovch_add
             }
         end
     end,
@@ -50,12 +50,12 @@ Giga.Overcharge{ --YellowOvercharge
         ovch_add = 1
     }},
     loc_vars = function (self,info_queue,card)
-        return{vars = {self.config.extra.cash + math.floor(Giga.config.discarded_overcharge / 2), self.config.extra.ovch_add, 2}}
+        return{vars = {self.config.extra.cash + math.floor(Giga.discarded_overcharge() / 2), self.config.extra.ovch_add, 2}}
     end,
     calculate = function (self,card,context)
         if context.final_scoring_step and context.cardarea == G.play then
             return {
-                dollars = self.config.extra.cash + math.floor(Giga.config.discarded_overcharge / 2)
+                dollars = self.config.extra.cash + math.floor(Giga.discarded_overcharge() / 2)
             }
         end
     end,
@@ -73,13 +73,13 @@ Giga.Overcharge{ --OrangeOvercharge
         ovch_add = 1
     }},
     loc_vars = function (self,info_queue,card)
-        return{vars = {self.config.extra.tarot + math.floor(Giga.config.discarded_overcharge / 5), self.config.extra.ovch_add, 5}}
+        return{vars = {self.config.extra.tarot + math.floor(Giga.discarded_overcharge() / 5), self.config.extra.ovch_add, 5}}
     end,
     calculate = function (self,card,context)
         if context.final_scoring_step and context.cardarea == G.play then
             return {
                 func = function()
-                    for _ = 1, self.config.extra.tarot + math.floor(Giga.config.discarded_overcharge / 5), 1 do
+                    for _ = 1, self.config.extra.tarot + math.floor(Giga.discarded_overcharge() / 5), 1 do
                         G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
                         G.E_MANAGER:add_event(Event({
                             func = function ()
@@ -109,7 +109,7 @@ Giga.Overcharge{ --GreenOvercharge
         ovch_add = 1
     }},
     loc_vars = function (self,info_queue,card)
-        return{vars = {self.config.extra.level + math.floor(Giga.config.discarded_overcharge / 3), self.config.extra.ovch_add, 3}}
+        return{vars = {self.config.extra.level + math.floor(Giga.discarded_overcharge() / 3), self.config.extra.ovch_add, 3}}
     end,
     calculate = function (self,card,context)
         if context.final_scoring_step and context.cardarea == G.play then
@@ -119,7 +119,7 @@ Giga.Overcharge{ --GreenOvercharge
                     hands[#hands+1] = v
                 end
             end
-            for _ = 1, self.config.extra.level + math.floor(Giga.config.discarded_overcharge / 3), 1 do
+            for _ = 1, self.config.extra.level + math.floor(Giga.discarded_overcharge() / 3), 1 do
                 local ht = pseudorandom_element(hands, pseudoseed('okokokok123'))
                 update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
 		            handname = localize(ht, "poker_hands"),
