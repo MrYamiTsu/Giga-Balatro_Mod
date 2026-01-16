@@ -732,7 +732,6 @@ SMODS.Consumable{ --BubbleTea
         max_highlighted = 1
     },
     loc_vars = function (self,info_queue,center)
-        info_queue[#info_queue+1] = G.P_SEALS.giga_aquaseal
         return{vars = {center.ability.max_highlighted, center.ability.extra.round, localize(center.ability.extra.txt)}}
     end,
     can_use = function (self,card)
@@ -804,7 +803,6 @@ SMODS.Consumable{ --CranberryJuice
         max_highlighted = 1
     },
     loc_vars = function (self,info_queue,center)
-        info_queue[#info_queue+1] = G.P_SEALS.giga_crimsonseal
         return{vars = {center.ability.max_highlighted, center.ability.extra.round, localize(center.ability.extra.txt)}}
     end,
     can_use = function (self,card)
