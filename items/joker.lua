@@ -997,7 +997,7 @@ SMODS.Joker{ --Roposiel
     unlocked = true,
     blueprint_compat = true,
     config = { extra = {
-        mult_add = 8,
+        mult_add = 9,
         mult = 0
     }},
     loc_vars = function(self,info_queue,center)
@@ -1034,13 +1034,13 @@ SMODS.Joker{ --Factolord
     loc_vars = function(self,info_queue,center)
         local facto = 0
         if G.jokers and #G.jokers.cards > 0 then
-            facto = 3 * Factorial((G.jokers.config.card_limit - #G.jokers.cards) + #SMODS.find_card("j_giga_factolord", true))
+            facto = 4 * Factorial((G.jokers.config.card_limit - #G.jokers.cards) + #SMODS.find_card("j_giga_factolord", true))
         end
         return{vars = {colours={HEX('FFA500')}, facto}}
     end,
     calculate = function(self,card,context)
         if context.joker_main then
-            local facto = 3 * Factorial((G.jokers.config.card_limit - #G.jokers.cards) + #SMODS.find_card("j_giga_factolord", true))
+            local facto = 4 * Factorial((G.jokers.config.card_limit - #G.jokers.cards) + #SMODS.find_card("j_giga_factolord", true))
             if facto > 0 then
                 return {
                     chips = facto
