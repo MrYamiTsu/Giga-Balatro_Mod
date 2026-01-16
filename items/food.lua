@@ -726,15 +726,14 @@ SMODS.Consumable{ --BubbleTea
     rarity = 1,
     cost = 2,
     config = { extra = {
-        seal = 'giga_aquaseal',
-        round = 2,
-        round_left = 2,
+        round = 1,
+        round_left = 1,
         txt = 'k_giga_notrd'},
         max_highlighted = 1
     },
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = G.P_SEALS.giga_aquaseal
-        return{vars = {colours={HEX('00FFF0')}, center.ability.max_highlighted, center.ability.extra.round, localize(center.ability.extra.txt)}}
+        return{vars = {center.ability.max_highlighted, center.ability.extra.round, localize(center.ability.extra.txt)}}
     end,
     can_use = function (self,card)
         if card.ability.extra.round_left <= 0 and #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.max_highlighted then
@@ -754,7 +753,11 @@ SMODS.Consumable{ --BubbleTea
             delay = 0.1,
             func = function()
                 for i, _c in pairs(G.hand.highlighted) do
-                    _c:set_seal(card.ability.extra.seal, nil, true)
+                    local the_seal = SMODS.poll_seal({guaranteed = true})
+                    while not G.P_SEALS[the_seal].giga_data.is_upgraded do
+                        the_seal = SMODS.poll_seal({guaranteed = true})
+                    end
+                    _c:set_seal(the_seal, nil, true)
                 end
                 return true
             end
@@ -795,15 +798,14 @@ SMODS.Consumable{ --CranberryJuice
     rarity = 1,
     cost = 2,
     config = { extra = {
-        seal = 'giga_crimsonseal',
-        round = 2,
-        round_left = 2,
+        round = 1,
+        round_left = 1,
         txt = 'k_giga_notrd'},
         max_highlighted = 1
     },
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = G.P_SEALS.giga_crimsonseal
-        return{vars = {colours={HEX('DC143C')}, center.ability.max_highlighted, center.ability.extra.round, localize(center.ability.extra.txt)}}
+        return{vars = {center.ability.max_highlighted, center.ability.extra.round, localize(center.ability.extra.txt)}}
     end,
     can_use = function (self,card)
         if card.ability.extra.round_left <= 0 and #G.hand.highlighted ~= 0 and #G.hand.highlighted <= card.ability.max_highlighted then
@@ -823,7 +825,7 @@ SMODS.Consumable{ --CranberryJuice
             delay = 0.1,
             func = function()
                 for i, _c in pairs(G.hand.highlighted) do
-                    _c:set_seal(card.ability.extra.seal, nil, true)
+                    Giga.set_overcharge(_c, Giga.POOLS.Overcharges[math.random(#Giga.POOLS.Overcharges)])
                 end
                 return true
             end

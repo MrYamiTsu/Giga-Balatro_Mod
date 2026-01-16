@@ -1114,7 +1114,7 @@ SMODS.Joker{ --LinearLink
 SMODS.Joker{ --LiarVadko
     key = 'liarVadko',
     atlas = 'Jokers',
-    pos = {x = 7, y = 3},
+    pos = {x = 2, y = 7},
     cost = 4,
     rarity = 1,
     blueprint_compat = true,
