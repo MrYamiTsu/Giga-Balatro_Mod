@@ -686,33 +686,26 @@ SMODS.Consumable{ --Donut
         end
         delay(0.2)
         local leftmost = G.hand.highlighted[1]
-for i = 2, #G.hand.highlighted do
-    if G.hand.highlighted[i].T.x < leftmost.T.x then
-        leftmost = G.hand.highlighted[i]
-    end
-end
-
--- Construire la liste des cartes à droite (sources possibles)
-local right_cards = {}
-for i = 1, #G.hand.highlighted do
-    if G.hand.highlighted[i] ~= leftmost then
-        right_cards[#right_cards + 1] = G.hand.highlighted[i]
-    end
-end
-
--- Choisir une source au hasard parmi celles de droite
-local source = right_cards[math.random(#right_cards)]
--- (idéalement remplacer par pseudorandom si tu veux être clean Balatro)
-
--- Copier la source vers la cible (UNE seule carte)
-G.E_MANAGER:add_event(Event({
-    trigger = 'after',
-    delay = 0.1,
-    func = function()
-        copy_card(source, leftmost)
-        return true
-    end
-}))
+        for i = 2, #G.hand.highlighted do
+            if G.hand.highlighted[i].T.x < leftmost.T.x then
+                leftmost = G.hand.highlighted[i]
+            end
+        end
+        local right_cards = {}
+        for i = 1, #G.hand.highlighted do
+            if G.hand.highlighted[i] ~= leftmost then
+                right_cards[#right_cards + 1] = G.hand.highlighted[i]
+            end
+        end
+        local source = right_cards[math.random(#right_cards)]
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.1,
+            func = function()
+                copy_card(source, leftmost)
+                return true
+            end
+        }))
         for i = 1, #G.hand.highlighted do
             G.E_MANAGER:add_event(Event({
                 trigger = 'after',
