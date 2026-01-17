@@ -3,10 +3,6 @@ SMODS.ConsumableType{
     key = 'Giga_Food',
     primary_colour = HEX("F7070BFF"),
     secondary_colour = HEX("F2A5A6FF"),
-    loc_txt = {
-        collection = 'Food Cards',
-        name = 'Food'
-    },
     collection_rows = {5,6},
     default = 'c_giga_tacos',
     shop_rate = 0
@@ -340,6 +336,8 @@ SMODS.Consumable{ --Marshmallow
     },
     pos = {x = 0, y = 0},
     soul_pos = {x = 1, y = 5},
+    rarity = 1,
+    cost = 2,
     config = { max_highlighted = 1 },
     loc_vars = function(self, info_queue, card)
         return { vars = { card.ability.max_highlighted } }
@@ -1020,7 +1018,7 @@ SMODS.Consumable{ --BirthdayCake
     pos = {x = 2, y = 1},
     soul_pos = {x = 3, y = 1},
     rarity = 4,
-    cost = 8,
+    cost = 10,
     hidden = true,
     soul_set = 'Giga_Food',
     config = { extra = {
@@ -1057,6 +1055,9 @@ SMODS.Consumable{ --BirthdayCake
             juice_card_until(card, check_remove, true)
             card.ability.extra.txt = 'k_giga_rd'
         end
+    end,
+    set_card_type_badge = function(self, card, badges)
+        badges[#badges+1] = create_badge(localize('k_giga_rare_food'), SMODS.ConsumableTypes.Giga_Food.secondary_colour, G.C.WHITE, 1.2)
     end
 }
 SMODS.Consumable{ --Turkey
@@ -1074,7 +1075,7 @@ SMODS.Consumable{ --Turkey
     pos = {x = 2, y = 1},
     soul_pos = {x = 3, y = 4},
     rarity = 4,
-    cost = 8,
+    cost = 10,
     hidden = true,
     soul_set = 'Giga_Food',
     config = { extra = {
@@ -1111,6 +1112,9 @@ SMODS.Consumable{ --Turkey
             juice_card_until(card, check_remove, true)
             card.ability.extra.txt = 'k_giga_rd'
         end
+    end,
+    set_card_type_badge = function(self, card, badges)
+        badges[#badges+1] = create_badge(localize('k_giga_rare_food'), SMODS.ConsumableTypes.Giga_Food.secondary_colour, G.C.WHITE, 1.2)
     end
 }
 SMODS.Consumable{ --Poutine
@@ -1165,6 +1169,9 @@ SMODS.Consumable{ --Poutine
             juice_card_until(card, check_remove, true)
             card.ability.extra.txt = 'k_giga_rd'
         end
+    end,
+    set_card_type_badge = function(self, card, badges)
+        badges[#badges+1] = create_badge(localize('k_giga_rare_food'), SMODS.ConsumableTypes.Giga_Food.secondary_colour, G.C.WHITE, 1.2)
     end
 }
 --#endregion

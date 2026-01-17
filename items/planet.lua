@@ -126,7 +126,7 @@ SMODS.Consumable{ --AstralMercury
     set = 'Planet',
     atlas = 'Planets',
     pos = {x = 3, y = 1},
-    cost = 3,
+    cost = 4,
     config = {
         extra = {
             hand_type = 'Pair',
@@ -186,7 +186,7 @@ SMODS.Consumable{ --AstralVenus
     set = 'Planet',
     atlas = 'Planets',
     pos = {x = 0, y = 1},
-    cost = 3,
+    cost = 4,
     config = {
         extra = {
             hand_type = 'Three of a Kind',
@@ -246,7 +246,7 @@ SMODS.Consumable{ --AstralEarth
     set = 'Planet',
     atlas = 'Planets',
     pos = {x = 1, y = 1},
-    cost = 3,
+    cost = 4,
     config = {
         extra = {
             hand_type = 'Full House',
@@ -306,7 +306,7 @@ SMODS.Consumable{ --AstralMars
     set = 'Planet',
     atlas = 'Planets',
     pos = {x = 5, y = 1},
-    cost = 3,
+    cost = 4,
     config = {
         extra = {
             hand_type = 'Four of a Kind',
@@ -366,7 +366,7 @@ SMODS.Consumable{ --AstralJupiter
     set = 'Planet',
     atlas = 'Planets',
     pos = {x = 4, y = 1},
-    cost = 3,
+    cost = 4,
     config = {
         extra = {
             hand_type = 'Flush',
@@ -426,7 +426,7 @@ SMODS.Consumable{ --AstralSaturn
     set = 'Planet',
     atlas = 'Planets',
     pos = {x = 0, y = 0},
-    cost = 3,
+    cost = 4,
     config = {
         extra = {
             hand_type = 'Straight',
@@ -486,7 +486,7 @@ SMODS.Consumable{ --AstralUranus
     set = 'Planet',
     atlas = 'Planets',
     pos = {x = 1, y = 0},
-    cost = 3,
+    cost = 4,
     config = {
         extra = {
             hand_type = 'Two Pair',
@@ -546,7 +546,7 @@ SMODS.Consumable{ --AstralNeptune
     set = 'Planet',
     atlas = 'Planets',
     pos = {x = 2, y = 0},
-    cost = 3,
+    cost = 4,
     config = {
         extra = {
             hand_type = 'Straight Flush',
@@ -606,7 +606,7 @@ SMODS.Consumable{ --AstralPluto
     set = 'Planet',
     atlas = 'Planets',
     pos = {x = 3, y = 0},
-    cost = 3,
+    cost = 4,
     config = {
         extra = {
             hand_type = 'High Card',
@@ -666,7 +666,7 @@ SMODS.Consumable{ --AstralPlanetX
     set = 'Planet',
     atlas = 'Planets',
     pos = {x = 4, y = 0},
-    cost = 3,
+    cost = 4,
     config = {
         extra = {
             hand_type = 'Five of a Kind',
@@ -727,7 +727,7 @@ SMODS.Consumable{ --AstralCeres
     set = 'Planet',
     atlas = 'Planets',
     pos = {x = 2, y = 1},
-    cost = 3,
+    cost = 4,
     config = {
         extra = {
             hand_type = 'Flush House',
@@ -788,7 +788,7 @@ SMODS.Consumable{ --AstralEris
     set = 'Planet',
     atlas = 'Planets',
     pos = {x = 5, y = 0},
-    cost = 3,
+    cost = 4,
     config = {
         extra = {
             hand_type = 'Flush Five',
@@ -849,7 +849,7 @@ SMODS.Consumable{ --AstralTitania
     set = 'Planet',
     atlas = 'Planets',
     pos = {x = 4, y = 2},
-    cost = 3,
+    cost = 4,
     config = {
         extra = {
             hand_type = 'giga_Linked Pairs',
@@ -909,7 +909,7 @@ SMODS.Consumable{ --AstralSylvia
     set = 'Planet',
     atlas = 'Planets',
     pos = {x = 2, y = 2},
-    cost = 3,
+    cost = 4,
     config = {
         extra = {
             hand_type1 = 'High Card',

@@ -4,7 +4,7 @@ SMODS.Consumable{ --Cook
     atlas = 'Consumeables',
     pos = {x = 0, y = 0},
     rarity = 1,
-    cost = 2,
+    cost = 3,
     config = { extra = {
         card = 3
     }},
@@ -38,7 +38,7 @@ SMODS.Consumable{ --Gardener
     atlas = 'Consumeables',
     pos = {x = 2, y = 1},
     rarity = 1,
-    cost = 2,
+    cost = 3,
     config = { max_highlighted = 2, mod_conv = 'm_giga_soil' },
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'jogla_art_credit'}
@@ -52,7 +52,7 @@ SMODS.Consumable{ --UpgradeTarot
     atlas = 'Consumeables',
     pos = {x = 0, y = 1},
     rarity = 1,
-    cost = 2,
+    cost = 3,
     config = { extra = {
         card = 2
     }},
