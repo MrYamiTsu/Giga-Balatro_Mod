@@ -932,7 +932,7 @@ return {
             j_giga_factolord = {
                 name = 'Factolord',
                 text = {
-                    'Gain {C:attention}X3{} the',
+                    'Gain {C:attention}X4{} the',
                     'factorial {B:1,C:white}(!){} for',
                     'the number of empty',
                     'Joker slots as {C:chips}Chips{}',

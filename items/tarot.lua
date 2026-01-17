@@ -13,10 +13,7 @@ SMODS.Consumable{ --Cook
         return{vars = {center.ability.extra.card}}
     end,
     can_use = function (self,card)
-        if G.consumeables and G.consumeables.config.card_limit - #G.consumeables.cards <= 0 then
-            return false
-        end
-		return true
+		return (G.consumeables and #G.consumeables.cards < G.consumeables.config.card_limit) or (card.area == G.consumeables)
     end,
     use = function (self,card,area,copier)
         for i = 1, math.min(card.ability.extra.card, G.consumeables.config.card_limit - #G.consumeables.cards) do

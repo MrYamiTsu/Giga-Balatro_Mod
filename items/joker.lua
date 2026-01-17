@@ -8,8 +8,8 @@ SMODS.Joker{ --CashPass
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        cash = 14,
-        mult = 0.75
+        cash = 12,
+        mult = 0.8
     }
     },
     loc_vars = function(self,info_queue,center)
@@ -176,9 +176,8 @@ SMODS.Joker{ --ShreddedAce
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        mult = 1
-    }
-    },
+        mult = 2
+    }},
     loc_vars = function(self,info_queue,center)
         return{vars = {center.ability.extra.mult}}
     end,
