@@ -767,11 +767,7 @@ SMODS.Consumable{ --BubbleTea
             delay = 0.1,
             func = function()
                 for i, _c in pairs(G.hand.highlighted) do
-                    local the_seal = SMODS.poll_seal({guaranteed = true})
-                    while not G.P_SEALS[the_seal].giga_data.is_upgraded do
-                        the_seal = SMODS.poll_seal({guaranteed = true})
-                    end
-                    _c:set_seal(the_seal, nil, true)
+                    _c:set_seal(SMODS.poll_seal({guaranteed = true}), nil, true)
                 end
                 return true
             end
