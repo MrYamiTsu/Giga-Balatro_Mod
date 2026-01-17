@@ -246,6 +246,90 @@ SMODS.Consumable{ --Tacos
         delay(0.6)
     end
 }
+SMODS.Consumable{ --Donut
+    key = 'donut',
+    set = 'Giga_Food',
+    atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = 'c_fg__c_giga_donut'
+    },
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 4, y = 4},
+    rarity = 1,
+    cost = 2,
+    config = { max_highlighted = 3 , min_highlighted = 3 },
+    can_use = function (self,card)
+        if #G.hand.highlighted >= card.ability.min_highlighted and #G.hand.highlighted <= card.ability.max_highlighted then
+            return true
+        end
+        return false
+    end,
+    use = function (self,card,area,copier)
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.4,
+            func = function()
+                play_sound('tarot1')
+                card:juice_up(0.3, 0.5)
+                return true
+            end
+        }))
+        for i = 1, #G.hand.highlighted do
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.15,
+                func = function()
+                    G.hand.highlighted[i]:flip()
+                    G.hand.highlighted[i]:juice_up(0.3, 0.3)
+                    return true
+                end
+            }))
+        end
+        delay(0.2)
+        local leftmost = G.hand.highlighted[1]
+        for i = 2, #G.hand.highlighted do
+            if G.hand.highlighted[i].T.x < leftmost.T.x then
+                leftmost = G.hand.highlighted[i]
+            end
+        end
+        local right_cards = {}
+        for i = 1, #G.hand.highlighted do
+            if G.hand.highlighted[i] ~= leftmost then
+                right_cards[#right_cards + 1] = G.hand.highlighted[i]
+            end
+        end
+        local source = right_cards[math.random(#right_cards)]
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.1,
+            func = function()
+                copy_card(source, leftmost)
+                return true
+            end
+        }))
+        for i = 1, #G.hand.highlighted do
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.15,
+                func = function()
+                    G.hand.highlighted[i]:flip()
+                    G.hand.highlighted[i]:juice_up(0.3, 0.3)
+                    return true
+                end
+            }))
+        end
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.2,
+            func = function()
+                G.hand:unhighlight_all()
+                return true
+            end
+        }))
+        delay(0.5)
+    end
+}
 SMODS.Consumable{ --Marshmallow
     key = 'marshmallow',
     set = 'Giga_Food',
@@ -489,14 +573,10 @@ SMODS.Consumable{ --CaesarSalad
         return{vars = {center.ability.extra.round, localize(center.ability.extra.txt)}}
     end,
     can_use = function (self,card)
-        if card.ability.extra.round_left <= 0 then
-            return true
-        end
-        return false
+        return (G.consumeables and #G.consumeables.cards < G.consumeables.config.card_limit) or (card.area == G.consumeables)
     end,
     use = function (self,card,area,copier)
-        _create(card, 'Tarot', G.consumeables,true,true)
-        delay(0.4)
+        SMODS.add_card({set = 'Tarot'})
     end,
     calculate = function (self,card,context)
         if context.end_of_round and context.main_eval then
@@ -574,21 +654,17 @@ SMODS.Consumable{ --Pho
         return{vars = {center.ability.extra.round, localize(center.ability.extra.txt)}}
     end,
     can_use = function (self,card)
-        if card.ability.extra.round_left <= 0 then
-            return true
-        end
-        return false
+        return (G.consumeables and #G.consumeables.cards < G.consumeables.config.card_limit) or (card.area == G.consumeables)
     end,
     use = function (self,card,area,copier)
-        _create(card, 'Spectral', G.consumeables,true,true)
-        delay(0.4)
+        SMODS.add_card({set = 'Spectral'})
     end,
     calculate = function (self,card,context)
         if context.end_of_round and context.main_eval then
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
         if card.ability.extra.round_left <= 0 and card.ability.extra.txt == 'k_giga_notrd' and #G.consumeables.cards then
-            local check_remove = function(card) 
+            local check_remove = function(card)
                 return not card.REMOVED
             end
             juice_card_until(card, check_remove, true)
@@ -642,90 +718,6 @@ SMODS.Consumable{ --PB&JSandwich
         for i, selected_card in pairs(G.hand.highlighted) do
             selected_card.ability.perma_mult = selected_card.ability.perma_mult + card.ability.extra.mult
 		end
-    end
-}
-SMODS.Consumable{ --Donut
-    key = 'donut',
-    set = 'Giga_Food',
-    atlas = 'Foods',
-    fg_data = {
-        is_alternate = false,
-        alternate_key = 'c_fg__c_giga_donut'
-    },
-    pos = {x = 0, y = 0},
-    soul_pos = {x = 4, y = 4},
-    rarity = 1,
-    cost = 2,
-    config = { max_highlighted = 3 , min_highlighted = 3 },
-    can_use = function (self,card)
-        if #G.hand.highlighted >= card.ability.min_highlighted and #G.hand.highlighted <= card.ability.max_highlighted then
-            return true
-        end
-        return false
-    end,
-    use = function (self,card,area,copier)
-        G.E_MANAGER:add_event(Event({
-            trigger = 'after',
-            delay = 0.4,
-            func = function()
-                play_sound('tarot1')
-                card:juice_up(0.3, 0.5)
-                return true
-            end
-        }))
-        for i = 1, #G.hand.highlighted do
-            G.E_MANAGER:add_event(Event({
-                trigger = 'after',
-                delay = 0.15,
-                func = function()
-                    G.hand.highlighted[i]:flip()
-                    G.hand.highlighted[i]:juice_up(0.3, 0.3)
-                    return true
-                end
-            }))
-        end
-        delay(0.2)
-        local leftmost = G.hand.highlighted[1]
-        for i = 2, #G.hand.highlighted do
-            if G.hand.highlighted[i].T.x < leftmost.T.x then
-                leftmost = G.hand.highlighted[i]
-            end
-        end
-        local right_cards = {}
-        for i = 1, #G.hand.highlighted do
-            if G.hand.highlighted[i] ~= leftmost then
-                right_cards[#right_cards + 1] = G.hand.highlighted[i]
-            end
-        end
-        local source = right_cards[math.random(#right_cards)]
-        G.E_MANAGER:add_event(Event({
-            trigger = 'after',
-            delay = 0.1,
-            func = function()
-                copy_card(source, leftmost)
-                return true
-            end
-        }))
-        for i = 1, #G.hand.highlighted do
-            G.E_MANAGER:add_event(Event({
-                trigger = 'after',
-                delay = 0.15,
-                func = function()
-                    G.hand.highlighted[i]:flip()
-                    G.hand.highlighted[i]:juice_up(0.3, 0.3)
-                    return true
-                end
-            }))
-        end
-        G.E_MANAGER:add_event(Event({
-            trigger = 'after',
-            delay = 0.2,
-            func = function()
-                G.hand:unhighlight_all()
-                return true
-            end
-        }))
-        delay(0.5)
     end
 }
 SMODS.Consumable{ --BubbleTea
