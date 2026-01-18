@@ -2,6 +2,10 @@
 SMODS.Joker{ --CashPass
     key = 'cashPass',
     atlas = 'Jokers',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = 'j_giga_cashPass_alt'
+    },
     pos = {x = 0, y = 0},
     cost = 6,
     rarity = 2,

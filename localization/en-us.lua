@@ -1042,6 +1042,13 @@ return {
                     '{C:inactive}(Day > Chips / Month > Mult)'
                 }
             },
+            j_giga_cashPass_alt = {
+                name = 'Cash Pass?',
+                text = {
+                    '{X:mult,C:white}X#1#{} Mult',
+                    '{C:money}$#2#{} when blind is selected'
+                }
+            }
             --#endregion
         },
         Other={

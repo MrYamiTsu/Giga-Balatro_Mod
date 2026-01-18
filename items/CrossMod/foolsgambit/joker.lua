@@ -1,4 +1,38 @@
 --#region ALT NORMAL JOKERS --
+SMODS.Joker{ --CashPassAlt
+    key = 'cashPass_alt',
+    atlas = 'Jokers',
+    fg_data = {
+        is_alternate = true,
+        alternate_key = 'j_giga_cashPass',
+        crossover_label = 'Fools Gambit'
+    },
+    pos = {x = 0, y = 0},
+    cost = 6,
+    rarity = 2,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        cash = -5,
+        mult = 2
+    }
+    },
+    loc_vars = function(self,info_queue,center)
+        return{vars = {center.ability.extra.cash, center.ability.extra.mult}}
+    end,
+    calculate = function(self,card,context)
+        if context.setting_blind then
+            return {
+                dollars = card.ability.extra.cash
+            }
+        end
+        if context.joker_main then
+            return {
+                x_mult = card.ability.extra.mult
+            }
+        end
+    end
+}
 SMODS.Joker{ --OnTheClockALT
     key = 'onTheClock_alt',
     atlas = 'Jokers',
