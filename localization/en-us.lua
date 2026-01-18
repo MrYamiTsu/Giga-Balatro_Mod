@@ -350,6 +350,14 @@ return {
                     'card into {C:clubs}Club{} suit'
                 }
             },
+            c_giga_hawaiianPizza = {
+                name = 'Hawaiian Pizza',
+                text = {
+                    'A delicious Hawaiian Pizza that',
+                    'creates up to {C:attention}#1#{}',
+                    'random {C:giga_Food}Food{} cards'
+                }
+            },
             c_giga_donut = {
                 name = 'Donut',
                 text = {
@@ -410,14 +418,6 @@ return {
                     'permanently give you {C:attention}+#1#{}',
                     'hand size in {C:attention}#2#{} rounds',
                     '{C:inactive}#3#{}'
-                }
-            },
-            c_giga_hawaiianPizza = {
-                name = 'Hawaiian Pizza',
-                text = {
-                    'A delicious Hawaiian Pizza that',
-                    'will give a {C:cry_code}Code{} in {C:attention}#1#{} rounds',
-                    '{C:inactive}#2#{}'
                 }
             },
             c_giga_appleJuice = {

@@ -45,6 +45,40 @@ SMODS.Consumable{ --Sushis
         return{vars = {center.ability.max_highlighted}}
     end
 }
+SMODS.Consumable{ --HawaiianPizza
+    key = 'hawaiianPizza',
+    set = 'Giga_Food',
+    atlas = 'Foods',
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 4, y = 1},
+    rarity = 1,
+    cost = 3,
+    config = { extra = {
+        card = 2
+    }},
+    loc_vars = function (self,info_queue,center)
+        return{vars = {center.ability.extra.card}}
+    end,
+    can_use = function (self,card)
+		return (G.consumeables and #G.consumeables.cards < G.consumeables.config.card_limit) or (card.area == G.consumeables)
+    end,
+    use = function (self,card,area,copier)
+        for i = 1, math.min(card.ability.extra.card, G.consumeables.config.card_limit - #G.consumeables.cards) do
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.4,
+                func = function()
+                    if G.consumeables.config.card_limit > #G.consumeables.cards then
+                        SMODS.add_card({ set = 'Giga_Food' })
+                        card:juice_up(0.3, 0.5)
+                    end
+                    return true
+                end
+            }))
+        end
+        delay(0.6)
+    end
+}
 SMODS.Consumable{ --Waffle
     key = 'waffle',
     set = 'Giga_Food',
