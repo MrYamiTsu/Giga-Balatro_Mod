@@ -18,7 +18,7 @@ SMODS.Joker{ --CashPassAlt
     }
     },
     loc_vars = function(self,info_queue,center)
-        return{vars = {center.ability.extra.cash, center.ability.extra.mult}}
+        return{vars = {center.ability.extra.mult, center.ability.extra.cash}}
     end,
     calculate = function(self,card,context)
         if context.setting_blind then
