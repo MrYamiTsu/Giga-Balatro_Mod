@@ -21,10 +21,9 @@ SMODS.Seal{ --Pink
                                 return true
                             end
                         }))
+                        SMODS.calculate_effect({ message = localize("k_plus_food"), colour = HEX('F2A5A6FF') }, card)
                     return true
-                end,
-                message = '+1 Food',
-                colour = HEX('F2A5A6FF')
+                end
             }
             end
         end
@@ -335,31 +334,34 @@ SMODS.Seal{ --Pink+
                     return true
                 end
             }))
-            local mes = '+1 Food'
-            if SMODS.pseudorandom_probability(card, pseudoseed('giga_pinkPlus'), self.config.extra.odds, self.config.extra.chances) then
-                if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
-                    G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
-                    G.E_MANAGER:add_event(Event({
-                        func = function()
-                            SMODS.add_card({set = 'Giga_Food'})
-                            G.GAME.consumeable_buffer = 0
-                            return true
-                        end
-                    }))
-                else
-                    mes = nil
-                end
-            else
-                G.E_MANAGER:add_event(Event({
-                    func = function()
-                        SMODS.add_card({set = 'Giga_Food', edition = 'e_negative'})
-                        return true
-                    end
-                }))
-            end
             return {
-                message = mes,
-                colour = HEX('F2A5A6FF')
+                func = function()
+                    print('test 1')
+                    if SMODS.pseudorandom_probability(card, pseudoseed('giga_pinkPlus'), self.config.extra.odds, self.config.extra.chances) then
+                        print('test 4')
+                        G.E_MANAGER:add_event(Event({
+                            func = function()
+                                SMODS.add_card({set = 'Giga_Food', edition = 'e_negative'})
+                                return true
+                            end
+                        }))
+                        SMODS.calculate_effect({ message = localize("k_plus_food"), colour = HEX('F2A5A6FF') }, card)
+                    else
+                        print('test 2')
+                        if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+                            print('test 3')
+                            G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                            G.E_MANAGER:add_event(Event({
+                                func = function()
+                                    SMODS.add_card({set = 'Giga_Food'})
+                                    G.GAME.consumeable_buffer = 0
+                                    return true
+                                end
+                            }))
+                            SMODS.calculate_effect({ message = localize("k_plus_food"), colour = HEX('F2A5A6FF') }, card)
+                        end
+                    end
+                end
             }
         end
     end,
@@ -699,59 +701,47 @@ SMODS.Seal{ --Pink++
                     return true
                 end
             }))
-            local mes_nbr = self.config.extra.card
-            local mes = '+' .. mes_nbr .. ' Foods'
-            for i = 1, self.config.extra.card, 1 do
-                if SMODS.pseudorandom_probability(card, pseudoseed('giga_pinkPlusPlus2'), self.config.extra.odds2, self.config.extra.chances2) then
-                    if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
-                        G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
-                        G.E_MANAGER:add_event(Event({
-                            func = function()
-                                local cons = Giga.POOLS.r_food[math.random(#Giga.POOLS.r_food)]
-                                SMODS.add_card({key = cons})
-                                G.GAME.consumeable_buffer = 0
-                                return true
+            return {
+                func = function()
+                    for i = 1, self.config.extra.card, 1 do
+                        if SMODS.pseudorandom_probability(card, pseudoseed('giga_pinkPlusPlus2'), self.config.extra.odds2, self.config.extra.chances2) then
+                            if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+                                G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                                G.E_MANAGER:add_event(Event({
+                                    func = function()
+                                        local cons = Giga.POOLS.r_food[math.random(#Giga.POOLS.r_food)]
+                                        SMODS.add_card({key = cons})
+                                        G.GAME.consumeable_buffer = 0
+                                        return true
+                                    end
+                                }))
+                                SMODS.calculate_effect({ message = localize("k_plus_rarefood"), colour = HEX('F2A5A6FF') }, card)
                             end
-                        }))
-                    else
-                        mes_nbr = mes_nbr - 1
-                    end
-                else
-                    if SMODS.pseudorandom_probability(card, pseudoseed('giga_pinkPlusPlus'), self.config.extra.odds1, self.config.extra.chances1) then
-                        G.E_MANAGER:add_event(Event({
-                            func = function()
-                                SMODS.add_card({set = 'Giga_Food', edition = 'e_negative'})
-                                return true
-                            end
-                        }))
-                    else
-                        if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
-                            G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
-                            G.E_MANAGER:add_event(Event({
-                                func = function()
-                                    SMODS.add_card({set = 'Giga_Food'})
-                                    G.GAME.consumeable_buffer = 0
-                                    return true
-                                end
-                            }))
                         else
-                            mes_nbr = mes_nbr - 1
+                            if SMODS.pseudorandom_probability(card, pseudoseed('giga_pinkPlusPlus'), self.config.extra.odds1, self.config.extra.chances1) then
+                                G.E_MANAGER:add_event(Event({
+                                    func = function()
+                                        SMODS.add_card({set = 'Giga_Food', edition = 'e_negative'})
+                                        return true
+                                    end
+                                }))
+                                SMODS.calculate_effect({ message = localize("k_plus_food"), colour = HEX('F2A5A6FF') }, card)
+                            else
+                                if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+                                    G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                                    G.E_MANAGER:add_event(Event({
+                                        func = function()
+                                            SMODS.add_card({set = 'Giga_Food'})
+                                            G.GAME.consumeable_buffer = 0
+                                            return true
+                                        end
+                                    }))
+                                    SMODS.calculate_effect({ message = localize("k_plus_food"), colour = HEX('F2A5A6FF') }, card)
+                                end
+                            end
                         end
                     end
                 end
-            end
-            if mes_nbr <= 0 then
-                mes = nil
-            else
-                if mes_nbr > 1 then
-                    mes = '+' .. mes_nbr .. ' Foods'
-                else
-                    mes = '+' .. mes_nbr .. ' Food'
-                end
-            end
-            return {
-                message = mes,
-                colour = HEX('F2A5A6FF')
             }
         end
     end,

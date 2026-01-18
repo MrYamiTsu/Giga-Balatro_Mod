@@ -1665,7 +1665,9 @@ return {
             k_giga_astrals_badge = 'Astral',
             k_giga_moon = 'Moon',
             k_giga_asteroid = 'Asteroid',
-            giga_overcharge_collection_label = 'Overcharges'
+            giga_overcharge_collection_label = 'Overcharges',
+            k_plus_food = '+1 Food',
+            k_plus_rarefood = '+1 Rare Food'
         },
         high_scores={},
         labels={
