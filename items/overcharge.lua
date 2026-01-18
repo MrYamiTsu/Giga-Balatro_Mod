@@ -70,25 +70,42 @@ Giga.Overcharge{ --OrangeOvercharge
 	unlocked = true,
     config = { extra = {
         tarot = 1,
+        odds = 1,
+        chances = 2,
         ovch_add = 1
     }},
     loc_vars = function (self,info_queue,card)
-        return{vars = {self.config.extra.tarot + math.floor(Giga.discarded_overcharge() / 5), self.config.extra.ovch_add, 5}}
+        local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'giga_orangeovercharge')
+        return{vars = {self.config.extra.tarot + math.floor(Giga.discarded_overcharge() / 5), odds, chances, self.config.extra.ovch_add, 4}}
     end,
     calculate = function (self,card,context)
         if context.giga_pre_joker and context.cardarea == G.play then
             return {
                 func = function()
                     for _ = 1, self.config.extra.tarot + math.floor(Giga.discarded_overcharge() / 5), 1 do
-                        G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
-                        G.E_MANAGER:add_event(Event({
-                            func = function ()
-                                SMODS.add_card({set = 'Tarot', edition = 'e_negative'})
-                                G.GAME.consumeable_buffer = 0
-                                return true
+                        if SMODS.pseudorandom_probability(card, pseudoseed('giga_orangeovercharge'), self.config.extra.odds, self.config.extra.chances) then
+                            G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                            G.E_MANAGER:add_event(Event({
+                                func = function ()
+                                    SMODS.add_card({set = 'Tarot', edition = 'e_negative'})
+                                    G.GAME.consumeable_buffer = 0
+                                    return true
+                                end
+                            }))
+                            SMODS.calculate_effect({ message = localize("k_plus_tarot"), colour = G.C.PURPLE }, card)
+                        else
+                            if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+                                G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                                G.E_MANAGER:add_event(Event({
+                                    func = function ()
+                                        SMODS.add_card({set = 'Tarot'})
+                                        G.GAME.consumeable_buffer = 0
+                                        return true
+                                    end
+                                }))
+                                SMODS.calculate_effect({ message = localize("k_plus_tarot"), colour = G.C.PURPLE }, card)
                             end
-                        }))
-                        SMODS.calculate_effect({ message = localize("k_plus_tarot"), colour = G.C.PURPLE }, card)
+                        end
 		            end
                     return true
                 end

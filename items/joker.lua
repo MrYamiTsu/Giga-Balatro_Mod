@@ -175,12 +175,12 @@ SMODS.Joker{ --ShreddedAce
     key = 'shreddedAce',
     atlas = 'Jokers',
     pos = {x = 1, y = 1},
-    cost = 7,
+    cost = 6,
     rarity = 2,
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        mult = 2
+        mult = 4
     }},
     loc_vars = function(self,info_queue,center)
         return{vars = {center.ability.extra.mult}}
@@ -533,7 +533,7 @@ SMODS.Joker{ --SagittariusA
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        chips = 160,
+        chips = 180,
         txt = 'k_inactive',
         active = false
     }},
