@@ -54,7 +54,7 @@ SMODS.Consumable{ --HawaiianPizza
     rarity = 1,
     cost = 3,
     config = { extra = {
-        card = 2
+        card = 1
     }},
     loc_vars = function (self,info_queue,center)
         return{vars = {center.ability.extra.card}}
@@ -605,7 +605,10 @@ SMODS.Consumable{ --CaesarSalad
         return{vars = {center.ability.extra.round, localize(center.ability.extra.txt)}}
     end,
     can_use = function (self,card)
-        return (G.consumeables and #G.consumeables.cards < G.consumeables.config.card_limit) or (card.area == G.consumeables)
+        if card.ability.extra.round_left <= 0 then
+            return (G.consumeables and #G.consumeables.cards < G.consumeables.config.card_limit) or (card.area == G.consumeables)
+        end
+        return false
     end,
     use = function (self,card,area,copier)
         SMODS.add_card({set = 'Tarot'})
@@ -645,7 +648,7 @@ SMODS.Consumable{ --ClubSandwich
     end,
     can_use = function (self,card)
         if card.ability.extra.round_left <= 0 then
-            return true
+            return (G.consumeables and #G.consumeables.cards < G.consumeables.config.card_limit) or (card.area == G.consumeables)
         end
         return false
     end,
@@ -686,7 +689,10 @@ SMODS.Consumable{ --Pho
         return{vars = {center.ability.extra.round, localize(center.ability.extra.txt)}}
     end,
     can_use = function (self,card)
-        return (G.consumeables and #G.consumeables.cards < G.consumeables.config.card_limit) or (card.area == G.consumeables)
+        if card.ability.extra.round_left <= 0 then
+            return (G.consumeables and #G.consumeables.cards < G.consumeables.config.card_limit) or (card.area == G.consumeables)
+        end
+        return false
     end,
     use = function (self,card,area,copier)
         SMODS.add_card({set = 'Spectral'})

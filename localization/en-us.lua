@@ -353,8 +353,8 @@ return {
             c_giga_hawaiianPizza = {
                 name = 'Hawaiian Pizza',
                 text = {
-                    'A delicious Hawaiian Pizza that',
-                    'creates up to {C:attention}#1#{}',
+                    'A delicious Hawaiian Pizza',
+                    'that creates a',
                     'random {C:giga_Food}Food{} cards'
                 }
             },
@@ -362,9 +362,9 @@ return {
                 name = 'Donut',
                 text = {
                     'Some delicious Donuts',
-                    'that convert the {C:attention}right{}',
+                    'that convert the {C:attention}left{}',
                     'card into one of the {C:attention}2{}',
-                    '{C:attention}leftmost{} cards'
+                    '{C:attention}rightmost{} cards'
                 }
             },
             c_giga_cranberryJuice = {
