@@ -16,7 +16,7 @@
 <h2>Contents</h2>
 <ul>
     <li>51+ Jokers (+9 Cross-Mod)</li>
-    <li>33 Food cards (+8 Cross-Mod)</li>
+    <li>34 Food cards (+6 Cross-Mod)</li>
     <li>17 Seals</li>
     <li>16 Planets</li>
     <li>10+ Enhancements</li>
@@ -49,7 +49,7 @@
 <hr>
 <h2>Additional Infos</h2>
 <p>
-    Giga first appear in the <strong>Wheel Of Mods</strong> of <strong>MurphyObv</strong> on January 16th 2026 and has not yet been selected yet.<br><br>
+    Giga first appear in the <strong>Wheel Of Mods</strong> of <strong>MurphyObv</strong> on January 16th 2026 and has not been selected yet.<br><br>
     Some content work weirdly sometimes.<br><br>
     If a whole asset is in comment, don't remove it from the comment. It's an idea and this may cause the game to crash.<br><br>
     If you have any ideas for how the mod's elements might interact, feel free to ping me in the <strong><a href="https://discord.com/channels/1116389027176787968/1398876204622286958">Giga</a></strong> post on the Balatro Discord.
@@ -60,9 +60,9 @@
 <h2>Credits</h2>
 <ul>
     <li><strong>le_dugs</strong> for a lot of ideas and playtest.</li>
+    <li><strong>Jogla</strong> for spanish translation, fixes, some artworks, playtest and the Big Collab.</li>
     <li><strong>Frogggy18</strong> for a lot of playtest and balance changes.</li>
     <li><strong>Zeed</strong> for playtest and english correction.</li>
     <li><strong>Eris</strong> for code fixing.</li>
-    <li><strong>Jogla</strong> for spanish translation, fixes, some artworks, playtest and the Big Collab.</li>
     <li>*All the dev in the Balatro modding community*.</li>
 </ul>
