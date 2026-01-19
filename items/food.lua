@@ -52,7 +52,7 @@ SMODS.Consumable{ --HawaiianPizza
     pos = {x = 0, y = 0},
     soul_pos = {x = 4, y = 1},
     rarity = 1,
-    cost = 3,
+    cost = 2,
     config = { extra = {
         card = 1
     }},

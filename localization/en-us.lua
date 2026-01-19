@@ -488,7 +488,7 @@ return {
             }
         },
         Joker={
-            --#Region Normal
+            --#region Normal
             j_giga_cashPass = {
                 name = 'Cash Pass',
                 text = {
@@ -1308,6 +1308,15 @@ return {
                     'this round'
                 }
             },
+            giga_blueOvercharge = {
+                name = 'Blue Overcharge',
+                text = {
+                    '[Placeholder for effect] when {C:attention}played{}',
+                    'Increase by {C:attention}#{} for each',
+                    '{C:attention}discarded{} Overcharge',
+                    'this round'
+                }
+            },
             --#endregion
             --#region Real other
             giga_uncopiable_info = {
@@ -1695,7 +1704,8 @@ return {
             giga_redOvercharge = 'Red Overcharge',
             giga_yellowOvercharge = 'Yellow Overcharge',
             giga_orangeOvercharge = 'Orange Overcharge',
-            giga_greenOvercharge = 'Green Overcharge'
+            giga_greenOvercharge = 'Green Overcharge',
+            giga_blueOvercharge = 'Blue Overcharge'
         },
         poker_hand_descriptions={
             ["giga_Linked Pairs"] = {

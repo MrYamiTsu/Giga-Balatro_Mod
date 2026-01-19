@@ -150,3 +150,22 @@ Giga.Overcharge{ --GreenOvercharge
     end,
     badge_colour = G.C.GREEN
 }
+Giga.Overcharge{
+    key = 'blueOvercharge',
+    set = 'Overcharge',
+    atlas = 'Overcharges',
+    pos = {x = 4, y = 0},
+    discovered = true,
+	unlocked = true,
+    config = { extra = {
+        level = 1,
+        ovch_add = 1
+    }},
+    loc_vars = function (self,info_queue,card)
+        return{}
+    end,
+    calculate = function (self,card,context)
+        
+    end,
+    badge_colour = G.C.BLUE
+}
