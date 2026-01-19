@@ -41,9 +41,7 @@
 <p>There’s a lot of crossover with <a href="https://github.com/Joglacraft/Fools-Gambit">Fool's Gambit</a>, so I really recommend checking it out. And the mod itself is absolutely worth playing, it’s genuinely great on its own.</p>
 <p>Additionally, there are some extra assets if you have other mods. Mainly Food cards.</p>
 <ul>
-    <li><a href="https://github.com/Amphiapple/Bloonlatro">Bloonlatro</a></li>
     <li><a href="https://github.com/larswijn/CardSleeves">CardSleeves</a></li>
-    <li><a href="https://github.com/SpectralPack/Cryptid">Cryptid</a></li>
     <li><a href="https://github.com/Icecanno/Partner-API/">Partner-API</a></li>
     <li><a href="https://github.com/Balatro-Paperback/paperback">Paperback</a></li>
 </ul>
@@ -51,8 +49,9 @@
 <hr>
 <h2>Additional Infos</h2>
 <p>
-    Some content work weirdly sometimes.<br>
-    If a whole asset is in comment, don't remove it from the comment. It's an idea and this may cause the game to crash.<br>
+    Giga first appear in the <strong>Wheel Of Mods</strong> of <strong>MurphyObv</strong> on January 16th 2026 and has not yet been selected yet.<br><br>
+    Some content work weirdly sometimes.<br><br>
+    If a whole asset is in comment, don't remove it from the comment. It's an idea and this may cause the game to crash.<br><br>
     If you have any ideas for how the mod's elements might interact, feel free to ping me in the <strong><a href="https://discord.com/channels/1116389027176787968/1398876204622286958">Giga</a></strong> post on the Balatro Discord.
     You can also send me artwork of some elements if you want (I'll mention you in the credits).
 </p>
