@@ -326,25 +326,24 @@ SMODS.Joker{ --TriceratopsALT
             if card.ability.extra.round <= -1 then
                 card.ability.extra.round = 1
                 if #G.consumeables.cards > 0 then
-                    local to_destroy = pseudorandom_element(G.consumeables.cards, pseudoseed('tRex_destroy'))
-                    G.E_MANAGER:add_event(Event({
-                        blocking = true,
-                        func = function()
-                            SMODS.destroy_cards(to_destroy)
-                            return true
-                        end
-                    }))
+                    SMODS.destroy_cards(pseudorandom_element(G.consumeables.cards, pseudoseed('tRex_destroy')))
                     if not context.blueprint then
                         card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_add
                         card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chips_add
                     end
                 end
-                if #G.consumeables.cards < G.consumeables.config.card_limit then
-                    _create(card,card.ability.extra.txt,G.consumeables,false,false)
-                    delay(0.4)
-                else
-                    SMODS.calculate_effect({ message = localize('k_no_room_ex') }, card)
-                end
+                G.E_MANAGER:add_event(Event({
+                    blocking = true,
+                    func = function()
+                        if #G.consumeables.cards < G.consumeables.config.card_limit then
+                            local set = next(SMODS.find_card("j_giga_velocyraptor" or "j_giga_velocyraptor_alt")) and 'Spectral' or 'Tarot'
+                            SMODS.add_card({set = set})
+                        else
+                            SMODS.calculate_effect({ message = localize('k_no_room_ex') }, card)
+                        end
+                        return true
+                    end
+                }))
             end
         end
         if context.joker_main then

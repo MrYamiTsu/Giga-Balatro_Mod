@@ -827,7 +827,7 @@ return {
                 name = 'Healthy Roots',
                 text = {
                     'Give {C:mult}+#1#{} for',
-                    'each cards that as the',
+                    'each cards that has the',
                     'same rank as the {C:attention}first{}',
                     '{C:attention}held{} in hand card'
                 }
@@ -1311,8 +1311,8 @@ return {
             giga_blueOvercharge = {
                 name = 'Blue Overcharge',
                 text = {
-                    '[Placeholder for effect] when {C:attention}played{}',
-                    'Increase by {C:attention}#{} for each',
+                    '{X:chips,C:white}X#1#{} Mult when {C:attention}played{}',
+                    'Increase by {X:chips,C:white}X#2#{} for each',
                     '{C:attention}discarded{} Overcharge',
                     'this round'
                 }
