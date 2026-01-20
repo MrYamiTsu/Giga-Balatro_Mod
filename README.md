@@ -22,9 +22,9 @@
     <li>10+ Enhancements</li>
     <li>6 Spectrals</li>
     <li>5 Decks</li>
+    <li>5 Overcharges</li>
     <li>4 Booster Packs</li>
     <li>4 Vouchers</li>
-    <li>4 Overcharges</li>
     <li>3 Editions</li>
     <li>3 Tarots</li>
     <li>2 Boss Blind</li>
@@ -50,7 +50,7 @@
 <h2>Additional Infos</h2>
 <p>
     Giga first appear in the <strong>Wheel Of Mods</strong> of <strong>MurphyObv</strong> on January 16th 2026 and has not been selected yet.<br><br>
-    Some content work weirdly sometimes.<br><br>
+    Some content work weirdly, sometimes.<br><br>
     If a whole asset is in comment, don't remove it from the comment. It's an idea and this may cause the game to crash.<br><br>
     If you have any ideas for how the mod's elements might interact, feel free to ping me in the <strong><a href="https://discord.com/channels/1116389027176787968/1398876204622286958">Giga</a></strong> post on the Balatro Discord.
     You can also send me artwork of some elements if you want (I'll mention you in the credits).

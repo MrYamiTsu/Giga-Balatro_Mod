@@ -38,6 +38,29 @@ Giga.Overcharge{ --RedOvercharge
     end,
     badge_colour = G.C.RED
 }
+Giga.Overcharge{
+    key = 'blueOvercharge',
+    set = 'Overcharge',
+    atlas = 'Overcharges',
+    pos = {x = 4, y = 0},
+    discovered = true,
+	unlocked = true,
+    config = { extra = {
+        chips = 2,
+        ovch_add = 0.25
+    }},
+    loc_vars = function (self,info_queue,card)
+        return{vars = {self.config.extra.chips + Giga.discarded_overcharge() * self.config.extra.ovch_add, self.config.extra.ovch_add}}
+    end,
+    calculate = function (self,card,context)
+        if context.giga_pre_joker and context.cardarea == G.play then
+            return {
+                xchips = self.config.extra.chips + Giga.discarded_overcharge() * self.config.extra.ovch_add
+            }
+        end
+    end,
+    badge_colour = G.C.BLUE
+}
 Giga.Overcharge{ --YellowOvercharge
     key = 'yellowOvercharge',
     set = 'Overcharge',
@@ -149,23 +172,4 @@ Giga.Overcharge{ --GreenOvercharge
         end
     end,
     badge_colour = G.C.GREEN
-}
-Giga.Overcharge{
-    key = 'blueOvercharge',
-    set = 'Overcharge',
-    atlas = 'Overcharges',
-    pos = {x = 4, y = 0},
-    discovered = true,
-	unlocked = true,
-    config = { extra = {
-        level = 1,
-        ovch_add = 1
-    }},
-    loc_vars = function (self,info_queue,card)
-        return{}
-    end,
-    calculate = function (self,card,context)
-        
-    end,
-    badge_colour = G.C.BLUE
 }
