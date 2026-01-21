@@ -211,7 +211,7 @@ end
 --- Roll for a shiny edition
 --- @return boolean
 function Giga.shiny_roll()
-    local chances, odds = G.GAME.giga.shiny_chance[1], G.GAME.giga.shiny_chance[2]
+    local chances, odds = G.GAME.giga.shiny_chance[1] or 2, G.GAME.giga.shiny_chance[2] or 25
     if chances > 1 then
         return math.random(odds) <= chances
     end
@@ -221,7 +221,7 @@ end
 --- Roll for an astral planet
 --- @return boolean
 function Giga.astral_roll()
-    local chances, odds = G.GAME.giga.astral_chance[1], G.GAME.giga.astral_chance[2]
+    local chances, odds = G.GAME.giga.astral_chance[1] or 1, G.GAME.giga.astral_chance[2] or 20
     if chances > 1 then
         return math.random(odds) <= chances
     end
