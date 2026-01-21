@@ -24,6 +24,24 @@ SMODS.Back{ --ReverseCheckered
         return args.type == 'win_deck' and get_deck_win_stake('b_black') > 1
     end
 }
+SMODS.Back{ --Teal
+    key = 'teal',
+    atlas = "Decks",
+    pos = {x = 0, y = 1},
+    discovered = true,
+	unlocked = true,
+    apply = function(self, back)
+        local hands = {}
+        for k, v in ipairs(G.handlist) do
+            if G.GAME.hands[v] and G.GAME.hands[v].visible then
+                hands[#hands+1] = v
+            end
+        end
+        for _ = 1, 7, 1 do
+            level_up_hand(nil, pseudorandom_element(hands, pseudoseed('Teal')), nil, 1)
+        end
+    end
+}
 SMODS.Back{ --Foodie
     key = 'foodie',
     atlas = "Decks",
@@ -33,8 +51,15 @@ SMODS.Back{ --Foodie
     config = { voucher = 'v_giga_foodStand' },
     calculate = function(self, card, context)
         if context.setting_blind then
-            if #G.consumeables.cards < G.consumeables.config.card_limit then
-                _create(card,'Giga_Food',G.consumeables,false,false)
+            if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+                G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        SMODS.add_card({set = 'Giga_Food'})
+                        G.GAME.consumeable_buffer = 0
+                        return true
+                    end
+                }))
             end
         end
     end

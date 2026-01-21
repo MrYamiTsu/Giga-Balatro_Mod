@@ -22,9 +22,9 @@ SMODS.Seal{ --Pink
                             end
                         }))
                         SMODS.calculate_effect({ message = localize("k_plus_food"), colour = HEX('F2A5A6FF') }, card)
-                    return true
-                end
-            }
+                        return true
+                    end
+                }
             end
         end
     end,

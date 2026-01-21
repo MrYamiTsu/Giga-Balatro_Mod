@@ -41,6 +41,13 @@ return {
                     'drunk, you eat pizzzzzzzzza',
                     'Oh shiiiit, I shit on myself'
                 }
+            },
+            b_giga_teal = {
+                name = 'Teal Deck',
+                text = {
+                    'Start with {C:attention}7{} levels',
+                    'split on random hands'
+                }
             }
         },
         Blind={
@@ -1540,7 +1547,14 @@ return {
                     'of every round'
 
                 }
-            }
+            },
+            sleeve_giga_tealSleeve = {
+                name = 'Teal Sleeve',
+                text = {
+                    'Start with {C:attention}7{} levels',
+                    'split on random hands'
+                }
+            },
         },
         Spectral={
             c_giga_salt = {

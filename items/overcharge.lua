@@ -38,7 +38,7 @@ Giga.Overcharge{ --RedOvercharge
     end,
     badge_colour = G.C.RED
 }
-Giga.Overcharge{
+Giga.Overcharge{ --BlueOvercharge
     key = 'blueOvercharge',
     set = 'Overcharge',
     atlas = 'Overcharges',
