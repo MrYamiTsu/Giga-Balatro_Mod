@@ -66,7 +66,7 @@ return {
                 name = 'The Selfish',
                 text = {
                     'If 5 cards are',
-                    'discard, loose $5'
+                    'discarded, lose $5'
                 }
             },
             bl_giga_base = {
@@ -898,10 +898,10 @@ return {
             j_giga_bonoboJoker = {
                 name = 'Bonobo Joker',
                 text = {
-                    'Give {C:attention}half{} the {C:attention}chip{} value',
-                    'of each {C:attention}held{} in hand',
-                    'cards as {C:mult}Mult{}, if {C:attention}5{} cards',
-                    'are {C:attention}played{}'
+                    'If {C:attention}5{} cards are',
+                    '{C:attention}played{}, give {C:attention}half{} the {C:attention}chip{}',
+                    'value of each {C:attention}held{}',
+                    'in hand cards as {C:mult}Mult{}'
                 }
             },
             j_giga_onTheClock = {
@@ -1351,7 +1351,7 @@ return {
             giga_blueOvercharge = {
                 name = 'Blue Overcharge',
                 text = {
-                    '{X:chips,C:white}X#1#{} Mult when {C:attention}played{}',
+                    '{X:chips,C:white}X#1#{} Chips when {C:attention}played{}',
                     'Increase by {X:chips,C:white}X#2#{} for each',
                     '{C:attention}discarded{} Overcharge',
                     'this round'
