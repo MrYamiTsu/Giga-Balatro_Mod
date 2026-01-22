@@ -1144,12 +1144,17 @@ SMODS.Joker{ --Big31
     rarity = 1,
     blueprint_compat = false,
     eternal_compat = true,
+    config = { extra = {
+        confirm_open = false
+    }},
     calculate = function(self,card,context)
         if not context.blueprint and context.open_booster then
             G.hand:change_size(G.hand.config.card_limit)
+            card.ability.extra.confirm_open = true
         end
-        if not context.blueprint and context.ending_booster then
+        if not context.blueprint and context.ending_booster and card.ability.extra.confirm_open then
             G.hand:change_size(-G.hand.config.card_limit / 2)
+            card.ability.extra.confirm_open = false
         end
     end
 }
