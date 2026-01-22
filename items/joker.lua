@@ -1136,6 +1136,49 @@ SMODS.Joker{ --LiarVadko
         end
     end
 }
+SMODS.Joker{ --Big31
+    key = 'big31',
+    atlas = 'Jokers',
+    pos = {x = 7, y = 3},
+    cost = 5,
+    rarity = 1,
+    blueprint_compat = false,
+    eternal_compat = true,
+    calculate = function(self,card,context)
+        if not context.blueprint and context.open_booster then
+            G.hand:change_size(G.hand.config.card_limit)
+        end
+        if not context.blueprint and context.ending_booster then
+            G.hand:change_size(-G.hand.config.card_limit / 2)
+        end
+    end
+}
+SMODS.Joker{ --NoCashForYou
+    key = 'noCashForYou',
+    atlas = 'Jokers',
+    pos = {x = 7, y = 3},
+    cost = 6,
+    rarity = 2,
+    blueprint_compat = false,
+    eternal_compat = true,
+    config = { extra = {
+        mult = 0.2
+    }},
+    loc_vars = function(self,info_queue,center)
+        local mult = 1
+        if G.GAME.dollars:to_number() < 0 then
+            mult = 1 + math.abs(G.GAME.dollars:to_number()) * center.ability.extra.mult
+        end
+        return{vars = {center.ability.extra.mult, mult}}
+    end,
+    calculate = function(self,card,context)
+        if context.joker_main and G.GAME.dollars:to_number() < 0 then
+            return {
+                xmult = 1 + math.abs(G.GAME.dollars:to_number()) * card.ability.extra.mult
+            }
+        end
+    end
+}
 --#endregion
 --#region JACKS JOKERS --
 SMODS.Joker{ --KingOfJacks

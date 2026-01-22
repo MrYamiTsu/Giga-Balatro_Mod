@@ -48,6 +48,17 @@ return {
                     'Start with {C:attention}7{} levels',
                     'split on random hands'
                 }
+            },
+            b_giga_gladiolus = {
+                name = 'Gladiolus Deck',
+                text = {
+                    'Start run with the',
+                    '{C:tarot,T:v_crystal_ball}Crystal Ball{} voucher',
+                    'Creates a {C:attention}random{}',
+                    '{C:attention}enhanced{} card at',
+                    'start of round',
+                    '{C:attention}#1#{} Joker slot'
+                }
             }
         },
         Blind={
@@ -557,7 +568,7 @@ return {
                     'Every other rounds, create a {V:1}#1#{}',
                     'and destroy a random comsumable',
                     'for gaining {C:mult}+#2#{} Mult and {C:chips}+#3#{} Chips',
-                    '(Currently {C:mult}+#4#{} Mult / {C:chips}+#5#{} Chips)',
+                    '(Currently: {C:mult}+#4#{} Mult / {C:chips}+#5#{} Chips)',
                 }
             },
             j_giga_velocyraptor = {
@@ -968,6 +979,21 @@ return {
                     'give {C:mult}+#1#{} Mult'
                 }
             },
+            j_giga_big31 = {
+                name = 'Big 31',
+                text = {
+                    '{C:attention}2X{} hand size',
+                    'in Booster Pack'
+                }
+            },
+            j_giga_noCashForYou = {
+                name = 'No Cash For You',
+                text = {
+                    '{X:mult,C:white}X#1#{} Mult for',
+                    'each {C:money}dollars{} in debt',
+                    '{C:inactive}(Currently: {X:mult,C:white}X#2#{} {C:inactive}Mult)'
+                }
+            },
             --#endregion
             --#region CrossMod
             j_giga_triceratops_alt = {
@@ -1076,6 +1102,13 @@ return {
                 text = {
                     'Original idea',
                     'by {C:green,E:2}le_dugs{}'
+                }
+            },
+            zeed_credit = {
+                name = 'Credit',
+                text = {
+                    'Original idea',
+                    'by {C:green,E:2}Zeed{}'
                 }
             },
             jogla_credit = {

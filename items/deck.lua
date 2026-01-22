@@ -42,6 +42,31 @@ SMODS.Back{ --Teal
         end
     end
 }
+SMODS.Back{ --Gladiolus
+    key = 'gladiolus',
+    atlas = "Decks",
+    pos = {x = 1, y = 1},
+    discovered = true,
+	unlocked = true,
+    config = { voucher = 'v_crystal_ball', joker_slot = -1 },
+    loc_vars = function(self, back)
+        return{vars = {self.config.joker_slot}}
+    end,
+    calculate = function(self, card, context)
+        if context.setting_blind then
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.7,
+                func = function()
+                    local _rank = pseudorandom_element(SMODS.Ranks, 'gladiolus_create').card_key
+                    local enhancement = pseudorandom_element(G.P_CENTER_POOLS["Enhanced"], 'gogogo_gladiolus')
+                    SMODS.add_card { set = "Base", rank = _rank, enhancement = enhancement.key }
+                    return true
+                end
+            }))
+        end
+    end
+}
 SMODS.Back{ --Foodie
     key = 'foodie',
     atlas = "Decks",
