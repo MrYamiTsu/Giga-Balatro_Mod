@@ -774,21 +774,21 @@ SMODS.Joker{ --Nahnahu
         local cards = 0
         for _, c in pairs(G.playing_cards or {}) do
             if c:is_suit(center.ability.extra.suit) then
-                cards = cards+1
+                cards = cards + 1
             end
         end
         return {vars = {colours={G.C.SUITS[center.ability.extra.suit]}, center.ability.extra.mult, center.ability.extra.suit, center.ability.extra.mult * cards}}
     end,
     calculate = function(self, card, context)
         if context.joker_main then
-            local mult = 0
-            for _, c in pairs(G.playing_cards) do
-                if c.base.suit == card.ability.extra.suit then
-                    mult = mult + card.ability.extra.mult
+            local cards = 0
+            for _, c in pairs(G.playing_cards or {}) do
+                if c:is_suit(card.ability.extra.suit) then
+                    cards = cards + 1
                 end
             end
             return {
-                mult = mult
+                mult = cards * card.ability.extra.mult
             }
         end
         if context.end_of_round and not context.blueprint then
