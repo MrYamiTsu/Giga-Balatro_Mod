@@ -48,7 +48,7 @@ SMODS.Enhancement{ --EvolvedWild
 	unlocked = true,
 	any_suit = true,
 	weight = 0,
-	config = { extra = { 
+	config = { extra = {
 		chipsAdd = 20,
 		multAdd = 2,
 		chips = 0,

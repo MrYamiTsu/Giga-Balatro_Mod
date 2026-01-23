@@ -653,6 +653,28 @@ SMODS.Joker{ --MarvinTheFourth
         end
     end
 }
+SMODS.Joker{ --Big31
+    key = 'big31',
+    atlas = 'Jokers',
+    pos = {x = 7, y = 3},
+    cost = 5,
+    rarity = 1,
+    blueprint_compat = false,
+    eternal_compat = true,
+    config = { extra = {
+        confirm_open = false
+    }},
+    calculate = function(self,card,context)
+        if not context.blueprint and context.open_booster then
+            G.hand:change_size(G.hand.config.card_limit)
+            card.ability.extra.confirm_open = true
+        end
+        if not context.blueprint and context.ending_booster and card.ability.extra.confirm_open then
+            G.hand:change_size(-G.hand.config.card_limit / 2)
+            card.ability.extra.confirm_open = false
+        end
+    end
+}
 SMODS.Joker{ --UpgradedTicket
     key = 'upgradedTicket',
     atlas = "Jokers",
@@ -1133,28 +1155,6 @@ SMODS.Joker{ --LiarVadko
             return {
                 mult = card.ability.extra.mult
             }
-        end
-    end
-}
-SMODS.Joker{ --Big31
-    key = 'big31',
-    atlas = 'Jokers',
-    pos = {x = 7, y = 3},
-    cost = 5,
-    rarity = 1,
-    blueprint_compat = false,
-    eternal_compat = true,
-    config = { extra = {
-        confirm_open = false
-    }},
-    calculate = function(self,card,context)
-        if not context.blueprint and context.open_booster then
-            G.hand:change_size(G.hand.config.card_limit)
-            card.ability.extra.confirm_open = true
-        end
-        if not context.blueprint and context.ending_booster and card.ability.extra.confirm_open then
-            G.hand:change_size(-G.hand.config.card_limit / 2)
-            card.ability.extra.confirm_open = false
         end
     end
 }
@@ -1700,11 +1700,11 @@ SMODS.Joker{ --Tabaosl
     calculate = function(self,card,context)
         if context.initial_scoring_step and not context.blueprint then
             if #G.play.cards > 0 then
-                for i = 1, 2 do
+                for i = 1, 3 do
                     if #G.play.cards >= i then
                         local c = G.play.cards[i]
                         if c.config.center_key and G.P_CENTERS[c.config.center_key].giga_data and
-                           G.P_CENTERS[c.config.center_key].giga_data.enh_upgrade then
+                            G.P_CENTERS[c.config.center_key].giga_data.enh_upgrade then
                             Giga.upgrade_enhancement(c)
                         end
                     else

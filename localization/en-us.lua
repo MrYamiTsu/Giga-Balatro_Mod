@@ -870,8 +870,8 @@ return {
                 name = 'Tabaosl',
                 text = {
                     '{C:attention}Upgrade{} the {C:attention}enhancement{}',
-                    'of the {C:attention}first{} and',
-                    '{C:attention}second{} played card'
+                    'of the {C:attention}3 leftmost{}',
+                    'played card'
                 }
             },
             j_giga_stockMarket = {
