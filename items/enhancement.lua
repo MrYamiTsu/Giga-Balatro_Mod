@@ -62,8 +62,19 @@ SMODS.Enhancement{ --EvolvedWild
 	end,
 	calculate = function(self, card, context)
 		if context.before then
-			 card.ability.extra.chips =  card.ability.extra.chips + card.ability.extra.chipsAdd
+			card.ability.extra.chips =  card.ability.extra.chips + card.ability.extra.chipsAdd
 			card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.multAdd
+			return {
+				card = card,
+				message = 'Evolved !',
+				color = G.C.MULT,
+			}
+		end
+		if context.main_scoring and context.cardarea == G.play then
+			return {
+				mult = card.ability.extra.mult,
+				chips = card.ability.extra.chips
+			}
 		end
 	end
 }
