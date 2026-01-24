@@ -815,6 +815,7 @@ SMODS.Joker{ --Likoy-Tonam
             if #G.hand.cards >= 1 then
                 if G.hand.cards[1]:get_seal() and G.P_SEALS[G.hand.cards[1]:get_seal()].giga_data and
                    G.P_SEALS[G.hand.cards[1]:get_seal()].giga_data.seal_upgrade then
+                    card:juice_up(0.3, 0.5)
                     Giga.upgrade_seal(G.hand.cards[1])
                 end
             end
@@ -1225,14 +1226,18 @@ SMODS.Joker{ --BearmanJeff
         chances = 5
     }},
     loc_vars = function(self,info_queue,center)
-        local odds, chances = SMODS.get_probability_vars(center, center.ability.extra.odds + (#G.consumeables.cards or 0), center.ability.extra.chances, 'giga_bearman')
+        local add_odds = 0
+        if G.consumeables and G.consumeables.cards then
+            add_odds = #G.consumeables.cards
+        end
+        local odds, chances = SMODS.get_probability_vars(center, center.ability.extra.odds + add_odds, center.ability.extra.chances, 'giga_bearman')
         return{vars = {odds, chances}}
     end,
     calculate = function(self,card,context)
         if context.first_hand_drawn then
             if SMODS.pseudorandom_probability(card, pseudoseed('bearmanJeff'), card.ability.extra.odds + (#G.consumeables.cards or 0), card.ability.extra.chances) then
-                Giga.set_overcharge(G.hand.cards[math.random(#G.hand.cards)], Giga.POOLS.Overcharges[math.random(#Giga.POOLS.Overcharges)])
                 card:juice_up(0.3, 0.5)
+                Giga.set_overcharge(G.hand.cards[math.random(#G.hand.cards)], Giga.POOLS.Overcharges[math.random(#Giga.POOLS.Overcharges)])
             end
         end
     end
