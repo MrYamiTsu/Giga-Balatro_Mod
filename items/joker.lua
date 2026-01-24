@@ -779,6 +779,34 @@ SMODS.Joker{ --HealthyRoots
         end
     end
 }
+SMODS.Joker{ --Likoy-Tonam
+    key = 'likoyTonam',
+    atlas = "Jokers",
+    pos = {x = 7, y = 3},
+    cost = 7,
+    rarity = 2,
+    unlocked = true,
+    blueprint_compat = true,
+    eternal_compat = true,
+    calculate = function(self, card, context)
+        if context.before and G.GAME.current_round.hands_left == 0 then
+            if #G.hand.cards >= 1 then
+                if G.hand.cards[1]:get_seal() and G.P_SEALS[G.hand.cards[1]:get_seal()].giga_data and
+                   G.P_SEALS[G.hand.cards[1]:get_seal()].giga_data.seal_upgrade then
+                    Giga.upgrade_seal(G.hand.cards[1])
+                end
+            end
+        end
+    end,
+    in_pool = function (self)
+        for _, c in pairs(G.playing_cards or {}) do
+            if c:get_seal() ~= nil and G.P_SEALS[c:get_seal()].giga_data and G.P_SEALS[c:get_seal()].giga_data.seal_upgrade then
+                return true
+            end
+        end
+        return false
+    end
+}
 SMODS.Joker{ --Nahnahu
     key = 'nahnahu',
     atlas = "Jokers",
@@ -1171,16 +1199,41 @@ SMODS.Joker{ --NoCashForYou
     }},
     loc_vars = function(self,info_queue,center)
         local mult = 1
-        if G.GAME.dollars:to_number() < 0 then
+        if not G.SETTINGS.paused and to_big(G.GAME.dollars) < to_big(0) then
             mult = 1 + math.abs(G.GAME.dollars:to_number()) * center.ability.extra.mult
         end
         return{vars = {center.ability.extra.mult, mult}}
     end,
     calculate = function(self,card,context)
-        if context.joker_main and G.GAME.dollars:to_number() < 0 then
+        if context.joker_main and to_big(G.GAME.dollars) < to_big(0) then
             return {
-                xmult = 1 + math.abs(G.GAME.dollars:to_number()) * card.ability.extra.mult
+                xmult = 1 + math.abs(to_big(G.GAME.dollars)) * card.ability.extra.mult
             }
+        end
+    end
+}
+SMODS.Joker{ --BearmanJeff
+    key = 'bearmanJeff',
+    atlas = 'Jokers',
+    pos = {x = 7, y = 3},
+    cost = 6,
+    rarity = 1,
+    blueprint_compat = false,
+    eternal_compat = true,
+    config = { extra = {
+        odds = 1,
+        chances = 5
+    }},
+    loc_vars = function(self,info_queue,center)
+        local odds, chances = SMODS.get_probability_vars(center, center.ability.extra.odds + (#G.consumeables.cards or 0), center.ability.extra.chances, 'giga_bearman')
+        return{vars = {odds, chances}}
+    end,
+    calculate = function(self,card,context)
+        if context.first_hand_drawn then
+            if SMODS.pseudorandom_probability(card, pseudoseed('bearmanJeff'), card.ability.extra.odds + (#G.consumeables.cards or 0), card.ability.extra.chances) then
+                Giga.set_overcharge(G.hand.cards[math.random(#G.hand.cards)], Giga.POOLS.Overcharges[math.random(#Giga.POOLS.Overcharges)])
+                card:juice_up(0.3, 0.5)
+            end
         end
     end
 }

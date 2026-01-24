@@ -49,3 +49,19 @@ SMODS.Blind { --TheBase
     end,
     boss_colour = HEX("FF3C7F")
 }
+SMODS.Blind { --TheAltitude
+    key = "altitude",
+    dollars = 5,
+    mult = 2,
+    atlas = "Blinds",
+    pos = {x = 0, y = 2},
+    boss = {min = 2},
+    calculate = function(self, blind, context)
+        if context.individual and not context.other_card:is_face() and context.cardarea == G.play then
+            return {
+                xmult = 0.9
+            }
+        end
+    end,
+    boss_colour = HEX("008080")
+}

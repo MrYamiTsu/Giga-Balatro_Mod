@@ -15,7 +15,7 @@
 <hr>
 <h2>Contents</h2>
 <ul>
-    <li>53+ Jokers (+11 Cross-Mod)</li>
+    <li>55+ Jokers (+11 Cross-Mod)</li>
     <li>34 Food cards (+6 Cross-Mod)</li>
     <li>17 Seals</li>
     <li>16 Planets</li>
@@ -28,7 +28,7 @@
     <li>3 Editions</li>
     <li>3 Tarots</li>
     <li>3 Sleeves (Cross-Mod)</li>
-    <li>2 Boss Blind</li>
+    <li>3 Boss Blind</li>
     <li>1 Hand Type</li>
     <li>1 Partner (Cross-Mod)</li>
 </ul>

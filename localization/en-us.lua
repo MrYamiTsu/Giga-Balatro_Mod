@@ -76,6 +76,14 @@ return {
                     'for each upgraded',
                     'card in deck'
                 }
+            },
+            bl_giga_altitude = {
+                name = 'The Altitude',
+                text = {
+                    'X0.9 Mult for',
+                    'each played',
+                    'number cards'
+                }
             }
         },
         Edition={},
@@ -992,6 +1000,25 @@ return {
                     '{X:mult,C:white}X#1#{} Mult for',
                     'each {C:money}dollars{} in debt',
                     '{C:inactive}(Currently: {X:mult,C:white}X#2#{} {C:inactive}Mult)'
+                }
+            },
+            j_giga_likoyTonam = {
+                name = 'Likoy-Tonam',
+                text = {
+                    '{C:attention}Upgrade{} the first',
+                    '{C:attention}held{} in hand seal',
+                    'before {C:attention}final',
+                    '{C:attention}hand{} of round'
+                }
+            },
+            j_giga_bearmanJeff = {
+                name = 'Bearman Jeff',
+                text = {
+                    '{C:green}#1# in #2#{} chance to add an',
+                    '{C:attention}Overcharge{} on a random',
+                    'card on start of round',
+                    'Chance increase for each',
+                    'held {C:attention}Consumeable{}'
                 }
             },
             --#endregion
