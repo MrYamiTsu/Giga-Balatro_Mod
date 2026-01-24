@@ -336,6 +336,28 @@ SMODS.Joker{ --PaleoExpert
         end
     end
 }
+SMODS.Joker{ --LiarVadko
+    key = 'liarVadko',
+    atlas = 'Jokers',
+    pos = {x = 2, y = 7},
+    cost = 4,
+    rarity = 1,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        mult = 6
+    }},
+    loc_vars = function(self,info_queue,center)
+        return{vars = {center.ability.extra.mult}}
+    end,
+    calculate = function(self,card,context)
+        if not card.debuff and context.individual and context.cardarea == 'unscored' then
+            return {
+                mult = card.ability.extra.mult
+            }
+        end
+    end
+}
 SMODS.Joker{ --Refinery
     key = 'refinery',
     atlas = 'Jokers',
@@ -1160,28 +1182,6 @@ SMODS.Joker{ --LinearLink
         if context.repetition and context.cardarea == G.play and next(context.poker_hands['giga_Linked Pairs']) then
             return {
                 repetitions = card.ability.extra.retrigger
-            }
-        end
-    end
-}
-SMODS.Joker{ --LiarVadko
-    key = 'liarVadko',
-    atlas = 'Jokers',
-    pos = {x = 2, y = 7},
-    cost = 4,
-    rarity = 1,
-    blueprint_compat = true,
-    eternal_compat = true,
-    config = { extra = {
-        mult = 6
-    }},
-    loc_vars = function(self,info_queue,center)
-        return{vars = {center.ability.extra.mult}}
-    end,
-    calculate = function(self,card,context)
-        if not card.debuff and context.individual and context.cardarea == 'unscored' then
-            return {
-                mult = card.ability.extra.mult
             }
         end
     end

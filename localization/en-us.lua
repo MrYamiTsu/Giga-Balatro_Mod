@@ -941,8 +941,8 @@ return {
             j_giga_rogAno = {
                 name = 'Rog-Ano',
                 text = {
-                    'Gain {X:mult,C:white}X#1#{} Mult for',
-                    'each {C:attention}seals{} in {C:attention}deck{}',
+                    '{X:mult,C:white}X#1#{} Mult for each',
+                    '{C:attention}seals{} in {C:attention}deck{}',
                     '{C:inactive}(Currently : {X:mult,C:white}X#2#{} {C:inactive}Mult)'
                 }
             },
@@ -983,7 +983,7 @@ return {
             j_giga_liarVadko = {
                 name = 'Liar Vadko',
                 text = {
-                    'Unscored cards',
+                    '{C:attention}Unscored{} cards',
                     'give {C:mult}+#1#{} Mult'
                 }
             },
