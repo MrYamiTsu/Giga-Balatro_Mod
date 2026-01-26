@@ -804,7 +804,7 @@ SMODS.Joker{ --HealthyRoots
 SMODS.Joker{ --Likoy-Tonam
     key = 'likoyTonam',
     atlas = "Jokers",
-    pos = {x = 7, y = 3},
+    pos = {x = 3, y = 7},
     cost = 7,
     rarity = 2,
     unlocked = true,
