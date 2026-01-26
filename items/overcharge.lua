@@ -159,6 +159,8 @@ Giga.Overcharge{ --GreenOvercharge
                     hands[#hands+1] = v
                 end
             end
+            local cur_chips = G.GAME.chips
+            local cur_mult = G.GAME.mult
             for _ = 1, self.config.extra.level + math.floor(Giga.discarded_overcharge() / 3), 1 do
                 local ht = pseudorandom_element(hands, pseudoseed('okokokok123'))
                 update_hand_text({ sound = "button", volume = 0.7, pitch = 0.8, delay = 0.3 }, {
@@ -169,6 +171,8 @@ Giga.Overcharge{ --GreenOvercharge
 	            })
                 level_up_hand(card, ht, nil, 1)
             end
+            G.GAME.chips = cur_chips
+            G.GAME.mult = cur_mult
         end
     end,
     badge_colour = G.C.GREEN
