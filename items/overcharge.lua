@@ -46,7 +46,7 @@ Giga.Overcharge{ --BlueOvercharge
     discovered = true,
 	unlocked = true,
     config = { extra = {
-        chips = 2,
+        chips = 1.5,
         ovch_add = 0.25
     }},
     loc_vars = function (self,info_queue,card)
