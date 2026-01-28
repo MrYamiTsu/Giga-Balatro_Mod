@@ -1190,7 +1190,7 @@ SMODS.Joker{ --LinearLink
 SMODS.Joker{ --NoCashForYou
     key = 'noCashForYou',
     atlas = 'Jokers',
-    pos = {x = 7, y = 3},
+    pos = {x = 5, y = 7},
     cost = 6,
     rarity = 2,
     blueprint_compat = false,
@@ -1201,7 +1201,7 @@ SMODS.Joker{ --NoCashForYou
     loc_vars = function(self,info_queue,center)
         local mult = 1
         if not G.SETTINGS.paused and to_big(G.GAME.dollars) < to_big(0) then
-            mult = 1 + math.abs(G.GAME.dollars:to_number()) * center.ability.extra.mult
+            mult = 1 + math.abs(to_big(G.GAME.dollars)) * center.ability.extra.mult
         end
         return{vars = {center.ability.extra.mult, mult}}
     end,
