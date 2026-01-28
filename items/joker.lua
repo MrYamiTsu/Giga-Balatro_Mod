@@ -1840,7 +1840,6 @@ SMODS.Joker{ --BlueEyesWhiteDragon
     }},
     loc_vars = function(self,info_queue,center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
-        info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
         return{vars = {center.ability.extra.mult, center.ability.extra.xmult}}
     end,
     calculate = function(self,card,context)
@@ -1930,7 +1929,6 @@ SMODS.Joker{ --BYUD
     }},
     loc_vars = function(self,info_queue,center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
-        info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
         return {vars ={center.ability.extra.mult, center.ability.extra.xmult1, center.ability.extra.xmult2}}
     end,
     calculate = function(self,card,context)
@@ -1981,7 +1979,6 @@ SMODS.Joker{ --DMK
         xmult2 = 6
     }},
     loc_vars = function(self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
         return {vars ={center.ability.extra.mult, center.ability.extra.xmult1, center.ability.extra.xmult2}}
     end,
     calculate = function(self,card,context)
@@ -2026,7 +2023,6 @@ SMODS.Joker{ --BlackLusterSoldier
         xmult = 1.75
     }},
     loc_vars = function(self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
         return{vars = {center.ability.extra.mult, center.ability.extra.xmult}}
     end,
     calculate = function(self,card,context)
@@ -2065,7 +2061,6 @@ SMODS.Joker{ --DarkMagician
         xmult = 1.75
     }},
     loc_vars = function(self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
         return{vars = {center.ability.extra.mult, center.ability.extra.xmult}}
     end,
     calculate = function(self,card,context)
@@ -2112,7 +2107,6 @@ SMODS.Joker{ --MOC
         xmult = 3
     }},
     loc_vars = function(self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
         return {vars ={center.ability.extra.mult1, center.ability.extra.mult2, center.ability.extra.xmult}}
     end,
     calculate = function(self,card,context)
@@ -2156,7 +2150,6 @@ SMODS.Joker{ --LLOTFO
     }},
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
-        info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
         return {vars = {center.ability.extra.chips}}
     end,
     calculate = function(self, card, context)
@@ -2185,7 +2178,6 @@ SMODS.Joker{ --RLOTFO
     }},
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
-        info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
         return {vars = {center.ability.extra.chips}}
     end,
     calculate = function(self, card, context)
@@ -2214,7 +2206,6 @@ SMODS.Joker{ --LAOTFO
     }},
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
-        info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
         return {vars = {center.ability.extra.chips}}
     end,
     calculate = function(self, card, context)
@@ -2243,7 +2234,6 @@ SMODS.Joker{ --RAOTFO
     }},
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
-        info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
         return {vars = {center.ability.extra.chips}}
     end,
     calculate = function(self, card, context)
@@ -2272,7 +2262,6 @@ SMODS.Joker{ --ETFO
     }},
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
-        info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
         return {vars = {center.ability.extra.chips}}
     end,
     calculate = function(self, card, context)
