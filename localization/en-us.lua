@@ -1409,6 +1409,15 @@ return {
                     '{C:attention}#2#{}',
 
                 }
+            },
+            giga_dinosaurs_info = {
+                name = 'Dinosaurs',
+                text = {
+                    'Dinosaurs Jokers',
+                    'are {C:attention}stronger{}',
+                    'when {C:attention}played{}',
+                    '{C:attention}together{}'
+                }
             }
             --#endregion
         },
