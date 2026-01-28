@@ -1216,7 +1216,7 @@ SMODS.Joker{ --NoCashForYou
 SMODS.Joker{ --BearmanJeff
     key = 'bearmanJeff',
     atlas = 'Jokers',
-    pos = {x = 7, y = 3},
+    pos = {x = 4, y = 7},
     cost = 6,
     rarity = 1,
     blueprint_compat = false,
