@@ -1509,6 +1509,9 @@ SMODS.Joker{ --RainbowQuartz
 SMODS.Joker{ --TRex
     key = 'tRex',
     atlas = 'Jokers',
+    giga_data = {
+        is_dino = true
+    },
     fg_data = {
         is_alternate = false,
         alternate_key = 'j_giga_tRex_alt'
@@ -1582,6 +1585,9 @@ SMODS.Joker{ --TRex
 SMODS.Joker{ --Velocyraptor
     key = 'velocyraptor',
     atlas = 'Jokers',
+    giga_data = {
+        is_dino = true
+    },
     fg_data = {
         is_alternate = false,
         alternate_key = 'j_giga_velocyraptor_alt'
@@ -1621,6 +1627,9 @@ SMODS.Joker{ --Velocyraptor
 SMODS.Joker{ --Pteranodon
     key = 'pteranodon',
     atlas = 'Jokers',
+    giga_data = {
+        is_dino = true
+    },
     fg_data = {
         is_alternate = false,
         alternate_key = 'j_giga_pteranodon_alt'
@@ -1676,6 +1685,9 @@ SMODS.Joker{ --Pteranodon
 SMODS.Joker{ --Triceratops
     key = 'triceratops',
     atlas = 'Jokers',
+    giga_data = {
+        is_dino = true
+    },
     fg_data = {
         is_alternate = false,
         alternate_key = 'j_giga_triceratops_alt'

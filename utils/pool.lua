@@ -30,6 +30,16 @@ Giga.POOLS = {
             end
         end
     },
+    dinosaur = {
+        _calculate = function()
+            Giga.POOLS.dinosaur = {_calculate = Giga.POOLS.dinosaur._calculate}
+            for _, c in pairs(G.P_CENTERS) do
+                if c.set == 'Joker' and c.giga_data and c.giga_data.is_dino then
+                    table.insert(Giga.POOLS.dinosaur, c.key)
+                end
+            end
+        end
+    },
     Overcharges = {
         _calculate = function()
             Giga.POOLS.Overcharges = {_calculate = Giga.POOLS.Overcharges._calculate}

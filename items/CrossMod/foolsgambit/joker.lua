@@ -150,6 +150,9 @@ SMODS.Joker{ --MrYamiTsuAlt
 SMODS.Joker{ --TRexALT
     key = 'tRex_alt',
     atlas = 'Jokers',
+    giga_data = {
+        is_dino = true
+    },
     fg_data = {
         is_alternate = true,
         alternate_key = 'j_giga_tRex',
@@ -210,6 +213,9 @@ SMODS.Joker{ --TRexALT
 SMODS.Joker{ --VelocyraptorALT
     key = 'velocyraptor_alt',
     atlas = 'Jokers',
+    giga_data = {
+        is_dino = true
+    },
     fg_data = {
         is_alternate = true,
         alternate_key = 'j_giga_velocyraptor',
@@ -251,6 +257,9 @@ SMODS.Joker{ --VelocyraptorALT
 SMODS.Joker{ --PteranodonALT
     key = 'pteranodon_alt',
     atlas = 'Jokers',
+    giga_data = {
+        is_dino = true
+    },
     fg_data = {
         is_alternate = true,
         alternate_key = 'j_giga_pteranodon',
@@ -292,6 +301,9 @@ SMODS.Joker{ --PteranodonALT
 SMODS.Joker{ --TriceratopsALT
     key = 'triceratops_alt',
     atlas = 'Jokers',
+    giga_data = {
+        is_dino = true
+    },
     fg_data = {
         is_alternate = true,
         alternate_key = 'j_giga_triceratops',
