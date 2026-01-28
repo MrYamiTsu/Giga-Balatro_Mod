@@ -1825,6 +1825,9 @@ SMODS.Joker{ --Rog-Ano
 SMODS.Joker{ --BlueEyesWhiteDragon
     key = 'blueEyesWhiteDragon',
     atlas = 'Jokers',
+    giga_data = {
+        from_ygo = true
+    },
     pos = {x = 6, y = 1},
     soul_pos = {x = 5, y = 1},
     cost = 20,
@@ -1864,6 +1867,9 @@ SMODS.Joker{ --BlueEyesWhiteDragon
 SMODS.Joker{ --RedEyesBlackDragon
     key = 'redEyesBlackDragon',
     atlas = 'Jokers',
+    giga_data = {
+        from_ygo = true
+    },
     pos = {x = 1, y = 2},
     soul_pos = {x = 0, y = 2},
     cost = 20,
@@ -1903,6 +1909,7 @@ SMODS.Joker{ --BYUD
     key = 'byud',
     atlas = 'secret1',
     giga_data = {
+        from_ygo = true,
         merge_materials = {
             'j_giga_blueEyesWhiteDragon',
             'j_giga_blueEyesWhiteDragon',
@@ -1955,6 +1962,7 @@ SMODS.Joker{ --DMK
     key = 'dmk',
     atlas = 'secret2',
     giga_data = {
+        from_ygo = true,
         merge_materials = {
             'j_giga_byud',
             'j_giga_blackLusterSoldier'
@@ -2004,6 +2012,9 @@ SMODS.Joker{ --DMK
 SMODS.Joker{ --BlackLusterSoldier
     key = 'blackLusterSoldier',
     atlas = 'Jokers',
+    giga_data = {
+        from_ygo = true
+    },
     pos = {x = 3, y = 2},
     soul_pos = {x = 2, y = 2},
     cost = 20,
@@ -2040,6 +2051,9 @@ SMODS.Joker{ --BlackLusterSoldier
 SMODS.Joker{ --DarkMagician
     key = 'darkMagician',
     atlas = 'Jokers',
+    giga_data = {
+        from_ygo = true
+    },
     pos = {x = 5, y = 2},
     soul_pos = {x = 4, y = 2},
     cost = 20,
@@ -2079,6 +2093,7 @@ SMODS.Joker{ --MOC
     key = 'moc',
     atlas = 'secret3',
     giga_data = {
+        from_ygo = true,
         merge_materials = {
             'j_giga_blackLusterSoldier',
             'j_giga_darkMagician'
@@ -2128,6 +2143,9 @@ SMODS.Joker{ --MOC
 SMODS.Joker{ --LLOTFO
     key = 'llotfo',
     atlas = 'Jokers',
+    giga_data = {
+        from_ygo = true
+    },
     pos = {x = 0, y = 3},
     cost = 8,
     rarity = 2,
@@ -2154,6 +2172,9 @@ SMODS.Joker{ --LLOTFO
 SMODS.Joker{ --RLOTFO
     key = 'rlotfo',
     atlas = 'Jokers',
+    giga_data = {
+        from_ygo = true
+    },
     pos = {x = 1, y = 3},
     cost = 8,
     rarity = 2,
@@ -2180,6 +2201,9 @@ SMODS.Joker{ --RLOTFO
 SMODS.Joker{ --LAOTFO
     key = 'laotfo',
     atlas = 'Jokers',
+    giga_data = {
+        from_ygo = true
+    },
     pos = {x = 2, y = 3},
     cost = 8,
     rarity = 2,
@@ -2206,6 +2230,9 @@ SMODS.Joker{ --LAOTFO
 SMODS.Joker{ --RAOTFO
     key = 'raotfo',
     atlas = 'Jokers',
+    giga_data = {
+        from_ygo = true
+    },
     pos = {x = 3, y = 3},
     cost = 8,
     rarity = 2,
@@ -2232,6 +2259,9 @@ SMODS.Joker{ --RAOTFO
 SMODS.Joker{ --ETFO
     key = 'etfo',
     atlas = 'Jokers',
+    giga_data = {
+        from_ygo = true
+    },
     pos = {x = 4, y = 3},
     cost = 8,
     rarity = 3,
@@ -2257,6 +2287,7 @@ SMODS.Joker{ --TLEI
     key = 'tlei',
     atlas = 'secret4',
     giga_data = {
+        from_ygo = true,
         merge_materials = {
             'j_giga_llotfo',
             'j_giga_rlotfo',
@@ -2277,7 +2308,6 @@ SMODS.Joker{ --TLEI
     }},
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
-        info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
         return {vars ={center.ability.extra.mult}}
     end,
     calculate = function(self, card, context)

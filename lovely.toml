@@ -83,7 +83,7 @@ end
 overwrite = true
 match_indent = true
 
-# UNCOPIABLE AND DINOSAURS #
+# INFO_QUEUE #
 [[patches]]
 [patches.pattern]
 target = "functions/common_events.lua"
@@ -96,11 +96,14 @@ pattern = '''
 '''
 payload = '''
     if first_pass and _c.giga_data then
-        if _c.giga_data.uncopiable then
+        if _c.giga_data.uncopiable then -- Uncopiable
             info_queue[#info_queue+1] = {set = 'Other', key = 'giga_uncopiable_info'}
         end
-        if _c.giga_data.is_dino then
+        if _c.giga_data.is_dino then -- Dinosaurs
             info_queue[#info_queue+1] = {set = 'Other', key = 'giga_dinosaurs_info'}
+        end
+        if _c.giga_data.from_ygo then -- Yu-Gi-Oh
+            info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
         end
     end
 '''

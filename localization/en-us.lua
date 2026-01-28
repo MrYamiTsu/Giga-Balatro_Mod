@@ -1018,7 +1018,7 @@ return {
                     '{C:attention}Overcharge{} on a random',
                     'card on start of round',
                     'Chance increase for each',
-                    'held {C:attention}Consumeable{}'
+                    'held {C:attention}Consumable{}'
                 }
             },
             --#endregion
