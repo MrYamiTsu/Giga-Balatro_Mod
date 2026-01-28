@@ -101,11 +101,24 @@ SMODS.Enhancement { --ReinforcedGlass
 	end,
     calculate = function(self, card, context)
         if context.destroy_card and context.cardarea == G.play and context.destroy_card == card and
-            SMODS.pseudorandom_probability(card, 'giga_reinforcedGlass', card.ability.extra.odds, card.ability.extra.chances) then
+           SMODS.pseudorandom_probability(card, 'giga_reinforcedGlass', card.ability.extra.odds, card.ability.extra.chances) then
             card.glass_trigger = true
-			_create(card,'Spectral',G.consumeables,true,true)
             return {
-				remove = true,
+				func = function()
+					if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+                    	G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+	                    G.E_MANAGER:add_event(Event({
+    	                    func = function ()
+        	                    SMODS.add_card({set = 'Spectral'})
+            	                G.GAME.consumeable_buffer = 0
+                	            return true
+                    	    end
+	                    }))
+    	                SMODS.calculate_effect({ message = localize("k_plus_spectral"), colour = G.C.PURPLE }, card)
+        	        end
+					return true
+				end,
+				remove = true
 			}
         end
     end,
@@ -235,7 +248,7 @@ SMODS.Enhancement{ --Luckiest
                 card.lucky_trigger = true
                 effects.dollars = card.ability.extra.cash
             end
-			if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit and 
+			if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit and
 			   SMODS.pseudorandom_probability(card, 'giga_luckiest2', card.ability.extra.odds, card.ability.extra.chances3, 'luckiest_prob3') then
 				card.lucky_trigger = true
 				effects.func = function()

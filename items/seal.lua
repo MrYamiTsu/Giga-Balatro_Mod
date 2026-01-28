@@ -266,8 +266,8 @@ SMODS.Seal{ --Purple+
         local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'giga_purplePlus')
         return {vars = {self.config.extra.card, odds, chances}}
     end,
-    in_pool = function(self) 
-		return false 
+    in_pool = function(self)
+		return false
 	end,
     calculate = function(self, card, context)
         if context.discard and context.other_card == card then
