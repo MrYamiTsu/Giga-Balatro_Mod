@@ -1,29 +1,4 @@
 -- DECKS --
-SMODS.Back{ --ReverseCheckered
-    key = 'reverseCheckered',
-    atlas = "Decks",
-    pos = {x = 1, y = 0},
-    discovered = true,
-	unlocked = true,
-    apply = function(self, back)
-        G.E_MANAGER:add_event(Event({
-            func = function()
-                for i, card in pairs(G.playing_cards) do
-                    if card.base.suit == 'Spades' then
-                        card:change_suit('Clubs')
-                    end
-                    if card.base.suit == 'Hearts' then
-                        card:change_suit('Diamonds')
-                    end
-                end
-                return true
-            end
-        }))
-    end,
-    check_for_unlock = function(self, args)
-        return args.type == 'win_deck' and get_deck_win_stake('b_black') > 1
-    end
-}
 SMODS.Back{ --Teal
     key = 'teal',
     atlas = "Decks",
@@ -65,6 +40,31 @@ SMODS.Back{ --Gladiolus
                 end
             }))
         end
+    end
+}
+SMODS.Back{ --ReverseCheckered
+    key = 'reverseCheckered',
+    atlas = "Decks",
+    pos = {x = 1, y = 0},
+    discovered = true,
+	unlocked = true,
+    apply = function(self, back)
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                for i, card in pairs(G.playing_cards) do
+                    if card.base.suit == 'Spades' then
+                        card:change_suit('Clubs')
+                    end
+                    if card.base.suit == 'Hearts' then
+                        card:change_suit('Diamonds')
+                    end
+                end
+                return true
+            end
+        }))
+    end,
+    check_for_unlock = function(self, args)
+        return args.type == 'win_deck' and get_deck_win_stake('b_black') > 1
     end
 }
 SMODS.Back{ --Foodie
