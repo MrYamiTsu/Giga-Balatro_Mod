@@ -536,7 +536,7 @@ return {
             j_giga_blueEgg = {
                 name = 'Blue Egg',
                 text = {
-                    'Give {C:money}$#1#{} at end',
+                    'Gives {C:money}$#1#{} at end',
                     'of round',
                     'Create an {C:attention}Egg{}',
                     'when sold'
@@ -553,7 +553,7 @@ return {
             j_giga_funnyCrown = {
                 name = 'Funny Crown',
                 text = {
-                   'After {C:attention}2{} round,',
+                   'After {C:attention}2{} rounds,',
                     'sell this Joker to create',
                     'a {C:attention}King of Jacks{} and',
                     'a {C:chips}Bonus{} {C:attention}Jack{}',
@@ -566,17 +566,18 @@ return {
                 text = {
                     '{C:green}#1# in #2#{} chance to',
                     'create a {C:legendary}Legendary{}',
-                    'Joker on selling',
+                    'Joker when sold',
                     'Otherwise {C:money}$#3#{}'
                 }
             },
             j_giga_tRex = {
                 name = 'T-Rex',
                 text = {
-                    'Every other rounds, create a {V:1}#1#{}',
-                    'and destroy a random comsumable',
-                    'for gaining {C:mult}+#2#{} Mult and {C:chips}+#3#{} Chips',
-                    '(Currently: {C:mult}+#4#{} Mult / {C:chips}+#5#{} Chips)',
+                    'Every other round, destroys a',
+                    'random {C:attention}Consumable{} and creates',
+                    'a {V:1}#1#{}, then gains',
+                    '{C:mult}+#2#{} Mult and {C:chips}+#3#{} Chips',
+                    '{C:inactive}(Currently:{} {C:mult}+#4#{} {C:inactive}Mult /{} {C:chips}+#5#{} {C:inactive}Chips){}',
                 }
             },
             j_giga_velocyraptor = {
@@ -615,8 +616,8 @@ return {
             j_giga_pablo = {
                 name = 'Pablo',
                 text = {
-                    'Each other round, Pablo cook',
-                    'some Mexican {C:giga_Food}Food{} for you',
+                    'Every other round, Pablo cooks',
+                    'some Mexican {C:giga_Food}Food{} for you !',
                     '{C:inactive}({C:attention}#1#{C:inactive} round left)',
                     '{C:inactive}(Must have room)'
                 }
@@ -625,7 +626,7 @@ return {
                 name = 'Jack Mutator',
                 text = {
                     'Modify rank of a random card',
-                    'to Jack every {C:attention}#1#{} round',
+                    'to Jack every {C:attention}#1#{} rounds',
                     '{C:inactive}(Currently: {C:attention}#2#{C:inactive} round left)',
                     '{s:0.5}"I wonder what could happen if its already a Jack"{}'
                 }
@@ -801,7 +802,7 @@ return {
                 name = 'Double Fork',
                 text = {
                     'Using a {C:giga_Food}Food{} card',
-                    'during a blind, give a',
+                    'during a blind gives a',
                     'temporary {X:chips,C:white}X#1#{} Chips',
                     '{C:inactive}#2#'
                 }
@@ -810,7 +811,7 @@ return {
                 name = 'Cracked Skull',
                 text = {
                     'Using a {C:spectral}Spectral{} card',
-                    'during a blind, give a',
+                    'during a blind gives a',
                     'temporary {X:mult,C:white}X#1#{} Mult',
                     '{C:inactive}#2#'
                 }
@@ -819,7 +820,7 @@ return {
                 name = 'Sagittarius A*',
                 text = {
                     'Using a {C:planet}Planet{} card',
-                    'during a blind, give a',
+                    'during a blind gives a',
                     'temporary {C:chips}+#1#{} Chips',
                     '{C:inactive}#2#'
                 }
@@ -835,7 +836,7 @@ return {
             j_giga_marvinTheFourth = {
                 name = 'Marvin, The Fourth',
                 text = {
-                    'Give {C:chips}+#1#{} Chips and {X:mult,C:white}X#2#{} Mult',
+                    'Gives {C:chips}+#1#{} Chips and {X:mult,C:white}X#2#{} Mult',
                     'for each {C:attention}4{}, {C:attention}5{} or {C:attention}6{} of {V:1}#3#{}',
                     '{C:inactive}Suit change for each card played{}'
                 }
@@ -843,17 +844,17 @@ return {
             j_giga_upgradedTicket = {
                 name = 'Upgraded Ticket',
                 text = {
-                    'Cards with {C:attention}upgraded enhancements{}',
-                    'give {C:money}$#1#{} each and with',
-                    '{C:attention}upgraded seals{} {C:money}$#2#{} each',
-                    'when {C:attention}discard{}'
+                    'When {C:attention}discarded{}, cards',
+                    'with {C:attention}upgraded enhancements{}',
+                    'give {C:money}$#1#{} each / cards with',
+                    '{C:attention}upgraded seals{} {C:money}$#2#{} each'
                 }
             },
             j_giga_healthyRoots = {
                 name = 'Healthy Roots',
                 text = {
-                    'Give {C:mult}+#1#{} for',
-                    'each cards that has the',
+                    'Gives {C:mult}+#1#{} for',
+                    'each card that has the',
                     'same rank as the {C:attention}first{}',
                     '{C:attention}held{} in hand card'
                 }
@@ -861,9 +862,9 @@ return {
             j_giga_nahnahu = {
                 name = 'Nahnahu',
                 text = {
-                    'Give {C:mult}+#1#{} Mult for each',
+                    'Gives {C:mult}+#1#{} Mult for each',
                     '{V:1}#2#{} card in the deck',
-                    '{C:inactive}Suit change every round{}',
+                    '{C:inactive}Suit changes every round{}',
                     '{C:inactive}(Currently {C:mult}+#3#{C:inactive} Mult)'
                 }
             },
@@ -879,14 +880,14 @@ return {
                 text = {
                     '{C:attention}Upgrade{} the {C:attention}enhancement{}',
                     'of the {C:attention}3 leftmost{}',
-                    'played card'
+                    'played cards'
                 }
             },
             j_giga_stockMarket = {
                 name = 'Stock Market',
                 text = {
-                    'Each time you play a {C:attention}face{}',
-                    'card, invest {C:money}$#1#{}',
+                    'Every time you play a',
+                    '{C:attention}face{} card, invest {C:money}$#1#{}',
                     'The cash invested will',
                     'fluctuate at end of hand',
                     '{C:attention}Cashout{} at the end',
@@ -907,7 +908,7 @@ return {
                 name = 'Bonobo Joker',
                 text = {
                     'If {C:attention}5{} cards are',
-                    '{C:attention}played{}, give {C:attention}half{} the {C:attention}chip{}',
+                    '{C:attention}played{}, give {C:attention}half{} the {C:chips}chip{}',
                     'value of each {C:attention}held{}',
                     'in hand cards as {C:mult}Mult{}'
                 }
@@ -942,14 +943,14 @@ return {
                 name = 'Rog-Ano',
                 text = {
                     '{X:mult,C:white}X#1#{} Mult for each',
-                    '{C:attention}seals{} in {C:attention}deck{}',
+                    '{C:attention}seal{} in {C:attention}deck{}',
                     '{C:inactive}(Currently : {X:mult,C:white}X#2#{} {C:inactive}Mult)'
                 }
             },
             j_giga_myt_own = {
                 name = 'MrYamiTsu',
                 text = {
-                    'Played {C:attention}card{} with',
+                    'Played {C:attention}cards{} with',
                     '{C:attention}upgraded enhancements{}',
                     'or {C:attention}seals{} give {X:mult,C:white}X#1#{} Mult',
                     'when scored'
@@ -991,7 +992,7 @@ return {
                 name = 'Big 31',
                 text = {
                     '{C:attention}2X{} hand size',
-                    'in Booster Pack'
+                    'in Booster Packs'
                 }
             },
             j_giga_noCashForYou = {
@@ -1005,7 +1006,7 @@ return {
             j_giga_likoyTonam = {
                 name = 'Likoy-Tonam',
                 text = {
-                    '{C:attention}Upgrade{} the first',
+                    '{C:attention}Upgrades{} the first',
                     '{C:attention}held{} in hand seal',
                     'before {C:attention}final',
                     '{C:attention}hand{} of round'
@@ -1017,7 +1018,7 @@ return {
                     '{C:green}#1# in #2#{} chance to add an',
                     '{C:attention}Overcharge{} on a random',
                     'card on start of round',
-                    'Chance increase for each',
+                    '{C:green}Odds{} increases for each',
                     'held {C:attention}Consumable{}'
                 }
             },
@@ -1413,7 +1414,7 @@ return {
             giga_dinosaurs_info = {
                 name = 'Dinosaurs',
                 text = {
-                    'Dinosaurs Jokers',
+                    'Dinosaur Jokers',
                     'are {C:attention}stronger{}',
                     'when {C:attention}played{}',
                     '{C:attention}together{}'
@@ -1705,14 +1706,14 @@ return {
             v_giga_newMenu = {
                 name = 'New Menu',
                 text = {
-                    'Restaurant Pack have',
+                    'Restaurant Packs have',
                     '{C:attention}#1#{} more card'
                 }
             },
             v_giga_5courseMeal = {
                 name = '5-Course Meal',
                 text = {
-                    'Restaurant Pack have',
+                    'Restaurant Packs have',
                     '{C:attention}#1#{} more choice'
                 }
             },
