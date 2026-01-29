@@ -678,7 +678,7 @@ SMODS.Joker{ --MarvinTheFourth
 SMODS.Joker{ --Big31
     key = 'big31',
     atlas = 'Jokers',
-    pos = {x = 5, y = 7},
+    pos = {x = 6, y = 7},
     cost = 5,
     rarity = 1,
     blueprint_compat = false,
