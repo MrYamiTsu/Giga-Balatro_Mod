@@ -22,7 +22,7 @@ function Giga.upgrade_enhancement(_card)
         end
     }))
     delay(0.2)
-    _card:set_ability(G.P_CENTERS[_card.config.center_key].giga_data.enh_upgrade, nil , true)
+    _card:set_ability(G.P_CENTERS[_card.config.center_key].giga_data.enh_upgrade, nil, true)
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
         delay = 0.15,

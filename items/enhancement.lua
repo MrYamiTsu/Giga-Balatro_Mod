@@ -187,7 +187,7 @@ SMODS.Enhancement{ --PerfectGold
 	unlocked = true,
 	always_scores = true,
 	weight = 0,
-	config = { extra = { 
+	config = { extra = {
 		cash_mod = 1
     }, h_dollars = 5 },
 	loc_vars = function(self, info_queue, card)

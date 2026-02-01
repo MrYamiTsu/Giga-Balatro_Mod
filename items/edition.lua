@@ -18,7 +18,7 @@ SMODS.Edition{
     config = { chips = 100 },
     loc_vars = function(self, info_queue, card)
         if G.SETTINGS.paused then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_shiny_chance', vars = {G.GAME.giga.shiny_chance[1] / G.GAME.giga.shiny_chance[2] * 100, 'Foil'}}
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_shiny_chance', vars = {2 / 25 * 100, 'Foil'}}
         end
         return {vars = { self.config.chips }}
     end,
@@ -55,7 +55,7 @@ SMODS.Edition{
     config = { mult = 20 },
     loc_vars = function(self, info_queue, card)
         if G.SETTINGS.paused then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_shiny_chance', vars = {G.GAME.giga.shiny_chance[1] / G.GAME.giga.shiny_chance[2] * 100, 'Holographic'}}
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_shiny_chance', vars = {2 / 25 * 100, 'Holographic'}}
         end
         return {vars = { self.config.mult }}
     end,
@@ -92,7 +92,7 @@ SMODS.Edition{
     config = { x_mult = 3 },
     loc_vars = function(self, info_queue, card)
         if G.SETTINGS.paused then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_shiny_chance', vars = {G.GAME.giga.shiny_chance[1] / G.GAME.giga.shiny_chance[2] * 100, 'Polychrome'}}
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_shiny_chance', vars = {2 / 25 * 100, 'Polychrome'}}
         end
         return {vars = { self.config.x_mult }}
     end,

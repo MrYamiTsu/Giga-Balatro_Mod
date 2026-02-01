@@ -140,8 +140,8 @@ SMODS.Seal{ --Blue+
         local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'giga_bluePlus')
         return {vars = {odds, chances}}
     end,
-    in_pool = function(self) 
-		return false 
+    in_pool = function(self)
+		return false
 	end,
     calculate = function(self, card, context)
         -- From VanillaRemade (so thx VanillaRemade)
