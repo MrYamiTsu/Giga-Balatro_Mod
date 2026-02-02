@@ -186,18 +186,18 @@ function upgrade_enhencement_specific(selected_card, base_enh)
     delay(0.5)
 end
 
---- Condition to check if a card's enhancement is upgraded
+--- Check if a card enhancement is upgraded
 --- @param card table -- the card to check
 --- @return boolean -- true if the card's enhancement is upgraded
 function upgraded_enh_condition(card)
-    if card.config.center_key and G.P_CENTERS[card.config.center_key].giga_data and
+    if card.config.center.key and G.P_CENTERS[card.config.center.key].giga_data and
        G.P_CENTERS[card.config.center_key].giga_data.is_upgraded then
         return true
     end
     return false
 end
 
---- Condition to check if a card's seal is upgraded
+--- Check if a card seal is upgraded
 --- @param card table -- the card to check
 --- @return boolean -- true if the card's seal is upgraded
 function upgraded_seal_condition(card)
