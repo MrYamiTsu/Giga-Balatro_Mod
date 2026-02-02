@@ -1254,7 +1254,7 @@ SMODS.Joker{ --MetalJaw
     calculate = function(self,card,context)
         if context.discard then
             if SMODS.has_enhancement(context.other_card, 'm_steel') then
-                card.ability.extra.mult = card.ability.extra.mult + context.other_card.config.center.config.h_x_mult
+                card.ability.extra.mult = card.ability.extra.mult + (context.other_card.config.center.config.h_x_mult - 1)
                 return {
                     message_card = card,
                     message = 'Upgraded !',
