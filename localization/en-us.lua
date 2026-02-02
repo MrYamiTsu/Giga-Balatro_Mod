@@ -153,9 +153,11 @@ return {
             m_giga_titanium = {
                 name = 'Titanium Card',
                 text = {
-                    '{X:mult,C:white}X#1#{} if this',
-                    'card is held in hand',
-                    'Increase by {X:mult,C:white}X#2#{} if played',
+                    '{X:mult,C:white}X#1#{} ',
+                    'while this card',
+                    'stays in hand',
+                    'Increase by {X:mult,C:white}X#2#{}',
+                    'when played',
                 }
             },
             m_giga_reinforcedGlass = {
