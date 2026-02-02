@@ -112,7 +112,7 @@ SMODS.Joker{ --SnapchatGirl
     rarity = 2,
     cost = 6,
     blueprint_compat = false,
-    eternal_compat = true,
+    eternal_compat = false,
     config = { extra = {
         odds = 1,
         chances = 7,
@@ -377,8 +377,7 @@ SMODS.Joker{ --Refinery
     in_pool = function(self)
         local counter = 0
         for _, c in pairs(G.playing_cards or {}) do
-            if SMODS.has_enhancement(c, 'm_stone') or
-               SMODS.has_enhancement(c, 'm_giga_polishStone') then
+            if SMODS.has_enhancement(c, 'm_stone') then
                 counter = counter + 1
             end
         end
@@ -389,8 +388,7 @@ SMODS.Joker{ --Refinery
     end,
     calculate = function(self,card,context)
         if context.individual and context.cardarea == G.play and not context.blueprint then
-            if SMODS.has_enhancement(context.other_card, 'm_stone') or
-               SMODS.has_enhancement(context.other_card, 'm_giga_polishStone') then
+            if SMODS.has_enhancement(context.other_card, 'm_stone') then
                 card.ability.extra.cashNow = card.ability.extra.cashNow + card.ability.extra.cash
                 return {
                     message_card = card,
@@ -985,7 +983,7 @@ SMODS.Joker{ --StockMarket
     end,
     calc_dollar_bonus = function(self, card)
         local cash = nil
-        if G.GAME.blind.boss then
+        if G.GAME.blind.boss and card.ability.extra.cash > 0 then
             cash = card.ability.extra.cash
             card.ability.extra.cash = 0
         end
@@ -1219,7 +1217,7 @@ SMODS.Joker{ --BearmanJeff
     pos = {x = 4, y = 7},
     cost = 6,
     rarity = 1,
-    blueprint_compat = false,
+    blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
         odds = 1,
@@ -1242,6 +1240,62 @@ SMODS.Joker{ --BearmanJeff
         end
     end
 }
+SMODS.Joker{ --MetalJaw
+    key = 'metalJaw',
+    atlas = 'Jokers',
+    pos = {x = 7, y = 3},
+    cost = 6,
+    rarity = 2,
+    blueprint_compat = false,
+    eternal_compat = true,
+    config = { extra = {
+        mult = 1,
+        cash = 0
+    }},
+    loc_vars = function(self,info_queue,center)
+        return{vars = {center.ability.extra.mult, center.ability.extra.cash}}
+    end,
+    calculate = function(self,card,context)
+        if context.discard then
+            if SMODS.has_enhancement(context.other_card, 'm_steel') then
+                card.ability.extra.mult = card.ability.extra.mult + context.other_card.config.center.config.h_x_mult
+                return {
+                    message_card = card,
+                    message = 'Upgraded !',
+                    colour = G.C.ORANGE
+                }
+            elseif SMODS.has_enhancement(context.other_card, 'm_gold') then
+                card.ability.extra.cash = card.ability.extra.cash + context.other_card.config.center.config.h_dollars
+                return {
+                    message_card = card,
+                    message = 'Upgraded !',
+                    colour = G.C.ORANGE
+                }
+            end
+        end
+        if context.joker_main and card.ability.extra.mult > 1 then
+            return {
+                x_mult = card.ability.extra.mult
+            }
+        end
+        if context.end_of_round and context.main_eval then
+            card.ability.extra.mult = 1
+            return {
+                message_card = card,
+                message = localize("k_reset"),
+                colour = G.C.MULT
+            }
+        end
+    end,
+    calc_dollar_bonus = function(self, card)
+        local cash = nil
+        if card.ability.extra.cash > 0 then
+            cash = card.ability.extra.cash
+            card.ability.extra.cash = 0
+        end
+        return cash
+    end
+}
 --#endregion
 --#region JACKS JOKERS --
 SMODS.Joker{ --KingOfJacks
@@ -1255,8 +1309,7 @@ SMODS.Joker{ --KingOfJacks
     config = { extra = {
         add = 0.05,
         base = 1
-    }
-    },
+    }},
     loc_vars = function(self,info_queue,center)
         return{vars = {center.ability.extra.add, center.ability.extra.base}}
     end,
@@ -1269,12 +1322,11 @@ SMODS.Joker{ --KingOfJacks
                         return true
                     end,
                     message_card = card,
-                    message = 'X'..card.ability.extra.base..' Mult',
-                    color = G.C.MULT
+                    message = 'Upgraded !',
+                    colour = G.C.MULT
                 }
             end
         end
-
         if context.joker_main then
             if card.ability.extra.base ~= 1 then
                 return {
@@ -1366,7 +1418,7 @@ SMODS.Joker{ --JackMutator
         if card.ability.extra.round_left <= 0 and context.first_hand_drawn then
             G.E_MANAGER:add_event(Event({
                 trigger = 'after',
-                delay = 0.4, 
+                delay = 0.4,
                 func = function()
                     local tpool = {}
                     for i, k in pairs(G.hand.cards) do
@@ -1375,14 +1427,14 @@ SMODS.Joker{ --JackMutator
                     local _card = pseudorandom_element(tpool, pseudoseed("jackMutator"))
                     if _card ~= nil and _card:get_id() == 11 then
                         if _card.config.center.key == "m_giga_fossilSoil" then
-                            if _card.config.center.key == "m_giga_soil" or _card.config.center.key == "m_giga_richSoil"then
+                            if _card.config.center.key == "m_giga_soil" or _card.config.center.key == "m_giga_richSoil" then
                                 Giga.upgrade_enhancement(_card)
                             else
                                 _card:set_enhancement("m_giga_soil")
                             end
                         end
                     else
-                        SMODS.change_base(_card, nil, 'Jack')
+                        assert(SMODS.change_base(_card, nil, 'Jack'))
                     end
                     _card:juice_up(0.3, 0.5)
                     return true
@@ -1773,8 +1825,8 @@ SMODS.Joker{ --Tabaosl
                 for i = 1, 3 do
                     if #G.play.cards >= i then
                         local c = G.play.cards[i]
-                        if c.config.center_key and G.P_CENTERS[c.config.center_key].giga_data and
-                            G.P_CENTERS[c.config.center_key].giga_data.enh_upgrade then
+                        if c.config.center.key and G.P_CENTERS[c.config.center.key].giga_data and
+                            G.P_CENTERS[c.config.center.key].giga_data.enh_upgrade then
                             Giga.upgrade_enhancement(c)
                         end
                     else
