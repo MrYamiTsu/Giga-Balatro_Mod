@@ -713,11 +713,7 @@ SMODS.Joker{ --UpgradedTicket
     end,
     in_pool = function(self)
         for _, c in pairs(G.playing_cards or {}) do
-            local counter  = 0
             if upgraded_enh_condition(c) or upgraded_seal_condition(c) then
-                counter = counter + 1
-            end
-            if counter >= 2 then
                 return true
             end
         end
