@@ -10,7 +10,7 @@ SMODS.Enhancement{ --BigBonus
 	unlocked = true,
 	weight = 0,
 	always_scores = true,
-	config = { bonus = 60 },
+	config = { bonus = 75 },
 	loc_vars = function(self, info_queue, card)
 		return {vars = { card.ability.bonus}}
 	end,
@@ -29,7 +29,7 @@ SMODS.Enhancement{ --MultPlus
 	unlocked = true,
 	always_scores = true,
 	weight = 0,
-	config = { mult = 8},
+	config = { mult = 10 },
 	loc_vars = function(self, info_queue, card)
 		return {vars = {card.ability.mult}}
 	end,
@@ -136,12 +136,12 @@ SMODS.Enhancement{ --Titanium
 	weight = 0,
 	config = { extra = {
 		mult_mod = 0.05
-    }, h_x_mult = 1.75 },
+    }, h_x_mult = 2 },
 	loc_vars = function(self, info_queue, card)
 		return {vars = {card.ability.h_x_mult, card.ability.extra.mult_mod}}
 	end,
-	in_pool = function(self) 
-		return false 
+	in_pool = function(self)
+		return false
 	end,
 	calculate = function(self, card, context)
 		if context.final_scoring_step and context.cardarea == G.play then
@@ -168,7 +168,7 @@ SMODS.Enhancement{ --PolishStone
 	no_suit = true,
 	always_scores = true,
 	weight = 0,
-	config = { bonus = 40, x_chips = 1.4 },
+	config = { bonus = 35, x_chips = 1.5 },
 	loc_vars = function(self, info_queue, card)
 		return {vars = {card.ability.bonus, card.ability.x_chips}}
 	end,
@@ -220,7 +220,7 @@ SMODS.Enhancement{ --Luckiest
 	config = { extra = { 
 		odds = 1,
 		chances1 = 3,
-		chances2 = 7,
+		chances2 = 9,
 		chances3 = 12,
 		mult = 20,
 		cash = 20,
