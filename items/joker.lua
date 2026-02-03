@@ -1339,7 +1339,7 @@ SMODS.Joker{ --FunnyCrown
     cost = 6,
     rarity = 3,
     blueprint_compat = false,
-    eternal_compat = true,
+    eternal_compat = false,
     config = { extra = {
         round = 2,
         shaking = false
@@ -1365,7 +1365,7 @@ SMODS.Joker{ --FunnyCrown
         end
         if context.selling_card and context.card == card then
             if card.ability.extra.round <= 0 then
-                if #G.jokers.cards < G.jokers.config.card_limit then
+                if #G.jokers.cards <= G.jokers.config.card_limit then
                     G.E_MANAGER:add_event(Event({
                         func = function ()
                             SMODS.add_card{key = "j_giga_kingOfJacks"}
@@ -1382,6 +1382,7 @@ SMODS.Joker{ --FunnyCrown
                             enhancement = 'm_bonus',
                             area = G.deck
                         })
+                        return true
                     end
                 }))
             end
