@@ -2,6 +2,9 @@
 local talking_init = Game.init_game_object
 function Game:init_game_object()
 	local ret = talking_init(self)
+    ret.giga = {}
+    ret.giga.astral_chance = {1, 20}
+    ret.giga.shiny_chance = {2, 25}
 	init_pools()
 	return ret
 end
