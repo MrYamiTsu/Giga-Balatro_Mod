@@ -153,7 +153,7 @@ return {
             m_giga_titanium = {
                 name = 'Titanium Card',
                 text = {
-                    '{X:mult,C:white}X#1#{} ',
+                    '{X:mult,C:white}X#1#{} Mult',
                     'while this card',
                     'stays in hand',
                     'Increase by {X:mult,C:white}X#2#{}',
