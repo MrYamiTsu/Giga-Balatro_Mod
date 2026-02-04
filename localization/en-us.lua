@@ -1024,14 +1024,14 @@ return {
                     'held {C:attention}Consumable{}'
                 }
             },
-            j_giga_metalJaw = {
-                name = 'Metal Jaw',
-                text = {
-                    'Keeps {C:attention}Gold{} and {C:attention}Steel ability{}',
-                    'for the round when {C:attention}discarded{}',
-                    '{C:inactive}(Currently: {X:mult,C:white}X#1#{} {C:inactive}Mult /{} {C:money}$#2#{}{C:inactive}){}'
-                }
-            },
+            -- j_giga_metalJaw = {
+            --     name = 'Metal Jaw',
+            --     text = {
+            --         'Keeps {C:attention}Gold{} and {C:attention}Steel ability{}',
+            --         'for the round when {C:attention}discarded{}',
+            --         '{C:inactive}(Currently: {X:mult,C:white}X#1#{} {C:inactive}Mult /{} {C:money}$#2#{}{C:inactive}){}'
+            --     }
+            -- },
             --#endregion
             --#region CrossMod
             j_giga_triceratops_alt = {
