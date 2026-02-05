@@ -1753,11 +1753,11 @@ SMODS.Joker{ --Triceratops
             ptera_chance = 7
         }
     }},
-    loc_vars = function(self, info_queue, card)
-        local chances = next(SMODS.find_card("j_giga_pteranodon" or "j_giga_pteranodon_alt")) and card.ability.extra.interac.ptera_chance or card.ability.extra.chances
-        local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.odds, chances, 'prob')
+    loc_vars = function(self, info_queue, center)
+        local chances = next(SMODS.find_card("j_giga_pteranodon" or "j_giga_pteranodon_alt")) and center.ability.extra.interac.ptera_chance or center.ability.extra.chances
+        local numerator, denominator = SMODS.get_probability_vars(center, center.ability.extra.odds, chances, 'prob')
         info_queue[#info_queue+1] = G.P_CENTERS.m_mult
-        return { vars = { numerator, denominator } }
+        return {vars = { numerator, denominator }}
     end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then

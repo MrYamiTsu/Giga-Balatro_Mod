@@ -89,7 +89,7 @@ SMODS.Edition{
     weight = 0,
     extra_cost = 6,
     sound = {sound = "polychrome1", per = 1.2, vol = 0.9},
-    config = { x_mult = 3 },
+    config = { x_mult = 2 },
     loc_vars = function(self, info_queue, card)
         if G.SETTINGS.paused then
             info_queue[#info_queue+1] = {set = 'Other', key = 'giga_shiny_chance', vars = {G.GAME.giga.shiny_chance[1] / G.GAME.giga.shiny_chance[2] * 100, 'Polychrome'}}
