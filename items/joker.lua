@@ -1236,8 +1236,8 @@ SMODS.Joker{ --BearmanJeff
         end
     end
 }
-SMODS.Joker{ --MetalJaw
-    key = 'metalJaw',
+SMODS.Joker{ --Ohnyartemmys
+    key = 'ohnyartemmys',
     atlas = 'Jokers',
     pos = {x = 7, y = 3},
     cost = 6,

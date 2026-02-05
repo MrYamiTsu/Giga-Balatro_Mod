@@ -1024,8 +1024,8 @@ return {
                     'held {C:attention}Consumable{}'
                 }
             },
-            j_giga_metalJaw = {
-                name = 'Metal Jaw',
+            j_giga_ohnyartemmys = {
+                name = 'Ohnyartemmys',
                 text = {
                     'Keeps {C:attention}Gold{} and {C:attention}Steel ability{}',
                     'for the round when {C:attention}discarded{}',
