@@ -1585,7 +1585,7 @@ SMODS.Joker{ --TRex
         local set = next(SMODS.find_card("j_giga_velocyraptor" or "j_giga_velocyraptor_alt")) and 'Spectral' or 'Tarot'
         local _mult = next(SMODS.find_card("j_giga_triceratops" or "j_giga_triceratops_alt")) and center.ability.extra.interac.trice_mult or center.ability.extra.mult_add
         local _chips = next(SMODS.find_card("j_giga_pteranodon" or "j_giga_pteranodon_alt")) and center.ability.extra.interac.ptera_chips or center.ability.extra.chips_add
-        return {vars = {colours={G.C.SECONDARY_SET[set]}, localize(set:lower(), "labels"), _mult, _chips, center.ability.extra.mult, center.ability.extra.chips}}
+        return {vars = {colours={G.C.SECONDARY_SET[set]}, localize('k_'..set:lower()), _mult, _chips, center.ability.extra.mult, center.ability.extra.chips}}
     end,
     calculate = function(self, card, context)
         if context.end_of_round and context.cardarea == G.jokers then
@@ -1595,8 +1595,10 @@ SMODS.Joker{ --TRex
                 if #G.consumeables.cards > 0 then
                     SMODS.destroy_cards(pseudorandom_element(G.consumeables.cards, pseudoseed('tRex_destroy')))
                     if not context.blueprint then
-                        card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_add
-                        card.ability.extra.chips = card.ability.extra.chips + card.ability.extra.chips_add
+                        local _mult = next(SMODS.find_card("j_giga_triceratops" or "j_giga_triceratops_alt")) and card.ability.extra.interac.trice_mult or card.ability.extra.mult_add
+                        local _chips = next(SMODS.find_card("j_giga_pteranodon" or "j_giga_pteranodon_alt")) and card.ability.extra.interac.ptera_chips or card.ability.extra.chips_add
+                        card.ability.extra.mult = card.ability.extra.mult + _mult
+                        card.ability.extra.chips = card.ability.extra.chips + _chips
                     end
                 end
                 G.E_MANAGER:add_event(Event({
@@ -1690,42 +1692,41 @@ SMODS.Joker{ --Pteranodon
     eternal_compat = true,
     config = { extra = {
         cash = 3,
-        txt = 'Planet',
-        colour = G.C.SECONDARY_SET.Planet,
         interac = {
-            rex_cash = 8,
+            rex_cash = 7,
             velo = false
         }
     }},
     loc_vars = function(self, info_queue, center)
         local cash = next(SMODS.find_card("j_giga_tRex" or "j_giga_tRex_alt")) and center.ability.extra.interac.rex_cash or center.ability.extra.cash
-        local set = center.ability.extra.txt
-        return {vars = {colours={G.C.SECONDARY_SET[set]}, localize(set:lower(), "labels"), cash}}
+        local set = next(SMODS.find_card("j_giga_velocyraptor" or "j_giga_velocyraptor_alt")) and 'Spectral' or 'Planet'
+        return {vars = {colours={G.C.SECONDARY_SET[set]}, localize('k_'..set:lower()), cash}}
     end,
     calculate = function(self, card, context)
-        if next(SMODS.find_card("j_giga_velocyraptor" or "j_giga_velocyraptor_alt")) then
-            card.ability.extra.txt = 'Spectral'
-        else
-            card.ability.extra.txt = 'Planet'
-        end
         if context.scoring_name == 'High Card' then
             if context.individual and context.cardarea == G.play and context.other_card:get_id() == 5 then
-                local to_destroy = context.full_hand[1]
                 G.E_MANAGER:add_event(Event({
                     blocking = true,
                     func = function()
-                        SMODS.destroy_cards(to_destroy)
+                        SMODS.destroy_cards(context.full_hand[1])
                         return true
                     end
                 }))
-                if #G.consumeables.cards < G.consumeables.config.card_limit then
-                     _create(card,card.ability.extra.txt,G.consumeables,false,false)
-                     delay(0.4)
-                else
-                    SMODS.calculate_effect({ message = localize('k_no_room_ex') }, card)
-                end
+                G.E_MANAGER:add_event(Event({
+                    blocking = true,
+                    func = function()
+                        if G.consumeables.config.card_limit > #G.consumeables.cards then
+                            local set = next(SMODS.find_card("j_giga_velocyraptor" or "j_giga_velocyraptor_alt")) and 'Spectral' or 'Planet'
+                            SMODS.add_card({ set = set })
+                        else
+                            SMODS.calculate_effect({ message = localize('k_no_room_ex') }, card)
+                        end
+                        return true
+                    end
+                }))
                 return {
-                    dollars = card.ability.extra.cash
+                    dollars = card.ability.extra.cash,
+                    delay = 0.35
                 }
             end
         end
