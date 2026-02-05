@@ -134,19 +134,19 @@ SMODS.Back{ --DrrunnkiDaecpk
         G.E_MANAGER:add_event(Event({
             func = function()
                 for i, card in pairs(G.playing_cards) do
-                    if pseudorandom("ok1", 1, 26) == 1 then
+                    if pseudorandom(pseudoseed("ok0"), 1, 26) == 1 then
                         SMODS.destroy_cards(card)
                     end
                 end
                 return true
             end
         }))
-        G.GAME.starting_params.hands = pseudorandom("ok1", 2, 6)
-        G.GAME.starting_params.discards = pseudorandom("ok2", 1, 8)
-        G.GAME.starting_params.dollars = pseudorandom("ok3", 0, 12)
-        G.GAME.starting_params.joker_slots = pseudorandom("ok4", 2, 6)
-        G.GAME.starting_params.consumable_slots = pseudorandom("ok5", 1, 4)
-        G.GAME.starting_params.hand_size = pseudorandom("ok6", 6, 10)
+        G.GAME.starting_params.hands = pseudorandom(pseudoseed("ok1"), 1, 7)
+        G.GAME.starting_params.discards = pseudorandom(pseudoseed("ok2"), 2, 8)
+        G.GAME.starting_params.dollars = pseudorandom(pseudoseed("ok3"), 0, 15)
+        G.GAME.starting_params.joker_slots = pseudorandom(pseudoseed("ok4"), 3, 6)
+        G.GAME.starting_params.consumable_slots = pseudorandom(pseudoseed("ok5"), 1, 4)
+        G.GAME.starting_params.hand_size = pseudorandom(pseudoseed("ok6"), 6, 10)
         G.GAME.modifiers.giga_randomscore = true
         if next(SMODS.find_mod("Cryptid")) then
 	        G.GAME.modifiers.cry_misprint_min = (G.GAME.modifiers.cry_misprint_min or 1) * self.config.giga_value_min
