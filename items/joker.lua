@@ -1248,7 +1248,7 @@ SMODS.Joker{ --BearmanJeff
 SMODS.Joker{ --Ohnyartemmys
     key = 'ohnyartemmys',
     atlas = 'Jokers',
-    pos = {x = 7, y = 3},
+    pos = {x = 7, y = 7},
     cost = 6,
     rarity = 2,
     blueprint_compat = false,
@@ -1258,6 +1258,8 @@ SMODS.Joker{ --Ohnyartemmys
         cash = 0
     }},
     loc_vars = function(self,info_queue,center)
+        info_queue[#info_queue+1] = G.P_CENTERS.m_gold
+        info_queue[#info_queue+1] = G.P_CENTERS.m_steel
         return{vars = {center.ability.extra.mult, center.ability.extra.cash}}
     end,
     in_pool = function(self, args)
@@ -1307,6 +1309,38 @@ SMODS.Joker{ --Ohnyartemmys
             card.ability.extra.cash = 0
         end
         return cash
+    end
+}
+SMODS.Joker{ --Kebfordius
+    key = 'kebfordius',
+    atlas = 'Jokers',
+    pos = {x = 7, y = 3},
+    cost = 6,
+    rarity = 2,
+    blueprint_compat = false,
+    eternal_compat = true,
+    config = { extra = {
+        card = 2
+    }},
+    loc_vars = function(self,info_queue,center)
+        return{vars = {center.ability.extra.card}}
+    end,
+    calculate = function(self,card,context)
+        if context.before and context.scoring_name == 'giga_Linked Pairs' then
+            for _ = 1, card.ability.extra.card do
+                if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+                    G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                    G.E_MANAGER:add_event(Event({
+                        func = function ()
+                            SMODS.add_card({set = 'Planet'})
+                            G.GAME.consumeable_buffer = 0
+                            return true
+                        end
+                    }))
+                    SMODS.calculate_effect({ message = localize("k_plus_planet"), colour = G.C.SECONDARY_SET.Planet }, card)
+                end
+		    end
+        end
     end
 }
 --#endregion
@@ -1890,6 +1924,232 @@ SMODS.Joker{ --Rog-Ano
 }
 --#endregion
 --#region YU-GI-OH JOKERS --
+SMODS.Joker{ --MOC
+    key = 'moc',
+    atlas = 'secret3',
+    giga_data = {
+        from_ygo = true,
+        merge_materials = {
+            'j_giga_blackLusterSoldier',
+            'j_giga_darkMagician'
+        }
+    },
+    pos = {x = 1, y = 0},
+    soul_pos = {x = 0, y = 0},
+    cost = 35,
+    rarity = 'giga_megaLegendary',
+    blueprint_compat = true,
+    eternal_compat = true,
+    no_collection = true,
+    config = { extra = {
+        mult1 = 15,
+        mult2 = 25,
+        xmult = 3
+    }},
+    loc_vars = function(self,info_queue,center)
+        return {vars ={center.ability.extra.mult1, center.ability.extra.mult2, center.ability.extra.xmult}}
+    end,
+    calculate = function(self,card,context)
+        if context.individual and context.cardarea == G.play then
+            local effects = {}
+            table.insert(effects, {
+                mult = card.ability.extra.mult1,
+                delay = 0.4
+            })
+            if context.other_card:is_suit("Diamonds", true) then
+                table.insert(effects, {
+                    mult = card.ability.extra.mult2,
+                    delay = 0.4
+                })
+            end
+            if context.other_card:get_id() <= 9 then
+                table.insert(effects, {
+                    xmult = card.ability.extra.xmult,
+                    delay = 0.4
+                })
+            end
+            if #effects > 0 then
+                return SMODS.merge_effects(effects)
+            end
+        end
+    end
+}
+SMODS.Joker{ --LLOTFO
+    key = 'llotfo',
+    atlas = 'Jokers',
+    giga_data = {
+        from_ygo = true
+    },
+    pos = {x = 0, y = 3},
+    cost = 8,
+    rarity = 2,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        chips = 45
+    }},
+    loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        return {vars = {center.ability.extra.chips}}
+    end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play then
+            if context.other_card:is_suit("Spades", true) then
+                return {
+                    chips = card.ability.extra.chips
+                }
+            end
+        end
+    end
+}
+SMODS.Joker{ --RLOTFO
+    key = 'rlotfo',
+    atlas = 'Jokers',
+    giga_data = {
+        from_ygo = true
+    },
+    pos = {x = 1, y = 3},
+    cost = 8,
+    rarity = 2,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        chips = 45
+    }},
+    loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        return {vars = {center.ability.extra.chips}}
+    end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play then
+            if context.other_card:is_suit("Clubs", true) then
+                return {
+                    chips = card.ability.extra.chips
+                }
+            end
+        end
+    end
+}
+SMODS.Joker{ --LAOTFO
+    key = 'laotfo',
+    atlas = 'Jokers',
+    giga_data = {
+        from_ygo = true
+    },
+    pos = {x = 2, y = 3},
+    cost = 8,
+    rarity = 2,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        chips = 45
+    }},
+    loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        return {vars = {center.ability.extra.chips}}
+    end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play then
+            if context.other_card:is_suit("Hearts", true) then
+                return {
+                    chips = card.ability.extra.chips
+                }
+            end
+        end
+    end
+}
+SMODS.Joker{ --RAOTFO
+    key = 'raotfo',
+    atlas = 'Jokers',
+    giga_data = {
+        from_ygo = true
+    },
+    pos = {x = 3, y = 3},
+    cost = 8,
+    rarity = 2,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        chips = 45
+    }},
+    loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        return {vars = {center.ability.extra.chips}}
+    end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play then
+            if context.other_card:is_suit("Diamonds", true) then
+                return {
+                    chips = card.ability.extra.chips
+                }
+            end
+        end
+    end
+}
+SMODS.Joker{ --ETFO
+    key = 'etfo',
+    atlas = 'Jokers',
+    giga_data = {
+        from_ygo = true
+    },
+    pos = {x = 4, y = 3},
+    cost = 8,
+    rarity = 3,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        chips = 20
+    }},
+    loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        return {vars = {center.ability.extra.chips}}
+    end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play then
+            return {
+                chips = card.ability.extra.chips
+            }
+        end
+    end
+}
+SMODS.Joker{ --TLEI
+    key = 'tlei',
+    atlas = 'secret4',
+    giga_data = {
+        from_ygo = true,
+        merge_materials = {
+            'j_giga_llotfo',
+            'j_giga_rlotfo',
+            'j_giga_laotfo',
+            'j_giga_raotfo',
+            'j_giga_etfo',
+        }
+    },
+    pos = {x = 1, y = 0},
+    soul_pos = {x = 0, y = 0},
+    cost = 25,
+    rarity = 'giga_megaLegendary',
+    blueprint_compat = true,
+    eternal_compat = true,
+    no_collection = true,
+    config = { extra = {
+        mult = 50
+    }},
+    loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        return {vars ={center.ability.extra.mult}}
+    end,
+    calculate = function(self, card, context)
+        if G.GAME.blind.boss and not G.GAME.blind.disabled then
+            G.GAME.blind:disable()
+        end
+        if context.joker_main then
+            return {
+                x_mult = card.ability.extra.mult
+            }
+        end
+    end
+}
 SMODS.Joker{ --BlueEyesWhiteDragon
     key = 'blueEyesWhiteDragon',
     atlas = 'Jokers',
@@ -2152,230 +2412,5 @@ SMODS.Joker{ --DarkMagician
         end
     end
 }
-SMODS.Joker{ --MOC
-    key = 'moc',
-    atlas = 'secret3',
-    giga_data = {
-        from_ygo = true,
-        merge_materials = {
-            'j_giga_blackLusterSoldier',
-            'j_giga_darkMagician'
-        }
-    },
-    pos = {x = 1, y = 0},
-    soul_pos = {x = 0, y = 0},
-    cost = 35,
-    rarity = 'giga_megaLegendary',
-    blueprint_compat = true,
-    eternal_compat = true,
-    no_collection = true,
-    config = { extra = {
-        mult1 = 15,
-        mult2 = 25,
-        xmult = 3
-    }},
-    loc_vars = function(self,info_queue,center)
-        return {vars ={center.ability.extra.mult1, center.ability.extra.mult2, center.ability.extra.xmult}}
-    end,
-    calculate = function(self,card,context)
-        if context.individual and context.cardarea == G.play then
-            local effects = {}
-            table.insert(effects, {
-                mult = card.ability.extra.mult1,
-                delay = 0.4
-            })
-            if context.other_card:is_suit("Diamonds", true) then
-                table.insert(effects, {
-                    mult = card.ability.extra.mult2,
-                    delay = 0.4
-                })
-            end
-            if context.other_card:get_id() <= 9 then
-                table.insert(effects, {
-                    xmult = card.ability.extra.xmult,
-                    delay = 0.4
-                })
-            end
-            if #effects > 0 then
-                return SMODS.merge_effects(effects)
-            end
-        end
-    end
-}
-SMODS.Joker{ --LLOTFO
-    key = 'llotfo',
-    atlas = 'Jokers',
-    giga_data = {
-        from_ygo = true
-    },
-    pos = {x = 0, y = 3},
-    cost = 8,
-    rarity = 2,
-    blueprint_compat = true,
-    eternal_compat = true,
-    config = { extra = {
-        chips = 45
-    }},
-    loc_vars = function(self, info_queue, center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
-        return {vars = {center.ability.extra.chips}}
-    end,
-    calculate = function(self, card, context)
-        if context.individual and context.cardarea == G.play then
-            if context.other_card:is_suit("Spades", true) then
-                return {
-                    chips = card.ability.extra.chips
-                }
-            end
-        end
-    end
-}
-SMODS.Joker{ --RLOTFO
-    key = 'rlotfo',
-    atlas = 'Jokers',
-    giga_data = {
-        from_ygo = true
-    },
-    pos = {x = 1, y = 3},
-    cost = 8,
-    rarity = 2,
-    blueprint_compat = true,
-    eternal_compat = true,
-    config = { extra = {
-        chips = 45
-    }},
-    loc_vars = function(self, info_queue, center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
-        return {vars = {center.ability.extra.chips}}
-    end,
-    calculate = function(self, card, context)
-        if context.individual and context.cardarea == G.play then
-            if context.other_card:is_suit("Clubs", true) then
-                return {
-                    chips = card.ability.extra.chips
-                }
-            end
-        end
-    end
-}
-SMODS.Joker{ --LAOTFO
-    key = 'laotfo',
-    atlas = 'Jokers',
-    giga_data = {
-        from_ygo = true
-    },
-    pos = {x = 2, y = 3},
-    cost = 8,
-    rarity = 2,
-    blueprint_compat = true,
-    eternal_compat = true,
-    config = { extra = {
-        chips = 45
-    }},
-    loc_vars = function(self, info_queue, center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
-        return {vars = {center.ability.extra.chips}}
-    end,
-    calculate = function(self, card, context)
-        if context.individual and context.cardarea == G.play then
-            if context.other_card:is_suit("Hearts", true) then
-                return {
-                    chips = card.ability.extra.chips
-                }
-            end
-        end
-    end
-}
-SMODS.Joker{ --RAOTFO
-    key = 'raotfo',
-    atlas = 'Jokers',
-    giga_data = {
-        from_ygo = true
-    },
-    pos = {x = 3, y = 3},
-    cost = 8,
-    rarity = 2,
-    blueprint_compat = true,
-    eternal_compat = true,
-    config = { extra = {
-        chips = 45
-    }},
-    loc_vars = function(self, info_queue, center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
-        return {vars = {center.ability.extra.chips}}
-    end,
-    calculate = function(self, card, context)
-        if context.individual and context.cardarea == G.play then
-            if context.other_card:is_suit("Diamonds", true) then
-                return {
-                    chips = card.ability.extra.chips
-                }
-            end
-        end
-    end
-}
-SMODS.Joker{ --ETFO
-    key = 'etfo',
-    atlas = 'Jokers',
-    giga_data = {
-        from_ygo = true
-    },
-    pos = {x = 4, y = 3},
-    cost = 8,
-    rarity = 3,
-    blueprint_compat = true,
-    eternal_compat = true,
-    config = { extra = {
-        chips = 20
-    }},
-    loc_vars = function(self, info_queue, center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
-        return {vars = {center.ability.extra.chips}}
-    end,
-    calculate = function(self, card, context)
-        if context.individual and context.cardarea == G.play then
-            return {
-                chips = card.ability.extra.chips
-            }
-        end
-    end
-}
-SMODS.Joker{ --TLEI
-    key = 'tlei',
-    atlas = 'secret4',
-    giga_data = {
-        from_ygo = true,
-        merge_materials = {
-            'j_giga_llotfo',
-            'j_giga_rlotfo',
-            'j_giga_laotfo',
-            'j_giga_raotfo',
-            'j_giga_etfo',
-        }
-    },
-    pos = {x = 1, y = 0},
-    soul_pos = {x = 0, y = 0},
-    cost = 25,
-    rarity = 'giga_megaLegendary',
-    blueprint_compat = true,
-    eternal_compat = true,
-    no_collection = true,
-    config = { extra = {
-        mult = 50
-    }},
-    loc_vars = function(self, info_queue, center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
-        return {vars ={center.ability.extra.mult}}
-    end,
-    calculate = function(self, card, context)
-        if G.GAME.blind.boss and not G.GAME.blind.disabled then
-            G.GAME.blind:disable()
-        end
-        if context.joker_main then
-            return {
-                x_mult = card.ability.extra.mult
-            }
-        end
-    end
-}
+
 --#endregion

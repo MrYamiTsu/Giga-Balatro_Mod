@@ -271,7 +271,7 @@ SMODS.Seal{ --Purple+
 	end,
     calculate = function(self, card, context)
         if context.discard and context.other_card == card then
-            for _ = 1, self.config.extra.card, 1 do
+            for _ = 1, self.config.extra.card do
                 if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
                     G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
                     local spectral = false
@@ -289,7 +289,7 @@ SMODS.Seal{ --Purple+
                             return true
                         end
                     }))
-                    SMODS.calculate_effect({ message = localize(spectral and "k_plus_spectral" or "k_plus_tarot"), colour = G.C.PURPLE }, card)
+                    SMODS.calculate_effect({ message = localize(spectral and "k_plus_spectral" or "k_plus_tarot"), colour = (spectral and G.C.SECONDARY_SET.Spectral or G.C.SECONDARY_SET.Tarot) }, card)
                 end
 		    end
         end
@@ -656,7 +656,7 @@ SMODS.Seal{ --Purple++
             }))
         end
     end,
-    badge_colour = G.C.PURPLE
+    badge_colour = G.C.SECONDARY_SET.Tarot
 }
 --#endregion
 --#region NEW ++ SEALS

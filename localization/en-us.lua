@@ -1032,6 +1032,14 @@ return {
                     '{C:inactive}(Currently: {X:mult,C:white}X#1#{} {C:inactive}Mult /{} {C:money}$#2#{}{C:inactive}){}'
                 }
             },
+            j_giga_kebfordius = {
+                name = 'Kebfordius',
+                text = {
+                    'Creates up to {C:attention}#1#{}',
+                    '{C:planet}Planet{} cards if',
+                    'hand is {C:attention}Linked Pairs{}'
+                }
+            },
             --#endregion
             --#region CrossMod
             j_giga_triceratops_alt = {
@@ -1392,6 +1400,16 @@ return {
                     '{X:chips,C:white}X#1#{} Chips when {C:attention}played{}',
                     'Increase by {X:chips,C:white}X#2#{} for each',
                     '{C:attention}discarded{} Overcharge',
+                    'this round'
+                }
+            },
+            giga_purpleOvercharge = {
+                name = 'Purple Overcharge',
+                text = {
+                    'Creates {C:attention}#1#{} {C:Giga_Food}Food{} when {C:attention}played{}',
+                    '{C:green}#2# in #3#{} chance to be {C:dark_edition}Negative{}',
+                    'Increase by {C:attention}#4#{} for each',
+                    '{C:attention}#5# discarded{} Overcharge',
                     'this round'
                 }
             },
