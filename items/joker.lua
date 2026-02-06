@@ -188,21 +188,22 @@ SMODS.Joker{ --ShreddedAce
     calculate = function(self,card,context)
         if context.setting_blind then
             return {
-                func = function() 
-					local suit = pseudorandom_element({'S','H','D','C'}, pseudoseed('giga_shreddedAce'))
-			        local card = create_playing_card({
-				        front = G.P_CARDS[suit..'_'..'A']
-			        }, G.hand, false,false,nil)
-			        card:add_to_deck()
+                func = function()
+                    local _card = SMODS.add_card({
+                        rank = 'Ace',
+                        area = G.hand
+                    })
+                    SMODS.calculate_context({ playing_card_added = true, cards = { _card } })
+                    return true
 				end,
 				message = 'Create !',
-                colour = G.C.SECONDARY_SET.Tarot
+                colour = G.C.PURPLE
             }
         end
         if context.individual and context.cardarea == G.play and context.other_card:get_id() == 14 then
             return {
-                    mult = card.ability.extra.mult,
-                }
+                mult = card.ability.extra.mult
+            }
         end
     end
 }
@@ -1377,11 +1378,12 @@ SMODS.Joker{ --FunnyCrown
                 end
                 G.E_MANAGER:add_event(Event({
                     func = function ()
-                        SMODS.add_card({
+                        local _card = SMODS.add_card({
                             rank = 'Jack',
                             enhancement = 'm_bonus',
                             area = G.deck
                         })
+                        SMODS.calculate_context({ playing_card_added = true, cards = { _card } })
                         return true
                     end
                 }))
