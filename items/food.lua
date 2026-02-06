@@ -439,7 +439,12 @@ SMODS.Consumable{ --GummyBear
     end,
     use = function (self,card,area,copier)
         for i = 1, card.ability.extra.card do
-            SMODS.add_card { set = "Base", suit = "Diamonds", area = G.hand }
+            local _card = SMODS.add_card({
+                set = "Base",
+                suit = "Diamonds",
+                area = G.hand
+            })
+            SMODS.calculate_context({ playing_card_added = true, cards = { _card } })
         end
     end
 }
@@ -486,7 +491,12 @@ SMODS.Consumable{ --Empanadas
     end,
     use = function (self,card,area,copier)
         for i = 1, card.ability.extra.card do
-            SMODS.add_card { set = "Base", suit = "Clubs", area = G.hand }
+            local _card = SMODS.add_card({
+                set = "Base",
+                suit = "Clubs",
+                area = G.hand
+            })
+            SMODS.calculate_context({ playing_card_added = true, cards = { _card } })
         end
     end
 }
@@ -533,7 +543,12 @@ SMODS.Consumable{ --QuicheLorraine
     end,
     use = function (self,card,area,copier)
         for i = 1, card.ability.extra.card do
-            SMODS.add_card { set = "Base", suit = "Hearts", area = G.hand }
+            local _card = SMODS.add_card({
+                set = "Base",
+                suit = "Hearts",
+                area = G.hand
+            })
+            SMODS.calculate_context({ playing_card_added = true, cards = { _card } })
         end
     end
 }
@@ -580,7 +595,12 @@ SMODS.Consumable{ --Paella
     end,
     use = function (self,card,area,copier)
         for i = 1, card.ability.extra.card do
-            SMODS.add_card { set = "Base", suit = "Spades", area = G.hand }
+            local _card = SMODS.add_card({
+                set = "Base",
+                suit = "Spades",
+                area = G.hand
+            })
+            SMODS.calculate_context({ playing_card_added = true, cards = { _card } })
         end
     end
 }
