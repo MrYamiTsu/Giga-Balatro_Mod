@@ -1084,7 +1084,15 @@ SMODS.Joker{ --Roposiel
         return{vars = {center.ability.extra.mult_add, center.ability.extra.mult}}
     end,
     in_pool = function(self)
-        return #G.jokers.cards > 0
+        if #G.jokers.cards > 0 then
+            for i = 1, #G.jokers.cards do
+                local name = localize{type = "name_text", key = G.jokers.cards[i].config.center.key, set = G.jokers.cards[i].ability.set}
+                if string.match(name, "%d") or string.match(name, "[^%w%s]") then
+                    return true
+                end
+            end
+        end
+        return false
     end,
     calculate = function(self,card,context)
         if context.joker_main and card.ability.extra.mult > 0 then
@@ -1251,6 +1259,14 @@ SMODS.Joker{ --Ohnyartemmys
     }},
     loc_vars = function(self,info_queue,center)
         return{vars = {center.ability.extra.mult, center.ability.extra.cash}}
+    end,
+    in_pool = function(self, args)
+        for _, _c in ipairs(G.playing_cards or {}) do
+            if SMODS.has_enhancement(_c, 'm_gold') or SMODS.has_enhancement(_c, 'm_steel') then
+                return true
+            end
+        end
+        return false
     end,
     calculate = function(self,card,context)
         if context.discard then
