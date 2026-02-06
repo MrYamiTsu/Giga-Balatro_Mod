@@ -336,9 +336,7 @@ SMODS.Seal{ --Pink+
             }))
             return {
                 func = function()
-                    print('test 1')
                     if SMODS.pseudorandom_probability(card, pseudoseed('giga_pinkPlus'), self.config.extra.odds, self.config.extra.chances) then
-                        print('test 4')
                         G.E_MANAGER:add_event(Event({
                             func = function()
                                 SMODS.add_card({set = 'Giga_Food', edition = 'e_negative'})
@@ -347,9 +345,7 @@ SMODS.Seal{ --Pink+
                         }))
                         SMODS.calculate_effect({ message = localize("k_plus_food"), colour = HEX('F2A5A6FF') }, card)
                     else
-                        print('test 2')
                         if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
-                            print('test 3')
                             G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
                             G.E_MANAGER:add_event(Event({
                                 func = function()
@@ -361,6 +357,7 @@ SMODS.Seal{ --Pink+
                             SMODS.calculate_effect({ message = localize("k_plus_food"), colour = HEX('F2A5A6FF') }, card)
                         end
                     end
+                    return true
                 end
             }
         end
