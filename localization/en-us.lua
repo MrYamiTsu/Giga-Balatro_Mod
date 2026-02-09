@@ -1804,15 +1804,15 @@ return {
         challenge_names={},
         collabs={},
         dictionary={
-            k_giga_food = "Food",
-            k_giga_rare_food = "Rare Food",
-            b_giga_food_cards = "Food Cards",
-            k_restaurant_pack = "Restaurant Pack",
-            b_giga_custom_menu_card = "Disable Custom Menu Joker",
+            k_giga_food = 'Food',
+            k_giga_rare_food = 'Rare Food',
+            b_giga_food_cards = 'Food Cards',
+            k_restaurant_pack = 'Restaurant Pack',
+            b_giga_custom_menu_card = 'Disable Custom Menu Joker',
             k_inactive = "Inactive",
-            k_active = "Active",
-            k_giga_rd = "Ready",
-            k_giga_notrd = "Not Ready Yet",
+            k_active = 'Active',
+            k_giga_rd = 'Ready',
+            k_giga_notrd = 'Not Ready Yet',
             k_not_allowed_ex = 'No!',
             k_giga_astrals_badge = 'Astral',
             k_giga_moon = 'Moon',
@@ -1820,6 +1820,8 @@ return {
             giga_overcharge_collection_label = 'Overcharges',
             k_plus_food = '+1 Food',
             k_plus_rarefood = '+1 Rare Food',
+            k_giga_artefact = 'Artefact',
+            b_giga_artefact_cards = 'Artefact Cards',
             k_plus_artefact = '+1 Artefact'
         },
         high_scores={},
@@ -1842,6 +1844,7 @@ return {
             giga_crimsonplusplus_seal = 'Crimson++ Seal',
             giga_aquaplusplus_seal = 'Aqua++ Seal',
             Giga_Food = 'Food',
+            Giga_Artefact = 'Artefact',
             giga_shiny_foil = 'Shiny Foil',
             giga_shiny_holo = 'Shiny Holographic',
             giga_shiny_poly = 'Shiny Polychrome',
@@ -1849,7 +1852,8 @@ return {
             giga_yellowOvercharge = 'Yellow Overcharge',
             giga_orangeOvercharge = 'Orange Overcharge',
             giga_greenOvercharge = 'Green Overcharge',
-            giga_blueOvercharge = 'Blue Overcharge'
+            giga_blueOvercharge = 'Blue Overcharge',
+            giga_purpleOvercharge = 'Purple Overcharge'
         },
         poker_hand_descriptions={
             ["giga_Linked Pairs"] = {

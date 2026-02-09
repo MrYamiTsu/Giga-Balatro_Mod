@@ -4,6 +4,7 @@ SMODS.ConsumableType{
     primary_colour = HEX("F7070BFF"),
     secondary_colour = HEX('444444FF'),
     collection_rows = {5,6},
+    default = 'c_giga_art1',
     shop_rate = 0
 }
 
