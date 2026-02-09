@@ -44,7 +44,7 @@ SMODS.Consumable{ --
             }
         end
         if context.end_of_round and context.main_eval then
-            if math.random() == 0 then
+            if math.random(5) >= 2 then
                 return{
                     func = function ()
                         card.ability.extra.cash = card.ability.extra.cash + 2
