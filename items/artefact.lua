@@ -11,7 +11,7 @@ SMODS.ConsumableType{
 SMODS.Consumable{ --
     key = 'art1',
     set = 'Giga_Artefact',
-    atlas = 'Foods',
+    atlas = 'Artefacts',
     pos = {x = 0, y = 0},
     rarity = 1,
     cost = 3,
