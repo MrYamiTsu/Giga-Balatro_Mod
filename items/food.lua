@@ -269,7 +269,7 @@ SMODS.Consumable{ --Tacos
             delay = 0.4,
             func = function()
                 card:juice_up(0.3, 0.5)
-                ease_dollars(center.ability.extra.cash, true)
+                ease_dollars(card.ability.extra.cash, true)
                 return true
             end
         }))

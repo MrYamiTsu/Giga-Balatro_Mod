@@ -369,7 +369,7 @@ SMODS.Enhancement{ --Potery
                 	            return true
                     	    end
 	                    }))
-    	                SMODS.calculate_effect({ message = localize("k_plus_artefact"), colour = G.C.GREY }, card)
+    	                SMODS.calculate_effect({ message = localize("k_plus_artefact"), colour = HEX('444444FF') }, card)
         	        end
 					return true
 				end,
