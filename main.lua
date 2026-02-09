@@ -21,41 +21,42 @@ end
 
 --#region LOADING FILES --
 local load_u = {
-    "function",
-    "hook",
-    "ownership",
-    "pool",
-    "ui"
+    'function',
+    'hook',
+    'ownership',
+    'pool',
+    'ui'
 }
 for _, v in pairs(load_u) do
     assert(SMODS.load_file('utils/'..v..'.lua'))()
 end
 local load_i = {
-    "blind",
-    "booster",
-    "deck",
-    "edition",
-    "enhancement",
-    "food",
-    "joker",
-    "overcharge",
-    "planet",
-    "pokerhand",
-    "seal",
-    "spectral",
-    "tarot",
-    "voucher"
+    'artefact',
+    'blind',
+    'booster',
+    'deck',
+    'edition',
+    'enhancement',
+    'food',
+    'joker',
+    'overcharge',
+    'planet',
+    'pokerhand',
+    'seal',
+    'spectral',
+    'tarot',
+    'voucher'
 }
 for _, v in pairs(load_i) do
     assert(SMODS.load_file('items/'..v..'.lua'))()
 end
-if next(SMODS.find_mod("foolsGambit")) then
+if next(SMODS.find_mod('foolsGambit')) then
     local full = FG.config.version
     local major, minor = tonumber(string.sub(full,1,1)), tonumber(string.sub(full,3,3))
     if major == 0 and minor >= 3 then
         local load_fg = {
-            "food",
-            "joker"
+            'food',
+            'joker'
         }
         for _,v in pairs(load_fg) do
             assert(SMODS.load_file('items/CrossMod/foolsgambit/'..v..'.lua'))()
@@ -65,19 +66,19 @@ if next(SMODS.find_mod("foolsGambit")) then
     end
 end
 if CardSleeves then
-	SMODS.load_file("items/CrossMod/cardsleeves.lua")()
+	SMODS.load_file('items/CrossMod/cardsleeves.lua')()
 end
-if next(SMODS.find_mod("partner")) then
-	SMODS.load_file("items/CrossMod/partner.lua")()
+if next(SMODS.find_mod('partner')) then
+	SMODS.load_file('items/CrossMod/partner.lua')()
 end
-if next(SMODS.find_mod("paperback")) then
-	SMODS.load_file("items/CrossMod/paperback.lua")()
+if next(SMODS.find_mod('paperback')) then
+	SMODS.load_file('items/CrossMod/paperback.lua')()
 end
 --#endregion
 --#region ATLAS --
 SMODS.Atlas{
-    key = "modicon", 
-    path = "modicon.png", 
+    key = 'modicon', 
+    path = 'modicon.png', 
     px = 32,
     py = 32
 }
@@ -176,11 +177,11 @@ SMODS.Atlas{
 --#endregion
 --#region RARITY --
 SMODS.Rarity{
-	key = "megaLegendary",
+	key = 'megaLegendary',
 	loc_txt = {
-        name = "Mega Legendary",
+        name = 'Mega Legendary',
     },
-	badge_colour = HEX("dbd809"),
+	badge_colour = HEX('dbd809'),
 }
 --#endregion
 --#region CUSTOM COLOUR --
