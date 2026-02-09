@@ -189,7 +189,20 @@ return {
                 }
             }
         },
-        Giga_Food = {
+        Giga_Artefact={
+            c_giga_art1 = {
+                name = 'temp',
+                text = {{
+                    'Gain {C:money}$#1#{}',
+                    "{C:innactive,s:0.8}Value isn't stable{}"
+                },
+                {
+                    '{X:mult,C:white}X#2#{} Mult when',
+                    'a {C:attention}2{} is scored'
+                }}
+            }
+        },
+        Giga_Food={
             c_giga_tacos = {
                 name = 'Tacos',
                 text = {
@@ -1737,6 +1750,14 @@ return {
                     'Enhances {C:attention}#1#{}',
                     'selected cards to',
                     '{C:attention}Soil Cards{}'
+                }
+            },
+            c_giga_aTarot = {
+                name = 'NameTemp',
+                text = {
+                    'Enhances {C:attention}#1#{}',
+                    'selected cards to',
+                    '{C:attention}Potery Cards{}'
                 }
             }
         },
