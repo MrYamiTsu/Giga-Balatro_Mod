@@ -78,7 +78,7 @@ SMODS.Enhancement{ --EvolvedWild
 		end
 	end
 }
-SMODS.Enhancement { --ReinforcedGlass
+SMODS.Enhancement{ --ReinforcedGlass
     key = 'reinforcedGlass',
 	atlas = "Enhancements",
 	giga_data = {

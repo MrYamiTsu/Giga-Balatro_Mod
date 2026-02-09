@@ -1822,7 +1822,9 @@ return {
             k_plus_rarefood = '+1 Rare Food',
             k_giga_artefact = 'Artefact',
             b_giga_artefact_cards = 'Artefact Cards',
-            k_plus_artefact = '+1 Artefact'
+            k_plus_artefact = '+1 Artefact',
+            k_giga_valueup = 'Value up',
+            k_giga_valuedown = 'Value down'
         },
         high_scores={},
         labels={

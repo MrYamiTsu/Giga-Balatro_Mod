@@ -39,15 +39,29 @@ SMODS.Consumable{ --
     end,
     calculate = function (self, card, context)
         if context.individual and context.cardarea == G.play and context.other_card:get_id() == 2 then
-            return {
+            return{
                 x_mult = card.ability.extra.mult
             }
         end
-        if context.end_of_round then
+        if context.end_of_round and context.main_eval then
             if math.random() == 0 then
-                card.ability.extra.cash = card.ability.extra.cash + 2
+                return{
+                    func = function ()
+                        card.ability.extra.cash = card.ability.extra.cash + 2
+                        return true
+                    end,
+                    message = localize('k_giga_valueup'),
+                    colour = G.C.GREEN
+                }
             elseif card.ability.extra.cash > 0 then
-                card.ability.extra.cash = card.ability.extra.cash - 1
+                return{
+                    func = function ()
+                        card.ability.extra.cash = card.ability.extra.cash - 1
+                        return true
+                    end,
+                    message = localize('k_giga_valuedown'),
+                    colour = G.C.RED
+                }
             end
         end
     end
