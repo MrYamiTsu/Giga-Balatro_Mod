@@ -14,8 +14,8 @@ SMODS.Enhancement{ --BigBonus
 	loc_vars = function(self, info_queue, card)
 		return {vars = { card.ability.bonus}}
 	end,
-	in_pool = function(self) 
-		return false 
+	in_pool = function(self)
+		return false
 	end
 }
 SMODS.Enhancement{ --MultPlus
@@ -33,8 +33,8 @@ SMODS.Enhancement{ --MultPlus
 	loc_vars = function(self, info_queue, card)
 		return {vars = {card.ability.mult}}
 	end,
-	in_pool = function(self) 
-		return false 
+	in_pool = function(self)
+		return false
 	end
 }
 SMODS.Enhancement{ --EvolvedWild
@@ -121,7 +121,7 @@ SMODS.Enhancement { --ReinforcedGlass
 				remove = true
 			}
         end
-    end,
+    end
 }
 SMODS.Enhancement{ --Titanium
 	key = 'titanium',
