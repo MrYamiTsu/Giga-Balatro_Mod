@@ -255,10 +255,10 @@ SMODS.Consumable{ --Tacos
     rarity = 1,
     cost = 2,
     config = { extra = {
-        money = 5
+        cash = 5
     }},
     loc_vars = function (self,info_queue,center)
-        return{vars = {center.ability.extra.money}}
+        return{vars = {}}
     end,
     can_use = function (self,card)
         return true
@@ -269,7 +269,7 @@ SMODS.Consumable{ --Tacos
             delay = 0.4,
             func = function()
                 card:juice_up(0.3, 0.5)
-                ease_dollars(5, true)
+                ease_dollars(center.ability.extra.cash, true)
                 return true
             end
         }))

@@ -169,3 +169,56 @@ Giga.Overcharge{ --GreenOvercharge
     end,
     badge_colour = G.C.GREEN
 }
+Giga.Overcharge{ --PurpleOvercharge
+    key = 'purpleOvercharge',
+    set = 'Overcharge',
+    atlas = 'Overcharges',
+    pos = {x = 0, y = 1},
+    discovered = true,
+	unlocked = true,
+    config = { extra = {
+        food = 1,
+        odds = 1,
+        chances = 3,
+        ovch_add = 1
+    }},
+    loc_vars = function (self,info_queue,card)
+        local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'giga_orangeovercharge')
+        return{vars = {self.config.extra.food + math.floor(Giga.discarded_overcharge() / 3), odds, chances, self.config.extra.ovch_add, 3}}
+    end,
+    calculate = function (self,card,context)
+        if context.giga_pre_joker and context.cardarea == G.play then
+            return {
+                func = function()
+                    for _ = 1, self.config.extra.food + math.floor(Giga.discarded_overcharge() / 3) do
+                        if SMODS.pseudorandom_probability(card, pseudoseed('giga_orangeovercharge'), self.config.extra.odds, self.config.extra.chances) then
+                            G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                            G.E_MANAGER:add_event(Event({
+                                func = function ()
+                                    SMODS.add_card({set = 'Giga_Food', edition = 'e_negative'})
+                                    G.GAME.consumeable_buffer = 0
+                                    return true
+                                end
+                            }))
+                            SMODS.calculate_effect({ message = localize("k_plus_food"), colour = HEX('F2A5A6FF') }, card)
+                        else
+                            if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+                                G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                                G.E_MANAGER:add_event(Event({
+                                    func = function ()
+                                        SMODS.add_card({set = 'Giga_Food'})
+                                        G.GAME.consumeable_buffer = 0
+                                        return true
+                                    end
+                                }))
+                                SMODS.calculate_effect({ message = localize("k_plus_food"), colour = HEX('F2A5A6FF') }, card)
+                            end
+                        end
+		            end
+                    return true
+                end
+            }
+        end
+    end,
+    badge_colour = G.C.PURPLE
+}

@@ -166,7 +166,7 @@ return {
                     '{X:mult,C:white}X#1#{} Mult',
                     '{C:green}#2# in #3#{} chance to',
                     'destroy card and ',
-                    'create {C:spectral}Spectral{} card'
+                    'create a {C:spectral}Spectral{} card'
                 }
             },
             m_giga_evolvedWild = {
@@ -176,6 +176,16 @@ return {
                     'increase by {C:mult}+#3#{} Mult,',
                     '{C:chips}+#4#{} Chips when {C:attention}played{}',
                     '{C:inactive,s:0.7}This effect is temporary{}'
+                }
+            },
+            m_giga_potery = {
+                name = 'Potery Card',
+                text = {
+                    '{C:chips}+#1#{} chips',
+                    '{C:green}#2# in #3#{} chance to',
+                    'destroy card and ',
+                    'create an {C:giga_Artefact}Artefact{} card',
+                    'no rank or suit'
                 }
             }
         },
@@ -1788,7 +1798,8 @@ return {
             k_giga_asteroid = 'Asteroid',
             giga_overcharge_collection_label = 'Overcharges',
             k_plus_food = '+1 Food',
-            k_plus_rarefood = '+1 Rare Food'
+            k_plus_rarefood = '+1 Rare Food',
+            k_plus_artefact = '+1 Artefact'
         },
         high_scores={},
         labels={

@@ -46,6 +46,19 @@ SMODS.Consumable{ --Gardener
         return{vars = {center.ability.max_highlighted}}
     end
 }
+SMODS.Consumable{ --
+    key = 'aTarot',
+    set = 'Tarot',
+    atlas = 'Consumeables',
+    pos = {x = 2, y = 1},
+    rarity = 1,
+    cost = 3,
+    config = { max_highlighted = 2, mod_conv = 'm_giga_potery' },
+    loc_vars = function (self,info_queue,center)
+        info_queue[#info_queue+1] = G.P_CENTERS['m_giga_potery']
+        return{vars = {center.ability.max_highlighted}}
+    end
+}
 SMODS.Consumable{ --UpgradeTarot
     key = 'upgradeTarot',
     set = 'Tarot',
