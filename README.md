@@ -39,7 +39,7 @@
 <hr>
 <h2>Cross-Mod</h2>
 <p>There’s a lot of crossover with <a href="https://github.com/Joglacraft/Fools-Gambit">Fool's Gambit</a>, so I really recommend checking it out. And the mod itself is absolutely worth playing, it’s genuinely great on its own.</p>
-<p>Additionally, there are some extra assets if you have other mods. Mainly Food cards.</p>
+<p>Additionally, there are some extra content if you have other mods. Mainly Food cards.</p>
 <ul>
     <li><a href="https://github.com/larswijn/CardSleeves">CardSleeves</a></li>
     <li><a href="https://github.com/Icecanno/Partner-API/">Partner-API</a></li>
@@ -61,7 +61,7 @@
     <li><strong>le_dugs</strong> for a lot of ideas and playtest.</li>
     <li><strong>Jogla</strong> for spanish translation, fixes, some artworks, playtest and the Big Collab.</li>
     <li><strong>Frogggy18</strong> for a lot of playtest and balance changes.</li>
-    <li><strong>Zeed</strong> for playtest and english correction.</li>
+    <li><strong>Zeed</strong> for playtest, english correction and idea.</li>
     <li><strong>Eris</strong> for code fixing.</li>
     <li>*All the dev in the Balatro modding community*.</li>
 </ul>
