@@ -190,8 +190,8 @@ return {
             }
         },
         Giga_Artefact={
-            c_giga_art1 = {
-                name = 'temp',
+            c_giga_fishingHook= {
+                name = 'Fishing Hook',
                 text = {{
                     'Gain {C:money}$#1#{}',
                     "{C:innactive,s:0.8}Value isn't stable{}"
@@ -1752,8 +1752,8 @@ return {
                     '{C:attention}Soil Cards{}'
                 }
             },
-            c_giga_aTarot = {
-                name = 'NameTemp',
+            c_giga_brush = {
+                name = 'Brush',
                 text = {
                     'Enhances {C:attention}#1#{}',
                     'selected cards to',

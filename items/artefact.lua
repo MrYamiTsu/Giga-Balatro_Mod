@@ -8,8 +8,8 @@ SMODS.ConsumableType{
     shop_rate = 0
 }
 
-SMODS.Consumable{ --
-    key = 'art1',
+SMODS.Consumable{ --FishingHook
+    key = 'fishingHook',
     set = 'Giga_Artefact',
     atlas = 'Artefacts',
     pos = {x = 0, y = 0},
