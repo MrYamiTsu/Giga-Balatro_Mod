@@ -19,7 +19,7 @@
     <li>34 Food cards (+6 Cross-Mod)</li>
     <li>17 Seals</li>
     <li>16 Planets</li>
-    <li>13 Artefacts</li>
+    <li>13 Artefacts (in developpement)</li>
     <li>11+ Enhancements</li>
     <li>7 Decks</li>
     <li>6 Spectrals</li>
@@ -52,7 +52,7 @@
 <p>
     Giga first appear in the <strong>Wheel Of Mods</strong> of <strong>MurphyObv</strong> on January 16th 2026 and has not been selected yet.<br><br>
     Some content work weirdly, sometimes.<br><br>
-    If you have any ideas for how the mod's elements might interact, feel free to ping me in the <strong><a href="https://discord.com/channels/1116389027176787968/1398876204622286958">Giga</a></strong> post on the Balatro Discord.
+    If you have any ideas for how the mod's elements might interact, feel free to ping me in the <strong><a href="https://discord.com/channels/1116389027176787968/1398876204622286958">Giga</a></strong> post on the <strong>Balatro Discord</strong>.
     You can also send me artwork of some elements if you want (I'll mention you in the credits).
 </p>
 
