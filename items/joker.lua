@@ -1924,56 +1924,6 @@ SMODS.Joker{ --Rog-Ano
 }
 --#endregion
 --#region YU-GI-OH JOKERS --
-SMODS.Joker{ --MOC
-    key = 'moc',
-    atlas = 'secret3',
-    giga_data = {
-        from_ygo = true,
-        merge_materials = {
-            'j_giga_blackLusterSoldier',
-            'j_giga_darkMagician'
-        }
-    },
-    pos = {x = 1, y = 0},
-    soul_pos = {x = 0, y = 0},
-    cost = 35,
-    rarity = 'giga_megaLegendary',
-    blueprint_compat = true,
-    eternal_compat = true,
-    no_collection = true,
-    config = { extra = {
-        mult1 = 15,
-        mult2 = 25,
-        xmult = 3
-    }},
-    loc_vars = function(self,info_queue,center)
-        return {vars ={center.ability.extra.mult1, center.ability.extra.mult2, center.ability.extra.xmult}}
-    end,
-    calculate = function(self,card,context)
-        if context.individual and context.cardarea == G.play then
-            local effects = {}
-            table.insert(effects, {
-                mult = card.ability.extra.mult1,
-                delay = 0.4
-            })
-            if context.other_card:is_suit("Diamonds", true) then
-                table.insert(effects, {
-                    mult = card.ability.extra.mult2,
-                    delay = 0.4
-                })
-            end
-            if context.other_card:get_id() <= 9 then
-                table.insert(effects, {
-                    xmult = card.ability.extra.xmult,
-                    delay = 0.4
-                })
-            end
-            if #effects > 0 then
-                return SMODS.merge_effects(effects)
-            end
-        end
-    end
-}
 SMODS.Joker{ --LLOTFO
     key = 'llotfo',
     atlas = 'Jokers',
@@ -2412,5 +2362,54 @@ SMODS.Joker{ --DarkMagician
         end
     end
 }
-
+SMODS.Joker{ --MOC
+    key = 'moc',
+    atlas = 'secret3',
+    giga_data = {
+        from_ygo = true,
+        merge_materials = {
+            'j_giga_blackLusterSoldier',
+            'j_giga_darkMagician'
+        }
+    },
+    pos = {x = 1, y = 0},
+    soul_pos = {x = 0, y = 0},
+    cost = 35,
+    rarity = 'giga_megaLegendary',
+    blueprint_compat = true,
+    eternal_compat = true,
+    no_collection = true,
+    config = { extra = {
+        mult1 = 15,
+        mult2 = 25,
+        xmult = 3
+    }},
+    loc_vars = function(self,info_queue,center)
+        return {vars ={center.ability.extra.mult1, center.ability.extra.mult2, center.ability.extra.xmult}}
+    end,
+    calculate = function(self,card,context)
+        if context.individual and context.cardarea == G.play then
+            local effects = {}
+            table.insert(effects, {
+                mult = card.ability.extra.mult1,
+                delay = 0.4
+            })
+            if context.other_card:is_suit("Diamonds", true) then
+                table.insert(effects, {
+                    mult = card.ability.extra.mult2,
+                    delay = 0.4
+                })
+            end
+            if context.other_card:get_id() <= 9 then
+                table.insert(effects, {
+                    xmult = card.ability.extra.xmult,
+                    delay = 0.4
+                })
+            end
+            if #effects > 0 then
+                return SMODS.merge_effects(effects)
+            end
+        end
+    end
+}
 --#endregion

@@ -20,6 +20,7 @@ SMODS.Consumable{ --FishingHook
         cash = 3
     }},
     loc_vars = function (self,info_queue,center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'darling_credit'}
         return{vars = {center.ability.extra.cash, center.ability.extra.mult}}
     end,
     can_use = function (self, card)

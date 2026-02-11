@@ -1173,11 +1173,11 @@ return {
                     'by {C:green,E:2}le_dugs{}'
                 }
             },
-            zeed_credit = {
+            darling_credit = {
                 name = 'Credit',
                 text = {
                     'Original idea',
-                    'by {C:green,E:2}Zeed{}'
+                    'by {C:green,E:2}Darling{}'
                 }
             },
             jogla_credit = {
