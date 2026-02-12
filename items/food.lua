@@ -205,6 +205,24 @@ SMODS.Consumable{ --HotDog
         return{vars = {center.ability.max_highlighted}}
     end
 }
+SMODS.Consumable{ --Strawberries
+    key = 'strawberries',
+    set = 'Giga_Food',
+    atlas = 'Foods',
+    fg_data = {
+        is_alternate = false,
+        alternate_key = 'c_fg__c_giga_strawberries'
+    },
+    pos = {x = 0, y = 0},
+    soul_pos = {x = 0, y = 1},
+    rarity = 1,
+    cost = 2,
+    config = { max_highlighted = 1, mod_conv = 'm_giga_potery' },
+    loc_vars = function (self,info_queue,center)
+        info_queue[#info_queue+1] = G.P_CENTERS['m_giga_potery']
+        return{vars = {center.ability.max_highlighted}}
+    end
+}
 SMODS.Consumable{ --Guacamole
     key = 'guacamole',
     set = 'Giga_Food',

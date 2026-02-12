@@ -53,9 +53,10 @@ SMODS.Consumable{ --Brush
     pos = {x = 0, y = 2},
     rarity = 1,
     cost = 3,
-    config = { max_highlighted = 2, mod_conv = 'm_giga_potery' },
+    config = { max_highlighted = 1, mod_conv = 'm_giga_potery' },
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = G.P_CENTERS['m_giga_potery']
+        info_queue[#info_queue+1] = {set = 'Other', key = 'darling_credit'}
         return{vars = {center.ability.max_highlighted}}
     end
 }

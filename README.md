@@ -10,16 +10,16 @@
     <a href="https://github.com/Steamodded/smods">Steamodded </a>1.0.0~BETA-0711a or higher is required.<br>
     Can be useful to have <a href="https://github.com/SpectralPack/Talisman">Talisman</a> too.
 </p>
-<p>For the most stable version, download the zip file from latest release. And for the latest version (can be unstable), download the zip file from the Code button. After downloading, extract the file and place it in your Mod folder.</p>
+<p>For the most stable version, download the zip file from latest release. And for the latest version (might be unstable), download the zip file from the Code button. After downloading, extract the file and place it in your Mod folder.</p>
 
 <hr>
 <h2>Contents</h2>
 <ul>
     <li>56+ Jokers (+11 Cross-Mod)</li>
-    <li>34 Food cards (+6 Cross-Mod)</li>
+    <li>35 Food cards (+6 Cross-Mod)</li>
     <li>17 Seals</li>
     <li>16 Planets</li>
-    <li>13 Artefacts (in developpement)</li>
+    <li>13 Artefacts</li>
     <li>11+ Enhancements</li>
     <li>7 Decks</li>
     <li>6 Spectrals</li>
@@ -35,7 +35,7 @@
 </ul>
 
 <p><em>*Some Jokers have secret interactions with other Jokers.</em><br>
-<em>*Many artworks are unfinished.</em></p>
+<em>*Many artworks can be unfinished.</em></p>
 
 <hr>
 <h2>Cross-Mod</h2>

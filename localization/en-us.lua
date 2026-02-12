@@ -197,8 +197,141 @@ return {
                     "{C:innactive,s:0.8}Value isn't stable{}"
                 },
                 {
-                    '{X:mult,C:white}X#2#{} Mult when',
-                    'a {C:attention}2{} is scored'
+                    '{X:mult,C:white}X#2#{} Mult for',
+                    'each {C:attention}2{} scored'
+                }}
+            },
+            c_giga_arrowTip= {
+                name = 'Arrow Tip',
+                text = {{
+                    'Gain {C:money}$#1#{}',
+                    "{C:innactive,s:0.8}Value isn't stable{}"
+                },
+                {
+                    '{X:mult,C:white}X#2#{} Mult for',
+                    'each {C:attention}Ace{} scored'
+                }}
+            },
+            c_giga_plate= {
+                name = 'Plate',
+                text = {{
+                    'Gain {C:money}$#1#{}',
+                    "{C:innactive,s:0.8}Value isn't stable{}"
+                },
+                {
+                    '{X:mult,C:white}X#2#{} Mult for',
+                    'each {C:attention}6{} scored'
+                }}
+            },
+            c_giga_tablet= {
+                name = 'Tablet',
+                text = {{
+                    'Gain {C:money}$#1#{}',
+                    "{C:innactive,s:0.8}Value isn't stable{}"
+                },
+                {
+                    '{X:mult,C:white}X#2#{} Mult for',
+                    'each {C:attention}10{} scored'
+                }}
+            },
+            c_giga_helm= {
+                name = 'Helm',
+                text = {{
+                    'Gain {C:money}$#1#{}',
+                    "{C:innactive,s:0.8}Value isn't stable{}"
+                },
+                {
+                    '{X:mult,C:white}X#2#{} Mult for',
+                    'each {C:attention}8{} scored'
+                }}
+            },
+            c_giga_mayaMask= {
+                name = 'Maya Mask',
+                text = {{
+                    'Gain {C:money}$#1#{}',
+                    "{C:innactive,s:0.8}Value isn't stable{}"
+                },
+                {
+                    '{X:mult,C:white}X#2#{} Mult for',
+                    'each {C:attention}Jack{} scored'
+                }}
+            },
+            c_giga_pillar= {
+                name = 'Pillar',
+                text = {{
+                    'Gain {C:money}$#1#{}',
+                    "{C:innactive,s:0.8}Value isn't stable{}"
+                },
+                {
+                    '{X:mult,C:white}X#2#{} Mult for',
+                    'each {C:attention}King{} scored'
+                }}
+            },
+            c_giga_silex= {
+                name = 'Silex',
+                text = {{
+                    'Gain {C:money}$#1#{}',
+                    "{C:innactive,s:0.8}Value isn't stable{}"
+                },
+                {
+                    '{X:mult,C:white}X#2#{} Mult for',
+                    'each {C:attention}3{} scored'
+                }}
+            },
+            c_giga_trident= {
+                name = 'Trident',
+                text = {{
+                    'Gain {C:money}$#1#{}',
+                    "{C:innactive,s:0.8}Value isn't stable{}"
+                },
+                {
+                    '{X:mult,C:white}X#2#{} Mult for',
+                    'each {C:attention}9{} scored'
+                }}
+            },
+            c_giga_totem= {
+                name = 'Totem',
+                text = {{
+                    'Gain {C:money}$#1#{}',
+                    "{C:innactive,s:0.8}Value isn't stable{}"
+                },
+                {
+                    '{X:mult,C:white}X#2#{} Mult for',
+                    'each {C:attention}4{} scored'
+                }}
+            },
+            c_giga_diadem= {
+                name = 'Diadem',
+                text = {{
+                    'Gain {C:money}$#1#{}',
+                    "{C:innactive,s:0.8}Value isn't stable{}"
+                },
+                {
+                    '{X:mult,C:white}X#2#{} Mult for',
+                    'each {C:attention}Queen{} scored'
+                }}
+            },
+            c_giga_boneDie= {
+                name = 'Bone Die',
+                text = {{
+                    'Gain {C:money}$#1#{}',
+                    "{C:innactive,s:0.8}Value isn't stable{}"
+                },
+                {
+                    '{X:mult,C:white}X#2#{} Mult for',
+                    'each {C:attention}7{} scored'
+                }}
+            }
+            ,
+            c_giga_shellAmulet= {
+                name = 'Shell Amulet',
+                text = {{
+                    'Gain {C:money}$#1#{}',
+                    "{C:innactive,s:0.8}Value isn't stable{}"
+                },
+                {
+                    '{X:mult,C:white}X#2#{} Mult for',
+                    'each {C:attention}5{} scored'
                 }}
             }
         },
@@ -444,6 +577,21 @@ return {
                     'of {C:attention}#1#{} card'
                 }
             },
+            c_giga_marshmallow = {
+                name = 'Marshmallows',
+                text = {
+                    'Some delicious Marshmallows that',
+                    'will destroy {C:attention}#1#{} card'
+                }
+            },
+            c_giga_strawberries = {
+                name = 'Strawberries',
+                text = {
+                    'Some delicious Strawberries',
+                    'that enhance {C:attention}#1#{} card',
+                    'into {C:attention}Potery card{}'
+                }
+            },
             c_giga_birthdayCake = {
                 name = 'Birthday Cake',
                 text = {
@@ -519,22 +667,6 @@ return {
                     'will give an {C:purple}Aberration{}',
                     'card in {C:attention}#1#{} rounds',
                     '{C:inactive}#2#{}'
-                }
-            },
-            c_giga_bananaSplit = {
-                name = 'Banana Split',
-                text = {
-                    'A delicious Banana Split that',
-                    'will give a {C:attention}Power{} card',
-                    'in {C:attention}#1#{} rounds',
-                    '{C:inactive}#2#{}'
-                }
-            },
-            c_giga_marshmallow = {
-                name = 'Marshmallows',
-                text = {
-                    'Some delicious Marshmallows that',
-                    'will destroy {C:attention}#1#{} card'
                 }
             }
         },
@@ -1757,7 +1889,7 @@ return {
                 text = {
                     'Enhances {C:attention}#1#{}',
                     'selected cards to',
-                    '{C:attention}Potery Cards{}'
+                    '{C:attention}Potery Card{}'
                 }
             }
         },
