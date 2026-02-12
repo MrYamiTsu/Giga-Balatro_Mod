@@ -187,6 +187,17 @@ return {
                     'create an {C:giga_Artefact}Artefact{} card',
                     'no rank or suit'
                 }
+            },
+            m_giga_engravedPotery = {
+                name = 'Engraved Potery Card',
+                text = {
+                    '{C:chips}+#1#{} chips',
+                    'Create an {C:giga_Artefact}Artefact{}',
+                    'card when played',
+                    '{C:green}#2# in #3#{} chance',
+                    'to destroy card',
+                    'no rank or suit'
+                }
             }
         },
         Giga_Artefact={

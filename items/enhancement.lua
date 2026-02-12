@@ -378,4 +378,52 @@ SMODS.Enhancement{ --Potery
         end
     end
 }
+SMODS.Enhancement{ --EngravedPotery
+	key = "engravedPotery",
+	atlas = "Enhancements",
+	giga_data = {
+		is_upgrade = true
+	},
+	pos = { x = 5, y = 1 },
+	unlocked = true,
+	discovered = true,
+	replace_base_card = true,
+	no_rank = true,
+	no_suit = true,
+	always_scores = true,
+	config = { extra = {
+		odds = 1,
+		chances = 6
+	}, bonus = 40},
+	loc_vars = function(self, info_queue, card)
+		local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.odds, card.ability.extra.chances, 'prob')
+		return {vars = {card.ability.bonus, numerator, denominator}}
+	end,
+	calculate = function(self, card, context)
+        if context.destroy_card and context.cardarea == G.play and context.destroy_card == card and
+           SMODS.pseudorandom_probability(card, 'giga_potery', card.ability.extra.odds, card.ability.extra.chances) then
+            return {
+				remove = true
+			}
+        end
+		if context.final_scoring_step and context.cardarea == G.play then
+			return {
+				func = function()
+					if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+                    	G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+	                    G.E_MANAGER:add_event(Event({
+    	                    func = function ()
+        	                    SMODS.add_card({set = 'Tarot'})
+            	                G.GAME.consumeable_buffer = 0
+                	            return true
+                    	    end
+	                    }))
+    	                SMODS.calculate_effect({ message = localize("k_plus_artefact"), colour = HEX('444444FF') }, card)
+        	        end
+					return true
+				end
+			}
+		end
+    end
+}
 --#endregion
