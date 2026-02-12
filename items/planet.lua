@@ -443,9 +443,6 @@ SMODS.Consumable{ --AstralSaturn
     giga_data = {
         is_astrals = true
     },
-    giga_data = {
-        is_astrals = true
-    },
     pos = {x = 0, y = 0},
     cost = 4,
     config = {

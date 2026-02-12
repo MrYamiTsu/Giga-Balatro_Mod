@@ -364,7 +364,7 @@ SMODS.Enhancement{ --Potery
                     	G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
 	                    G.E_MANAGER:add_event(Event({
     	                    func = function ()
-        	                    SMODS.add_card({set = 'Tarot'})
+        	                    SMODS.add_card({set = 'Giga_Artefact'})
             	                G.GAME.consumeable_buffer = 0
                 	            return true
                     	    end
@@ -401,7 +401,7 @@ SMODS.Enhancement{ --EngravedPotery
 	end,
 	calculate = function(self, card, context)
         if context.destroy_card and context.cardarea == G.play and context.destroy_card == card and
-           SMODS.pseudorandom_probability(card, 'giga_potery', card.ability.extra.odds, card.ability.extra.chances) then
+           SMODS.pseudorandom_probability(card, 'giga_enpotery', card.ability.extra.odds, card.ability.extra.chances) then
             return {
 				remove = true
 			}
@@ -413,7 +413,7 @@ SMODS.Enhancement{ --EngravedPotery
                     	G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
 	                    G.E_MANAGER:add_event(Event({
     	                    func = function ()
-        	                    SMODS.add_card({set = 'Tarot'})
+        	                    SMODS.add_card({set = 'Giga_Artefact'})
             	                G.GAME.consumeable_buffer = 0
                 	            return true
                     	    end
