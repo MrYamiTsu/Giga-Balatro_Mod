@@ -300,7 +300,7 @@ SMODS.Consumable{ --Plate
     end
 }
 SMODS.Consumable{ --BoneDie
-    key = 'BoneDie',
+    key = 'boneDie',
     set = 'Giga_Artefact',
     atlas = 'Artefacts',
     pos = {x = 0, y = 0},
