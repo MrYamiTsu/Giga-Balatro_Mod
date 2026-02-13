@@ -329,7 +329,7 @@ SMODS.Enhancement{ --FossilSoil
 	end,
 	in_pool = function(self)
 		return false
-	end,
+	end
 }
 SMODS.Enhancement{ --Potery
 	key = "potery",
@@ -382,7 +382,7 @@ SMODS.Enhancement{ --EngravedPotery
 	key = "engravedPotery",
 	atlas = "Enhancements",
 	giga_data = {
-		is_upgrade = true
+		is_upgraded = true
 	},
 	pos = { x = 5, y = 1 },
 	unlocked = true,
@@ -424,6 +424,9 @@ SMODS.Enhancement{ --EngravedPotery
 				end
 			}
 		end
-    end
+    end,
+	in_pool = function(self)
+		return false
+	end
 }
 --#endregion
