@@ -181,7 +181,7 @@ return {
             m_giga_potery = {
                 name = 'Potery Card',
                 text = {
-                    '{C:chips}+#1#{} chips',
+                    '{C:chips}+#1#{} Chips',
                     '{C:green}#2# in #3#{} chance to',
                     'destroy card and ',
                     'create an {C:giga_Artefact}Artefact{} card',
@@ -191,7 +191,7 @@ return {
             m_giga_engravedPotery = {
                 name = 'Engraved Potery Card',
                 text = {
-                    '{C:chips}+#1#{} chips',
+                    '{C:chips}+#1#{} Chips',
                     'Create an {C:giga_Artefact}Artefact{}',
                     'card when played',
                     '{C:green}#2# in #3#{} chance',

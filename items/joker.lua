@@ -87,11 +87,6 @@ SMODS.Joker{ --BlueEgg
     end,
     calculate = function(self,card,context)
         if not context.blueprint then
-            if context.end_of_round and context.cardarea == G.jokers then
-                return{
-                    dollars = card.ability.extra.cash
-                }
-            end
             if context.selling_card and context.card == card then
                 G.E_MANAGER:add_event(Event({
                     func = function ()
@@ -103,6 +98,9 @@ SMODS.Joker{ --BlueEgg
                 }))
             end
         end
+    end,
+    calc_dollar_bonus = function(self, card)
+        return card.ability.extra.cash
     end
 }
 SMODS.Joker{ --SnapchatGirl

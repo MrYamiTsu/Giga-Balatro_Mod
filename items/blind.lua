@@ -57,7 +57,7 @@ SMODS.Blind { --TheAltitude
     pos = {x = 0, y = 2},
     boss = {min = 2},
     calculate = function(self, blind, context)
-        if context.individual and not context.other_card:is_face() and context.cardarea == G.play then
+        if context.individual and (context.other_card:get_id() >= 2 and context.other_card:get_id() <= 10) and context.cardarea == G.play then
             return {
                 xmult = 0.9
             }
