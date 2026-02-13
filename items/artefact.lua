@@ -45,7 +45,7 @@ SMODS.Consumable{ --FishingHook
             }
         end
         if context.end_of_round and context.main_eval then
-            if math.random(5) >= 2 then
+            if SMODS.pseudorandom_probability(card, pseudoseed('giga_fishingHook'), 9, 20) then
                 return{
                     func = function ()
                         card.ability.extra.cash = card.ability.extra.cash + 2
@@ -103,7 +103,7 @@ SMODS.Consumable{ --Silex
             }
         end
         if context.end_of_round and context.main_eval then
-            if math.random(5) >= 2 then
+            if SMODS.pseudorandom_probability(card, pseudoseed('giga_silex'), 9, 20) then
                 return{
                     func = function ()
                         card.ability.extra.cash = card.ability.extra.cash + 2
@@ -161,7 +161,7 @@ SMODS.Consumable{ --Totem
             }
         end
         if context.end_of_round and context.main_eval then
-            if math.random(5) >= 2 then
+            if SMODS.pseudorandom_probability(card, pseudoseed('giga_totem'), 9, 20) then
                 return{
                     func = function ()
                         card.ability.extra.cash = card.ability.extra.cash + 2
@@ -219,7 +219,7 @@ SMODS.Consumable{ --ShellAmulet
             }
         end
         if context.end_of_round and context.main_eval then
-            if math.random(5) >= 2 then
+            if SMODS.pseudorandom_probability(card, pseudoseed('giga_shellAmulet'), 9, 20) then
                 return{
                     func = function ()
                         card.ability.extra.cash = card.ability.extra.cash + 2
@@ -277,7 +277,7 @@ SMODS.Consumable{ --Plate
             }
         end
         if context.end_of_round and context.main_eval then
-            if math.random(5) >= 2 then
+            if SMODS.pseudorandom_probability(card, pseudoseed('giga_plate'), 9, 20) then
                 return{
                     func = function ()
                         card.ability.extra.cash = card.ability.extra.cash + 2
@@ -335,7 +335,7 @@ SMODS.Consumable{ --BoneDie
             }
         end
         if context.end_of_round and context.main_eval then
-            if math.random(5) >= 2 then
+            if SMODS.pseudorandom_probability(card, pseudoseed('giga_boneDie'), 9, 20) then
                 return{
                     func = function ()
                         card.ability.extra.cash = card.ability.extra.cash + 2
@@ -393,7 +393,7 @@ SMODS.Consumable{ --Helm
             }
         end
         if context.end_of_round and context.main_eval then
-            if math.random(5) >= 2 then
+            if SMODS.pseudorandom_probability(card, pseudoseed('giga_helm'), 9, 20) then
                 return{
                     func = function ()
                         card.ability.extra.cash = card.ability.extra.cash + 2
@@ -451,7 +451,7 @@ SMODS.Consumable{ --Trident
             }
         end
         if context.end_of_round and context.main_eval then
-            if math.random(5) >= 2 then
+            if SMODS.pseudorandom_probability(card, pseudoseed('giga_trident'), 9, 20) then
                 return{
                     func = function ()
                         card.ability.extra.cash = card.ability.extra.cash + 2
@@ -509,7 +509,7 @@ SMODS.Consumable{ --Tablet
             }
         end
         if context.end_of_round and context.main_eval then
-            if math.random(5) >= 2 then
+            if SMODS.pseudorandom_probability(card, pseudoseed('giga_tablet'), 9, 20) then
                 return{
                     func = function ()
                         card.ability.extra.cash = card.ability.extra.cash + 2
@@ -567,7 +567,7 @@ SMODS.Consumable{ --MayaMask
             }
         end
         if context.end_of_round and context.main_eval then
-            if math.random(5) >= 2 then
+            if SMODS.pseudorandom_probability(card, pseudoseed('giga_mayaMask'), 9, 20) then
                 return{
                     func = function ()
                         card.ability.extra.cash = card.ability.extra.cash + 2
@@ -625,7 +625,7 @@ SMODS.Consumable{ --Diadem
             }
         end
         if context.end_of_round and context.main_eval then
-            if math.random(5) >= 2 then
+            if SMODS.pseudorandom_probability(card, pseudoseed('giga_diadem'), 9, 20) then
                 return{
                     func = function ()
                         card.ability.extra.cash = card.ability.extra.cash + 2
@@ -683,7 +683,7 @@ SMODS.Consumable{ --Pillar
             }
         end
         if context.end_of_round and context.main_eval then
-            if math.random(5) >= 2 then
+            if SMODS.pseudorandom_probability(card, pseudoseed('giga_pillar'), 9, 20) then
                 return{
                     func = function ()
                         card.ability.extra.cash = card.ability.extra.cash + 2
@@ -742,7 +742,7 @@ SMODS.Consumable{ --ArrowTip
             }
         end
         if context.end_of_round and context.main_eval then
-            if math.random(5) >= 2 then
+            if SMODS.pseudorandom_probability(card, pseudoseed('giga_arrowTip'), 9, 20) then
                 return{
                     func = function ()
                         card.ability.extra.cash = card.ability.extra.cash + 2
