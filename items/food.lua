@@ -276,7 +276,7 @@ SMODS.Consumable{ --Tacos
         cash = 5
     }},
     loc_vars = function (self,info_queue,center)
-        return{vars = {}}
+        return{vars = {center.ability.extra.cash}}
     end,
     can_use = function (self,card)
         return true
