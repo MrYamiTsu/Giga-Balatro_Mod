@@ -214,7 +214,7 @@ SMODS.Consumable{ --Strawberries
         alternate_key = 'c_fg__c_giga_strawberries'
     },
     pos = {x = 0, y = 0},
-    soul_pos = {x = 0, y = 1},
+    soul_pos = {x = 3, y = 5},
     rarity = 1,
     cost = 2,
     config = { max_highlighted = 1, mod_conv = 'm_giga_potery' },

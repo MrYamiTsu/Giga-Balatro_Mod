@@ -391,6 +391,7 @@ SMODS.Enhancement{ --EngravedPotery
 	no_rank = true,
 	no_suit = true,
 	always_scores = true,
+	weight = 0,
 	config = { extra = {
 		odds = 1,
 		chances = 6
