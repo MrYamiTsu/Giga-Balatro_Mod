@@ -1,6 +1,6 @@
 # MANIFEST #
 [manifest]
-version = "1"
+version = "1.0.0"
 dump_lua = true
 priority = 0
 
@@ -110,7 +110,7 @@ payload = '''
 match_indent = false
 times = 1
 
-# ASTRALS PLANETS #
+# ASTRAL PLANETS #
 [[patches]]
 [patches.pattern]
 target = "functions/common_events.lua"
@@ -124,7 +124,7 @@ elseif not ((G.GAME.used_jokers[v.key] or v.giga_data and v.giga_data.astral_var
 match_indent = true
 times = 1
 
-# Overcharge #
+# OVERCHARGES #
 [[patches]]
 [patches.pattern]
 target = "functions/common_events.lua"
@@ -132,7 +132,6 @@ position = "after"
 pattern = 'new_card:set_base(other.config.card)'
 payload = "Giga.delete_overcharge(new_card)"
 match_indent = true
-
 [[patches]]
 [patches.pattern]
 target = "functions/state_events.lua"
@@ -140,5 +139,49 @@ position = "before"
 pattern = 'percent = percent + percent_delta'
 payload = '''
 SMODS.calculate_context({giga_pre_joker = true, full_hand = G.play.cards, scoring_hand = scoring_hand, scoring_name = text, poker_hands = poker_hands})
+'''
+match_indent = true
+
+# REMOVE USE ARTEFACT #
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''local base_attach = base_background:get_UIE_by_ID('ATTACH_TO_ME')'''
+position = "after"
+payload = '''
+local con_save = nil
+if card.ability.set == 'Giga_Artefact' then
+    con_save = card.ability.consumeable
+    card.ability.consumeable = nil
+end
+'''
+match_indent = true
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''return base_background'''
+position = "before"
+payload = '''
+if con_save then
+    card.ability.consumeable = con_save
+end
+'''
+match_indent = true
+[[patches]]
+[patches.pattern]
+target = "functions/UI_definitions.lua"
+pattern = '''*booster_obj *and card:selectable_from_pack(booster_obj)*'''
+position = "before"
+payload = '''
+if card.ability.set == 'Giga_Artefact' and not (card.area == G.pack_cards and G.pack_cards) then
+    return {
+      n=G.UIT.ROOT, config = {padding = 0, colour = G.C.CLEAR}, nodes={
+        {n=G.UIT.C, config={padding = 0.15, align = 'cl'}, nodes={
+          {n=G.UIT.R, config={align = 'cl'}, nodes={
+            sell
+          }},
+        }},
+    }}
+end
 '''
 match_indent = true
