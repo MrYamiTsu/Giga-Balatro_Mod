@@ -16,27 +16,18 @@ SMODS.Consumable{ --FishingHook
     rarity = 1,
     cost = 3,
     config = { extra = {
-        mult = 1.2,
-        cash = 3
+        value = {
+            incr = 2,
+            decr = 1
+        },
+        mult = 1.2
     }},
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'darling_credit'}
-        return{vars = {center.ability.extra.cash, center.ability.extra.mult}}
+        return{vars = {center.ability.extra.mult}}
     end,
     can_use = function (self, card)
-        return true
-    end,
-    use = function (self, card, area, copier)
-        G.E_MANAGER:add_event(Event({
-            trigger = 'after',
-            delay = 0.4,
-            func = function()
-                card:juice_up(0.3, 0.5)
-                ease_dollars(card.ability.extra.cash, true)
-                return true
-            end
-        }))
-        delay(0.6)
+        return false
     end,
     calculate = function (self, card, context)
         if context.individual and context.cardarea == G.play and context.other_card:get_id() == 2 then
@@ -48,16 +39,18 @@ SMODS.Consumable{ --FishingHook
             if SMODS.pseudorandom_probability(card, pseudoseed('giga_fishingHook'), 9, 20) then
                 return{
                     func = function ()
-                        card.ability.extra.cash = card.ability.extra.cash + 2
+                        card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
+                        card:set_cost()
                         return true
                     end,
                     message = localize('k_giga_valueup'),
                     colour = G.C.GREEN
                 }
-            elseif card.ability.extra.cash > 0 then
+            elseif card.ability.extra_value > 0 then
                 return{
                     func = function ()
-                        card.ability.extra.cash = card.ability.extra.cash - 1
+                        card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
+                        card:set_cost()
                         return true
                     end,
                     message = localize('k_giga_valuedown'),
@@ -75,26 +68,17 @@ SMODS.Consumable{ --Silex
     rarity = 1,
     cost = 3,
     config = { extra = {
-        mult = 1.2,
-        cash = 3
+        value = {
+            incr = 2,
+            decr = 1
+        },
+        mult = 1.2
     }},
     loc_vars = function (self,info_queue,center)
-        return{vars = {center.ability.extra.cash, center.ability.extra.mult}}
+        return{vars = {center.ability.extra.mult}}
     end,
     can_use = function (self, card)
-        return true
-    end,
-    use = function (self, card, area, copier)
-        G.E_MANAGER:add_event(Event({
-            trigger = 'after',
-            delay = 0.4,
-            func = function()
-                card:juice_up(0.3, 0.5)
-                ease_dollars(card.ability.extra.cash, true)
-                return true
-            end
-        }))
-        delay(0.6)
+        return false
     end,
     calculate = function (self, card, context)
         if context.individual and context.cardarea == G.play and context.other_card:get_id() == 3 then
@@ -103,19 +87,21 @@ SMODS.Consumable{ --Silex
             }
         end
         if context.end_of_round and context.main_eval then
-            if SMODS.pseudorandom_probability(card, pseudoseed('giga_silex'), 9, 20) then
+            if SMODS.pseudorandom_probability(card, pseudoseed('giga_fishingHook'), 9, 20) then
                 return{
                     func = function ()
-                        card.ability.extra.cash = card.ability.extra.cash + 2
+                        card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
+                        card:set_cost()
                         return true
                     end,
                     message = localize('k_giga_valueup'),
                     colour = G.C.GREEN
                 }
-            elseif card.ability.extra.cash > 0 then
+            elseif card.ability.extra_value > 0 then
                 return{
                     func = function ()
-                        card.ability.extra.cash = card.ability.extra.cash - 1
+                        card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
+                        card:set_cost()
                         return true
                     end,
                     message = localize('k_giga_valuedown'),
@@ -133,26 +119,17 @@ SMODS.Consumable{ --Totem
     rarity = 1,
     cost = 3,
     config = { extra = {
-        mult = 1.2,
-        cash = 3
+        value = {
+            incr = 2,
+            decr = 1
+        },
+        mult = 1.2
     }},
     loc_vars = function (self,info_queue,center)
-        return{vars = {center.ability.extra.cash, center.ability.extra.mult}}
+        return{vars = {center.ability.extra.mult}}
     end,
     can_use = function (self, card)
-        return true
-    end,
-    use = function (self, card, area, copier)
-        G.E_MANAGER:add_event(Event({
-            trigger = 'after',
-            delay = 0.4,
-            func = function()
-                card:juice_up(0.3, 0.5)
-                ease_dollars(card.ability.extra.cash, true)
-                return true
-            end
-        }))
-        delay(0.6)
+        return false
     end,
     calculate = function (self, card, context)
         if context.individual and context.cardarea == G.play and context.other_card:get_id() == 4 then
@@ -164,16 +141,18 @@ SMODS.Consumable{ --Totem
             if SMODS.pseudorandom_probability(card, pseudoseed('giga_totem'), 9, 20) then
                 return{
                     func = function ()
-                        card.ability.extra.cash = card.ability.extra.cash + 2
+                        card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
+                        card:set_cost()
                         return true
                     end,
                     message = localize('k_giga_valueup'),
                     colour = G.C.GREEN
                 }
-            elseif card.ability.extra.cash > 0 then
+            elseif card.ability.extra_value > 0 then
                 return{
                     func = function ()
-                        card.ability.extra.cash = card.ability.extra.cash - 1
+                        card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
+                        card:set_cost()
                         return true
                     end,
                     message = localize('k_giga_valuedown'),
@@ -191,26 +170,17 @@ SMODS.Consumable{ --ShellAmulet
     rarity = 1,
     cost = 3,
     config = { extra = {
-        mult = 1.2,
-        cash = 3
+        value = {
+            incr = 2,
+            decr = 1
+        },
+        mult = 1.2
     }},
     loc_vars = function (self,info_queue,center)
-        return{vars = {center.ability.extra.cash, center.ability.extra.mult}}
+        return{vars = {center.ability.extra.mult}}
     end,
     can_use = function (self, card)
-        return true
-    end,
-    use = function (self, card, area, copier)
-        G.E_MANAGER:add_event(Event({
-            trigger = 'after',
-            delay = 0.4,
-            func = function()
-                card:juice_up(0.3, 0.5)
-                ease_dollars(card.ability.extra.cash, true)
-                return true
-            end
-        }))
-        delay(0.6)
+        return false
     end,
     calculate = function (self, card, context)
         if context.individual and context.cardarea == G.play and context.other_card:get_id() == 5 then
@@ -222,16 +192,18 @@ SMODS.Consumable{ --ShellAmulet
             if SMODS.pseudorandom_probability(card, pseudoseed('giga_shellAmulet'), 9, 20) then
                 return{
                     func = function ()
-                        card.ability.extra.cash = card.ability.extra.cash + 2
+                        card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
+                        card:set_cost()
                         return true
                     end,
                     message = localize('k_giga_valueup'),
                     colour = G.C.GREEN
                 }
-            elseif card.ability.extra.cash > 0 then
+            elseif card.ability.extra_value > 0 then
                 return{
                     func = function ()
-                        card.ability.extra.cash = card.ability.extra.cash - 1
+                        card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
+                        card:set_cost()
                         return true
                     end,
                     message = localize('k_giga_valuedown'),
@@ -249,26 +221,17 @@ SMODS.Consumable{ --Plate
     rarity = 1,
     cost = 3,
     config = { extra = {
-        mult = 1.2,
-        cash = 3
+        value = {
+            incr = 2,
+            decr = 1
+        },
+        mult = 1.2
     }},
     loc_vars = function (self,info_queue,center)
-        return{vars = {center.ability.extra.cash, center.ability.extra.mult}}
+        return{vars = {center.ability.extra.mult}}
     end,
     can_use = function (self, card)
-        return true
-    end,
-    use = function (self, card, area, copier)
-        G.E_MANAGER:add_event(Event({
-            trigger = 'after',
-            delay = 0.4,
-            func = function()
-                card:juice_up(0.3, 0.5)
-                ease_dollars(card.ability.extra.cash, true)
-                return true
-            end
-        }))
-        delay(0.6)
+        return false
     end,
     calculate = function (self, card, context)
         if context.individual and context.cardarea == G.play and context.other_card:get_id() == 10 then
@@ -280,16 +243,18 @@ SMODS.Consumable{ --Plate
             if SMODS.pseudorandom_probability(card, pseudoseed('giga_plate'), 9, 20) then
                 return{
                     func = function ()
-                        card.ability.extra.cash = card.ability.extra.cash + 2
+                        card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
+                        card:set_cost()
                         return true
                     end,
                     message = localize('k_giga_valueup'),
                     colour = G.C.GREEN
                 }
-            elseif card.ability.extra.cash > 0 then
+            elseif card.ability.extra_value > 0 then
                 return{
                     func = function ()
-                        card.ability.extra.cash = card.ability.extra.cash - 1
+                        card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
+                        card:set_cost()
                         return true
                     end,
                     message = localize('k_giga_valuedown'),
@@ -307,26 +272,17 @@ SMODS.Consumable{ --BoneDie
     rarity = 1,
     cost = 3,
     config = { extra = {
-        mult = 1.2,
-        cash = 3
+        value = {
+            incr = 2,
+            decr = 1
+        },
+        mult = 1.2
     }},
     loc_vars = function (self,info_queue,center)
-        return{vars = {center.ability.extra.cash, center.ability.extra.mult}}
+        return{vars = {center.ability.extra.mult}}
     end,
     can_use = function (self, card)
-        return true
-    end,
-    use = function (self, card, area, copier)
-        G.E_MANAGER:add_event(Event({
-            trigger = 'after',
-            delay = 0.4,
-            func = function()
-                card:juice_up(0.3, 0.5)
-                ease_dollars(card.ability.extra.cash, true)
-                return true
-            end
-        }))
-        delay(0.6)
+        return false
     end,
     calculate = function (self, card, context)
         if context.individual and context.cardarea == G.play and context.other_card:get_id() == 7 then
@@ -338,16 +294,18 @@ SMODS.Consumable{ --BoneDie
             if SMODS.pseudorandom_probability(card, pseudoseed('giga_boneDie'), 9, 20) then
                 return{
                     func = function ()
-                        card.ability.extra.cash = card.ability.extra.cash + 2
+                        card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
+                        card:set_cost()
                         return true
                     end,
                     message = localize('k_giga_valueup'),
                     colour = G.C.GREEN
                 }
-            elseif card.ability.extra.cash > 0 then
+            elseif card.ability.extra_value > 0 then
                 return{
                     func = function ()
-                        card.ability.extra.cash = card.ability.extra.cash - 1
+                        card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
+                        card:set_cost()
                         return true
                     end,
                     message = localize('k_giga_valuedown'),
@@ -365,26 +323,17 @@ SMODS.Consumable{ --Helm
     rarity = 1,
     cost = 3,
     config = { extra = {
-        mult = 1.2,
-        cash = 3
+        value = {
+            incr = 2,
+            decr = 1
+        },
+        mult = 1.2
     }},
     loc_vars = function (self,info_queue,center)
-        return{vars = {center.ability.extra.cash, center.ability.extra.mult}}
+        return{vars = {center.ability.extra.mult}}
     end,
     can_use = function (self, card)
-        return true
-    end,
-    use = function (self, card, area, copier)
-        G.E_MANAGER:add_event(Event({
-            trigger = 'after',
-            delay = 0.4,
-            func = function()
-                card:juice_up(0.3, 0.5)
-                ease_dollars(card.ability.extra.cash, true)
-                return true
-            end
-        }))
-        delay(0.6)
+        return false
     end,
     calculate = function (self, card, context)
         if context.individual and context.cardarea == G.play and context.other_card:get_id() == 8 then
@@ -396,16 +345,18 @@ SMODS.Consumable{ --Helm
             if SMODS.pseudorandom_probability(card, pseudoseed('giga_helm'), 9, 20) then
                 return{
                     func = function ()
-                        card.ability.extra.cash = card.ability.extra.cash + 2
+                        card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
+                        card:set_cost()
                         return true
                     end,
                     message = localize('k_giga_valueup'),
                     colour = G.C.GREEN
                 }
-            elseif card.ability.extra.cash > 0 then
+            elseif card.ability.extra_value > 0 then
                 return{
                     func = function ()
-                        card.ability.extra.cash = card.ability.extra.cash - 1
+                        card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
+                        card:set_cost()
                         return true
                     end,
                     message = localize('k_giga_valuedown'),
@@ -423,26 +374,17 @@ SMODS.Consumable{ --Trident
     rarity = 1,
     cost = 3,
     config = { extra = {
-        mult = 1.2,
-        cash = 3
+        value = {
+            incr = 2,
+            decr = 1
+        },
+        mult = 1.2
     }},
     loc_vars = function (self,info_queue,center)
-        return{vars = {center.ability.extra.cash, center.ability.extra.mult}}
+        return{vars = {center.ability.extra.mult}}
     end,
     can_use = function (self, card)
-        return true
-    end,
-    use = function (self, card, area, copier)
-        G.E_MANAGER:add_event(Event({
-            trigger = 'after',
-            delay = 0.4,
-            func = function()
-                card:juice_up(0.3, 0.5)
-                ease_dollars(card.ability.extra.cash, true)
-                return true
-            end
-        }))
-        delay(0.6)
+        return false
     end,
     calculate = function (self, card, context)
         if context.individual and context.cardarea == G.play and context.other_card:get_id() == 9 then
@@ -454,16 +396,18 @@ SMODS.Consumable{ --Trident
             if SMODS.pseudorandom_probability(card, pseudoseed('giga_trident'), 9, 20) then
                 return{
                     func = function ()
-                        card.ability.extra.cash = card.ability.extra.cash + 2
+                        card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
+                        card:set_cost()
                         return true
                     end,
                     message = localize('k_giga_valueup'),
                     colour = G.C.GREEN
                 }
-            elseif card.ability.extra.cash > 0 then
+            elseif card.ability.extra_value > 0 then
                 return{
                     func = function ()
-                        card.ability.extra.cash = card.ability.extra.cash - 1
+                        card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
+                        card:set_cost()
                         return true
                     end,
                     message = localize('k_giga_valuedown'),
@@ -481,26 +425,17 @@ SMODS.Consumable{ --Tablet
     rarity = 1,
     cost = 3,
     config = { extra = {
-        mult = 1.2,
-        cash = 3
+        value = {
+            incr = 2,
+            decr = 1
+        },
+        mult = 1.2
     }},
     loc_vars = function (self,info_queue,center)
-        return{vars = {center.ability.extra.cash, center.ability.extra.mult}}
+        return{vars = {center.ability.extra.mult}}
     end,
     can_use = function (self, card)
-        return true
-    end,
-    use = function (self, card, area, copier)
-        G.E_MANAGER:add_event(Event({
-            trigger = 'after',
-            delay = 0.4,
-            func = function()
-                card:juice_up(0.3, 0.5)
-                ease_dollars(card.ability.extra.cash, true)
-                return true
-            end
-        }))
-        delay(0.6)
+        return false
     end,
     calculate = function (self, card, context)
         if context.individual and context.cardarea == G.play and context.other_card:get_id() == 10 then
@@ -512,16 +447,18 @@ SMODS.Consumable{ --Tablet
             if SMODS.pseudorandom_probability(card, pseudoseed('giga_tablet'), 9, 20) then
                 return{
                     func = function ()
-                        card.ability.extra.cash = card.ability.extra.cash + 2
+                        card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
+                        card:set_cost()
                         return true
                     end,
                     message = localize('k_giga_valueup'),
                     colour = G.C.GREEN
                 }
-            elseif card.ability.extra.cash > 0 then
+            elseif card.ability.extra_value > 0 then
                 return{
                     func = function ()
-                        card.ability.extra.cash = card.ability.extra.cash - 1
+                        card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
+                        card:set_cost()
                         return true
                     end,
                     message = localize('k_giga_valuedown'),
@@ -539,26 +476,17 @@ SMODS.Consumable{ --MayaMask
     rarity = 1,
     cost = 3,
     config = { extra = {
-        mult = 1.2,
-        cash = 3
+        value = {
+            incr = 2,
+            decr = 1
+        },
+        mult = 1.2
     }},
     loc_vars = function (self,info_queue,center)
-        return{vars = {center.ability.extra.cash, center.ability.extra.mult}}
+        return{vars = {center.ability.extra.mult}}
     end,
     can_use = function (self, card)
-        return true
-    end,
-    use = function (self, card, area, copier)
-        G.E_MANAGER:add_event(Event({
-            trigger = 'after',
-            delay = 0.4,
-            func = function()
-                card:juice_up(0.3, 0.5)
-                ease_dollars(card.ability.extra.cash, true)
-                return true
-            end
-        }))
-        delay(0.6)
+        return false
     end,
     calculate = function (self, card, context)
         if context.individual and context.cardarea == G.play and context.other_card:get_id() == 11 then
@@ -570,16 +498,18 @@ SMODS.Consumable{ --MayaMask
             if SMODS.pseudorandom_probability(card, pseudoseed('giga_mayaMask'), 9, 20) then
                 return{
                     func = function ()
-                        card.ability.extra.cash = card.ability.extra.cash + 2
+                        card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
+                        card:set_cost()
                         return true
                     end,
                     message = localize('k_giga_valueup'),
                     colour = G.C.GREEN
                 }
-            elseif card.ability.extra.cash > 0 then
+            elseif card.ability.extra_value > 0 then
                 return{
                     func = function ()
-                        card.ability.extra.cash = card.ability.extra.cash - 1
+                        card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
+                        card:set_cost()
                         return true
                     end,
                     message = localize('k_giga_valuedown'),
@@ -597,26 +527,17 @@ SMODS.Consumable{ --Diadem
     rarity = 1,
     cost = 3,
     config = { extra = {
-        mult = 1.2,
-        cash = 3
+        value = {
+            incr = 2,
+            decr = 1
+        },
+        mult = 1.2
     }},
     loc_vars = function (self,info_queue,center)
-        return{vars = {center.ability.extra.cash, center.ability.extra.mult}}
+        return{vars = {center.ability.extra.mult}}
     end,
     can_use = function (self, card)
-        return true
-    end,
-    use = function (self, card, area, copier)
-        G.E_MANAGER:add_event(Event({
-            trigger = 'after',
-            delay = 0.4,
-            func = function()
-                card:juice_up(0.3, 0.5)
-                ease_dollars(card.ability.extra.cash, true)
-                return true
-            end
-        }))
-        delay(0.6)
+        return false
     end,
     calculate = function (self, card, context)
         if context.individual and context.cardarea == G.play and context.other_card:get_id() == 12 then
@@ -628,16 +549,18 @@ SMODS.Consumable{ --Diadem
             if SMODS.pseudorandom_probability(card, pseudoseed('giga_diadem'), 9, 20) then
                 return{
                     func = function ()
-                        card.ability.extra.cash = card.ability.extra.cash + 2
+                        card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
+                        card:set_cost()
                         return true
                     end,
                     message = localize('k_giga_valueup'),
                     colour = G.C.GREEN
                 }
-            elseif card.ability.extra.cash > 0 then
+            elseif card.ability.extra_value > 0 then
                 return{
                     func = function ()
-                        card.ability.extra.cash = card.ability.extra.cash - 1
+                        card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
+                        card:set_cost()
                         return true
                     end,
                     message = localize('k_giga_valuedown'),
@@ -655,26 +578,20 @@ SMODS.Consumable{ --Pillar
     rarity = 1,
     cost = 3,
     config = { extra = {
-        mult = 1.2,
-        cash = 3
+        value = {
+            incr = 2,
+            decr = 1
+        },
+        mult = 1.2
     }},
     loc_vars = function (self,info_queue,center)
-        return{vars = {center.ability.extra.cash, center.ability.extra.mult}}
+        return{vars = {center.ability.extra.mult}}
     end,
     can_use = function (self, card)
-        return true
+        return false
     end,
     use = function (self, card, area, copier)
-        G.E_MANAGER:add_event(Event({
-            trigger = 'after',
-            delay = 0.4,
-            func = function()
-                card:juice_up(0.3, 0.5)
-                ease_dollars(card.ability.extra.cash, true)
-                return true
-            end
-        }))
-        delay(0.6)
+        return false
     end,
     calculate = function (self, card, context)
         if context.individual and context.cardarea == G.play and context.other_card:get_id() == 13 then
@@ -686,16 +603,18 @@ SMODS.Consumable{ --Pillar
             if SMODS.pseudorandom_probability(card, pseudoseed('giga_pillar'), 9, 20) then
                 return{
                     func = function ()
-                        card.ability.extra.cash = card.ability.extra.cash + 2
+                        card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
+                        card:set_cost()
                         return true
                     end,
                     message = localize('k_giga_valueup'),
                     colour = G.C.GREEN
                 }
-            elseif card.ability.extra.cash > 0 then
+            elseif card.ability.extra_value > 0 then
                 return{
                     func = function ()
-                        card.ability.extra.cash = card.ability.extra.cash - 1
+                        card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
+                        card:set_cost()
                         return true
                     end,
                     message = localize('k_giga_valuedown'),
@@ -713,27 +632,18 @@ SMODS.Consumable{ --ArrowTip
     rarity = 1,
     cost = 3,
     config = { extra = {
-        mult = 1.2,
-        cash = 3
+        value = {
+            incr = 2,
+            decr = 1
+        },
+        mult = 1.2
     }},
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'darling_credit'}
-        return{vars = {center.ability.extra.cash, center.ability.extra.mult}}
+        return{vars = {center.ability.extra.mult}}
     end,
     can_use = function (self, card)
-        return true
-    end,
-    use = function (self, card, area, copier)
-        G.E_MANAGER:add_event(Event({
-            trigger = 'after',
-            delay = 0.4,
-            func = function()
-                card:juice_up(0.3, 0.5)
-                ease_dollars(card.ability.extra.cash, true)
-                return true
-            end
-        }))
-        delay(0.6)
+        return false
     end,
     calculate = function (self, card, context)
         if context.individual and context.cardarea == G.play and context.other_card:get_id() == 14 then
@@ -745,16 +655,18 @@ SMODS.Consumable{ --ArrowTip
             if SMODS.pseudorandom_probability(card, pseudoseed('giga_arrowTip'), 9, 20) then
                 return{
                     func = function ()
-                        card.ability.extra.cash = card.ability.extra.cash + 2
+                        card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
+                        card:set_cost()
                         return true
                     end,
                     message = localize('k_giga_valueup'),
                     colour = G.C.GREEN
                 }
-            elseif card.ability.extra.cash > 0 then
+            elseif card.ability.extra_value > 0 then
                 return{
                     func = function ()
-                        card.ability.extra.cash = card.ability.extra.cash - 1
+                        card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
+                        card:set_cost()
                         return true
                     end,
                     message = localize('k_giga_valuedown'),

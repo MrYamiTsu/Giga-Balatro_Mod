@@ -204,132 +204,132 @@ return {
             c_giga_fishingHook= {
                 name = 'Fishing Hook',
                 text = {{
-                    'Gain {C:money}$#1#{}',
-                    "{C:innactive,s:0.8}Value isn't stable{}"
+                    '{C:attention}Sell value{}',
+                    "isn't stable"
                 },
                 {
-                    '{X:mult,C:white}X#2#{} Mult for',
+                    '{X:mult,C:white}X#1#{} Mult for',
                     'each {C:attention}2{} scored'
                 }}
             },
             c_giga_arrowTip= {
                 name = 'Arrow Tip',
                 text = {{
-                    'Gain {C:money}$#1#{}',
-                    "{C:innactive,s:0.8}Value isn't stable{}"
+                    '{C:attention}Sell value{}',
+                    "isn't stable"
                 },
                 {
-                    '{X:mult,C:white}X#2#{} Mult for',
+                    '{X:mult,C:white}X#1#{} Mult for',
                     'each {C:attention}Ace{} scored'
                 }}
             },
             c_giga_plate= {
                 name = 'Plate',
                 text = {{
-                    'Gain {C:money}$#1#{}',
-                    "{C:innactive,s:0.8}Value isn't stable{}"
+                    '{C:attention}Sell value{}',
+                    "isn't stable"
                 },
                 {
-                    '{X:mult,C:white}X#2#{} Mult for',
+                    '{X:mult,C:white}X#1#{} Mult for',
                     'each {C:attention}6{} scored'
                 }}
             },
             c_giga_tablet= {
                 name = 'Tablet',
                 text = {{
-                    'Gain {C:money}$#1#{}',
-                    "{C:innactive,s:0.8}Value isn't stable{}"
+                    '{C:attention}Sell value{}',
+                    "isn't stable"
                 },
                 {
-                    '{X:mult,C:white}X#2#{} Mult for',
+                    '{X:mult,C:white}X#1#{} Mult for',
                     'each {C:attention}10{} scored'
                 }}
             },
             c_giga_helm= {
                 name = 'Helm',
                 text = {{
-                    'Gain {C:money}$#1#{}',
-                    "{C:innactive,s:0.8}Value isn't stable{}"
+                    '{C:attention}Sell value{}',
+                    "isn't stable"
                 },
                 {
-                    '{X:mult,C:white}X#2#{} Mult for',
+                    '{X:mult,C:white}X#1#{} Mult for',
                     'each {C:attention}8{} scored'
                 }}
             },
             c_giga_mayaMask= {
                 name = 'Maya Mask',
                 text = {{
-                    'Gain {C:money}$#1#{}',
-                    "{C:innactive,s:0.8}Value isn't stable{}"
+                    '{C:attention}Sell value{}',
+                    "isn't stable"
                 },
                 {
-                    '{X:mult,C:white}X#2#{} Mult for',
+                    '{X:mult,C:white}X#1#{} Mult for',
                     'each {C:attention}Jack{} scored'
                 }}
             },
             c_giga_pillar= {
                 name = 'Pillar',
                 text = {{
-                    'Gain {C:money}$#1#{}',
-                    "{C:innactive,s:0.8}Value isn't stable{}"
+                    '{C:attention}Sell value{}',
+                    "isn't stable"
                 },
                 {
-                    '{X:mult,C:white}X#2#{} Mult for',
+                    '{X:mult,C:white}X#1#{} Mult for',
                     'each {C:attention}King{} scored'
                 }}
             },
             c_giga_silex= {
                 name = 'Silex',
                 text = {{
-                    'Gain {C:money}$#1#{}',
-                    "{C:innactive,s:0.8}Value isn't stable{}"
+                    '{C:attention}Sell value{}',
+                    "isn't stable"
                 },
                 {
-                    '{X:mult,C:white}X#2#{} Mult for',
+                    '{X:mult,C:white}X#1#{} Mult for',
                     'each {C:attention}3{} scored'
                 }}
             },
             c_giga_trident= {
                 name = 'Trident',
                 text = {{
-                    'Gain {C:money}$#1#{}',
-                    "{C:innactive,s:0.8}Value isn't stable{}"
+                    '{C:attention}Sell value{}',
+                    "isn't stable"
                 },
                 {
-                    '{X:mult,C:white}X#2#{} Mult for',
+                    '{X:mult,C:white}X#1#{} Mult for',
                     'each {C:attention}9{} scored'
                 }}
             },
             c_giga_totem= {
                 name = 'Totem',
                 text = {{
-                    'Gain {C:money}$#1#{}',
-                    "{C:innactive,s:0.8}Value isn't stable{}"
+                    '{C:attention}Sell value{}',
+                    "isn't stable"
                 },
                 {
-                    '{X:mult,C:white}X#2#{} Mult for',
+                    '{X:mult,C:white}X#1#{} Mult for',
                     'each {C:attention}4{} scored'
                 }}
             },
             c_giga_diadem= {
                 name = 'Diadem',
                 text = {{
-                    'Gain {C:money}$#1#{}',
-                    "{C:innactive,s:0.8}Value isn't stable{}"
+                    '{C:attention}Sell value{}',
+                    "isn't stable"
                 },
                 {
-                    '{X:mult,C:white}X#2#{} Mult for',
+                    '{X:mult,C:white}X#1#{} Mult for',
                     'each {C:attention}Queen{} scored'
                 }}
             },
             c_giga_boneDie= {
                 name = 'Bone Die',
                 text = {{
-                    'Gain {C:money}$#1#{}',
-                    "{C:innactive,s:0.8}Value isn't stable{}"
+                    '{C:attention}Sell value{}',
+                    "isn't stable"
                 },
                 {
-                    '{X:mult,C:white}X#2#{} Mult for',
+                    '{X:mult,C:white}X#1#{} Mult for',
                     'each {C:attention}7{} scored'
                 }}
             }
@@ -337,11 +337,11 @@ return {
             c_giga_shellAmulet= {
                 name = 'Shell Amulet',
                 text = {{
-                    'Gain {C:money}$#1#{}',
-                    "{C:innactive,s:0.8}Value isn't stable{}"
+                    '{C:attention}Sell value{}',
+                    "isn't stable"
                 },
                 {
-                    '{X:mult,C:white}X#2#{} Mult for',
+                    '{X:mult,C:white}X#1#{} Mult for',
                     'each {C:attention}5{} scored'
                 }}
             }
