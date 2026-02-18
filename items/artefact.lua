@@ -14,7 +14,7 @@ SMODS.Consumable{ --FishingHook
     atlas = 'Artefacts',
     pos = {x = 0, y = 0},
     rarity = 1,
-    cost = 3,
+    cost = 8,
     config = { extra = {
         value = {
             incr = 2,
@@ -66,7 +66,7 @@ SMODS.Consumable{ --Silex
     atlas = 'Artefacts',
     pos = {x = 0, y = 0},
     rarity = 1,
-    cost = 3,
+    cost = 8,
     config = { extra = {
         value = {
             incr = 2,
@@ -117,7 +117,7 @@ SMODS.Consumable{ --Totem
     atlas = 'Artefacts',
     pos = {x = 0, y = 0},
     rarity = 1,
-    cost = 3,
+    cost = 8,
     config = { extra = {
         value = {
             incr = 2,
@@ -168,7 +168,7 @@ SMODS.Consumable{ --ShellAmulet
     atlas = 'Artefacts',
     pos = {x = 0, y = 0},
     rarity = 1,
-    cost = 3,
+    cost = 8,
     config = { extra = {
         value = {
             incr = 2,
@@ -219,7 +219,7 @@ SMODS.Consumable{ --Plate
     atlas = 'Artefacts',
     pos = {x = 0, y = 0},
     rarity = 1,
-    cost = 3,
+    cost = 8,
     config = { extra = {
         value = {
             incr = 2,
@@ -270,7 +270,7 @@ SMODS.Consumable{ --BoneDie
     atlas = 'Artefacts',
     pos = {x = 0, y = 0},
     rarity = 1,
-    cost = 3,
+    cost = 8,
     config = { extra = {
         value = {
             incr = 2,
@@ -321,7 +321,7 @@ SMODS.Consumable{ --Helm
     atlas = 'Artefacts',
     pos = {x = 0, y = 0},
     rarity = 1,
-    cost = 3,
+    cost = 8,
     config = { extra = {
         value = {
             incr = 2,
@@ -372,7 +372,7 @@ SMODS.Consumable{ --Trident
     atlas = 'Artefacts',
     pos = {x = 0, y = 0},
     rarity = 1,
-    cost = 3,
+    cost = 8,
     config = { extra = {
         value = {
             incr = 2,
@@ -423,7 +423,7 @@ SMODS.Consumable{ --Tablet
     atlas = 'Artefacts',
     pos = {x = 0, y = 0},
     rarity = 1,
-    cost = 3,
+    cost = 8,
     config = { extra = {
         value = {
             incr = 2,
@@ -474,7 +474,7 @@ SMODS.Consumable{ --MayaMask
     atlas = 'Artefacts',
     pos = {x = 0, y = 0},
     rarity = 1,
-    cost = 3,
+    cost = 8,
     config = { extra = {
         value = {
             incr = 2,
@@ -525,7 +525,7 @@ SMODS.Consumable{ --Diadem
     atlas = 'Artefacts',
     pos = {x = 0, y = 0},
     rarity = 1,
-    cost = 3,
+    cost = 8,
     config = { extra = {
         value = {
             incr = 2,
@@ -576,7 +576,7 @@ SMODS.Consumable{ --Pillar
     atlas = 'Artefacts',
     pos = {x = 0, y = 0},
     rarity = 1,
-    cost = 3,
+    cost = 8,
     config = { extra = {
         value = {
             incr = 2,
@@ -630,7 +630,7 @@ SMODS.Consumable{ --ArrowTip
     atlas = 'Artefacts',
     pos = {x = 0, y = 0},
     rarity = 1,
-    cost = 3,
+    cost = 8,
     config = { extra = {
         value = {
             incr = 2,
