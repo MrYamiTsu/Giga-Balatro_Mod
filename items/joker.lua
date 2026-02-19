@@ -1312,7 +1312,7 @@ SMODS.Joker{ --Ohnyartemmys
 SMODS.Joker{ --Kebfordius
     key = 'kebfordius',
     atlas = 'Jokers',
-    pos = {x = 7, y = 3},
+    pos = {x = 0, y = 8},
     cost = 6,
     rarity = 2,
     blueprint_compat = false,
