@@ -36,7 +36,7 @@ SMODS.Consumable{ --FishingHook
             }
         end
         if context.end_of_round and context.main_eval then
-            if SMODS.pseudorandom_probability(card, pseudoseed('giga_fishingHook'), 9, 20) then
+            if SMODS.pseudorandom_probability(card, pseudoseed('giga_fishingHook'), 3, 5) then
                 return{
                     func = function ()
                         card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
@@ -46,7 +46,7 @@ SMODS.Consumable{ --FishingHook
                     message = localize('k_giga_valueup'),
                     colour = G.C.GREEN
                 }
-            elseif card.ability.extra_value > 0 then
+            elseif card.sell_cost > 0 then
                 return{
                     func = function ()
                         card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
@@ -87,7 +87,7 @@ SMODS.Consumable{ --Silex
             }
         end
         if context.end_of_round and context.main_eval then
-            if SMODS.pseudorandom_probability(card, pseudoseed('giga_fishingHook'), 9, 20) then
+            if SMODS.pseudorandom_probability(card, pseudoseed('giga_fishingHook'), 3, 5) then
                 return{
                     func = function ()
                         card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
@@ -97,7 +97,7 @@ SMODS.Consumable{ --Silex
                     message = localize('k_giga_valueup'),
                     colour = G.C.GREEN
                 }
-            elseif card.ability.extra_value > 0 then
+            elseif card.sell_cost > 0 then
                 return{
                     func = function ()
                         card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
@@ -138,7 +138,7 @@ SMODS.Consumable{ --Totem
             }
         end
         if context.end_of_round and context.main_eval then
-            if SMODS.pseudorandom_probability(card, pseudoseed('giga_totem'), 9, 20) then
+            if SMODS.pseudorandom_probability(card, pseudoseed('giga_totem'), 3, 5) then
                 return{
                     func = function ()
                         card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
@@ -148,7 +148,7 @@ SMODS.Consumable{ --Totem
                     message = localize('k_giga_valueup'),
                     colour = G.C.GREEN
                 }
-            elseif card.ability.extra_value > 0 then
+            elseif card.sell_cost > 0 then
                 return{
                     func = function ()
                         card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
@@ -189,7 +189,7 @@ SMODS.Consumable{ --ShellAmulet
             }
         end
         if context.end_of_round and context.main_eval then
-            if SMODS.pseudorandom_probability(card, pseudoseed('giga_shellAmulet'), 9, 20) then
+            if SMODS.pseudorandom_probability(card, pseudoseed('giga_shellAmulet'), 3, 5) then
                 return{
                     func = function ()
                         card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
@@ -199,7 +199,7 @@ SMODS.Consumable{ --ShellAmulet
                     message = localize('k_giga_valueup'),
                     colour = G.C.GREEN
                 }
-            elseif card.ability.extra_value > 0 then
+            elseif card.sell_cost > 0 then
                 return{
                     func = function ()
                         card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
@@ -240,7 +240,7 @@ SMODS.Consumable{ --Plate
             }
         end
         if context.end_of_round and context.main_eval then
-            if SMODS.pseudorandom_probability(card, pseudoseed('giga_plate'), 9, 20) then
+            if SMODS.pseudorandom_probability(card, pseudoseed('giga_plate'), 3, 5) then
                 return{
                     func = function ()
                         card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
@@ -250,7 +250,7 @@ SMODS.Consumable{ --Plate
                     message = localize('k_giga_valueup'),
                     colour = G.C.GREEN
                 }
-            elseif card.ability.extra_value > 0 then
+            elseif card.sell_cost > 0 then
                 return{
                     func = function ()
                         card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
@@ -291,7 +291,7 @@ SMODS.Consumable{ --BoneDie
             }
         end
         if context.end_of_round and context.main_eval then
-            if SMODS.pseudorandom_probability(card, pseudoseed('giga_boneDie'), 9, 20) then
+            if SMODS.pseudorandom_probability(card, pseudoseed('giga_boneDie'), 3, 5) then
                 return{
                     func = function ()
                         card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
@@ -301,7 +301,7 @@ SMODS.Consumable{ --BoneDie
                     message = localize('k_giga_valueup'),
                     colour = G.C.GREEN
                 }
-            elseif card.ability.extra_value > 0 then
+            elseif card.sell_cost > 0 then
                 return{
                     func = function ()
                         card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
@@ -342,7 +342,7 @@ SMODS.Consumable{ --Helm
             }
         end
         if context.end_of_round and context.main_eval then
-            if SMODS.pseudorandom_probability(card, pseudoseed('giga_helm'), 9, 20) then
+            if SMODS.pseudorandom_probability(card, pseudoseed('giga_helm'), 3, 5) then
                 return{
                     func = function ()
                         card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
@@ -352,7 +352,7 @@ SMODS.Consumable{ --Helm
                     message = localize('k_giga_valueup'),
                     colour = G.C.GREEN
                 }
-            elseif card.ability.extra_value > 0 then
+            elseif card.sell_cost > 0 then
                 return{
                     func = function ()
                         card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
@@ -393,7 +393,7 @@ SMODS.Consumable{ --Trident
             }
         end
         if context.end_of_round and context.main_eval then
-            if SMODS.pseudorandom_probability(card, pseudoseed('giga_trident'), 9, 20) then
+            if SMODS.pseudorandom_probability(card, pseudoseed('giga_trident'), 3, 5) then
                 return{
                     func = function ()
                         card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
@@ -403,7 +403,7 @@ SMODS.Consumable{ --Trident
                     message = localize('k_giga_valueup'),
                     colour = G.C.GREEN
                 }
-            elseif card.ability.extra_value > 0 then
+            elseif card.sell_cost > 0 then
                 return{
                     func = function ()
                         card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
@@ -444,7 +444,7 @@ SMODS.Consumable{ --Tablet
             }
         end
         if context.end_of_round and context.main_eval then
-            if SMODS.pseudorandom_probability(card, pseudoseed('giga_tablet'), 9, 20) then
+            if SMODS.pseudorandom_probability(card, pseudoseed('giga_tablet'), 3, 5) then
                 return{
                     func = function ()
                         card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
@@ -454,7 +454,7 @@ SMODS.Consumable{ --Tablet
                     message = localize('k_giga_valueup'),
                     colour = G.C.GREEN
                 }
-            elseif card.ability.extra_value > 0 then
+            elseif card.sell_cost > 0 then
                 return{
                     func = function ()
                         card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
@@ -495,7 +495,7 @@ SMODS.Consumable{ --MayaMask
             }
         end
         if context.end_of_round and context.main_eval then
-            if SMODS.pseudorandom_probability(card, pseudoseed('giga_mayaMask'), 9, 20) then
+            if SMODS.pseudorandom_probability(card, pseudoseed('giga_mayaMask'), 3, 5) then
                 return{
                     func = function ()
                         card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
@@ -505,7 +505,7 @@ SMODS.Consumable{ --MayaMask
                     message = localize('k_giga_valueup'),
                     colour = G.C.GREEN
                 }
-            elseif card.ability.extra_value > 0 then
+            elseif card.sell_cost > 0 then
                 return{
                     func = function ()
                         card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
@@ -546,7 +546,7 @@ SMODS.Consumable{ --Diadem
             }
         end
         if context.end_of_round and context.main_eval then
-            if SMODS.pseudorandom_probability(card, pseudoseed('giga_diadem'), 9, 20) then
+            if SMODS.pseudorandom_probability(card, pseudoseed('giga_diadem'), 3, 5) then
                 return{
                     func = function ()
                         card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
@@ -556,7 +556,7 @@ SMODS.Consumable{ --Diadem
                     message = localize('k_giga_valueup'),
                     colour = G.C.GREEN
                 }
-            elseif card.ability.extra_value > 0 then
+            elseif card.sell_cost > 0 then
                 return{
                     func = function ()
                         card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
@@ -600,7 +600,7 @@ SMODS.Consumable{ --Pillar
             }
         end
         if context.end_of_round and context.main_eval then
-            if SMODS.pseudorandom_probability(card, pseudoseed('giga_pillar'), 9, 20) then
+            if SMODS.pseudorandom_probability(card, pseudoseed('giga_pillar'), 3, 5) then
                 return{
                     func = function ()
                         card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
@@ -610,7 +610,7 @@ SMODS.Consumable{ --Pillar
                     message = localize('k_giga_valueup'),
                     colour = G.C.GREEN
                 }
-            elseif card.ability.extra_value > 0 then
+            elseif card.sell_cost > 0 then
                 return{
                     func = function ()
                         card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
@@ -652,7 +652,7 @@ SMODS.Consumable{ --ArrowTip
             }
         end
         if context.end_of_round and context.main_eval then
-            if SMODS.pseudorandom_probability(card, pseudoseed('giga_arrowTip'), 9, 20) then
+            if SMODS.pseudorandom_probability(card, pseudoseed('giga_arrowTip'), 3, 5) then
                 return{
                     func = function ()
                         card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
@@ -662,7 +662,7 @@ SMODS.Consumable{ --ArrowTip
                     message = localize('k_giga_valueup'),
                     colour = G.C.GREEN
                 }
-            elseif card.ability.extra_value > 0 then
+            elseif card.sell_cost > 0 then
                 return{
                     func = function ()
                         card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
