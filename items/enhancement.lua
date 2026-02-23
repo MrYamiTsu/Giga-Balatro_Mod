@@ -384,7 +384,7 @@ SMODS.Enhancement{ --EngravedPotery
 	giga_data = {
 		is_upgraded = true
 	},
-	pos = { x = 5, y = 1 },
+	pos = { x = 0, y = 2 },
 	unlocked = true,
 	discovered = true,
 	replace_base_card = true,
