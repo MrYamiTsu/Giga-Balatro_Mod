@@ -237,7 +237,6 @@ SMODS.Seal{ --Gold+
             end
         end
     end,
-    -- From VanillaRemade (so thx VanillaRemade)
     draw = function(self, card, layer)
         if (layer == 'card' or layer == 'both') and card.sprite_facing == 'front' then
             G.shared_seals[card.seal].role.draw_major = card
@@ -601,7 +600,6 @@ SMODS.Seal{ --Gold++
             end
         end
     end,
-    -- From VanillaRemade (so thx VanillaRemade)
     draw = function(self, card, layer)
         if (layer == 'card' or layer == 'both') and card.sprite_facing == 'front' then
             G.shared_seals[card.seal].role.draw_major = card

@@ -35,6 +35,7 @@ local load_i = {
     'blind',
     'booster',
     'deck',
+    'deckskin',
     'edition',
     'enhancement',
     'food',
@@ -155,6 +156,18 @@ SMODS.Atlas{
     path = 'Artefact.png',
     px = 71,
     py = 95
+}
+SMODS.Atlas {
+	key = 'skin_lc',
+	path = 'Skin_Opt1.png',
+	px = 71,
+	py = 95
+}
+SMODS.Atlas {
+	key = 'skin_hc',
+	path = 'Skin_Opt2.png',
+	px = 71,
+	py = 95
 }
 SMODS.Atlas{
     key = 'secret1',

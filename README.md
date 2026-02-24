@@ -31,6 +31,7 @@
     <li>3 Sleeves (Cross-Mod)</li>
     <li>3 Boss Blind</li>
     <li>1 Hand Type</li>
+    <li>1 Deck Skin</li>
     <li>1 Partner (Cross-Mod)</li>
 </ul>
 
