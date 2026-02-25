@@ -6,7 +6,7 @@ SMODS.DeckSkin {
         {
             key = 'lc',
             ranks = { '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace' },
-            display_ranks = {'Jack', 'Queen', 'King', 'Ace'},
+            display_ranks = {'Ace', 'King', 'Queen', 'Jack'},
             atlas = 'giga_skin_lc',
             pos_style = 'deck',
             colour = G.C.SUITS.Hearts
@@ -14,7 +14,7 @@ SMODS.DeckSkin {
         {
             key = 'hc',
             ranks = { '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace' },
-            display_ranks = {'Jack', 'Queen', 'King', 'Ace'},
+            display_ranks = {'Ace', 'King', 'Queen', 'Jack'},
             atlas = 'giga_skin_hc',
             pos_style = 'deck',
             colour = HEX('F01E3A')
@@ -29,7 +29,7 @@ SMODS.DeckSkin {
         {
             key = 'lc',
             ranks = { '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace' },
-            display_ranks = {'Jack', 'Queen', 'King', 'Ace'},
+            display_ranks = {'Ace', 'King', 'Queen', 'Jack'},
             atlas = 'giga_skin_lc',
             pos_style = 'deck',
             colour = G.C.SUITS.Clubs
@@ -37,7 +37,7 @@ SMODS.DeckSkin {
         {
             key = 'hc',
             ranks = { '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace' },
-            display_ranks = {'Jack', 'Queen', 'King', 'Ace'},
+            display_ranks = {'Ace', 'King', 'Queen', 'Jack'},
             atlas = 'giga_skin_hc',
             pos_style = 'deck',
             colour = HEX('3697CC')
@@ -52,7 +52,7 @@ SMODS.DeckSkin {
         {
             key = 'lc',
             ranks = { '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace' },
-            display_ranks = {'Jack', 'Queen', 'King', 'Ace'},
+            display_ranks = {'Ace', 'King', 'Queen', 'Jack'},
             atlas = 'giga_skin_lc',
             pos_style = 'deck',
             colour = G.C.SUITS.Diamonds
@@ -60,7 +60,7 @@ SMODS.DeckSkin {
         {
             key = 'hc',
             ranks = { '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace' },
-            display_ranks = {'Jack', 'Queen', 'King', 'Ace'},
+            display_ranks = {'Ace', 'King', 'Queen', 'Jack'},
             atlas = 'giga_skin_hc',
             pos_style = 'deck',
             colour = HEX('FF610B')
@@ -75,7 +75,7 @@ SMODS.DeckSkin {
         {
             key = 'lc',
             ranks = {'2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace'},
-            display_ranks = {'Jack', 'Queen', 'King', 'Ace'},
+            display_ranks = {'Ace', 'King', 'Queen', 'Jack'},
             atlas = 'giga_skin_lc',
             pos_style = 'deck',
             colour = G.C.SUITS.Spades
@@ -83,7 +83,7 @@ SMODS.DeckSkin {
         {
             key = 'hc',
             ranks = { '2', '3', '4', '5', '6', '7', '8', '9', '10', 'Jack', 'Queen', 'King', 'Ace' },
-            display_ranks = {'Jack', 'Queen', 'King', 'Ace'},
+            display_ranks = {'Ace', 'King', 'Queen', 'Jack'},
             atlas = 'giga_skin_hc',
             pos_style = 'deck',
             colour = HEX('572D85')
