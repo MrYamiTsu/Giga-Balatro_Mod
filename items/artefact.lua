@@ -111,7 +111,7 @@ SMODS.Consumable{ --Silex
         end
     end
 }
-SMODS.Consumable{ --Totem
+SMODS.Consumable{ --Totem ♣
     key = 'totem',
     set = 'Giga_Artefact',
     atlas = 'Artefacts',
@@ -163,7 +163,7 @@ SMODS.Consumable{ --Totem
         end
     end
 }
-SMODS.Consumable{ --ShellAmulet
+SMODS.Consumable{ --ShellAmulet ♣
     key = 'shellAmulet',
     set = 'Giga_Artefact',
     atlas = 'Artefacts',
@@ -317,11 +317,11 @@ SMODS.Consumable{ --BoneDie
         end
     end
 }
-SMODS.Consumable{ --Helm
+SMODS.Consumable{ --Helm ♣
     key = 'helm',
     set = 'Giga_Artefact',
     atlas = 'Artefacts',
-    pos = {x = 0, y = 0},
+    pos = {x = 4, y = 0},
     rarity = 1,
     cost = 8,
     config = { extra = {
@@ -572,7 +572,7 @@ SMODS.Consumable{ --Diadem
         end
     end
 }
-SMODS.Consumable{ --Pillar
+SMODS.Consumable{ --Pillar ♣
     key = 'pillar',
     set = 'Giga_Artefact',
     atlas = 'Artefacts',
