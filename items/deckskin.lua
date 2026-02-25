@@ -40,7 +40,7 @@ SMODS.DeckSkin {
             display_ranks = {'Ace', 'King', 'Queen', 'Jack'},
             atlas = 'giga_skin_hc',
             pos_style = 'deck',
-            colour = HEX('3697CC')
+            colour = HEX('2D6AC9')
         }
     }
 }
