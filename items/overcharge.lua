@@ -94,7 +94,7 @@ Giga.Overcharge{ --OrangeOvercharge
     config = { extra = {
         tarot = 1,
         odds = 1,
-        chances = 3,
+        chances = 4,
         ovch_add = 1
     }},
     loc_vars = function (self,info_queue,card)
@@ -179,7 +179,7 @@ Giga.Overcharge{ --PurpleOvercharge
     config = { extra = {
         food = 1,
         odds = 1,
-        chances = 3,
+        chances = 4,
         ovch_add = 1
     }},
     loc_vars = function (self,info_queue,card)
