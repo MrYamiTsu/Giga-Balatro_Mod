@@ -215,11 +215,12 @@ SMODS.Consumable{ --ShellAmulet ♣
         end
     end
 }
-SMODS.Consumable{ --Plate
+SMODS.Consumable{ --Plate ♣
     key = 'plate',
     set = 'Giga_Artefact',
     atlas = 'Artefacts',
     pos = {x = 0, y = 0},
+    soul_pos = {x = 0, y = 1},
     rarity = 1,
     cost = 8,
     config = { extra = {
@@ -236,7 +237,7 @@ SMODS.Consumable{ --Plate
         return false
     end,
     calculate = function (self, card, context)
-        if context.individual and context.cardarea == G.play and context.other_card:get_id() == 10 then
+        if context.individual and context.cardarea == G.play and context.other_card:get_id() == 6 then
             return{
                 x_mult = card.ability.extra.mult
             }
