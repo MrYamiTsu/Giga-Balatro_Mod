@@ -15,7 +15,7 @@
 <hr>
 <h2>Contents</h2>
 <ul>
-    <li>56+ Jokers (+11 Cross-Mod)</li>
+    <li>57+ Jokers (+11 Cross-Mod)</li>
     <li>35 Food cards (+6 Cross-Mod)</li>
     <li>17 Seals</li>
     <li>16 Planets</li>
