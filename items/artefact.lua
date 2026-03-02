@@ -632,8 +632,8 @@ SMODS.Consumable{ --Pillar ♣
         end
     end
 }
-SMODS.Consumable{ --ArrowTip
-    key = 'arrowTip',
+SMODS.Consumable{ --Arrow
+    key = 'arrow',
     set = 'Giga_Artefact',
     atlas = 'Artefacts',
     pos = {x = 0, y = 0},

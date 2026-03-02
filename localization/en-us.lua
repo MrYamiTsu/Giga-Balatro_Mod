@@ -212,8 +212,8 @@ return {
                     'each {C:attention}2{} scored'
                 }}
             },
-            c_giga_arrowTip= {
-                name = 'Arrow Tip',
+            c_giga_arrow= {
+                name = 'Arrow',
                 text = {{
                     '{C:attention}Sell value{}',
                     "isn't stable"
