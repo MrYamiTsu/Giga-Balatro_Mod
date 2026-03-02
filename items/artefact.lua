@@ -267,11 +267,12 @@ SMODS.Consumable{ --Plate ♣
         end
     end
 }
-SMODS.Consumable{ --BoneDie
+SMODS.Consumable{ --BoneDie ♣
     key = 'boneDie',
     set = 'Giga_Artefact',
     atlas = 'Artefacts',
     pos = {x = 0, y = 0},
+    soul_pos = {x = 2, y = 1},
     rarity = 1,
     cost = 8,
     config = { extra = {
@@ -370,11 +371,12 @@ SMODS.Consumable{ --Helm ♣
         end
     end
 }
-SMODS.Consumable{ --Trident
+SMODS.Consumable{ --Trident ♣
     key = 'trident',
     set = 'Giga_Artefact',
     atlas = 'Artefacts',
     pos = {x = 0, y = 0},
+    soul_pos = {x = 3, y = 1},
     rarity = 1,
     cost = 8,
     config = { extra = {
@@ -472,7 +474,7 @@ SMODS.Consumable{ --Tablet
         end
     end
 }
-SMODS.Consumable{ --MayaMask
+SMODS.Consumable{ --MayaMask ♣
     key = 'mayaMask',
     set = 'Giga_Artefact',
     atlas = 'Artefacts',
