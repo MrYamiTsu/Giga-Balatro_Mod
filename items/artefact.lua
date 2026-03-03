@@ -637,6 +637,7 @@ SMODS.Consumable{ --Arrow
     set = 'Giga_Artefact',
     atlas = 'Artefacts',
     pos = {x = 0, y = 0},
+    soul_pos = {x = 4, y = 1},
     rarity = 1,
     cost = 8,
     config = { extra = {
