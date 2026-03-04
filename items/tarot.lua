@@ -46,8 +46,8 @@ SMODS.Consumable{ --Gardener
         return{vars = {center.ability.max_highlighted}}
     end
 }
-SMODS.Consumable{ --Brush
-    key = 'brush',
+SMODS.Consumable{ --Trowel
+    key = 'trowel',
     set = 'Tarot',
     atlas = 'Consumeables',
     pos = {x = 0, y = 2},

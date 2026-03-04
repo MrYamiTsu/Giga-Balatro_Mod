@@ -1895,8 +1895,8 @@ return {
                     '{C:attention}Soil Cards{}'
                 }
             },
-            c_giga_brush = {
-                name = 'Brush',
+            c_giga_trowel = {
+                name = 'Trowel',
                 text = {
                     'Enhances {C:attention}#1#{}',
                     'selected cards to',
