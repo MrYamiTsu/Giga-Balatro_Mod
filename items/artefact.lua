@@ -8,11 +8,12 @@ SMODS.ConsumableType{
     shop_rate = 0
 }
 
-SMODS.Consumable{ --FishingHook
+SMODS.Consumable{ --FishingHook ♣
     key = 'fishingHook',
     set = 'Giga_Artefact',
     atlas = 'Artefacts',
     pos = {x = 0, y = 0},
+    soul_pos = {x = 0, y = 2},
     rarity = 1,
     cost = 8,
     config = { extra = {
@@ -632,7 +633,7 @@ SMODS.Consumable{ --Pillar ♣
         end
     end
 }
-SMODS.Consumable{ --Arrow
+SMODS.Consumable{ --Arrow ♣
     key = 'arrow',
     set = 'Giga_Artefact',
     atlas = 'Artefacts',
