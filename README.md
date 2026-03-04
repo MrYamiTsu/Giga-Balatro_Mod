@@ -1,21 +1,21 @@
 <h1>GIGA</h1>
 
 <p>
-    <a href="https://github.com/Steamodded/smods">
-        <img src="https://img.shields.io/badge/Steamodded-1.0.0--BETA--0711a+-red.svg" alt="Steamodded Version">
+    <a href="https://github.com/Steamodded/smods" target="_blank">
+        <img src="https://img.shields.io/badge/Steamodded-1.0.0--BETA--1503a+-red.svg" alt="Steamodded Version">
     </a>
-    <a href="https://discord.com/channels/1116389027176787968/1398876204622286958">
+    <a href="https://discord.com/channels/1116389027176787968/1398876204622286958" target="_blank">
         <img src="https://img.shields.io/badge/Discord-Balatro%20Thread-blue.svg" alt="Discord">
     </a>
 </p>
 
-<p>What about adding some random new functionality to Balatro !</p>
+<h3>What about adding some random new functionality to Balatro !</h3>
 
 <hr>
 
 <h2>Requirements</h2>
 <ul>
-    <li><strong><a href="https://github.com/Steamodded/smods" target="_blank">Steamodded</a></strong>: Version 1.0.0~BETA-0711a or higher is required.</li>
+    <li><strong><a href="https://github.com/Steamodded/smods" target="_blank">Steamodded</a></strong>: Version 1.0.0~BETA-1503a or higher is required.</li>
     <li><strong><a href="https://github.com/SpectralPack/Talisman" target="_blank">Talisman</a> (Optional)</strong>: Recommended for high-score management.</li>
 </ul>
 
@@ -121,7 +121,7 @@
 
 <h2>Additional Information</h2>
 <p>Giga first appeared in the <strong>Wheel Of Mods</strong> of <strong>MurphyObv</strong> on January 16th, 2026.</p>
-<p>If you have any ideas, feel free to ping me in the <strong>Giga</strong> post on the <strong>Balatro Discord</strong>.</p>
+<p>If you have any ideas, feel free to ping me in the <strong><a href="https://discord.com/channels/1116389027176787968/1398876204622286958" target="_blank">Giga</a></strong> post on the <strong>Balatro Discord</strong>.</p>
 <p>You can also send me artwork; contributors will be mentioned in the credits.</p>
 
 <hr>
