@@ -41,6 +41,9 @@ function SMODS.has_enhancement(card, key)
     if key == 'm_giga_richSoil' then
         return enhancement_yapping(card, 'm_giga_richSoil') or enhancement_yapping(card, 'm_giga_fossilSoil')
     end
+    if key == 'm_giga_potery' then
+        return enhancement_yapping(card, 'm_giga_pottery') or enhancement_yapping(card, 'm_giga_engravedPottery')
+    end
     return ret
 end
 -- Thx Somethingcom515 for help with this one

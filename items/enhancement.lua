@@ -394,7 +394,7 @@ SMODS.Enhancement{ --EngravedPotery
 	weight = 0,
 	config = { extra = {
 		odds = 1,
-		chances = 6
+		chances = 7
 	}, bonus = 50},
 	loc_vars = function(self, info_queue, card)
 		local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.odds, card.ability.extra.chances, 'prob')
