@@ -331,14 +331,14 @@ SMODS.Enhancement{ --FossilSoil
 		return false
 	end
 }
-SMODS.Enhancement{ --Potery
-	key = "potery",
+SMODS.Enhancement{ --Pottery
+	key = "pottery",
 	atlas = "Enhancements",
 	fg_data = {
   		base_enhancement = true
 	},
 	giga_data = {
-		enh_upgrade = "m_giga_engravedPotery"
+		enh_upgrade = "m_giga_engravedPottery"
 	},
 	pos = { x = 5, y = 1 },
 	unlocked = true,
@@ -378,8 +378,8 @@ SMODS.Enhancement{ --Potery
         end
     end
 }
-SMODS.Enhancement{ --EngravedPotery
-	key = "engravedPotery",
+SMODS.Enhancement{ --EngravedPottery
+	key = "engravedPottery",
 	atlas = "Enhancements",
 	giga_data = {
 		is_upgraded = true

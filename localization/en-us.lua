@@ -178,8 +178,8 @@ return {
                     '{C:inactive,s:0.7}This effect is temporary{}'
                 }
             },
-            m_giga_potery = {
-                name = 'Potery Card',
+            m_giga_pottery = {
+                name = 'Pottery Card',
                 text = {
                     '{C:chips}+#1#{} Chips',
                     '{C:green}#2# in #3#{} chance to',
@@ -188,8 +188,8 @@ return {
                     'no rank or suit'
                 }
             },
-            m_giga_engravedPotery = {
-                name = 'Engraved Potery Card',
+            m_giga_engravedPottery = {
+                name = 'Engraved Pottery Card',
                 text = {
                     '{C:chips}+#1#{} Chips',
                     'Create an {C:giga_Artefact}Artefact{}',
@@ -1205,6 +1205,15 @@ return {
                     '{C:planet}Planet{} cards if',
                     'hand is {C:attention}Linked Pairs{}'
                 }
+            },
+            j_giga_potteryJoker = {
+                name = "Pottery Joker",
+                text = {
+                    'This Joker gains {X:mult,C:white}X#1#{} Mult',
+                    'for every {C:giga_Artefact}Artefact{}',
+                    'card created',
+                    '{C:inactive}(Currently: {X:mult,C:white}+#2#{} {C:inactive}Mult)'
+                },
             },
             --#endregion
             --#region CrossMod

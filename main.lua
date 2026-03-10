@@ -4,10 +4,13 @@ Giga_config = SMODS.current_mod.config
 
 Giga.calculate = function (self, context)
     if context.end_of_round and context.main_eval then
-        G.GAME.giga.discarded_overcharge = 0
         for _, card in pairs(G.playing_cards) do
             card.ability.giga_goldplusplus_increase = nil
         end
+        G.GAME.giga.discarded_overcharge = 0
+    end
+    if context.card_added and context.card.ability.set == 'Artefact' then
+        G.GAME.giga.artefact_create = G.GAME.giga.artefact_create + 1
     end
     if context.discard then
         if not context.other_card.debuff and Giga.has_overcharge(context.other_card) then
@@ -248,6 +251,7 @@ Giga.reset_game_globals = function(run_start)
         G.GAME.giga.astral_chance = {1, 20}
         G.GAME.giga.shiny_chance = {2, 25}
         G.GAME.giga.discarded_overcharge = 0
+        G.GAME.giga.artefact_create = 0
     end
 end
 --#endregion

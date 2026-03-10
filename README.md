@@ -46,7 +46,7 @@
     <tbody>
         <tr>
             <td>Jokers</td>
-            <td>57+ (+11 Cross-Mod)</td>
+            <td>58+ (+11 Cross-Mod)</td>
             <td>Planets</td>
             <td>16</td>
         </tr>
