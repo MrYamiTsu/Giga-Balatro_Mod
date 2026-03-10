@@ -5,6 +5,7 @@ function Game:init_game_object()
     ret.giga = {}
     ret.giga.astral_chance = {1, 20}
     ret.giga.shiny_chance = {2, 25}
+    ret.giga.artefact_create = 0
 	init_pools()
 	return ret
 end
