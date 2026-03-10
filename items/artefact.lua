@@ -61,11 +61,12 @@ SMODS.Consumable{ --FishingHook ♣
         end
     end
 }
-SMODS.Consumable{ --Silex
+SMODS.Consumable{ --Silex ♣
     key = 'silex',
     set = 'Giga_Artefact',
     atlas = 'Artefacts',
     pos = {x = 0, y = 0},
+    soul_pos = {x = 1, y = 2},
     rarity = 1,
     cost = 8,
     config = { extra = {
@@ -597,9 +598,6 @@ SMODS.Consumable{ --Pillar ♣
         return{vars = {center.ability.extra.mult}}
     end,
     can_use = function (self, card)
-        return false
-    end,
-    use = function (self, card, area, copier)
         return false
     end,
     calculate = function (self, card, context)
