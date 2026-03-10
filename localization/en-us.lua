@@ -1210,8 +1210,8 @@ return {
                 name = "Pottery Joker",
                 text = {
                     'This Joker gains {X:mult,C:white}+#1#{} Mult',
-                    'for every {C:giga_Artefact}Artefact{}',
-                    'card created',
+                    'for every {C:giga_Artefact}Artefact{} card',
+                    'created this run',
                     '{C:inactive}(Currently: {X:mult,C:white}+#2#{} {C:inactive}Mult)'
                 },
             },

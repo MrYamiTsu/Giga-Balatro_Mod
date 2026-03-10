@@ -9,7 +9,7 @@ Giga.calculate = function (self, context)
         end
         G.GAME.giga.discarded_overcharge = 0
     end
-    if context.card_added and context.card.ability.set == 'Artefact' then
+    if context.card_added and context.card.ability.set == 'Giga_Artefact' then
         G.GAME.giga.artefact_create = G.GAME.giga.artefact_create + 1
     end
     if context.discard then
