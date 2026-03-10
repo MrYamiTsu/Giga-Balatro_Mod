@@ -1350,11 +1350,11 @@ SMODS.Joker{ --PotteryJoker
     blueprint_compat = true,
     perishable_compat = true,
     config = { extra = {
-        mult_gain = 6
+        mult = 6
     }},
     loc_vars = function(self, info_queue, card)
-        info_queue[#info_queue + 1] = G.P_CENTERS.m_giga_petery
-        return{vars = {card.ability.extra.mult_gain, card.ability.extra.mult_gain * G.GAME.giga.artefact_create}}
+        info_queue[#info_queue + 1] = G.P_CENTERS.m_giga_pottery
+        return{vars = {card.ability.extra.mult, card.ability.extra.mult * G.GAME.giga.artefact_create}}
     end,
     in_pool = function(self, args)
         if G.GAME.giga.artefact_create > 0 then
@@ -1365,7 +1365,7 @@ SMODS.Joker{ --PotteryJoker
     calculate = function(self, card, context)
         if context.joker_main then
             return {
-                mult = card.ability.extra.mult
+                mult = card.ability.extra.mult * G.GAME.giga.artefact_create
             }
         end
     end

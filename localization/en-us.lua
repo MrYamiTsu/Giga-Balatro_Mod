@@ -1209,7 +1209,7 @@ return {
             j_giga_potteryJoker = {
                 name = "Pottery Joker",
                 text = {
-                    'This Joker gains {X:mult,C:white}X#1#{} Mult',
+                    'This Joker gains {X:mult,C:white}+#1#{} Mult',
                     'for every {C:giga_Artefact}Artefact{}',
                     'card created',
                     '{C:inactive}(Currently: {X:mult,C:white}+#2#{} {C:inactive}Mult)'
