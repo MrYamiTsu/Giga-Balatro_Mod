@@ -1905,7 +1905,7 @@ return {
                 }
             },
             c_giga_trowel = {
-                name = 'Trowel',
+                name = 'The Trowel',
                 text = {
                     'Enhances {C:attention}#1#{}',
                     'selected cards to',
@@ -1932,7 +1932,7 @@ return {
                 name = 'Food Stand',
                 text = {
                     '{C:giga_Food}Food{} cards can',
-                    'appear in the {C:attention}shop'
+                    'appear in the {C:attention}shop{}'
                 }
             },
             v_giga_homeDelivery = {

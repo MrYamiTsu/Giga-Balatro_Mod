@@ -425,11 +425,12 @@ SMODS.Consumable{ --Trident ♣
         end
     end
 }
-SMODS.Consumable{ --Tablet
+SMODS.Consumable{ --Tablet ♣
     key = 'tablet',
     set = 'Giga_Artefact',
     atlas = 'Artefacts',
     pos = {x = 0, y = 0},
+    soul_pos = {x = 2, y = 2},
     rarity = 1,
     cost = 8,
     config = { extra = {
