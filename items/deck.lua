@@ -6,15 +6,20 @@ SMODS.Back{ --Teal
     discovered = true,
 	unlocked = true,
     apply = function(self, back)
-        local hands = {}
-        for k, v in ipairs(G.handlist) do
-            if G.GAME.hands[v] and G.GAME.hands[v].visible then
-                hands[#hands+1] = v
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                local hands = {}
+                for k, v in ipairs(G.handlist) do
+                    if G.GAME.hands[v] and G.GAME.hands[v].visible then
+                        hands[#hands+1] = v
+                    end
+                end
+                for _ = 1, 7, 1 do
+                    level_up_hand(nil, pseudorandom_element(hands, pseudoseed('Teal')), true, 1)
+                end
+                return true
             end
-        end
-        for _ = 1, 7, 1 do
-            level_up_hand(nil, pseudorandom_element(hands, pseudoseed('Teal')), nil, 1)
-        end
+        }))
     end
 }
 SMODS.Back{ --Gladiolus

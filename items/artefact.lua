@@ -8,7 +8,7 @@ SMODS.ConsumableType{
     shop_rate = 0
 }
 
-SMODS.Consumable{ --FishingHook ♣
+SMODS.Consumable{ --FishingHook
     key = 'fishingHook',
     set = 'Giga_Artefact',
     atlas = 'Artefacts',
@@ -61,7 +61,7 @@ SMODS.Consumable{ --FishingHook ♣
         end
     end
 }
-SMODS.Consumable{ --Silex ♣
+SMODS.Consumable{ --Silex
     key = 'silex',
     set = 'Giga_Artefact',
     atlas = 'Artefacts',
@@ -113,7 +113,7 @@ SMODS.Consumable{ --Silex ♣
         end
     end
 }
-SMODS.Consumable{ --Totem ♣
+SMODS.Consumable{ --Totem
     key = 'totem',
     set = 'Giga_Artefact',
     atlas = 'Artefacts',
@@ -165,7 +165,7 @@ SMODS.Consumable{ --Totem ♣
         end
     end
 }
-SMODS.Consumable{ --ShellAmulet ♣
+SMODS.Consumable{ --ShellAmulet
     key = 'shellAmulet',
     set = 'Giga_Artefact',
     atlas = 'Artefacts',
@@ -217,7 +217,7 @@ SMODS.Consumable{ --ShellAmulet ♣
         end
     end
 }
-SMODS.Consumable{ --Plate ♣
+SMODS.Consumable{ --Plate
     key = 'plate',
     set = 'Giga_Artefact',
     atlas = 'Artefacts',
@@ -269,7 +269,7 @@ SMODS.Consumable{ --Plate ♣
         end
     end
 }
-SMODS.Consumable{ --BoneDie ♣
+SMODS.Consumable{ --BoneDie
     key = 'boneDie',
     set = 'Giga_Artefact',
     atlas = 'Artefacts',
@@ -321,7 +321,7 @@ SMODS.Consumable{ --BoneDie ♣
         end
     end
 }
-SMODS.Consumable{ --Helm ♣
+SMODS.Consumable{ --Helm
     key = 'helm',
     set = 'Giga_Artefact',
     atlas = 'Artefacts',
@@ -373,7 +373,7 @@ SMODS.Consumable{ --Helm ♣
         end
     end
 }
-SMODS.Consumable{ --Trident ♣
+SMODS.Consumable{ --Trident
     key = 'trident',
     set = 'Giga_Artefact',
     atlas = 'Artefacts',
@@ -425,7 +425,7 @@ SMODS.Consumable{ --Trident ♣
         end
     end
 }
-SMODS.Consumable{ --Tablet ♣
+SMODS.Consumable{ --Tablet
     key = 'tablet',
     set = 'Giga_Artefact',
     atlas = 'Artefacts',
@@ -477,7 +477,7 @@ SMODS.Consumable{ --Tablet ♣
         end
     end
 }
-SMODS.Consumable{ --MayaMask ♣
+SMODS.Consumable{ --MayaMask
     key = 'mayaMask',
     set = 'Giga_Artefact',
     atlas = 'Artefacts',
@@ -534,6 +534,7 @@ SMODS.Consumable{ --Diadem
     set = 'Giga_Artefact',
     atlas = 'Artefacts',
     pos = {x = 0, y = 0},
+    soul_pos = {x = 3, y = 2},
     rarity = 1,
     cost = 8,
     config = { extra = {
@@ -580,7 +581,7 @@ SMODS.Consumable{ --Diadem
         end
     end
 }
-SMODS.Consumable{ --Pillar ♣
+SMODS.Consumable{ --Pillar
     key = 'pillar',
     set = 'Giga_Artefact',
     atlas = 'Artefacts',
@@ -632,7 +633,7 @@ SMODS.Consumable{ --Pillar ♣
         end
     end
 }
-SMODS.Consumable{ --Arrow ♣
+SMODS.Consumable{ --Arrow
     key = 'arrow',
     set = 'Giga_Artefact',
     atlas = 'Artefacts',

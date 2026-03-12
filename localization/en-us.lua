@@ -566,17 +566,17 @@ return {
                 name = 'Cranberry Juice',
                 text = {
                     'A delicious Cranberry Juice that',
-                    'adds a random {C:attention}Overcharge{}',
-                    'on {C:attention}#1#{} card in {C:attention}#2#{} rounds',
+                    'adds a random {C:attention}Overcharge{} on',
+                    '{C:attention}#1#{} selected card in{C:attention}#2#{} rounds',
                     '{C:inactive}#3#{}'
                 }
             },
             c_giga_bubbleTea = {
                 name = 'Bubble Tea',
                 text = {
-                    'A delicious Bubble Tea',
-                    'that adds a random {C:attention}Seal{}',
-                    'on {C:attention}#1#{} card in {C:attention}#2#{} rounds',
+                    'A delicious Bubble Tea that',
+                    'adds a random {C:attention}Seal{} on',
+                    '{C:attention}#1#{} selected card in {C:attention}#2#{} rounds',
                     '{C:inactive}#3#{}'
                 }
             },
