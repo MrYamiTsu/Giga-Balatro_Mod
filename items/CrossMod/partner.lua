@@ -26,8 +26,10 @@ Partner_API.Partner{
     end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play then
-            if SMODS.pseudorandom_probability(context.other_card, 'giga_pabloJr', card.ability.extra.odds, card.ability.extra.chances, 'pjr_prob') then
-                Giga.upgrade_enhancement(context.other_card)
+            if SMODS.pseudorandom_probability(context.other_card, pseudoseed('giga_pabloJr'), card.ability.extra.odds, card.ability.extra.chances) then
+                if G.P_CENTERS[context.other_card.config.center_key].giga_data and G.P_CENTERS[context.other_card.config.center_key].giga_data then
+                    Giga.upgrade_enhancement(context.other_card)
+                end
             end
         end
     end
