@@ -73,7 +73,7 @@ CardSleeves.Sleeve{ --Teal
             end
         end
         for _ = 1, 7, 1 do
-            level_up_hand(nil, pseudorandom_element(hands, pseudoseed('TealSl')), nil, 1)
+            level_up_hand(nil, pseudorandom_element(hands, pseudoseed('tealSleeve')), nil, 1)
         end
     end
 }
