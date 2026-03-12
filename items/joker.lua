@@ -1373,7 +1373,7 @@ SMODS.Joker{ --PotteryJoker
 SMODS.Joker{ --Fuhdekun
     key = "fuhdekun",
     atlas = 'Jokers',
-    pos = {x = 7, y = 3},
+    pos = {x = 2, y = 8},
     cost = 6,
     rarity = 1,
     blueprint_compat = true,
