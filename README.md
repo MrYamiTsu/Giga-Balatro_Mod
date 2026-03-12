@@ -46,7 +46,7 @@
     <tbody>
         <tr>
             <td>Jokers</td>
-            <td>58+ (+11 Cross-Mod)</td>
+            <td>59+ (+11 Cross-Mod)</td>
             <td>Planets</td>
             <td>16</td>
         </tr>
@@ -54,7 +54,7 @@
             <td>Food cards</td>
             <td>35 (+6 Cross-Mod)</td>
             <td>Enhancements</td>
-            <td>11+</td>
+            <td>12+</td>
         </tr>
         <tr>
             <td>Seals</td>
