@@ -240,7 +240,7 @@ SMODS.Consumable {
     end,
     loc_vars = function(self, info_queue, card)
         if G.SETTINGS.paused then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {Giga.config.astral_chance[1] / Giga.config.astral_chance[2] * 100, 'Black Hole'}}
+            info_queue[#info_queue+1] = {set = 'Other', key = 'giga_astral_chance', vars = {G.GAME.giga.astral_chance[1] / G.GAME.giga.astral_chance[2] * 100, 'Black Hole'}}
         end
         return{vars = {card.ability.extra.amount}}
     end,
