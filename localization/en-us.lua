@@ -1215,6 +1215,14 @@ return {
                     '{C:inactive}(Currently: {C:mult}+#2#{} {C:inactive}Mult)'
                 },
             },
+            j_giga_fuhdekun = {
+                name = 'Fuhdekun',
+                text = {
+                    'When a {C:attention}playing card{} is added',
+                    '{C:green}#1# in #2#{} chance to create',
+                    'a copy in your deck',
+                }
+            },
             --#endregion
             --#region CrossMod
             j_giga_triceratops_alt = {

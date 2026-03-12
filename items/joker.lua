@@ -1352,9 +1352,9 @@ SMODS.Joker{ --PotteryJoker
     config = { extra = {
         mult = 6
     }},
-    loc_vars = function(self, info_queue, card)
+    loc_vars = function(self, info_queue, center)
         info_queue[#info_queue + 1] = G.P_CENTERS.m_giga_pottery
-        return{vars = {card.ability.extra.mult, card.ability.extra.mult * G.GAME.giga.artefact_create}}
+        return{vars = {center.ability.extra.mult, center.ability.extra.mult * G.GAME.giga.artefact_create}}
     end,
     in_pool = function(self, args)
         if G.GAME.giga.artefact_create > 0 then
@@ -1366,6 +1366,45 @@ SMODS.Joker{ --PotteryJoker
         if context.joker_main then
             return {
                 mult = card.ability.extra.mult * G.GAME.giga.artefact_create
+            }
+        end
+    end
+}
+SMODS.Joker{ --Fuhdekun
+    key = "fuhdekun",
+    atlas = 'Jokers',
+    pos = {x = 7, y = 3},
+    cost = 6,
+    rarity = 1,
+    blueprint_compat = true,
+    perishable_compat = true,
+    config = { extra = {
+        odds = 1,
+        chances = 3,
+        isnt_copied = true
+    }},
+    loc_vars = function(self, info_queue, center)
+        local odds, chances = SMODS.get_probability_vars(center, center.ability.extra.odds, center.ability.extra.chances, 'giga_fuhdekun')
+        return{vars = {odds, chances}}
+    end,
+    calculate = function(self, card, context)
+        if card.ability.extra.isnt_copied and context.playing_card_added and SMODS.pseudorandom_probability(card, pseudoseed('fuhdekun'), card.ability.extra.odds, card.ability.extra.chances) then
+            G.playing_card = (G.playing_card and G.playing_card + 1) or 1
+            local _card = copy_card(context.cards[1], nil, nil, G.playing_card)
+            _card:add_to_deck()
+            G.deck.config.card_limit = G.deck.config.card_limit + 1
+            table.insert(G.playing_cards, _card)
+            G.deck:emplace(_card)
+            _card.states.visible = nil
+            card.ability.extra.isnt_copied = false
+            SMODS.calculate_context({ playing_card_added = true, cards = { _card } })
+            return {
+                message = 'Copied !',
+                colour = G.C.SECONDARY_SET.Planet,
+                func = function()
+                    card.ability.extra.isnt_copied = true
+                    return true
+                end
             }
         end
     end
