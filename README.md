@@ -47,24 +47,24 @@
         <tr>
             <td>Jokers</td>
             <td>59+ (+11 Cross-Mod)</td>
-            <td>Planets</td>
-            <td>16</td>
-        </tr>
-        <tr>
             <td>Food cards</td>
             <td>35 (+6 Cross-Mod)</td>
-            <td>Enhancements</td>
-            <td>12+</td>
         </tr>
         <tr>
             <td>Seals</td>
             <td>17</td>
-            <td>Decks</td>
-            <td>7</td>
+            <td>Planets</td>
+            <td>16</td>
         </tr>
         <tr>
             <td>Artefacts</td>
             <td>13</td>
+            <td>Enhancements</td>
+            <td>12+</td>
+        </tr>
+        <tr>
+            <td>Decks</td>
+            <td>7</td>
             <td>Spectrals</td>
             <td>6</td>
         </tr>

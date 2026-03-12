@@ -217,9 +217,9 @@ SMODS.Consumable{ --Strawberries
     soul_pos = {x = 3, y = 5},
     rarity = 1,
     cost = 2,
-    config = { max_highlighted = 1, mod_conv = 'm_giga_potery' },
+    config = { max_highlighted = 1, mod_conv = 'm_giga_pottery' },
     loc_vars = function (self,info_queue,center)
-        info_queue[#info_queue+1] = G.P_CENTERS['m_giga_potery']
+        info_queue[#info_queue+1] = G.P_CENTERS['m_giga_pottery']
         return{vars = {center.ability.max_highlighted}}
     end
 }
