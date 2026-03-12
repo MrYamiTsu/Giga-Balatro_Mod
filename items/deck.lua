@@ -10,7 +10,7 @@ SMODS.Back{ --Teal
             func = function()
                 local hands = {}
                 for k, v in ipairs(G.handlist) do
-                    if G.GAME.hands[v] and G.GAME.hands[v].visible then
+                    if SMODS.is_poker_hand_visible(v) then
                         hands[#hands+1] = v
                     end
                 end
