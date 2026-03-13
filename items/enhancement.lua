@@ -357,7 +357,7 @@ SMODS.Enhancement{ --Pottery
 	end,
 	calculate = function(self, card, context)
         if context.destroy_card and context.cardarea == G.play and context.destroy_card == card and
-           SMODS.pseudorandom_probability(card, 'giga_potery', card.ability.extra.odds, card.ability.extra.chances) then
+           SMODS.pseudorandom_probability(card, pseudoseed('giga_pottery'), card.ability.extra.odds, card.ability.extra.chances) then
             return {
 				func = function()
 					if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
@@ -402,7 +402,7 @@ SMODS.Enhancement{ --EngravedPottery
 	end,
 	calculate = function(self, card, context)
         if context.destroy_card and context.cardarea == G.play and context.destroy_card == card and
-           SMODS.pseudorandom_probability(card, 'giga_enpotery', card.ability.extra.odds, card.ability.extra.chances) then
+           SMODS.pseudorandom_probability(card, pseudoseed('giga_enpottery'), card.ability.extra.odds, card.ability.extra.chances) then
             return {
 				remove = true
 			}

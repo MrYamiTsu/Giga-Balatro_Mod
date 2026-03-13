@@ -1,3 +1,35 @@
+-- LOCAL FUNCTIONS --
+local function calculate_artefact(self, card, context)
+    if context.individual and context.cardarea == G.play and context.other_card:get_id() == card.ability.extra.nbre then
+        return{
+            x_mult = card.ability.extra.mult
+        }
+    end
+    if context.end_of_round and context.main_eval then
+        if SMODS.pseudorandom_probability(card, pseudoseed('giga_'..card.config.center.key), 3, 5) then
+            return{
+                func = function ()
+                    card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
+                    card:set_cost()
+                    return true
+                end,
+                message = localize('k_giga_valueup'),
+                colour = G.C.GREEN
+            }
+        elseif card.sell_cost > 0 then
+            return{
+                func = function ()
+                    card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
+                    card:set_cost()
+                    return true
+                end,
+                message = localize('k_giga_valuedown'),
+                colour = G.C.RED
+            }
+        end
+    end
+end
+
 -- TYPE --
 SMODS.ConsumableType{
     key = 'Giga_Artefact',
@@ -21,7 +53,8 @@ SMODS.Consumable{ --FishingHook
             incr = 2,
             decr = 1
         },
-        mult = 1.2
+        mult = 1.2,
+        nbre = 2
     }},
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'darling_credit'}
@@ -30,36 +63,7 @@ SMODS.Consumable{ --FishingHook
     can_use = function (self, card)
         return false
     end,
-    calculate = function (self, card, context)
-        if context.individual and context.cardarea == G.play and context.other_card:get_id() == 2 then
-            return{
-                x_mult = card.ability.extra.mult
-            }
-        end
-        if context.end_of_round and context.main_eval then
-            if SMODS.pseudorandom_probability(card, pseudoseed('giga_fishingHook'), 3, 5) then
-                return{
-                    func = function ()
-                        card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
-                        card:set_cost()
-                        return true
-                    end,
-                    message = localize('k_giga_valueup'),
-                    colour = G.C.GREEN
-                }
-            elseif card.sell_cost > 0 then
-                return{
-                    func = function ()
-                        card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
-                        card:set_cost()
-                        return true
-                    end,
-                    message = localize('k_giga_valuedown'),
-                    colour = G.C.RED
-                }
-            end
-        end
-    end
+    calculate = calculate_artefact
 }
 SMODS.Consumable{ --Silex
     key = 'silex',
@@ -74,7 +78,8 @@ SMODS.Consumable{ --Silex
             incr = 2,
             decr = 1
         },
-        mult = 1.2
+        mult = 1.2,
+        nbre = 3
     }},
     loc_vars = function (self,info_queue,center)
         return{vars = {center.ability.extra.mult}}
@@ -82,36 +87,7 @@ SMODS.Consumable{ --Silex
     can_use = function (self, card)
         return false
     end,
-    calculate = function (self, card, context)
-        if context.individual and context.cardarea == G.play and context.other_card:get_id() == 3 then
-            return{
-                x_mult = card.ability.extra.mult
-            }
-        end
-        if context.end_of_round and context.main_eval then
-            if SMODS.pseudorandom_probability(card, pseudoseed('giga_fishingHook'), 3, 5) then
-                return{
-                    func = function ()
-                        card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
-                        card:set_cost()
-                        return true
-                    end,
-                    message = localize('k_giga_valueup'),
-                    colour = G.C.GREEN
-                }
-            elseif card.sell_cost > 0 then
-                return{
-                    func = function ()
-                        card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
-                        card:set_cost()
-                        return true
-                    end,
-                    message = localize('k_giga_valuedown'),
-                    colour = G.C.RED
-                }
-            end
-        end
-    end
+    calculate = calculate_artefact
 }
 SMODS.Consumable{ --Totem
     key = 'totem',
@@ -126,7 +102,8 @@ SMODS.Consumable{ --Totem
             incr = 2,
             decr = 1
         },
-        mult = 1.2
+        mult = 1.2,
+        nbre = 4
     }},
     loc_vars = function (self,info_queue,center)
         return{vars = {center.ability.extra.mult}}
@@ -178,7 +155,8 @@ SMODS.Consumable{ --ShellAmulet
             incr = 2,
             decr = 1
         },
-        mult = 1.2
+        mult = 1.2,
+        nbre = 5
     }},
     loc_vars = function (self,info_queue,center)
         return{vars = {center.ability.extra.mult}}
@@ -186,36 +164,7 @@ SMODS.Consumable{ --ShellAmulet
     can_use = function (self, card)
         return false
     end,
-    calculate = function (self, card, context)
-        if context.individual and context.cardarea == G.play and context.other_card:get_id() == 5 then
-            return{
-                x_mult = card.ability.extra.mult
-            }
-        end
-        if context.end_of_round and context.main_eval then
-            if SMODS.pseudorandom_probability(card, pseudoseed('giga_shellAmulet'), 3, 5) then
-                return{
-                    func = function ()
-                        card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
-                        card:set_cost()
-                        return true
-                    end,
-                    message = localize('k_giga_valueup'),
-                    colour = G.C.GREEN
-                }
-            elseif card.sell_cost > 0 then
-                return{
-                    func = function ()
-                        card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
-                        card:set_cost()
-                        return true
-                    end,
-                    message = localize('k_giga_valuedown'),
-                    colour = G.C.RED
-                }
-            end
-        end
-    end
+    calculate = calculate_artefact
 }
 SMODS.Consumable{ --Plate
     key = 'plate',
@@ -230,7 +179,8 @@ SMODS.Consumable{ --Plate
             incr = 2,
             decr = 1
         },
-        mult = 1.2
+        mult = 1.2,
+        nbre = 6
     }},
     loc_vars = function (self,info_queue,center)
         return{vars = {center.ability.extra.mult}}
@@ -238,36 +188,7 @@ SMODS.Consumable{ --Plate
     can_use = function (self, card)
         return false
     end,
-    calculate = function (self, card, context)
-        if context.individual and context.cardarea == G.play and context.other_card:get_id() == 6 then
-            return{
-                x_mult = card.ability.extra.mult
-            }
-        end
-        if context.end_of_round and context.main_eval then
-            if SMODS.pseudorandom_probability(card, pseudoseed('giga_plate'), 3, 5) then
-                return{
-                    func = function ()
-                        card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
-                        card:set_cost()
-                        return true
-                    end,
-                    message = localize('k_giga_valueup'),
-                    colour = G.C.GREEN
-                }
-            elseif card.sell_cost > 0 then
-                return{
-                    func = function ()
-                        card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
-                        card:set_cost()
-                        return true
-                    end,
-                    message = localize('k_giga_valuedown'),
-                    colour = G.C.RED
-                }
-            end
-        end
-    end
+    calculate = calculate_artefact
 }
 SMODS.Consumable{ --BoneDie
     key = 'boneDie',
@@ -282,7 +203,8 @@ SMODS.Consumable{ --BoneDie
             incr = 2,
             decr = 1
         },
-        mult = 1.2
+        mult = 1.2,
+        nbre = 7
     }},
     loc_vars = function (self,info_queue,center)
         return{vars = {center.ability.extra.mult}}
@@ -290,36 +212,7 @@ SMODS.Consumable{ --BoneDie
     can_use = function (self, card)
         return false
     end,
-    calculate = function (self, card, context)
-        if context.individual and context.cardarea == G.play and context.other_card:get_id() == 7 then
-            return{
-                x_mult = card.ability.extra.mult
-            }
-        end
-        if context.end_of_round and context.main_eval then
-            if SMODS.pseudorandom_probability(card, pseudoseed('giga_boneDie'), 3, 5) then
-                return{
-                    func = function ()
-                        card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
-                        card:set_cost()
-                        return true
-                    end,
-                    message = localize('k_giga_valueup'),
-                    colour = G.C.GREEN
-                }
-            elseif card.sell_cost > 0 then
-                return{
-                    func = function ()
-                        card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
-                        card:set_cost()
-                        return true
-                    end,
-                    message = localize('k_giga_valuedown'),
-                    colour = G.C.RED
-                }
-            end
-        end
-    end
+    calculate = calculate_artefact
 }
 SMODS.Consumable{ --Helm
     key = 'helm',
@@ -334,7 +227,8 @@ SMODS.Consumable{ --Helm
             incr = 2,
             decr = 1
         },
-        mult = 1.2
+        mult = 1.2,
+        nbre = 8
     }},
     loc_vars = function (self,info_queue,center)
         return{vars = {center.ability.extra.mult}}
@@ -342,36 +236,7 @@ SMODS.Consumable{ --Helm
     can_use = function (self, card)
         return false
     end,
-    calculate = function (self, card, context)
-        if context.individual and context.cardarea == G.play and context.other_card:get_id() == 8 then
-            return{
-                x_mult = card.ability.extra.mult
-            }
-        end
-        if context.end_of_round and context.main_eval then
-            if SMODS.pseudorandom_probability(card, pseudoseed('giga_helm'), 3, 5) then
-                return{
-                    func = function ()
-                        card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
-                        card:set_cost()
-                        return true
-                    end,
-                    message = localize('k_giga_valueup'),
-                    colour = G.C.GREEN
-                }
-            elseif card.sell_cost > 0 then
-                return{
-                    func = function ()
-                        card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
-                        card:set_cost()
-                        return true
-                    end,
-                    message = localize('k_giga_valuedown'),
-                    colour = G.C.RED
-                }
-            end
-        end
-    end
+    calculate = calculate_artefact
 }
 SMODS.Consumable{ --Trident
     key = 'trident',
@@ -386,7 +251,8 @@ SMODS.Consumable{ --Trident
             incr = 2,
             decr = 1
         },
-        mult = 1.2
+        mult = 1.2,
+        nbre = 9
     }},
     loc_vars = function (self,info_queue,center)
         return{vars = {center.ability.extra.mult}}
@@ -394,36 +260,7 @@ SMODS.Consumable{ --Trident
     can_use = function (self, card)
         return false
     end,
-    calculate = function (self, card, context)
-        if context.individual and context.cardarea == G.play and context.other_card:get_id() == 9 then
-            return{
-                x_mult = card.ability.extra.mult
-            }
-        end
-        if context.end_of_round and context.main_eval then
-            if SMODS.pseudorandom_probability(card, pseudoseed('giga_trident'), 3, 5) then
-                return{
-                    func = function ()
-                        card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
-                        card:set_cost()
-                        return true
-                    end,
-                    message = localize('k_giga_valueup'),
-                    colour = G.C.GREEN
-                }
-            elseif card.sell_cost > 0 then
-                return{
-                    func = function ()
-                        card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
-                        card:set_cost()
-                        return true
-                    end,
-                    message = localize('k_giga_valuedown'),
-                    colour = G.C.RED
-                }
-            end
-        end
-    end
+    calculate = calculate_artefact
 }
 SMODS.Consumable{ --Tablet
     key = 'tablet',
@@ -438,7 +275,8 @@ SMODS.Consumable{ --Tablet
             incr = 2,
             decr = 1
         },
-        mult = 1.2
+        mult = 1.2,
+        nbre = 10
     }},
     loc_vars = function (self,info_queue,center)
         return{vars = {center.ability.extra.mult}}
@@ -446,36 +284,7 @@ SMODS.Consumable{ --Tablet
     can_use = function (self, card)
         return false
     end,
-    calculate = function (self, card, context)
-        if context.individual and context.cardarea == G.play and context.other_card:get_id() == 10 then
-            return{
-                x_mult = card.ability.extra.mult
-            }
-        end
-        if context.end_of_round and context.main_eval then
-            if SMODS.pseudorandom_probability(card, pseudoseed('giga_tablet'), 3, 5) then
-                return{
-                    func = function ()
-                        card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
-                        card:set_cost()
-                        return true
-                    end,
-                    message = localize('k_giga_valueup'),
-                    colour = G.C.GREEN
-                }
-            elseif card.sell_cost > 0 then
-                return{
-                    func = function ()
-                        card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
-                        card:set_cost()
-                        return true
-                    end,
-                    message = localize('k_giga_valuedown'),
-                    colour = G.C.RED
-                }
-            end
-        end
-    end
+    calculate = calculate_artefact
 }
 SMODS.Consumable{ --MayaMask
     key = 'mayaMask',
@@ -490,7 +299,8 @@ SMODS.Consumable{ --MayaMask
             incr = 2,
             decr = 1
         },
-        mult = 1.2
+        mult = 1.2,
+        nbre = 11
     }},
     loc_vars = function (self,info_queue,center)
         return{vars = {center.ability.extra.mult}}
@@ -498,36 +308,7 @@ SMODS.Consumable{ --MayaMask
     can_use = function (self, card)
         return false
     end,
-    calculate = function (self, card, context)
-        if context.individual and context.cardarea == G.play and context.other_card:get_id() == 11 then
-            return{
-                x_mult = card.ability.extra.mult
-            }
-        end
-        if context.end_of_round and context.main_eval then
-            if SMODS.pseudorandom_probability(card, pseudoseed('giga_mayaMask'), 3, 5) then
-                return{
-                    func = function ()
-                        card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
-                        card:set_cost()
-                        return true
-                    end,
-                    message = localize('k_giga_valueup'),
-                    colour = G.C.GREEN
-                }
-            elseif card.sell_cost > 0 then
-                return{
-                    func = function ()
-                        card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
-                        card:set_cost()
-                        return true
-                    end,
-                    message = localize('k_giga_valuedown'),
-                    colour = G.C.RED
-                }
-            end
-        end
-    end
+    calculate = calculate_artefact
 }
 SMODS.Consumable{ --Diadem
     key = 'diadem',
@@ -542,7 +323,8 @@ SMODS.Consumable{ --Diadem
             incr = 2,
             decr = 1
         },
-        mult = 1.2
+        mult = 1.2,
+        nbre = 12
     }},
     loc_vars = function (self,info_queue,center)
         return{vars = {center.ability.extra.mult}}
@@ -550,36 +332,7 @@ SMODS.Consumable{ --Diadem
     can_use = function (self, card)
         return false
     end,
-    calculate = function (self, card, context)
-        if context.individual and context.cardarea == G.play and context.other_card:get_id() == 12 then
-            return{
-                x_mult = card.ability.extra.mult
-            }
-        end
-        if context.end_of_round and context.main_eval then
-            if SMODS.pseudorandom_probability(card, pseudoseed('giga_diadem'), 3, 5) then
-                return{
-                    func = function ()
-                        card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
-                        card:set_cost()
-                        return true
-                    end,
-                    message = localize('k_giga_valueup'),
-                    colour = G.C.GREEN
-                }
-            elseif card.sell_cost > 0 then
-                return{
-                    func = function ()
-                        card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
-                        card:set_cost()
-                        return true
-                    end,
-                    message = localize('k_giga_valuedown'),
-                    colour = G.C.RED
-                }
-            end
-        end
-    end
+    calculate = calculate_artefact
 }
 SMODS.Consumable{ --Pillar
     key = 'pillar',
@@ -594,7 +347,8 @@ SMODS.Consumable{ --Pillar
             incr = 2,
             decr = 1
         },
-        mult = 1.2
+        mult = 1.2,
+        nbre = 13
     }},
     loc_vars = function (self,info_queue,center)
         return{vars = {center.ability.extra.mult}}
@@ -602,36 +356,7 @@ SMODS.Consumable{ --Pillar
     can_use = function (self, card)
         return false
     end,
-    calculate = function (self, card, context)
-        if context.individual and context.cardarea == G.play and context.other_card:get_id() == 13 then
-            return{
-                x_mult = card.ability.extra.mult
-            }
-        end
-        if context.end_of_round and context.main_eval then
-            if SMODS.pseudorandom_probability(card, pseudoseed('giga_pillar'), 3, 5) then
-                return{
-                    func = function ()
-                        card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
-                        card:set_cost()
-                        return true
-                    end,
-                    message = localize('k_giga_valueup'),
-                    colour = G.C.GREEN
-                }
-            elseif card.sell_cost > 0 then
-                return{
-                    func = function ()
-                        card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
-                        card:set_cost()
-                        return true
-                    end,
-                    message = localize('k_giga_valuedown'),
-                    colour = G.C.RED
-                }
-            end
-        end
-    end
+    calculate = calculate_artefact
 }
 SMODS.Consumable{ --Arrow
     key = 'arrow',
@@ -646,7 +371,8 @@ SMODS.Consumable{ --Arrow
             incr = 2,
             decr = 1
         },
-        mult = 1.2
+        mult = 1.2,
+        nbre = 14
     }},
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = {set = 'Other', key = 'darling_credit'}
@@ -655,34 +381,5 @@ SMODS.Consumable{ --Arrow
     can_use = function (self, card)
         return false
     end,
-    calculate = function (self, card, context)
-        if context.individual and context.cardarea == G.play and context.other_card:get_id() == 14 then
-            return{
-                x_mult = card.ability.extra.mult
-            }
-        end
-        if context.end_of_round and context.main_eval then
-            if SMODS.pseudorandom_probability(card, pseudoseed('giga_arrowTip'), 3, 5) then
-                return{
-                    func = function ()
-                        card.ability.extra_value = card.ability.extra_value + card.ability.extra.value.incr
-                        card:set_cost()
-                        return true
-                    end,
-                    message = localize('k_giga_valueup'),
-                    colour = G.C.GREEN
-                }
-            elseif card.sell_cost > 0 then
-                return{
-                    func = function ()
-                        card.ability.extra_value = card.ability.extra_value - card.ability.extra.value.decr
-                        card:set_cost()
-                        return true
-                    end,
-                    message = localize('k_giga_valuedown'),
-                    colour = G.C.RED
-                }
-            end
-        end
-    end
+    calculate = calculate_artefact
 }
