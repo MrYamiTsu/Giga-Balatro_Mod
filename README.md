@@ -66,7 +66,7 @@
             <td>Decks</td>
             <td>7</td>
             <td>Spectrals</td>
-            <td>6</td>
+            <td>7</td>
         </tr>
         <tr>
             <td>Overcharges</td>

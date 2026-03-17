@@ -1919,6 +1919,14 @@ return {
                     'selected card in',
                     'your hand'
                 }
+            },
+            c_giga_unnamedSpectral = {
+                name = 'Unnamed Spectral',
+                text = {
+                    'Enhances {C:attention}#1#{}',
+                    'selected cards to',
+                    '{C:attention}Giga Cards{}'
+                }
             }
         },
         Stake={},

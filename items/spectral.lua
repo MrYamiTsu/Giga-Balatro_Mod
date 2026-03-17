@@ -1,4 +1,17 @@
 --#region NORMAL --
+SMODS.Consumable{ --UnnamedSpectral
+    key = 'unnamedSpectral',
+    set = 'Spectral',
+    atlas = 'Consumeables',
+    pos = {x = 1, y = 1},
+    rarity = 1,
+    cost = 3,
+    config = { max_highlighted = 2, mod_conv = 'm_giga_giga' },
+    loc_vars = function (self,info_queue,center)
+        info_queue[#info_queue+1] = G.P_CENTERS['m_giga_giga']
+        return{vars = {center.ability.max_highlighted}}
+    end
+}
 SMODS.Consumable{ --Salt
     key = 'salt',
     set = 'Spectral',
