@@ -110,7 +110,7 @@
 <hr>
 
 <h2>Cross-Mod</h2>
-<p>There’s a lot of crossover with <a href="https://github.com/Joglacraft/Fools-Gambit">Fool's Gambit</a>, so I really recommend checking it out.</p>
+<p>There’s a lot of crossover with <a href="https://github.com/Joglacraft/Fools-Gambit">Fool's Gambit</a>, so I really recommend checking it out. And the mod itself is absolutely worth playing, it’s genuinely great on its own.</p>
 <ul>
     <li><a href="https://github.com/larswijn/CardSleeves">CardSleeves</a></li>
     <li><a href="https://github.com/Icecanno/Partner-API/">Partner-API</a></li>
