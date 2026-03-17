@@ -57,10 +57,10 @@
             <td>16</td>
         </tr>
         <tr>
+            <td>Enhancements</td>
+            <td>16</td>
             <td>Artefacts</td>
             <td>13</td>
-            <td>Enhancements</td>
-            <td>12+</td>
         </tr>
         <tr>
             <td>Decks</td>

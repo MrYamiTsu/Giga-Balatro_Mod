@@ -200,7 +200,7 @@ SMODS.Seal{ --Gold+
 	unlocked = true,
     config = { extra = {
         cash = 6,
-        cashPlus = 6,
+        cashPlus = 4,
     }},
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = G.P_CENTERS.m_gold

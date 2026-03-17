@@ -157,7 +157,7 @@ return {
                     'while this card',
                     'stays in hand',
                     'Increase by {X:mult,C:white}X#2#{}',
-                    'when played',
+                    'when played'
                 }
             },
             m_giga_reinforcedGlass = {
@@ -197,6 +197,40 @@ return {
                     '{C:green}#2# in #3#{} chance',
                     'to destroy card',
                     'no rank or suit'
+                }
+            },
+            m_giga_giga = {
+                name = 'Giga Card',
+                text = {
+                    '{X:mult,C:white}X#1#{} Mult',
+                    'when played',
+                    '{X:mult,C:white}X#2#{} Mult',
+                    'while this card',
+                    'stays in hand'
+                }
+            },
+            m_giga_gigaMax = {
+                name = 'Giga Max Card',
+                text = {
+                    '{X:mult,C:white}X#1#{} Mult',
+                    'when played',
+                    '{X:mult,C:white}X#2#{} Mult and',
+                    '{C:green}#3# in #4#{} chance to',
+                    '{C:attention}upgrade{} played',
+                    'card enhancement',
+                    'while this card',
+                    'stays in hand'
+                }
+            },
+            m_giga_ultimateGigaMax = {
+                name = 'Ultimate Giga Max Card',
+                text = {
+                    '{X:mult,C:white}X#1#{} Mult when played',
+                    '{X:mult,C:white}X#2#{} Mult, {C:green}#3# in #4#{} chance to',
+                    '{C:attention}upgrade{} played card enhancements',
+                    'and {C:green}#5# in #6#{} chance to {C:attention}upgrade{}',
+                    'played card seals while this',
+                    'card stays in hand'
                 }
             }
         },

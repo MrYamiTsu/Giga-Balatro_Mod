@@ -322,7 +322,6 @@ SMODS.Enhancement{ --FossilSoil
 	unlocked = true,
 	discovered = true,
 	weight = 0,
-    no_collection = true,
 	config = { x_chips = 2, x_mult = 1.5 },
 	loc_vars = function(self, info_queue, card)
 		return {vars = { card.ability.x_chips, card.ability.x_mult}}
@@ -426,6 +425,92 @@ SMODS.Enhancement{ --EngravedPottery
 			}
 		end
     end,
+	in_pool = function(self)
+		return false
+	end
+}
+SMODS.Enhancement{ --Giga
+	key = "giga",
+	atlas = "Enhancements",
+	giga_data = {
+		enh_upgrade = "m_giga_gigaMax"
+	},
+	pos = { x = 1, y = 2 },
+	unlocked = true,
+	discovered = true,
+	config = { x_mult = 2, h_x_mult = 2 },
+	loc_vars = function(self, info_queue, card)
+		return {vars = {card.ability.x_mult, card.ability.h_x_mult}}
+	end,
+	in_pool = function(self)
+		return false
+	end
+}
+SMODS.Enhancement{ --GigaMax
+	key = "gigaMax",
+	atlas = "Enhancements",
+	giga_data = {
+		is_upgraded = true,
+		enh_upgrade = "m_giga_ultimateGigaMax"
+	},
+	pos = { x = 1, y = 2 },
+	unlocked = true,
+	discovered = true,
+	config = { extra = {
+		odds = 1,
+		chances = 4
+	}, x_mult = 3, h_x_mult = 2.5 },
+	loc_vars = function(self, info_queue, card)
+		local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.odds, card.ability.extra.chances, 'prob')
+		return {vars = {card.ability.x_mult, card.ability.h_x_mult, numerator, denominator}}
+	end,
+	calculate = function(self, card, context)
+		if context.after and context.cardarea == G.hand then
+			for _, c in ipairs(G.play.cards) do
+				if SMODS.pseudorandom_probability(card, pseudoseed('giga_gigaMax'), card.ability.extra.odds, card.ability.extra.chances) then
+					Giga.upgrade_enhancement(c)
+				end
+			end
+		end
+	end,
+	in_pool = function(self)
+		return false
+	end
+}
+SMODS.Enhancement{ --UltimateGigaMax
+	key = "ultimateGigaMax",
+	atlas = "Enhancements",
+	giga_data = {
+		is_upgraded = true
+	},
+	pos = { x = 1, y = 2 },
+	unlocked = true,
+	discovered = true,
+	config = { extra = {
+		odds1 = 1,
+		chances1 = 3,
+		odds2 = 1,
+		chances2 = 6
+	}, x_mult = 4, h_x_mult = 3 },
+	loc_vars = function(self, info_queue, card)
+		local numerator1, denominator1 = SMODS.get_probability_vars(card, card.ability.extra.odds1, card.ability.extra.chances1, 'prob')
+		local numerator2, denominator2 = SMODS.get_probability_vars(card, card.ability.extra.odds2, card.ability.extra.chances2, 'prob')
+		return {vars = {card.ability.x_mult, card.ability.h_x_mult, numerator1, denominator1, numerator2, denominator2}}
+	end,
+	calculate = function(self, card, context)
+		if context.after and context.cardarea == G.hand then
+			for _, c in ipairs(G.play.cards) do
+				if c.config.center_key and G.P_CENTERS[c.config.center_key].giga_data and G.P_CENTERS[c.config.center_key].giga_data.enh_upgrade and
+				   SMODS.pseudorandom_probability(card, pseudoseed('giga_UltGigaMax'), card.ability.extra.odds1, card.ability.extra.chances1) then
+					Giga.upgrade_enhancement(c)
+				end
+				if c:get_seal() and G.P_SEALS[c:get_seal()].giga_data and G.P_SEALS[c:get_seal()].giga_data.seal_upgrade and
+				   SMODS.pseudorandom_probability(card, pseudoseed('giga_UltGigaMax'), card.ability.extra.odds2, card.ability.extra.chances2) then
+					Giga.upgrade_seal(c)
+				end
+			end
+		end
+	end,
 	in_pool = function(self)
 		return false
 	end

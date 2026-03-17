@@ -256,7 +256,7 @@ Giga.reset_game_globals = function(run_start)
 end
 --#endregion
 --#region RANDOM SCORING ORDER --
--- From TogaStuff (so thx TogaStuff)
+-- From TogaStuff (so thx Toga)
 Giga.preprocess = function(context, input)
 	local output = input or context.cardarea and context.cardarea.cards or nil
 	if not output then

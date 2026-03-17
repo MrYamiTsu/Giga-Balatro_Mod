@@ -45,6 +45,12 @@ function SMODS.has_enhancement(card, key)
     if key == 'm_giga_pottery' then
         return enhancement_yapping(card, 'm_giga_pottery') or enhancement_yapping(card, 'm_giga_engravedPottery')
     end
+    if key == 'm_giga_giga' then
+        return enhancement_yapping(card, 'm_giga_giga') or enhancement_yapping(card, 'm_giga_gigaMax') or enhancement_yapping(card, 'm_giga_ultimateGigaMax')
+    end
+    if key == 'm_giga_gigaMax' then
+        return enhancement_yapping(card, 'm_giga_gigaMax') or enhancement_yapping(card, 'm_giga_ultimateGigaMax')
+    end
     return ret
 end
 -- Thx Somethingcom515 for help with this one
