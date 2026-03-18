@@ -1,3 +1,3 @@
 return{
-    menu_card = true
+    menu_card = false
 }

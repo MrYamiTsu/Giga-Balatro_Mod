@@ -1257,6 +1257,14 @@ return {
                     'a copy in your deck',
                 }
             },
+            j_giga_protectiveWax = {
+                name = 'Protective Wax',
+                text = {
+                    'When an {C:giga_Artefact}Artefact{} card',
+                    'is created, it become',
+                    '{C:dark_edition}Negative{}'
+                }
+            },
             --#endregion
             --#region CrossMod
             j_giga_triceratops_alt = {

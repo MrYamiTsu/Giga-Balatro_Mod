@@ -1350,7 +1350,7 @@ SMODS.Joker{ --PotteryJoker
     blueprint_compat = true,
     perishable_compat = true,
     config = { extra = {
-        mult = 6
+        mult = 5
     }},
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue + 1] = G.P_CENTERS.m_giga_pottery
@@ -1406,6 +1406,37 @@ SMODS.Joker{ --Fuhdekun
                     return true
                 end
             }
+        end
+    end
+}
+SMODS.Joker{ --ProtectiveWax
+    key = "protectiveWax",
+    atlas = 'Jokers',
+    pos = {x = 7, y = 3},
+    cost = 8,
+    rarity = 3,
+    blueprint_compat = false,
+    perishable_compat = true,
+    in_pool = function(self, args)
+        for _, c in ipairs(G.playing_cards) do
+            if SMODS.has_enhancement(c, 'm_giga_pottery') then
+                return true
+            end
+        end
+        return false
+    end,
+    calculate = function(self, card, context)
+        if context.card_added and context.card.ability.set == 'Giga_Artefact' then
+            G.E_MANAGER:add_event(Event({
+                trigger = 'after',
+                delay = 0.4,
+                func = function()
+                    card:juice_up(0.3, 0.5)
+                    context.card:set_edition({ negative = true })
+                    context.card:juice_up(0.3, 0.5)
+                    return true
+                end
+            }))
         end
     end
 }
