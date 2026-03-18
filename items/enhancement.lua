@@ -453,7 +453,7 @@ SMODS.Enhancement{ --GigaMax
 		is_upgraded = true,
 		enh_upgrade = "m_giga_ultimateGigaMax"
 	},
-	pos = { x = 1, y = 2 },
+	pos = { x = 2, y = 2 },
 	unlocked = true,
 	discovered = true,
 	config = { extra = {
@@ -483,7 +483,7 @@ SMODS.Enhancement{ --UltimateGigaMax
 	giga_data = {
 		is_upgraded = true
 	},
-	pos = { x = 1, y = 2 },
+	pos = { x = 3, y = 2 },
 	unlocked = true,
 	discovered = true,
 	config = { extra = {
