@@ -43,7 +43,6 @@ SMODS.PokerHandPart{
         return {}
     end
 }
-
 SMODS.PokerHand{ --LinkedPairs
     key = 'Linked Pairs',
     visible = true,

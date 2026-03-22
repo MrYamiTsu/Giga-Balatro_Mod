@@ -1375,7 +1375,7 @@ SMODS.Joker{ --Fuhdekun
     atlas = 'Jokers',
     pos = {x = 2, y = 8},
     cost = 6,
-    rarity = 1,
+    rarity = 2,
     blueprint_compat = true,
     perishable_compat = true,
     config = { extra = {
@@ -1437,6 +1437,43 @@ SMODS.Joker{ --ProtectiveWax
                     return true
                 end
             }))
+        end
+    end
+}
+SMODS.Joker{ --RoumuskusTheClown
+    key = "roumuskusTheClown",
+    atlas = 'Jokers',
+    pos = {x = 7, y = 3},
+    cost = 5,
+    rarity = 1,
+    blueprint_compat = true,
+    perishable_compat = true,
+    config = { extra = {
+        mult = 0
+    }},
+    loc_vars = function(self, info_queue, center)
+        return{vars = {center.ability.extra.mult}}
+    end,
+    calculate = function(self, card, context)
+        if context.discard and context.other_card == G.play.cards[1] and not context.blueprint then
+            card.ability.extra.mult = card.ability.extra.mult + context.other_card.base.nominal
+            return {
+                message_card = card,
+                message = '+'..context.other_card.base.nominal,
+                colour = G.C.MULT
+            }
+        end
+        if context.joker_main and card.ability.extra.mult > 0 then
+            return {
+                mult = card.ability.extra.mult
+            }
+        end
+        if context.after and not context.blueprint then
+            card.ability.extra.mult = 0
+            return {
+                message = localize("k_reset"),
+                colour = G.C.MULT
+            }
         end
     end
 }
