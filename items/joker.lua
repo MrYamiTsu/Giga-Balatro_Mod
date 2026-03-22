@@ -1455,12 +1455,11 @@ SMODS.Joker{ --RoumuskusTheJoké
         return{vars = {center.ability.extra.mult}}
     end,
     calculate = function(self, card, context)
-        if context.discard and context.other_card == G.discard.cards[1] and not context.blueprint then
+        if context.discard and context.other_card == context.full_hand[1] and not context.blueprint then
             card.ability.extra.mult = card.ability.extra.mult + context.other_card.base.nominal
             return {
-                message_card = card,
-                message = '+'..context.other_card.base.nominal,
-                colour = G.C.MULT
+                message = localize('k_upgrade_ex'),
+                colour = G.C.CHIPS
             }
         end
         if context.joker_main and card.ability.extra.mult > 0 then
