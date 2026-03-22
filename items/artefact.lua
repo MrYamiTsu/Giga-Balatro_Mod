@@ -40,6 +40,7 @@ SMODS.ConsumableType{
     shop_rate = 0
 }
 
+-- ARTEFACTS --
 SMODS.Consumable{ --FishingHook
     key = 'fishingHook',
     set = 'Giga_Artefact',

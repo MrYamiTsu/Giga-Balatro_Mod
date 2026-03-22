@@ -1440,8 +1440,8 @@ SMODS.Joker{ --ProtectiveWax
         end
     end
 }
-SMODS.Joker{ --RoumuskusTheClown
-    key = "roumuskusTheClown",
+SMODS.Joker{ --RoumuskusTheJoké
+    key = "roumuskusTheJoke",
     atlas = 'Jokers',
     pos = {x = 7, y = 3},
     cost = 5,
