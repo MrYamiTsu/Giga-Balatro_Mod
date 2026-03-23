@@ -102,7 +102,7 @@ payload = '''
         if _c.giga_data.is_dino then -- Dinosaurs
             info_queue[#info_queue+1] = {set = 'Other', key = 'giga_dinosaurs_info'}
         end
-        if _c.giga_data.from_ygo then -- Yu-Gi-Oh
+        if _c.giga_data.from_ygo and (love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift')) then -- Yu-Gi-Oh
             info_queue[#info_queue+1] = {set = 'Other', key = 'yugioh_credit'}
         end
     end

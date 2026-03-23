@@ -1253,8 +1253,8 @@ return {
                 name = 'Fuhdekun',
                 text = {
                     'When a {C:attention}playing card{} is added',
-                    '{C:green}#1# in #2#{} chance to create',
-                    'a copy in your deck',
+                    '{C:green}#1# in #2#{} chance to add a',
+                    '{C:attention}copy{} to the deck',
                 }
             },
             j_giga_protectiveWax = {

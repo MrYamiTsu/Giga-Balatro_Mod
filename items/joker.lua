@@ -150,8 +150,10 @@ SMODS.Joker{ --HighRiskHighReward
         chances = 3
     }},
     loc_vars = function(self, info_queue, center)
+        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        end
         local odds, chances = SMODS.get_probability_vars(center, center.ability.extra.odds, center.ability.extra.chances, 'giga_highRiskHighReward')
-        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
         return {vars = {center.ability.extra.mult, odds, chances}}
     end,
     calculate = function(self, card, context)
@@ -2000,7 +2002,9 @@ SMODS.Joker{ --Tabaosl
     blueprint_compat = false,
     eternal_compat = true,
     loc_vars = function(self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'aij_back_credit'}
+        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'aij_back_credit'}
+        end
     end,
     calculate = function(self,card,context)
         if context.initial_scoring_step and not context.blueprint then
@@ -2072,7 +2076,9 @@ SMODS.Joker{ --LLOTFO
         chips = 45
     }},
     loc_vars = function(self, info_queue, center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        end
         return {vars = {center.ability.extra.chips}}
     end,
     calculate = function(self, card, context)
@@ -2100,7 +2106,9 @@ SMODS.Joker{ --RLOTFO
         chips = 45
     }},
     loc_vars = function(self, info_queue, center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        end
         return {vars = {center.ability.extra.chips}}
     end,
     calculate = function(self, card, context)
@@ -2128,7 +2136,9 @@ SMODS.Joker{ --LAOTFO
         chips = 45
     }},
     loc_vars = function(self, info_queue, center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        end
         return {vars = {center.ability.extra.chips}}
     end,
     calculate = function(self, card, context)
@@ -2156,7 +2166,9 @@ SMODS.Joker{ --RAOTFO
         chips = 45
     }},
     loc_vars = function(self, info_queue, center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        end
         return {vars = {center.ability.extra.chips}}
     end,
     calculate = function(self, card, context)
@@ -2184,7 +2196,9 @@ SMODS.Joker{ --ETFO
         chips = 20
     }},
     loc_vars = function(self, info_queue, center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        end
         return {vars = {center.ability.extra.chips}}
     end,
     calculate = function(self, card, context)
@@ -2219,7 +2233,9 @@ SMODS.Joker{ --TLEI
         mult = 50
     }},
     loc_vars = function(self, info_queue, center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        end
         return {vars ={center.ability.extra.mult}}
     end,
     calculate = function(self, card, context)
@@ -2250,7 +2266,9 @@ SMODS.Joker{ --BlueEyesWhiteDragon
         xmult = 1.75
     }},
     loc_vars = function(self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        end
         return{vars = {center.ability.extra.mult, center.ability.extra.xmult}}
     end,
     calculate = function(self,card,context)
@@ -2291,7 +2309,9 @@ SMODS.Joker{ --RedEyesBlackDragon
         xmult = 1.75
     }},
     loc_vars = function(self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        end
         return{vars = {center.ability.extra.mult, center.ability.extra.xmult}}
     end,
     calculate = function(self,card,context)
@@ -2339,7 +2359,9 @@ SMODS.Joker{ --BYUD
         xmult2 = 4
     }},
     loc_vars = function(self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
+        end
         return {vars ={center.ability.extra.mult, center.ability.extra.xmult1, center.ability.extra.xmult2}}
     end,
     calculate = function(self,card,context)

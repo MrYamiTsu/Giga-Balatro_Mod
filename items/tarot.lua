@@ -9,7 +9,9 @@ SMODS.Consumable{ --Cook
         card = 3
     }},
     loc_vars = function (self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'jogla_art_credit'}
+        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'jogla_art_credit'}
+        end
         return{vars = {center.ability.extra.card}}
     end,
     can_use = function (self,card)
@@ -41,7 +43,9 @@ SMODS.Consumable{ --Gardener
     cost = 3,
     config = { max_highlighted = 2, mod_conv = 'm_giga_soil' },
     loc_vars = function (self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'jogla_art_credit'}
+        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'jogla_art_credit'}
+        end
         info_queue[#info_queue+1] = G.P_CENTERS['m_giga_soil']
         return{vars = {center.ability.max_highlighted}}
     end
@@ -55,8 +59,11 @@ SMODS.Consumable{ --Trowel
     cost = 3,
     config = { max_highlighted = 1, mod_conv = 'm_giga_pottery' },
     loc_vars = function (self,info_queue,center)
+        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'darling_credit'}
+        end
         info_queue[#info_queue+1] = G.P_CENTERS['m_giga_pottery']
-        info_queue[#info_queue+1] = {set = 'Other', key = 'darling_credit'}
+        
         return{vars = {center.ability.max_highlighted}}
     end
 }
@@ -71,6 +78,9 @@ SMODS.Consumable{ --UpgradeTarot
         card = 2
     }},
     loc_vars = function (self,info_queue,center)
+        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'jogla_art_credit'}
+        end
         if G.hand then
             for i, _card in ipairs(G.hand.highlighted) do
                 if _card.config.center_key ~= 'c_base' and G.P_CENTERS[_card.config.center_key].giga_data then

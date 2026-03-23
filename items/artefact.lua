@@ -58,7 +58,9 @@ SMODS.Consumable{ --FishingHook
         nbre = 2
     }},
     loc_vars = function (self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'darling_credit'}
+        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'darling_credit'}
+        end
         return{vars = {center.ability.extra.mult}}
     end,
     can_use = function (self, card)
@@ -376,7 +378,9 @@ SMODS.Consumable{ --Arrow
         nbre = 14
     }},
     loc_vars = function (self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'darling_credit'}
+        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'darling_credit'}
+        end
         return{vars = {center.ability.extra.mult}}
     end,
     can_use = function (self, card)

@@ -177,7 +177,9 @@ SMODS.Consumable{ --UpgradeSpectral
         card = 2
     }},
     loc_vars = function (self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'jogla_art_credit'}
+        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
+            info_queue[#info_queue+1] = {set = 'Other', key = 'jogla_art_credit'}
+        end
         if G.hand then
             for i, _card in ipairs(G.hand.highlighted) do
                 if _card:get_seal() ~= nil and G.P_SEALS[_card:get_seal()].giga_data then
