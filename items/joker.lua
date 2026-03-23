@@ -1493,6 +1493,14 @@ SMODS.Joker{ --Ajebguer
     loc_vars = function(self, info_queue, center)
         return{vars = {center.ability.extra.mult_add, center.ability.extra.mult}}
     end,
+    in_pool = function(self, args)
+        for _, _c in ipairs(G.playing_cards or {}) do
+            if Giga.has_overcharge(_c) then
+                return true
+            end
+        end
+        return false
+    end,
     calculate = function(self, card, context)
         if context.discard and not context.other_card.debuff and Giga.has_overcharge(context.other_card) and not context.blueprint then
             card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_add
