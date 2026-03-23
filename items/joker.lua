@@ -1350,7 +1350,7 @@ SMODS.Joker{ --PotteryJoker
     cost = 6,
     rarity = 2,
     blueprint_compat = true,
-    perishable_compat = true,
+    eternal_compat = true,
     config = { extra = {
         mult = 5
     }},
@@ -1379,7 +1379,7 @@ SMODS.Joker{ --Fuhdekun
     cost = 6,
     rarity = 2,
     blueprint_compat = true,
-    perishable_compat = true,
+    eternal_compat = true,
     config = { extra = {
         odds = 1,
         chances = 3,
@@ -1418,7 +1418,7 @@ SMODS.Joker{ --ProtectiveWax
     cost = 8,
     rarity = 3,
     blueprint_compat = false,
-    perishable_compat = true,
+    eternal_compat = true,
     in_pool = function(self, args)
         for _, c in ipairs(G.playing_cards) do
             if SMODS.has_enhancement(c, 'm_giga_pottery') then
@@ -1449,7 +1449,7 @@ SMODS.Joker{ --RoumuskusTheJoké
     cost = 5,
     rarity = 1,
     blueprint_compat = true,
-    perishable_compat = true,
+    eternal_compat = true,
     config = { extra = {
         mult = 0
     }},
@@ -1474,6 +1474,36 @@ SMODS.Joker{ --RoumuskusTheJoké
             return {
                 message = localize("k_reset"),
                 colour = G.C.MULT
+            }
+        end
+    end
+}
+SMODS.Joker{ --Ajebguer
+    key = "ajebguer",
+    atlas = 'Jokers',
+    pos = {x = 4, y = 8},
+    cost = 6,
+    rarity = 1,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        mult = 0,
+        mult_add = 3
+    }},
+    loc_vars = function(self, info_queue, center)
+        return{vars = {center.ability.extra.mult_add, center.ability.extra.mult}}
+    end,
+    calculate = function(self, card, context)
+        if context.discard and not context.other_card.debuff and Giga.has_overcharge(context.other_card) and not context.blueprint then
+            card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_add
+            return {
+                message = '+'..card.ability.extra.mult,
+                colour = G.C.CHIPS
+            }
+        end
+        if context.joker_main and card.ability.extra.mult > 0 then
+            return {
+                mult = card.ability.extra.mult
             }
         end
     end

@@ -1274,6 +1274,15 @@ return {
                     '{C:inactive}(Currently: {C:mult}+#1#{} {C:inactive}Mult)'
                 }
             },
+            j_giga_ajebguer = {
+                name = 'Ajebguer',
+                text = {
+                    'Gains {C:mult}+#1#{} Mult when a card',
+                    'with an {C:attention}Overcharge{}',
+                    'is {C:attention}discarded{}',
+                    '{C:inactive}(Currently: {C:mult}+#2#{} {C:inactive}Mult)'
+                }
+            },
             --#endregion
             --#region CrossMod
             j_giga_triceratops_alt = {
