@@ -1443,7 +1443,7 @@ SMODS.Joker{ --ProtectiveWax
 SMODS.Joker{ --RoumuskusTheJoké
     key = "roumuskusTheJoke",
     atlas = 'Jokers',
-    pos = {x = 7, y = 3},
+    pos = {x = 3, y = 8},
     cost = 5,
     rarity = 1,
     blueprint_compat = true,
