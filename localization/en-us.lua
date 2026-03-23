@@ -1268,7 +1268,7 @@ return {
             j_giga_roumuskusTheJoke = {
                 name = 'Roumuskus The Joké',
                 text = {
-                    'Gains first discarded card',
+                    'Gains {C:attention}first discarded{} card',
                     '{C:chips}chip{} value as {C:mult}Mult{}',
                     'Reset after playing a hand',
                     '{C:inactive}(Currently: {C:mult}+#1#{} {C:inactive}Mult)'
