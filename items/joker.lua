@@ -1497,8 +1497,8 @@ SMODS.Joker{ --Ajebguer
         if context.discard and not context.other_card.debuff and Giga.has_overcharge(context.other_card) and not context.blueprint then
             card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_add
             return {
-                message = '+'..card.ability.extra.mult,
-                colour = G.C.CHIPS
+            message = '+'..card.ability.extra.mult..' Mult',
+                colour = G.C.MULT
             }
         end
         if context.joker_main and card.ability.extra.mult > 0 then
