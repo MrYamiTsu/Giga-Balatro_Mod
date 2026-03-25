@@ -84,6 +84,14 @@ return {
                     'each played',
                     'number cards'
                 }
+            },
+            bl_giga_train = {
+                name = 'The Train',
+                text = {
+                    'Add a Stone card',
+                    'in deck when playing',
+                    'a hand'
+                }
             }
         },
         Edition={},

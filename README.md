@@ -81,9 +81,9 @@
             <td>4</td>
         </tr>
         <tr>
-            <td>Editions</td>
-            <td>3</td>
             <td>Boss Blind</td>
+            <td>4</td>
+            <td>Editions</td>
             <td>3</td>
         </tr>
         <tr>

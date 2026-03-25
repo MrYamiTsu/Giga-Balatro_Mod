@@ -65,3 +65,28 @@ SMODS.Blind { --TheAltitude
     end,
     boss_colour = HEX("008080")
 }
+SMODS.Blind { --TheTrain
+    key = "train",
+    dollars = 5,
+    mult = 2,
+    atlas = "Blinds",
+    pos = {x = 0, y = 2},
+    boss = {min = 2},
+    calculate = function(self, blind, context)
+        if context.before then
+            return {
+                func = function()
+                    local _card = SMODS.add_card({
+                        set = 'Enhanced',
+                        enhancement = "m_stone",
+                        area = G.deck
+                    })
+                    SMODS.calculate_context({ playing_card_added = true, cards = { _card } })
+                    blind:wiggle()
+                    return true
+				end
+            }
+        end
+    end,
+    boss_colour = HEX("008080")
+}
