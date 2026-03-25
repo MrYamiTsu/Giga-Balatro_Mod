@@ -70,7 +70,7 @@ SMODS.Blind { --TheTrain
     dollars = 5,
     mult = 2,
     atlas = "Blinds",
-    pos = {x = 0, y = 2},
+    pos = {x = 0, y = 3},
     boss = {min = 2},
     calculate = function(self, blind, context)
         if context.before then
@@ -88,5 +88,5 @@ SMODS.Blind { --TheTrain
             }
         end
     end,
-    boss_colour = HEX("008080")
+    boss_colour = HEX("636363")
 }
