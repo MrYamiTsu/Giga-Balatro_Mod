@@ -1208,10 +1208,9 @@ return {
             j_giga_likoyTonam = {
                 name = 'Likoy-Tonam',
                 text = {
-                    '{C:attention}Upgrades{} the first',
-                    '{C:attention}held{} in hand seal',
-                    'before {C:attention}final',
-                    '{C:attention}hand{} of round'
+                    'After {C:attention}final hand{} of round,',
+                    '{C:attention}upgrades{} the seal of the',
+                    '{C:attention}first{} card {C:attention}held{} in hand'
                 }
             },
             j_giga_bearmanJeff = {

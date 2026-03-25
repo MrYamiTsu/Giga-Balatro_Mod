@@ -806,7 +806,7 @@ SMODS.Joker{ --Likoy-Tonam
     blueprint_compat = true,
     eternal_compat = true,
     calculate = function(self, card, context)
-        if context.before and G.GAME.current_round.hands_left == 0 then
+        if context.after and G.GAME.current_round.hands_left == 0 then
             if #G.hand.cards >= 1 then
                 if G.hand.cards[1]:get_seal() and G.P_SEALS[G.hand.cards[1]:get_seal()].giga_data and
                    G.P_SEALS[G.hand.cards[1]:get_seal()].giga_data.seal_upgrade then
