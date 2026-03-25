@@ -1953,8 +1953,8 @@ return {
                     'your hand'
                 }
             },
-            c_giga_unnamedSpectral = {
-                name = 'Unnamed Spectral',
+            c_giga_dragon = {
+                name = 'Dragon',
                 text = {
                     'Enhances {C:attention}#1#{}',
                     'selected cards to',

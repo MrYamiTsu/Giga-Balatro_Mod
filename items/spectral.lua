@@ -1,9 +1,9 @@
 --#region NORMAL --
-SMODS.Consumable{ --UnnamedSpectral
-    key = 'unnamedSpectral',
+SMODS.Consumable{ --Dragon
+    key = 'dragon',
     set = 'Spectral',
     atlas = 'Consumeables',
-    pos = {x = 1, y = 1},
+    pos = {x = 1, y = 2},
     rarity = 1,
     cost = 3,
     config = { max_highlighted = 2, mod_conv = 'm_giga_giga' },
