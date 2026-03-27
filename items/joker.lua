@@ -1414,7 +1414,7 @@ SMODS.Joker{ --Fuhdekun
 SMODS.Joker{ --ProtectiveWax
     key = "protectiveWax",
     atlas = 'Jokers',
-    pos = {x = 7, y = 3},
+    pos = {x = 5, y = 8},
     cost = 8,
     rarity = 3,
     blueprint_compat = false,
