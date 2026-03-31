@@ -1393,34 +1393,6 @@ return {
             },
             --#endregion
             --#region Credit
-            ledugs_credit = {
-                name = 'Credit',
-                text = {
-                    'Original idea',
-                    'by {C:green,E:2}le_dugs{}'
-                }
-            },
-            darling_credit = {
-                name = 'Credit',
-                text = {
-                    'Original idea',
-                    'by {C:green,E:2}Darling{}'
-                }
-            },
-            jogla_credit = {
-                name = 'Credit',
-                text = {
-                    'Original idea',
-                    'by {C:green,E:2}Jogla{}'
-                }
-            },
-            jogla_art_credit = {
-                name = 'Credit',
-                text = {
-                    'Original artworks',
-                    'by {C:green,E:2}Jogla{}'
-                }
-            },
             yugioh_credit = {
                 name = 'Credit',
                 text = {
@@ -2063,6 +2035,8 @@ return {
         },
         high_scores={},
         labels={
+            Giga_Food = 'Food',
+            Giga_Artefact = 'Artefact',
             giga_pinkseal_seal = 'Pink Seal',
             giga_crimsonseal_seal = 'Crimson Seal',
             giga_aquaseal_seal = 'Aqua Seal',
@@ -2080,17 +2054,17 @@ return {
             giga_aquaplus_seal = 'Aqua+ Seal',
             giga_crimsonplusplus_seal = 'Crimson++ Seal',
             giga_aquaplusplus_seal = 'Aqua++ Seal',
-            Giga_Food = 'Food',
-            Giga_Artefact = 'Artefact',
-            giga_shiny_foil = 'Shiny Foil',
-            giga_shiny_holo = 'Shiny Holographic',
-            giga_shiny_poly = 'Shiny Polychrome',
             giga_redOvercharge = 'Red Overcharge',
             giga_yellowOvercharge = 'Yellow Overcharge',
             giga_orangeOvercharge = 'Orange Overcharge',
             giga_greenOvercharge = 'Green Overcharge',
             giga_blueOvercharge = 'Blue Overcharge',
-            giga_purpleOvercharge = 'Purple Overcharge'
+            giga_purpleOvercharge = 'Purple Overcharge',
+            giga_shiny_foil = 'Shiny Foil',
+            giga_shiny_holo = 'Shiny Holographic',
+            giga_shiny_poly = 'Shiny Polychrome',
+            giga_art_credit = 'Artwork by ',
+            giga_idea_credit = 'Idea by '
         },
         poker_hand_descriptions={
             ["giga_Linked Pairs"] = {

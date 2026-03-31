@@ -1,4 +1,4 @@
-SMODS.DeckSkin {
+SMODS.DeckSkin{
     key = 'giga_hearts',
     suit = 'Hearts',
     loc_txt = 'Astral Hearts',
@@ -21,7 +21,7 @@ SMODS.DeckSkin {
         }
     }
 }
-SMODS.DeckSkin {
+SMODS.DeckSkin{
     key = 'giga_clubs',
     suit = 'Clubs',
     loc_txt = 'Astral Clubs',
@@ -44,7 +44,7 @@ SMODS.DeckSkin {
         }
     }
 }
-SMODS.DeckSkin {
+SMODS.DeckSkin{
     key = 'giga_diamonds',
     suit = 'Diamonds',
     loc_txt = 'Astral Diamonds',
@@ -67,7 +67,7 @@ SMODS.DeckSkin {
         }
     }
 }
-SMODS.DeckSkin {
+SMODS.DeckSkin{
     key = 'giga_spades',
     suit = 'Spades',
     loc_txt = 'Astral Spades',

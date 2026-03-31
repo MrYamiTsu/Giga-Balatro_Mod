@@ -25,6 +25,9 @@ SMODS.Back{ --Teal
 SMODS.Back{ --Gladiolus
     key = 'gladiolus',
     atlas = "Decks",
+    giga_data = {
+        idea_credit = 'Darling'
+    },
     pos = {x = 1, y = 1},
     discovered = true,
 	unlocked = true,

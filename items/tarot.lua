@@ -2,6 +2,9 @@ SMODS.Consumable{ --Cook
     key = 'cook',
     set = 'Tarot',
     atlas = 'Consumeables',
+    giga_data = {
+        art_credit = 'Jogla'
+    },
     pos = {x = 0, y = 0},
     rarity = 1,
     cost = 3,
@@ -9,9 +12,6 @@ SMODS.Consumable{ --Cook
         card = 3
     }},
     loc_vars = function (self,info_queue,center)
-        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'jogla_art_credit'}
-        end
         return{vars = {center.ability.extra.card}}
     end,
     can_use = function (self,card)
@@ -38,14 +38,14 @@ SMODS.Consumable{ --Gardener
     key = 'gardener',
     set = 'Tarot',
     atlas = 'Consumeables',
+    giga_data = {
+        art_credit = 'Jogla'
+    },
     pos = {x = 2, y = 1},
     rarity = 1,
     cost = 3,
     config = { max_highlighted = 2, mod_conv = 'm_giga_soil' },
     loc_vars = function (self,info_queue,center)
-        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'jogla_art_credit'}
-        end
         info_queue[#info_queue+1] = G.P_CENTERS['m_giga_soil']
         return{vars = {center.ability.max_highlighted}}
     end
@@ -54,16 +54,15 @@ SMODS.Consumable{ --Trowel
     key = 'trowel',
     set = 'Tarot',
     atlas = 'Consumeables',
+    giga_data = {
+        idea_credit = 'Darling'
+    },
     pos = {x = 0, y = 2},
     rarity = 1,
     cost = 3,
     config = { max_highlighted = 1, mod_conv = 'm_giga_pottery' },
     loc_vars = function (self,info_queue,center)
-        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'darling_credit'}
-        end
         info_queue[#info_queue+1] = G.P_CENTERS['m_giga_pottery']
-        
         return{vars = {center.ability.max_highlighted}}
     end
 }
@@ -71,6 +70,9 @@ SMODS.Consumable{ --UpgradeTarot
     key = 'upgradeTarot',
     set = 'Tarot',
     atlas = 'Consumeables',
+    giga_data = {
+        art_credit = 'Jogla'
+    },
     pos = {x = 0, y = 1},
     rarity = 1,
     cost = 3,
@@ -78,9 +80,6 @@ SMODS.Consumable{ --UpgradeTarot
         card = 2
     }},
     loc_vars = function (self,info_queue,center)
-        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'jogla_art_credit'}
-        end
         if G.hand then
             for i, _card in ipairs(G.hand.highlighted) do
                 if _card.config.center_key ~= 'c_base' and G.P_CENTERS[_card.config.center_key].giga_data then

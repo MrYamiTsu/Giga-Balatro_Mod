@@ -45,6 +45,9 @@ SMODS.Consumable{ --FishingHook
     key = 'fishingHook',
     set = 'Giga_Artefact',
     atlas = 'Artefacts',
+    giga_data = {
+        idea_credit = 'Darling'
+    },
     pos = {x = 0, y = 0},
     soul_pos = {x = 0, y = 2},
     rarity = 1,
@@ -58,9 +61,6 @@ SMODS.Consumable{ --FishingHook
         nbre = 2
     }},
     loc_vars = function (self,info_queue,center)
-        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'darling_credit'}
-        end
         return{vars = {center.ability.extra.mult}}
     end,
     can_use = function (self, card)
@@ -365,6 +365,9 @@ SMODS.Consumable{ --Arrow
     key = 'arrow',
     set = 'Giga_Artefact',
     atlas = 'Artefacts',
+    giga_data = {
+        idea_credit = 'Darling'
+    },
     pos = {x = 0, y = 0},
     soul_pos = {x = 4, y = 1},
     rarity = 1,
@@ -378,9 +381,6 @@ SMODS.Consumable{ --Arrow
         nbre = 14
     }},
     loc_vars = function (self,info_queue,center)
-        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'darling_credit'}
-        end
         return{vars = {center.ability.extra.mult}}
     end,
     can_use = function (self, card)

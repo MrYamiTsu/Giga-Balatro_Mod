@@ -2,6 +2,10 @@ SMODS.Consumable{ --Migas
     key = 'migas',
     set = 'Giga_Food',
     atlas = 'Foods',
+    giga_data = {
+        art_credit = 'Jogla',
+        idea_credit = 'Jogla'
+    },
     fg_data = {
         crossover_label = 'Fools Gambit'
     },
@@ -16,8 +20,6 @@ SMODS.Consumable{ --Migas
         txt = 'k_giga_notrd'
     }},
     loc_vars = function (self,info_queue,center)
-        info_queue[#info_queue+1] = {set = 'Other', key = 'jogla_credit'}
-        info_queue[#info_queue+1] = {set = 'Other', key = 'jogla_art_credit'}
         return{vars = {center.ability.extra.round, localize(center.ability.extra.txt)}}
     end,
     can_use = function (self,card)

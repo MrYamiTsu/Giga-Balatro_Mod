@@ -142,7 +142,7 @@ SMODS.calculate_context({giga_pre_joker = true, full_hand = G.play.cards, scorin
 '''
 match_indent = true
 
-# REMOVE USE ARTEFACT #
+# REMOVE USE TO ARTEFACT #
 [[patches]]
 [patches.pattern]
 target = "functions/UI_definitions.lua"
@@ -185,3 +185,24 @@ if card.ability.set == 'Giga_Artefact' and not (card.area == G.pack_cards and G.
 end
 '''
 match_indent = true
+
+# ADD CREDIT #
+[[patches]]
+[patches.pattern]
+target = 'functions/UI_definitions.lua'
+match_indent = true
+position = 'before'
+pattern = '''
+local cols
+'''
+payload = '''
+if obj and obj.giga_data then
+    if obj.giga_data.art_credit then
+        badges[#badges + 1] = create_badge(localize('giga_art_credit', "labels")..obj.art_credit, G.C.CLEAR, SMODS.get_badge_text_colour(G.C.GREY))
+    end
+    if obj.giga_data.idea_credit then
+        badges[#badges + 1] = create_badge(localize('giga_idea_credit', "labels")..obj.art_credit, G.C.CLEAR, SMODS.get_badge_text_colour(G.C.GREY))
+    end
+end
+
+'''

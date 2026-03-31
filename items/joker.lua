@@ -139,6 +139,9 @@ SMODS.Joker{ --SnapchatGirl
 SMODS.Joker{ --HighRiskHighReward
     key = 'highRiskHighReward',
     atlas = 'Jokers',
+    giga_data = {
+        idea_credit = 'le_dugs'
+    },
     pos = {x = 0, y = 1},
     cost = 8,
     rarity = 3,
@@ -150,9 +153,6 @@ SMODS.Joker{ --HighRiskHighReward
         chances = 3
     }},
     loc_vars = function(self, info_queue, center)
-        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
-        end
         local odds, chances = SMODS.get_probability_vars(center, center.ability.extra.odds, center.ability.extra.chances, 'giga_highRiskHighReward')
         return {vars = {center.ability.extra.mult, odds, chances}}
     end,
@@ -2103,7 +2103,8 @@ SMODS.Joker{ --LLOTFO
     key = 'llotfo',
     atlas = 'Jokers',
     giga_data = {
-        from_ygo = true
+        from_ygo = true,
+        idea_credit = 'le_dugs'
     },
     pos = {x = 0, y = 3},
     cost = 8,
@@ -2114,9 +2115,6 @@ SMODS.Joker{ --LLOTFO
         chips = 45
     }},
     loc_vars = function(self, info_queue, center)
-        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
-        end
         return {vars = {center.ability.extra.chips}}
     end,
     calculate = function(self, card, context)
@@ -2133,7 +2131,8 @@ SMODS.Joker{ --RLOTFO
     key = 'rlotfo',
     atlas = 'Jokers',
     giga_data = {
-        from_ygo = true
+        from_ygo = true,
+        idea_credit = 'le_dugs'
     },
     pos = {x = 1, y = 3},
     cost = 8,
@@ -2144,9 +2143,6 @@ SMODS.Joker{ --RLOTFO
         chips = 45
     }},
     loc_vars = function(self, info_queue, center)
-        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
-        end
         return {vars = {center.ability.extra.chips}}
     end,
     calculate = function(self, card, context)
@@ -2163,7 +2159,8 @@ SMODS.Joker{ --LAOTFO
     key = 'laotfo',
     atlas = 'Jokers',
     giga_data = {
-        from_ygo = true
+        from_ygo = true,
+        idea_credit = 'le_dugs'
     },
     pos = {x = 2, y = 3},
     cost = 8,
@@ -2174,9 +2171,6 @@ SMODS.Joker{ --LAOTFO
         chips = 45
     }},
     loc_vars = function(self, info_queue, center)
-        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
-        end
         return {vars = {center.ability.extra.chips}}
     end,
     calculate = function(self, card, context)
@@ -2193,7 +2187,8 @@ SMODS.Joker{ --RAOTFO
     key = 'raotfo',
     atlas = 'Jokers',
     giga_data = {
-        from_ygo = true
+        from_ygo = true,
+        idea_credit = 'le_dugs'
     },
     pos = {x = 3, y = 3},
     cost = 8,
@@ -2204,9 +2199,6 @@ SMODS.Joker{ --RAOTFO
         chips = 45
     }},
     loc_vars = function(self, info_queue, center)
-        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
-        end
         return {vars = {center.ability.extra.chips}}
     end,
     calculate = function(self, card, context)
@@ -2223,7 +2215,8 @@ SMODS.Joker{ --ETFO
     key = 'etfo',
     atlas = 'Jokers',
     giga_data = {
-        from_ygo = true
+        from_ygo = true,
+        idea_credit = 'le_dugs'
     },
     pos = {x = 4, y = 3},
     cost = 8,
@@ -2234,9 +2227,6 @@ SMODS.Joker{ --ETFO
         chips = 20
     }},
     loc_vars = function(self, info_queue, center)
-        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
-        end
         return {vars = {center.ability.extra.chips}}
     end,
     calculate = function(self, card, context)
@@ -2258,7 +2248,8 @@ SMODS.Joker{ --TLEI
             'j_giga_laotfo',
             'j_giga_raotfo',
             'j_giga_etfo',
-        }
+        },
+        idea_credit = 'le_dugs'
     },
     pos = {x = 1, y = 0},
     soul_pos = {x = 0, y = 0},
@@ -2271,9 +2262,6 @@ SMODS.Joker{ --TLEI
         mult = 50
     }},
     loc_vars = function(self, info_queue, center)
-        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
-        end
         return {vars ={center.ability.extra.mult}}
     end,
     calculate = function(self, card, context)
@@ -2291,7 +2279,8 @@ SMODS.Joker{ --BlueEyesWhiteDragon
     key = 'blueEyesWhiteDragon',
     atlas = 'Jokers',
     giga_data = {
-        from_ygo = true
+        from_ygo = true,
+        idea_credit = 'le_dugs'
     },
     pos = {x = 6, y = 1},
     soul_pos = {x = 5, y = 1},
@@ -2304,9 +2293,6 @@ SMODS.Joker{ --BlueEyesWhiteDragon
         xmult = 1.75
     }},
     loc_vars = function(self,info_queue,center)
-        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
-        end
         return{vars = {center.ability.extra.mult, center.ability.extra.xmult}}
     end,
     calculate = function(self,card,context)
@@ -2334,7 +2320,8 @@ SMODS.Joker{ --RedEyesBlackDragon
     key = 'redEyesBlackDragon',
     atlas = 'Jokers',
     giga_data = {
-        from_ygo = true
+        from_ygo = true,
+        idea_credit = 'le_dugs'
     },
     pos = {x = 1, y = 2},
     soul_pos = {x = 0, y = 2},
@@ -2347,9 +2334,6 @@ SMODS.Joker{ --RedEyesBlackDragon
         xmult = 1.75
     }},
     loc_vars = function(self,info_queue,center)
-        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
-        end
         return{vars = {center.ability.extra.mult, center.ability.extra.xmult}}
     end,
     calculate = function(self,card,context)
@@ -2382,7 +2366,8 @@ SMODS.Joker{ --BYUD
             'j_giga_blueEyesWhiteDragon',
             'j_giga_blueEyesWhiteDragon',
             'j_giga_blueEyesWhiteDragon'
-        }
+        },
+        idea_credit = 'le_dugs'
     },
     pos = {x = 1, y = 0},
     soul_pos = {x = 0, y = 0},
@@ -2397,9 +2382,6 @@ SMODS.Joker{ --BYUD
         xmult2 = 4
     }},
     loc_vars = function(self,info_queue,center)
-        if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
-            info_queue[#info_queue+1] = {set = 'Other', key = 'ledugs_credit'}
-        end
         return {vars ={center.ability.extra.mult, center.ability.extra.xmult1, center.ability.extra.xmult2}}
     end,
     calculate = function(self,card,context)
