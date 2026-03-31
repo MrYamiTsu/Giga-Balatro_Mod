@@ -198,10 +198,10 @@ local cols
 payload = '''
 if obj and obj.giga_data then
     if obj.giga_data.art_credit then
-        badges[#badges + 1] = create_badge(localize('giga_art_credit', "labels")..obj.art_credit, G.C.CLEAR, SMODS.get_badge_text_colour(G.C.GREY))
+        badges[#badges + 1] = create_badge(localize('giga_art_credit', "labels")..obj.giga_data.art_credit, G.C.CLEAR, SMODS.get_badge_text_colour(G.C.GREY))
     end
-    if obj.giga_data.idea_credit then
-        badges[#badges + 1] = create_badge(localize('giga_idea_credit', "labels")..obj.art_credit, G.C.CLEAR, SMODS.get_badge_text_colour(G.C.GREY))
+    if obj.giga_data.art_credit then
+        badges[#badges + 1] = create_badge(localize('giga_idea_credit', "labels")..obj.giga_data.art_credit, G.C.CLEAR, SMODS.get_badge_text_colour(G.C.GREY))
     end
 end
 
