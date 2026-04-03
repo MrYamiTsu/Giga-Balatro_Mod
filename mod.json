@@ -6,10 +6,11 @@
   "description": "Looks like things can be upgraded now !",
   "prefix": "giga",
   "main_file": "main.lua",
+  "icon_path": "modicon.png",
   "priority": 1,
   "badge_color": "#0D1717",
-  "version": "2.87.11~dev",
+  "version": "2.87.12~dev",
   "release_version": "1.10a",
   "badge_text_color": "#F0F0F0",
-  "dependencies": ["Steamodded (>=1.0.0~BETA-1503a)", "Lovely (>=0.8)"]
+  "dependencies": ["Steamodded (>=1.0.0~BETA-1531zeebee)", "Lovely (>=0.8)"]
 }
