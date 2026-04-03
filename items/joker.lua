@@ -991,7 +991,7 @@ SMODS.Joker{ --BonoboJoker
     key = 'bonoboJoker',
     atlas = 'Jokers',
     pos = {x = 5, y = 5},
-    cost = 6,
+    cost = 5,
     rarity = 1,
     blueprint_compat = true,
     eternal_compat = true,
@@ -1013,7 +1013,7 @@ SMODS.Joker{ --OnTheClock
         alternate_key = 'j_giga_onTheClock_alt'
     },
     pos = {x = 0, y = 6},
-    cost = 6,
+    cost = 5,
     rarity = 1,
     blueprint_compat = true,
     eternal_compat = true,

@@ -57,7 +57,7 @@ SMODS.Consumable{ --Compass
     atlas = 'Consumeables',
     pos = {x = 2, y = 0},
     rarity = 1,
-    config = { extra = { seal = 'giga_crimsonseal' }, max_highlighted = 2 },
+    config = { extra = { seal = 'giga_crimsonseal' }, max_highlighted = 1 },
     loc_vars = function (self,info_queue,center)
         info_queue[#info_queue+1] = G.P_SEALS.giga_crimsonseal
         return{vars = {colours={HEX('DC143C')}, center.ability.max_highlighted}}
