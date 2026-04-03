@@ -1,4 +1,4 @@
-<h1>GIGA</h1>
+<img src="assets/2x/logo.png" alt="Logo">
 
 <p>
     <a href="https://github.com/Steamodded/smods" target="_blank">
