@@ -609,7 +609,7 @@ return {
                 text = {
                     'A delicious Cranberry Juice that',
                     'adds a random {C:attention}Overcharge{} on',
-                    '{C:attention}#1#{} selected card in{C:attention}#2#{} rounds',
+                    '{C:attention}#1#{} selected card in {C:attention}#2#{} rounds',
                     '{C:inactive}#3#{}'
                 }
             },
