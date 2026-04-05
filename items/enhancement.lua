@@ -467,7 +467,8 @@ SMODS.Enhancement{ --GigaMax
 	calculate = function(self, card, context)
 		if context.after and context.cardarea == G.hand then
 			for _, c in ipairs(G.play.cards) do
-				if SMODS.pseudorandom_probability(card, pseudoseed('giga_gigaMax'), card.ability.extra.odds, card.ability.extra.chances) then
+				if c.config.center_key and G.P_CENTERS[c.config.center_key].giga_data and G.P_CENTERS[c.config.center_key].giga_data.enh_upgrade and
+				   SMODS.pseudorandom_probability(card, pseudoseed('giga_GigaMax'), card.ability.extra.odds, card.ability.extra.chances) then
 					Giga.upgrade_enhancement(c)
 				end
 			end

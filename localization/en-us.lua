@@ -1628,7 +1628,7 @@ return {
             giga_purpleOvercharge = {
                 name = 'Purple Overcharge',
                 text = {
-                    'Creates {C:attention}#1#{} {C:Giga_Food}Food{} when {C:attention}played{}',
+                    'Creates {C:attention}#1#{} {C:giga_Food}Food{} when {C:attention}played{}',
                     '{C:green}#2# in #3#{} chance to be {C:dark_edition}Negative{}',
                     'Increase by {C:attention}#4#{} for each',
                     '{C:attention}#5# discarded{} Overcharge',
