@@ -458,8 +458,8 @@ SMODS.Enhancement{ --GigaMax
 	discovered = true,
 	config = { extra = {
 		odds = 1,
-		chances = 4
-	}, x_mult = 3, h_x_mult = 2.5 },
+		chances = 6
+	}, x_mult = 2.5, h_x_mult = 2.5 },
 	loc_vars = function(self, info_queue, card)
 		local numerator, denominator = SMODS.get_probability_vars(card, card.ability.extra.odds, card.ability.extra.chances, 'prob')
 		return {vars = {card.ability.x_mult, card.ability.h_x_mult, numerator, denominator}}
@@ -489,10 +489,10 @@ SMODS.Enhancement{ --UltimateGigaMax
 	discovered = true,
 	config = { extra = {
 		odds1 = 1,
-		chances1 = 3,
+		chances1 = 4,
 		odds2 = 1,
-		chances2 = 6
-	}, x_mult = 4, h_x_mult = 3 },
+		chances2 = 8
+	}, x_mult = 3, h_x_mult = 3 },
 	loc_vars = function(self, info_queue, card)
 		local numerator1, denominator1 = SMODS.get_probability_vars(card, card.ability.extra.odds1, card.ability.extra.chances1, 'prob')
 		local numerator2, denominator2 = SMODS.get_probability_vars(card, card.ability.extra.odds2, card.ability.extra.chances2, 'prob')
