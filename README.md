@@ -2,7 +2,7 @@
 
 <p>
     <a href="https://github.com/Steamodded/smods" target="_blank">
-        <img src="https://img.shields.io/badge/Steamodded-1.0.0--BETA--1531zeebee+-red.svg" alt="Steamodded Version">
+        <img src="https://img.shields.io/badge/Steamodded-1.0.0--BETA--1503a+-red.svg" alt="Steamodded Version">
     </a>
     <a href="https://discord.com/channels/1116389027176787968/1398876204622286958" target="_blank">
         <img src="https://img.shields.io/badge/Discord-Balatro%20Thread-blue.svg" alt="Discord">
@@ -15,7 +15,7 @@
 
 <h2>Requirements</h2>
 <ul>
-    <li><strong><a href="https://github.com/Steamodded/smods" target="_blank">Steamodded</a></strong>: Version 1.0.0~BETA-1531zeebee or higher is required.</li>
+    <li><strong><a href="https://github.com/Steamodded/smods" target="_blank">Steamodded</a></strong>: Version 1.0.0~BETA-1503a or higher is required.</li>
     <li><strong><a href="https://github.com/SpectralPack/Talisman" target="_blank">Talisman</a> (Optional)</strong>: Recommended for high-score management.</li>
 </ul>
 
