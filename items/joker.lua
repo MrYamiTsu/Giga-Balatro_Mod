@@ -1352,7 +1352,7 @@ SMODS.Joker{ --PotteryJoker
     blueprint_compat = true,
     eternal_compat = true,
     config = { extra = {
-        mult = 5
+        mult = 4
     }},
     loc_vars = function(self, info_queue, center)
         info_queue[#info_queue + 1] = G.P_CENTERS.m_giga_pottery
@@ -1488,7 +1488,7 @@ SMODS.Joker{ --Ajebguer
     eternal_compat = true,
     config = { extra = {
         mult = 0,
-        mult_add = 3
+        mult_add = 2
     }},
     loc_vars = function(self, info_queue, center)
         return{vars = {center.ability.extra.mult_add, center.ability.extra.mult}}
@@ -1515,6 +1515,49 @@ SMODS.Joker{ --Ajebguer
             }
         end
     end
+}
+SMODS.Joker{ --TheCaskOfAmontillado
+    key = "theCaskOfAmontillado",
+    atlas = 'Jokers',
+    giga_data = {
+        art_credit = 'Yotam',
+        idea_credit = 'Yotam'
+    },
+    pos = {x = 6, y = 8},
+    cost = 8,
+    rarity = 3,
+    blueprint_compat = true,
+    eternal_compat = true,
+    config = { extra = {
+        mult = 1,
+        mult_add = 0.1
+    }},
+    in_pool = function(self, args)
+        for _, _c in ipairs(G.playing_cards or {}) do
+            if SMODS.has_enhancement(_c, 'm_lucky') then
+                return true
+            end
+        end
+        return false
+    end,
+    loc_vars = function(self, info_queue, center)
+        return{vars = {center.ability.extra.mult_add, center.ability.extra.mult}}
+    end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play and not context.other_card.lucky_trigger and not context.blueprint then
+            card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_add
+            return {
+                message = localize('k_upgrade_ex'),
+                colour = G.C.MULT,
+                message_card = card
+            }
+        end
+        if context.joker_main then
+            return {
+                xmult = card.ability.extra.mult
+            }
+        end
+    end,
 }
 --#endregion
 --#region JACKS JOKERS --

@@ -1290,6 +1290,14 @@ return {
                     '{C:inactive}(Currently: {C:mult}+#2#{} {C:inactive}Mult)'
                 }
             },
+            j_giga_theCaskOfAmontillado = {
+                name = 'The Cask of Amontillado',
+                text = {
+                    'Gains {X:mult,C:white}X#1#{} Mult for each {C:attention}Lucky{}',
+                    'card that {C:attention}does not{} triggers',
+                    '{C:inactive}(Currently: {X:mult,C:white}X#2#{} {C:inactive}Mult)'
+                }
+            },
             --#endregion
             --#region CrossMod
             j_giga_triceratops_alt = {
