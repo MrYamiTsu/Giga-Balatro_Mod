@@ -24,13 +24,12 @@ SMODS.Consumable{ --Migas
     end,
     can_use = function (self,card)
         if card.ability.extra.round_left <= 0 then
-            return true
+            return (G.consumeables and #G.consumeables.cards < G.consumeables.config.card_limit) or (card.area == G.consumeables)
         end
         return false
     end,
     use = function (self,card,area,copier)
-        _create(card, 'aberration', G.consumeables,true,true)
-        delay(0.4)
+        SMODS.add_card({set = 'aberration'})
     end,
     calculate = function (self,card,context)
         if context.end_of_round and context.main_eval then

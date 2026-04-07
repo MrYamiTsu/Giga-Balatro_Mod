@@ -68,4 +68,62 @@ if not Giga_config.menu_card then
 	    }
     end
 end
+--[[local oldfunc = Game.main_menu
+Game.main_menu = function(change_context)
+    local ret = oldfunc(change_context)
+    local SC_scale = 1.1 * (G.debug_splash_size_toggle and 0.8 or 1)
+    G.SPLASH_giga_logo = Sprite(0, 0,
+        6 * SC_scale,
+        6 * SC_scale * (G.ASSET_ATLAS["giga_logo"].py / G.ASSET_ATLAS["giga_logo"].px),
+        G.ASSET_ATLAS["giga_logo"], { x = 0, y = 0 }
+    )
+    G.SPLASH_giga_logo:set_alignment({
+        major = G.title_top,
+        type = 'cm',
+        bond = 'Strong',
+        offset = { x = 0, y = 3 }
+    })
+    G.SPLASH_giga_logo:define_draw_steps({{
+        shader = 'dissolve',
+    }})
+    G.SPLASH_giga_logo.tilt_var = { mx = 0, my = 0, dx = 0, dy = 0, amt = 0 }
+    G.SPLASH_giga_logo.dissolve_colours = { G.C.MULT, G.C.CHIPS }
+    G.SPLASH_giga_logo.dissolve = 1
+    G.SPLASH_giga_logo.states.collide.can = true
+    function G.SPLASH_giga_logo:click()
+        play_sound('tarot1', 1, 0.3)
+        G.FUNCS['openModUI_Giga']()
+    end
+    function G.SPLASH_giga_logo:hover()
+        G.SPLASH_giga_logo:juice_up(0.05, 0.03)
+        play_sound('tarot1', math.random() * 0.2 + 0.9, 0.35)
+        Node.hover(self)
+    end
+    function G.SPLASH_giga_logo:stop_hover() Node.stop_hover(self) end
+    G.E_MANAGER:add_event(Event({
+        trigger = 'after',
+        delay = change_context == 'splash' and 3.6 or change_context == 'game' and 4 or 1,
+        blockable = false,
+        blocking = false,
+        func = (function()
+            play_sound('glass' .. (change_context == 'splash' and 2 or 3),
+            (change_context == 'splash' and 1 or 1.3), 0.9)
+            play_sound('tarot1', 0.2, 0.8)
+            ease_value(G.SPLASH_giga_logo, 'dissolve', -1, nil, nil, nil,
+                change_context == 'splash' and 2.3 or 0.9)
+            G.VIBRATION = G.VIBRATION + 1.5
+            return true
+        end)
+    }))
+    G.SPLASH_BACK:define_draw_steps({ {
+        shader = 'splash',
+        send = {
+            { name = 'time',       ref_table = G.TIMERS,  ref_value = 'REAL_SHADER' },
+            { name = 'vort_speed', val = 0.4 },
+            { name = 'colour_1',   ref_table = G.C, ref_value = 'MULT' },
+            { name = 'colour_2',   ref_table = G.C, ref_value = 'CHIPS' },
+        }
+    } })
+    return ret
+end]]
 --#endregion

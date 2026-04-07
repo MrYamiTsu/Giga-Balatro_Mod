@@ -160,17 +160,23 @@ SMODS.Atlas{
     px = 71,
     py = 95
 }
-SMODS.Atlas {
+SMODS.Atlas{
 	key = 'skin_lc',
 	path = 'Skin_Opt1.png',
 	px = 71,
 	py = 95
 }
-SMODS.Atlas {
+SMODS.Atlas{
 	key = 'skin_hc',
 	path = 'Skin_Opt2.png',
 	px = 71,
 	py = 95
+}
+SMODS.Atlas{
+	key = 'logo',
+	path = 'Logo.png',
+	px = 126,
+	py = 50
 }
 SMODS.Atlas{
     key = 'secret1',

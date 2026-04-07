@@ -698,7 +698,7 @@ SMODS.Consumable{ --ClubSandwich
             card.ability.extra.round_left = card.ability.extra.round_left - 1
         end
         if card.ability.extra.round_left <= 0 and card.ability.extra.txt == 'k_giga_notrd' and #G.consumeables.cards then
-            local check_remove = function(card) 
+            local check_remove = function(card)
                 return not card.REMOVED
             end
             juice_card_until(card, check_remove, true)
