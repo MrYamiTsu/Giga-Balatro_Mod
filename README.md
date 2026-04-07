@@ -46,7 +46,7 @@
     <tbody>
         <tr>
             <td>Jokers</td>
-            <td>62+ (+11 Cross-Mod)</td>
+            <td>63+ (+11 Cross-Mod)</td>
             <td>Food cards</td>
             <td>35 (+6 Cross-Mod)</td>
         </tr>
@@ -135,3 +135,10 @@
     <li><strong>Eris</strong>: Code fixing.</li>
     <li>*All the dev in the Balatro modding community*.</li>
 </ul>
+
+<hr>
+
+<p align="center">
+  <i>This README covers the current development version. For stable versions and change logs, please visit the 
+  <a href="https://github.com/MrYamiTsu/Giga-Balatro_Mod/releases"><b>Latest Releases</b></a>.</i>
+</p>

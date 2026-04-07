@@ -9,7 +9,7 @@
   "icon_path": "modicon.png",
   "priority": 1,
   "badge_color": "#0D1717",
-  "version": "2.88.0~dev",
+  "version": "2.88.1~dev",
   "release_version": "1.10d",
   "badge_text_color": "#F0F0F0",
   "dependencies": ["Steamodded (>=1.0.0~BETA-1503a)", "Lovely (>=0.8)"]
