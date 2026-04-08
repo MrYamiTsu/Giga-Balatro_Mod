@@ -30,6 +30,37 @@ SMODS.Seal{ --Pink
     end,
     badge_colour = HEX("FF00E6")
 }
+SMODS.Seal{ --Amber
+    key = 'amberseal',
+    atlas = "Seals",
+    giga_data = {
+        seal_upgrade = 'giga_amberplus'
+    },
+    pos = {x = 1, y = 4},
+    discovered = true,
+	unlocked = true,
+    calculate = function(self, card, context)
+        if context.cardarea == 'unscored' and context.main_scoring then
+            if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+                G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                return {
+                    func = function()
+                        G.E_MANAGER:add_event(Event({
+                            func = function()
+                                SMODS.add_card({set = 'Giga_Artefact'})
+                                G.GAME.consumeable_buffer = 0
+                                return true
+                            end
+                        }))
+                        SMODS.calculate_effect({ message = localize("k_plus_artefact"), colour = HEX('FF9800FF') }, card)
+                        return true
+                    end
+                }
+            end
+        end
+    end,
+    badge_colour = HEX("FF9800")
+}
 SMODS.Seal{ --Aqua
     key = "aquaseal",
     atlas = "Seals",
@@ -314,7 +345,7 @@ SMODS.Seal{ --Pink+
     }},
     loc_vars = function(self, info_queue, card)
         local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'giga_pinkPlus')
-        return {vars = {odds, chances, self.config.extra.reduce,}}
+        return {vars = {odds, chances, self.config.extra.reduce}}
     end,
     in_pool = function(self)
         return false
@@ -362,6 +393,70 @@ SMODS.Seal{ --Pink+
         end
     end,
     badge_colour = HEX("FF00E6")
+}
+SMODS.Seal{ --Amber
+    key = 'amberplus',
+    atlas = "Seals",
+    giga_data = {
+        is_upgraded = true,
+        seal_upgrade = 'giga_amberplusplus'
+    },
+    pos = {x = 1, y = 4},
+    discovered = true,
+	unlocked = true,
+    config = { extra = {
+        odds = 1,
+        chances = 5
+    }},
+    loc_vars = function(self, info_queue, card)
+        local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'giga_amberPlus')
+        return {vars = {odds, chances}}
+    end,
+    in_pool = function(self)
+        return false
+    end,
+    calculate = function(self, card, context)
+        if context.cardarea == 'unscored' then
+            if context.main_scoring then
+                return {
+                    func = function()
+                        if SMODS.pseudorandom_probability(card, pseudoseed('giga_amberPlus'), self.config.extra.odds, self.config.extra.chances) then
+                            G.E_MANAGER:add_event(Event({
+                                func = function()
+                                    SMODS.add_card({set = 'Giga_Artefact', edition = 'e_negative'})
+                                    return true
+                                end
+                            }))
+                            SMODS.calculate_effect({ message = localize("k_plus_artefact"), colour = HEX('FF9800FF') }, card)
+                        else
+                            if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
+                                G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
+                                G.E_MANAGER:add_event(Event({
+                                    func = function()
+                                        SMODS.add_card({set = 'Giga_Artefact'})
+                                        G.GAME.consumeable_buffer = 0
+                                        return true
+                                    end
+                                }))
+                                SMODS.calculate_effect({ message = localize("k_plus_artefact"), colour = HEX('FF9800FF') }, card)
+                            end
+                        end
+                        return true
+                    end
+                }
+            end
+            if context.after then
+                if math.random(2) == 1 then
+                    card:juice_up()
+                    ease_discard(1)
+                else
+                    card:juice_up()
+                    ease_hands_played(1)
+                end
+            end
+        end
+    end,
+    badge_colour = HEX("FF9800")
 }
 SMODS.Seal{ --Aqua+
     key = "aquaplus",
