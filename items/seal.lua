@@ -401,7 +401,7 @@ SMODS.Seal{ --Amber
         is_upgraded = true,
         seal_upgrade = 'giga_amberplusplus'
     },
-    pos = {x = 1, y = 4},
+    pos = {x = 2, y = 4},
     discovered = true,
 	unlocked = true,
     config = { extra = {
