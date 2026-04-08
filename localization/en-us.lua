@@ -1594,7 +1594,7 @@ return {
             giga_amberplus_seal = {
                 name = 'Amber+ Seal',
                 text = {
-                    'Create an Artefact card,',
+                    'Create an {C:giga_Artefact}Artefact{} card,',
                     '{C:green}#1# in #2#{} chance to be',
                     '{C:dark_edition}Negative{}, and gain a',
                     '{C:red}discard{} or an {C:blue}hand{} when',
