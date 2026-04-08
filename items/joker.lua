@@ -1544,7 +1544,8 @@ SMODS.Joker{ --TheCaskOfAmontillado
         return{vars = {center.ability.extra.mult_add, center.ability.extra.mult}}
     end,
     calculate = function(self, card, context)
-        if context.individual and context.cardarea == G.play and not context.other_card.lucky_trigger and not context.blueprint then
+        if context.individual and context.cardarea == G.play and SMODS.has_enhancement(context.other_card, 'm_lucky')
+           and not context.other_card.lucky_trigger and not context.blueprint then
             card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_add
             return {
                 message = localize('k_upgrade_ex'),

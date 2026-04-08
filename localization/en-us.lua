@@ -1420,8 +1420,8 @@ return {
             giga_pinkseal_seal = {
                 name = 'Pink Seal',
                 text = {
-                    'When this card is {C:attention}scored{},',
-                    'create {C:attention}1{} {C:giga_Food}Food{} card',
+                    'Create a {C:giga_Food}Food{} card',
+                    'when played and scored'
                 }
             },
             giga_crimsonseal_seal = {
@@ -1582,6 +1582,13 @@ return {
                     '{X:mult,C:white}X#3#{} Mult plus',
                     '{X:mult,C:white}X#4#{} for each',
                     '{C:attention}Consumable{} card'
+                }
+            },
+            giga_amberseal_seal = {
+                name = 'Amber Seal',
+                text = {
+                    'Create an {C:giga_Artefact}Artefact{} card',
+                    'when played and unscored'
                 }
             },
             --#endregion
