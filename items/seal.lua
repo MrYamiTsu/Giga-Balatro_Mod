@@ -847,7 +847,7 @@ SMODS.Seal{ --Amber++
     giga_data = {
         is_upgraded = true
     },
-    pos = {x = 2, y = 4},
+    pos = {x = 3, y = 4},
     discovered = true,
 	unlocked = true,
     config = { extra = {
