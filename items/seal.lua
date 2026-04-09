@@ -405,12 +405,15 @@ SMODS.Seal{ --Amber+
     discovered = true,
 	unlocked = true,
     config = { extra = {
-        odds = 1,
-        chances = 5
+        odds1 = 1,
+        chances1 = 5,
+        odds2 = 1,
+        chances2 = 4
     }},
     loc_vars = function(self, info_queue, card)
-        local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'giga_amberPlus')
-        return {vars = {odds, chances}}
+        local odds1, chances1 = SMODS.get_probability_vars(card, self.config.extra.odds1, self.config.extra.chances1, 'giga_amberPlus')
+        local odds2, chances2 = SMODS.get_probability_vars(card, self.config.extra.odds2, self.config.extra.chances2, 'giga_amberPlus')
+        return {vars = {odds1, chances1, odds2, chances2}}
     end,
     in_pool = function(self)
         return false
@@ -420,7 +423,7 @@ SMODS.Seal{ --Amber+
             if context.main_scoring then
                 return {
                     func = function()
-                        if SMODS.pseudorandom_probability(card, pseudoseed('giga_amberPlus'), self.config.extra.odds, self.config.extra.chances) then
+                        if SMODS.pseudorandom_probability(card, pseudoseed('giga_amberPlus'), self.config.extra.odds1, self.config.extra.chances1) then
                             G.E_MANAGER:add_event(Event({
                                 func = function()
                                     SMODS.add_card({set = 'Giga_Artefact', edition = 'e_negative'})
@@ -446,12 +449,13 @@ SMODS.Seal{ --Amber+
                 }
             end
             if context.after then
-                if math.random(2) == 1 then
+                if SMODS.pseudorandom_probability(card, pseudoseed('giga_amberPlus'), self.config.extra.odds2, self.config.extra.chances2) then
                     card:juice_up()
-                    ease_discard(1)
-                else
-                    card:juice_up()
-                    ease_hands_played(1)
+                    if math.random(2) == 1 then
+                        ease_discard(1)
+                    else
+                        ease_hands_played(1)
+                    end
                 end
             end
         end
@@ -848,12 +852,15 @@ SMODS.Seal{ --Amber++
 	unlocked = true,
     config = { extra = {
         card = 2,
-        odds = 1,
-        chances = 3
+        odds1 = 1,
+        chances1 = 3,
+        odds2 = 1,
+        chances2 = 3
     }},
     loc_vars = function(self, info_queue, card)
-        local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'giga_amberPlusPlus')
-        return {vars = {self.config.extra.card, odds, chances}}
+        local odds1, chances1 = SMODS.get_probability_vars(card, self.config.extra.odds1, self.config.extra.chances1, 'giga_amberPlus')
+        local odds2, chances2 = SMODS.get_probability_vars(card, self.config.extra.odds2, self.config.extra.chances2, 'giga_amberPlus')
+        return {vars = {self.config.extra.card, odds1, chances1, odds2, chances2}}
     end,
     in_pool = function(self)
         return false
@@ -864,7 +871,7 @@ SMODS.Seal{ --Amber++
                 return {
                     func = function()
                         for i = 1, self.config.extra.card, 1 do
-                            if SMODS.pseudorandom_probability(card, pseudoseed('giga_amberPlusPlus'), self.config.extra.odds, self.config.extra.chances) then
+                            if SMODS.pseudorandom_probability(card, pseudoseed('giga_amberPlusPlus'), self.config.extra.odds1, self.config.extra.chances1) then
                                 G.E_MANAGER:add_event(Event({
                                     func = function()
                                         SMODS.add_card({set = 'Giga_Artefact', edition = 'e_negative'})
@@ -890,10 +897,10 @@ SMODS.Seal{ --Amber++
                     end
                 }
             end
-            if context.after then
+            if context.after and SMODS.pseudorandom_probability(card, pseudoseed('giga_amberPlusPlus'), self.config.extra.odds2, self.config.extra.chances2) then
                 card:juice_up()
+                ease_discard(1)
                 ease_hands_played(1)
-                ease_discard(1) 
             end
         end
     end,

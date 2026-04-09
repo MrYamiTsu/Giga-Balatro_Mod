@@ -1595,20 +1595,20 @@ return {
                 name = 'Amber+ Seal',
                 text = {
                     'Create an {C:giga_Artefact}Artefact{} card,',
-                    '{C:green}#1# in #2#{} chance to be',
-                    '{C:dark_edition}Negative{}, and gain a',
-                    '{C:red}discard{} or an {C:blue}hand{} when',
-                    'played and unscored'
+                    '{C:green}#1# in #2#{} chance to be {C:dark_edition}Negative{},',
+                    'and {C:green}#3# in #4#{} chance to gain a',
+                    '{C:red}discard{} or an {C:blue}hand{} when played',
+                    'and unscored'
                 }
             },
             giga_amberplusplus_seal = {
                 name = 'Amber++ Seal',
                 text = {
                     'Create #1# {C:giga_Artefact}Artefact{} card,',
-                    '{C:green}#2# in #3#{} chance to be',
-                    '{C:dark_edition}Negative{}, and gain a',
-                    '{C:red}discard{} and an {C:blue}hand{} when',
-                    'played and unscored'
+                    '{C:green}#2# in #3#{} chance to be {C:dark_edition}Negative{},',
+                    'and {C:green}#4# in #5#{} chance to gain a',
+                    '{C:red}discard{} and an {C:blue}hand{} when played',
+                    'and unscored'
                 }
             },
             --#endregion
