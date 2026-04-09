@@ -52,7 +52,7 @@
         </tr>
         <tr>
             <td>Seals</td>
-            <td>19</td>
+            <td>20</td>
             <td>Planets</td>
             <td>16</td>
         </tr>

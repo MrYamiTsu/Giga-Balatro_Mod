@@ -1601,6 +1601,16 @@ return {
                     'played and unscored'
                 }
             },
+            giga_amberplusplus_seal = {
+                name = 'Amber++ Seal',
+                text = {
+                    'Create #1# {C:giga_Artefact}Artefact{} card,',
+                    '{C:green}#2# in #3#{} chance to be',
+                    '{C:dark_edition}Negative{}, and gain a',
+                    '{C:red}discard{} and an {C:blue}hand{} when',
+                    'played and unscored'
+                }
+            },
             --#endregion
             --#region Overcharge
             giga_redOvercharge = {
