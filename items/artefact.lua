@@ -40,7 +40,7 @@ SMODS.ConsumableType{
     shop_rate = 0
 }
 
--- ARTEFACTS --
+--#region ARTEFACTS --
 SMODS.Consumable{ --FishingHook
     key = 'fishingHook',
     set = 'Giga_Artefact',
@@ -51,7 +51,7 @@ SMODS.Consumable{ --FishingHook
     pos = {x = 0, y = 0},
     soul_pos = {x = 0, y = 2},
     rarity = 1,
-    cost = 8,
+    cost = 6,
     config = { extra = {
         value = {
             incr = 2,
@@ -75,7 +75,7 @@ SMODS.Consumable{ --Silex
     pos = {x = 0, y = 0},
     soul_pos = {x = 1, y = 2},
     rarity = 1,
-    cost = 8,
+    cost = 6,
     config = { extra = {
         value = {
             incr = 2,
@@ -99,7 +99,7 @@ SMODS.Consumable{ --Totem
     pos = {x = 0, y = 0},
     soul_pos = {x = 2, y = 0},
     rarity = 1,
-    cost = 8,
+    cost = 6,
     config = { extra = {
         value = {
             incr = 2,
@@ -152,7 +152,7 @@ SMODS.Consumable{ --ShellAmulet
     pos = {x = 0, y = 0},
     soul_pos = {x = 3, y = 0},
     rarity = 1,
-    cost = 8,
+    cost = 6,
     config = { extra = {
         value = {
             incr = 2,
@@ -176,7 +176,7 @@ SMODS.Consumable{ --Plate
     pos = {x = 0, y = 0},
     soul_pos = {x = 0, y = 1},
     rarity = 1,
-    cost = 8,
+    cost = 6,
     config = { extra = {
         value = {
             incr = 2,
@@ -200,7 +200,7 @@ SMODS.Consumable{ --BoneDie
     pos = {x = 0, y = 0},
     soul_pos = {x = 2, y = 1},
     rarity = 1,
-    cost = 8,
+    cost = 6,
     config = { extra = {
         value = {
             incr = 2,
@@ -224,7 +224,7 @@ SMODS.Consumable{ --Helm
     pos = {x = 0, y = 0},
     soul_pos = {x = 4, y = 0},
     rarity = 1,
-    cost = 8,
+    cost = 6,
     config = { extra = {
         value = {
             incr = 2,
@@ -248,7 +248,7 @@ SMODS.Consumable{ --Trident
     pos = {x = 0, y = 0},
     soul_pos = {x = 3, y = 1},
     rarity = 1,
-    cost = 8,
+    cost = 6,
     config = { extra = {
         value = {
             incr = 2,
@@ -272,7 +272,7 @@ SMODS.Consumable{ --Tablet
     pos = {x = 0, y = 0},
     soul_pos = {x = 2, y = 2},
     rarity = 1,
-    cost = 8,
+    cost = 6,
     config = { extra = {
         value = {
             incr = 2,
@@ -296,7 +296,7 @@ SMODS.Consumable{ --MayaMask
     pos = {x = 0, y = 0},
     soul_pos = {x = 1, y = 1},
     rarity = 1,
-    cost = 8,
+    cost = 6,
     config = { extra = {
         value = {
             incr = 2,
@@ -320,7 +320,7 @@ SMODS.Consumable{ --Diadem
     pos = {x = 0, y = 0},
     soul_pos = {x = 3, y = 2},
     rarity = 1,
-    cost = 8,
+    cost = 6,
     config = { extra = {
         value = {
             incr = 2,
@@ -344,7 +344,7 @@ SMODS.Consumable{ --Pillar
     pos = {x = 0, y = 0},
     soul_pos = {x = 1, y = 0},
     rarity = 1,
-    cost = 8,
+    cost = 6,
     config = { extra = {
         value = {
             incr = 2,
@@ -371,7 +371,7 @@ SMODS.Consumable{ --Arrow
     pos = {x = 0, y = 0},
     soul_pos = {x = 4, y = 1},
     rarity = 1,
-    cost = 8,
+    cost = 6,
     config = { extra = {
         value = {
             incr = 2,
@@ -388,3 +388,4 @@ SMODS.Consumable{ --Arrow
     end,
     calculate = calculate_artefact
 }
+--#endregion
