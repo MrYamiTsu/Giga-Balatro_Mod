@@ -62,7 +62,7 @@ end
 --#endregion
 --#region MAIN MENU --
 if not Giga_config.menu_card then
-    SMODS.current_mod.menu_cards = function()
+    Giga.menu_cards = function()
 	    return {
 		    {key = 'j_giga_myt_own'}
 	    }
