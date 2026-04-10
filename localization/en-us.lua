@@ -1967,6 +1967,14 @@ return {
                     'selected cards to',
                     '{C:attention}Giga Cards{}'
                 }
+            },
+            c_giga_stasis = {
+                name = 'Stasis',
+                text = {
+                    'Add a {V:1}Amber Seal{}',
+                    'to {C:attention}#1#{} selected',
+                    'card in your hand'
+                }
             }
         },
         Stake={},

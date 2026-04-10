@@ -51,6 +51,45 @@ SMODS.Consumable{ --Salt
         }))
     end
 }
+SMODS.Consumable{ --Stasis
+    key = 'stasis',
+    set = 'Spectral',
+    atlas = 'Consumeables',
+    pos = {x = 2, y = 2},
+    rarity = 1,
+    config = { extra = { seal = 'giga_amberseal' }, max_highlighted = 1 },
+    loc_vars = function (self,info_queue,center)
+        info_queue[#info_queue+1] = G.P_SEALS.giga_amberseal
+        return{vars = {colours={HEX('FF9800')}, center.ability.max_highlighted}}
+    end,
+    use = function (self,card,area,copier)
+        G.E_MANAGER:add_event(Event({
+            func = function()
+                card:juice_up(0.3, 0.5)
+                return true
+            end
+        }))
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.1,
+            func = function()
+                for i, _c in pairs(G.hand.highlighted) do
+                    _c:set_seal(card.ability.extra.seal, nil, true)
+                end
+                return true
+            end
+        }))
+        delay(0.5)
+        G.E_MANAGER:add_event(Event({
+            trigger = 'after',
+            delay = 0.2,
+            func = function()
+                G.hand:unhighlight_all()
+                return true
+            end
+        }))
+    end
+}
 SMODS.Consumable{ --Compass
     key = 'compass',
     set = 'Spectral',
