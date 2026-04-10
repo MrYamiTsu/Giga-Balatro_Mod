@@ -63,9 +63,9 @@
             <td>13</td>
         </tr>
         <tr>
-            <td>Decks</td>
-            <td>7</td>
             <td>Spectrals</td>
+            <td>8</td>
+            <td>Decks</td>
             <td>7</td>
         </tr>
         <tr>
@@ -129,9 +129,10 @@
 <h2>Credits</h2>
 <ul>
     <li><strong>le_dugs</strong>: Ideas and playtesting.</li>
-    <li><strong>Jogla</strong>: Spanish translation, fixes, artworks, playtesting, and the Big Collab.</li>
+    <li><strong>Jogla</strong>: Spanish translation, fixes, artworks, playtesting and the Big Collab.</li>
     <li><strong>Frogggy18</strong>: Playtesting and balance changes.</li>
-    <li><strong>Zeed</strong>: Playtesting, English corrections, and ideas.</li>
+    <li><strong>Darling</strong>: Playtesting, English corrections and ideas.</li>
+    <li><strong>Yotam</strong>: Artwork and ideas.</li>
     <li><strong>Eris</strong>: Code fixing.</li>
     <li>*All the dev in the Balatro modding community*.</li>
 </ul>
