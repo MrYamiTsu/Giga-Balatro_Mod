@@ -420,6 +420,21 @@ SMODS.Seal{ --Amber+
     end,
     calculate = function(self, card, context)
         if context.cardarea == 'unscored' then
+            if context.after then
+                if SMODS.pseudorandom_probability(card, pseudoseed('giga_amberPlus'), self.config.extra.odds2, self.config.extra.chances2) then
+                    G.E_MANAGER:add_event(Event({
+                        func = function()
+                            card:juice_up()
+                            if math.random(2) == 1 then
+                                ease_discard(1)
+                            else
+                                ease_hands_played(1)
+                            end
+                            return true
+                        end
+                    }))
+                end
+            end
             if context.main_scoring then
                 return {
                     func = function()
@@ -447,21 +462,6 @@ SMODS.Seal{ --Amber+
                         return true
                     end
                 }
-            end
-            if context.after then
-                if SMODS.pseudorandom_probability(card, pseudoseed('giga_amberPlus'), self.config.extra.odds2, self.config.extra.chances2) then
-                    G.E_MANAGER:add_event(Event({
-                        func = function()
-                            card:juice_up()
-                            if math.random(2) == 1 then
-                                ease_discard(1)
-                            else
-                                ease_hands_played(1)
-                            end
-                            return true
-                        end
-                    }))
-                end
             end
         end
     end,
@@ -872,6 +872,16 @@ SMODS.Seal{ --Amber++
     end,
     calculate = function(self, card, context)
         if context.cardarea == 'unscored' then
+            if context.before and SMODS.pseudorandom_probability(card, pseudoseed('giga_amberPlusPlus'), self.config.extra.odds2, self.config.extra.chances2) then
+                G.E_MANAGER:add_event(Event({
+                    func = function()
+                        card:juice_up()
+                        ease_discard(1)
+                        ease_hands_played(1)
+                        return true
+                    end
+                }))
+            end
             if context.main_scoring then
                 return {
                     func = function()
@@ -901,16 +911,6 @@ SMODS.Seal{ --Amber++
                         end
                     end
                 }
-            end
-            if context.after and SMODS.pseudorandom_probability(card, pseudoseed('giga_amberPlusPlus'), self.config.extra.odds2, self.config.extra.chances2) then
-                G.E_MANAGER:add_event(Event({
-                    func = function()
-                        card:juice_up()
-                        ease_discard(1)
-                        ease_hands_played(1)
-                        return true
-                    end
-                }))
             end
         end
     end,
