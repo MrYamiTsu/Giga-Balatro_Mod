@@ -425,14 +425,14 @@ SMODS.Seal{ --Amber+
                     G.E_MANAGER:add_event(Event({
                         func = function()
                             card:juice_up()
-                            if math.random(2) == 1 then
-                                ease_discard(1)
-                            else
-                                ease_hands_played(1)
-                            end
                             return true
                         end
                     }))
+                    if math.random(2) == 1 then
+                        ease_discard(1)
+                    else
+                        ease_hands_played(1)
+                    end
                 end
             end
             if context.main_scoring then
@@ -859,7 +859,7 @@ SMODS.Seal{ --Amber++
         card = 2,
         odds1 = 1,
         chances1 = 3,
-        odds2 = 1,
+        odds2 = 3,
         chances2 = 3
     }},
     loc_vars = function(self, info_queue, card)
@@ -876,11 +876,11 @@ SMODS.Seal{ --Amber++
                 G.E_MANAGER:add_event(Event({
                     func = function()
                         card:juice_up()
-                        ease_discard(1)
-                        ease_hands_played(1)
                         return true
                     end
                 }))
+                ease_discard(1)
+                ease_hands_played(1)
             end
             if context.main_scoring then
                 return {
