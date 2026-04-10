@@ -859,7 +859,7 @@ SMODS.Seal{ --Amber++
         card = 2,
         odds1 = 1,
         chances1 = 3,
-        odds2 = 3,
+        odds2 = 1,
         chances2 = 3
     }},
     loc_vars = function(self, info_queue, card)
