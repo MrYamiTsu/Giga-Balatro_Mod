@@ -1,5 +1,5 @@
 --#region COLLECTION --
-SMODS.current_mod.custom_collection_tabs = function()
+Giga.custom_collection_tabs = function()
     return {
         UIBox_button({
             button = 'your_collection_giga_overcharges',

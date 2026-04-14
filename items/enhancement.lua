@@ -61,7 +61,7 @@ SMODS.Enhancement{ --EvolvedWild
 		return false
 	end,
 	calculate = function(self, card, context)
-		if context.before then
+		if context.before and context.cardarea == G.play then
 			card.ability.extra.chips =  card.ability.extra.chips + card.ability.extra.chipsAdd
 			card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.multAdd
 			return {
