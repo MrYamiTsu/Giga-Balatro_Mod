@@ -107,11 +107,9 @@ Giga.Overcharge{ --OrangeOvercharge
                 func = function()
                     for _ = 1, self.config.extra.tarot + math.floor(Giga.discarded_overcharge() / 4) do
                         if SMODS.pseudorandom_probability(card, pseudoseed('giga_orangeovercharge'), self.config.extra.odds, self.config.extra.chances) then
-                            G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
                             G.E_MANAGER:add_event(Event({
                                 func = function ()
                                     SMODS.add_card({set = 'Tarot', edition = 'e_negative'})
-                                    G.GAME.consumeable_buffer = 0
                                     return true
                                 end
                             }))
@@ -192,11 +190,9 @@ Giga.Overcharge{ --PurpleOvercharge
                 func = function()
                     for _ = 1, self.config.extra.food + math.floor(Giga.discarded_overcharge() / 3) do
                         if SMODS.pseudorandom_probability(card, pseudoseed('giga_orangeovercharge'), self.config.extra.odds, self.config.extra.chances) then
-                            G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
                             G.E_MANAGER:add_event(Event({
                                 func = function ()
                                     SMODS.add_card({set = 'Giga_Food', edition = 'e_negative'})
-                                    G.GAME.consumeable_buffer = 0
                                     return true
                                 end
                             }))
