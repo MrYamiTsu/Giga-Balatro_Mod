@@ -1399,6 +1399,15 @@ return {
                     'learn what it does'
                 }
             },
+            undiscovered_Giga_Artefact = {
+                name = 'Not Discovered',
+                text = {
+                    'Purchase or use',
+                    'this card in an',
+                    'unseeded run to',
+                    'learn what it does'
+                }
+            },
             --#endregion
             --#region Credit
             yugioh_credit = {
@@ -1704,7 +1713,14 @@ return {
                     'when {C:attention}played{}',
                     '{C:attention}together{}'
                 }
-            }
+            },
+            giga_suit_sequence_info = {
+                name = 'Suit Sequence',
+                text = {
+                    '{C:spades}Spades{} -> {C:hearts}Hearts{} ->',
+                    '{C:diamonds}Diamonds{} -> {C:clubs}Clubs{} ->'
+                }
+            },
             --#endregion
         },
         Partner = {

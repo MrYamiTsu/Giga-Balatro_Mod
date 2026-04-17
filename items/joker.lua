@@ -640,6 +640,7 @@ SMODS.Joker{ --MarvinTheFourth
         suit = 'Spades'
     }},
     loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'giga_suit_sequence_info'}
         return {vars = {colours={G.C.SUITS[center.ability.extra.suit]}, center.ability.extra.chips, center.ability.extra.mult, center.ability.extra.suit}}
     end,
     calculate = function(self, card, context)
@@ -839,6 +840,7 @@ SMODS.Joker{ --Nahnahu
         suit = 'Clubs'
     }},
     loc_vars = function(self, info_queue, center)
+        info_queue[#info_queue+1] = {set = 'Other', key = 'giga_suit_sequence_info'}
         local cards = 0
         for _, c in pairs(G.playing_cards or {}) do
             if c:is_suit(center.ability.extra.suit) then
