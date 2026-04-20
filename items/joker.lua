@@ -1243,19 +1243,23 @@ SMODS.Joker{ --Ohnyartemmys
     calculate = function(self,card,context)
         if context.discard then
             if SMODS.has_enhancement(context.other_card, 'm_steel') then
-                card.ability.extra.mult = card.ability.extra.mult + (context.other_card.config.center.config.h_x_mult - 1)
-                return {
-                    message_card = card,
-                    message = 'Upgraded !',
-                    colour = G.C.ORANGE
-                }
+                if context.other_card.config.center.config.h_x_mult then
+                    card.ability.extra.mult = card.ability.extra.mult + (context.other_card.config.center.config.h_x_mult - 1)
+                    return {
+                        message_card = card,
+                        message = localize('k_upgrade_ex'),
+                        colour = G.C.CHIPS
+                    }
+                end
             elseif SMODS.has_enhancement(context.other_card, 'm_gold') then
-                card.ability.extra.cash = card.ability.extra.cash + context.other_card.config.center.config.h_dollars
-                return {
-                    message_card = card,
-                    message = 'Upgraded !',
-                    colour = G.C.ORANGE
-                }
+                if context.other_card.config.center.config.h_dollars then
+                    card.ability.extra.cash = card.ability.extra.cash + context.other_card.config.center.config.h_dollars
+                    return {
+                        message_card = card,
+                        message = localize('k_upgrade_ex'),
+                        colour = G.C.CHIPS
+                    }
+                end
             end
         end
         if context.joker_main and card.ability.extra.mult > 1 then
