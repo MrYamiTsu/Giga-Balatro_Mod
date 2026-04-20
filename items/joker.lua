@@ -10,7 +10,6 @@ SMODS.Joker{ --CashPass
     cost = 6,
     rarity = 2,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         cash = 12,
         mult = 0.8
@@ -39,7 +38,6 @@ SMODS.Joker{ --BlueChicken
     cost = 4,
     rarity = 1,
     blueprint_compat = false,
-    eternal_compat = true,
     config = { extra = {
         round = 0,
         config_round = 2,
@@ -77,7 +75,6 @@ SMODS.Joker{ --BlueEgg
     rarity = 1,
     cost = 4,
     blueprint_compat = false,
-    eternal_compat = true,
     config = { extra = {
         cash = 2
     }},
@@ -146,7 +143,6 @@ SMODS.Joker{ --HighRiskHighReward
     cost = 8,
     rarity = 3,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         mult = 6,
         odds = 1,
@@ -178,7 +174,6 @@ SMODS.Joker{ --ShreddedAce
     cost = 6,
     rarity = 2,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         mult = 4
     }},
@@ -214,7 +209,6 @@ SMODS.Joker{ --Pablo
     cost = 4,
     rarity = 1,
     blueprint_compat = false,
-    eternal_compat = true,
     config = { extra = {
         round_left = 1,
         round_switch = true
@@ -254,7 +248,6 @@ SMODS.Joker{ --Paleontologist
     cost = 4,
     rarity = 1,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         chips = 30,
         s1chips = 75,
@@ -299,7 +292,6 @@ SMODS.Joker{ --PaleoExpert
     cost = 6,
     rarity = 2,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         mult = 4,
         s1mult = 10,
@@ -344,7 +336,6 @@ SMODS.Joker{ --LiarVadko
     cost = 4,
     rarity = 1,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         mult = 6
     }},
@@ -366,7 +357,6 @@ SMODS.Joker{ --Refinery
     cost = 5,
     rarity = 1,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         cash = 2,
         cashNow = 0
@@ -422,7 +412,6 @@ SMODS.Joker{ --CrystalOfHungriness
     rarity = 2,
     unlocked = true,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         add = 0.1,
         base = 1
@@ -453,7 +442,6 @@ SMODS.Joker{ --DoubleFork
     rarity = 1,
     unlocked = true,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         chips = 2.5,
         txt = 'k_inactive',
@@ -503,7 +491,6 @@ SMODS.Joker{ --CrackedSkull
     rarity = 1,
     unlocked = true,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         mult = 4,
         txt = 'k_inactive',
@@ -552,7 +539,6 @@ SMODS.Joker{ --SagittariusA
     rarity = 1,
     unlocked = true,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         chips = 180,
         txt = 'k_inactive',
@@ -603,7 +589,6 @@ SMODS.Joker{ --MonochromeCrystal
     rarity = 1,
     unlocked = true,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         mult = 24,
         nerf_mult = -16
@@ -633,7 +618,6 @@ SMODS.Joker{ --MarvinTheFourth
     rarity = 2,
     unlocked = true,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         chips = 45,
         mult = 1.5,
@@ -682,7 +666,6 @@ SMODS.Joker{ --Big31
     cost = 5,
     rarity = 1,
     blueprint_compat = false,
-    eternal_compat = true,
     config = { extra = {
         confirm_open = false
     }},
@@ -705,7 +688,6 @@ SMODS.Joker{ --UpgradedTicket
     rarity = 1,
     unlocked = true,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         cash1 = 4,
         cash2 = 6
@@ -771,7 +753,6 @@ SMODS.Joker{ --HealthyRoots
     rarity = 1,
     unlocked = true,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         mult = 5
     }},
@@ -805,7 +786,14 @@ SMODS.Joker{ --Likoy-Tonam
     rarity = 2,
     unlocked = true,
     blueprint_compat = true,
-    eternal_compat = true,
+    in_pool = function (self)
+        for _, c in pairs(G.playing_cards or {}) do
+            if c:get_seal() ~= nil and G.P_SEALS[c:get_seal()].giga_data and G.P_SEALS[c:get_seal()].giga_data.seal_upgrade then
+                return true
+            end
+        end
+        return false
+    end,
     calculate = function(self, card, context)
         if context.after and G.GAME.current_round.hands_left == 0 then
             if #G.hand.cards >= 1 then
@@ -816,14 +804,6 @@ SMODS.Joker{ --Likoy-Tonam
                 end
             end
         end
-    end,
-    in_pool = function (self)
-        for _, c in pairs(G.playing_cards or {}) do
-            if c:get_seal() ~= nil and G.P_SEALS[c:get_seal()].giga_data and G.P_SEALS[c:get_seal()].giga_data.seal_upgrade then
-                return true
-            end
-        end
-        return false
     end
 }
 SMODS.Joker{ --Nahnahu
@@ -834,7 +814,6 @@ SMODS.Joker{ --Nahnahu
     rarity = 2,
     unlocked = true,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         mult = 2,
         suit = 'Clubs'
@@ -883,7 +862,6 @@ SMODS.Joker{ --Hergosu
     rarity = 1,
     unlocked = true,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         jokerSlot = 1
     }},
@@ -912,7 +890,6 @@ SMODS.Joker{ --StockMarket
     cost = 5,
     rarity = 2,
     blueprint_compat = false,
-    eternal_compat = true,
     config = { extra = {
         cash = 0,
         cashPerFace = 2
@@ -996,7 +973,6 @@ SMODS.Joker{ --BonoboJoker
     cost = 5,
     rarity = 1,
     blueprint_compat = true,
-    eternal_compat = true,
     calculate = function(self,card,context)
         if #G.play.cards >= 5 then
             if context.individual and context.cardarea == G.hand and not context.end_of_round then
@@ -1018,7 +994,6 @@ SMODS.Joker{ --OnTheClock
     cost = 5,
     rarity = 1,
     blueprint_compat = true,
-    eternal_compat = true,
     calculate = function(self,card,context)
         if context.joker_main then
             local time = os.date("*t")
@@ -1037,7 +1012,6 @@ SMODS.Joker{ --AliveBook
     rarity = 2,
     unlocked = true,
     blueprint_compat = true,
-    eternal_compat = true,
     loc_vars = function(self,info_queue,center)
         local name = ''
         if G.jokers and #G.jokers.cards > 0 then
@@ -1111,7 +1085,6 @@ SMODS.Joker{ --Factolord
     cost = 7,
     rarity = 2,
     blueprint_compat = true,
-    eternal_compat = true,
     loc_vars = function(self,info_queue,center)
         local facto = 0
         if G.jokers and #G.jokers.cards > 0 then
@@ -1141,7 +1114,6 @@ SMODS.Joker{ --RescuePacket
     cost = 8,
     rarity = 3,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         shop_size = 1,
         switcher = false
@@ -1177,7 +1149,6 @@ SMODS.Joker{ --LinearLink
     cost = 6,
     rarity = 2,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         retrigger = 1
     }},
@@ -1199,7 +1170,6 @@ SMODS.Joker{ --NoCashForYou
     cost = 6,
     rarity = 2,
     blueprint_compat = false,
-    eternal_compat = true,
     config = { extra = {
         mult = 0.2
     }},
@@ -1225,7 +1195,6 @@ SMODS.Joker{ --BearmanJeff
     cost = 6,
     rarity = 1,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         odds = 1,
         chances = 5
@@ -1254,7 +1223,6 @@ SMODS.Joker{ --Ohnyartemmys
     cost = 6,
     rarity = 2,
     blueprint_compat = false,
-    eternal_compat = true,
     config = { extra = {
         mult = 1,
         cash = 0
@@ -1320,7 +1288,6 @@ SMODS.Joker{ --Kebfordius
     cost = 6,
     rarity = 2,
     blueprint_compat = false,
-    eternal_compat = true,
     config = { extra = {
         card = 2
     }},
@@ -1352,7 +1319,6 @@ SMODS.Joker{ --PotteryJoker
     cost = 6,
     rarity = 2,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         mult = 4
     }},
@@ -1381,7 +1347,6 @@ SMODS.Joker{ --Fuhdekun
     cost = 6,
     rarity = 2,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         odds = 1,
         chances = 3,
@@ -1420,10 +1385,10 @@ SMODS.Joker{ --ProtectiveWax
     cost = 8,
     rarity = 3,
     blueprint_compat = false,
-    eternal_compat = true,
     in_pool = function(self, args)
         for _, c in ipairs(G.playing_cards) do
-            if SMODS.has_enhancement(c, 'm_giga_pottery') then
+            if SMODS.has_enhancement(c, 'm_giga_pottery') or
+               c:get_seal() == 'giga_amberseal_seal' or c:get_seal() == 'giga_amberplus_seal' or c:get_seal() == 'giga_amberplusplus_seal' then
                 return true
             end
         end
@@ -1451,7 +1416,6 @@ SMODS.Joker{ --RoumuskusTheJoké
     cost = 5,
     rarity = 1,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         mult = 0
     }},
@@ -1487,7 +1451,6 @@ SMODS.Joker{ --Ajebguer
     cost = 6,
     rarity = 1,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         mult = 0,
         mult_add = 2
@@ -1529,11 +1492,13 @@ SMODS.Joker{ --TheCaskOfAmontillado
     cost = 8,
     rarity = 3,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         mult = 1,
         mult_add = 0.1
     }},
+    loc_vars = function(self, info_queue, center)
+        return{vars = {center.ability.extra.mult_add, center.ability.extra.mult}}
+    end,
     in_pool = function(self, args)
         for _, _c in ipairs(G.playing_cards or {}) do
             if SMODS.has_enhancement(_c, 'm_lucky') then
@@ -1541,9 +1506,6 @@ SMODS.Joker{ --TheCaskOfAmontillado
             end
         end
         return false
-    end,
-    loc_vars = function(self, info_queue, center)
-        return{vars = {center.ability.extra.mult_add, center.ability.extra.mult}}
     end,
     calculate = function(self, card, context)
         if context.individual and context.cardarea == G.play and SMODS.has_enhancement(context.other_card, 'm_lucky')
@@ -1571,7 +1533,6 @@ SMODS.Joker{ --KingOfJacks
     rarity = 3,
     cost = 9,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         add = 0.05,
         base = 1
@@ -1667,7 +1628,6 @@ SMODS.Joker{ --JackMutator
     cost = 8,
     rarity = 3,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         round = 1,
         round_left = 1,
@@ -1724,7 +1684,6 @@ SMODS.Joker{ --Moonstone
     cost = 5,
     rarity = 1,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         chips = 65
     }},
@@ -1761,7 +1720,6 @@ SMODS.Joker{ --PinkTourmaline
     cost = 5,
     rarity = 1,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         mult = 12
     }},
@@ -1798,7 +1756,6 @@ SMODS.Joker{ --RainbowQuartz
     cost = 5,
     rarity = 1,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         xmult = 1.75
     }},
@@ -1840,7 +1797,6 @@ SMODS.Joker{ --TRex
     cost = 8,
     rarity = 3,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         mult = 0,
         mult_add = 5,
@@ -1918,7 +1874,6 @@ SMODS.Joker{ --Velocyraptor
     cost = 4,
     rarity = 1,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         mult = 6,
         interac = {
@@ -1960,7 +1915,6 @@ SMODS.Joker{ --Pteranodon
     cost = 6,
     rarity = 2,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         cash = 3,
         interac = {
@@ -2017,7 +1971,6 @@ SMODS.Joker{ --Triceratops
     cost = 5,
     rarity = 2,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         odds = 1,
         chances = 9,
@@ -2059,7 +2012,6 @@ SMODS.Joker{ --MrYamiTsu
     cost = 20,
     rarity = 4,
     blueprint_compat = false,
-    eternal_compat = true,
     config = { extra = {
         mult = 2
     }},
@@ -2084,7 +2036,6 @@ SMODS.Joker{ --Tabaosl
     cost = 20,
     rarity = 4,
     blueprint_compat = false,
-    eternal_compat = true,
     loc_vars = function(self,info_queue,center)
         if love.keyboard.isDown('lshift') or love.keyboard.isDown('rshift') then
             info_queue[#info_queue+1] = {set = 'Other', key = 'aij_back_credit'}
@@ -2116,7 +2067,6 @@ SMODS.Joker{ --Rog-Ano
     cost = 20,
     rarity = 4,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         mult_add = 0.5
     }},
@@ -2156,7 +2106,6 @@ SMODS.Joker{ --LLOTFO
     cost = 8,
     rarity = 2,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         chips = 45
     }},
@@ -2184,7 +2133,6 @@ SMODS.Joker{ --RLOTFO
     cost = 8,
     rarity = 2,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         chips = 45
     }},
@@ -2212,7 +2160,6 @@ SMODS.Joker{ --LAOTFO
     cost = 8,
     rarity = 2,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         chips = 45
     }},
@@ -2240,7 +2187,6 @@ SMODS.Joker{ --RAOTFO
     cost = 8,
     rarity = 2,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         chips = 45
     }},
@@ -2268,7 +2214,6 @@ SMODS.Joker{ --ETFO
     cost = 8,
     rarity = 3,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         chips = 20
     }},
@@ -2302,7 +2247,6 @@ SMODS.Joker{ --TLEI
     cost = 25,
     rarity = 'giga_megaLegendary',
     blueprint_compat = true,
-    eternal_compat = true,
     no_collection = true,
     config = { extra = {
         mult = 50
@@ -2333,7 +2277,6 @@ SMODS.Joker{ --BlueEyesWhiteDragon
     cost = 20,
     rarity = 4,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         mult = 12,
         xmult = 1.75
@@ -2374,7 +2317,6 @@ SMODS.Joker{ --RedEyesBlackDragon
     cost = 20,
     rarity = 4,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         mult = 12,
         xmult = 1.75
@@ -2420,7 +2362,6 @@ SMODS.Joker{ --BYUD
     cost = 50,
     rarity = 'giga_megaLegendary',
     blueprint_compat = true,
-    eternal_compat = true,
     no_collection = true,
     config = { extra = {
         mult = 50,
@@ -2470,7 +2411,6 @@ SMODS.Joker{ --DMK
     cost = 60,
     rarity = 'giga_megaLegendary',
     blueprint_compat = true,
-    eternal_compat = true,
     no_collection = true,
     config = { extra = {
         mult = 80,
@@ -2516,7 +2456,6 @@ SMODS.Joker{ --BlackLusterSoldier
     cost = 20,
     rarity = 4,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         mult = 7,
         xmult = 1.75
@@ -2554,7 +2493,6 @@ SMODS.Joker{ --DarkMagician
     cost = 20,
     rarity = 4,
     blueprint_compat = true,
-    eternal_compat = true,
     config = { extra = {
         mult = 12,
         xmult = 1.75
@@ -2598,7 +2536,6 @@ SMODS.Joker{ --MOC
     cost = 35,
     rarity = 'giga_megaLegendary',
     blueprint_compat = true,
-    eternal_compat = true,
     no_collection = true,
     config = { extra = {
         mult1 = 15,
