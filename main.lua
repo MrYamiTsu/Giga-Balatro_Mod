@@ -216,6 +216,7 @@ SMODS.Rarity{
 loc_colour()
 G.ARGS.LOC_COLOURS.giga_Food = HEX('F2A5A6FF')
 G.ARGS.LOC_COLOURS.giga_Artefact = HEX('444444FF')
+G.ARGS.LOC_COLOURS.giga_Astral = HEX('FFC90EFF')
 --#endregion
 --#region CONFIG --
 -- From Maximus (so thx Maximus)

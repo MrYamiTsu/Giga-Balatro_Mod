@@ -1298,6 +1298,15 @@ return {
                     '{C:inactive}(Currently: {X:mult,C:white}X#2#{} {C:inactive}Mult)'
                 }
             },
+            j_giga_shootingStars = {
+                name = 'Shooting Stars',
+                text = {
+                    '{C:giga_Astral}Astrals{} {C:planet}Planet{} variant',
+                    'replace {C:attention}#1#X{} more often and',
+                    '{C:dark_edition}Shiny Edition{} variant',
+                    'replace {C:attention}#2#X{} more often'
+                }
+            },
             --#endregion
             --#region CrossMod
             j_giga_triceratops_alt = {
