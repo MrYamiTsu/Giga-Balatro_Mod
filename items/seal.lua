@@ -129,7 +129,7 @@ SMODS.Seal{ --Red+
         rep = 2,
         repPlus = 1,
         odds = 1,
-        chances = 4
+        chances = 5
     }},
     loc_vars = function(self, info_queue, card)
         local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'prob')
@@ -165,7 +165,7 @@ SMODS.Seal{ --Blue+
 	unlocked = true,
     config = { extra = {
         odds = 1,
-        chances = 10
+        chances = 12
     }},
     loc_vars = function(self, info_queue, card)
         local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'giga_bluePlus')
@@ -231,7 +231,7 @@ SMODS.Seal{ --Gold+
 	unlocked = true,
     config = { extra = {
         cash = 6,
-        cashPlus = 4,
+        cashPlus = 3,
     }},
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = G.P_CENTERS.m_gold
@@ -290,7 +290,7 @@ SMODS.Seal{ --Purple+
     config = { extra = {
         card = 2,
         odds = 1,
-        chances = 12
+        chances = 15
     }},
     loc_vars = function(self, info_queue, card)
         local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'giga_purplePlus')
@@ -551,10 +551,11 @@ SMODS.Seal{ --Red++
     discovered = true,
 	unlocked = true,
     config = { extra = {
-        rep = 3
+        rep = 3,
+        nbr_rpp = 3
     }},
     loc_vars = function(self, info_queue, card)
-        return {vars = {self.config.extra.rep}}
+        return {vars = {self.config.extra.rep, self.config.extra.nbr_rpp}}
     end,
     in_pool = function(self)
 		return false
@@ -572,7 +573,7 @@ SMODS.Seal{ --Red++
                     additionalRep = additionalRep + 1
                 end
             end
-            additionalRep = math.floor(additionalRep / 2 - 0.5)
+            additionalRep = math.floor(additionalRep / self.config.extra.nbr_rpp - 1 / self.config.extra.nbr_rpp)
             return {
                 repetitions = self.config.extra.rep + additionalRep
             }
@@ -591,7 +592,7 @@ SMODS.Seal{ --Blue++
 	unlocked = true,
     config = { extra = {
         odds = 1,
-        chances = 6
+        chances = 8
     }},
     loc_vars = function(self, info_queue, card)
         local odds, chances = SMODS.get_probability_vars(card, self.config.extra.odds, self.config.extra.chances, 'giga_bluePlusPlus')
@@ -645,7 +646,7 @@ SMODS.Seal{ --Gold++
     config = { extra = {
         cash = 8,
         cashAdd = 2,
-        cashPlus = 6,
+        cashPlus = 4,
     }},
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue+1] = G.P_CENTERS.m_gold
@@ -725,7 +726,7 @@ SMODS.Seal{ --Purple++
     config = { extra = {
         card = 2,
         odds = 1,
-        chances = 9,
+        chances = 10,
     }},
     loc_vars = function(self, info_queue, card)
         info_queue[#info_queue + 1] = { set = 'Tag', key = 'tag_charm' }
@@ -929,17 +930,18 @@ SMODS.Seal{ --Aqua++
         chips = 30,
         chips_plus = 10,
         mult = 1.4,
-        mult_plus = 0.1
+        mult_plus = 0.1,
+        nbr_joker = 2
     }},
     loc_vars = function(self, info_queue, center)
-        return {vars = {self.config.extra.chips,self.config.extra.chips_plus, self.config.extra.mult, self.config.extra.mult_plus}}
+        return {vars = {self.config.extra.chips,self.config.extra.chips_plus, self.config.extra.nbr_joker, self.config.extra.mult, self.config.extra.mult_plus}}
     end,
     in_pool = function(self)
         return false
     end,
     calculate = function(self, card, context)
         if context.main_scoring and context.cardarea == G.hand then
-            card.ability.perma_bonus = (card.ability.perma_bonus or 0) + self.config.extra.chips + self.config.extra.chips_plus * #G.jokers.cards
+            card.ability.perma_bonus = (card.ability.perma_bonus or 0) + self.config.extra.chips + self.config.extra.chips_plus * math.floor(#G.jokers.cards / self.config.extra.nbr_joker)
             return {
                 message = 'Upgraded',
                 colour = G.C.CHIPS
@@ -966,17 +968,18 @@ SMODS.Seal{ --Crimson++
         mult = 3,
         mult_plus = 1,
         chips = 1.4,
-        chips_plus = 0.1
+        chips_plus = 0.1,
+        nbr_card = 2
     }},
     loc_vars = function(self, info_queue, center)
-        return {vars = {self.config.extra.mult, self.config.extra.mult_plus, self.config.extra.chips, self.config.extra.chips_plus}}
+        return {vars = {self.config.extra.mult, self.config.extra.mult_plus, self.config.extra.nbr_card, self.config.extra.chips, self.config.extra.chips_plus}}
     end,
     in_pool = function(self)
         return false
     end,
     calculate = function(self, card, context)
         if context.main_scoring and context.cardarea == G.hand then
-            card.ability.perma_mult = (card.ability.perma_mult or 0) + self.config.extra.mult + self.config.extra.mult_plus * #G.play.cards
+            card.ability.perma_mult = (card.ability.perma_mult or 0) + self.config.extra.mult + self.config.extra.mult_plus * math.floor(#G.play.cards / self.config.extra.nbr_card)
             return {
                 message = 'Upgraded',
                 colour = G.C.MULT

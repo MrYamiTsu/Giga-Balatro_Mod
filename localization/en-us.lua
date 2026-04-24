@@ -1499,7 +1499,7 @@ return {
                 text = {
                     'Retrigger this card {C:attention}#1#',
                     'times. Retrigger {C:attention}1{} additionnal',
-                    'time for each {C:attention}2 {C:attention}Red++{} Seals',
+                    'time for each {C:attention}#2# {C:attention}Red++{} Seals',
                     '{C:attention}played{} or {C:attention}held{} in hand'
                 }
             },
@@ -1581,9 +1581,9 @@ return {
                     'permanently while',
                     '{C:attention}held{} in hand',
                     'plus {C:mult}+#2#{} for each',
-                    '{C:attention}card played',
-                    '{X:chips,C:white}X#3#{} Chips plus',
-                    '{X:chips,C:white}X#4#{} for each',
+                    '{C:attention}#3# card{} played',
+                    '{X:chips,C:white}X#4#{} Chips plus',
+                    '{X:chips,C:white}X#5#{} for each',
                     '{C:attention}card held{} in hand'
                 }
             },
@@ -1594,9 +1594,9 @@ return {
                     'permanently while',
                     '{C:attention}held{} in hand',
                     'plus {C:chips}+#2#{} for each',
-                    '{C:attention}Joker{} owned',
-                    '{X:mult,C:white}X#3#{} Mult plus',
-                    '{X:mult,C:white}X#4#{} for each',
+                    '{C:attention}#3# Joker{} owned',
+                    '{X:mult,C:white}X#4#{} Mult plus',
+                    '{X:mult,C:white}X#5#{} for each',
                     '{C:attention}Consumable{} card'
                 }
             },
