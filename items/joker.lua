@@ -1535,19 +1535,18 @@ SMODS.Joker{ --ShootingStars
     cost = 7,
     rarity = 2,
     config = { extra = {
-        astral_multiplier = 3,
-        shiny_multiplier = 2
+        multiplier = 3,
     }},
     loc_vars = function(self, info_queue, center)
-        return{vars = {center.ability.extra.astral_multiplier, center.ability.extra.shiny_multiplier}}
+        return{vars = {center.ability.extra.multiplier}}
     end,
     add_to_deck = function(self, card, from_debuff)
-        G.GAME.giga.astral_chance[1] = G.GAME.giga.astral_chance[1] * card.ability.extra.astral_multiplier
-        G.GAME.giga.shiny_chance[1] = G.GAME.giga.shiny_chance[1] * card.ability.extra.shiny_multiplier
+        G.GAME.giga.astral_chance[1] = G.GAME.giga.astral_chance[1] * card.ability.extra.multiplier
+        G.GAME.giga.shiny_chance[1] = G.GAME.giga.shiny_chance[1] * card.ability.extra.multiplier
     end,
     remove_from_deck = function(self, card, from_debuff)
-        G.GAME.giga.astral_chance[1] = G.GAME.giga.astral_chance[1] / card.ability.extra.astral_multiplier
-        G.GAME.giga.shiny_chance[1] = G.GAME.giga.shiny_chance[1] / card.ability.extra.shiny_multiplier
+        G.GAME.giga.astral_chance[1] = G.GAME.giga.astral_chance[1] / card.ability.extra.multiplier
+        G.GAME.giga.shiny_chance[1] = G.GAME.giga.shiny_chance[1] / card.ability.extra.multiplier
     end
 }
 --#endregion
