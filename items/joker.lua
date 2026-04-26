@@ -1531,7 +1531,7 @@ SMODS.Joker{ --TheCaskOfAmontillado
 SMODS.Joker{ --ShootingStars
     key = "shootingStars",
     atlas = 'Jokers',
-    pos = {x = 7, y = 3},
+    pos = {x = 7, y = 8},
     cost = 7,
     rarity = 2,
     config = { extra = {
