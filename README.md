@@ -46,7 +46,7 @@
     <tbody>
         <tr>
             <td>Jokers</td>
-            <td>63+ (+11 Cross-Mod)</td>
+            <td>64+ (+11 Cross-Mod)</td>
             <td>Food cards</td>
             <td>35 (+6 Cross-Mod)</td>
         </tr>
