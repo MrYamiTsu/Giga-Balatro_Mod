@@ -1011,27 +1011,27 @@ return {
             j_giga_doubleFork = {
                 name = 'Double Fork',
                 text = {
-                    'Using a {C:giga_Food}Food{} card',
-                    'during a blind gives a',
-                    'temporary {X:chips,C:white}X#1#{} Chips',
+                    '{X:chips,C:white}X#1#{} Chips this round if',
+                    'a {C:giga_Food}Food{} card has been',
+                    'used during this round',
                     '{C:inactive}#2#'
                 }
             },
             j_giga_crackedSkull = {
                 name = 'Cracked Skull',
                 text = {
-                    'Using a {C:spectral}Spectral{} card',
-                    'during a blind gives a',
-                    'temporary {X:mult,C:white}X#1#{} Mult',
+                    '{X:mult,C:white}X#1#{} Mult this round if',
+                    'a {C:spectral}Spectral{} card has been',
+                    'used during this round',
                     '{C:inactive}#2#'
                 }
             },
             j_giga_sagittariusA = {
                 name = 'Sagittarius A*',
                 text = {
-                    'Using a {C:planet}Planet{} card',
-                    'during a blind gives a',
-                    'temporary {C:chips}+#1#{} Chips',
+                    '{C:chips}+#1#{} Chips this round if',
+                    'a {C:planet}Planet{} card has been',
+                    'used during this round',
                     '{C:inactive}#2#'
                 }
             },

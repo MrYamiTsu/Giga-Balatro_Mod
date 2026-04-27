@@ -443,7 +443,7 @@ SMODS.Joker{ --DoubleFork
     unlocked = true,
     blueprint_compat = true,
     config = { extra = {
-        chips = 2.5,
+        chips = 2,
         txt = 'k_inactive',
         active = false
     }},
@@ -540,7 +540,7 @@ SMODS.Joker{ --SagittariusA
     unlocked = true,
     blueprint_compat = true,
     config = { extra = {
-        chips = 180,
+        chips = 160,
         txt = 'k_inactive',
         active = false
     }},
