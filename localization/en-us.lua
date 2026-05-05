@@ -763,7 +763,7 @@ return {
             j_giga_funnyCrown = {
                 name = 'Funny Crown',
                 text = {
-                   'After {C:attention}2{} rounds,',
+                    'After {C:attention}2{} rounds,',
                     'sell this Joker to create',
                     'a {C:attention}King of Jacks{} and',
                     'a {C:chips}Bonus {C:attention}Jack',
