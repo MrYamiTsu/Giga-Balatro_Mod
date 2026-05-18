@@ -760,15 +760,13 @@ return {
                     '{C:inactive}(Currently {X:mult,C:white}X#2#{}{C:inactive} Mult)'
                 }
             },
-            j_giga_funnyCrown = {
-                name = 'Funny Crown',
+            j_giga_snokot = {
+                name = 'Snokot',
                 text = {
-                    'After {C:attention}2{} rounds,',
-                    'sell this Joker to create',
-                    'a {C:attention}King of Jacks{} and',
-                    'a {C:chips}Bonus {C:attention}Jack',
-                    '{C:inactive}(Currently: {C:attention}#1#{}{C:inactive} round left)',
-                    '{C:inactive}(Must have room)'
+                    'Scored {C:attention}#1#{} gives {C:mult}+#2#{} Mult.',
+                    'Gains {C:mult}+#3#{} Mult per scored {C:attention}#1#',
+                    '{C:inactive}Rank change and reset at',
+                    '{C:inactive}end of Ante'
                 }
             },
             j_giga_snapchatGirl = {
@@ -1301,7 +1299,7 @@ return {
             j_giga_shootingStars = {
                 name = 'Shooting Stars',
                 text = {
-                    '{C:giga_Astral}Astrals Planet{} and {C:dark_edition}Shiny Edition',
+                    '{C:giga_Astral}Astrals Planet{} and {C:edition}Shiny Edition',
                     'appear {C:attention}#1#X{} more often'
                 }
             },

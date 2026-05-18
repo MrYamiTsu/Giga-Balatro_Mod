@@ -680,6 +680,43 @@ SMODS.Joker{ --Big31
         end
     end
 }
+SMODS.Joker{ --KingOfJacks
+    key = 'kingOfJacks',
+    atlas = 'Jokers',
+    pos = {x = 3, y = 0},
+    rarity = 3,
+    cost = 9,
+    blueprint_compat = true,
+    config = { extra = {
+        add = 0.05,
+        base = 1
+    }},
+    loc_vars = function(self,info_queue,center)
+        return{vars = {center.ability.extra.add, center.ability.extra.base}}
+    end,
+    calculate = function(self,card,context)
+        if context.individual and context.cardarea == G.play and context.other_card:get_id() == 11 then
+            if not context.blueprint then
+                return {
+                    func = function()
+                        card.ability.extra.base = card.ability.extra.base + card.ability.extra.add
+                        return true
+                    end,
+                    message_card = card,
+                    message = 'Upgraded !',
+                    colour = G.C.MULT
+                }
+            end
+        end
+        if context.joker_main then
+            if card.ability.extra.base ~= 1 then
+                return {
+                    xmult = card.ability.extra.base
+                }
+            end
+        end
+    end
+}
 SMODS.Joker{ --UpgradedTicket
     key = 'upgradedTicket',
     atlas = "Jokers",
@@ -1528,124 +1565,6 @@ SMODS.Joker{ --TheCaskOfAmontillado
         end
     end,
 }
-SMODS.Joker{ --ShootingStars
-    key = "shootingStars",
-    atlas = 'Jokers',
-    pos = {x = 7, y = 8},
-    cost = 7,
-    rarity = 2,
-    config = { extra = {
-        multiplier = 3,
-    }},
-    loc_vars = function(self, info_queue, center)
-        return{vars = {center.ability.extra.multiplier}}
-    end,
-    add_to_deck = function(self, card, from_debuff)
-        G.GAME.giga.astral_chance[1] = G.GAME.giga.astral_chance[1] * card.ability.extra.multiplier
-        G.GAME.giga.shiny_chance[1] = G.GAME.giga.shiny_chance[1] * card.ability.extra.multiplier
-    end,
-    remove_from_deck = function(self, card, from_debuff)
-        G.GAME.giga.astral_chance[1] = G.GAME.giga.astral_chance[1] / card.ability.extra.multiplier
-        G.GAME.giga.shiny_chance[1] = G.GAME.giga.shiny_chance[1] / card.ability.extra.multiplier
-    end
-}
---#endregion
---#region JACKS JOKERS --
-SMODS.Joker{ --KingOfJacks
-    key = 'kingOfJacks',
-    atlas = 'Jokers',
-    pos = {x = 3, y = 0},
-    rarity = 3,
-    cost = 9,
-    blueprint_compat = true,
-    config = { extra = {
-        add = 0.05,
-        base = 1
-    }},
-    loc_vars = function(self,info_queue,center)
-        return{vars = {center.ability.extra.add, center.ability.extra.base}}
-    end,
-    calculate = function(self,card,context)
-        if context.individual and context.cardarea == G.play and context.other_card:get_id() == 11 then
-            if not context.blueprint then
-                return {
-                    func = function()
-                        card.ability.extra.base = card.ability.extra.base + card.ability.extra.add
-                        return true
-                    end,
-                    message_card = card,
-                    message = 'Upgraded !',
-                    colour = G.C.MULT
-                }
-            end
-        end
-        if context.joker_main then
-            if card.ability.extra.base ~= 1 then
-                return {
-                    xmult = card.ability.extra.base
-                }
-            end
-        end
-    end
-}
-SMODS.Joker{ --FunnyCrown
-    key = 'funnyCrown',
-    atlas = 'Jokers',
-    pos = {x = 4, y = 0},
-    cost = 6,
-    rarity = 3,
-    blueprint_compat = false,
-    eternal_compat = false,
-    config = { extra = {
-        round = 2,
-        shaking = false
-    }
-    },
-    loc_vars = function(self,info_queue,center)
-        info_queue[#info_queue+1] = G.P_CENTERS.m_bonus
-        info_queue[#info_queue+1] = G.P_CENTERS['j_giga_kingOfJacks']
-        return{vars = {center.ability.extra.round}}
-    end,
-    calculate = function(self,card,context)
-        if context.end_of_round and context.main_eval then
-            if card.ability.extra.round > 0 then
-                card.ability.extra.round = card.ability.extra.round - 1
-            end
-            if card.ability.extra.round <= 0 and not card.ability.extra.shaking then
-                local check_remove = function(card) 
-                    return not card.REMOVED
-                end
-                juice_card_until(card, check_remove, true)
-                card.ability.extra.shaking = true
-            end
-        end
-        if context.selling_card and context.card == card then
-            if card.ability.extra.round <= 0 then
-                if #G.jokers.cards <= G.jokers.config.card_limit then
-                    G.E_MANAGER:add_event(Event({
-                        func = function ()
-                            SMODS.add_card{key = "j_giga_kingOfJacks"}
-                            return true
-                        end
-                    }))
-                else
-                    SMODS.calculate_effect({ message = localize('k_no_room_ex') }, card)
-                end
-                G.E_MANAGER:add_event(Event({
-                    func = function ()
-                        local _card = SMODS.add_card({
-                            rank = 'Jack',
-                            enhancement = 'm_bonus',
-                            area = G.deck
-                        })
-                        SMODS.calculate_context({ playing_card_added = true, cards = { _card } })
-                        return true
-                    end
-                }))
-            end
-        end
-    end
-}
 SMODS.Joker{ --JackMutator
     key = 'jackMutator',
     atlas = 'Jokers',
@@ -1695,6 +1614,74 @@ SMODS.Joker{ --JackMutator
             }))
         end
     end
+}
+SMODS.Joker{ --ShootingStars
+    key = "shootingStars",
+    atlas = 'Jokers',
+    pos = {x = 7, y = 8},
+    cost = 7,
+    rarity = 2,
+    config = { extra = {
+        multiplier = 3,
+    }},
+    loc_vars = function(self, info_queue, center)
+        return{vars = {center.ability.extra.multiplier}}
+    end,
+    add_to_deck = function(self, card, from_debuff)
+        G.GAME.giga.astral_chance[1] = G.GAME.giga.astral_chance[1] * card.ability.extra.multiplier
+        G.GAME.giga.shiny_chance[1] = G.GAME.giga.shiny_chance[1] * card.ability.extra.multiplier
+    end,
+    remove_from_deck = function(self, card, from_debuff)
+        G.GAME.giga.astral_chance[1] = G.GAME.giga.astral_chance[1] / card.ability.extra.multiplier
+        G.GAME.giga.shiny_chance[1] = G.GAME.giga.shiny_chance[1] / card.ability.extra.multiplier
+    end
+}
+SMODS.Joker{ --Snokot
+    key = "snokot",
+    atlas = 'Jokers',
+    pos = {x = 7, y = 3},
+    cost = 6,
+    rarity = 2,
+    blueprint_compat = true,
+    config = { extra = {
+        mult_add = 1,
+        mult = 0,
+        rank = 9
+    }},
+    loc_vars = function(self, info_queue, center)
+        local rank = center.ability.extra.rank
+        if rank == 11 then
+            rank = 'Jack'
+        elseif rank == 12 then
+            rank = 'Queen'
+        elseif rank == 13 then
+            rank = 'King'
+        elseif rank == 14 then
+            rank = 'Ace'
+        end
+        return{vars = {rank, center.ability.extra.mult, center.ability.extra.mult_add}}
+    end,
+    calculate = function(self, card, context)
+        if context.individual and context.cardarea == G.play and context.other_card:get_id() == card.ability.extra.rank then
+            if not context.blueprint then
+                card.ability.extra.mult = card.ability.extra.mult + card.ability.extra.mult_add
+            end
+            return {
+                mult = card.ability.extra.mult
+            }
+        end
+        if context.end_of_round and G.GAME.blind and G.GAME.blind.boss and not context.blueprint and context.main_eval then
+            card.ability.extra.mult = 0
+            card.ability.extra.rank = pseudorandom_element(SMODS.Ranks, pseudoseed('giga_snokot')).id
+            return {
+                message = localize("k_reset"),
+                colour = G.C.MULT
+            }
+        end
+    end,
+    add_to_deck = function(self, card, from_debuff)
+        card.ability.extra.rank = pseudorandom_element(SMODS.Ranks, pseudoseed('giga_idk')).id
+    end,
 }
 --#endregion
 --#region GEMS JOKERS --
