@@ -1639,7 +1639,7 @@ SMODS.Joker{ --ShootingStars
 SMODS.Joker{ --Snokot
     key = "snokot",
     atlas = 'Jokers',
-    pos = {x = 7, y = 3},
+    pos = {x = 4, y = 0},
     cost = 6,
     rarity = 2,
     blueprint_compat = true,
