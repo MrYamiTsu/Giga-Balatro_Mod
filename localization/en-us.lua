@@ -173,7 +173,7 @@ return {
                 text = {
                     '{X:mult,C:white}X#1#{} Mult',
                     '{C:green}#2# in #3#{} chance to',
-                    'destroy card and ',
+                    'destroy card and',
                     'create a {C:spectral}Spectral{} card'
                 }
             },
@@ -191,7 +191,7 @@ return {
                 text = {
                     '{C:chips}+#1#{} Chips',
                     '{C:green}#2# in #3#{} chance to',
-                    'destroy card and ',
+                    'destroy card and',
                     'create an {C:giga_Artefact}Artefact{} card',
                     'no rank or suit'
                 }
