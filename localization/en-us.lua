@@ -1152,7 +1152,7 @@ return {
                 text = {
                     '{X:mult,C:white}X#1#{} Mult for each',
                     '{C:attention}seal{} in {C:attention}deck',
-                    '{C:inactive}(Currently : {X:mult,C:white}X#2# {C:inactive}Mult)'
+                    '{C:inactive}(Currently : {X:mult,C:white}X#2#{} {C:inactive}Mult)'
                 }
             },
             j_giga_myt_own = {

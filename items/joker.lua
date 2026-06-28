@@ -174,6 +174,7 @@ SMODS.Joker{ --ShreddedAce
     cost = 6,
     rarity = 2,
     blueprint_compat = true,
+    pixel_size = { w = 59 },
     config = { extra = {
         mult = 4
     }},
