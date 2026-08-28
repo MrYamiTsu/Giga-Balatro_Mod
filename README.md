@@ -1,145 +1,82 @@
-<img src="assets/2x/Logo.png" alt="Logo">
+# GIGA Mod for Balatro
 
-<p>
-    <a href="https://github.com/Steamodded/smods" target="_blank">
-        <img src="https://img.shields.io/badge/Steamodded-1.0.0--BETA--1503a+-red.svg" alt="Steamodded Version">
-    </a>
-    <a href="https://discord.com/channels/1116389027176787968/1398876204622286958" target="_blank">
-        <img src="https://img.shields.io/badge/Discord-Balatro%20Thread-blue.svg" alt="Discord">
-    </a>
-</p>
+![Logo](assets/2x/Logo.png)
 
-<h3>What about adding some random new functionality to Balatro !</h3>
+[![Steamodded Version](https://img.shields.io/badge/Steamodded-1.0.0--BETA--1503a+-red.svg)](https://github.com/Steamodded/smods)
+[![Discord](https://img.shields.io/badge/Discord-Balatro%20Thread-blue.svg)](https://discord.com/channels/1116389027176787968/1398876204622286958)
 
-<hr>
+> What about adding some random new functionality to Balatro!
 
-<h2>Requirements</h2>
-<ul>
-    <li><strong><a href="https://github.com/Steamodded/smods" target="_blank">Steamodded</a></strong>: Version 1.0.0~BETA-1503a or higher is required.</li>
-    <li><strong><a href="https://github.com/SpectralPack/Talisman" target="_blank">Talisman</a> (Optional)</strong>: Recommended for high-score management.</li>
-</ul>
+---
 
-<h2>Installation</h2>
-<ol>
-    <li><strong>Download</strong>: 
-        <ul>
-            <li>For the most <strong>stable version</strong>, download the zip file from the latest <a href="https://github.com/MrYamiTsu/Giga-Balatro_Mod/releases">release</a>.</li>
-            <li>For the <strong>latest version</strong> (might be unstable), download the zip from the <a href="https://github.com/MrYamiTsu/Giga-Balatro_Mod/archive/refs/heads/main.zip">Code</a> button.</li>
-        </ul>
-    </li>
-    <li><strong>Extract</strong>: Unzip the downloaded file.</li>
-    <li><strong>Place</strong>: Move the extracted folder into your Balatro Mod folder.</li>
-</ol>
+## Requirements
 
-<hr>
+- **[Steamodded](https://github.com/Steamodded/smods)**: Version `1.0.0~BETA-1503a` or higher is required.
+- **[Talisman](https://github.com/SpectralPack/Talisman) (Optional)**: Recommended for high-score management.
 
-<h2>Contents</h2>
-<table border="1" cellpadding="5" style="border-collapse: collapse;">
-    <thead>
-        <tr>
-            <th>Category</th>
-            <th>Count</th>
-            <th>Category</th>
-            <th>Count</th>
-        </tr>
-    </thead>
-    <tbody>
-        <tr>
-            <td>Jokers</td>
-            <td>64+ (+11 Cross-Mod)</td>
-            <td>Food cards</td>
-            <td>35 (+6 Cross-Mod)</td>
-        </tr>
-        <tr>
-            <td>Seals</td>
-            <td>20</td>
-            <td>Planets</td>
-            <td>16</td>
-        </tr>
-        <tr>
-            <td>Enhancements</td>
-            <td>16</td>
-            <td>Artefacts</td>
-            <td>13</td>
-        </tr>
-        <tr>
-            <td>Spectrals</td>
-            <td>8</td>
-            <td>Decks</td>
-            <td>7</td>
-        </tr>
-        <tr>
-            <td>Overcharges</td>
-            <td>5</td>
-            <td>Booster Packs</td>
-            <td>4</td>
-        </tr>
-        <tr>
-            <td>Vouchers</td>
-            <td>4</td>
-            <td>Tarots</td>
-            <td>4</td>
-        </tr>
-        <tr>
-            <td>Boss Blind</td>
-            <td>4</td>
-            <td>Editions</td>
-            <td>3</td>
-        </tr>
-        <tr>
-            <td>Sleeves</td>
-            <td>3 (Cross-Mod)</td>
-            <td>Hand Type</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <td>Deck Skin</td>
-            <td>1</td>
-            <td>Partner</td>
-            <td>1 (Cross-Mod)</td>
-        </tr>
-    </tbody>
-</table>
-<img src="assets/other/content.png" alt="Content Screenshot">
+---
 
-<p>
-    <em>*Some Jokers have secret interactions with other Jokers.</em><br>
-    <em>*Many artworks can be unfinished.</em>
-</p>
+## Installation
 
-<hr>
+1. **Download**:
+   - **Stable Version**: Download the zip file from the latest [Releases](https://github.com/MrYamiTsu/Giga-Balatro_Mod/releases).
+   - **Latest Version (Unstable)**: Download the zip via the [Code](https://github.com/MrYamiTsu/Giga-Balatro_Mod/archive/refs/heads/main.zip) button.
+2. **Extract**: Unzip the downloaded archive.
+3. **Place**: Move the extracted folder into your Balatro Mods folder (`%AppData%/Roaming/Balatro/Mods`).
 
-<h2>Cross-Mod</h2>
-<p>There’s a lot of crossover with <a href="https://github.com/Joglacraft/Fools-Gambit">Fool's Gambit</a>, so I really recommend checking it out. And the mod itself is absolutely worth playing, it’s genuinely great on its own.</p>
-<ul>
-    <li><a href="https://github.com/larswijn/CardSleeves">CardSleeves</a></li>
-    <li><a href="https://github.com/Icecanno/Partner-API/">Partner-API</a></li>
-    <li><a href="https://github.com/Balatro-Paperback/paperback">Paperback</a> (mainly Food cards)</li>
-</ul>
+---
 
-<hr>
+## Content
 
-<h2>Additional Information</h2>
-<p>Giga first appeared in the <strong>Wheel Of Mods</strong> of <strong>MurphyObv</strong> on January 16th, 2026.</p>
-<p>If you have any ideas, feel free to ping me in the <strong><a href="https://discord.com/channels/1116389027176787968/1398876204622286958" target="_blank">Giga</a></strong> post on the <strong>Balatro Discord</strong>.</p>
-<p>You can also send me artwork; contributors will be mentioned in the credits.</p>
+| Category         | Count               | Category          | Count             |
+| :--------------- | :------------------ | :---------------- | :---------------- |
+| **Jokers**       | 64+ (+11 Cross-Mod) | **Food cards**    | 35 (+6 Cross-Mod) |
+| **Seals**        | 20                  | **Planets**       | 16                |
+| **Enhancements** | 16                  | **Artefacts**     | 13                |
+| **Spectrals**    | 8                   | **Decks**         | 7                 |
+| **Overcharges**  | 5                   | **Booster Packs** | 4                 |
+| **Vouchers**     | 4                   | **Tarots**        | 4                 |
+| **Boss Blind**   | 4                   | **Editions**      | 3                 |
+| **Sleeves**      | 3 (Cross-Mod)       | **Hand Type**     | 1                 |
+| **Deck Skin**    | 1                   | **Partner**       | 1 (Cross-Mod)     |
 
-<hr>
+![Content Screenshot](assets/other/content.png)
 
-<h2>Credits</h2>
-<ul>
-    <li><strong>le_dugs</strong>: Ideas and playtesting.</li>
-    <li><strong>Jogla</strong>: Spanish translation, fixes, artworks, playtesting and the Big Collab.</li>
-    <li><strong>Frogggy18</strong>: Playtesting and balance changes.</li>
-    <li><strong>Darling</strong>: Playtesting, English corrections and ideas.</li>
-    <li><strong>Yotam</strong>: Artwork and ideas.</li>
-    <li><strong>Eris</strong>: Code fixing.</li>
-    <li>*All the dev in the Balatro modding community*.</li>
-</ul>
+> - **Note:** Some Jokers have secret interactions with other Jokers.
+> - **Note:** Many artworks are still unfinished.
 
-<hr>
+---
+
+## Cross-Mod Compatibility
+
+There is a lot of crossover with **[Fool's Gambit](https://github.com/Joglacraft/Fools-Gambit)**, so checking it out is highly recommended. The mod itself is genuinely great on its own.
+
+- **[CardSleeves](https://github.com/larswijn/CardSleeves)**
+- **[Partner-API](https://github.com/Icecanno/Partner-API/)**
+- **[Paperback](https://github.com/Balatro-Paperback/paperback)** _(mainly Food cards)_
+
+---
+
+## Additional Information
+
+- **Giga** first appeared in the **Wheel Of Mods** by **MurphyObv** on January 16th, 2026, and was played on August 26th, 2026.
+- Have ideas? Feel free to ping me in the **[Giga Discord Thread](https://discord.com/channels/1116389027176787968/1398876204622286958)**.
+- Artwork submissions are welcome; contributors will be credited.
+
+---
+
+## Credits
+
+- **le_dugs**: Ideas and playtesting.
+- **Jogla**: Spanish translation, fixes, artworks, playtesting, and the Big Collab.
+- **Frogggy18**: Playtesting and balance changes.
+- **Darling**: Playtesting, English corrections, and ideas.
+- **Yotam**: Artwork and ideas.
+- **Eris**: Code fixing.
+- _Special thanks to all developers in the Balatro modding community._
+
+---
 
 <p align="center">
-  <i>This README covers the current development version. For stable versions and change logs, please visit the 
-  <a href="https://github.com/MrYamiTsu/Giga-Balatro_Mod/releases"><b>Latest Releases</b></a>.</i>
+  <i>This README covers the current development version. For stable versions and changelogs, please visit the <a href="https://github.com/MrYamiTsu/Giga-Balatro_Mod/releases">Latest Releases</a>.</i>
 </p>
