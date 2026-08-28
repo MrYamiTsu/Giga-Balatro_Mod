@@ -1,6 +1,6 @@
 return {
     descriptions = {
-        Back={
+        Back = {
             b_giga_foodie = {
                 name = "Foodie's Deck",
                 text = {
@@ -61,7 +61,7 @@ return {
                 }
             }
         },
-        Blind={
+        Blind = {
             bl_giga_selfish = {
                 name = 'The Selfish',
                 text = {
@@ -94,14 +94,14 @@ return {
                 }
             }
         },
-        Edition={},
-        Enhanced={
+        Edition = {},
+        Enhanced = {
             m_giga_soil = {
-				name = 'Soil Card',
-				text = {
-					'{X:chips,C:white}X#1#{} Chips'
-				}
-			},
+                name = 'Soil Card',
+                text = {
+                    '{X:chips,C:white}X#1#{} Chips'
+                }
+            },
             m_giga_richSoil = {
                 name = 'Rich Soil Card',
                 text = {
@@ -242,153 +242,153 @@ return {
                 }
             }
         },
-        Giga_Artefact={
-            c_giga_fishingHook= {
+        Giga_Artefact = {
+            c_giga_fishingHook = {
                 name = 'Fishing Hook',
-                text = {{
+                text = { {
                     '{C:attention}Sell value',
                     "isn't stable"
                 },
-                {
-                    '{X:mult,C:white}X#1#{} Mult for',
-                    'each {C:attention}2{} scored'
-                }}
+                    {
+                        '{X:mult,C:white}X#1#{} Mult for',
+                        'each {C:attention}2{} scored'
+                    } }
             },
-            c_giga_arrow= {
+            c_giga_arrow = {
                 name = 'Arrow',
-                text = {{
+                text = { {
                     '{C:attention}Sell value',
                     "isn't stable"
                 },
-                {
-                    '{X:mult,C:white}X#1#{} Mult for',
-                    'each {C:attention}Ace{} scored'
-                }}
+                    {
+                        '{X:mult,C:white}X#1#{} Mult for',
+                        'each {C:attention}Ace{} scored'
+                    } }
             },
-            c_giga_plate= {
+            c_giga_plate = {
                 name = 'Plate',
-                text = {{
+                text = { {
                     '{C:attention}Sell value',
                     "isn't stable"
                 },
-                {
-                    '{X:mult,C:white}X#1#{} Mult for',
-                    'each {C:attention}6{} scored'
-                }}
+                    {
+                        '{X:mult,C:white}X#1#{} Mult for',
+                        'each {C:attention}6{} scored'
+                    } }
             },
-            c_giga_tablet= {
+            c_giga_tablet = {
                 name = 'Tablet',
-                text = {{
+                text = { {
                     '{C:attention}Sell value',
                     "isn't stable"
                 },
-                {
-                    '{X:mult,C:white}X#1#{} Mult for',
-                    'each {C:attention}10{} scored'
-                }}
+                    {
+                        '{X:mult,C:white}X#1#{} Mult for',
+                        'each {C:attention}10{} scored'
+                    } }
             },
-            c_giga_helm= {
+            c_giga_helm = {
                 name = 'Helm',
-                text = {{
+                text = { {
                     '{C:attention}Sell value',
                     "isn't stable"
                 },
-                {
-                    '{X:mult,C:white}X#1#{} Mult for',
-                    'each {C:attention}8{} scored'
-                }}
+                    {
+                        '{X:mult,C:white}X#1#{} Mult for',
+                        'each {C:attention}8{} scored'
+                    } }
             },
-            c_giga_mayaMask= {
+            c_giga_mayaMask = {
                 name = 'Maya Mask',
-                text = {{
+                text = { {
                     '{C:attention}Sell value',
                     "isn't stable"
                 },
-                {
-                    '{X:mult,C:white}X#1#{} Mult for',
-                    'each {C:attention}Jack{} scored'
-                }}
+                    {
+                        '{X:mult,C:white}X#1#{} Mult for',
+                        'each {C:attention}Jack{} scored'
+                    } }
             },
-            c_giga_pillar= {
+            c_giga_pillar = {
                 name = 'Pillar',
-                text = {{
+                text = { {
                     '{C:attention}Sell value',
                     "isn't stable"
                 },
-                {
-                    '{X:mult,C:white}X#1#{} Mult for',
-                    'each {C:attention}King{} scored'
-                }}
+                    {
+                        '{X:mult,C:white}X#1#{} Mult for',
+                        'each {C:attention}King{} scored'
+                    } }
             },
-            c_giga_silex= {
+            c_giga_silex = {
                 name = 'Silex',
-                text = {{
+                text = { {
                     '{C:attention}Sell value',
                     "isn't stable"
                 },
-                {
-                    '{X:mult,C:white}X#1#{} Mult for',
-                    'each {C:attention}3{} scored'
-                }}
+                    {
+                        '{X:mult,C:white}X#1#{} Mult for',
+                        'each {C:attention}3{} scored'
+                    } }
             },
-            c_giga_trident= {
+            c_giga_trident = {
                 name = 'Trident',
-                text = {{
+                text = { {
                     '{C:attention}Sell value',
                     "isn't stable"
                 },
-                {
-                    '{X:mult,C:white}X#1#{} Mult for',
-                    'each {C:attention}9{} scored'
-                }}
+                    {
+                        '{X:mult,C:white}X#1#{} Mult for',
+                        'each {C:attention}9{} scored'
+                    } }
             },
-            c_giga_totem= {
+            c_giga_totem = {
                 name = 'Totem',
-                text = {{
+                text = { {
                     '{C:attention}Sell value',
                     "isn't stable"
                 },
-                {
-                    '{X:mult,C:white}X#1#{} Mult for',
-                    'each {C:attention}4{} scored'
-                }}
+                    {
+                        '{X:mult,C:white}X#1#{} Mult for',
+                        'each {C:attention}4{} scored'
+                    } }
             },
-            c_giga_diadem= {
+            c_giga_diadem = {
                 name = 'Diadem',
-                text = {{
+                text = { {
                     '{C:attention}Sell value',
                     "isn't stable"
                 },
-                {
-                    '{X:mult,C:white}X#1#{} Mult for',
-                    'each {C:attention}Queen{} scored'
-                }}
+                    {
+                        '{X:mult,C:white}X#1#{} Mult for',
+                        'each {C:attention}Queen{} scored'
+                    } }
             },
-            c_giga_boneDie= {
+            c_giga_boneDie = {
                 name = 'Bone Die',
-                text = {{
+                text = { {
                     '{C:attention}Sell value',
                     "isn't stable"
                 },
-                {
-                    '{X:mult,C:white}X#1#{} Mult for',
-                    'each {C:attention}7{} scored'
-                }}
+                    {
+                        '{X:mult,C:white}X#1#{} Mult for',
+                        'each {C:attention}7{} scored'
+                    } }
             }
             ,
-            c_giga_shellAmulet= {
+            c_giga_shellAmulet = {
                 name = 'Shell Amulet',
-                text = {{
+                text = { {
                     '{C:attention}Sell value',
                     "isn't stable"
                 },
-                {
-                    '{X:mult,C:white}X#1#{} Mult for',
-                    'each {C:attention}5{} scored'
-                }}
+                    {
+                        '{X:mult,C:white}X#1#{} Mult for',
+                        'each {C:attention}5{} scored'
+                    } }
             }
         },
-        Giga_Food={
+        Giga_Food = {
             c_giga_tacos = {
                 name = 'Tacos',
                 text = {
@@ -459,7 +459,7 @@ return {
                     'into a {C:attention}Mult card'
                 }
             },
-            c_giga_sugarPie = {         
+            c_giga_sugarPie = {
                 name = 'Sugar Pie',
                 text = {
                     'A delicious Sugar Pie that',
@@ -467,7 +467,7 @@ return {
                     'into a {C:attention}Lucky card'
                 }
             },
-            c_giga_durian = {            
+            c_giga_durian = {
                 name = 'Durian',
                 text = {
                     'A delicious Durian that',
@@ -515,7 +515,7 @@ return {
                     '{C:spades}Spade{} suit card'
                 }
             },
-           c_giga_gummyBear = {
+            c_giga_gummyBear = {
                 name = 'Gummy Bear',
                 text = {
                     'A delicious Gummy Bear that',
@@ -723,7 +723,7 @@ return {
                 }
             }
         },
-        Joker={
+        Joker = {
             --#region Normal
             j_giga_cashPass = {
                 name = 'Cash Pass',
@@ -857,29 +857,29 @@ return {
             },
             j_giga_byud = {
                 name = 'Blue-Eyes Ultimate Dragon',
-                text = {{
+                text = { {
                     '{s:1.25}They say that three dragons',
                     '{s:1.25}is better than one, I dont',
                     '{s:1.25}think so',
-                },{
+                }, {
                     '{C:mult}+#1#{} Mult for each card',
                     '{X:mult,C:white}X#2#{} Mult for each {C:clubs}Club',
                     '{X:mult,C:white}X#3#{} Mult for card that',
                     'is equal or over {C:attention}8'
-                }}
+                } }
             },
             j_giga_dmk = {
                 name = 'Dragon Master Knight',
-                text = {{
+                text = { {
                     '{s:1.25}You know what is stronger',
                     '{s:1.25}than a Ultimate Dragon,',
                     '{s:1.25}a Tamed Ultimate Dragon',
-                },{
+                }, {
                     '{C:mult}+#1#{} Mult for each card',
                     '{X:mult,C:white}X#2#{} Mult for each {C:clubs}Club',
                     '{X:mult,C:white}X#2#{} Mult for card that',
                     'is equal or over {C:attention}7'
-                }}
+                } }
             },
             j_giga_blackLusterSoldier = {
                 name = 'Black Luster Soldier',
@@ -899,16 +899,16 @@ return {
             },
             j_giga_moc = {
                 name = 'Master of Chaos',
-                text = {{
+                text = { {
                     '{s:1.25}Imagine an absolute soldier',
                     '{s:1.25}that has mastered magic.',
                     '{s:1.25}Thats him !'
-                },{
+                }, {
                     '{C:mult}+#1#{} Mult for each card',
                     '{C:mult}+#2#{} Mult for each {C:diamonds}Diamond',
                     '{X:mult,C:white}X#3#{} Mult for card that',
                     'is equal or under {C:attention}9'
-                }}
+                } }
             },
             j_giga_pinkTourmaline = {
                 name = 'Pink Tourmaline',
@@ -932,48 +932,48 @@ return {
                 }
             },
             j_giga_llotfo = {
-                name = {'Left Leg of', 'The Forbidden One'},
+                name = { 'Left Leg of', 'The Forbidden One' },
                 text = {
                     '{C:chips}+#1#{} Chips',
                     'for each {C:spades}Spade{} played'
                 }
             },
             j_giga_rlotfo = {
-                name = {'Right Leg of', 'The Forbidden One'},
+                name = { 'Right Leg of', 'The Forbidden One' },
                 text = {
                     '{C:chips}+#1#{} Chips',
                     'for each {C:clubs}Club{} played'
                 }
             },
             j_giga_raotfo = {
-                name = {'Right Arm of', 'The Forbidden One'},
+                name = { 'Right Arm of', 'The Forbidden One' },
                 text = {
                     '{C:chips}+#1#{} Chips',
                     'for each {C:diamonds}Diamond{} played'
                 }
             },
             j_giga_laotfo = {
-                name = {'Left Arm of', 'The Forbidden One'},
+                name = { 'Left Arm of', 'The Forbidden One' },
                 text = {
                     '{C:chips}+#1#{} Chips',
                     'for each {C:hearts}Heart{} played'
                 }
             },
             j_giga_etfo = {
-                name = {'{s:1.2}Exodia', 'The Forbidden One'},
+                name = { '{s:1.2}Exodia', 'The Forbidden One' },
                 text = {
                     '{C:chips}+#1#{} Chips',
                     'for each card played'
                 }
             },
             j_giga_tlei = {
-                name = {'The Legendary', 'Exodia Incarnate'},
-                text = {{
+                name = { 'The Legendary', 'Exodia Incarnate' },
+                text = { {
                     '{s:1.4,E:1}Unleash the Beast'
-                },{
+                }, {
                     'Disable the {C:attention}Boss Blind',
                     '{X:mult,C:white}X#1#{} Mult'
-                }}
+                } }
             },
             j_giga_paleontologist = {
                 name = 'Paleontologist',
@@ -1167,7 +1167,7 @@ return {
             j_giga_factolord = {
                 name = 'Factolord',
                 text = {
-                    'Gain {C:attention}X4{} the',
+                    'Gain {C:attention}X5{} the',
                     'factorial {B:1,C:white}(!){} for',
                     'the number of empty',
                     'Joker slots as {C:chips}Chips',
@@ -1393,7 +1393,7 @@ return {
             }
             --#endregion
         },
-        Other={
+        Other = {
             --#region Undiscovered
             undiscovered_Giga_Food = {
                 name = 'Not Discovered',
@@ -1449,9 +1449,9 @@ return {
             giga_aquaseal_seal = {
                 name = 'Aqua Seal',
                 text = {
-                'Gain {C:chips}+#1#{} Chips',
-                'permanently while',
-                'held in hand'
+                    'Gain {C:chips}+#1#{} Chips',
+                    'permanently while',
+                    'held in hand'
                 }
             },
             giga_redplus_seal = {
@@ -1739,7 +1739,7 @@ return {
                 }
             }
         },
-        Planet={
+        Planet = {
             c_giga_astral_mercury = {
                 name = 'Astral Mercury',
                 text = {
@@ -1864,9 +1864,9 @@ return {
                 name = 'Sylvia',
                 text = {
                     '({V:1}lvl.#1#{})({V:2}lvl.#2#{})',
-					'Level up',
-					'{C:attention}#3#{},',
-					'{C:attention}#4#'
+                    'Level up',
+                    '{C:attention}#3#{},',
+                    '{C:attention}#4#'
                 }
             },
             c_giga_astral_sylvia = {
@@ -1876,7 +1876,7 @@ return {
                     'Level up',
                     '{C:attention}#3#{} times',
                     '{C:attention}#4#{},',
-					'{C:attention}#5#'
+                    '{C:attention}#5#'
                 }
             },
             c_giga_titania = {
@@ -1932,7 +1932,7 @@ return {
                 }
             },
         },
-        Spectral={
+        Spectral = {
             c_giga_salt = {
                 name = 'Salt',
                 text = {
@@ -1998,9 +1998,9 @@ return {
                 }
             }
         },
-        Stake={},
-        Tag={},
-        Tarot={
+        Stake = {},
+        Tag = {},
+        Tarot = {
             c_giga_cook = {
                 name = 'The Cook',
                 text = {
@@ -2032,7 +2032,7 @@ return {
                 }
             }
         },
-        Voucher={
+        Voucher = {
             v_giga_newMenu = {
                 name = 'New Menu',
                 text = {
@@ -2069,12 +2069,12 @@ return {
         }
     },
     misc = {
-        achievement_descriptions={},
-        achievement_names={},
-        blind_stakes={},
-        challenge_names={},
-        collabs={},
-        dictionary={
+        achievement_descriptions = {},
+        achievement_names = {},
+        blind_stakes = {},
+        challenge_names = {},
+        collabs = {},
+        dictionary = {
             k_giga_food = 'Food',
             k_giga_rare_food = 'Rare Food',
             b_giga_food_cards = 'Food Cards',
@@ -2097,8 +2097,8 @@ return {
             k_giga_valueup = 'Value up',
             k_giga_valuedown = 'Value down'
         },
-        high_scores={},
-        labels={
+        high_scores = {},
+        labels = {
             Giga_Food = 'Food',
             Giga_Artefact = 'Artefact',
             giga_pinkseal_seal = 'Pink Seal',
@@ -2133,35 +2133,35 @@ return {
             giga_art_credit = 'Artwork by ',
             giga_idea_credit = 'Idea by '
         },
-        poker_hand_descriptions={
+        poker_hand_descriptions = {
             ["giga_Linked Pairs"] = {
                 '2 pairs of cards with consecutive ranks,',
                 'may be played with 1 other unscored card'
             }
         },
-        poker_hands={
+        poker_hands = {
             ["giga_Linked Pairs"] = 'Linked Pairs'
         },
-        quips={
-			pnr_giga_pabloJr_1 = {
-				'Hola, mi amigo'
-			},
-			pnr_giga_pabloJr_2 = {
-				"Working 'ard, mi amigo",
-			},
-			pnr_giga_pabloJr_3 = {
-				'Papá can give you',
+        quips = {
+            pnr_giga_pabloJr_1 = {
+                'Hola, mi amigo'
+            },
+            pnr_giga_pabloJr_2 = {
+                "Working 'ard, mi amigo",
+            },
+            pnr_giga_pabloJr_3 = {
+                'Papá can give you',
                 'some Tacos, mi amigo'
-			},
-			pnr_giga_pabloJr_4 = {
-				'Buena suerte, mi amigo'
-			}
+            },
+            pnr_giga_pabloJr_4 = {
+                'Buena suerte, mi amigo'
+            }
         },
-        ranks={},
-        suits_plural={},
-        suits_singular={},
-        tutorials={},
-        v_dictionary={},
-        v_texts={}
+        ranks = {},
+        suits_plural = {},
+        suits_singular = {},
+        tutorials = {},
+        v_dictionary = {},
+        v_texts = {}
     }
 }
