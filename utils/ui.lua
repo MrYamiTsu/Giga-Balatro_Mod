@@ -120,7 +120,7 @@ Game.main_menu = function(self, change_context)
                 align = "tm",
                 type = "cm",
                 bond = "Weak",
-                offset = { x = 0, y = -1.2 },
+                offset = { x = 0, y = -1.85 },
                 major = G.title_top
             }
         })
