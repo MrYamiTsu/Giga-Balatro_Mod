@@ -1,19 +1,20 @@
 -- HOOKS --
 local talking_init = Game.init_game_object
 function Game:init_game_object()
-	local ret = talking_init(self)
+    local ret = talking_init(self)
     ret.giga = {}
-    ret.giga.astral_chance = {1, 20}
-    ret.giga.shiny_chance = {2, 25}
+    ret.giga.astral_chance = { 1, 20 }
+    ret.giga.shiny_chance = { 2, 25 }
     ret.giga.artefact_create = 0
-	init_pools()
-	return ret
+    init_pools()
+    return ret
 end
+
 local enhancement_yapping = SMODS.has_enhancement
 function SMODS.has_enhancement(card, key)
     local ret = enhancement_yapping(card, key)
     if key == 'm_bonus' then
-        return enhancement_yapping(card, 'm_lucky') or enhancement_yapping(card, 'm_giga_bigBonus')
+        return enhancement_yapping(card, 'm_bonus') or enhancement_yapping(card, 'm_giga_bigBonus')
     end
     if key == 'm_mult' then
         return enhancement_yapping(card, 'm_mult') or enhancement_yapping(card, 'm_giga_multPlus')
@@ -37,7 +38,8 @@ function SMODS.has_enhancement(card, key)
         return enhancement_yapping(card, 'm_lucky') or enhancement_yapping(card, 'm_giga_luckiest')
     end
     if key == 'm_giga_soil' then
-        return enhancement_yapping(card, 'm_giga_soil') or enhancement_yapping(card, 'm_giga_richSoil') or enhancement_yapping(card, 'm_giga_fossilSoil')
+        return enhancement_yapping(card, 'm_giga_soil') or enhancement_yapping(card, 'm_giga_richSoil') or
+        enhancement_yapping(card, 'm_giga_fossilSoil')
     end
     if key == 'm_giga_richSoil' then
         return enhancement_yapping(card, 'm_giga_richSoil') or enhancement_yapping(card, 'm_giga_fossilSoil')
@@ -46,13 +48,15 @@ function SMODS.has_enhancement(card, key)
         return enhancement_yapping(card, 'm_giga_pottery') or enhancement_yapping(card, 'm_giga_engravedPottery')
     end
     if key == 'm_giga_giga' then
-        return enhancement_yapping(card, 'm_giga_giga') or enhancement_yapping(card, 'm_giga_gigaMax') or enhancement_yapping(card, 'm_giga_ultimateGigaMax')
+        return enhancement_yapping(card, 'm_giga_giga') or enhancement_yapping(card, 'm_giga_gigaMax') or
+        enhancement_yapping(card, 'm_giga_ultimateGigaMax')
     end
     if key == 'm_giga_gigaMax' then
         return enhancement_yapping(card, 'm_giga_gigaMax') or enhancement_yapping(card, 'm_giga_ultimateGigaMax')
     end
     return ret
 end
+
 -- Thx Somethingcom515 for help with this one
 local copy_me = copy_card
 function copy_card(other, new_card, card_scale, playing_card, strip_edition)
@@ -60,10 +64,11 @@ function copy_card(other, new_card, card_scale, playing_card, strip_edition)
     if other.config.center.giga_data and other.config.center.giga_data.uncopiable then
         SMODS.destroy_cards(ret)
         ret.states.visible = false
-        SMODS.calculate_effect({message = localize('k_not_allowed_ex')}, ret)
+        SMODS.calculate_effect({ message = localize('k_not_allowed_ex') }, ret)
     end
     return ret
 end
+
 local eddy_the_edition = Card.set_edition
 function Card:set_edition(edition, immediate, silent, delay)
     if not G.SETTINGS.paused then
@@ -81,6 +86,7 @@ function Card:set_edition(edition, immediate, silent, delay)
     end
     return eddy_the_edition(self, edition, immediate, silent, delay)
 end
+
 local darling_creates = Card.set_ability
 function Card:set_ability(center, initial, delay_sprites)
     if not center then
