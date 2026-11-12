@@ -1,8 +1,11 @@
 to_big = to_big or function(x) return x end
 
---- Upgrade the enhancement of a card
---- @param _card table the card with the enhancement to upgrade
-function Giga.upgrade_enhancement(_card)
+--- Generic helper to perform the flip & juice animation on card transformation
+--- @param _card table the card to animate
+--- @param transform_func function the mutation to apply while card is face-down
+--- @param end_delay number|nil optional extra delay at the end
+function Giga.flip_transform_card(_card, transform_func, end_delay)
+    if not _card then return end
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
         delay = 0.4,
@@ -22,7 +25,9 @@ function Giga.upgrade_enhancement(_card)
         end
     }))
     delay(0.2)
-    _card:set_ability(G.P_CENTERS[_card.config.center_key].giga_data.enh_upgrade, nil, true)
+    if transform_func then
+        transform_func()
+    end
     G.E_MANAGER:add_event(Event({
         trigger = 'after',
         delay = 0.15,
@@ -36,59 +41,45 @@ function Giga.upgrade_enhancement(_card)
         trigger = 'after',
         delay = 0.2,
         func = function()
-            G.hand:unhighlight_all()
+            if G.hand then
+                G.hand:unhighlight_all()
+            end
             return true
         end
     }))
-    delay(0.5)
+    delay(end_delay or 0.5)
+end
+
+--- Upgrade the enhancement of a card
+--- @param _card table the card with the enhancement to upgrade
+function Giga.upgrade_enhancement(_card)
+    local target_key = _card and _card.config and (_card.config.center_key or (_card.config.center and _card.config.center.key))
+    if not target_key or not G.P_CENTERS[target_key] or not G.P_CENTERS[target_key].giga_data then
+        return
+    end
+    local enh_target = G.P_CENTERS[target_key].giga_data.enh_upgrade
+    if not enh_target or not G.P_CENTERS[enh_target] then
+        return
+    end
+    Giga.flip_transform_card(_card, function()
+        _card:set_ability(G.P_CENTERS[enh_target], nil, true)
+    end)
 end
 
 --- Upgrade the seal of a card
 --- @param _card table the card with the seal to upgrade
 function Giga.upgrade_seal(_card)
-    G.E_MANAGER:add_event(Event({
-        trigger = 'after',
-        delay = 0.4,
-        func = function()
-            _card:juice_up(0.3, 0.5)
-            return true
-        end
-    }))
-    G.E_MANAGER:add_event(Event({
-        trigger = 'after',
-        delay = 0.15,
-        func = function()
-            _card:flip()
-            _card:juice_up(0.3, 0.3)
-            return true
-        end
-    }))
-    G.E_MANAGER:add_event(Event({
-        trigger = 'after',
-        delay = 0.2,
-        func = function()
-            _card:set_seal(G.P_SEALS[_card:get_seal()].giga_data.seal_upgrade, true)
-            return true
-        end
-    }))
-    G.E_MANAGER:add_event(Event({
-        trigger = 'after',
-        delay = 0.15,
-        func = function()
-            _card:flip()
-            _card:juice_up(0.3, 0.3)
-            return true
-        end
-    }))
-    G.E_MANAGER:add_event(Event({
-        trigger = 'after',
-        delay = 0.2,
-        func = function()
-            G.hand:unhighlight_all()
-            return true
-        end
-    }))
-    delay(0.5)
+    local seal_key = _card and _card:get_seal()
+    if not seal_key or not G.P_SEALS[seal_key] or not G.P_SEALS[seal_key].giga_data then
+        return
+    end
+    local target_seal = G.P_SEALS[seal_key].giga_data.seal_upgrade
+    if not target_seal then
+        return
+    end
+    Giga.flip_transform_card(_card, function()
+        _card:set_seal(target_seal, true)
+    end)
 end
 
 --- Checks if the player has the required fusion materials in their joker slots
@@ -102,7 +93,7 @@ function Giga.check_fusion()
             end
             local has_all = true
             for mat, count_needed in pairs(required) do
-                local count_have = count_jokers_in_inventory(mat)
+                local count_have = Giga.count_jokers(mat)
                 if count_have < count_needed then
                     has_all = false
                     break
@@ -139,183 +130,108 @@ function Giga.check_fusion()
     end
 end
 
---- Little bit outdated, mustn't be used
---- @param selected_card table
---- @param base_enh string
-function upgrade_enhencement_specific(selected_card, base_enh)
-    G.E_MANAGER:add_event(Event({
-        trigger = 'after',
-        delay = 0.4,
-        func = function()
-            selected_card:juice_up(0.3, 0.5)
-            return true
-        end
-    }))
-    G.E_MANAGER:add_event(Event({
-        trigger = 'after',
-        delay = 0.15,
-        func = function()
-            selected_card:flip()
-            selected_card:juice_up(0.3, 0.3)
-            return true
-        end
-    }))
-    delay(0.2)
-    if SMODS.has_enhancement(selected_card, base_enh) then
-        selected_card:set_ability(G.P_CENTERS[selected_card.config.center_key].giga_data.enh_upgrade)
-    else
-        selected_card:set_ability(G.P_CENTERS[base_enh])
-    end
-    G.E_MANAGER:add_event(Event({
-        trigger = 'after',
-        delay = 0.15,
-        func = function()
-            selected_card:flip()
-            selected_card:juice_up(0.3, 0.3)
-            return true
-        end
-    }))
-    G.E_MANAGER:add_event(Event({
-        trigger = 'after',
-        delay = 0.2,
-        func = function()
-            G.hand:unhighlight_all()
-            return true
-        end
-    }))
-    delay(0.5)
-end
-
 --- Check if a card enhancement is upgraded
 --- @param card table -- the card to check
 --- @return boolean -- true if the card's enhancement is upgraded
-function upgraded_enh_condition(card)
-    if card.config.center.key and G.P_CENTERS[card.config.center.key].giga_data and
-       G.P_CENTERS[card.config.center_key].giga_data.is_upgraded then
+function Giga.upgraded_enh_condition(card)
+    local key = card and card.config and (card.config.center_key or (card.config.center and card.config.center.key))
+    if key and G.P_CENTERS[key] and G.P_CENTERS[key].giga_data and G.P_CENTERS[key].giga_data.is_upgraded then
         return true
     end
     return false
 end
+upgraded_enh_condition = Giga.upgraded_enh_condition
 
 --- Check if a card seal is upgraded
 --- @param card table -- the card to check
 --- @return boolean -- true if the card's seal is upgraded
-function upgraded_seal_condition(card)
-    if card:get_seal() and G.P_SEALS[card:get_seal()].giga_data and
-       G.P_SEALS[card:get_seal()].giga_data.is_upgraded then
+function Giga.upgraded_seal_condition(card)
+    local seal = card and card:get_seal()
+    if seal and G.P_SEALS[seal] and G.P_SEALS[seal].giga_data and G.P_SEALS[seal].giga_data.is_upgraded then
         return true
     end
     return false
 end
+upgraded_seal_condition = Giga.upgraded_seal_condition
 
---- Roll for a shiny edition
+--- Roll for a shiny edition (seeded)
 --- @return boolean
 function Giga.shiny_roll()
-    local chances, odds = G.GAME.giga.shiny_chance[1] or 2, G.GAME.giga.shiny_chance[2] or 25
-    if chances > 1 then
-        return math.random(odds) <= chances
-    end
-    return math.random(odds) == chances
+    local chances = (G.GAME.giga and G.GAME.giga.shiny_chance and G.GAME.giga.shiny_chance[1]) or 2
+    local odds = (G.GAME.giga and G.GAME.giga.shiny_chance and G.GAME.giga.shiny_chance[2]) or 25
+    return pseudorandom('giga_shiny') < (chances / odds)
 end
 
---- Roll for an astral planet
+--- Roll for an astral planet (seeded)
 --- @return boolean
 function Giga.astral_roll()
-    local chances, odds = G.GAME.giga.astral_chance[1] or 1, G.GAME.giga.astral_chance[2] or 20
-    if chances > 1 then
-        return math.random(odds) <= chances
-    end
-    return math.random(odds) == chances
-end
-
---- Little bit outdated, use SMODS.add_card instead
----@param card table
----@param type string 
----@param place string
----@param negative boolean
----@param negative_condition boolean
-function _create(card,type,place,negative,negative_condition)
-    if #G.consumeables.cards + G.GAME.consumeable_buffer < G.consumeables.config.card_limit then
-        G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
-        G.E_MANAGER:add_event(Event({
-            trigger = 'after',
-            delay = 0.4,
-            func = function()
-                local obj = create_card(type,place, nil, nil, nil, nil, nil, 'create'..type)
-                if negative then
-                    if negative_condition then
-                        if card.edition and card.edition.type == 'negative' then
-                            obj:set_edition('e_negative', true)
-                        end
-                    else
-                        obj:set_edition('e_negative', true)
-                    end 
-                end
-                obj:add_to_deck()
-                G.consumeables:emplace(obj)
-                obj:juice_up(0.3, 0.5)
-                G.GAME.consumeable_buffer = 0
-                return true
-            end
-        }))
-    end
+    local chances = (G.GAME.giga and G.GAME.giga.astral_chance and G.GAME.giga.astral_chance[1]) or 1
+    local odds = (G.GAME.giga and G.GAME.giga.astral_chance and G.GAME.giga.astral_chance[2]) or 20
+    return pseudorandom('giga_astral') < (chances / odds)
 end
 
 --- Shuffle a Table
----@param table table The table you want to shuffle
----@param seed string A seed name
----@return table
-function ShuffleMyTable(table, seed)
-	seed = seed or 'shuffley'
-	local ret = {}
-	for i = 1, #table do
-		ret[#ret+1] = table[i]
-	end
-	pseudoshuffle(ret, pseudoseed(seed))
-	return ret
+--- @param table table The table you want to shuffle
+--- @param seed string A seed name
+--- @return table
+function Giga.shuffle_table(table, seed)
+    seed = seed or 'shuffley'
+    local ret = {}
+    for i = 1, #table do
+        ret[#ret+1] = table[i]
+    end
+    pseudoshuffle(ret, pseudoseed(seed))
+    return ret
 end
+ShuffleMyTable = Giga.shuffle_table
 
 --- Solve the factorial of a number
----@param n number The number
----@return number result The answer of the factorial
-function Factorial(n)
+--- @param n number The number
+--- @return number result The answer of the factorial
+function Giga.factorial(n)
     local result = 1
     for i = 1, n do
         result = result * i
     end
     return result
 end
+Factorial = Giga.factorial
 
 --- Count the number of jokers in inventory with a specific key
----@param key string The key of the joker to count
----@return integer count The number of jokers in inventory with the given key
-function count_jokers_in_inventory(key)
+--- @param key string The key of the joker to count
+--- @return integer count The number of jokers in inventory with the given key
+function Giga.count_jokers(key)
     local count = 0
-    for _, j in ipairs(G.jokers.cards) do
-        if j.config.center.key == key then
-            count = count + 1
+    if G.jokers and G.jokers.cards then
+        for _, j in ipairs(G.jokers.cards) do
+            if j.config and j.config.center and j.config.center.key == key then
+                count = count + 1
+            end
         end
     end
     return count
 end
+count_jokers_in_inventory = Giga.count_jokers
 
 --- Check if a key is an overcharge
----@param key string
----@return boolean
+--- @param key string
+--- @return boolean
 function Giga.is_overcharge(key)
-    for _, i in ipairs(Giga.POOLS.Overcharges) do
-        if i == key then
-            return true
+    if Giga.POOLS and Giga.POOLS.Overcharges then
+        for _, i in ipairs(Giga.POOLS.Overcharges) do
+            if i == key then
+                return true
+            end
         end
     end
     return false
 end
 
 --- Check if a card has an overcharge.
----@param card table
----@return string | nil
+--- @param card table
+--- @return string | nil
 function Giga.has_overcharge(card)
-    for i, k in pairs(card and card.ability or {}) do
+    for i, _ in pairs(card and card.ability or {}) do
         if Giga.is_overcharge(i) then
             return i
         end
@@ -323,10 +239,10 @@ function Giga.has_overcharge(card)
     return nil
 end
 
---- Delete overcherge on a card
----@param card table
+--- Delete overcharge on a card
+--- @param card table
 function Giga.delete_overcharge(card)
-  for i, _ in pairs(card and card.ability or {}) do
+    for i, _ in pairs(card and card.ability or {}) do
         if Giga.is_overcharge(i) then
             card.ability[i] = nil
         end
@@ -334,20 +250,22 @@ function Giga.delete_overcharge(card)
 end
 
 --- Add an Overcharge to a card
----@param card table
----@param key string
+--- @param card table
+--- @param key string
 function Giga.set_overcharge(card, key)
     if card and Giga.is_overcharge(key) then
         Giga.delete_overcharge(card)
         card:juice_up(0.3, 0.5)
-        SMODS.Stickers[key]:apply(card, true)
+        if SMODS.Stickers and SMODS.Stickers[key] then
+            SMODS.Stickers[key]:apply(card, true)
+        end
     end
 end
 
 --- Get the number of overcharge discarded this round
 --- @return integer
 function Giga.discarded_overcharge()
-    if G.GAME.giga and G.GAME.giga.discarded_overcharge then
+    if G.GAME and G.GAME.giga and G.GAME.giga.discarded_overcharge then
         return G.GAME.giga.discarded_overcharge
     end
     return 0

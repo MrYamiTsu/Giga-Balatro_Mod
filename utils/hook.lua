@@ -6,7 +6,7 @@ function Game:init_game_object()
     ret.giga.astral_chance = { 1, 20 }
     ret.giga.shiny_chance = { 2, 25 }
     ret.giga.artefact_create = 0
-    init_pools()
+    Giga.init_pools()
     return ret
 end
 
@@ -61,7 +61,7 @@ end
 local copy_me = copy_card
 function copy_card(other, new_card, card_scale, playing_card, strip_edition)
     local ret = copy_me(other, new_card, card_scale, playing_card, strip_edition)
-    if other.config.center.giga_data and other.config.center.giga_data.uncopiable then
+    if other and other.config and other.config.center and other.config.center.giga_data and other.config.center.giga_data.uncopiable then
         SMODS.destroy_cards(ret)
         ret.states.visible = false
         SMODS.calculate_effect({ message = localize('k_not_allowed_ex') }, ret)

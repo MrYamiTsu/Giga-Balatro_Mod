@@ -428,7 +428,7 @@ SMODS.Seal{ --Amber+
                             return true
                         end
                     }))
-                    if math.random(2) == 1 then
+                    if pseudorandom('giga_amberplus_gain') < 0.5 then
                         ease_discard(1)
                     else
                         ease_hands_played(1)
@@ -809,8 +809,10 @@ SMODS.Seal{ --Pink++
                                 G.GAME.consumeable_buffer = G.GAME.consumeable_buffer + 1
                                 G.E_MANAGER:add_event(Event({
                                     func = function()
-                                        local cons = Giga.POOLS.r_food[math.random(#Giga.POOLS.r_food)]
-                                        SMODS.add_card({key = cons})
+                                        local cons = pseudorandom_element(Giga.POOLS.r_food, pseudoseed('giga_pink_rare_food'))
+                                        if cons then
+                                            SMODS.add_card({key = cons})
+                                        end
                                         G.GAME.consumeable_buffer = 0
                                         return true
                                     end

@@ -1256,8 +1256,11 @@ SMODS.Joker { --BearmanJeff
         if context.first_hand_drawn then
             if SMODS.pseudorandom_probability(card, pseudoseed('bearmanJeff'), card.ability.extra.odds + (#G.consumeables.cards or 0), card.ability.extra.chances) then
                 card:juice_up(0.3, 0.5)
-                Giga.set_overcharge(G.hand.cards[math.random(#G.hand.cards)],
-                    Giga.POOLS.Overcharges[math.random(#Giga.POOLS.Overcharges)])
+                local target_card = G.hand and G.hand.cards and pseudorandom_element(G.hand.cards, pseudoseed('bearman_card'))
+                local target_ovch = pseudorandom_element(Giga.POOLS.Overcharges, pseudoseed('bearman_overcharge'))
+                if target_card and target_ovch then
+                    Giga.set_overcharge(target_card, target_ovch)
+                end
             end
         end
     end

@@ -43,10 +43,11 @@ Giga.POOLS = {
 }
 
 -- INITIALISATION --
-function init_pools()
+function Giga.init_pools()
     for _, pool in pairs(Giga.POOLS) do
         if pool._calculate then
             pool._calculate()
         end
     end
 end
+init_pools = Giga.init_pools

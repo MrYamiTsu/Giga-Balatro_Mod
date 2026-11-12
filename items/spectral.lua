@@ -190,7 +190,10 @@ SMODS.Consumable{ --Firefly
             delay = 0.1,
             func = function()
                 for i, _c in pairs(G.hand.highlighted) do
-                    Giga.set_overcharge(_c, Giga.POOLS.Overcharges[math.random(#Giga.POOLS.Overcharges)])
+                    local ovch = pseudorandom_element(Giga.POOLS.Overcharges, pseudoseed('giga_firefly'))
+                    if ovch then
+                        Giga.set_overcharge(_c, ovch)
+                    end
                 end
                 return true
             end
